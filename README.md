@@ -37,7 +37,7 @@
 |---|---|
 | **Home** | Centered portrait hero, social row, and the five-button section stack (Tech, Coffee, Music, Photography, Contact) |
 | **About** | Photo collage, career path (marketing & market research → financial engineering → computer science & data), education timeline, certificates |
-| **Tech** | Featured in-progress projects with architecture diagrams: *Product Analytics ELT Pipeline* and *OmniRAG Data Platform Upgrade*; earlier work; toolbox |
+| **Tech** | Featured in-progress projects with architecture diagrams: *Product Analytics ELT Pipeline* and *OmniRAG Data Platform Upgrade*; earlier work (JOIN-order DP optimizer, OmniRAG, the jivec C compiler); toolbox |
 | **Coffee Blog** | Brew guides for pour over / flash brew, AeroPress, espresso, and Vietnamese phin, each with a recipe profile, steps, and references |
 | **Contact** | One-click email plus LinkedIn, GitHub, and Instagram |
 
