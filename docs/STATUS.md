@@ -37,6 +37,9 @@ _Last updated: 2026-10-07_
 - **2026-10-07:** Professional cookie consent: Consent Mode v2 (default denied), banner with equal Accept all / Reject all plus Customize, Cookie settings link in the footer, analytics cookies removed on withdrawal, choice kept 12 months, and a new `/privacy/` page.
 - **2026-10-07:** Credly profile URL is credly.com/users/johnha912.
 - **2026-10-07:** Contact: no form, just one button that opens email to johnha0912@gmail.com (plus a copy button and social links).
+- **2026-10-07:** Tech "Earlier work" cards show only the term and year (e.g. "Spring 2026"); no course numbers and no school name.
+- **2026-10-07:** Featured project cards drop the "Flagship" and "Solo project" labels; only the "In progress" pill remains.
+- **2026-10-07:** About collage order: survey presentation, trade showcase, then the Google photo last (full width below the two squares on phones).
 - **2026-10-07:** Add the taste-skill and UI UX Pro Max skills to the agent team (installed and logged in `docs/TOOLS.md`). Install Anthropic's `frontend-design` plugin (owner runs the command; see Toolchain).
 
 ## Orchestrator decisions
