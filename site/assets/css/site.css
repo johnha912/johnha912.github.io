@@ -812,7 +812,7 @@ main { flex: 1; padding-top: var(--nav-h); }
 .collage .frame:nth-child(3) { grid-column: span 3; aspect-ratio: 1; }
 .collage .frame:nth-child(1) img { object-position: 50% 45%; }
 .collage .frame:nth-child(2) img { object-position: 90% 30%; }
-.collage .frame:nth-child(3) img { object-position: 30% 60%; }
+.collage .frame:nth-child(3) img { object-position: 5% 50%; }
 @media (min-width: 48rem) {
   .collage { gap: var(--space-4); }
   .collage .frame:nth-child(n) { grid-column: span 2; grid-row: auto; aspect-ratio: 4 / 5; }

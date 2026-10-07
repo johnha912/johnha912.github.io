@@ -21,7 +21,8 @@ Photos inside the Coffee Blog articles are freely licensed images from Wikimedia
 
 ## Other assets
 
-- Portrait, About collage, and avatar: the owner's own photos and drawing.
+- Portrait, avatar, and the first two About collage photos: the owner's own photos and drawing.
+- About collage food pantry photo (`about-collage-4-*.webp`): from a [Northeastern University Silicon Valley Instagram post](https://www.instagram.com/p/DPUlZNEgSAz/) (image 3, posted 2025-10-02) showing the owner volunteering; resized to WebP. Copyright belongs to Northeastern University; used on the owner's request.
 - Brew line-art icons and the espresso brewing control chart: original to this site. The chart is redrawn from the concept described by [Barista Hustle](https://www.baristahustle.com/?p=2173), with the target zone from [Winarso et al. (2024)](https://doi.org/10.30811/jpl.v22i3.4636).
 - Plotly.js 2.35.2 (basic bundle), MIT: `site/assets/vendor/plotly-LICENSE.txt`.
 - Inter and JetBrains Mono, SIL Open Font License: `site/assets/fonts/*-OFL.txt`.
