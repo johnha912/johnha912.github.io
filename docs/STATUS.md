@@ -13,7 +13,7 @@ _Last updated: 2026-10-07_
 | GATE 2 | ⏳ Owner | Approve the design system and layouts. |
 | 3. Build | ✅ Done | Ten pages in `site/` plus a `/home/` redirect for the old Google Sites URL. |
 | 4. QC + test | ✅ First pass | 11 pages × 360/390/1440 × dark/light: no horizontal scroll, no console errors, no broken internal links, all images have alt text, touch targets ≥ 44px. Home page ≈ 220 KB worst case (budget 1.5 MB). Lighthouse and HTML validation still to run with the full toolchain. |
-| 5. Deploy | ✅ Prepared | `.github/workflows/deploy.yml`, `.github/workflows/link-check.yml`, `site/CNAME`. Repo Settings → Pages → Source must be set to **GitHub Actions**. |
+| 5. Deploy | ✅ Pushed 2026-10-07 | `.github/workflows/deploy.yml`, `.github/workflows/link-check.yml`, `site/CNAME`. Repo Settings → Pages → Source must be set to **GitHub Actions**. |
 | GATE 3 | ⏳ Owner | Launch, then `docs/DOMAIN-MIGRATION.md`. |
 
 ## Owner decisions (dated)
@@ -66,4 +66,4 @@ _Last updated: 2026-10-07_
 | Graphify | ❌ not installed | see `docs/TOOLS.md` §4 |
 | frontend-design (Anthropic) | ❌ not installed | inside Claude Code: `/plugin install frontend-design@claude-plugins-official` |
 | Project skills | ✅ taste-skill, redesign-skill, ui-ux-pro-max | logged in `docs/TOOLS.md` |
-| `.claude/agents/devops.md` | ⚠️ pending | creation was blocked by the session's auto-mode safety check; owner to approve |
+| `.claude/agents/devops.md` | ✅ created | owner approved 2026-10-07 |
