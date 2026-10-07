@@ -22,6 +22,7 @@ _Last updated: 2026-10-07_
 - **2026-10-07:** Font: a popular, Tesla-like sans that renders identically on phone and PC → **Inter** variable, self-hosted (plus JetBrains Mono for small labels).
 - **2026-10-07:** Photos in modern rounded frames → squircle corners (`corner-shape: squircle`) with rounded fallback.
 - **2026-10-07:** Theme menu with **Light / Dark / System**; default System.
+- **2026-10-07:** Credly profile URL is credly.com/users/johnha912.
 - **2026-10-07:** Contact: no form, just one button that opens email to johnha0912@gmail.com (plus a copy button and social links).
 - **2026-10-07:** Add the taste-skill and UI UX Pro Max skills to the agent team (installed and logged in `docs/TOOLS.md`). Install Anthropic's `frontend-design` plugin (owner runs the command; see Toolchain).
 
@@ -37,7 +38,7 @@ _Last updated: 2026-10-07_
 ## Open questions for the owner
 
 1. **CS50 certificate:** the old About page lists "edX: Computer Science for Python Programming by Harvard CS50". It is shown on the new About page; confirm it should stay.
-2. **Credly badge link** (credly.com/users/nguyen-ha.c94c0c16) returns 404 from automated checks. Is the profile private, or has the URL changed?
+2. ~~Credly badge link~~ Resolved 2026-10-07: the owner supplied credly.com/users/johnha912 (verified live). Its public badges: MSc in Financial Engineering (WorldQuant University), IBM AI Engineering Professional Certificate (V2), Deep Neural Networks with PyTorch, Deep Learning with TensorFlow, Computer Vision and Image Processing Essentials, Deep Learning Essentials with Keras, and Machine Learning with Python (Coursera). Should these appear individually on About?
 3. **Resume PDF:** not provided. Add `site/assets/resume.pdf` to get a "Résumé" button on About/Tech.
 4. **Project links/screenshots:** the two featured projects have no public repo link or screenshots yet. Add them when ready (diagrams stand in until then).
 5. **Other public repos** (jivec compiler, theta-coffee-lab, ptms, JoinOrderOptimizationDP) are not on the site because BRIEF lists only OmniRAG under "Earlier work". Add any of them?
