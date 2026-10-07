@@ -22,6 +22,7 @@ _Last updated: 2026-10-07_
 - **2026-10-07:** Font: a popular, Tesla-like sans that renders identically on phone and PC → **Inter** variable, self-hosted (plus JetBrains Mono for small labels).
 - **2026-10-07:** Photos in modern rounded frames → squircle corners (`corner-shape: squircle`) with rounded fallback.
 - **2026-10-07:** Theme menu with **Light / Dark / System**; default System.
+- **2026-10-07:** Accent color changed from blue to emerald green (hero gradient text, hover effects, links); no blue anywhere.
 - **2026-10-07:** Credly profile URL is credly.com/users/johnha912.
 - **2026-10-07:** Contact: no form, just one button that opens email to johnha0912@gmail.com (plus a copy button and social links).
 - **2026-10-07:** Add the taste-skill and UI UX Pro Max skills to the agent team (installed and logged in `docs/TOOLS.md`). Install Anthropic's `frontend-design` plugin (owner runs the command; see Toolchain).
