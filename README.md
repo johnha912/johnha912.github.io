@@ -41,6 +41,31 @@
 | **Coffee Blog** | Brew guides for pour over / flash brew, AeroPress, espresso, and Vietnamese phin, each with a recipe profile, steps, credited photos, and references; the espresso guide has an interactive TDS brewing control chart |
 | **Contact** | One-click email plus LinkedIn, GitHub, and Instagram |
 
+## Site structure
+
+```
+johnha.info
+├── /                              Home: portrait hero, social row, five-button section stack
+├── /about/                        About Me: photo collage, career path, education, certificates
+├── /tech/                         Projects: featured work, earlier work, toolbox
+├── /coffee-blog/                  Coffee Blog: 2×2 grid of brew guides
+│   ├── /pour-over-flash-brew/
+│   ├── /aeropress/
+│   ├── /espresso/                 includes the interactive TDS brewing control chart
+│   └── /vietnamese-phin/
+├── /contact/                      Email button with copy-address, social links
+├── /privacy/                      Analytics and cookie policy
+├── /home/                         Redirects to /
+└── /404.html                      Custom not-found page
+
+External sections: Music → SoundCloud · Photography → Instagram
+```
+
+Every page shares the same header and footer:
+
+- **Header nav:** Home · About · Tech · Coffee Blog ▾ (the four brew guides) · Music ↗ · Photography ↗ · Contact, plus search and the theme menu. Below 960px the links fold into a full-screen menu, where the brew guides collapse behind a chevron.
+- **Footer:** Back to top, ©, Privacy, and Cookie settings.
+
 ## Built with
 
 - **Plain HTML, CSS, and vanilla JS.** No framework and no build step; the home page loads in about 220 KB.
@@ -55,7 +80,13 @@
 
 ```
 site/                  Published site (the only folder deployed)
-  assets/css|js|fonts|img
+  <page>/index.html    One folder per page (see Site structure)
+  assets/css/          site.css: design tokens and all components
+  assets/js/           site.js (theme, menu, search, consent), espresso-chart.js
+  assets/fonts/        Self-hosted Inter and JetBrains Mono (WOFF2)
+  assets/img/          Responsive WebP images, icons, favicons
+  assets/vendor/       Plotly basic bundle (espresso chart only)
+  sitemap.xml, robots.txt, CNAME, site.webmanifest
 docs/                  Brief, design system, status, tooling, maintenance, domain guide
 .claude/agents/        Claude Code agent team (orchestrator + specialists)
 .claude/skills/        Vetted design skills (see docs/TOOLS.md)
