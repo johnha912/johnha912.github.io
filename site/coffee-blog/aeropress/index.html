@@ -26,13 +26,13 @@
 <link rel="manifest" href="/site.webmanifest">
 <script src="/assets/js/site.js" defer></script>
 </head>
-<body>
+<body id="top">
 <a class="skip-link" href="#main">Skip to content</a>
 <div class="ambient" aria-hidden="true"></div>
 <header class="nav" data-nav>
   <div class="container nav__inner">
     <a class="brand" href="/">
-      <span class="brand__mark" aria-hidden="true"></span>
+      <span class="brand__logo" aria-hidden="true"><span class="brand__mark"></span></span>
       <span class="brand__name">Nguyen “John” Ha</span>
     </a>
     <nav class="nav__links" id="site-menu" aria-label="Primary">
@@ -77,6 +77,10 @@
 
     <h2>What is AeroPress?</h2>
     <p>The AeroPress, invented by Alan Adler in 2005, is a versatile coffee maker that lets you customize your brew (AeroPress, n.d.). Combining immersion and pressure, it produces a concentrated, smooth coffee with low bitterness (Sprudge, 2020). It supports many techniques and recipes, such as the “classic” and “inverted” methods, and you can adjust grind size, water temperature, and brew time to reach a wide range of flavors. That flexibility, plus its portability, makes it popular with coffee enthusiasts.</p>
+    <figure class="prose-figure">
+      <div class="frame sq" style="aspect-ratio: 16 / 10"><img src="/assets/img/coffee-aeropress-1600.webp" srcset="/assets/img/coffee-aeropress-640.webp 640w, /assets/img/coffee-aeropress-1024.webp 1024w, /assets/img/coffee-aeropress-1600.webp 1600w" sizes="(min-width: 48rem) 42rem, 100vw" width="1600" height="1000" alt="A 2015 AeroPress next to a 2020 AeroPress Go on a stone ledge outdoors" loading="lazy" decoding="async"></div>
+      <figcaption>The original AeroPress (left) and the travel-size AeroPress Go (right). <span class="credit">Photo: <a href="https://commons.wikimedia.org/wiki/File:2015_AeroPress_and_2020_AeroPress_Go.jpg" target="_blank" rel="noopener">2015 AeroPress and 2020 AeroPress Go</a> by Bex Walton, <a href="https://creativecommons.org/licenses/by/2.0/" target="_blank" rel="noopener license">CC BY 2.0</a>, via Wikimedia Commons (cropped and resized).</span></figcaption>
+    </figure>
 
     <h2>My Usual Profile</h2>
     <dl class="profile">
@@ -86,6 +90,11 @@
       <div><dt>Water</dt><dd>200 g<small>Hot, 90–96 °C (195–205 °F)</small></dd></div>
       <div><dt>Filter paper</dt><dd>1 or 2<small>Use 2 for a brighter aftertaste and cleaner sip</small></dd></div>
     </dl>
+
+    <figure class="prose-figure prose-figure--portrait">
+      <div class="frame sq" style="aspect-ratio: 4 / 5"><img src="/assets/img/coffee-aeropress-brewing-960.webp" srcset="/assets/img/coffee-aeropress-brewing-560.webp 560w, /assets/img/coffee-aeropress-brewing-960.webp 960w" sizes="(min-width: 48rem) 26rem, 80vw" width="960" height="1200" alt="Two hands pressing an AeroPress plunger down into a glass carafe" loading="lazy" decoding="async"></div>
+      <figcaption>The press: a slow, steady push. <span class="credit">Photo: <a href="https://commons.wikimedia.org/wiki/File:Brewing_Coffee_with_AeroPress.jpg" target="_blank" rel="noopener">Brewing Coffee with AeroPress</a> by Craft Coffee Spot, <a href="https://creativecommons.org/licenses/by/2.0/" target="_blank" rel="noopener license">CC BY 2.0</a>, via Wikimedia Commons (cropped and resized).</span></figcaption>
+    </figure>
 
     <h3>Steps</h3>
     <ol class="steps">
@@ -122,7 +131,10 @@
 </main>
 
 <footer class="footer">
-  <div class="container">© <span data-year>2026</span> Nguyen 'John' Ha</div>
+  <div class="container footer__inner">
+    <a class="to-top" href="#top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg><span>Back to top</span></a>
+    <p>© <span data-year>2026</span> Nguyen 'John' Ha</p>
+  </div>
 </footer>
 
 <dialog class="search" data-search aria-label="Search this site">
