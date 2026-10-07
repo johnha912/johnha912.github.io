@@ -52,7 +52,7 @@
     document.body.style.overflow = open ? "hidden" : "";
   };
   burger?.addEventListener("click", () => setMenu(!nav.hasAttribute("data-open")));
-  matchMedia("(min-width: 48rem)").addEventListener("change", (e) => e.matches && setMenu(false));
+  matchMedia("(min-width: 60rem)").addEventListener("change", (e) => e.matches && setMenu(false));
 
   /* ---------- Coffee Blog dropdown (click/keyboard; hover handled in CSS) ---------- */
   document.querySelectorAll(".has-menu").forEach((item) => {
