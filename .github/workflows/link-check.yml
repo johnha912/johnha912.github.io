@@ -1,0 +1,37 @@
+name: Monthly link check
+
+on:
+  schedule:
+    - cron: "0 15 1 * *" # 1st of every month, 15:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check links
+        id: lychee
+        uses: lycheeverse/lychee-action@v2
+        with:
+          # LinkedIn and Instagram block bots (999/429), so those codes count as reachable.
+          args: >-
+            --no-progress
+            --root-dir ${{ github.workspace }}/site
+            --accept 200..=299,403,429,999
+            --exclude-path site/home
+            'site/**/*.html'
+          fail: false
+
+      - name: Open an issue when links are broken
+        if: steps.lychee.outputs.exit_code != 0
+        uses: peter-evans/create-issue-from-file@v5
+        with:
+          title: Broken links found by the monthly check
+          content-filepath: ./lychee/out.md
+          labels: maintenance
