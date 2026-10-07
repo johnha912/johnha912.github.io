@@ -806,15 +806,16 @@ main { flex: 1; padding-top: var(--nav-h); }
   grid-template-columns: repeat(6, 1fr);
   gap: var(--space-3);
 }
-.collage .frame:nth-child(1),
-.collage .frame:nth-child(2) { grid-column: span 3; aspect-ratio: 1; }
-.collage .frame:nth-child(3) { grid-column: 1 / -1; aspect-ratio: 16 / 10; }
-.collage .frame:nth-child(1) img { object-position: 50% 60%; }
+/* Phones: the presentation photo (first on desktop) spans the row below the two squares */
+.collage .frame:nth-child(1) { grid-column: 1 / -1; grid-row: 2; aspect-ratio: 16 / 10; }
+.collage .frame:nth-child(2),
+.collage .frame:nth-child(3) { grid-column: span 3; aspect-ratio: 1; }
+.collage .frame:nth-child(1) img { object-position: 50% 45%; }
 .collage .frame:nth-child(2) img { object-position: 90% 30%; }
 .collage .frame:nth-child(3) img { object-position: 30% 60%; }
 @media (min-width: 48rem) {
   .collage { gap: var(--space-4); }
-  .collage .frame:nth-child(n) { grid-column: span 2; aspect-ratio: 4 / 5; }
+  .collage .frame:nth-child(n) { grid-column: span 2; grid-row: auto; aspect-ratio: 4 / 5; }
 }
 
 .intro {
