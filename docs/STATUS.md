@@ -31,6 +31,8 @@ _Last updated: 2026-10-07_
 - **2026-10-07:** Coffee articles rewritten for SEO: keyword-focused titles, descriptions, and H1s; "At a glance" boxes; question-style headings and FAQs; byline and updated date; BlogPosting, BreadcrumbList, and Recipe structured data; internal links. Every reference re-verified: fabricated or misattributed sources from the old site were removed or corrected, and dead links replaced with live, checked sources.
 - **2026-10-07:** Header logo: smooth invert plus a self-drawing accent ring and a press-in effect (replaces the blink).
 - **2026-10-07:** Flash brew photo replaced with a V60 dripping onto ice in the server.
+- **2026-10-07:** Always write the school as "Northeastern University" (never just "Northeastern").
+- **2026-10-07:** Phin article: fewer phin photos; added an 1898 photo of a French priest among coffee trees near Tourane and a Ho Chi Minh City café scene. Espresso article: new crema photo. Flash brew photo cropped and color-graded warmer.
 - **2026-10-07:** Credly profile URL is credly.com/users/johnha912.
 - **2026-10-07:** Contact: no form, just one button that opens email to johnha0912@gmail.com (plus a copy button and social links).
 - **2026-10-07:** Add the taste-skill and UI UX Pro Max skills to the agent team (installed and logged in `docs/TOOLS.md`). Install Anthropic's `frontend-design` plugin (owner runs the command; see Toolchain).
