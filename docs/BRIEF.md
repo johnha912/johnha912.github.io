@@ -94,6 +94,7 @@ Every page also needs: meta title, meta description, and Open Graph text (drafte
   - Lighthouse **Performance ≥ 90** and **Accessibility ≥ 95** on mobile.
   - Images optimized (WebP/AVIF), lazy-loaded below the fold.
   - Total home page weight **< 1.5 MB**.
+- **Analytics & consent (owner request 2026-10-07):** Google Analytics 4, measurement ID `G-F5CQP78SJK` (existing property "Personal Website", stream "My Website"; never create a new one). The tag sits right after `<head>` on every page with Google Consent Mode v2: all storage defaults to denied, and analytics cookies are set only after the visitor accepts in the cookie banner. A `/privacy/` page explains this; the footer links to it and to "Cookie settings".
 - **Local assets only.** Every image the site uses lives in `site/assets/` in this repo. No hotlinking, ever — the old Google Sites is being retired and its URLs will die.
 
 ### Toolchain

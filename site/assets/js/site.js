@@ -92,6 +92,7 @@
     { t: "Espresso", u: "/coffee-blog/espresso/", s: "Coffee", k: "tds crema pressure tamp shot" },
     { t: "Vietnamese Phin", u: "/coffee-blog/vietnamese-phin/", s: "Coffee", k: "ca phe sua da condensed milk robusta" },
     { t: "Contact", u: "/contact/", s: "Page", k: "email linkedin github instagram hire internship" },
+    { t: "Privacy Policy", u: "/privacy/", s: "Page", k: "privacy cookies analytics consent data" },
     { t: "Music on SoundCloud", u: "https://soundcloud.com/johnhamusic", s: "External", k: "music soundcloud" },
     { t: "Photography on Instagram", u: "https://www.instagram.com/johnha.ns/", s: "External", k: "photography photos instagram" },
   ];
@@ -182,6 +183,76 @@
       setTimeout(() => { label.textContent = "Copy"; }, 1800);
     });
   });
+
+  /* ---------- Cookie consent (Google Consent Mode v2) ---------- */
+  const banner = document.querySelector("[data-consent]");
+  if (banner) {
+    const KEY = "cookie-consent";
+    const YEAR = 365 * 24 * 60 * 60 * 1000;
+    const prefs = banner.querySelector("[data-consent-prefs]");
+    const analyticsBox = banner.querySelector("[data-consent-analytics]");
+    const customizeBtn = banner.querySelector("[data-consent-customize]");
+    const saveBtn = banner.querySelector("[data-consent-save]");
+    const gtagSafe = (...args) => { if (typeof window.gtag === "function") window.gtag(...args); };
+
+    const read = () => {
+      try {
+        const c = JSON.parse(localStorage.getItem(KEY) || "null");
+        return c && c.v === 1 && Date.now() - c.ts < YEAR ? c : null;
+      } catch { return null; }
+    };
+
+    // Remove Google Analytics cookies on this domain and its parent (e.g. johnha.info).
+    const clearAnalyticsCookies = () => {
+      const host = location.hostname;
+      const domains = ["", host, "." + host, "." + host.split(".").slice(-2).join(".")];
+      document.cookie.split(";").map((c) => c.split("=")[0].trim())
+        .filter((name) => name === "_ga" || name.startsWith("_ga_"))
+        .forEach((name) => domains.forEach((d) => {
+          document.cookie = `${name}=; Max-Age=0; path=/${d ? "; domain=" + d : ""}`;
+        }));
+    };
+
+    const setPrefsOpen = (open) => {
+      prefs.hidden = !open;
+      saveBtn.hidden = !open;
+      customizeBtn.hidden = open;
+      customizeBtn.setAttribute("aria-expanded", String(open));
+    };
+
+    const close = () => {
+      banner.classList.remove("is-open");
+      banner.hidden = true;
+    };
+
+    const show = ({ withPrefs = false, focus = false } = {}) => {
+      analyticsBox.checked = !!(read() || {}).analytics;
+      setPrefsOpen(withPrefs);
+      banner.hidden = false;
+      requestAnimationFrame(() => banner.classList.add("is-open"));
+      if (focus) (withPrefs ? analyticsBox : banner.querySelector("[data-consent-accept]")).focus();
+    };
+
+    const save = (analytics) => {
+      try { localStorage.setItem(KEY, JSON.stringify({ v: 1, analytics, ts: Date.now() })); } catch {}
+      gtagSafe("consent", "update", { analytics_storage: analytics ? "granted" : "denied" });
+      if (!analytics) clearAnalyticsCookies();
+      close();
+    };
+
+    banner.querySelector("[data-consent-accept]").addEventListener("click", () => save(true));
+    banner.querySelector("[data-consent-reject]").addEventListener("click", () => save(false));
+    saveBtn.addEventListener("click", () => save(analyticsBox.checked));
+    customizeBtn.addEventListener("click", () => { setPrefsOpen(true); analyticsBox.focus(); });
+    document.querySelectorAll("[data-consent-open]").forEach((b) =>
+      b.addEventListener("click", () => show({ withPrefs: true, focus: true })));
+    banner.addEventListener("keydown", (e) => {
+      // Esc closes only when a choice already exists (reopened from Cookie settings).
+      if (e.key === "Escape" && read()) close();
+    });
+
+    if (!read()) show();
+  }
 
   /* ---------- Footer year ---------- */
   document.querySelectorAll("[data-year]").forEach((el) => { el.textContent = new Date().getFullYear(); });
