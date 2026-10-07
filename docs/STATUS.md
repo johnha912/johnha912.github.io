@@ -13,8 +13,8 @@ _Last updated: 2026-10-07_
 | GATE 2 | ⏳ Owner | Approve the design system and layouts. |
 | 3. Build | ✅ Done | Ten pages in `site/` plus a `/home/` redirect for the old Google Sites URL. |
 | 4. QC + test | ✅ First pass | 11 pages × 360/390/1440 × dark/light: no horizontal scroll, no console errors, no broken internal links, all images have alt text, touch targets ≥ 44px. Home page ≈ 220 KB worst case (budget 1.5 MB). Lighthouse and HTML validation still to run with the full toolchain. |
-| 5. Deploy | ✅ Pushed 2026-10-07 | `.github/workflows/deploy.yml`, `.github/workflows/link-check.yml`, `site/CNAME`. Repo Settings → Pages → Source must be set to **GitHub Actions**. |
-| GATE 3 | ⏳ Owner | Launch, then `docs/DOMAIN-MIGRATION.md`. |
+| 5. Deploy | ✅ Pushed 2026-10-07 | `.github/workflows/deploy.yml`, `.github/workflows/link-check.yml`, `site/CNAME`. Pages source set to **GitHub Actions** by the owner on 2026-10-07. |
+| GATE 3 | ✅ Live 2026-10-07 | https://johnha912.github.io serves `site/` via GitHub Actions (Pages source = GitHub Actions). All pages 200, docs/agents not published, live QA clean. Next: owner switches `johnha.info` DNS per `docs/DOMAIN-MIGRATION.md`. |
 
 ## Owner decisions (dated)
 
