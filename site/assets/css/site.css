@@ -313,6 +313,7 @@ main { flex: 1; padding-top: var(--nav-h); }
   white-space: nowrap;
 }
 .brand__logo {
+  position: relative;
   display: grid;
   place-items: center;
   width: 40px;
@@ -321,7 +322,10 @@ main { flex: 1; padding-top: var(--nav-h); }
   border-radius: 50%;
   color: var(--text);
   background: transparent;
-  transition: background-color var(--dur-fast), color var(--dur-fast);
+  transition:
+    background-color 320ms var(--ease-out),
+    color 320ms var(--ease-out),
+    transform 320ms var(--ease-spring);
 }
 .brand__mark {
   width: 34px;
@@ -330,19 +334,28 @@ main { flex: 1; padding-top: var(--nav-h); }
   -webkit-mask: url("/assets/img/logo-mark-96.png") center / contain no-repeat;
   mask: url("/assets/img/logo-mark-96.png") center / contain no-repeat;
 }
-/* Invert: the avatar flips to a light-on-dark (or dark-on-light) chip */
+/* Accent ring that draws itself clockwise around the avatar */
+@property --ring {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+.brand__logo::after {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  background: conic-gradient(from -90deg, var(--accent) var(--ring), transparent var(--ring));
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 1.5px), #000 calc(100% - 1px));
+  mask: radial-gradient(farthest-side, transparent calc(100% - 1.5px), #000 calc(100% - 1px));
+  transition: --ring 560ms var(--ease-out);
+  pointer-events: none;
+}
 .brand:hover .brand__logo,
-.brand:focus-visible .brand__logo,
-.brand:active .brand__logo { background: var(--text); color: var(--bg); }
-@media (prefers-reduced-motion: no-preference) {
-  .brand:hover .brand__logo,
-  .brand:focus-visible .brand__logo { animation: blink 520ms steps(1, end); }
-  .brand:active .brand__logo { animation: blink 260ms steps(1, end); }
-}
-@keyframes blink {
-  0%, 40% { background: var(--text); color: var(--bg); }
-  20%, 60% { background: transparent; color: var(--text); }
-}
+.brand:focus-visible .brand__logo { background: var(--text); color: var(--bg); }
+.brand:hover .brand__logo::after,
+.brand:focus-visible .brand__logo::after { --ring: 360deg; }
+.brand:active .brand__logo { transform: scale(0.92); }
 .brand__name { font-size: 0.95rem; }
 
 .nav__links { display: none; }
@@ -1124,10 +1137,37 @@ main { flex: 1; padding-top: var(--nav-h); }
 
 /* Article */
 .article-head { padding-top: var(--space-7); padding-bottom: var(--space-5); }
+.article-head .page-head__title { font-size: clamp(2rem, 1.35rem + 2.6vw, 3.25rem); line-height: 1.08; }
 .breadcrumb { display: flex; flex-wrap: wrap; gap: var(--space-2); list-style: none; padding: 0; font-size: var(--fs-sm); color: var(--text-faint); margin-bottom: var(--space-5); }
 .breadcrumb a { color: var(--text-muted); text-decoration: none; }
 .breadcrumb a:hover { color: var(--text); }
 .breadcrumb li + li::before { content: "/"; margin-right: var(--space-2); color: var(--text-faint); }
+.byline { margin-top: var(--space-3); font-size: var(--fs-sm); color: var(--text-faint); }
+.byline a { color: var(--text-muted); text-decoration: none; font-weight: 500; }
+.byline a:hover { color: var(--text); }
+
+.glance {
+  padding: var(--space-5);
+  border: 1px solid color-mix(in oklab, var(--accent) 30%, var(--border));
+  border-radius: var(--r-lg);
+  background: color-mix(in oklab, var(--accent) 6%, var(--surface));
+}
+.glance__title {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs) !important;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--accent) !important;
+}
+.glance dl { display: grid; gap: var(--space-2) var(--space-5); margin-top: var(--space-3); }
+@media (min-width: 40rem) { .glance dl { grid-template-columns: 1fr 1fr; } }
+.glance div { display: grid; grid-template-columns: 5.5rem 1fr; gap: var(--space-3); align-items: baseline; }
+.glance dt { font-size: var(--fs-sm); color: var(--text-faint); }
+.glance dd { margin: 0; font-weight: 600; color: var(--text); font-size: var(--fs-sm); }
+
+.faq h3 { margin-top: var(--space-5); font-size: var(--fs-lg); letter-spacing: var(--tracking-tight); }
+.faq h3 + p { margin-top: var(--space-2); }
+
 .article-hero-art {
   display: grid;
   place-items: center;

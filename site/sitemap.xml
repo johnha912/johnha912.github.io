@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://johnha.info/</loc></url>
-  <url><loc>https://johnha.info/about/</loc></url>
-  <url><loc>https://johnha.info/tech/</loc></url>
-  <url><loc>https://johnha.info/coffee-blog/</loc></url>
-  <url><loc>https://johnha.info/coffee-blog/pour-over-flash-brew/</loc></url>
-  <url><loc>https://johnha.info/coffee-blog/aeropress/</loc></url>
-  <url><loc>https://johnha.info/coffee-blog/espresso/</loc></url>
-  <url><loc>https://johnha.info/coffee-blog/vietnamese-phin/</loc></url>
-  <url><loc>https://johnha.info/contact/</loc></url>
+  <url><loc>https://johnha.info/</loc><lastmod>2026-10-07</lastmod></url>
+  <url><loc>https://johnha.info/about/</loc><lastmod>2026-10-07</lastmod></url>
+  <url><loc>https://johnha.info/tech/</loc><lastmod>2026-10-07</lastmod></url>
+  <url><loc>https://johnha.info/coffee-blog/</loc><lastmod>2026-10-07</lastmod></url>
+  <url><loc>https://johnha.info/coffee-blog/pour-over-flash-brew/</loc><lastmod>2026-10-07</lastmod></url>
+  <url><loc>https://johnha.info/coffee-blog/aeropress/</loc><lastmod>2026-10-07</lastmod></url>
+  <url><loc>https://johnha.info/coffee-blog/espresso/</loc><lastmod>2026-10-07</lastmod></url>
+  <url><loc>https://johnha.info/coffee-blog/vietnamese-phin/</loc><lastmod>2026-10-07</lastmod></url>
+  <url><loc>https://johnha.info/contact/</loc><lastmod>2026-10-07</lastmod></url>
 </urlset>
