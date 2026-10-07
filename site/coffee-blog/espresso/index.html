@@ -3,15 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Espresso | John’s Coffee Blog</title>
-<meta name="description" content="Why a perfect espresso is so hard to pull, my usual espresso profile, a step-by-step guide, and an interactive TDS brewing control chart.">
+<title>Espresso Ratio, Extraction Yield and TDS Explained</title>
+<meta name="description" content="What makes a good espresso: dose, the 1:2 brew ratio, 25–30 second shots, 9 bars, and how TDS and extraction yield fit together, with an interactive chart.">
 <link rel="canonical" href="https://johnha.info/coffee-blog/espresso/">
 <meta name="theme-color" content="#0a0a0b">
 <meta name="color-scheme" content="dark light">
-<meta property="og:type" content="website">
+<meta property="og:type" content="article">
 <meta property="og:site_name" content="Nguyen “John” Ha">
-<meta property="og:title" content="Espresso | John’s Coffee Blog">
-<meta property="og:description" content="Why a perfect espresso is so hard to pull, my usual espresso profile, a step-by-step guide, and an interactive TDS brewing control chart.">
+<meta property="og:title" content="Espresso Ratio, Extraction Yield and TDS Explained">
+<meta property="og:description" content="What makes a good espresso: dose, the 1:2 brew ratio, 25–30 second shots, 9 bars, and how TDS and extraction yield fit together, with an interactive chart.">
 <meta property="og:url" content="https://johnha.info/coffee-blog/espresso/">
 <meta property="og:image" content="https://johnha.info/assets/img/og-image.jpg">
 <meta property="og:image:width" content="1200">
@@ -26,6 +26,8 @@
 <link rel="manifest" href="/site.webmanifest">
 <script src="/assets/js/site.js" defer></script>
 <script src="/assets/js/espresso-chart.js" defer></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Espresso Explained: Brew Ratio, Extraction and TDS","description":"What makes a good espresso: dose, the 1:2 brew ratio, 25–30 second shots, 9 bars, and how TDS and extraction yield fit together, with an interactive chart.","image":["https://johnha.info/assets/img/coffee-espresso-1600.webp"],"author":{"@type":"Person","name":"Nguyen Ha","alternateName":"John Ha","url":"https://johnha.info/about/"},"dateModified":"2026-10-07","inLanguage":"en-US","mainEntityOfPage":"https://johnha.info/coffee-blog/espresso/"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://johnha.info/"},{"@type":"ListItem","position":2,"name":"Coffee Blog","item":"https://johnha.info/coffee-blog/"},{"@type":"ListItem","position":3,"name":"Espresso","item":"https://johnha.info/coffee-blog/espresso/"}]}</script>
 </head>
 <body id="top">
 <a class="skip-link" href="#main">Skip to content</a>
@@ -71,47 +73,61 @@
 <article>
   <header class="container container--narrow article-head">
     <nav aria-label="Breadcrumb"><ol class="breadcrumb"><li><a href="/coffee-blog/">Coffee Blog</a></li><li aria-current="page">Espresso</li></ol></nav>
-    <h1 class="page-head__title">Espresso</h1>
+    <h1 class="page-head__title">Espresso Explained: Brew Ratio, Extraction and TDS</h1>
+    <p class="byline">By <a href="/about/">Nguyen “John” Ha</a> · Updated <time datetime="2026-10-07">October 7, 2026</time></p>
     <div class="article-hero-art sq"><svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Line drawing of an espresso cup with steam"><path d="M30 58h50v8c0 16-11 26-25 26S30 82 30 66z"/><path d="M80 63h6a8 8 0 0 1 0 16h-7"/><ellipse cx="55" cy="58" rx="25" ry="4"/><path d="M20 98h72" /><path d="M28 104h56" opacity=".5"/><path d="M46 28c-4 5 4 8 0 14M58 24c-4 5 4 8 0 14M70 28c-4 5 4 8 0 14"/></svg></div>
   </header>
   <div class="container container--narrow prose" style="padding-bottom: var(--space-9)">
 
-    <h2>Do I really need to introduce this?</h2>
-    <p>Just kidding. Espresso is a concentrated brewing method that uses high pressure to push hot water through finely ground coffee, creating a rich, full-bodied shot topped with crema. Developed in Italy, it’s typically brewed in about 25–30 seconds, producing an intense, complex flavor in a small serving (Illy, n.d.; Rao, 2019). It’s the foundation of drinks like lattes, cappuccinos, and Americanos.</p>
+    <aside class="glance sq" aria-label="At a glance">
+      <p class="glance__title">At a glance</p>
+      <dl>
+        <div><dt>Dose</dt><dd>18–20 g for a double shot</dd></div>
+        <div><dt>Brew ratio</dt><dd>about 1:2 (around 36–40 g out)</dd></div>
+        <div><dt>Time</dt><dd>25–30 seconds</dd></div>
+        <div><dt>Pressure</dt><dd>about 9 bars</dd></div>
+        <div><dt>Water</dt><dd>88–96 °C (190–205 °F)</dd></div>
+        <div><dt>Target</dt><dd>18–22% extraction, 8–12% TDS</dd></div>
+      </dl>
+    </aside>
+
+    <h2>What is espresso?</h2>
+    <p>Do I really need to introduce this? Just kidding. Espresso is a small, concentrated coffee made by forcing hot water through finely ground, tightly packed coffee at high pressure. The Specialty Coffee Association’s classic definition is a 25–35 ml drink brewed from 7–9 g of coffee (14–18 g for a double) with water at 90.5–96.1 °C, at 9–10 atmospheres of pressure, in 20–30 seconds, topped with a thick, dark golden crema. Modern cafés have moved on a little: a 2016 survey of baristas found the typical shot uses an 18–20 g dose, yields about 36.5 g, and runs 25–30 seconds at 9 bars, close to a 1:2 brew ratio (Specialty Coffee Association, 2018). Espresso is also the base of lattes, cappuccinos, and Americanos.</p>
     <figure class="prose-figure">
       <div class="frame sq" style="aspect-ratio: 16 / 10"><img src="/assets/img/coffee-espresso-1600.webp" srcset="/assets/img/coffee-espresso-640.webp 640w, /assets/img/coffee-espresso-1024.webp 1024w, /assets/img/coffee-espresso-1600.webp 1600w" sizes="(min-width: 48rem) 42rem, 100vw" width="1600" height="1000" alt="Top-down view of an espresso with golden-brown crema in a white cup on a black saucer" loading="lazy" decoding="async"></div>
       <figcaption>A fresh espresso with its layer of crema. <span class="credit">Photo: <a href="https://commons.wikimedia.org/wiki/File:Espresso_Coffee_01.jpg" target="_blank" rel="noopener">Espresso Coffee 01</a> by Jubair1985, <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener license">CC0 1.0</a>, via Wikimedia Commons (cropped and resized).</span></figcaption>
     </figure>
 
-    <h2>Is it easy to pull a perfect one?</h2>
-    <p><strong>Of course not!</strong> A perfect espresso is a notoriously elusive goal that demands precision and a deep understanding of technical factors that are hard to control consistently. Small variations in grind size, tamping pressure, or water temperature can throw off extraction, leaving a shot sour, bitter, or unbalanced. Even with advanced equipment, holding the roughly 9 bars of pressure needed for even extraction is challenging: high-end machines can still fluctuate, which disrupts flavor and crema (Daily Coffee News, 2019).</p>
-    <figure class="prose-figure">
-      <div class="frame sq" style="aspect-ratio: 4 / 3"><img src="/assets/img/coffee-espresso-pull-1200.webp" srcset="/assets/img/coffee-espresso-pull-720.webp 720w, /assets/img/coffee-espresso-pull-1200.webp 1200w" sizes="(min-width: 48rem) 42rem, 100vw" width="1200" height="900" alt="An espresso machine pulling a triple shot through a bottomless portafilter into a white cup" loading="lazy" decoding="async"></div>
-      <figcaption>A bottomless portafilter shows the whole extraction, so uneven flow is easy to spot. <span class="credit">Photo: <a href="https://commons.wikimedia.org/wiki/File:Pulling_a_triple_espresso_shot_with_a_naked_portafilter.jpg" target="_blank" rel="noopener">Pulling a triple espresso shot with a naked portafilter</a> by massage-techniques, <a href="https://creativecommons.org/licenses/by-sa/2.0/" target="_blank" rel="noopener license">CC BY-SA 2.0</a>, via Wikimedia Commons (cropped and resized).</span></figcaption>
-    </figure>
-    <p>The process is unforgiving: small mistakes amplify into real defects. Mastering espresso takes knowledge, skill, near-obsessive attention to detail, and a willingness to keep adjusting. That is why great espresso remains an art few can reliably achieve.</p>
-
-    <h2>My Usual Profile</h2>
+    <h2>My usual espresso profile</h2>
     <dl class="profile">
       <div><dt>Coffee</dt><dd>18–20 g<small>8–10 g for a single shot</small></dd></div>
-      <div><dt>Grind size</dt><dd>Very fine<small>Similar to table salt</small></dd></div>
+      <div><dt>Grind size</dt><dd>Fine<small>Finer than for pour-over; dial in by time</small></dd></div>
       <div><dt>Water temp.</dt><dd>88–96 °C<small>190–205 °F</small></dd></div>
       <div><dt>Pressure</dt><dd>8–10 bars</dd></div>
       <div><dt>Brew time</dt><dd>25–30 s</dd></div>
       <div><dt>Yield</dt><dd>1 oz (30 ml)<small>Single shot; 2 oz for a double</small></dd></div>
     </dl>
 
-    <h3>Step-by-step guide by Illy</h3>
+    <h2>How to pull an espresso shot, step by step</h2>
     <ol class="steps">
-      <li><strong>Prepare and dose. </strong>Weigh and grind the coffee to a fine consistency that holds up under pressure without over-extracting (Illy, n.d.).</li>
-      <li><strong>Tamp. </strong>Distribute the coffee evenly in the portafilter and apply firm, consistent pressure for a compact puck, so water flows evenly (Hoffmann, 2018).</li>
-      <li><strong>Brew. </strong>Start the extraction and aim for 25–30 seconds for a balanced shot. If the time is off, adjust grind size or tamping (Rao, 2019).</li>
-      <li><strong>Observe. </strong>The shot should flow smoothly with crema. A fast flow calls for a finer grind; a slow flow, a coarser one (Hoffmann, 2018).</li>
+      <li><strong>Dose and grind. </strong>Weigh 18–20 g of coffee for a double and grind it fine, just before brewing.</li>
+      <li><strong>Distribute and tamp. </strong>Level the grounds in the basket, then tamp firmly and evenly. A level, consistent tamp matters more than how hard you press (Jemison, 2022).</li>
+      <li><strong>Brew. </strong>Start the shot and a timer together. Aim for about twice the dose in the cup (around 36–40 g) in 25–30 seconds.</li>
+      <li><strong>Adjust. </strong>If the shot runs fast and tastes sour, grind finer. If it runs slow and tastes bitter, grind coarser. Change one variable at a time (Jemison, 2022).</li>
+      <li><strong>Taste. </strong>The numbers are a starting point; the cup decides.</li>
     </ol>
 
-    <h2>TDS: the number behind the taste</h2>
-    <p>Beyond pressure and grind size, <strong>Total Dissolved Solids (TDS)</strong> plays a crucial role in extraction. TDS measures the concentration of dissolved particles, which drives a shot’s strength, flavor intensity, and mouthfeel. An espresso typically lands around 8–12% TDS, depending on preference and the coffee itself (Correia, Soares, Tribess, &amp; Oliveira, 2019). At a fixed brew ratio, high TDS often signals over-extraction (bitter and heavy), while low TDS can mean under-extraction (sour or weak). Controlling TDS alongside the other variables is what makes a consistently rich, balanced espresso.</p>
-    <p>Strictly speaking, TDS measures <strong>strength</strong>. <strong>Extraction yield</strong> (how much of the dry coffee ended up in the cup) is calculated from it: extraction yield = TDS × beverage weight ÷ dose. A brewing control chart plots the two together. Once you pick a brew ratio, every shot you pull lands on that ratio’s line: grind and time move you along the line, and only a new ratio moves you to another one (Barista Hustle, n.d.; Pilot Coffee Roasters, n.d.).</p>
+    <h2>Why is a great espresso so hard to pull?</h2>
+    <p>Small changes in grind size, dose, or tamp change how water moves through the coffee. Water takes the easiest path, so an unevenly packed bed extracts unevenly: some coffee is over-extracted and bitter while the rest is under-extracted and sour, even when the average looks fine (Moroney et al., 2019). The machine’s pump holds about 9 bars, but the pressure that actually builds in the basket depends on the resistance of the coffee puck itself (Teahan, 2019). That is why grind and puck preparation make or break the shot.</p>
+    <figure class="prose-figure">
+      <div class="frame sq" style="aspect-ratio: 4 / 3"><img src="/assets/img/coffee-espresso-pull-1200.webp" srcset="/assets/img/coffee-espresso-pull-720.webp 720w, /assets/img/coffee-espresso-pull-1200.webp 1200w" sizes="(min-width: 48rem) 42rem, 100vw" width="1200" height="900" alt="An espresso machine pulling a triple shot through a bottomless portafilter into a white cup" loading="lazy" decoding="async"></div>
+      <figcaption>A bottomless portafilter shows the whole extraction, so uneven flow is easy to spot. <span class="credit">Photo: <a href="https://commons.wikimedia.org/wiki/File:Pulling_a_triple_espresso_shot_with_a_naked_portafilter.jpg" target="_blank" rel="noopener">Pulling a triple espresso shot with a naked portafilter</a> by massage-techniques, <a href="https://creativecommons.org/licenses/by-sa/2.0/" target="_blank" rel="noopener license">CC BY-SA 2.0</a>, via Wikimedia Commons (cropped and resized).</span></figcaption>
+    </figure>
+    <p>The process is unforgiving: small mistakes amplify into real defects. Great espresso takes patience, attention to detail, and a willingness to keep adjusting.</p>
+
+    <h2>TDS, extraction yield, and brew ratio</h2>
+    <p><strong>Total Dissolved Solids (TDS)</strong> measures how concentrated the espresso is: the share of the drink that is dissolved coffee. It drives strength, intensity, and mouthfeel, and a typical espresso lands around 8–12% TDS (Winarso et al., 2024). <strong>Extraction yield</strong> is how much of the dry coffee ended up in the cup, and it is calculated from TDS: extraction yield = TDS × beverage weight ÷ dose. For example, 36 g of espresso at 10% TDS from an 18 g dose is a 20% extraction.</p>
+    <p>A brewing control chart plots the two together. Once you pick a brew ratio, every shot you pull lands on that ratio’s line: grinding finer or brewing longer moves you up the line, and only a new ratio moves you to another line (Barista Hustle, n.d.).</p>
 
     <figure class="chart-figure sq" aria-labelledby="tds-chart-title">
       <figcaption>
@@ -133,20 +149,40 @@
           </tbody>
         </table>
       </details>
-      <p class="chart-figure__source">Redrawn from the brewing control chart described by Barista Hustle and Pilot Coffee Roasters. Lines use TDS = extraction yield ÷ (beverage weight ÷ dose). Target zones vary by source; treat the box as a starting point for tasting.</p>
+      <p class="chart-figure__source">Redrawn from the brewing control chart described by Barista Hustle; target zone from Winarso et al. (2024). Lines use TDS = extraction yield ÷ (beverage weight ÷ dose). Target zones vary by source; treat the box as a starting point for tasting.</p>
     </figure>
+
+    <h3>How to use the chart</h3>
+    <ul>
+      <li><strong>Sour, thin, or salty:</strong> you are probably left of the box. Grind finer to raise extraction.</li>
+      <li><strong>Bitter, dry, or harsh:</strong> you are probably right of the box. Grind coarser.</li>
+      <li><strong>Balanced but too intense:</strong> move to a longer ratio, such as 1:2.5.</li>
+      <li><strong>Balanced but too weak:</strong> move to a shorter ratio, such as 1:1.5.</li>
+    </ul>
+
+    <section class="faq" aria-labelledby="faq-title">
+      <h2 id="faq-title">FAQ</h2>
+      <h3>What is a good TDS for espresso?</h3>
+      <p>Most espresso lands between 8% and 12% TDS. Where you land inside that range depends on your brew ratio and taste (Winarso et al., 2024).</p>
+      <h3>What is the standard espresso brew ratio?</h3>
+      <p>About 1:2, for example 18 g of coffee to 36 g of espresso; that was the average in the SCA’s barista survey (Specialty Coffee Association, 2018). Shorter ratios like 1:1.5 taste richer and more intense.</p>
+      <h3>How long should an espresso shot take?</h3>
+      <p>Usually 25–30 seconds from the start of the shot. Good shots can fall anywhere from about 25 to 35 seconds (Jemison, 2022).</p>
+      <h3>What pressure is espresso brewed at?</h3>
+      <p>About 9 bars. The classic definition allows 9–10 atmospheres (Specialty Coffee Association, 2018).</p>
+    </section>
+
+    <p>Prefer a gentler cup at home? Try <a href="/coffee-blog/pour-over-flash-brew/">pour-over</a> or the <a href="/coffee-blog/vietnamese-phin/">Vietnamese phin</a>.</p>
 
     <section class="references" aria-labelledby="refs">
       <h2 id="refs">References</h2>
       <ol>
-        <li>Correia, J., Soares, S., Tribess, A., &amp; Oliveira, A. (2019). Analysing extraction uniformity from porous coffee beds using mathematical modelling and computational fluid dynamics approaches. ResearchGate. <a href="https://www.researchgate.net/publication/334817401_Analysing_extraction_uniformity_from_porous_coffee_beds_using_mathematical_modelling_and_computational_fluid_dynamics_approaches" target="_blank" rel="noopener">https://www.researchgate.net/publication/334817401_Analysing_extraction_uniformity_from_porous_coffee_beds_using_mathematical_modelling_and_computational_fluid_dynamics_approaches</a></li>
         <li>Barista Hustle. (n.d.). The coffee control chart. <a href="https://www.baristahustle.com/?p=2173" target="_blank" rel="noopener">https://www.baristahustle.com/?p=2173</a></li>
-        <li>Daily Coffee News. (2019, July 24). Pressure and flow: A guide for espresso technicians. <a href="https://dailycoffeenews.com/2019/07/24/pressure-and-flow-a-guide-for-espresso-technicians/" target="_blank" rel="noopener">https://dailycoffeenews.com/2019/07/24/pressure-and-flow-a-guide-for-espresso-technicians/</a></li>
-        <li>De’Longhi. (n.d.). How to make the perfect espresso: Brewing it right. Coffee Lounge (original link no longer available).</li>
-        <li>Hoffmann, J. (2018). The World Atlas of Coffee: From beans to brewing. Firefly Books.</li>
-        <li>Illy. (n.d.). Espresso basics. Illy Coffee. <a href="https://www.illy.com" target="_blank" rel="noopener">https://www.illy.com</a></li>
-        <li>Pilot Coffee Roasters. (n.d.). How to read parameter guides. <a href="https://www.pilotcoffeeroasters.com/how-to-read-parameter-guides/" target="_blank" rel="noopener">https://www.pilotcoffeeroasters.com/how-to-read-parameter-guides/</a></li>
-        <li>Rao, S. (2019). The Coffee Dictionary: An A–Z of coffee, from growing &amp; roasting to brewing &amp; tasting. Octopus Books.</li>
+        <li>Jemison, S. (2022, October 24). How to pull the perfect shot of espresso. Clive Coffee. <a href="https://clivecoffee.com/blogs/learn/how-to-make-great-espresso" target="_blank" rel="noopener">https://clivecoffee.com/blogs/learn/how-to-make-great-espresso</a></li>
+        <li>Moroney, K. M., O’Connell, K., Meikle-Janney, P., O’Brien, S. B. G., Walker, G. M., &amp; Lee, W. T. (2019). Analysing extraction uniformity from porous coffee beds using mathematical modelling and computational fluid dynamics approaches. PLOS ONE, 14(7), e0219906. <a href="https://doi.org/10.1371/journal.pone.0219906" target="_blank" rel="noopener">https://doi.org/10.1371/journal.pone.0219906</a></li>
+        <li>Specialty Coffee Association. (2018, February 1). Defining the ever-changing espresso. 25 Magazine, Issue 3. <a href="https://sca.coffee/sca-news/25-magazine/issue-3/defining-ever-changing-espresso-25-magazine-issue-3-zyx36" target="_blank" rel="noopener">https://sca.coffee/sca-news/25-magazine/issue-3/defining-ever-changing-espresso-25-magazine-issue-3-zyx36</a></li>
+        <li>Winarso, R., Khoeron, S., Wibowo, R., &amp; Darmanto, D. (2024). The effect of temperature, pressure, and grind size on total dissolved solids (TDS) and extraction yield of semi-automatic espresso machines. Jurnal Polimesin, 22(3), 288. <a href="https://doi.org/10.30811/jpl.v22i3.4636" target="_blank" rel="noopener">https://doi.org/10.30811/jpl.v22i3.4636</a></li>
+        <li>Teahan, M. (2019, July 24). Pressure and flow: A guide for espresso technicians. Daily Coffee News. <a href="https://dailycoffeenews.com/2019/07/24/pressure-and-flow-a-guide-for-espresso-technicians/" target="_blank" rel="noopener">https://dailycoffeenews.com/2019/07/24/pressure-and-flow-a-guide-for-espresso-technicians/</a></li>
       </ol>
     </section>
     <nav class="pager" aria-label="More brew guides">
