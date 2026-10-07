@@ -26,13 +26,13 @@
 <link rel="manifest" href="/site.webmanifest">
 <script src="/assets/js/site.js" defer></script>
 </head>
-<body>
+<body id="top">
 <a class="skip-link" href="#main">Skip to content</a>
 <div class="ambient" aria-hidden="true"></div>
 <header class="nav" data-nav>
   <div class="container nav__inner">
     <a class="brand" href="/">
-      <span class="brand__mark" aria-hidden="true"></span>
+      <span class="brand__logo" aria-hidden="true"><span class="brand__mark"></span></span>
       <span class="brand__name">Nguyen “John” Ha</span>
     </a>
     <nav class="nav__links" id="site-menu" aria-label="Primary">
@@ -77,10 +77,24 @@
 
     <h2>What is Vietnamese phin coffee?</h2>
     <p>Vietnamese phin coffee is a traditional brewing method using a <strong>phin</strong>: a small metal filter made of a chamber, a perforated plate, a press disc, and a lid. It produces a slow drip and a strong, rich coffee, often made from robusta beans, which have a more intense flavor and more caffeine than arabica. It’s typically served with sweetened condensed milk for a sweet, creamy drink, hot (<span lang="vi">cà phê nóng</span>) or iced (<span lang="vi">cà phê đá</span> / <span lang="vi">cà phê sữa đá</span>), a favorite in Vietnam’s warm climate.</p>
+    <figure class="prose-figure">
+      <div class="frame sq" style="aspect-ratio: 16 / 10"><img src="/assets/img/coffee-phin-1600.webp" srcset="/assets/img/coffee-phin-640.webp 640w, /assets/img/coffee-phin-1024.webp 1024w, /assets/img/coffee-phin-1600.webp 1600w" sizes="(min-width: 48rem) 42rem, 100vw" width="1600" height="1000" alt="A stainless steel Vietnamese phin filter dripping coffee into a glass on a saucer" loading="lazy" decoding="async"></div>
+      <figcaption>A phin sits on the glass and drips slowly; the press disc inside keeps the grounds in place. <span class="credit">Photo: <a href="https://commons.wikimedia.org/wiki/File:Vietnamese_Hot_Drip_Coffee_-_The_Big_Bowl.jpg" target="_blank" rel="noopener">Vietnamese Hot Drip Coffee - The Big Bowl</a> by Andy Li, <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener license">CC0 1.0</a>, via Wikimedia Commons (cropped and resized).</span></figcaption>
+    </figure>
     <p>The phin’s simplicity and sustainability (no paper filters needed) make it an eco-friendly choice that fits modern brewing trends. Often described as a cross between a pour-over and a French press, it makes a concentrated brew you can enjoy with milk, with sugar, or black.</p>
+
+    <figure class="prose-figure">
+      <div class="frame sq" style="aspect-ratio: 4 / 3"><img src="/assets/img/coffee-phin-iced-1200.webp" srcset="/assets/img/coffee-phin-iced-720.webp 720w, /assets/img/coffee-phin-iced-1200.webp 1200w" sizes="(min-width: 48rem) 42rem, 100vw" width="1200" height="900" alt="A glass of cà phê sữa đá with layers of condensed milk, coffee, and ice, topped with foam" loading="lazy" decoding="async"></div>
+      <figcaption>Cà phê sữa đá: condensed milk at the bottom, coffee on top, then ice. <span class="credit">Photo: <a href="https://commons.wikimedia.org/wiki/File:Ca_Phe_Sua_Da.jpg" target="_blank" rel="noopener">Ca Phe Sua Da</a> by Clarin, <a href="https://creativecommons.org/licenses/by/2.5/" target="_blank" rel="noopener license">CC BY 2.5</a>, via Wikimedia Commons (cropped and resized).</span></figcaption>
+    </figure>
 
     <h2>History and cultural significance</h2>
     <p>Coffee arrived in Vietnam in the mid-19th century during French colonization. A French priest brought an arabica tree in 1857, and over time Vietnam became a major coffee producer, known especially for robusta (Nguyen, 2022). The phin likely took hold in rural areas, where condensed milk was used for sweetening thanks to its long shelf life, a sign of local resourcefulness (Copper Cow Coffee, n.d.). The method has become a beloved tradition, symbolizing Vietnam’s coffee culture and its economic transformation through coffee exports.</p>
+
+    <figure class="prose-figure prose-figure--portrait">
+      <div class="frame sq" style="aspect-ratio: 4 / 5"><img src="/assets/img/coffee-phin-saigon-960.webp" srcset="/assets/img/coffee-phin-saigon-560.webp 560w, /assets/img/coffee-phin-saigon-960.webp 960w" sizes="(min-width: 48rem) 26rem, 80vw" width="960" height="1200" alt="A phin filter brewing on top of a cup at a café table in Ho Chi Minh City" loading="lazy" decoding="async"></div>
+      <figcaption>A phin brewing at a café in Ho Chi Minh City. <span class="credit">Photo: <a href="https://commons.wikimedia.org/wiki/File:Cafe_Qu%E1%BB%91c_H%C3%B9ng_ng4th9n2022_(c%C3%A0_ph%C3%AA_phin_%C4%91ang_pha)_(3).jpg" target="_blank" rel="noopener">Cafe Quốc Hùng (cà phê phin đang pha)</a> by Phương Huy, <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener license">CC0 1.0</a>, via Wikimedia Commons (cropped and resized).</span></figcaption>
+    </figure>
 
     <h2>How to make it at home</h2>
     <p>You need very little equipment. Here’s the step-by-step guide by Nguyen Coffee Supply:</p>
@@ -115,7 +129,10 @@
 </main>
 
 <footer class="footer">
-  <div class="container">© <span data-year>2026</span> Nguyen 'John' Ha</div>
+  <div class="container footer__inner">
+    <a class="to-top" href="#top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg><span>Back to top</span></a>
+    <p>© <span data-year>2026</span> Nguyen 'John' Ha</p>
+  </div>
 </footer>
 
 <dialog class="search" data-search aria-label="Search this site">

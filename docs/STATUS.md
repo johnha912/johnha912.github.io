@@ -24,6 +24,10 @@ _Last updated: 2026-10-07_
 - **2026-10-07:** Theme menu with **Light / Dark / System**; default System.
 - **2026-10-07:** Accent color changed from blue to emerald green (hero gradient text, hover effects, links); no blue anywhere.
 - **2026-10-07:** Add JoinOrderOptimizationDP and jivec to Tech under "Earlier work" (not featured). Arrows: keep the diagonal arrow on external links (Music, Photography).
+- **2026-10-07:** Coffee articles get real, freely licensed photos inside the article body (Wikimedia Commons; credited under each photo and in `docs/IMAGE-CREDITS.md`). The line-art icons stay on the Coffee Blog cards and at the top of each article.
+- **2026-10-07:** Espresso article gets an interactive TDS brewing control chart (Plotly, lazy-loaded, colors from the site's green palette, table view included).
+- **2026-10-07:** Header logo inverts (with a short blink) on hover, focus, and press instead of tilting.
+- **2026-10-07:** Footer gets a "Back to top" button on every page.
 - **2026-10-07:** Credly profile URL is credly.com/users/johnha912.
 - **2026-10-07:** Contact: no form, just one button that opens email to johnha0912@gmail.com (plus a copy button and social links).
 - **2026-10-07:** Add the taste-skill and UI UX Pro Max skills to the agent team (installed and logged in `docs/TOOLS.md`). Install Anthropic's `frontend-design` plugin (owner runs the command; see Toolchain).
@@ -45,7 +49,7 @@ _Last updated: 2026-10-07_
 4. **Project links/screenshots:** the two featured projects have no public repo link or screenshots yet. Add them when ready (diagrams stand in until then).
 5. ~~Other public repos~~ Resolved 2026-10-07: JOIN Order Optimization and jivec added under "Earlier work" (theta-coffee-lab and ptms not added).
 6. **Homepage availability pill:** BRIEF allows only the subtitle as a homepage addition. The "Open to Summer 2027 internships" pill appears on About, Tech, and Contact only. Approve it on Home too?
-7. **Coffee and photography photos:** your own photos would replace the brew illustrations and could power an internal Photography gallery.
+7. **Your own photos:** coffee articles now use licensed Commons photos; your own shots could replace them and could power an internal Photography gallery.
 
 ## Toolchain
 

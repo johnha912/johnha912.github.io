@@ -26,13 +26,13 @@
 <link rel="manifest" href="/site.webmanifest">
 <script src="/assets/js/site.js" defer></script>
 </head>
-<body>
+<body id="top">
 <a class="skip-link" href="#main">Skip to content</a>
 <div class="ambient" aria-hidden="true"></div>
 <header class="nav" data-nav>
   <div class="container nav__inner">
     <a class="brand" href="/">
-      <span class="brand__mark" aria-hidden="true"></span>
+      <span class="brand__logo" aria-hidden="true"><span class="brand__mark"></span></span>
       <span class="brand__name">Nguyen “John” Ha</span>
     </a>
     <nav class="nav__links" id="site-menu" aria-label="Primary">
@@ -129,7 +129,10 @@
 </main>
 
 <footer class="footer">
-  <div class="container">© <span data-year>2026</span> Nguyen 'John' Ha</div>
+  <div class="container footer__inner">
+    <a class="to-top" href="#top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg><span>Back to top</span></a>
+    <p>© <span data-year>2026</span> Nguyen 'John' Ha</p>
+  </div>
 </footer>
 
 <dialog class="search" data-search aria-label="Search this site">

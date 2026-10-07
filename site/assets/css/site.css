@@ -312,16 +312,37 @@ main { flex: 1; padding-top: var(--nav-h); }
   letter-spacing: var(--tracking-tight);
   white-space: nowrap;
 }
+.brand__logo {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  flex: none;
+  border-radius: 50%;
+  color: var(--text);
+  background: transparent;
+  transition: background-color var(--dur-fast), color var(--dur-fast);
+}
 .brand__mark {
   width: 34px;
   height: 34px;
-  flex: none;
   background: currentColor;
   -webkit-mask: url("/assets/img/logo-mark-96.png") center / contain no-repeat;
   mask: url("/assets/img/logo-mark-96.png") center / contain no-repeat;
-  transition: transform var(--dur) var(--ease-spring);
 }
-.brand:hover .brand__mark { transform: rotate(-8deg) scale(1.06); }
+/* Invert: the avatar flips to a light-on-dark (or dark-on-light) chip */
+.brand:hover .brand__logo,
+.brand:focus-visible .brand__logo,
+.brand:active .brand__logo { background: var(--text); color: var(--bg); }
+@media (prefers-reduced-motion: no-preference) {
+  .brand:hover .brand__logo,
+  .brand:focus-visible .brand__logo { animation: blink 520ms steps(1, end); }
+  .brand:active .brand__logo { animation: blink 260ms steps(1, end); }
+}
+@keyframes blink {
+  0%, 40% { background: var(--text); color: var(--bg); }
+  20%, 60% { background: transparent; color: var(--text); }
+}
 .brand__name { font-size: 0.95rem; }
 
 .nav__links { display: none; }
@@ -1119,6 +1140,35 @@ main { flex: 1; padding-top: var(--nav-h); }
     var(--surface);
 }
 .article-hero-art svg { height: 70%; width: auto; }
+.credit { display: block; margin-top: var(--space-2); font-size: var(--fs-xs); line-height: 1.5; color: var(--text-faint); }
+.credit a, .prose .credit a { color: inherit; text-decoration: underline; text-decoration-color: var(--border-strong); }
+.credit a:hover { color: var(--text-muted); }
+
+.prose-figure { margin-block: var(--space-6) !important; }
+.prose-figure figcaption { margin-top: var(--space-3); font-size: var(--fs-sm); color: var(--text-muted); line-height: 1.5; }
+.prose-figure--portrait { max-width: 26rem; margin-inline: auto; }
+
+/* Chart figure (Plotly renders into .chart) */
+.chart-figure {
+  margin-block: var(--space-6) !important;
+  padding: var(--space-5) var(--space-4) var(--space-4);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  background: var(--bg-elev);
+}
+@media (min-width: 48rem) { .chart-figure { padding: var(--space-6); } }
+.chart-figure__title { font-size: var(--fs-lg); font-weight: 600; color: var(--text) !important; letter-spacing: var(--tracking-tight); }
+.chart-figure__sub { margin-top: var(--space-1); font-size: var(--fs-sm); color: var(--text-muted); }
+.chart { min-height: 360px; margin-top: var(--space-4); }
+@media (min-width: 48rem) { .chart { min-height: 440px; } }
+.chart-figure__source { margin-top: var(--space-4); font-size: var(--fs-xs); color: var(--text-faint) !important; }
+.chart-table { margin-top: var(--space-4); font-size: var(--fs-sm); }
+.chart-table summary { cursor: pointer; min-height: 44px; display: flex; align-items: center; color: var(--text-muted); font-weight: 500; }
+.chart-table summary:hover { color: var(--text); }
+.chart-table table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.chart-table th, .chart-table td { padding: var(--space-2) var(--space-3); text-align: right; border-bottom: 1px solid var(--border); color: var(--text-muted); }
+.chart-table th:first-child { text-align: left; color: var(--text); }
+.chart-table thead th { color: var(--text-faint); font-weight: 500; font-size: var(--fs-xs); }
 
 .prose { font-size: 1.075rem; }
 .prose > * + * { margin-top: var(--space-4); }
@@ -1275,6 +1325,27 @@ main { flex: 1; padding-top: var(--nav-h); }
   text-align: center;
   font-size: var(--fs-sm);
   color: var(--text-faint);
+}
+.footer__inner { display: grid; justify-items: center; gap: var(--space-4); }
+.to-top {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 44px;
+  padding: 0 var(--space-5);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--r-pill);
+  background: var(--surface);
+  color: var(--text);
+  font-weight: 500;
+  text-decoration: none;
+  transition: background-color var(--dur-fast), border-color var(--dur-fast), color var(--dur-fast);
+}
+.to-top svg { width: 16px; height: 16px; transition: transform var(--dur) var(--ease-spring); }
+.to-top:hover { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.to-top:hover svg { transform: translateY(-3px); }
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
 }
 
 /* ==========================================================================

@@ -38,7 +38,7 @@
 | **Home** | Centered portrait hero, social row, and the five-button section stack (Tech, Coffee, Music, Photography, Contact) |
 | **About** | Photo collage, career path (marketing & market research → financial engineering → computer science & data), education timeline, certificates |
 | **Tech** | Featured in-progress projects with architecture diagrams: *Product Analytics ELT Pipeline* and *OmniRAG Data Platform Upgrade*; earlier work (JOIN-order DP optimizer, OmniRAG, the jivec C compiler); toolbox |
-| **Coffee Blog** | Brew guides for pour over / flash brew, AeroPress, espresso, and Vietnamese phin, each with a recipe profile, steps, and references |
+| **Coffee Blog** | Brew guides for pour over / flash brew, AeroPress, espresso, and Vietnamese phin, each with a recipe profile, steps, credited photos, and references; the espresso guide has an interactive TDS brewing control chart |
 | **Contact** | One-click email plus LinkedIn, GitHub, and Instagram |
 
 ## Built with
@@ -74,6 +74,6 @@ Every push to `main` deploys `site/` to GitHub Pages through GitHub Actions (`.g
 
 ## Credits
 
-Design skills vendored under `.claude/skills/` are MIT-licensed: [taste-skill](https://github.com/Leonxlnx/taste-skill) by Leonxlnx and [UI UX Pro Max](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) by Next Level Builder. Fonts: [Inter](https://rsms.me/inter/) and [JetBrains Mono](https://www.jetbrains.com/lp/mono/) (SIL Open Font License).
+Coffee photos are freely licensed images from Wikimedia Commons, credited under each photo and listed in [`docs/IMAGE-CREDITS.md`](docs/IMAGE-CREDITS.md). Chart rendering uses [Plotly.js](https://plotly.com/javascript/) (MIT). Design skills vendored under `.claude/skills/` are MIT-licensed: [taste-skill](https://github.com/Leonxlnx/taste-skill) by Leonxlnx and [UI UX Pro Max](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) by Next Level Builder. Fonts: [Inter](https://rsms.me/inter/) and [JetBrains Mono](https://www.jetbrains.com/lp/mono/) (SIL Open Font License).
 
 © Nguyen “John” Ha. All rights reserved for photos and written content.

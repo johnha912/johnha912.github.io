@@ -56,6 +56,10 @@ Display tracking `-0.035em`, display line-height `1.04`, body line-height `1.65`
 
 | Component | Notes |
 |---|---|
+| Logo mark | Avatar line art as a CSS mask in a 40px circle. On hover, keyboard focus, or press it inverts (circle fills with `--text`, drawing turns `--bg`) with a short two-step blink; reduced motion keeps the invert and drops the blink. |
+| Back to top | Pill button in every footer, links to `#top`; smooth scroll only when motion is allowed. |
+| Article figure | In-body photo in a squircle frame, caption plus a credit line (title, author, license, Wikimedia Commons). Landscape figures span the prose width; portrait ones cap at 26rem and center. |
+| Chart figure | Elevated card: title, one-line subtitle, Plotly chart (lazy-loaded), "Show the data as a table" disclosure, and a source line. Ordinal green ramps validated against each theme's surface: dark `#d1fae5 #6ee7b7 #34d399 #059669`, light `#064e3b #047857 #059669 #10b981`; hairline solid crosshair; text never wears the series color. |
 | Sticky glass nav | 64px, `backdrop-filter: blur(18px) saturate(160%)`, hairline bottom border. Desktop: Home, About, Coffee Blog (hover/focus/click dropdown). Mobile: full-screen sheet with large links. Actions: search, theme menu, burger. |
 | Theme menu | Icon button showing the current preference (sun/moon/monitor) → `role="menu"` with three `menuitemradio` items; arrow keys, Esc, outside click. |
 | Search palette | `<dialog>` command palette over a static page index. Opens with the search icon, Ctrl/⌘+K, or "/". Arrow keys + Enter. |
