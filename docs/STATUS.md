@@ -40,6 +40,7 @@ _Last updated: 2026-10-07_
 - **2026-10-07:** Tech "Earlier work" cards show only the term and year (e.g. "Spring 2026"); no course numbers and no school name.
 - **2026-10-07:** Featured project cards drop the "Flagship" and "Solo project" labels; only the "In progress" pill remains.
 - **2026-10-07:** About collage order: survey presentation, trade showcase, then the Google photo last (full width below the two squares on phones).
+- **2026-10-07:** Header nav adds the homepage sections (Tech, Music, Photography, Contact) next to Home, About, Coffee Blog on every page; the burger menu now covers widths below 960px so the longer nav fits.
 - **2026-10-07:** Add the taste-skill and UI UX Pro Max skills to the agent team (installed and logged in `docs/TOOLS.md`). Install Anthropic's `frontend-design` plugin (owner runs the command; see Toolchain).
 
 ## Orchestrator decisions
