@@ -26,7 +26,7 @@ Content agents may **only** use the facts in this section. If a fact is missing,
 - Targeting **data engineering / data analyst internships for Summer 2027**.
 - Codes in Python (pandas, NumPy, Streamlit) and SQL.
 - Completed the **IBM AI Engineering Professional Certificate** (Coursera credential link on the old About page).
-- The old About page also lists **edX: Computer Science for Python Programming by Harvard CS50** and a **Credly** badge profile (credly.com/users/nguyen-ha.c94c0c16). ⚠️ The CS50 entry is shown on the new About page pending the owner's confirmation at GATE 1.
+- The old About page also lists **edX: Computer Science for Python Programming by Harvard CS50** and a **Credly** badge profile: credly.com/users/johnha912 (owner-confirmed URL 2026-10-07; the old URL nguyen-ha.c94c0c16 is dead). ⚠️ The CS50 entry is shown on the new About page pending the owner's confirmation at GATE 1.
 
 **Education** (use exactly these; note the Northeastern date correction)
 - Northeastern University, Silicon Valley — MSc Computer Science, **2025 – 2028 (expected)**. ⚠️ The old site says 2025–2027; that is wrong — John graduates after Spring 2028. Always use "2025 – 2028 (expected)".
