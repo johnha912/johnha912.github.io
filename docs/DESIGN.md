@@ -2,7 +2,7 @@
 
 Source of truth for tokens and components. Implementation: `site/assets/css/site.css` (tokens at the top, components below). Every page consumes these tokens; no one-off values in page code.
 
-**Design read:** a developer/data-engineering portfolio for recruiters and hiring managers, often opened on a phone. The language is calm, Tesla-like minimalism: neutral near-black or warm off-white, one electric-blue accent, large tight display type, and photos in soft squircle frames. Coffee pages add a warm "crema" tint as section seasoning.
+**Design read:** a developer/data-engineering portfolio for recruiters and hiring managers, often opened on a phone. The language is calm, Tesla-like minimalism: neutral near-black or warm off-white, one emerald-green accent, large tight display type, and photos in soft squircle frames. Coffee pages add a warm "crema" tint as section seasoning.
 
 ## 1. Themes
 
@@ -21,11 +21,13 @@ Source of truth for tokens and components. Implementation: `site/assets/css/site
 | `--text` | `#f4f4f5` | `#111113` | Primary text |
 | `--text-muted` | `#a8a8b1` | `#4f4f57` | Body copy, descriptions |
 | `--text-faint` | `#8a8a93` | `#66666e` | Labels, metadata (≥ 4.5:1 on `--bg`) |
-| `--accent` | `#8aa6ff` | `#2f5bea` | The single accent: links, current state, focus ring |
+| `--accent` | `#34d399` | `#047857` | The single accent (emerald green): links, current state, focus ring, hover fills |
+| `--accent-strong` | `#10b981` | `#059669` | Portrait halo |
+| `--accent-2` | `#bef264` | `#4d7c0f` | Lime end of the hero gradient text and halo only |
 | `--crema` | `#e9a35b` | `#a3561a` | Coffee art glow and "In progress" status dot only |
 | `--success` | `#4ade80` | `#15803d` | "Open to internships" live dot only |
 
-Ambient background: two very soft radial glows (accent and crema) plus a 3-5% film-grain layer on a fixed, `pointer-events: none` element.
+Ambient background: two very soft radial glows (accent and crema) plus a 3-5% film-grain layer. No blue anywhere (owner decision 2026-10-07) on a fixed, `pointer-events: none` element.
 
 ## 3. Typography
 
@@ -58,7 +60,7 @@ Display tracking `-0.035em`, display line-height `1.04`, body line-height `1.65`
 | Theme menu | Icon button showing the current preference (sun/moon/monitor) → `role="menu"` with three `menuitemradio` items; arrow keys, Esc, outside click. |
 | Search palette | `<dialog>` command palette over a static page index. Opens with the search icon, Ctrl/⌘+K, or "/". Arrow keys + Enter. |
 | Photo frame (`.frame`) | Squircle clip, 1px inner hairline ring, `object-fit: cover`. |
-| Home button stack | Five wide rows (title + one-line description + arrow chip); cursor-following spotlight on hover; external links show a diagonal arrow and announce "opens in a new tab". |
+| Home button stack | Five wide rows (title + one-line description + arrow chip); green cursor-following spotlight on hover, arrow chip fills green and the arrow nudges forward. Every row uses the same arrow glyph; external links (Music, Photography) show it rotated 45° and announce "opens in a new tab". |
 | Project card (Tech) | Bento feature row: status pill, title, description, mono tech chips, and a pipeline diagram drawn from the brief's real architecture (not a fake screenshot). |
 | Brew card (Coffee) | Original line-art illustration on a warm crema glow, title, one-line description. |
 | Article (Coffee) | Breadcrumb, H1, hero art, prose, "My Usual Profile" stat tiles, numbered step timeline, tip box, references, prev/next pager. |
