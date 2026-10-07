@@ -482,9 +482,12 @@ main { flex: 1; padding-top: var(--nav-h); }
     letter-spacing: var(--tracking-tight);
   }
   .nav__links a[aria-current="page"] { color: var(--accent); }
-  .has-menu { display: grid; grid-template-columns: 1fr; }
-  .submenu-toggle { display: none; }
-  .submenu { padding-bottom: var(--space-3); }
+  .has-menu { display: grid; grid-template-columns: 1fr auto; }
+  .submenu-toggle { justify-content: center; width: 60px; min-height: 60px; padding: 0; color: var(--text); }
+  .submenu-toggle svg { width: 22px; height: 22px; transition: transform var(--dur) var(--ease-out); }
+  .has-menu[data-open] .submenu-toggle svg { transform: rotate(180deg); }
+  .submenu { display: none; grid-column: 1 / -1; padding-bottom: var(--space-3); }
+  .has-menu[data-open] .submenu { display: block; }
   .submenu a {
     min-height: 48px;
     padding-left: var(--space-4);
