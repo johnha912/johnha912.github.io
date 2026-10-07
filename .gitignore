@@ -1,0 +1,27 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+
+# Local tooling output
+node_modules/
+__pycache__/
+*.pyc
+test-reports/
+graphify-out/cache/
+graphify-out/graph.html
+design-system/
+
+# Claude Code local settings
+.claude/settings.local.json
+
+# Camera originals never belong in the repo (they live outside it).
+# Root-level only: git on Windows is case-insensitive, and site/ ships og-image.jpg.
+/*.jpg
+/*.jpeg
+/*.png
+*.heic
+*.raw
+*.cr3

@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Espresso | John’s Coffee Blog</title>
+<meta name="description" content="Why a perfect espresso is so hard to pull, my usual espresso profile, a step-by-step guide, and how TDS shapes extraction.">
+<link rel="canonical" href="https://johnha.info/coffee-blog/espresso/">
+<meta name="theme-color" content="#0a0a0b">
+<meta name="color-scheme" content="dark light">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Nguyen “John” Ha">
+<meta property="og:title" content="Espresso | John’s Coffee Blog">
+<meta property="og:description" content="Why a perfect espresso is so hard to pull, my usual espresso profile, a step-by-step guide, and how TDS shapes extraction.">
+<meta property="og:url" content="https://johnha.info/coffee-blog/espresso/">
+<meta property="og:image" content="https://johnha.info/assets/img/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Nguyen “John” Ha, MSCS at Northeastern with a data engineering focus">
+<meta name="twitter:card" content="summary_large_image">
+<script>(function(){var p="system";try{p=localStorage.getItem("theme")||"system"}catch(e){}var d=document.documentElement;d.dataset.themePref=p;d.dataset.theme=p==="system"?(matchMedia("(prefers-color-scheme: light)").matches?"light":"dark"):p})()</script>
+<link rel="preload" href="/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/site.css">
+<link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<script src="/assets/js/site.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="ambient" aria-hidden="true"></div>
+<header class="nav" data-nav>
+  <div class="container nav__inner">
+    <a class="brand" href="/">
+      <span class="brand__mark" aria-hidden="true"></span>
+      <span class="brand__name">Nguyen “John” Ha</span>
+    </a>
+    <nav class="nav__links" id="site-menu" aria-label="Primary">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about/">About</a></li>
+        <li class="has-menu">
+          <a href="/coffee-blog/">Coffee Blog</a>
+          <button class="submenu-toggle" type="button" aria-expanded="false" aria-controls="coffee-menu"><span class="visually-hidden">Show brew guides</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+          <ul class="submenu" id="coffee-menu">
+            <li><a href="/coffee-blog/pour-over-flash-brew/">Pour Over / Flash Brew</a></li>
+            <li><a href="/coffee-blog/aeropress/">AeroPress</a></li>
+            <li><a href="/coffee-blog/espresso/" aria-current="page">Espresso</a></li>
+            <li><a href="/coffee-blog/vietnamese-phin/">Vietnamese Phin</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+    <div class="nav__actions">
+      <button class="icon-btn" type="button" data-search-open aria-label="Search this site" aria-keyshortcuts="Control+K Meta+K /"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button>
+      <div class="theme-menu" data-theme-menu>
+        <button class="icon-btn" type="button" data-theme-toggle aria-haspopup="true" aria-expanded="false" aria-controls="theme-options" aria-label="Theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="icon-sun"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="icon-moon"><path d="M20.5 13.2A8.5 8.5 0 1 1 10.8 3.5a6.6 6.6 0 0 0 9.7 9.7z"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="icon-monitor"><rect x="2.5" y="4" width="19" height="13" rx="2.5"/><path d="M8 21h8M12 17v4"/></svg></button>
+        <ul class="theme-options sq" id="theme-options" role="menu" aria-label="Theme" hidden>
+          <li role="none"><button type="button" role="menuitemradio" aria-checked="false" data-set-theme="light"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="icon-sun"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>Light</button></li>
+          <li role="none"><button type="button" role="menuitemradio" aria-checked="false" data-set-theme="dark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="icon-moon"><path d="M20.5 13.2A8.5 8.5 0 1 1 10.8 3.5a6.6 6.6 0 0 0 9.7 9.7z"/></svg>Dark</button></li>
+          <li role="none"><button type="button" role="menuitemradio" aria-checked="false" data-set-theme="system"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="icon-monitor"><rect x="2.5" y="4" width="19" height="13" rx="2.5"/><path d="M8 21h8M12 17v4"/></svg>System</button></li>
+        </ul>
+      </div>
+      <button class="icon-btn burger" type="button" data-burger aria-expanded="false" aria-controls="site-menu" aria-label="Open menu"><span class="burger__bars" aria-hidden="true"><span></span><span></span><span></span></span></button>
+    </div>
+  </div>
+</header>
+<main id="main">
+
+<article>
+  <header class="container container--narrow article-head">
+    <nav aria-label="Breadcrumb"><ol class="breadcrumb"><li><a href="/coffee-blog/">Coffee Blog</a></li><li aria-current="page">Espresso</li></ol></nav>
+    <h1 class="page-head__title">Espresso</h1>
+    <div class="article-hero-art sq"><svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Line drawing of an espresso cup with steam"><path d="M30 58h50v8c0 16-11 26-25 26S30 82 30 66z"/><path d="M80 63h6a8 8 0 0 1 0 16h-7"/><ellipse cx="55" cy="58" rx="25" ry="4"/><path d="M20 98h72" /><path d="M28 104h56" opacity=".5"/><path d="M46 28c-4 5 4 8 0 14M58 24c-4 5 4 8 0 14M70 28c-4 5 4 8 0 14"/></svg></div>
+  </header>
+  <div class="container container--narrow prose" style="padding-bottom: var(--space-9)">
+
+    <h2>Do I really need to introduce this?</h2>
+    <p>Just kidding. Espresso is a concentrated brewing method that uses high pressure to push hot water through finely ground coffee, creating a rich, full-bodied shot topped with crema. Developed in Italy, it’s typically brewed in about 25–30 seconds, producing an intense, complex flavor in a small serving (Illy, n.d.; Rao, 2019). It’s the foundation of drinks like lattes, cappuccinos, and Americanos.</p>
+
+    <h2>Is it easy to pull a perfect one?</h2>
+    <p><strong>Of course not!</strong> A perfect espresso is a notoriously elusive goal that demands precision and a deep understanding of technical factors that are hard to control consistently. Small variations in grind size, tamping pressure, or water temperature can throw off extraction, leaving a shot sour, bitter, or unbalanced. Even with advanced equipment, holding the roughly 9 bars of pressure needed for even extraction is challenging: high-end machines can still fluctuate, which disrupts flavor and crema (Daily Coffee News, 2019).</p>
+    <p>The process is unforgiving: small mistakes amplify into real defects. Mastering espresso takes knowledge, skill, near-obsessive attention to detail, and a willingness to keep adjusting. That is why great espresso remains an art few can reliably achieve.</p>
+
+    <h2>My Usual Profile</h2>
+    <dl class="profile">
+      <div><dt>Coffee</dt><dd>18–20 g<small>8–10 g for a single shot</small></dd></div>
+      <div><dt>Grind size</dt><dd>Very fine<small>Similar to table salt</small></dd></div>
+      <div><dt>Water temp.</dt><dd>88–96 °C<small>190–205 °F</small></dd></div>
+      <div><dt>Pressure</dt><dd>8–10 bars</dd></div>
+      <div><dt>Brew time</dt><dd>25–30 s</dd></div>
+      <div><dt>Yield</dt><dd>1 oz (30 ml)<small>Single shot; 2 oz for a double</small></dd></div>
+    </dl>
+
+    <h3>Step-by-step guide by Illy</h3>
+    <ol class="steps">
+      <li><strong>Prepare and dose. </strong>Weigh and grind the coffee to a fine consistency that holds up under pressure without over-extracting (Illy, n.d.).</li>
+      <li><strong>Tamp. </strong>Distribute the coffee evenly in the portafilter and apply firm, consistent pressure for a compact puck, so water flows evenly (Hoffmann, 2018).</li>
+      <li><strong>Brew. </strong>Start the extraction and aim for 25–30 seconds for a balanced shot. If the time is off, adjust grind size or tamping (Rao, 2019).</li>
+      <li><strong>Observe. </strong>The shot should flow smoothly with crema. A fast flow calls for a finer grind; a slow flow, a coarser one (Hoffmann, 2018).</li>
+    </ol>
+
+    <h2>TDS: the number behind the taste</h2>
+    <p>Beyond pressure and grind size, <strong>Total Dissolved Solids (TDS)</strong> plays a crucial role in extraction. TDS measures the concentration of dissolved particles, which drives a shot’s strength, flavor intensity, and mouthfeel. An espresso typically lands around 8–12% TDS, depending on preference and the coffee itself (Correia, Soares, Tribess, &amp; Oliveira, 2019). High TDS often signals over-extraction (bitter and heavy), while low TDS can mean under-extraction (sour or weak). Controlling TDS alongside the other variables is what makes a consistently rich, balanced espresso.</p>
+
+    <section class="references" aria-labelledby="refs">
+      <h2 id="refs">References</h2>
+      <ol>
+        <li>Correia, J., Soares, S., Tribess, A., &amp; Oliveira, A. (2019). Analysing extraction uniformity from porous coffee beds using mathematical modelling and computational fluid dynamics approaches. ResearchGate. <a href="https://www.researchgate.net/publication/334817401_Analysing_extraction_uniformity_from_porous_coffee_beds_using_mathematical_modelling_and_computational_fluid_dynamics_approaches" target="_blank" rel="noopener">https://www.researchgate.net/publication/334817401_Analysing_extraction_uniformity_from_porous_coffee_beds_using_mathematical_modelling_and_computational_fluid_dynamics_approaches</a></li>
+        <li>Daily Coffee News. (2019, July 24). Pressure and flow: A guide for espresso technicians. <a href="https://dailycoffeenews.com/2019/07/24/pressure-and-flow-a-guide-for-espresso-technicians/" target="_blank" rel="noopener">https://dailycoffeenews.com/2019/07/24/pressure-and-flow-a-guide-for-espresso-technicians/</a></li>
+        <li>De’Longhi. (n.d.). How to make the perfect espresso: Brewing it right. Coffee Lounge (original link no longer available).</li>
+        <li>Hoffmann, J. (2018). The World Atlas of Coffee: From beans to brewing. Firefly Books.</li>
+        <li>Illy. (n.d.). Espresso basics. Illy Coffee. <a href="https://www.illy.com" target="_blank" rel="noopener">https://www.illy.com</a></li>
+        <li>Rao, S. (2019). The Coffee Dictionary: An A–Z of coffee, from growing &amp; roasting to brewing &amp; tasting. Octopus Books.</li>
+      </ol>
+    </section>
+    <nav class="pager" aria-label="More brew guides">
+      <a class="link-card sq" href="/coffee-blog/aeropress/"><span><span class="link-card__meta">← Previous</span><br><span class="link-card__title">AeroPress</span></span></a>
+      <a class="link-card sq" href="/coffee-blog/vietnamese-phin/"><span><span class="link-card__meta">Next →</span><br><span class="link-card__title">Vietnamese Phin</span></span></a>
+    </nav>
+  </div>
+</article>
+</main>
+
+<footer class="footer">
+  <div class="container">© <span data-year>2026</span> Nguyen 'John' Ha</div>
+</footer>
+
+<dialog class="search" data-search aria-label="Search this site">
+  <div class="search__bar">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+    <input class="search__input" type="search" placeholder="Search pages, projects, brew guides…" aria-label="Search" aria-controls="search-results" autocomplete="off" spellcheck="false">
+    <kbd class="kbd">Esc</kbd>
+  </div>
+  <ul class="search__results" id="search-results" role="listbox" data-search-results></ul>
+</dialog>
+</body>
+</html>
