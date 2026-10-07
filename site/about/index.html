@@ -1,14 +1,27 @@
 <!doctype html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-F5CQP78SJK"></script>
+<!-- Google tag (gtag.js) with Consent Mode v2: no analytics cookies until the visitor opts in -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    analytics_storage: 'denied',
+    wait_for_update: 500
+  });
+  try {
+    var consent = JSON.parse(localStorage.getItem('cookie-consent') || 'null');
+    if (consent && consent.v === 1 && consent.analytics && Date.now() - consent.ts < 31536000000) {
+      gtag('consent', 'update', { analytics_storage: 'granted' });
+    }
+  } catch (e) {}
   gtag('js', new Date());
   gtag('config', 'G-F5CQP78SJK');
 </script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-F5CQP78SJK"></script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>About Me | Nguyen “John” Ha</title>
@@ -140,8 +153,40 @@
   <div class="container footer__inner">
     <a class="to-top" href="#top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg><span>Back to top</span></a>
     <p>© <span data-year>2026</span> Nguyen 'John' Ha</p>
+    <ul class="footer__links">
+      <li><a href="/privacy/">Privacy</a></li>
+      <li><button type="button" data-consent-open>Cookie settings</button></li>
+    </ul>
   </div>
 </footer>
+
+<section class="consent" data-consent hidden aria-labelledby="consent-title" aria-describedby="consent-desc">
+  <div class="consent__card sq">
+    <div class="consent__head">
+      <span class="consent__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.6A9 9 0 1 1 11.4 3a3.5 3.5 0 0 0 4.4 4.4 3.5 3.5 0 0 0 5.2 5.2z"/><circle cx="8.5" cy="10.5" r="1" fill="currentColor" stroke="none"/><circle cx="12" cy="15.5" r="1" fill="currentColor" stroke="none"/><circle cx="16" cy="13" r=".9" fill="currentColor" stroke="none"/><circle cx="8" cy="15" r=".8" fill="currentColor" stroke="none"/></svg></span>
+      <div>
+        <h2 class="consent__title" id="consent-title">Your privacy choices</h2>
+        <p class="consent__desc" id="consent-desc">I use Google Analytics cookies to see which pages are read and improve the site. No ads, and your data is never sold. You can change your choice any time. <a href="/privacy/">Privacy policy</a></p>
+      </div>
+    </div>
+    <div class="consent__prefs" data-consent-prefs hidden>
+      <div class="consent__opt">
+        <span><strong>Strictly necessary</strong><small>Remembers your theme and this cookie choice on your device. Always on.</small></span>
+        <input type="checkbox" class="switch" checked disabled aria-label="Strictly necessary storage, always on">
+      </div>
+      <label class="consent__opt">
+        <span><strong>Analytics</strong><small>Google Analytics 4: pages viewed, referring site, device type, and approximate location.</small></span>
+        <input type="checkbox" class="switch" role="switch" data-consent-analytics>
+      </label>
+    </div>
+    <div class="consent__actions">
+      <button type="button" class="consent__link" data-consent-customize aria-expanded="false">Customize</button>
+      <button type="button" class="btn btn--primary" data-consent-reject>Reject all</button>
+      <button type="button" class="btn btn--ghost" data-consent-save hidden>Save choices</button>
+      <button type="button" class="btn btn--primary" data-consent-accept>Accept all</button>
+    </div>
+  </div>
+</section>
 
 <dialog class="search" data-search aria-label="Search this site">
   <div class="search__bar">

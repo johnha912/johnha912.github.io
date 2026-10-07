@@ -25,6 +25,12 @@ How to keep johnha.info healthy after launch.
 - Update the education line if dates change; keep "2025 – 2028 (expected)" until graduation.
 - Re-run a Lighthouse mobile audit on the home page (targets: Performance ≥ 90, Accessibility ≥ 95).
 
+## Analytics and cookie consent
+
+- Google Analytics 4 property "Personal Website" (`G-F5CQP78SJK`). The tag is in the shared `<head>` of every page, after a Consent Mode v2 block that defaults all storage to denied.
+- The cookie banner and Cookie settings live in `site/assets/js/site.js` ("Cookie consent" section). The visitor's choice is stored in `localStorage` as `cookie-consent` (`{ v: 1, analytics, ts }`) and expires after 12 months. Bump `v` in both the head block and `site.js` if the cookie categories ever change, so everyone is asked again.
+- If you add any new cookie or tracker, update `site/privacy/index.html` first.
+
 ## Domain
 
 DNS lives at Namecheap and is changed only by the owner. See `docs/DOMAIN-MIGRATION.md`. Keep `site/CNAME` containing exactly `johnha.info`.

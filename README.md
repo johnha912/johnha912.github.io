@@ -49,6 +49,7 @@
 - **Squircle photo frames** (`corner-shape: squircle`) with rounded-corner fallback, film grain, soft aurora glow, and a sticky glass nav.
 - **Command-palette search** (<kbd>Ctrl</kbd>/<kbd>⌘</kbd> + <kbd>K</kbd> or <kbd>/</kbd>), scroll reveals, and cross-page view transitions. All motion respects `prefers-reduced-motion`.
 - Responsive WebP images with `srcset`, Open Graph cards, JSON-LD, sitemap, and a custom 404.
+- Google Analytics 4 behind a cookie consent banner (Consent Mode v2: nothing is stored until the visitor accepts), plus a privacy page.
 
 ## Repository layout
 

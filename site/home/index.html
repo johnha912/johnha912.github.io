@@ -1,14 +1,27 @@
 <!doctype html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-F5CQP78SJK"></script>
+<!-- Google tag (gtag.js) with Consent Mode v2: no analytics cookies until the visitor opts in -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    analytics_storage: 'denied',
+    wait_for_update: 500
+  });
+  try {
+    var consent = JSON.parse(localStorage.getItem('cookie-consent') || 'null');
+    if (consent && consent.v === 1 && consent.analytics && Date.now() - consent.ts < 31536000000) {
+      gtag('consent', 'update', { analytics_storage: 'granted' });
+    }
+  } catch (e) {}
   gtag('js', new Date());
   gtag('config', 'G-F5CQP78SJK');
 </script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-F5CQP78SJK"></script>
 <meta charset="utf-8">
 <title>Redirecting…</title>
 <link rel="canonical" href="https://johnha.info/">
