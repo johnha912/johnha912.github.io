@@ -4,7 +4,7 @@
 
 # Nguyen “John” Ha · Portfolio
 
-**MSCS @ Northeastern · data engineering focus · business/marketing roots**
+**MSCS @ Northeastern University · data engineering focus · business/marketing roots**
 
 [**johnha.info**](https://johnha.info) · [LinkedIn](https://www.linkedin.com/in/nguyenha912/) · [GitHub](https://github.com/johnha912) · [Email](mailto:johnha0912@gmail.com)
 
