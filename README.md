@@ -15,20 +15,20 @@
 <br>
 
 <p align="center">
-  <img src="docs/screenshots/home-desktop-dark-v2.webp" alt="Home page in dark mode on desktop" width="100%">
+  <img src="docs/screenshots/home-desktop-dark-v3.webp" alt="Home page in dark mode on desktop" width="100%">
 </p>
 
 <table>
   <tr>
-    <td width="33%"><img src="docs/screenshots/home-mobile-dark-v2.webp" alt="Home page on a phone, dark mode"></td>
-    <td width="33%"><img src="docs/screenshots/home-mobile-light-v2.webp" alt="Home page on a phone, light mode"></td>
-    <td width="33%"><img src="docs/screenshots/about-mobile-light-v2.webp" alt="About page on a phone, light mode"></td>
+    <td width="33%"><img src="docs/screenshots/home-mobile-dark-v3.webp" alt="Home page on a phone, dark mode"></td>
+    <td width="33%"><img src="docs/screenshots/home-mobile-light-v3.webp" alt="Home page on a phone, light mode"></td>
+    <td width="33%"><img src="docs/screenshots/about-mobile-light-v3.webp" alt="About page on a phone, light mode"></td>
   </tr>
 </table>
 
 <p align="center">
-  <img src="docs/screenshots/tech-desktop-dark-v2.webp" alt="Projects page with pipeline diagrams" width="49%">
-  <img src="docs/screenshots/coffee-desktop-light-v2.webp" alt="Coffee blog with four brew guides" width="49%">
+  <img src="docs/screenshots/tech-desktop-dark-v3.webp" alt="Projects page with pipeline diagrams" width="49%">
+  <img src="docs/screenshots/coffee-desktop-light-v3.webp" alt="Coffee blog with four brew guides" width="49%">
 </p>
 
 ## What's inside
