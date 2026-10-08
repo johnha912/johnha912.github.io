@@ -6,8 +6,8 @@ Source of truth for tokens and components. Implementation: `site/assets/css/site
 
 ## 1. Themes
 
-- Three modes in the header menu: **Light / Dark / System** (default **System**). The choice is saved per device in `localStorage("theme")`.
-- `<html data-theme="light|dark">` is the resolved theme; `data-theme-pref` is the user's choice. An inline script in `<head>` resolves it before first paint, so there is no flash.
+- Two modes, **Dark** (default) and **Light**, switched by one header button. The device's system setting is ignored. The choice is saved per device in `localStorage("theme")`.
+- `<html data-theme="light|dark">` is the active theme. An inline script in `<head>` resolves it before first paint, so there is no flash.
 - With JavaScript off, the site renders in dark (the design's primary mode).
 
 ## 2. Color tokens
@@ -62,8 +62,8 @@ Display tracking `-0.035em`, display line-height `1.04`, body line-height `1.65`
 | Article figure | In-body photo in a squircle frame, caption plus a credit line (title, author, license, Wikimedia Commons). Landscape figures span the prose width; portrait ones cap at 26rem and center. |
 | Chart figure | Elevated card: title, one-line subtitle, Plotly chart (lazy-loaded), "Show the data as a table" disclosure, and a source line. Ordinal green ramps validated against each theme's surface: dark `#d1fae5 #6ee7b7 #34d399 #059669`, light `#064e3b #047857 #059669 #10b981`; hairline solid crosshair; text never wears the series color. |
 | Cookie consent | Glass card fixed bottom-left on desktop (30rem) and full width on mobile; cookie icon, title, short copy, privacy link; Accept all and Reject all share the same filled style (equal prominence), Customize is a text link that reveals switches (Strictly necessary locked on, Analytics). Footer has Privacy and Cookie settings links. Slides up 16px on open; reduced motion shows it instantly. |
-| Sticky glass nav | 64px, `backdrop-filter: blur(18px) saturate(160%)`, hairline bottom border. Desktop (≥ 60rem): Home, About, Tech, Coffee Blog (hover/focus/click dropdown), Music, Photography, Contact. Below 60rem: full-screen sheet with large links (the four brew guides start collapsed under a chevron next to Coffee Blog) (the breakpoint is 60rem, not 48rem, so seven links never crowd the actions). Actions: search, theme menu, burger. |
-| Theme menu | Icon button showing the current preference (sun/moon/monitor) → `role="menu"` with three `menuitemradio` items; arrow keys, Esc, outside click. |
+| Sticky glass nav | 64px, `backdrop-filter: blur(18px) saturate(160%)`, hairline bottom border. Desktop (≥ 60rem): Home, About, Tech, Coffee Blog (hover/focus/click dropdown), Music, Photography, Contact. Below 60rem: full-screen sheet with large links (the four brew guides start collapsed under a chevron next to Coffee Blog) (the breakpoint is 60rem, not 48rem, so seven links never crowd the actions). Layout: burger (below 60rem) and logo on the left, then the links; search and theme toggle on the right. |
+| Theme toggle | One icon button showing the theme it switches to (sun in dark, moon in light); its label reads "Switch to light/dark theme". |
 | Search palette | `<dialog>` command palette over a static page index. Opens with the search icon, Ctrl/⌘+K, or "/". Arrow keys + Enter. |
 | Photo frame (`.frame`) | Squircle clip, 1px inner hairline ring, `object-fit: cover`. |
 | Home button stack | Five wide rows (title + one-line description + arrow chip); green cursor-following spotlight on hover, arrow chip fills green and the arrow nudges forward. Every row uses the same arrow glyph; external links (Music, Photography) show it rotated 45° and announce "opens in a new tab". |

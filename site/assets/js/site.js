@@ -3,43 +3,18 @@
   const root = document.documentElement;
   root.classList.add("js");
 
-  /* ---------- Theme: Light / Dark / System (remembered per device) ---------- */
+  /* ---------- Theme: Dark (default) / Light, remembered per device ---------- */
   const themeBtn = document.querySelector("[data-theme-toggle]");
-  const themeList = document.getElementById("theme-options");
-  const systemLight = matchMedia("(prefers-color-scheme: light)");
-  const applyTheme = (pref) => {
-    root.dataset.themePref = pref;
-    root.dataset.theme = pref === "system" ? (systemLight.matches ? "light" : "dark") : pref;
-    themeBtn?.setAttribute("aria-label", `Theme: ${pref[0].toUpperCase() + pref.slice(1)}`);
-    themeList?.querySelectorAll("[data-set-theme]").forEach((b) => b.setAttribute("aria-checked", String(b.dataset.setTheme === pref)));
-    document.querySelector('meta[name="theme-color"]')?.setAttribute("content", root.dataset.theme === "light" ? "#f6f5f3" : "#0a0a0b");
+  const applyTheme = (theme) => {
+    root.dataset.theme = theme;
+    themeBtn?.setAttribute("aria-label", `Switch to ${theme === "dark" ? "light" : "dark"} theme`);
+    document.querySelector('meta[name="theme-color"]')?.setAttribute("content", theme === "light" ? "#f6f5f3" : "#0a0a0b");
   };
-  const setThemeMenu = (open) => {
-    if (!themeList) return;
-    themeList.hidden = !open;
-    themeBtn.setAttribute("aria-expanded", String(open));
-    if (open) (themeList.querySelector('[aria-checked="true"]') || themeList.querySelector("button")).focus();
-  };
-  applyTheme(root.dataset.themePref || "system");
-  systemLight.addEventListener("change", () => root.dataset.themePref === "system" && applyTheme("system"));
-  themeBtn?.addEventListener("click", () => setThemeMenu(themeList.hidden));
-  themeList?.addEventListener("click", (e) => {
-    const b = e.target.closest("[data-set-theme]");
-    if (!b) return;
-    applyTheme(b.dataset.setTheme);
-    try { localStorage.setItem("theme", b.dataset.setTheme); } catch {}
-    setThemeMenu(false);
-    themeBtn.focus();
-  });
-  themeList?.addEventListener("keydown", (e) => {
-    const items = [...themeList.querySelectorAll("button")];
-    const i = items.indexOf(document.activeElement);
-    if (e.key === "ArrowDown") { e.preventDefault(); items[(i + 1) % items.length].focus(); }
-    if (e.key === "ArrowUp") { e.preventDefault(); items[(i - 1 + items.length) % items.length].focus(); }
-    if (e.key === "Tab") setThemeMenu(false);
-  });
-  document.addEventListener("click", (e) => {
-    if (themeList && !themeList.hidden && !e.target.closest("[data-theme-menu]")) setThemeMenu(false);
+  applyTheme(root.dataset.theme === "light" ? "light" : "dark");
+  themeBtn?.addEventListener("click", () => {
+    const next = root.dataset.theme === "dark" ? "light" : "dark";
+    applyTheme(next);
+    try { localStorage.setItem("theme", next); } catch {}
   });
 
   /* ---------- Mobile menu ---------- */
@@ -68,7 +43,6 @@
 
   document.addEventListener("keydown", (e) => {
     if (e.key !== "Escape") return;
-    if (themeList && !themeList.hidden) { setThemeMenu(false); themeBtn.focus(); }
     if (nav?.hasAttribute("data-open")) { setMenu(false); burger.focus(); }
     document.querySelectorAll(".has-menu[data-open]").forEach((m) => {
       m.removeAttribute("data-open");
