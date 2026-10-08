@@ -64,7 +64,7 @@ Content agents may **only** use the facts in this section. If a fact is missing,
 **Homepage — preserve the old landing page's structure.** The layout does not change; only the styling does (Section 4's 2026 look is applied *to* this skeleton). Top to bottom:
 
 1. **Header** — logo mark + "Nguyen 'John' Ha" on the left; nav on the right: **Home, About, Tech, "Coffee Blog"** (dropdown with the four brew guides: Pour Over / Flash Brew, AeroPress, Espresso, Vietnamese Phin), **Music, Photography, Contact**, plus the search icon as on the old site. (Owner request 2026-10-07: the header mirrors the homepage section stack so every section is one click away from any page.)
-2. **Centered hero** — portrait image above the two-line welcome heading **"Welcome to / John's Portfolio!"** (correct spelling — the old site's "Porfolio" typo is silently fixed and never reproduced). **One** modern addition is allowed: a one-line positioning subtitle under the heading — "MSCS @ Northeastern University · data engineering focus · business/marketing roots" (owner correction 2026-10-07: always the full name, Northeastern University).
+2. **Centered hero** — portrait image above the two-line welcome heading **"Welcome to / John's Portfolio!"** (correct spelling — the old site's "Porfolio" typo is silently fixed and never reproduced). **One** modern addition is allowed: a one-line positioning subtitle under the heading — "MSCS @ Northeastern University · Data Engineering Focus · Business/Marketing Roots" (owner correction 2026-10-07: always the full name, Northeastern University).
 3. **Social row** — three circular buttons directly under the heading area: LinkedIn (linkedin.com/in/nguyenha912), GitHub (github.com/johnha912), Instagram (instagram.com/johnha.ns).
 4. **Section button stack** — the signature element: five large, wide buttons in a vertical stack, in this order: **Tech, Coffee, Music, Photography, Contact**. This stack is the page's main navigation device. (Tech opens the internal Projects page; Music/Photography may link externally per the rows above; Contact opens the internal contact page/section.)
 5. **Footer** — minimal, centered: a "Back to top" button (owner request 2026-10-07, on every page) above "© <year> Nguyen 'John' Ha".
@@ -75,7 +75,7 @@ Every page also needs: meta title, meta description, and Open Graph text (drafte
 
 ## 4. Design direction (2026)
 
-- **Dark-mode-first design**, with a **Light / Dark / System** theme menu that defaults to System (owner decision 2026-10-07). Both modes are designed, not inverted afterthoughts.
+- **Dark-mode-first design**, with a one-button **Dark / Light** theme toggle that defaults to Dark (owner decision 2026-10-07; replaced the Light / Dark / System menu). Both modes are designed, not inverted afterthoughts.
 - **Typography:** Inter (variable, self-hosted WOFF2) for a clean, Tesla-like look that renders identically on every phone and PC (owner decision 2026-10-07); JetBrains Mono for small technical labels.
 - **Rounded photos:** images sit in rounded frames that become true squircles (`corner-shape: squircle`) in browsers that support it, with ordinary rounded corners elsewhere.
 - **Mirrored homepage, restyled** — the home page keeps the old landing page's layout exactly as specced in Section 3; the styling in this section is applied to that skeleton, never a re-layout. A bento/grid card treatment may be used on the **Tech/Projects page** instead.

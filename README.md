@@ -4,7 +4,7 @@
 
 # Nguyen “John” Ha · Portfolio
 
-**MSCS @ Northeastern University · data engineering focus · business/marketing roots**
+**MSCS @ Northeastern University · Data Engineering Focus · Business/Marketing Roots**
 
 [**johnha.info**](https://johnha.info) · [LinkedIn](https://www.linkedin.com/in/nguyenha912/) · [GitHub](https://github.com/johnha912) · [Email](mailto:johnha0912@gmail.com)
 
@@ -69,7 +69,7 @@ Every page shares the same header and footer:
 ## Built with
 
 - **Plain HTML, CSS, and vanilla JS.** No framework and no build step; the home page loads in about 220 KB.
-- **Design tokens** for dark and light themes, with a **Light / Dark / System** menu that follows the device setting.
+- **Design tokens** for dark and light themes, with a one-tap **Dark / Light** toggle (Dark by default).
 - **Inter** variable font, self-hosted, so every phone and PC renders the same type.
 - **Squircle photo frames** (`corner-shape: squircle`) with rounded-corner fallback, film grain, soft aurora glow, and a sticky glass nav.
 - **Command-palette search** (<kbd>Ctrl</kbd>/<kbd>⌘</kbd> + <kbd>K</kbd> or <kbd>/</kbd>), scroll reveals, and cross-page view transitions. All motion respects `prefers-reduced-motion`.

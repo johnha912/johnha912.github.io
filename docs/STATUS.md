@@ -41,6 +41,8 @@ _Last updated: 2026-10-07_
 - **2026-10-07:** Featured project cards drop the "Flagship" and "Solo project" labels; only the "In progress" pill remains.
 - **2026-10-07:** About collage order: survey presentation, trade showcase, then the food pantry volunteering photo last (it replaced the Google photo on 2026-10-07). On phones the survey presentation photo is the full-width one below two squares (trade showcase, food pantry).
 - **2026-10-07:** Header nav adds the homepage sections (Tech, Music, Photography, Contact) next to Home, About, Coffee Blog on every page; the burger menu now covers widths below 960px so the longer nav fits.
+- **2026-10-07:** Homepage subtitle in title case: "MSCS @ Northeastern University · Data Engineering Focus · Business/Marketing Roots" (MSCS stays all caps).
+- **2026-10-07:** Header reordered to the common pattern: burger menu (phones) and logo on the left, nav links next to the logo, search and theme on the right. Theme is now a single Dark / Light toggle, default Dark; the System option is gone (replaces the earlier Light / Dark / System decision).
 - **2026-10-07:** Add the taste-skill and UI UX Pro Max skills to the agent team (installed and logged in `docs/TOOLS.md`). Install Anthropic's `frontend-design` plugin (owner runs the command; see Toolchain).
 
 ## Orchestrator decisions

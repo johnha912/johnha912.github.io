@@ -306,7 +306,6 @@ main { flex: 1; padding-top: var(--nav-h); }
   align-items: center;
   gap: var(--space-3);
   min-height: 44px;
-  margin-right: auto;
   text-decoration: none;
   font-weight: 600;
   letter-spacing: var(--tracking-tight);
@@ -378,7 +377,7 @@ main { flex: 1; padding-top: var(--nav-h); }
 .nav__links a[aria-current="page"] { color: var(--text); }
 .nav__links a[aria-current="page"] { background: var(--surface-2); }
 
-.nav__actions { display: flex; align-items: center; gap: var(--space-1); }
+.nav__actions { display: flex; align-items: center; gap: var(--space-1); margin-left: auto; }
 .icon-btn {
   display: inline-grid;
   place-items: center;
@@ -391,55 +390,13 @@ main { flex: 1; padding-top: var(--nav-h); }
 .icon-btn:hover { color: var(--text); background: var(--surface-2); }
 .icon-btn svg { width: 20px; height: 20px; }
 
-/* Theme menu: Light / Dark / System */
-.theme-menu { position: relative; }
+/* Theme toggle: shows the theme it switches to */
 [data-theme-toggle] svg { display: none; }
-:root[data-theme-pref="light"] [data-theme-toggle] .icon-sun,
-:root[data-theme-pref="dark"] [data-theme-toggle] .icon-moon,
-:root[data-theme-pref="system"] [data-theme-toggle] .icon-monitor,
-:root:not([data-theme-pref]) [data-theme-toggle] .icon-monitor { display: block; }
-.theme-options {
-  position: absolute;
-  top: calc(100% + 8px);
-  right: 0;
-  z-index: 60;
-  min-width: 10.5rem;
-  padding: var(--space-2);
-  list-style: none;
-  border: 1px solid var(--glass-border);
-  border-radius: var(--r-md);
-  background: var(--bg-elev);
-  box-shadow: var(--shadow-lg);
-  animation: pop var(--dur) var(--ease-out);
-}
-.theme-options[hidden] { display: none; }
-.theme-options button {
-  display: flex;
-  align-items: center;
-  gap: var(--space-3);
-  width: 100%;
-  min-height: 44px;
-  padding-inline: var(--space-3);
-  border-radius: var(--r-sm);
-  color: var(--text-muted);
-  font-size: var(--fs-sm);
-  font-weight: 500;
-  text-align: left;
-}
-.theme-options button svg { width: 18px; height: 18px; }
-.theme-options button:hover,
-.theme-options button:focus-visible { background: var(--surface-2); color: var(--text); }
-.theme-options button[aria-checked="true"] { color: var(--text); background: var(--surface-2); }
-.theme-options button[aria-checked="true"]::after {
-  content: "";
-  width: 6px;
-  height: 6px;
-  margin-left: auto;
-  border-radius: 50%;
-  background: var(--accent);
-}
+:root[data-theme="dark"] [data-theme-toggle] .icon-sun,
+:root[data-theme="light"] [data-theme-toggle] .icon-moon { display: block; }
 
-/* Burger */
+/* Burger: sits left of the logo; negative margin lines the bars up with the page gutter */
+.burger { margin-left: -13px; }
 .burger__bars { position: relative; width: 18px; height: 12px; }
 .burger__bars span {
   position: absolute;
