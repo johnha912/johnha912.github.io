@@ -39,6 +39,7 @@
 | **About** | Photo collage, career path (marketing & market research → financial engineering → computer science & data), education timeline, certificates |
 | **Tech** | Featured in-progress projects with architecture diagrams: *Product Analytics ELT Pipeline* and *OmniRAG Data Platform Upgrade*; earlier work (JOIN-order DP optimizer, OmniRAG, the jivec C compiler); toolbox |
 | **Coffee Blog** | Brew guides for pour over / flash brew, AeroPress, espresso, and Vietnamese phin, each with a recipe profile, steps, credited photos, and references; the espresso guide has an interactive TDS brewing control chart |
+| **Music** | Fun Mix Radio #3, #2, #1 with SoundCloud players that load only when you press play |
 | **Contact** | One-click email plus LinkedIn, GitHub, and Instagram |
 
 ## Site structure
@@ -53,17 +54,18 @@ johnha.info
 │   ├── /aeropress/
 │   ├── /espresso/                 includes the interactive TDS brewing control chart
 │   └── /vietnamese-phin/
+├── /music/                        Music: Fun Mix Radio tracks, click-to-load SoundCloud players
 ├── /contact/                      Email button with copy-address, social links
 ├── /privacy/                      Analytics and cookie policy
 ├── /home/                         Redirects to /
 └── /404.html                      Custom not-found page
 
-External sections: Music → SoundCloud · Photography → Instagram
+External section: Photography → Instagram
 ```
 
 Every page shares the same header and footer:
 
-- **Header nav:** Home · About · Tech · Coffee Blog ▾ (the four brew guides) · Music ↗ · Photography ↗ · Contact, plus search and the theme menu. Below 960px the links fold into a full-screen menu, where the brew guides collapse behind a chevron.
+- **Header nav:** Home · About · Tech · Coffee Blog ▾ (the four brew guides) · Music · Photography ↗ · Contact, plus search and the theme menu. Below 960px the links fold into a full-screen menu, where the brew guides collapse behind a chevron.
 - **Footer:** Back to top, ©, Privacy, and Cookie settings.
 
 ## Built with

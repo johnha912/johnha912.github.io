@@ -67,7 +67,7 @@
     { t: "Vietnamese Phin", u: "/coffee-blog/vietnamese-phin/", s: "Coffee", k: "ca phe sua da condensed milk robusta" },
     { t: "Contact", u: "/contact/", s: "Page", k: "email linkedin github instagram hire internship" },
     { t: "Privacy Policy", u: "/privacy/", s: "Page", k: "privacy cookies analytics consent data" },
-    { t: "Music on SoundCloud", u: "https://soundcloud.com/johnhamusic", s: "External", k: "music soundcloud" },
+    { t: "Music", u: "/music/", s: "Page", k: "music soundcloud songs tracks listen" },
     { t: "Photography on Instagram", u: "https://www.instagram.com/johnha.ns/", s: "External", k: "photography photos instagram" },
   ];
   const dialog = document.querySelector("[data-search]");
@@ -227,6 +227,18 @@
 
     if (!read()) show();
   }
+
+  /* ---------- Click-to-load embeds: no third-party cookies until the visitor asks ---------- */
+  document.querySelectorAll("[data-embed]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const frame = document.createElement("iframe");
+      frame.src = btn.dataset.embed;
+      frame.title = btn.dataset.embedTitle;
+      frame.allow = "autoplay; encrypted-media";
+      btn.replaceWith(frame);
+      frame.focus();
+    });
+  });
 
   /* ---------- Footer year ---------- */
   document.querySelectorAll("[data-year]").forEach((el) => { el.textContent = new Date().getFullYear(); });
