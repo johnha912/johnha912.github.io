@@ -66,7 +66,7 @@ Display tracking `-0.035em`, display line-height `1.04`, body line-height `1.65`
 | Theme toggle | One icon button showing the theme it switches to (sun in dark, moon in light); its label reads "Switch to light/dark theme". |
 | Search palette | `<dialog>` command palette over a static page index. Opens with the search icon, Ctrl/⌘+K, or "/". Arrow keys + Enter. |
 | Photo frame (`.frame`) | Squircle clip, 1px inner hairline ring, `object-fit: cover`. |
-| Home button stack | Five wide rows (title + one-line description + arrow chip); green cursor-following spotlight on hover, arrow chip fills green and the arrow nudges forward. Every row uses the same arrow glyph; external links (Music, Photography) show it rotated 45° and announce "opens in a new tab". |
+| Home button stack | Five wide rows (title + one-line description + arrow chip); green cursor-following spotlight on hover, arrow chip fills green and the arrow nudges forward. Every row uses the same arrow glyph; external links (Photography) show it rotated 45° and announce "opens in a new tab". |
 | Project card (Tech) | Bento feature row: status pill, title, description, mono tech chips, and a pipeline diagram drawn from the brief's real architecture (not a fake screenshot). |
 | Brew card (Coffee) | Original line-art illustration on a warm crema glow, title, one-line description. |
 | Article (Coffee) | Breadcrumb, H1, hero art, prose, "My Usual Profile" stat tiles, numbered step timeline, tip box, references, prev/next pager. |

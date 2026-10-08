@@ -1,6 +1,6 @@
 # STATUS.md
 
-_Last updated: 2026-10-07_
+_Last updated: 2026-10-08_
 
 ## Where the build stands
 
@@ -44,6 +44,9 @@ _Last updated: 2026-10-07_
 - **2026-10-07:** Homepage subtitle in title case: "MSCS @ Northeastern University · Data Engineering Focus · Business/Marketing Roots" (MSCS stays all caps).
 - **2026-10-07:** Header reordered to the common pattern: burger menu (phones) and logo on the left, nav links next to the logo, search and theme on the right. Theme is now a single Dark / Light toggle, default Dark; the System option is gone (replaces the earlier Light / Dark / System decision).
 - **2026-10-07:** Add the taste-skill and UI UX Pro Max skills to the agent team (installed and logged in `docs/TOOLS.md`). Install Anthropic's `frontend-design` plugin (owner runs the command; see Toolchain).
+
+- **2026-10-08:** Music becomes an internal `/music/` page embedding Fun Mix Radio #3, #2, #1 (in that order) from soundcloud.com/johnhamusic. Players load only on click (no SoundCloud cookies before then); the privacy page notes this.
+- **2026-10-08:** Music players use SoundCloud's visual mode in square cards (three across on desktop, stacked on phones), with local cover art before play. Owner fact: besides data work, John is passionate about EDM; the Music intro says so.
 
 ## Orchestrator decisions
 
