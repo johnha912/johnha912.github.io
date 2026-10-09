@@ -57,7 +57,7 @@
     { t: "Projects", u: "/tech/", s: "Tech", k: "tech skills python sql pandas numpy streamlit dbt airflow postgres pgvector" },
     { t: "Product Analytics ELT Pipeline", u: "/tech/#elt-pipeline", s: "Tech · Featured", k: "dbt airflow star schema warehouse dashboard ingestion metrics" },
     { t: "OmniRAG Data Platform Upgrade", u: "/tech/#omnirag-upgrade", s: "Tech · Featured", k: "postgres pgvector lineage data quality eval ingestion" },
-    { t: "JOIN Order Optimization", u: "/tech/#join-order", s: "Tech · Earlier work", k: "dynamic programming matrix chain sql sqlite query optimizer algorithms cs 5800" },
+    { t: "JOIN Order Optimization", u: "/tech/#join-order", s: "Tech · Earlier work", k: "dynamic programming matrix chain sql sqlite query optimizer algorithms cs 5800 v2 benchmark duckdb postgres dbt tpc-h plotly" },
     { t: "OmniRAG (team project)", u: "/tech/#omnirag", s: "Tech · Earlier work", k: "rag java spring boot retrieval augmented generation" },
     { t: "jivec compiler", u: "/tech/#jivec", s: "Tech · Earlier work", k: "c compiler x86-64 nasm assembly jive cs 5008" },
     { t: "Coffee Blog", u: "/coffee-blog/", s: "Coffee", k: "coffee lover brew guides recipes" },
