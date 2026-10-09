@@ -49,6 +49,7 @@ _Last updated: 2026-10-08_
 - **2026-10-08:** Music players use SoundCloud's visual mode in square cards (three across on desktop, stacked on phones), with local cover art before play. Owner fact: besides data work, John is passionate about EDM; the Music intro says so.
 
 - **2026-10-08:** JOIN Order Optimization card gets a v2 line (solo rebuild, Fall 2026) and two GitHub buttons: "v1 on GitHub" (JoinOrderOptimizationDP, team) and "v2 on GitHub" (join-order-bench, solo). Still under "Earlier work".
+- **2026-10-08:** jivec is an individual course project assigned by Professor Lothar Narins at Northeastern University, not a solo project. Its card says so (the owner asked for the professor and school here, an exception to the 2026-10-07 "no school name" rule for Earlier work cards).
 
 ## Orchestrator decisions
 

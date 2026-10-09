@@ -59,7 +59,7 @@
     { t: "OmniRAG Data Platform Upgrade", u: "/tech/#omnirag-upgrade", s: "Tech · Featured", k: "postgres pgvector lineage data quality eval ingestion" },
     { t: "JOIN Order Optimization", u: "/tech/#join-order", s: "Tech · Earlier work", k: "dynamic programming matrix chain sql sqlite query optimizer algorithms cs 5800 v2 benchmark duckdb postgres dbt tpc-h plotly" },
     { t: "OmniRAG (team project)", u: "/tech/#omnirag", s: "Tech · Earlier work", k: "rag java spring boot retrieval augmented generation" },
-    { t: "jivec compiler", u: "/tech/#jivec", s: "Tech · Earlier work", k: "c compiler x86-64 nasm assembly jive cs 5008" },
+    { t: "jivec compiler", u: "/tech/#jivec", s: "Tech · Earlier work", k: "c compiler x86-64 nasm assembly jive cs 5008 lothar narins course project" },
     { t: "Coffee Blog", u: "/coffee-blog/", s: "Coffee", k: "coffee lover brew guides recipes" },
     { t: "Pour Over / Flash Brew", u: "/coffee-blog/pour-over-flash-brew/", s: "Coffee", k: "v60 japanese iced coffee bloom pour" },
     { t: "AeroPress", u: "/coffee-blog/aeropress/", s: "Coffee", k: "inverted immersion pressure" },
