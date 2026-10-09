@@ -48,6 +48,8 @@ _Last updated: 2026-10-08_
 - **2026-10-08:** Music becomes an internal `/music/` page embedding Fun Mix Radio #3, #2, #1 (in that order) from soundcloud.com/johnhamusic. Players load only on click (no SoundCloud cookies before then); the privacy page notes this.
 - **2026-10-08:** Music players use SoundCloud's visual mode in square cards (three across on desktop, stacked on phones), with local cover art before play. Owner fact: besides data work, John is passionate about EDM; the Music intro says so.
 
+- **2026-10-08:** JOIN Order Optimization card gets a v2 line (solo rebuild, Fall 2026) and two GitHub buttons: "v1 on GitHub" (JoinOrderOptimizationDP, team) and "v2 on GitHub" (join-order-bench, solo). Still under "Earlier work".
+
 ## Orchestrator decisions
 
 - Repo layout: published site in `site/`, docs in `docs/`, agents and skills in `.claude/`. Only `site/` is deployed.
