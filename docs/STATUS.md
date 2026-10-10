@@ -1,6 +1,6 @@
 # STATUS.md
 
-_Last updated: 2026-10-08_
+_Last updated: 2026-10-10_
 
 ## Where the build stands
 
@@ -50,6 +50,8 @@ _Last updated: 2026-10-08_
 
 - **2026-10-08:** JOIN Order Optimization card gets a v2 line (solo rebuild, Fall 2026) and two GitHub buttons: "v1 on GitHub" (JoinOrderOptimizationDP, team) and "v2 on GitHub" (join-order-bench, solo). Still under "Earlier work".
 - **2026-10-08:** jivec is an individual course project assigned by Professor Lothar Narins at Northeastern University, not a solo project. Its card says so (the owner asked for the professor and school here, an exception to the 2026-10-07 "no school name" rule for Earlier work cards).
+
+- **2026-10-10:** The theme toggle becomes a sun/moon pill switch (modeled on speedtest.net): both icons visible, an emerald thumb slides under the active theme. Still one tap, still Dark by default.
 
 ## Orchestrator decisions
 

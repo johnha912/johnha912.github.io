@@ -76,7 +76,7 @@ Every page also needs: meta title, meta description, and Open Graph text (drafte
 
 ## 4. Design direction (2026)
 
-- **Dark-mode-first design**, with a one-button **Dark / Light** theme toggle that defaults to Dark (owner decision 2026-10-07; replaced the Light / Dark / System menu). Both modes are designed, not inverted afterthoughts.
+- **Dark-mode-first design**, with a **Dark / Light** sun/moon sliding switch that defaults to Dark (owner decision 2026-10-07, replacing the Light / Dark / System menu; switch style from 2026-10-10). Both modes are designed, not inverted afterthoughts.
 - **Typography:** Inter (variable, self-hosted WOFF2) for a clean, Tesla-like look that renders identically on every phone and PC (owner decision 2026-10-07); JetBrains Mono for small technical labels.
 - **Rounded photos:** images sit in rounded frames that become true squircles (`corner-shape: squircle`) in browsers that support it, with ordinary rounded corners elsewhere.
 - **Mirrored homepage, restyled** — the home page keeps the old landing page's layout exactly as specced in Section 3; the styling in this section is applied to that skeleton, never a re-layout. A bento/grid card treatment may be used on the **Tech/Projects page** instead.
