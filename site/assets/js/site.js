@@ -7,7 +7,7 @@
   const themeBtn = document.querySelector("[data-theme-toggle]");
   const applyTheme = (theme) => {
     root.dataset.theme = theme;
-    themeBtn?.setAttribute("aria-label", `Switch to ${theme === "dark" ? "light" : "dark"} theme`);
+    themeBtn?.setAttribute("aria-checked", String(theme === "dark"));
     document.querySelector('meta[name="theme-color"]')?.setAttribute("content", theme === "light" ? "#f6f5f3" : "#0a0a0b");
   };
   applyTheme(root.dataset.theme === "light" ? "light" : "dark");
