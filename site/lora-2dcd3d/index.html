@@ -30,6 +30,7 @@ main { max-width: 440px; margin: 0 auto; display: flex; flex-direction: column; 
 body.is-host main { max-width: 1200px; }
 section { display: flex; flex-direction: column; gap: 18px; }
 .card { background: var(--paper); border: 2.5px solid var(--ink); border-radius: 14px; box-shadow: 5px 5px 0 var(--ink); padding: 16px; }
+.card.green { background: var(--tint-green); }
 .eyebrow { display: inline-block; align-self: flex-start; background: var(--yellow); border: 2px solid var(--ink); border-radius: 8px;
   box-shadow: 3px 3px 0 var(--ink); padding: 3px 10px; font-weight: 600; font-size: 13px; letter-spacing: .03em; transform: rotate(-2deg); }
 h1, h2 { font-family: var(--display); font-weight: 400; margin: 0; text-wrap: balance; line-height: 1.1; }
@@ -45,9 +46,10 @@ p { margin: 0; }
 
 .stage { position: relative; width: min(100%, 300px); aspect-ratio: 1 / 1.1; margin: 0 auto; container-type: inline-size; }
 .stage canvas { position: absolute; left: 17%; top: 29%; width: 66%; height: 60%; }
-.stage canvas.q { image-rendering: pixelated; }
 .stk { position: absolute; transform: translate(-50%, -50%); line-height: 1; animation: pop .25s ease-out; }
 @keyframes pop { from { transform: translate(-50%, -50%) scale(.3); } }
+.duo { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; text-align: center; }
+.duo small { display: block; color: var(--mute); font-size: 13px; }
 
 .meter { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
 .meter b { font-family: var(--display); font-weight: 400; font-size: 26px; font-variant-numeric: tabular-nums; }
@@ -64,30 +66,33 @@ p { margin: 0; }
 .row { display: flex; gap: 12px; }
 .row .btn.alt { width: auto; flex: none; }
 .opts { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-button:focus-visible, input:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
+button:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
 
 .map { display: flex; flex-direction: column; gap: 10px; margin-top: 12px; }
 .map div, .res { border: 2px solid var(--ink); border-radius: 10px; padding: 10px 12px; background: var(--tint-blue); }
 .map small, .res small { display: block; color: var(--mute); font-size: 13px; }
 .map strong { color: var(--blue); }
 .res.ok { background: var(--tint-green); } .res.no { background: var(--tint-red); }
-.map .q4 { background: var(--tint-green); }
-.q4 label { display: flex; gap: 10px; align-items: center; font-weight: 600; color: var(--green); cursor: pointer; }
-.q4 input { width: 22px; height: 22px; accent-color: var(--green); }
 
 /* host (projector) */
 .hostgrid { display: grid; grid-template-columns: minmax(0, 340px) minmax(0, 1fr); gap: 24px; align-items: start; }
+.hostgrid.playing { grid-template-columns: minmax(0, 1fr); }
+.hostgrid.playing .qr { display: none; }
 .qr img { width: 100%; display: block; image-rendering: pixelated; }
 .qr p { font-family: var(--display); font-size: 20px; text-align: center; margin-top: 8px; overflow-wrap: anywhere; }
 .big { font-family: var(--display); font-size: 64px; line-height: 1; font-variant-numeric: tabular-nums; }
 .bubbles { display: flex; flex-wrap: wrap; gap: 10px; }
 .bubbles span { background: var(--paper); border: 2px solid var(--ink); border-radius: 999px; padding: 6px 14px; font-weight: 600; font-size: 18px; box-shadow: 2px 2px 0 var(--ink); animation: pop2 .3s ease-out; }
 @keyframes pop2 { from { transform: scale(.4); } }
-.pairs { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 12px; }
-.pair { background: var(--paper); border: 2px solid var(--ink); border-radius: 12px; padding: 10px 14px; display: grid; grid-template-columns: 1fr auto; gap: 4px 10px; font-size: 17px; }
-.pair span:nth-child(even) { text-align: right; }
+.wall { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; }
+.face { background: var(--paper); border: 2px solid var(--ink); border-radius: 12px; box-shadow: 3px 3px 0 var(--ink); padding: 8px; text-align: center; font-weight: 600; font-size: 14px; animation: pop2 .3s ease-out; }
+.face small { display: block; min-height: 1.3em; color: var(--mute); font-weight: 400; }
+#hReveal .stage { width: min(100%, 190px); }
+#hReveal b { font-size: 18px; }
+#hSay ol { margin: 8px 0 0; padding-left: 22px; display: flex; flex-direction: column; gap: 6px; font-size: 18px; }
+#hSay li small { display: block; color: var(--mute); font-size: 14px; }
 @media (max-width: 760px) { .hostgrid { grid-template-columns: minmax(0, 1fr); } }
-@media (prefers-reduced-motion: reduce) { .stk, .meter.shake, .bubbles span { animation: none; } }
+@media (prefers-reduced-motion: reduce) { .stk, .meter.shake, .bubbles span, .face { animation: none; } }
 </style>
 </head>
 <body>
@@ -137,7 +142,7 @@ button:focus-visible, input:focus-visible { outline: 3px solid var(--blue); outl
 
   <section data-view="wait" hidden>
     <h1>Sent!</h1>
-    <p>Waiting for <b data-p-name></b> to finish their face…</p>
+    <p>Your face is on the big screen. Waiting for <b data-p-name></b> to finish theirs…</p>
     <button class="btn alt" id="toBot" hidden>Partner gone? Play with LoRA Bot 🤖</button>
   </section>
 
@@ -154,30 +159,41 @@ button:focus-visible, input:focus-visible { outline: 3px solid var(--blue); outl
     <h1 id="wave"></h1>
     <div class="res" id="resMine"><small></small><b></b></div>
     <div class="res" id="resTheirs"><small></small><b></b></div>
-    <div class="card"><div class="stage" id="myStage"></div></div>
+    <div class="card green" id="qlora" hidden>
+      <h2>Surprise: your face was 4-bit</h2>
+      <div class="duo" style="margin-top:12px">
+        <div><div class="stage" id="s16"></div><small>16-bit</small></div>
+        <div><div class="stage" id="s4"></div><small>4-bit, what you played on</small></div>
+      </div>
+      <p style="margin-top:10px">QLoRA stores the frozen model in 4 bits to save memory. Your small adapter still worked on top of it.</p>
+    </div>
     <div class="card">
       <h2>You just trained a LoRA</h2>
       <div class="map">
         <div><small>Everyone started from the same face</small><strong>Pretrained model W, frozen</strong></div>
         <div><small>Your secret task</small><strong>The fine-tuning task</strong></div>
-        <div><small>At most 3 stickers</small><strong>Your adapter ΔW = BA, rank r = 3</strong></div>
+        <div><small>At most 3 stickers</small><strong>A tiny adapter ΔW = BA (LoRA keeps its rank r small)</strong></div>
         <div><small>Your partner's guess</small><strong>The evaluation</strong></div>
-        <div class="q4">
-          <label><input type="checkbox" id="q4"> Store the face in 4-bit (QLoRA)</label>
-          <small style="margin-top:4px">The face gets blocky, your stickers stay sharp. Still works.</small>
-        </div>
       </div>
     </div>
   </section>
 
   <section data-view="host" hidden>
-    <div class="hostgrid">
+    <div class="hostgrid" id="hGrid">
       <div class="card qr"><img src="qr.png" alt="QR code to join the game"><p>johnha.info/lora-2dcd3d</p></div>
       <div style="display:flex;flex-direction:column;gap:18px;min-width:0">
         <h1 id="hTitle">Scan to join</h1>
         <div class="card"><div class="big" id="hCount">0</div><p class="mute" id="hLabel">players in the room</p></div>
+        <div class="card" id="hSay"><p class="mute">What's going on</p><ol></ol></div>
+        <div class="card green" id="hReveal" hidden>
+          <div class="duo">
+            <div><div class="stage" id="h16"></div><b>16-bit face</b></div>
+            <div><div class="stage" id="h4"></div><b>4-bit face: what you played on</b></div>
+          </div>
+          <p id="hRevealText" style="margin-top:12px;font-size:20px"></p>
+        </div>
         <div class="bubbles" id="hBubbles"></div>
-        <div class="pairs" id="hPairs"></div>
+        <div class="wall" id="hWall"></div>
         <div class="row">
           <button class="btn" id="hStart" disabled>Pair up &amp; start</button>
           <button class="btn alt" id="hReset">New game</button>
@@ -200,6 +216,21 @@ const POOL = shuffle([...Object.values(TASKS).flat(), "👑", "🎩", "🐱", "�
 const ADJ = ["Sleepy", "Brave", "Fuzzy", "Sneaky", "Jolly", "Cosmic", "Turbo", "Quiet", "Lucky", "Spicy", "Mighty", "Wobbly"];
 const ANIMALS = [["Panda", "🐼"], ["Otter", "🦦"], ["Fox", "🦊"], ["Koala", "🐨"], ["Penguin", "🐧"], ["Tiger", "🐯"],
   ["Frog", "🐸"], ["Owl", "🦉"], ["Octopus", "🐙"], ["Sloth", "🦥"], ["Hedgehog", "🦔"], ["Llama", "🦙"]];
+// talking points on the host screen, one set per phase (presenter cue + audience caption)
+const SAY = {
+  lobby: [
+    ["Everyone gets the same smiley face.", "That's the pretrained model W: frozen, nobody can change it."],
+    ["You get a secret task and at most 3 stickers to adapt the face.", "That's LoRA: train a tiny add-on, not the whole model."],
+    ["Then your random partner guesses your task.", "Odd one out plays LoRA Bot."]],
+  play: [
+    ["Every face on this wall shares one frozen base. Only the stickers differ.", "One base model, many small adapters."],
+    ["That's “at scale” for tasks: one adapter per task.", "LoRA saves a 35 MB adapter instead of a 350 GB copy of GPT-3 (Hu et al., 2021)."],
+    ["Your partner's guess is the evaluation.", "Training an adapter is not enough; you measure whether it worked."]],
+  reveal: [
+    ["The face you played on was stored in 4 bits: every value snapped to one of 16 levels.", "Look closely: the shading has visible bands."],
+    ["QLoRA does this to the frozen model: 4-bit NF4 weights, LoRA adapters trained in 16-bit on top.", "65B model: 130 GB in 16-bit, 32.5 GB in 4-bit, fits one 48 GB GPU (Dettmers et al., 2023)."],
+    ["In the paper, quality matched 16-bit fine-tuning.", "Analogy only: LoRA's real rank r is the inner size of matrices B and A, not a sticker count."]],
+};
 const BOT = ["LoRA Bot", "🤖"], FREE_SLOTS = [[11, 60], [89, 60], [84, 99]];
 
 const $ = id => document.getElementById(id);
@@ -216,30 +247,31 @@ const randomName = () => { const [a, e] = rnd(ANIMALS); return [rnd(ADJ) + " " +
 const okName = n => Array.isArray(n) && typeof n[0] === "string" && typeof n[1] === "string" && n[0].length <= 30 && n[1].length <= 8;
 const okStickers = s => Array.isArray(s) ? s.filter(x => POOL.includes(x)).slice(0, 3) : [];
 
-// ---------- face ----------
-function drawFace(c, quantized) {
-  const W = quantized ? 16 : 480, x = c.getContext("2d");
-  c.width = c.height = W; c.classList.toggle("q", quantized);
-  x.lineWidth = W * 0.03; x.strokeStyle = "#111"; x.fillStyle = "#ffe14d";
+// ---------- face: a shaded smiley; the game plays on its 4-bit copy (the QLoRA twist) ----------
+const FACES = {};
+function faceImage(bits) {
+  if (FACES[bits]) return FACES[bits];
+  const c = document.createElement("canvas"), W = 480, x = c.getContext("2d");
+  c.width = c.height = W;
+  const g = x.createRadialGradient(W * 0.38, W * 0.3, W * 0.03, W * 0.5, W * 0.5, W * 0.47);
+  g.addColorStop(0, "#fff8c4"); g.addColorStop(0.5, "#ffd21f"); g.addColorStop(1, "#d98200");
+  x.lineWidth = W * 0.03; x.strokeStyle = "#111"; x.fillStyle = g;
   x.beginPath(); x.arc(W / 2, W / 2, W * 0.46, 0, 2 * Math.PI); x.fill(); x.stroke();
   x.fillStyle = "#111";
   for (const ex of [0.36, 0.64]) { x.beginPath(); x.arc(W * ex, W * 0.42, W * 0.045, 0, 2 * Math.PI); x.fill(); }
   x.beginPath(); x.arc(W / 2, W / 2, W * 0.25, 0.15 * Math.PI, 0.85 * Math.PI); x.stroke();
-  if (!quantized) return;
-  // 4-bit look: snap every pixel to yellow, ink, or empty
-  const img = x.getImageData(0, 0, W, W), d = img.data;
-  for (let i = 0; i < d.length; i += 4) {
-    if (d[i + 3] < 128) { d[i + 3] = 0; continue; }
-    const dark = d[i] + d[i + 1] < 300;
-    d[i] = dark ? 17 : 255; d[i + 1] = dark ? 17 : 225; d[i + 2] = dark ? 17 : 77; d[i + 3] = 255;
+  if (bits === 4) {  // 4 bits per stored value: snap every channel of every pixel to one of 16 levels
+    const img = x.getImageData(0, 0, W, W), d = img.data;
+    for (let i = 0; i < d.length; i++) d[i] = Math.round(d[i] / 17) * 17;
+    x.putImageData(img, 0, 0);
   }
-  x.putImageData(img, 0, 0);
+  return FACES[bits] = c;
 }
 
-function paint(stage, stickers, quantized = false) {
+function paint(stage, stickers, bits = 4) {
   let c = stage.querySelector("canvas");
-  if (!c) { c = document.createElement("canvas"); c.setAttribute("aria-label", "The shared smiley face"); stage.append(c); }
-  drawFace(c, quantized);
+  if (!c) { c = document.createElement("canvas"); c.width = c.height = 480; c.setAttribute("aria-label", "The shared smiley face"); stage.append(c); }
+  const x = c.getContext("2d"); x.clearRect(0, 0, 480, 480); x.drawImage(faceImage(bits), 0, 0);
   stage.querySelectorAll(".stk").forEach(n => n.remove());
   let free = 0;
   for (const e of stickers) {
@@ -264,7 +296,7 @@ const sub = t => client?.subscribe(B + "/" + t, { qos: 1 });
 // ---------- host (projector) ----------
 function host() {
   document.body.classList.add("is-host"); show("host");
-  let sess = null, players = {}, made = {}, guessed = {};
+  let sess = null, players = {}, adapters = {}, guessed = {};
   const newGame = () => pub("session", { sid: Math.random().toString(36).slice(2, 8), state: "lobby" }, true);
 
   connect(() => {
@@ -276,9 +308,11 @@ function host() {
 
   onMsg = (t, d) => {
     if (t === "session") {
+      if (typeof d.sid !== "string") return;
       if (sess?.sid !== d.sid) {
         if (sess) client.unsubscribe(`${B}/${sess.sid}/#`);
-        players = {}; made = {}; guessed = {};
+        players = {}; adapters = {}; guessed = {};
+        $("hBubbles").replaceChildren(); $("hWall").replaceChildren();
         sub(`${d.sid}/#`);
       }
       sess = d;
@@ -288,12 +322,13 @@ function host() {
     const [sid, kind, id] = t.split("/");
     if (sid !== sess?.sid) return;
     if (kind === "join" && typeof d.id === "string" && d.id.length <= 20 && okName(d.n)) players[d.id] = d.n;
-    if (kind === "adapter" && id) made[id] = true;
+    if (kind === "adapter" && id) adapters[id] = okStickers(d.s);
     if (kind === "guess" && id) guessed[id] = !!d.ok;
     render();
   };
 
   $("hStart").onclick = () => {
+    if (sess.state === "play") return pub("session", { ...sess, reveal: true }, true);
     const ids = shuffle(Object.keys(players)), assign = {};
     for (let i = 0; i < ids.length; i += 2) {
       const a = ids[i], b = ids[i + 1] || "bot", [ta, tb] = shuffle([...TASK_NAMES]);
@@ -305,33 +340,50 @@ function host() {
   $("hReset").onclick = newGame;
 
   const label = n => n[1] + " " + n[0];
-  const spans = texts => texts.map(text => { const s = document.createElement("span"); s.textContent = text; return s; });
   function render() {
     const play = sess?.state === "play", ids = Object.keys(players);
-    $("hTitle").textContent = play ? "Make it, send it, guess it" : "Scan to join";
-    $("hStart").disabled = play || !ids.length;
-    $("hBubbles").hidden = play; $("hPairs").hidden = !play;
+    $("hGrid").classList.toggle("playing", play);
+    $("hTitle").textContent = !play ? "Scan to join" : sess.reveal ? "Plot twist" : "One face, many adapters";
+    $("hStart").textContent = play ? "Reveal the twist" : "Pair up & start";
+    $("hStart").disabled = play ? !!sess.reveal : !ids.length;
+    $("hBubbles").hidden = play; $("hWall").hidden = !play;
+    const phase = !play ? "lobby" : sess.reveal ? "reveal" : "play";
+    if ($("hSay").dataset.phase !== phase) {
+      $("hSay").dataset.phase = phase;
+      $("hSay").querySelector("ol").replaceChildren(...SAY[phase].map(([line, sub]) => {
+        const li = document.createElement("li"), sm = document.createElement("small");
+        li.textContent = line; sm.textContent = sub; li.append(sm); return li;
+      }));
+    }
     if (!play) {
       $("hCount").textContent = ids.length; $("hLabel").textContent = "players in the room";
       const have = new Set([...$("hBubbles").children].map(s => s.dataset.id));
-      if (ids.length < have.size) $("hBubbles").replaceChildren(), have.clear();  // new game
-      for (const id of ids) if (!have.has(id)) { const [s] = spans([label(players[id])]); s.dataset.id = id; $("hBubbles").append(s); }
+      for (const id of ids) if (!have.has(id)) {
+        const s = document.createElement("span"); s.dataset.id = id; s.textContent = label(players[id]); $("hBubbles").append(s);
+      }
       return;
     }
-    const g = Object.values(guessed);
-    $("hCount").textContent = `${g.filter(Boolean).length} / ${g.length}`;
-    $("hLabel").textContent = "adapters understood by their partner";
-    const status = id => id in guessed ? (guessed[id] ? "✅ guessed right" : "❌ guessed wrong") : made[id] ? "📨 sent" : "✏️ making";
-    const seen = new Set(), rows = [];
-    for (const id of ids) {
-      if (seen.has(id)) continue;
-      const p = sess.assign?.[id]?.p || "bot";  // late joiners play the bot
-      seen.add(id); seen.add(p);
-      const row = document.createElement("div"); row.className = "pair";
-      row.replaceChildren(...spans([label(players[id]), status(id), label(players[p] || BOT), p in players ? status(p) : ""]));
-      rows.push(row);
+    const g = Object.values(guessed), right = g.filter(Boolean).length;
+    $("hCount").textContent = `${right} / ${g.length}`;
+    $("hLabel").textContent = `adapters understood by their partner · ${Object.keys(adapters).length} faces on the wall`;
+    // the wall: every sent face, same frozen base, different stickers
+    for (const [id, s] of Object.entries(adapters)) {
+      let card = $("hWall").querySelector(`[data-id="${CSS.escape(id)}"]`);
+      if (!card) {
+        card = document.createElement("div"); card.className = "face"; card.dataset.id = id;
+        const stage = document.createElement("div"); stage.className = "stage";
+        const name = document.createElement("div"); name.textContent = label(players[id] || ["Player", "🙂"]);
+        card.append(stage, name, document.createElement("small"));
+        $("hWall").append(card); paint(stage, s);
+      }
+      const p = sess.assign?.[id]?.p;
+      card.querySelector("small").textContent = p in guessed ? (guessed[p] ? "✅ understood" : "❌ missed") : "";
     }
-    $("hPairs").replaceChildren(...rows);
+    $("hReveal").hidden = !sess.reveal;
+    if (sess.reveal) {
+      paint($("h16"), [], 16); paint($("h4"), [], 4);
+      $("hRevealText").textContent = `You all played on the 4-bit face and still understood ${right} of ${g.length} adapters. That's QLoRA: a 4-bit frozen base with a normal adapter on top.`;
+    }
   }
 }
 
@@ -369,6 +421,7 @@ function player() {
       sess = d;
       $("join").disabled = false; $("join").textContent = "Join";
       if (joined && d.state === "play" && !game) start();
+      if (game?.shown) revealIfReady();
       return;
     }
     if (!game || t.split("/")[0] !== sess?.sid) return;
@@ -454,10 +507,15 @@ function player() {
     $("resTheirs").className = "res" + (game.theirGuess ? (theirs ? " ok" : " no") : "");
     $("resTheirs").querySelector("small").textContent = `${p} guessed your task`;
     $("resTheirs").querySelector("b").textContent = !game.theirGuess ? "Still guessing…" : theirs ? `✅ ${game.task}` : `❌ ${game.theirGuess}, it was ${game.task}`;
-    if (!game.shown) { game.shown = true; $("q4").checked = false; paint($("myStage"), game.mine); }
+    game.shown = true; revealIfReady();
     show("result");
   }
-  $("q4").onchange = e => paint($("myStage"), game.mine, e.target.checked);
+  // the twist shows when the host reveals it (or right away when playing offline)
+  function revealIfReady() {
+    if (!$("qlora").hidden || !(sess?.reveal || !client?.connected)) return;
+    paint($("s16"), game.mine, 16); paint($("s4"), game.mine, 4);
+    $("qlora").hidden = false;
+  }
 }
 
 location.hash === HOST_HASH ? host() : player();
