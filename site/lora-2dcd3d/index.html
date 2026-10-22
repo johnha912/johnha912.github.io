@@ -162,10 +162,10 @@ button:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
     <div class="card green" id="qlora" hidden>
       <h2>Surprise: your face was 4-bit</h2>
       <div class="duo" style="margin-top:12px">
-        <div><div class="stage" id="s16"></div><small>16-bit</small></div>
-        <div><div class="stage" id="s4"></div><small>4-bit, what you played on</small></div>
+        <div><div class="stage" id="s16"></div><small>16-bit · 2 bytes per value</small></div>
+        <div><div class="stage" id="s4"></div><small>4-bit · 0.5 bytes per value (what you played on)</small></div>
       </div>
-      <p style="margin-top:10px">QLoRA stores the frozen model in 4 bits to save memory. Your small adapter still worked on top of it.</p>
+      <p style="margin-top:10px">Same face, 4× less memory. QLoRA stores the frozen model this way (65B: 130 GB → 32.5 GB). Your stickers sat on top, uncompressed, like the LoRA adapter.</p>
     </div>
     <div class="card">
       <h2>You just trained a LoRA</h2>
@@ -187,10 +187,10 @@ button:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
         <div class="card" id="hSay"><p class="mute">What's going on</p><ol></ol></div>
         <div class="card green" id="hReveal" hidden>
           <div class="duo">
-            <div><div class="stage" id="h16"></div><b>16-bit face</b></div>
-            <div><div class="stage" id="h4"></div><b>4-bit face: what you played on</b></div>
+            <div><div class="stage" id="h16"></div><b>16-bit · 2 bytes per value</b></div>
+            <div><div class="stage" id="h4"></div><b>4-bit · 0.5 bytes per value (what you played on)</b></div>
           </div>
-          <p id="hRevealText" style="margin-top:12px;font-size:20px"></p>
+          <p style="margin-top:12px;font-size:20px">Same face, 4× less memory. QLoRA stores the frozen model this way (65B: 130 GB → 32.5 GB) and keeps the adapter in 16-bit. The paper found results matched 16-bit fine-tuning.</p>
         </div>
         <div class="bubbles" id="hBubbles"></div>
         <div class="wall" id="hWall"></div>
@@ -227,7 +227,7 @@ const SAY = {
     ["That's “at scale” for tasks: one adapter per task.", "LoRA saves a 35 MB adapter instead of a 350 GB copy of GPT-3 (Hu et al., 2021)."],
     ["Your partner's guess is the evaluation.", "Training an adapter is not enough; you measure whether it worked."]],
   reveal: [
-    ["The face you played on was stored in 4 bits: every value snapped to one of 16 levels.", "Look closely: the shading has visible bands."],
+    ["The face you played on was stored in 4 bits: every value snapped to one of 16 levels.", "Same face, 4× less memory. Look closely: the shading has visible bands."],
     ["QLoRA does this to the frozen model: 4-bit NF4 weights, LoRA adapters trained in 16-bit on top.", "65B model: 130 GB in 16-bit, 32.5 GB in 4-bit, fits one 48 GB GPU (Dettmers et al., 2023)."],
     ["In the paper, quality matched 16-bit fine-tuning.", "Analogy only: LoRA's real rank r is the inner size of matrices B and A, not a sticker count."]],
 };
@@ -382,7 +382,6 @@ function host() {
     $("hReveal").hidden = !sess.reveal;
     if (sess.reveal) {
       paint($("h16"), [], 16); paint($("h4"), [], 4);
-      $("hRevealText").textContent = `You all played on the 4-bit face and still understood ${right} of ${g.length} adapters. That's QLoRA: a 4-bit frozen base with a normal adapter on top.`;
     }
   }
 }
