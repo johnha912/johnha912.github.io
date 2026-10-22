@@ -8,10 +8,11 @@
 <link rel="icon" href="/favicon.ico">
 <title>Same Face, Your Adapter</title>
 <style>
-/* Layout: one phone-width column; neubrutalist cards on the deck's pastel gradient (single deliberate light look) */
+/* Layout: one phone-width column (host: two columns for the projector); neubrutalist cards on the deck's pastel gradient */
 :root {
   --ink: #111111; --mute: #404040; --paper: #ffffff;
   --yellow: #ffe14d; --blue: #1d4ed8; --tint-blue: #c7dbff; --tint-green: #c6f6d5; --green: #166534;
+  --tint-red: #ffd4d4;
   --display: "Arial Black", Arial, sans-serif;
   --body: Arial, Helvetica, sans-serif;
   color-scheme: light;
@@ -19,14 +20,15 @@
 *, *::before, *::after { box-sizing: border-box; }
 [hidden] { display: none !important; }
 html { background: #d5c8ff; }
-body { margin: 0; }
 body {
-  background: linear-gradient(135deg, #ffdee9, #d5c8ff 50%, #b5fffc) fixed;
+  margin: 0; background: linear-gradient(135deg, #ffdee9, #d5c8ff 50%, #b5fffc) fixed;
   color: var(--ink); font: 16px/1.45 var(--body); min-height: 100vh;
   padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
   padding-block: 20px 40px;
 }
 main { max-width: 440px; margin: 0 auto; display: flex; flex-direction: column; gap: 18px; }
+body.is-host main { max-width: 1200px; }
+section { display: flex; flex-direction: column; gap: 18px; }
 .card { background: var(--paper); border: 2.5px solid var(--ink); border-radius: 14px; box-shadow: 5px 5px 0 var(--ink); padding: 16px; }
 .eyebrow { display: inline-block; align-self: flex-start; background: var(--yellow); border: 2px solid var(--ink); border-radius: 8px;
   box-shadow: 3px 3px 0 var(--ink); padding: 3px 10px; font-weight: 600; font-size: 13px; letter-spacing: .03em; transform: rotate(-2deg); }
@@ -34,99 +36,198 @@ h1, h2 { font-family: var(--display); font-weight: 400; margin: 0; text-wrap: ba
 h1 { font-size: clamp(28px, 8vw, 36px); }
 h2 { font-size: 22px; }
 p { margin: 0; }
-.rule { font-size: 17px; }
+.mute { color: var(--mute); font-size: 14px; }
 
-.stage { position: relative; width: min(100%, 320px); aspect-ratio: 1 / 1.1; margin: 0 auto; container-type: inline-size; }
+.who { display: flex; align-items: center; gap: 12px; }
+.who .em { font-size: 44px; line-height: 1; }
+.who b { font-family: var(--display); font-weight: 400; font-size: 24px; }
+.task { font-family: var(--display); font-size: 34px; color: var(--blue); letter-spacing: .02em; }
+
+.stage { position: relative; width: min(100%, 300px); aspect-ratio: 1 / 1.1; margin: 0 auto; container-type: inline-size; }
 .stage canvas { position: absolute; left: 17%; top: 29%; width: 66%; height: 60%; }
 .stage canvas.q { image-rendering: pixelated; }
-.stk { position: absolute; transform: translate(-50%, -50%); line-height: 1; font-size: 20cqw; animation: pop .25s ease-out; }
+.stk { position: absolute; transform: translate(-50%, -50%); line-height: 1; animation: pop .25s ease-out; }
 @keyframes pop { from { transform: translate(-50%, -50%) scale(.3); } }
-.tag { text-align: center; font-size: 13px; color: var(--mute); }
 
 .meter { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
 .meter b { font-family: var(--display); font-weight: 400; font-size: 26px; font-variant-numeric: tabular-nums; }
 .meter.shake { animation: shake .35s; }
 @keyframes shake { 25% { transform: translateX(-6px); } 75% { transform: translateX(6px); } }
-.tray { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 8px; margin-top: 12px; }
-.tray button { aspect-ratio: 1; font-size: clamp(18px, 5.5vw, 24px); border: 2px solid var(--ink); border-radius: 10px; background: var(--paper);
+.tray { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 8px; margin-top: 12px; }
+.tray button { aspect-ratio: 1; font-size: clamp(18px, 6vw, 26px); border: 2px solid var(--ink); border-radius: 10px; background: var(--paper);
   box-shadow: 2px 2px 0 var(--ink); cursor: pointer; padding: 0; }
 .tray button[aria-pressed="true"] { background: var(--yellow); transform: translate(2px, 2px); box-shadow: none; }
 .btn { font: 400 18px var(--display); padding: 14px; border: 2.5px solid var(--ink); border-radius: 12px; background: var(--blue);
   color: var(--paper); box-shadow: 4px 4px 0 var(--ink); cursor: pointer; width: 100%; }
 .btn.alt { background: var(--paper); color: var(--ink); }
 .btn:disabled { opacity: .45; cursor: default; }
+.row { display: flex; gap: 12px; }
+.row .btn.alt { width: auto; flex: none; }
+.opts { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 button:focus-visible, input:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
 
 .map { display: flex; flex-direction: column; gap: 10px; margin-top: 12px; }
-.map div { border: 2px solid var(--ink); border-radius: 10px; padding: 10px 12px; background: var(--tint-blue); }
-.map small { display: block; color: var(--mute); font-size: 13px; }
+.map div, .res { border: 2px solid var(--ink); border-radius: 10px; padding: 10px 12px; background: var(--tint-blue); }
+.map small, .res small { display: block; color: var(--mute); font-size: 13px; }
 .map strong { color: var(--blue); }
-.q4 { background: var(--tint-green); }
+.res.ok { background: var(--tint-green); } .res.no { background: var(--tint-red); }
+.map .q4 { background: var(--tint-green); }
 .q4 label { display: flex; gap: 10px; align-items: center; font-weight: 600; color: var(--green); cursor: pointer; }
 .q4 input { width: 22px; height: 22px; accent-color: var(--green); }
-@media (prefers-reduced-motion: reduce) { .stk, .meter.shake { animation: none; } }
+
+/* host (projector) */
+.hostgrid { display: grid; grid-template-columns: minmax(0, 340px) minmax(0, 1fr); gap: 24px; align-items: start; }
+.qr img { width: 100%; display: block; image-rendering: pixelated; }
+.qr p { font-family: var(--display); font-size: 20px; text-align: center; margin-top: 8px; overflow-wrap: anywhere; }
+.big { font-family: var(--display); font-size: 64px; line-height: 1; font-variant-numeric: tabular-nums; }
+.bubbles { display: flex; flex-wrap: wrap; gap: 10px; }
+.bubbles span { background: var(--paper); border: 2px solid var(--ink); border-radius: 999px; padding: 6px 14px; font-weight: 600; font-size: 18px; box-shadow: 2px 2px 0 var(--ink); animation: pop2 .3s ease-out; }
+@keyframes pop2 { from { transform: scale(.4); } }
+.pairs { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 12px; }
+.pair { background: var(--paper); border: 2px solid var(--ink); border-radius: 12px; padding: 10px 14px; display: grid; grid-template-columns: 1fr auto; gap: 4px 10px; font-size: 17px; }
+.pair span:nth-child(even) { text-align: right; }
+@media (max-width: 760px) { .hostgrid { grid-template-columns: minmax(0, 1fr); } }
+@media (prefers-reduced-motion: reduce) { .stk, .meter.shake, .bubbles span { animation: none; } }
 </style>
 </head>
 <body>
 <main>
   <span class="eyebrow">CS6140 · LoRA mini-game</span>
-  <h1>Same Face, Your Adapter</h1>
-  <p class="rule">Everyone in the room gets this same face. Add <b>up to 3 stickers</b> to make it <b>you</b>.</p>
 
-  <section class="card">
-    <div class="stage" id="stage"><canvas id="face" width="480" height="480" aria-label="Shared smiley face"></canvas></div>
-    <p class="tag" id="tag">Shared face: 230,400 pixels, frozen. Nobody can repaint it.</p>
-  </section>
-
-  <section class="card" id="edit">
-    <div class="meter" id="meter"><span>Your stickers</span><b id="count">0 / 3</b></div>
-    <div class="tray" id="tray"></div>
-    <p class="tag" style="margin-top:10px">Tap again to remove. One hat at a time.</p>
-  </section>
-  <button class="btn" id="done" disabled>Done</button>
-
-  <section id="reveal" hidden>
-    <div style="display:flex;flex-direction:column;gap:18px">
-      <div class="card">
-        <h2>Show your neighbor</h2>
-        <p style="margin-top:8px">Hand your phone over. Can they guess why you picked these stickers?</p>
+  <section data-view="join" hidden>
+    <h1>Same Face, Your Adapter</h1>
+    <div class="card">
+      <p class="mute">Your name for this game</p>
+      <div class="who" style="margin-top:8px"><span class="em" id="myEm"></span><b id="myName"></b></div>
+      <div class="row" style="margin-top:16px">
+        <button class="btn alt" id="reroll" aria-label="New random name">🎲</button>
+        <button class="btn" id="join" disabled>Connecting…</button>
       </div>
-      <div class="card">
-        <h2>You just trained a LoRA</h2>
-        <div class="map">
-          <div><small>Everyone got the same face</small><strong>Pretrained model W, frozen</strong></div>
-          <div><small>You added at most 3 stickers</small><strong>Your adapter ΔW = BA, rank r = 3</strong></div>
-          <div><small>The whole room shares one face</small><strong>One base model, many tiny adapters</strong></div>
-          <div class="q4">
-            <label><input type="checkbox" id="q4"> Store the face in 4-bit (QLoRA)</label>
-            <small style="margin-top:4px">The face gets blocky, your stickers stay sharp. Still you.</small>
-          </div>
+    </div>
+    <div class="card" id="offline" hidden>
+      <p>Can't reach the game server. Check your Wi-Fi, or play right now with the bot.</p>
+      <button class="btn alt" id="solo" style="margin-top:12px">Play with LoRA Bot 🤖</button>
+    </div>
+  </section>
+
+  <section data-view="lobby" hidden>
+    <h1>You're in!</h1>
+    <div class="card who"><span class="em" data-me-em></span><b data-me-name></b></div>
+    <p>Look at the big screen. You'll get a random partner when the host starts.</p>
+  </section>
+
+  <section data-view="make" hidden>
+    <div class="card">
+      <p class="mute">Your partner</p>
+      <div class="who" style="margin-top:6px"><span class="em" data-p-em></span><b data-p-name></b></div>
+    </div>
+    <div class="card">
+      <p class="mute">Your secret task</p>
+      <p class="task" id="myTask"></p>
+      <p style="margin-top:6px">Everyone starts from the same face. Use <b>up to 3 stickers</b> so <span data-p-name></span> can guess your task.</p>
+    </div>
+    <div class="card"><div class="stage" id="makeStage"></div></div>
+    <div class="card">
+      <div class="meter" id="meter"><span>Your stickers</span><b id="count">0 / 3</b></div>
+      <div class="tray" id="tray"></div>
+      <p class="mute" style="margin-top:10px">Tap again to remove. One hat at a time.</p>
+    </div>
+    <button class="btn" id="send" disabled>Send to partner</button>
+  </section>
+
+  <section data-view="wait" hidden>
+    <h1>Sent!</h1>
+    <p>Waiting for <b data-p-name></b> to finish their face…</p>
+    <button class="btn alt" id="toBot" hidden>Partner gone? Play with LoRA Bot 🤖</button>
+  </section>
+
+  <section data-view="guess" hidden>
+    <div class="card">
+      <div class="who"><span class="em" data-p-em></span><b><span data-p-name></span>'s face</b></div>
+      <div class="stage" id="guessStage" style="margin-top:8px"></div>
+    </div>
+    <h2>Which task did they fine-tune it for?</h2>
+    <div class="opts" id="opts"></div>
+  </section>
+
+  <section data-view="result" hidden>
+    <h1 id="wave"></h1>
+    <div class="res" id="resMine"><small></small><b></b></div>
+    <div class="res" id="resTheirs"><small></small><b></b></div>
+    <div class="card"><div class="stage" id="myStage"></div></div>
+    <div class="card">
+      <h2>You just trained a LoRA</h2>
+      <div class="map">
+        <div><small>Everyone started from the same face</small><strong>Pretrained model W, frozen</strong></div>
+        <div><small>Your secret task</small><strong>The fine-tuning task</strong></div>
+        <div><small>At most 3 stickers</small><strong>Your adapter ΔW = BA, rank r = 3</strong></div>
+        <div><small>Your partner's guess</small><strong>The evaluation</strong></div>
+        <div class="q4">
+          <label><input type="checkbox" id="q4"> Store the face in 4-bit (QLoRA)</label>
+          <small style="margin-top:4px">The face gets blocky, your stickers stay sharp. Still works.</small>
         </div>
       </div>
-      <button class="btn alt" id="back">Change my stickers</button>
+    </div>
+  </section>
+
+  <section data-view="host" hidden>
+    <div class="hostgrid">
+      <div class="card qr"><img src="qr.png" alt="QR code to join the game"><p>johnha.info/lora-2dcd3d</p></div>
+      <div style="display:flex;flex-direction:column;gap:18px;min-width:0">
+        <h1 id="hTitle">Scan to join</h1>
+        <div class="card"><div class="big" id="hCount">0</div><p class="mute" id="hLabel">players in the room</p></div>
+        <div class="bubbles" id="hBubbles"></div>
+        <div class="pairs" id="hPairs"></div>
+        <div class="row">
+          <button class="btn" id="hStart" disabled>Pair up &amp; start</button>
+          <button class="btn alt" id="hReset">New game</button>
+        </div>
+        <p class="mute" id="hNet">Connecting…</p>
+      </div>
     </div>
   </section>
 </main>
 
+<script src="mqtt.min.js"></script>
 <script>
-const STICKERS = [["🎓","head"],["👑","head"],["🎧","head"],["🕶️","eyes"],["☕"],["💻"],["🎮"],["📚"],["🎸"],["⚽"],["🍜"],["✈️"],["🐱"],["🐶"]];
-const FREE_SLOTS = [[11, 60], [89, 60], [84, 99]];  // stage %, x/y
-let picked = [];
-const $ = id => document.getElementById(id);
+const B = "johnha-info/lora-2dcd3d", BROKER = "wss://broker.emqx.io:8084/mqtt", HOST_HASH = "#host-7q3x";
+const TASKS = {
+  Pirate: ["🏴‍☠️", "🦜", "⚓", "🗡️"], Chef: ["🍳", "🔪", "🍜", "🧂"], Gamer: ["🎮", "🎧", "🕹️", "💻"], Rockstar: ["🎸", "🎤", "🕶️", "🔥"],
+  Traveler: ["✈️", "🧳", "🗺️", "📷"], Student: ["🎓", "📚", "☕", "✏️"], Athlete: ["⚽", "🏅", "👟", "💪"], Wizard: ["🪄", "🔮", "✨", "🌙"],
+};
+const TASK_NAMES = Object.keys(TASKS), HEAD = ["🎓", "👑", "🎩", "🎧"], EYES = ["🕶️"];
+const POOL = shuffle([...Object.values(TASKS).flat(), "👑", "🎩", "🐱", "🌸"]);
+const ADJ = ["Sleepy", "Brave", "Fuzzy", "Sneaky", "Jolly", "Cosmic", "Turbo", "Quiet", "Lucky", "Spicy", "Mighty", "Wobbly"];
+const ANIMALS = [["Panda", "🐼"], ["Otter", "🦦"], ["Fox", "🦊"], ["Koala", "🐨"], ["Penguin", "🐧"], ["Tiger", "🐯"],
+  ["Frog", "🐸"], ["Owl", "🦉"], ["Octopus", "🐙"], ["Sloth", "🦥"], ["Hedgehog", "🦔"], ["Llama", "🦙"]];
+const BOT = ["LoRA Bot", "🤖"], FREE_SLOTS = [[11, 60], [89, 60], [84, 99]];
 
-function drawFace(quantized) {
-  const c = $("face"), W = quantized ? 16 : 480, H = W;
-  c.width = W; c.height = H; c.classList.toggle("q", quantized);
-  const x = c.getContext("2d"), s = W, cy = H / 2;
-  x.clearRect(0, 0, W, H);
-  x.lineWidth = s * 0.03; x.strokeStyle = "#111"; x.fillStyle = "#ffe14d";
-  x.beginPath(); x.arc(s / 2, cy, s * 0.46, 0, 2 * Math.PI); x.fill(); x.stroke();
+const $ = id => document.getElementById(id);
+const rnd = a => a[Math.floor(Math.random() * a.length)];
+function shuffle(a) { for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
+const store = {
+  get(k) { try { return JSON.parse(localStorage.getItem(k)); } catch { return null; } },
+  set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch {} },
+};
+const show = v => document.querySelectorAll("[data-view]").forEach(s => s.hidden = s.dataset.view !== v);
+const fill = (sel, text) => document.querySelectorAll(sel).forEach(n => n.textContent = text);
+const randomName = () => { const [a, e] = rnd(ANIMALS); return [rnd(ADJ) + " " + a, e]; };
+// everything from the broker is untrusted: keep only known values and short strings
+const okName = n => Array.isArray(n) && typeof n[0] === "string" && typeof n[1] === "string" && n[0].length <= 30 && n[1].length <= 8;
+const okStickers = s => Array.isArray(s) ? s.filter(x => POOL.includes(x)).slice(0, 3) : [];
+
+// ---------- face ----------
+function drawFace(c, quantized) {
+  const W = quantized ? 16 : 480, x = c.getContext("2d");
+  c.width = c.height = W; c.classList.toggle("q", quantized);
+  x.lineWidth = W * 0.03; x.strokeStyle = "#111"; x.fillStyle = "#ffe14d";
+  x.beginPath(); x.arc(W / 2, W / 2, W * 0.46, 0, 2 * Math.PI); x.fill(); x.stroke();
   x.fillStyle = "#111";
-  for (const ex of [0.36, 0.64]) { x.beginPath(); x.arc(s * ex, cy - s * 0.08, s * 0.045, 0, 2 * Math.PI); x.fill(); }
-  x.beginPath(); x.arc(s / 2, cy, s * 0.25, 0.15 * Math.PI, 0.85 * Math.PI); x.stroke();
+  for (const ex of [0.36, 0.64]) { x.beginPath(); x.arc(W * ex, W * 0.42, W * 0.045, 0, 2 * Math.PI); x.fill(); }
+  x.beginPath(); x.arc(W / 2, W / 2, W * 0.25, 0.15 * Math.PI, 0.85 * Math.PI); x.stroke();
   if (!quantized) return;
   // 4-bit look: snap every pixel to yellow, ink, or empty
-  const img = x.getImageData(0, 0, W, H), d = img.data;
+  const img = x.getImageData(0, 0, W, W), d = img.data;
   for (let i = 0; i < d.length; i += 4) {
     if (d[i + 3] < 128) { d[i + 3] = 0; continue; }
     const dark = d[i] + d[i + 1] < 300;
@@ -135,47 +236,231 @@ function drawFace(quantized) {
   x.putImageData(img, 0, 0);
 }
 
-function render() {
-  document.querySelectorAll(".stk").forEach(n => n.remove());
+function paint(stage, stickers, quantized = false) {
+  let c = stage.querySelector("canvas");
+  if (!c) { c = document.createElement("canvas"); c.setAttribute("aria-label", "The shared smiley face"); stage.append(c); }
+  drawFace(c, quantized);
+  stage.querySelectorAll(".stk").forEach(n => n.remove());
   let free = 0;
-  for (const e of picked) {
-    const kind = STICKERS.find(s => s[0] === e)[1];
-    const [left, top, size] = kind === "head" ? [50, 24, 28] : kind === "eyes" ? [50, 60, 30] : [...FREE_SLOTS[free++], 20];
+  for (const e of stickers) {
+    const [left, top, size] = HEAD.includes(e) ? [50, 24, 28] : EYES.includes(e) ? [50, 60, 30] : [...FREE_SLOTS[free++], 20];
     const n = document.createElement("span");
     n.className = "stk"; n.textContent = e;
     n.style.left = left + "%"; n.style.top = (top / 1.1) + "%"; n.style.fontSize = size + "cqw";
-    $("stage").append(n);
+    stage.append(n);
   }
-  $("count").textContent = `${picked.length} / 3`;
-  $("done").disabled = !picked.length;
-  [...$("tray").children].forEach(b => b.setAttribute("aria-pressed", picked.includes(b.textContent)));
 }
 
-function tap(e, kind) {
-  if (picked.includes(e)) picked = picked.filter(p => p !== e);
-  else {
-    const same = kind && picked.find(p => STICKERS.find(s => s[0] === p)[1] === kind);
-    if (same) picked[picked.indexOf(same)] = e;
-    else if (picked.length >= 3) {
-      const m = $("meter"); m.classList.remove("shake"); void m.offsetWidth; m.classList.add("shake");
+// ---------- network: public MQTT broker, one topic tree per game ----------
+let client = null, onMsg = () => {};
+function connect(onConnect) {
+  client = mqtt.connect(BROKER, { clientId: "lora_" + Math.random().toString(16).slice(2, 12), reconnectPeriod: 2000, connectTimeout: 8000 });
+  client.on("connect", onConnect);
+  client.on("message", (t, m) => { let d; try { d = JSON.parse(m.toString()); } catch { return; } if (d) onMsg(t.slice(B.length + 1), d); });
+}
+const pub = (t, d, retain = false) => client?.connected && client.publish(B + "/" + t, JSON.stringify(d), { qos: 1, retain });
+const sub = t => client?.subscribe(B + "/" + t, { qos: 1 });
+
+// ---------- host (projector) ----------
+function host() {
+  document.body.classList.add("is-host"); show("host");
+  let sess = null, players = {}, made = {}, guessed = {};
+  const newGame = () => pub("session", { sid: Math.random().toString(36).slice(2, 8), state: "lobby" }, true);
+
+  connect(() => {
+    $("hNet").textContent = "Connected";
+    sub("session");
+    setTimeout(() => { if (!sess) newGame(); }, 1500);  // no game on the broker yet
+  });
+  client.on("offline", () => $("hNet").textContent = "Offline, reconnecting…");
+
+  onMsg = (t, d) => {
+    if (t === "session") {
+      if (sess?.sid !== d.sid) {
+        if (sess) client.unsubscribe(`${B}/${sess.sid}/#`);
+        players = {}; made = {}; guessed = {};
+        sub(`${d.sid}/#`);
+      }
+      sess = d;
+      if (d.state === "play") for (const [id, n] of Object.entries(d.names || {})) if (okName(n)) players[id] = n;
+      return render();
+    }
+    const [sid, kind, id] = t.split("/");
+    if (sid !== sess?.sid) return;
+    if (kind === "join" && typeof d.id === "string" && d.id.length <= 20 && okName(d.n)) players[d.id] = d.n;
+    if (kind === "adapter" && id) made[id] = true;
+    if (kind === "guess" && id) guessed[id] = !!d.ok;
+    render();
+  };
+
+  $("hStart").onclick = () => {
+    const ids = shuffle(Object.keys(players)), assign = {};
+    for (let i = 0; i < ids.length; i += 2) {
+      const a = ids[i], b = ids[i + 1] || "bot", [ta, tb] = shuffle([...TASK_NAMES]);
+      assign[a] = { p: b, t: ta, bt: tb };
+      if (b !== "bot") assign[b] = { p: a, t: tb };
+    }
+    pub("session", { sid: sess.sid, state: "play", names: players, assign }, true);
+  };
+  $("hReset").onclick = newGame;
+
+  const label = n => n[1] + " " + n[0];
+  const spans = texts => texts.map(text => { const s = document.createElement("span"); s.textContent = text; return s; });
+  function render() {
+    const play = sess?.state === "play", ids = Object.keys(players);
+    $("hTitle").textContent = play ? "Make it, send it, guess it" : "Scan to join";
+    $("hStart").disabled = play || !ids.length;
+    $("hBubbles").hidden = play; $("hPairs").hidden = !play;
+    if (!play) {
+      $("hCount").textContent = ids.length; $("hLabel").textContent = "players in the room";
+      const have = new Set([...$("hBubbles").children].map(s => s.dataset.id));
+      if (ids.length < have.size) $("hBubbles").replaceChildren(), have.clear();  // new game
+      for (const id of ids) if (!have.has(id)) { const [s] = spans([label(players[id])]); s.dataset.id = id; $("hBubbles").append(s); }
       return;
-    } else picked.push(e);
+    }
+    const g = Object.values(guessed);
+    $("hCount").textContent = `${g.filter(Boolean).length} / ${g.length}`;
+    $("hLabel").textContent = "adapters understood by their partner";
+    const status = id => id in guessed ? (guessed[id] ? "✅ guessed right" : "❌ guessed wrong") : made[id] ? "📨 sent" : "✏️ making";
+    const seen = new Set(), rows = [];
+    for (const id of ids) {
+      if (seen.has(id)) continue;
+      const p = sess.assign?.[id]?.p || "bot";  // late joiners play the bot
+      seen.add(id); seen.add(p);
+      const row = document.createElement("div"); row.className = "pair";
+      row.replaceChildren(...spans([label(players[id]), status(id), label(players[p] || BOT), p in players ? status(p) : ""]));
+      rows.push(row);
+    }
+    $("hPairs").replaceChildren(...rows);
   }
-  render();
 }
 
-for (const [e, kind] of STICKERS) {
-  const b = document.createElement("button");
-  b.textContent = e; b.setAttribute("aria-label", "Sticker " + e); b.onclick = () => tap(e, kind);
-  $("tray").append(b);
+// ---------- player (phone) ----------
+function player() {
+  const me = store.get("lora-me") || { id: Math.random().toString(36).slice(2, 10) };
+  if (!okName(me.n)) me.n = randomName();
+  let sess = null, joined = false, game = null;
+  const save = () => store.set("lora-me", me);
+  const showName = () => { fill("#myName, [data-me-name]", me.n[0]); fill("#myEm, [data-me-em]", me.n[1]); };
+  showName(); show("join");
+
+  $("reroll").onclick = () => { me.n = randomName(); save(); showName(); };
+  $("join").onclick = () => {
+    joined = true; me.sid = sess.sid; save();
+    pub(`${sess.sid}/join`, { id: me.id, n: me.n });
+    sess.state === "play" ? start() : show("lobby");
+  };
+  $("solo").onclick = () => { joined = true; start(); };
+  setTimeout(() => { if (!client?.connected && !joined) $("offline").hidden = false; }, 8000);
+  setInterval(() => { if (joined && sess?.state === "lobby") pub(`${sess.sid}/join`, { id: me.id, n: me.n }); }, 10000);
+
+  connect(() => {
+    sub("session"); $("offline").hidden = true;
+    if (!sess) $("join").textContent = "Waiting for the host…";
+  });
+  onMsg = (t, d) => {
+    if (t === "session") {
+      if (typeof d.sid !== "string") return;
+      if (sess?.sid !== d.sid) {
+        game = null;
+        if (me.sid === d.sid) joined = true;  // page reloaded mid-game
+        if (joined) { me.sid = d.sid; save(); pub(`${d.sid}/join`, { id: me.id, n: me.n }); show("lobby"); }
+      }
+      sess = d;
+      $("join").disabled = false; $("join").textContent = "Join";
+      if (joined && d.state === "play" && !game) start();
+      return;
+    }
+    if (!game || t.split("/")[0] !== sess?.sid) return;
+    if (t.endsWith(`adapter/${game.pid}`)) gotAdapter(okStickers(d.s));
+    if (t.endsWith(`guess/${game.pid}`) && TASK_NAMES.includes(d.g)) gotGuess(d.g);
+  };
+
+  function start() {
+    const a = sess?.assign?.[me.id], human = a && a.p !== "bot" && okName(sess.names?.[a.p]);
+    game = { task: TASK_NAMES.includes(a?.t) ? a.t : rnd(TASK_NAMES), mine: [], sent: false, theirs: null, myGuess: null, theirGuess: null };
+    if (human) {
+      const pt = sess.assign[a.p]?.t;
+      Object.assign(game, { pid: a.p, partner: sess.names[a.p], ptask: TASK_NAMES.includes(pt) ? pt : rnd(TASK_NAMES) });
+      sub(`${sess.sid}/adapter/${a.p}`); sub(`${sess.sid}/guess/${a.p}`);
+    } else useBot(a?.bt);
+    fill("#myTask", game.task);
+    paint($("makeStage"), []); renderTray(); show("make");
+  }
+
+  function useBot(bt) {
+    const ptask = TASK_NAMES.includes(bt) && bt !== game.task ? bt : rnd(TASK_NAMES.filter(t => t !== game.task));
+    Object.assign(game, { pid: "bot", partner: BOT, ptask, theirs: null });
+    fill("[data-p-name]", BOT[0]); fill("[data-p-em]", BOT[1]);
+    if (game.sent) botMoves();
+  }
+
+  function botMoves() {
+    setTimeout(() => gotAdapter(shuffle([...TASKS[game.ptask]]).slice(0, 3)), 1500 + Math.random() * 1500);
+    // the bot guesses the task whose stickers overlap yours the most
+    const score = t => TASKS[t].filter(s => game.mine.includes(s)).length, best = Math.max(...TASK_NAMES.map(score));
+    setTimeout(() => gotGuess(rnd(TASK_NAMES.filter(t => score(t) === best))), 4000 + Math.random() * 2000);
+  }
+
+  function renderTray() {
+    fill("[data-p-name]", game.partner[0]); fill("[data-p-em]", game.partner[1]);
+    $("tray").replaceChildren(...POOL.map(e => {
+      const b = document.createElement("button");
+      b.textContent = e; b.setAttribute("aria-label", "Sticker " + e); b.setAttribute("aria-pressed", game.mine.includes(e));
+      b.onclick = () => tap(e); return b;
+    }));
+    $("count").textContent = `${game.mine.length} / 3`;
+    $("send").disabled = !game.mine.length;
+  }
+
+  function tap(e) {
+    let m = game.mine;
+    if (m.includes(e)) m = m.filter(x => x !== e);
+    else if (HEAD.includes(e) && m.some(x => HEAD.includes(x))) m = m.map(x => HEAD.includes(x) ? e : x);
+    else if (m.length >= 3) { const n = $("meter"); n.classList.remove("shake"); void n.offsetWidth; n.classList.add("shake"); return; }
+    else m = [...m, e];
+    game.mine = m; paint($("makeStage"), m); renderTray();
+  }
+
+  $("send").onclick = () => {
+    game.sent = true;
+    pub(`${sess?.sid}/adapter/${me.id}`, { s: game.mine }, true);
+    if (game.pid === "bot") botMoves();
+    if (game.theirs) return toGuess();
+    show("wait");
+    setTimeout(() => { if (!game?.theirs && game?.pid !== "bot") $("toBot").hidden = false; }, 60000);
+  };
+  $("toBot").onclick = () => { $("toBot").hidden = true; useBot(); };
+
+  function gotAdapter(s) { if (game.theirs) return; game.theirs = s; if (game.sent) toGuess(); }
+  function toGuess() {
+    paint($("guessStage"), game.theirs);
+    const options = shuffle([game.ptask, ...shuffle(TASK_NAMES.filter(t => t !== game.ptask)).slice(0, 3)]);
+    $("opts").replaceChildren(...options.map(t => {
+      const b = document.createElement("button"); b.className = "btn alt"; b.textContent = t;
+      b.onclick = () => { game.myGuess = t; pub(`${sess?.sid}/guess/${me.id}`, { g: t, ok: t === game.ptask }, true); toResult(); };
+      return b;
+    }));
+    show("guess");
+  }
+  function gotGuess(g) { game.theirGuess = g; if (game.myGuess) toResult(); }
+
+  function toResult() {
+    const p = game.partner[0], mine = game.myGuess === game.ptask, theirs = game.theirGuess === game.task;
+    $("wave").textContent = game.pid === "bot" ? "Wave at the big screen 👋" : `Find ${game.partner[1]} ${p} and say hi 👋`;
+    $("resMine").className = "res " + (mine ? "ok" : "no");
+    $("resMine").querySelector("small").textContent = `You guessed ${p}'s task`;
+    $("resMine").querySelector("b").textContent = mine ? `✅ ${game.ptask}` : `❌ ${game.myGuess}, it was ${game.ptask}`;
+    $("resTheirs").className = "res" + (game.theirGuess ? (theirs ? " ok" : " no") : "");
+    $("resTheirs").querySelector("small").textContent = `${p} guessed your task`;
+    $("resTheirs").querySelector("b").textContent = !game.theirGuess ? "Still guessing…" : theirs ? `✅ ${game.task}` : `❌ ${game.theirGuess}, it was ${game.task}`;
+    if (!game.shown) { game.shown = true; $("q4").checked = false; paint($("myStage"), game.mine); }
+    show("result");
+  }
+  $("q4").onchange = e => paint($("myStage"), game.mine, e.target.checked);
 }
-$("done").onclick = () => { $("edit").hidden = $("done").hidden = true; $("reveal").hidden = false; scrollTo({ top: 0, behavior: "smooth" }); };
-$("back").onclick = () => { $("edit").hidden = $("done").hidden = false; $("reveal").hidden = true; $("q4").checked = false; drawFace(false); };
-$("q4").onchange = e => {
-  drawFace(e.target.checked);
-  $("tag").textContent = e.target.checked ? "Shared face in 4-bit: blocky, but still the same face." : "Shared face: 230,400 pixels, frozen. Nobody can repaint it.";
-};
-drawFace(false); render();
+
+location.hash === HOST_HASH ? host() : player();
 </script>
 </body>
 </html>
