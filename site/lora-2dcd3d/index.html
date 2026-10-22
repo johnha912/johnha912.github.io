@@ -87,6 +87,16 @@ button:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
 .wall { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; }
 .face { background: var(--paper); border: 2px solid var(--ink); border-radius: 12px; box-shadow: 3px 3px 0 var(--ink); padding: 8px; text-align: center; font-weight: 600; font-size: 14px; animation: pop2 .3s ease-out; }
 .face small { display: block; min-height: 1.3em; color: var(--mute); font-weight: 400; }
+/* host controls stay pinned to the bottom of the projector screen, so the presenter never scrolls to click */
+body.is-host { padding-bottom: 110px; }
+.hbar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 5; background: var(--paper); border-top: 2.5px solid var(--ink);
+  padding-block: 12px calc(12px + env(safe-area-inset-bottom, 0px));
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.hbar .row { max-width: 1200px; margin: 0 auto; align-items: center; }
+.hbar .btn { width: auto; padding: 14px 28px; }
+.hbar #hNet { flex: 1; }
+.top { display: flex; flex-direction: column; gap: 18px; }
+.hostgrid.playing .top { display: grid; grid-template-columns: minmax(0, 280px) minmax(0, 1fr); }
 #hReveal .stage { width: min(100%, 190px); }
 #hReveal b { font-size: 18px; }
 #hSay ol { margin: 8px 0 0; padding-left: 22px; display: flex; flex-direction: column; gap: 6px; font-size: 18px; }
@@ -183,8 +193,10 @@ button:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
       <div class="card qr"><img src="qr.png" alt="QR code to join the game"><p>johnha.info/lora-2dcd3d</p></div>
       <div style="display:flex;flex-direction:column;gap:18px;min-width:0">
         <h1 id="hTitle">Scan to join</h1>
-        <div class="card"><div class="big" id="hCount">0</div><p class="mute" id="hLabel">players in the room</p></div>
-        <div class="card" id="hSay"><p class="mute">What's going on</p><ol></ol></div>
+        <div class="top">
+          <div class="card"><div class="big" id="hCount">0</div><p class="mute" id="hLabel">players in the room</p></div>
+          <div class="card" id="hSay"><p class="mute">What's going on</p><ol></ol></div>
+        </div>
         <div class="card green" id="hReveal" hidden>
           <div class="duo">
             <div><div class="stage" id="h16"></div><b>16-bit · 2 bytes per value</b></div>
@@ -194,11 +206,13 @@ button:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
         </div>
         <div class="bubbles" id="hBubbles"></div>
         <div class="wall" id="hWall"></div>
-        <div class="row">
-          <button class="btn" id="hStart" disabled>Pair up &amp; start</button>
-          <button class="btn alt" id="hReset">New game</button>
-        </div>
+      </div>
+    </div>
+    <div class="hbar">
+      <div class="row">
         <p class="mute" id="hNet">Connecting…</p>
+        <button class="btn alt" id="hReset">New game</button>
+        <button class="btn" id="hStart" disabled>Pair up &amp; start</button>
       </div>
     </div>
   </section>
@@ -337,7 +351,15 @@ function host() {
     }
     pub("session", { sid: sess.sid, state: "play", names: players, assign }, true);
   };
-  $("hReset").onclick = newGame;
+  // mid-game, "New game" needs a second tap so a misclick next to the main button can't wipe the round
+  $("hReset").onclick = () => {
+    const btn = $("hReset");
+    if (sess?.state === "play" && !btn.dataset.armed) {
+      btn.dataset.armed = "1"; btn.textContent = "Tap again to reset";
+      return setTimeout(() => { delete btn.dataset.armed; btn.textContent = "New game"; }, 3000);
+    }
+    delete btn.dataset.armed; btn.textContent = "New game"; newGame();
+  };
 
   const label = n => n[1] + " " + n[0];
   function render() {
