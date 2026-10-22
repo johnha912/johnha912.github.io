@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<meta name="description" content="A phone mini-game for a LoRA/QLoRA workshop: same frozen face, your 3-sticker adapter.">
+<link rel="icon" href="/favicon.ico">
+<title>Same Face, Your Adapter</title>
+<style>
+/* Layout: one phone-width column; neubrutalist cards on the deck's pastel gradient (single deliberate light look) */
+:root {
+  --ink: #111111; --mute: #404040; --paper: #ffffff;
+  --yellow: #ffe14d; --blue: #1d4ed8; --tint-blue: #c7dbff; --tint-green: #c6f6d5; --green: #166534;
+  --display: "Arial Black", Arial, sans-serif;
+  --body: Arial, Helvetica, sans-serif;
+  color-scheme: light;
+}
+*, *::before, *::after { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { background: #d5c8ff; }
+body { margin: 0; }
+body {
+  background: linear-gradient(135deg, #ffdee9, #d5c8ff 50%, #b5fffc) fixed;
+  color: var(--ink); font: 16px/1.45 var(--body); min-height: 100vh;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 20px 40px;
+}
+main { max-width: 440px; margin: 0 auto; display: flex; flex-direction: column; gap: 18px; }
+.card { background: var(--paper); border: 2.5px solid var(--ink); border-radius: 14px; box-shadow: 5px 5px 0 var(--ink); padding: 16px; }
+.eyebrow { display: inline-block; align-self: flex-start; background: var(--yellow); border: 2px solid var(--ink); border-radius: 8px;
+  box-shadow: 3px 3px 0 var(--ink); padding: 3px 10px; font-weight: 600; font-size: 13px; letter-spacing: .03em; transform: rotate(-2deg); }
+h1, h2 { font-family: var(--display); font-weight: 400; margin: 0; text-wrap: balance; line-height: 1.1; }
+h1 { font-size: clamp(28px, 8vw, 36px); }
+h2 { font-size: 22px; }
+p { margin: 0; }
+.rule { font-size: 17px; }
+
+.stage { position: relative; width: min(100%, 320px); aspect-ratio: 1 / 1.1; margin: 0 auto; container-type: inline-size; }
+.stage canvas { position: absolute; left: 17%; top: 29%; width: 66%; height: 60%; }
+.stage canvas.q { image-rendering: pixelated; }
+.stk { position: absolute; transform: translate(-50%, -50%); line-height: 1; font-size: 20cqw; animation: pop .25s ease-out; }
+@keyframes pop { from { transform: translate(-50%, -50%) scale(.3); } }
+.tag { text-align: center; font-size: 13px; color: var(--mute); }
+
+.meter { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+.meter b { font-family: var(--display); font-weight: 400; font-size: 26px; font-variant-numeric: tabular-nums; }
+.meter.shake { animation: shake .35s; }
+@keyframes shake { 25% { transform: translateX(-6px); } 75% { transform: translateX(6px); } }
+.tray { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 8px; margin-top: 12px; }
+.tray button { aspect-ratio: 1; font-size: clamp(18px, 5.5vw, 24px); border: 2px solid var(--ink); border-radius: 10px; background: var(--paper);
+  box-shadow: 2px 2px 0 var(--ink); cursor: pointer; padding: 0; }
+.tray button[aria-pressed="true"] { background: var(--yellow); transform: translate(2px, 2px); box-shadow: none; }
+.btn { font: 400 18px var(--display); padding: 14px; border: 2.5px solid var(--ink); border-radius: 12px; background: var(--blue);
+  color: var(--paper); box-shadow: 4px 4px 0 var(--ink); cursor: pointer; width: 100%; }
+.btn.alt { background: var(--paper); color: var(--ink); }
+.btn:disabled { opacity: .45; cursor: default; }
+button:focus-visible, input:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
+
+.map { display: flex; flex-direction: column; gap: 10px; margin-top: 12px; }
+.map div { border: 2px solid var(--ink); border-radius: 10px; padding: 10px 12px; background: var(--tint-blue); }
+.map small { display: block; color: var(--mute); font-size: 13px; }
+.map strong { color: var(--blue); }
+.q4 { background: var(--tint-green); }
+.q4 label { display: flex; gap: 10px; align-items: center; font-weight: 600; color: var(--green); cursor: pointer; }
+.q4 input { width: 22px; height: 22px; accent-color: var(--green); }
+@media (prefers-reduced-motion: reduce) { .stk, .meter.shake { animation: none; } }
+</style>
+</head>
+<body>
+<main>
+  <span class="eyebrow">CS6140 · LoRA mini-game</span>
+  <h1>Same Face, Your Adapter</h1>
+  <p class="rule">Everyone in the room gets this same face. Add <b>up to 3 stickers</b> to make it <b>you</b>.</p>
+
+  <section class="card">
+    <div class="stage" id="stage"><canvas id="face" width="480" height="480" aria-label="Shared smiley face"></canvas></div>
+    <p class="tag" id="tag">Shared face: 230,400 pixels, frozen. Nobody can repaint it.</p>
+  </section>
+
+  <section class="card" id="edit">
+    <div class="meter" id="meter"><span>Your stickers</span><b id="count">0 / 3</b></div>
+    <div class="tray" id="tray"></div>
+    <p class="tag" style="margin-top:10px">Tap again to remove. One hat at a time.</p>
+  </section>
+  <button class="btn" id="done" disabled>Done</button>
+
+  <section id="reveal" hidden>
+    <div style="display:flex;flex-direction:column;gap:18px">
+      <div class="card">
+        <h2>Show your neighbor</h2>
+        <p style="margin-top:8px">Hand your phone over. Can they guess why you picked these stickers?</p>
+      </div>
+      <div class="card">
+        <h2>You just trained a LoRA</h2>
+        <div class="map">
+          <div><small>Everyone got the same face</small><strong>Pretrained model W, frozen</strong></div>
+          <div><small>You added at most 3 stickers</small><strong>Your adapter ΔW = BA, rank r = 3</strong></div>
+          <div><small>The whole room shares one face</small><strong>One base model, many tiny adapters</strong></div>
+          <div class="q4">
+            <label><input type="checkbox" id="q4"> Store the face in 4-bit (QLoRA)</label>
+            <small style="margin-top:4px">The face gets blocky, your stickers stay sharp. Still you.</small>
+          </div>
+        </div>
+      </div>
+      <button class="btn alt" id="back">Change my stickers</button>
+    </div>
+  </section>
+</main>
+
+<script>
+const STICKERS = [["🎓","head"],["👑","head"],["🎧","head"],["🕶️","eyes"],["☕"],["💻"],["🎮"],["📚"],["🎸"],["⚽"],["🍜"],["✈️"],["🐱"],["🐶"]];
+const FREE_SLOTS = [[11, 60], [89, 60], [84, 99]];  // stage %, x/y
+let picked = [];
+const $ = id => document.getElementById(id);
+
+function drawFace(quantized) {
+  const c = $("face"), W = quantized ? 16 : 480, H = W;
+  c.width = W; c.height = H; c.classList.toggle("q", quantized);
+  const x = c.getContext("2d"), s = W, cy = H / 2;
+  x.clearRect(0, 0, W, H);
+  x.lineWidth = s * 0.03; x.strokeStyle = "#111"; x.fillStyle = "#ffe14d";
+  x.beginPath(); x.arc(s / 2, cy, s * 0.46, 0, 2 * Math.PI); x.fill(); x.stroke();
+  x.fillStyle = "#111";
+  for (const ex of [0.36, 0.64]) { x.beginPath(); x.arc(s * ex, cy - s * 0.08, s * 0.045, 0, 2 * Math.PI); x.fill(); }
+  x.beginPath(); x.arc(s / 2, cy, s * 0.25, 0.15 * Math.PI, 0.85 * Math.PI); x.stroke();
+  if (!quantized) return;
+  // 4-bit look: snap every pixel to yellow, ink, or empty
+  const img = x.getImageData(0, 0, W, H), d = img.data;
+  for (let i = 0; i < d.length; i += 4) {
+    if (d[i + 3] < 128) { d[i + 3] = 0; continue; }
+    const dark = d[i] + d[i + 1] < 300;
+    d[i] = dark ? 17 : 255; d[i + 1] = dark ? 17 : 225; d[i + 2] = dark ? 17 : 77; d[i + 3] = 255;
+  }
+  x.putImageData(img, 0, 0);
+}
+
+function render() {
+  document.querySelectorAll(".stk").forEach(n => n.remove());
+  let free = 0;
+  for (const e of picked) {
+    const kind = STICKERS.find(s => s[0] === e)[1];
+    const [left, top, size] = kind === "head" ? [50, 24, 28] : kind === "eyes" ? [50, 60, 30] : [...FREE_SLOTS[free++], 20];
+    const n = document.createElement("span");
+    n.className = "stk"; n.textContent = e;
+    n.style.left = left + "%"; n.style.top = (top / 1.1) + "%"; n.style.fontSize = size + "cqw";
+    $("stage").append(n);
+  }
+  $("count").textContent = `${picked.length} / 3`;
+  $("done").disabled = !picked.length;
+  [...$("tray").children].forEach(b => b.setAttribute("aria-pressed", picked.includes(b.textContent)));
+}
+
+function tap(e, kind) {
+  if (picked.includes(e)) picked = picked.filter(p => p !== e);
+  else {
+    const same = kind && picked.find(p => STICKERS.find(s => s[0] === p)[1] === kind);
+    if (same) picked[picked.indexOf(same)] = e;
+    else if (picked.length >= 3) {
+      const m = $("meter"); m.classList.remove("shake"); void m.offsetWidth; m.classList.add("shake");
+      return;
+    } else picked.push(e);
+  }
+  render();
+}
+
+for (const [e, kind] of STICKERS) {
+  const b = document.createElement("button");
+  b.textContent = e; b.setAttribute("aria-label", "Sticker " + e); b.onclick = () => tap(e, kind);
+  $("tray").append(b);
+}
+$("done").onclick = () => { $("edit").hidden = $("done").hidden = true; $("reveal").hidden = false; scrollTo({ top: 0, behavior: "smooth" }); };
+$("back").onclick = () => { $("edit").hidden = $("done").hidden = false; $("reveal").hidden = true; $("q4").checked = false; drawFace(false); };
+$("q4").onchange = e => {
+  drawFace(e.target.checked);
+  $("tag").textContent = e.target.checked ? "Shared face in 4-bit: blocky, but still the same face." : "Shared face: 230,400 pixels, frozen. Nobody can repaint it.";
+};
+drawFace(false); render();
+</script>
+</body>
+</html>
