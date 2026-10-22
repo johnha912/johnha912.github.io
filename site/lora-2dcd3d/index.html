@@ -27,7 +27,7 @@ body {
   padding-block: 20px 40px;
 }
 main { max-width: 440px; margin: 0 auto; display: flex; flex-direction: column; gap: 18px; }
-body.is-host main { max-width: 1200px; }
+body.is-host main { max-width: 1600px; }
 section { display: flex; flex-direction: column; gap: 18px; }
 .card { background: var(--paper); border: 2.5px solid var(--ink); border-radius: 14px; box-shadow: 5px 5px 0 var(--ink); padding: 16px; }
 .card.green { background: var(--tint-green); }
@@ -80,27 +80,37 @@ button:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
 .hostgrid.playing .qr { display: none; }
 .qr img { width: 100%; display: block; image-rendering: pixelated; }
 .qr p { font-family: var(--display); font-size: 20px; text-align: center; margin-top: 8px; overflow-wrap: anywhere; }
-.big { font-family: var(--display); font-size: 64px; line-height: 1; font-variant-numeric: tabular-nums; }
-.bubbles { display: flex; flex-wrap: wrap; gap: 10px; }
+.hmain { display: flex; flex-direction: column; gap: 18px; min-width: 0; min-height: 0; align-self: stretch; overflow: hidden; }
+.hhead { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; }
+.hstat { display: flex; align-items: baseline; gap: 10px; }
+.hstat b { font-family: var(--display); font-weight: 400; font-size: 44px; line-height: 1; font-variant-numeric: tabular-nums; }
+.hrow { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 18px; align-items: start; }
+.bubbles { display: flex; flex-wrap: wrap; gap: 10px; min-height: 0; overflow: hidden; }
 .bubbles span { background: var(--paper); border: 2px solid var(--ink); border-radius: 999px; padding: 6px 14px; font-weight: 600; font-size: 18px; box-shadow: 2px 2px 0 var(--ink); animation: pop2 .3s ease-out; }
+.bubbles.many span { font-size: 15px; padding: 4px 10px; }
 @keyframes pop2 { from { transform: scale(.4); } }
-.wall { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; }
-.face { background: var(--paper); border: 2px solid var(--ink); border-radius: 12px; box-shadow: 3px 3px 0 var(--ink); padding: 8px; text-align: center; font-weight: 600; font-size: 14px; animation: pop2 .3s ease-out; }
-.face small { display: block; min-height: 1.3em; color: var(--mute); font-weight: 400; }
-/* host controls stay pinned to the bottom of the projector screen, so the presenter never scrolls to click */
-body.is-host { padding-bottom: 110px; }
+.wall { flex: 1; min-height: 0; overflow: hidden; display: grid; grid-template-columns: repeat(auto-fill, var(--tile, 150px)); gap: 12px; align-content: start; }
+.face { background: var(--paper); border: 2px solid var(--ink); border-radius: 12px; box-shadow: 3px 3px 0 var(--ink); padding: 6px; text-align: center; font-weight: 600; font-size: 13px; animation: pop2 .3s ease-out; }
+.face div:not(.stage) { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.wall.tiny .face .nm { display: none; }  /* too small to read: keep the face and its check mark */
+#hReveal { width: 470px; }
+#hReveal .duo small { font-size: 14px; font-weight: 600; color: var(--ink); }
+#hReveal p { margin-top: 10px; font-size: 16px; }
+.stage.plain { width: 120px; aspect-ratio: 1; }
+.stage.plain canvas { left: 0; top: 0; width: 100%; height: 100%; }
+#hSay ol { margin: 8px 0 0; padding-left: 22px; display: flex; flex-direction: column; gap: 6px; font-size: 18px; }
+#hSay li small { display: block; color: var(--mute); font-size: 14px; }
+/* one projector screen, no scrolling: content fills the viewport above the pinned control bar */
+body.is-host { height: 100vh; height: 100dvh; overflow: hidden; padding-bottom: 0; }
+body.is-host main { height: calc(100% - 100px); }
+body.is-host section[data-view="host"] { flex: 1; min-height: 0; }
+.hostgrid { flex: 1; min-height: 0; }
 .hbar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 5; background: var(--paper); border-top: 2.5px solid var(--ink);
   padding-block: 12px calc(12px + env(safe-area-inset-bottom, 0px));
   padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
-.hbar .row { max-width: 1200px; margin: 0 auto; align-items: center; }
+.hbar .row { max-width: 1600px; margin: 0 auto; align-items: center; }
 .hbar .btn { width: auto; padding: 14px 28px; }
 .hbar #hNet { flex: 1; }
-.top { display: flex; flex-direction: column; gap: 18px; }
-.hostgrid.playing .top { display: grid; grid-template-columns: minmax(0, 280px) minmax(0, 1fr); }
-#hReveal .stage { width: min(100%, 190px); }
-#hReveal b { font-size: 18px; }
-#hSay ol { margin: 8px 0 0; padding-left: 22px; display: flex; flex-direction: column; gap: 6px; font-size: 18px; }
-#hSay li small { display: block; color: var(--mute); font-size: 14px; }
 @media (max-width: 760px) { .hostgrid { grid-template-columns: minmax(0, 1fr); } }
 @media (prefers-reduced-motion: reduce) { .stk, .meter.shake, .bubbles span, .face { animation: none; } }
 </style>
@@ -133,7 +143,9 @@ body.is-host { padding-bottom: 110px; }
 
   <section data-view="make" hidden>
     <div class="card">
-      <p class="mute">Your partner</p>
+      <p class="mute">You are</p>
+      <div class="who" style="margin-top:6px"><span class="em" data-me-em></span><b data-me-name></b></div>
+      <p class="mute" style="margin-top:12px">Your partner</p>
       <div class="who" style="margin-top:6px"><span class="em" data-p-em></span><b data-p-name></b></div>
     </div>
     <div class="card">
@@ -167,6 +179,7 @@ body.is-host { padding-bottom: 110px; }
 
   <section data-view="result" hidden>
     <h1 id="wave"></h1>
+    <p>They're looking for you too: <b><span data-me-em></span> <span data-me-name></span></b></p>
     <div class="res" id="resMine"><small></small><b></b></div>
     <div class="res" id="resTheirs"><small></small><b></b></div>
     <div class="card green" id="qlora" hidden>
@@ -191,18 +204,17 @@ body.is-host { padding-bottom: 110px; }
   <section data-view="host" hidden>
     <div class="hostgrid" id="hGrid">
       <div class="card qr"><img src="qr.png" alt="QR code to join the game"><p>johnha.info/lora-2dcd3d</p></div>
-      <div style="display:flex;flex-direction:column;gap:18px;min-width:0">
-        <h1 id="hTitle">Scan to join</h1>
-        <div class="top">
-          <div class="card"><div class="big" id="hCount">0</div><p class="mute" id="hLabel">players in the room</p></div>
+      <div class="hmain">
+        <div class="hhead"><h1 id="hTitle">Scan to join</h1><div class="hstat"><b id="hCount">0</b><span class="mute" id="hLabel">players in the room</span></div></div>
+        <div class="hrow">
           <div class="card" id="hSay"><p class="mute">What's going on</p><ol></ol></div>
-        </div>
-        <div class="card green" id="hReveal" hidden>
-          <div class="duo">
-            <div><div class="stage" id="h16"></div><b>16-bit · 2 bytes per value</b></div>
-            <div><div class="stage" id="h4"></div><b>4-bit · 0.5 bytes per value (what you played on)</b></div>
+          <div class="card green" id="hReveal" hidden>
+            <div class="duo">
+              <div><div class="stage plain" id="h16"></div><small>16-bit · 2 bytes per value</small></div>
+              <div><div class="stage plain" id="h4"></div><small>4-bit · 0.5 bytes per value (what you played on)</small></div>
+            </div>
+            <p>Same face, 4× less memory. QLoRA stores the frozen model this way (65B: 130 GB → 32.5 GB) and keeps the adapter in 16-bit. The paper found results matched 16-bit fine-tuning.</p>
           </div>
-          <p style="margin-top:12px;font-size:20px">Same face, 4× less memory. QLoRA stores the frozen model this way (65B: 130 GB → 32.5 GB) and keeps the adapter in 16-bit. The paper found results matched 16-bit fine-tuning.</p>
         </div>
         <div class="bubbles" id="hBubbles"></div>
         <div class="wall" id="hWall"></div>
@@ -220,16 +232,20 @@ body.is-host { padding-bottom: 110px; }
 
 <script src="mqtt.min.js"></script>
 <script>
-const B = "johnha-info/lora-2dcd3d", BROKER = "wss://broker.emqx.io:8084/mqtt", HOST_HASH = "#host-7q3x";
+// ?room=name plays in a separate topic tree (rehearsals, tests) so it never touches the real game
+const ROOM = (new URLSearchParams(location.search).get("room") || "").replace(/[^a-z0-9-]/gi, "").slice(0, 20);
+const B = "johnha-info/lora-2dcd3d" + (ROOM ? "/room-" + ROOM : ""), BROKER = "wss://broker.emqx.io:8084/mqtt", HOST_HASH = "#host-7q3x";
 const TASKS = {
   Pirate: ["🏴‍☠️", "🦜", "⚓", "🗡️"], Chef: ["🍳", "🔪", "🍜", "🧂"], Gamer: ["🎮", "🎧", "🕹️", "💻"], Rockstar: ["🎸", "🎤", "🕶️", "🔥"],
   Traveler: ["✈️", "🧳", "🗺️", "📷"], Student: ["🎓", "📚", "☕", "✏️"], Athlete: ["⚽", "🏅", "👟", "💪"], Wizard: ["🪄", "🔮", "✨", "🌙"],
 };
 const TASK_NAMES = Object.keys(TASKS), HEAD = ["🎓", "👑", "🎩", "🎧"], EYES = ["🕶️"];
 const POOL = shuffle([...Object.values(TASKS).flat(), "👑", "🎩", "🐱", "🌸"]);
-const ADJ = ["Sleepy", "Brave", "Fuzzy", "Sneaky", "Jolly", "Cosmic", "Turbo", "Quiet", "Lucky", "Spicy", "Mighty", "Wobbly"];
+const ADJ = ["Sleepy", "Brave", "Fuzzy", "Sneaky", "Jolly", "Cosmic", "Turbo", "Quiet", "Lucky", "Spicy", "Mighty", "Wobbly",
+  "Happy", "Clever", "Dizzy", "Fancy", "Groovy", "Zippy", "Bouncy", "Shy"];
 const ANIMALS = [["Panda", "🐼"], ["Otter", "🦦"], ["Fox", "🦊"], ["Koala", "🐨"], ["Penguin", "🐧"], ["Tiger", "🐯"],
-  ["Frog", "🐸"], ["Owl", "🦉"], ["Octopus", "🐙"], ["Sloth", "🦥"], ["Hedgehog", "🦔"], ["Llama", "🦙"]];
+  ["Frog", "🐸"], ["Owl", "🦉"], ["Octopus", "🐙"], ["Sloth", "🦥"], ["Hedgehog", "🦔"], ["Llama", "🦙"],
+  ["Bear", "🐻"], ["Rabbit", "🐰"], ["Monkey", "🐵"], ["Unicorn", "🦄"], ["Dolphin", "🐬"], ["Duck", "🦆"], ["Turtle", "🐢"], ["Bee", "🐝"]];
 // talking points on the host screen, one set per phase (presenter cue + audience caption)
 const SAY = {
   lobby: [
@@ -343,13 +359,17 @@ function host() {
 
   $("hStart").onclick = () => {
     if (sess.state === "play") return pub("session", { ...sess, reveal: true }, true);
-    const ids = shuffle(Object.keys(players)), assign = {};
+    const ids = shuffle(Object.keys(players)), assign = {}, names = {}, used = {};
+    for (const id of ids) {  // two "Fuzzy Fox"es become "Fuzzy Fox" and "Fuzzy Fox 2", so partners can find each other
+      const [n, e] = players[id]; used[n] = (used[n] || 0) + 1;
+      names[id] = [used[n] > 1 ? `${n} ${used[n]}` : n, e];
+    }
     for (let i = 0; i < ids.length; i += 2) {
       const a = ids[i], b = ids[i + 1] || "bot", [ta, tb] = shuffle([...TASK_NAMES]);
       assign[a] = { p: b, t: ta, bt: tb };
       if (b !== "bot") assign[b] = { p: a, t: tb };
     }
-    pub("session", { sid: sess.sid, state: "play", names: players, assign }, true);
+    pub("session", { sid: sess.sid, state: "play", names, assign }, true);
   };
   // mid-game, "New game" needs a second tap so a misclick next to the main button can't wipe the round
   $("hReset").onclick = () => {
@@ -379,6 +399,7 @@ function host() {
     }
     if (!play) {
       $("hCount").textContent = ids.length; $("hLabel").textContent = "players in the room";
+      $("hBubbles").classList.toggle("many", ids.length > 16);
       const have = new Set([...$("hBubbles").children].map(s => s.dataset.id));
       for (const id of ids) if (!have.has(id)) {
         const s = document.createElement("span"); s.dataset.id = id; s.textContent = label(players[id]); $("hBubbles").append(s);
@@ -387,26 +408,42 @@ function host() {
     }
     const g = Object.values(guessed), right = g.filter(Boolean).length;
     $("hCount").textContent = `${right} / ${g.length}`;
-    $("hLabel").textContent = `adapters understood by their partner · ${Object.keys(adapters).length} faces on the wall`;
+    $("hLabel").textContent = `understood by their partner · ${Object.keys(adapters).length} faces`;
     // the wall: every sent face, same frozen base, different stickers
     for (const [id, s] of Object.entries(adapters)) {
       let card = $("hWall").querySelector(`[data-id="${CSS.escape(id)}"]`);
       if (!card) {
         card = document.createElement("div"); card.className = "face"; card.dataset.id = id;
         const stage = document.createElement("div"); stage.className = "stage";
-        const name = document.createElement("div"); name.textContent = label(players[id] || ["Player", "🙂"]);
-        card.append(stage, name, document.createElement("small"));
+        const name = document.createElement("div"), st = document.createElement("span"), nm = document.createElement("span");
+        nm.className = "nm"; nm.textContent = label(players[id] || ["Player", "🙂"]);
+        name.append(st, nm); card.append(stage, name);
         $("hWall").append(card); paint(stage, s);
       }
       const p = sess.assign?.[id]?.p;
-      card.querySelector("small").textContent = p in guessed ? (guessed[p] ? "✅ understood" : "❌ missed") : "";
+      card.lastChild.firstChild.textContent = p in guessed ? (guessed[p] ? "✅ " : "❌ ") : "";
     }
     $("hReveal").hidden = !sess.reveal;
     if (sess.reveal) {
       paint($("h16"), [], 16); paint($("h4"), [], 4);
     }
+    fitWall();
   }
 }
+
+// largest tile size that still fits every face in the space left on the screen (no scrolling on the projector)
+function fitWall() {
+  const w = $("hWall"), n = w.children.length, gap = 12;
+  if (!n || w.hidden) return;
+  let s = 170;
+  for (; s > 48; s -= 4) {  // a tile is ~1.1 × its width for the face plus ~24 px for the name line
+    const cols = Math.max(1, Math.floor((w.clientWidth + gap) / (s + gap)));
+    if (Math.ceil(n / cols) * (s * 1.1 + 24 + gap) - gap <= w.clientHeight) break;
+  }
+  w.style.setProperty("--tile", s + "px");
+  w.classList.toggle("tiny", s < 84);
+}
+addEventListener("resize", fitWall);
 
 // ---------- player (phone) ----------
 function player() {
@@ -452,6 +489,7 @@ function player() {
 
   function start() {
     const a = sess?.assign?.[me.id], human = a && a.p !== "bot" && okName(sess.names?.[a.p]);
+    if (okName(sess?.names?.[me.id])) { fill("[data-me-name]", sess.names[me.id][0]); fill("[data-me-em]", sess.names[me.id][1]); }
     game = { task: TASK_NAMES.includes(a?.t) ? a.t : rnd(TASK_NAMES), mine: [], sent: false, theirs: null, myGuess: null, theirGuess: null };
     if (human) {
       const pt = sess.assign[a.p]?.t;
