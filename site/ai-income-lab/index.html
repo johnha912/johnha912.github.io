@@ -10,9 +10,9 @@
 <script>try{document.documentElement.dataset.theme=localStorage.getItem('lab-theme')||'dark'}catch(e){document.documentElement.dataset.theme='dark'}</script>
 <style>
   /* Theme matched to johnha.info (Addendum 02): warm paper, near-black ink, emerald accent, pill controls. */
-  :root{--paper:#F6F4EF;--card:#FFFFFF;--ink:#16181D;--grey:#5B5F66;--line:#E3DED2;--accent:#059669;--accent-soft:rgba(5,150,105,.12);--on-accent:#FFFFFF;--warm:#D97706;--muted-mark:#9CA3AF;--crash:#DC2626;--header:rgba(246,244,239,.92);--track:#ECE8DE;--band:#F1EEE7;--glow-a:rgba(5,150,105,.16);--glow-b:rgba(234,179,8,.16);--shadow:0 8px 28px rgba(22,24,29,.14)}
+  :root{--paper:#F6F4EF;--card:#FFFFFF;--ink:#16181D;--grey:#5B5F66;--line:#E3DED2;--accent:#059669;--accent-soft:rgba(5,150,105,.12);--on-accent:#FFFFFF;--warm:#D97706;--muted-mark:#9CA3AF;--crash:#DC2626;--header:rgba(246,244,239,.92);--track:#ECE8DE;--band:#F1EEE7;--glow-a:rgba(5,150,105,.16);--glow-b:rgba(234,179,8,.16);--shadow:0 8px 28px rgba(22,24,29,.14);--glass:rgba(255,255,255,.2);--glass-edge:rgba(255,255,255,.6);--glass-hi:rgba(255,255,255,.8);--glass-lo:rgba(22,24,29,.1);--glass-sheen:rgba(255,255,255,.3)}
   /* Dark mode (Addendum 04): default on first visit, like johnha.info. */
-  :root[data-theme="dark"]{--paper:#121316;--card:#1B1D21;--ink:#F2F2EF;--grey:#A4A8AF;--line:#2C2F35;--accent:#34D399;--accent-soft:rgba(52,211,153,.16);--on-accent:#121316;--warm:#FBBF24;--muted-mark:#6B7280;--crash:#F87171;--header:rgba(18,19,22,.9);--track:#2C2F35;--band:#23262B;--glow-a:rgba(52,211,153,.13);--glow-b:rgba(234,179,8,.09);--shadow:0 8px 28px rgba(0,0,0,.5)}
+  :root[data-theme="dark"]{--paper:#121316;--card:#1B1D21;--ink:#F2F2EF;--grey:#A4A8AF;--line:#2C2F35;--accent:#34D399;--accent-soft:rgba(52,211,153,.16);--on-accent:#121316;--warm:#FBBF24;--muted-mark:#6B7280;--crash:#F87171;--header:rgba(18,19,22,.9);--track:#2C2F35;--band:#23262B;--glow-a:rgba(52,211,153,.13);--glow-b:rgba(234,179,8,.09);--shadow:0 8px 28px rgba(0,0,0,.5);--glass:rgba(27,29,33,.28);--glass-edge:rgba(255,255,255,.14);--glass-hi:rgba(255,255,255,.18);--glass-lo:rgba(0,0,0,.35);--glass-sheen:rgba(255,255,255,.08)}
   :root{color-scheme:light} :root[data-theme="dark"]{color-scheme:dark}
   *{box-sizing:border-box} body{margin:0;font-family:"Be Vietnam Pro","Helvetica Neue",Helvetica,Arial,system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
   h1,h2,.logo,.num{font-family:"Be Vietnam Pro","Helvetica Neue",Arial,sans-serif}
@@ -93,22 +93,19 @@
   @keyframes pulse{0%{box-shadow:0 0 0 0 var(--accent-soft)}70%{box-shadow:0 0 0 8px transparent}100%{box-shadow:0 0 0 0 transparent}}
   @media (prefers-reduced-motion:reduce){.chip.on .dot{animation:none}}
   .doing{font-weight:600}
-  /* Bottom dock (Addendum 04): side, language and theme controls; collapses to one round button. */
-  .dock{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:30;display:flex;align-items:center;gap:6px;padding:5px;background:var(--card);border:1px solid var(--line);border-radius:999px;box-shadow:var(--shadow);max-width:calc(100vw - 24px)}
+  /* Bottom dock (Addendum 04): side, language and theme controls. Always open (owner, Oct 26), liquid glass: the page shows through, blurred. */
+  .dock{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:30;display:flex;align-items:center;gap:6px;padding:5px;background:var(--glass);-webkit-backdrop-filter:blur(7px) saturate(180%);backdrop-filter:blur(7px) saturate(180%);border:1px solid var(--glass-edge);border-radius:999px;box-shadow:var(--shadow),inset 0 1px 0 var(--glass-hi),inset 0 -1px 1px var(--glass-lo);max-width:calc(100vw - 24px);isolation:isolate}
+  .dock::before{content:"";position:absolute;inset:0;border-radius:inherit;z-index:-1;pointer-events:none;background:linear-gradient(180deg,var(--glass-sheen),transparent 60%)}
+  @supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.dock{background:var(--card)}}
   .dock .toggle{border:0;padding:0;background:transparent;gap:0}
   .dock .toggle button{padding:8px 13px;min-height:40px;font-size:.86rem}
   .dock .div{width:1px;align-self:stretch;margin:6px 0;background:var(--line)}
   .theme button{width:40px;padding:0;font-size:1rem;color:var(--grey)}
   .theme button.on{background:var(--accent);color:var(--on-accent)}
-  .dock-x,.dock-open{border:0;background:transparent;color:var(--grey);width:40px;height:40px;border-radius:50%;cursor:pointer;font:700 1.05rem/1 inherit;display:grid;place-items:center}
-  .dock-x:hover,.dock-open:hover{background:var(--accent-soft);color:var(--ink)}
-  .dock-open{display:none;width:48px;height:48px;color:var(--ink)}
-  .dock.collapsed{padding:4px;gap:0}
-  .dock.collapsed>*{display:none} .dock.collapsed .dock-open{display:grid}
   .totop{position:fixed;right:16px;bottom:84px;z-index:29;width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--ink);box-shadow:var(--shadow);cursor:pointer;display:grid;place-items:center;opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .2s,transform .2s,visibility .2s,background .15s,color .15s}
   .totop.show{opacity:1;visibility:visible;transform:none}
   .totop:hover{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
-  @media (max-width:420px){.dock{gap:2px;padding:4px}.dock .toggle button{padding:7px 9px;font-size:.8rem;min-height:38px}.theme button,.dock-x{width:34px;min-height:38px;height:38px}.dock .div{margin:6px 1px}}
+  @media (max-width:420px){.dock{gap:2px;padding:4px}.dock .toggle button{padding:7px 9px;font-size:.8rem;min-height:38px}.theme button{width:34px;min-height:38px;height:38px}.dock .div{margin:6px 1px}}
   @media (max-width:560px){.bar-row .lbl{flex-basis:50%} th.c3,td.c3{display:none} .hero .stat{margin-right:16px;padding-right:16px}}
 </style>
 </head>
@@ -140,8 +137,6 @@
     <button id="theme-light" onclick="setTheme('light')" aria-label="Light">☀</button>
     <button id="theme-dark" onclick="setTheme('dark')" aria-label="Dark">☾</button>
   </div>
-  <button class="dock-x" id="dock-close" onclick="collapseDock()" aria-label="Collapse controls">⌄</button>
-  <button class="dock-open" id="dock-open" onclick="openDock()" aria-label="Show controls">☰</button>
 </nav>
 <button class="totop" id="totop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16V8M8 12l4-4 4 4"/></svg></button>
 
@@ -302,17 +297,11 @@ async function refresh(){const before=JSON.stringify(SIDES);
  if(JSON.stringify(SIDES)===before){renderBand();return;}
  const keep=['fb-side','fb-type','fb-msg'].map(id=>{const e=document.getElementById(id);return e?[id,e.value]:null;}).filter(Boolean);
  render(); keep.forEach(([id,v])=>{const e=document.getElementById(id);if(e)e.value=v;});}
-// Theme (remembered per viewer), bottom dock that folds away after ~6 s idle, and the back-to-top button.
+// Theme (remembered per viewer) and the back-to-top button. The bottom dock always stays open.
 function setTheme(m){document.documentElement.dataset.theme=m;try{localStorage.setItem('lab-theme',m)}catch(e){}
  document.getElementById('theme-light').classList.toggle('on',m==='light');document.getElementById('theme-dark').classList.toggle('on',m==='dark');}
-let dockTimer=null;
-function armDock(){clearTimeout(dockTimer);dockTimer=setTimeout(collapseDock,6000);}
-function collapseDock(){clearTimeout(dockTimer);document.getElementById('dock').classList.add('collapsed');}
-function openDock(){document.getElementById('dock').classList.remove('collapsed');armDock();}
-function initChrome(){const dock=document.getElementById('dock'),top=document.getElementById('totop');
+function initChrome(){const top=document.getElementById('totop');
  setTheme(document.documentElement.dataset.theme==='light'?'light':'dark');
- ['pointerdown','keydown','focusin','pointerenter'].forEach(ev=>dock.addEventListener(ev,()=>{if(!dock.classList.contains('collapsed'))armDock();}));
- armDock();
  const onScroll=()=>top.classList.toggle('show',window.scrollY>600);window.addEventListener('scroll',onScroll,{passive:true});onScroll();}
 setLang('en'); loadSide('muse'); loadSide('claude'); initChrome();
 if(typeof window.setInterval==='function') window.setInterval(refresh,60000);
