@@ -55,6 +55,17 @@
   tr:last-child td{border-bottom:0}
   td.idx{font-weight:700;width:44px;color:var(--grey)}
   .logline{padding:10px 0;border-top:1px solid var(--line)}
+  .idea{border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:14px 0}
+  .idea-top{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+  .idea-name{font-weight:800;font-size:1.05rem}
+  .idea-score{margin-left:auto;font-family:"IBM Plex Mono",monospace;font-size:1.5rem;font-weight:700}
+  .pill{font-size:.75rem;font-weight:700;padding:2px 10px;border-radius:999px;border:1px solid var(--line);color:var(--grey)}
+  .idea p{margin:6px 0}
+  .idea .lbl2{font-weight:700}
+  .parts{display:flex;gap:4px;flex-wrap:wrap;margin:8px 0}
+  .parts span{font-size:.72rem;border:1px solid var(--line);border-radius:999px;padding:2px 8px;color:var(--grey)}
+  .sys{border:1px dashed var(--line);border-radius:14px;padding:6px 18px 14px;margin:26px 0}
+  .sys summary{cursor:pointer;font-weight:800;padding:12px 0;font-size:1.05rem}
   .logline .t{font-size:.85rem;color:var(--grey)}
   .plot{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 8px 6px}
   .plot svg{display:block;width:100%;height:auto}
@@ -182,7 +193,8 @@ const T = {
   upd:"Platform updates — this side",noUpd:"No platform updates logged yet.",noPool:"This side lists its ideas and scores in its progress log below.",
   fb:"Share your ideas & feedback",fbTake:"Feedback goes to public GitHub Issues. Every note gets a written answer: adopted or not, and why.",
   fSide:"For which side",fBoth:"Both sides",fType:"Type",fIdea:"Comment on an idea",fNew:"Suggest a new idea",fVote:"Vote for an idea",fMsg:"Your message",fSend:"Open on GitHub",fAll:"See all feedback",fNote:"Opens a public GitHub issue (a free GitHub account is needed). Please don't include personal information.",
-  best:"Running best score",plotK:"Experiments",plot:"Every idea scored — and the best so far",plotTake:"Each dot is one idea. The green step line is the best score reached so far.",plotNone:"No ideas scored yet — this side's plot appears after its first scoring round.",xLbl:"Ideas, in the order they were scored",gateBand:"failed a gate",lgKeep:"kept",lgRevise:"needs revision",lgDiscard:"discarded",lgCrash:"crashed",lgGate:"failed a hard gate (no score)",lgBest:"running best",bestNone:"No idea scored yet — scoring starts after the legal gates."},
+  best:"Running best score",plotK:"Experiments",plot:"Every idea scored — and the best so far",plotTake:"Each dot is one idea. The green step line is the best score reached so far.",plotNone:"No ideas scored yet — this side's plot appears after its first scoring round.",xLbl:"Ideas, in the order they were scored",gateBand:"failed a gate",lgKeep:"kept",lgRevise:"needs revision",lgDiscard:"discarded",lgCrash:"crashed",lgGate:"failed a hard gate (no score)",lgBest:"running best",bestNone:"No idea scored yet — scoring starts after the legal gates.",
+  ideasH:"The ideas — debated & scored by the agents",ideasTake:"Every idea survives a 6-step agent debate (claim → kill shot → base rate → money math → distribution → pre-mortem) before it earns a score. Current round: provisional scores — the official scoring round is Nov 13.",killL:"Kill shot",verdL:"Team verdict",clsB:"Legal gate: lawful with conditions",noIdeas:"This side has not published scored debates yet.",showSys:"System & platform details — show",prov:"Provisional"},
  vi:{kick:"Nhật ký nghiên cứu công khai · Việt Nam + Hoa Kỳ · Hai hệ thống AI, một đề bài",h1:"Kiếm tiền bằng AI với ~$20/tháng.",tag:"Hai team AI độc lập — Muse và Claude Code — cùng chạy một đề bài cho Việt Nam và Mỹ. Hợp pháp ở cả hai nước, có lời sau thuế, không thì loại.",
   s1:"cách đang kiểm chứng",s2:"cổng cứng",s3:"ngày tới deadline 25/12",viewing:"Đang xem phía",liveOn:"Đang hoạt động",liveOff:"Đang nghỉ",lastUpd:"cập nhật lần cuối",ago:"trước",justNow:"vừa xong",uMin:"phút",uHr:"giờ",uDay:"ngày",chk:"đã kiểm tra trạng thái lúc",updated:"Cập nhật",
   gates:"Bốn cổng cứng",gTake:"Rớt một cổng là loại — không điểm nào cứu được.",g1:"Ngân sách: subscription AI ≤ ~$20/tháng, mọi chi phí khác liệt kê công khai.",g2:"Hợp pháp ở cả hai nước + đúng điều khoản nền tảng: không ngành cấm, không spam, không tương tác ảo, công khai AI/quảng cáo đúng quy định.",g3:"Có lời SAU thuế và khai nộp thuế đầy đủ — không tính thu nhập chui.",g4:"Hợp pháp cho người vận hành mẫu — cư dân dài hạn hợp pháp của cả Mỹ và Việt Nam — gồm đăng ký kinh doanh và khai thuế ở cả hai nước, kiểm tra bằng nguồn chính thức cho từng cách.",
@@ -192,7 +204,8 @@ const T = {
   upd:"Cập nhật nền tảng — phía này",noUpd:"Chưa ghi nhận cập nhật nền tảng nào.",noPool:"Phía này ghi danh sách ý tưởng và điểm trong nhật ký tiến độ bên dưới.",
   fb:"Đóng góp ý kiến & ý tưởng",fbTake:"Góp ý được gửi lên GitHub Issues công khai. Mỗi góp ý đều có trả lời bằng văn bản: áp dụng hay không, và vì sao.",
   fSide:"Góp ý cho phía nào",fBoth:"Cả hai phía",fType:"Loại góp ý",fIdea:"Bình luận về một cách",fNew:"Đề xuất cách mới",fVote:"Bình chọn cho một cách",fMsg:"Nội dung góp ý",fSend:"Mở trên GitHub",fAll:"Xem tất cả góp ý",fNote:"Sẽ mở một issue công khai trên GitHub (cần tài khoản GitHub miễn phí). Vui lòng không ghi thông tin cá nhân.",
-  best:"Điểm cao nhất hiện tại",plotK:"Thí nghiệm",plot:"Mọi ý tưởng đã chấm — và điểm cao nhất tới nay",plotTake:"Mỗi chấm là một ý tưởng. Đường bậc thang xanh là điểm cao nhất đạt được tới thời điểm đó.",plotNone:"Chưa có ý tưởng nào được chấm — biểu đồ của phía này sẽ hiện sau vòng chấm đầu tiên.",xLbl:"Các ý tưởng, theo thứ tự được chấm",gateBand:"rớt cổng",lgKeep:"giữ lại",lgRevise:"cần xem lại",lgDiscard:"loại",lgCrash:"lỗi",lgGate:"rớt cổng cứng (không chấm)",lgBest:"điểm cao nhất tới nay",bestNone:"Chưa có cách nào được chấm — việc chấm điểm bắt đầu sau vòng cổng pháp lý."}
+  best:"Điểm cao nhất hiện tại",plotK:"Thí nghiệm",plot:"Mọi ý tưởng đã chấm — và điểm cao nhất tới nay",plotTake:"Mỗi chấm là một ý tưởng. Đường bậc thang xanh là điểm cao nhất đạt được tới thời điểm đó.",plotNone:"Chưa có ý tưởng nào được chấm — biểu đồ của phía này sẽ hiện sau vòng chấm đầu tiên.",xLbl:"Các ý tưởng, theo thứ tự được chấm",gateBand:"rớt cổng",lgKeep:"giữ lại",lgRevise:"cần xem lại",lgDiscard:"loại",lgCrash:"lỗi",lgGate:"rớt cổng cứng (không chấm)",lgBest:"điểm cao nhất tới nay",bestNone:"Chưa có cách nào được chấm — việc chấm điểm bắt đầu sau vòng cổng pháp lý.",
+  ideasH:"Các ý tưởng — agents tranh luận & chấm điểm",ideasTake:"Mỗi ý tưởng phải qua một phiên tranh luận 6 bước của các agents (luận điểm → đòn chí mạng → tỷ lệ thành công thực tế → toán tiền → kênh khách đầu tiên → dự phòng thất bại) rồi mới có điểm. Vòng hiện tại: điểm nháp — vòng chấm chính thức là 13/11.",killL:"Đòn chí mạng",verdL:"Kết luận của team",clsB:"Cổng pháp lý: hợp lệ có điều kiện",noIdeas:"Phía này chưa công bố ý tưởng đã tranh luận & chấm điểm.",showSys:"Chi tiết hệ thống & nền tảng — hiện",prov:"Điểm nháp"}
 };
 let lang='en', side='muse';
 function setLang(l){lang=l;document.getElementById('btn-en').classList.toggle('on',l==='en');document.getElementById('btn-vi').classList.toggle('on',l==='vi');document.querySelectorAll('[data-en]').forEach(e=>e.textContent=e.dataset[l]);render();}
@@ -213,20 +226,32 @@ function render(){const t=T[lang], d=SIDES[side];
  const pool=sidePool.map((p,i)=>`<tr><td class="idx mono">${String(i+1).padStart(2,'0')}</td><td>${lang==='en'?p[0]:p[1]}</td><td class="c3">${p[2]}</td><td class="mono">${p[3]==null?"—":p[3]}</td></tr>`).join('');
  const log=d.log.length?d.log.map(x=>`<div class="logline"><div class="t mono">${x.t}</div><div>${x[lang]||x.en}</div></div>`).join(''):`<p class="muted">${t.noLog}</p>`;
  const upd=d.updates.length?d.updates.map(x=>`<div class="logline"><div class="t mono">${x.t}</div><div>${x[lang]||x.en}</div></div>`).join(''):`<p class="muted">${t.noUpd}</p>`;
+ const STW={keep:t.lgKeep,revise:t.lgRevise,discard:t.lgDiscard,crash:t.lgCrash};
+ let ideaCards='';
+ if(Array.isArray(d.ideas)&&d.ideas.length){
+  ideaCards=d.ideas.slice().sort((a,b)=>(b.s||0)-(a.s||0)).map(x=>{const p=sidePool[x.i-1]||[];const nm=(lang==='en'?p[0]:p[1])||x.c||'';
+   const parts=(x.parts||[]).map((v,k)=>'<span>'+(lang==='en'?RUBRIC[k][0]:RUBRIC[k][2])+' '+v+'/'+RUBRIC[k][1]+'</span>').join('');
+   return `<div class="idea"><div class="idea-top"><span class="idea-name">${x.i}. ${nm}</span><span class="pill">${STW[x.st]||x.st} · ${t.prov}</span><span class="idea-score">${x.s}<span style="font-size:.8rem;color:var(--grey)"> / 100</span></span></div><div class="parts">${parts}</div><p><span class="lbl2">${t.clsB} — ${x.legal?x.legal.pts:'?'}/20.</span></p><p><span class="lbl2">${t.killL}:</span> ${x.kill[lang]||x.kill.en}</p><p><span class="lbl2">${t.verdL}:</span> ${x.verdict[lang]||x.verdict.en}</p></div>`;}).join('');
+ } else if(Array.isArray(d.pool)&&d.pool.length){
+  ideaCards=d.pool.filter(p=>p.score!=null).slice().sort((a,b)=>b.score-a.score).map((p,k)=>`<div class="idea"><div class="idea-top"><span class="idea-name">${k+1}. ${lang==='en'?p.en:p.vi}</span><span class="idea-score">${p.score}<span style="font-size:.8rem;color:var(--grey)"> / 100</span></span></div></div>`).join('');
+ } else { ideaCards=`<p class="muted">${t.noIdeas}</p>`; }
  document.getElementById('app').innerHTML=`
+ <section><div class="kicker">Debate & scores</div><h2>${t.ideasH}</h2><p class="take">${t.ideasTake}</p>${ideaCards}</section>
  <section><div class="kicker">${t.gates}</div><h2>${t.gates}</h2><p class="take">${t.gTake}</p>${gates}</section>
  <section><div class="kicker">Rubric</div><h2>${t.rub}</h2><p class="take">${t.rubTake}</p>${rubric}
  <h2 style="margin-top:26px">${t.best} — ${side==='muse'?'Muse':'Claude Code'}</h2><p class="muted">${d.best?('<span class="mono" style="font-size:1.6rem;color:var(--ink);font-weight:700">'+d.best+' / 100</span>'):t.bestNone}</p></section>
  <section><div class="kicker">${t.plotK}</div><h2>${t.plot}</h2><p class="take">${t.plotTake}</p>${plotSVG(d.results,t)}</section>
  <section><div class="kicker">Pool v1</div><h2>${t.pool}</h2><p class="take">${poolTake}</p>
  ${sidePool.length?`<table><tr><th>#</th><th>${t.th1}</th><th class="c3">${t.th2}</th><th>Score</th></tr>${pool}</table>`:""}</section>
- <section><div class="kicker">Log</div><h2>${t.prog}</h2>${log}<p class="note" style="margin-top:14px">${t.next}</p></section>
- <section><div class="kicker">Platform</div><h2>${t.upd}</h2>${upd}</section>
  <section><div class="kicker">Feedback</div><h2>${t.fb}</h2><p class="take">${t.fbTake}</p>
  <label>${t.fSide}<select id="fb-side"><option value="Claude"${side==='claude'?' selected':''}>CLAUDE</option><option value="Muse"${side==='muse'?' selected':''}>MUSE</option><option value="Both">${t.fBoth}</option></select></label>
  <label>${t.fType}<select id="fb-type"><option>${t.fIdea}</option><option>${t.fNew}</option><option>${t.fVote}</option></select></label>
  <label>${t.fMsg}<textarea id="fb-msg" rows="4"></textarea></label>
- <button class="send" onclick="openIssue()">${t.fSend} ↗</button><p class="note">${t.fNote} <a href="${ISSUES}?q=is%3Aissue+%22AI+Income+Lab%22" target="_blank" rel="noopener">${t.fAll} ↗</a></p></section>`;
+ <button class="send" onclick="openIssue()">${t.fSend} ↗</button><p class="note">${t.fNote} <a href="${ISSUES}?q=is%3Aissue+%22AI+Income+Lab%22" target="_blank" rel="noopener">${t.fAll} ↗</a></p></section>
+ <details class="sys"><summary>${t.showSys}</summary>
+ <section><div class="kicker">Log</div><h2>${t.prog}</h2>${log}<p class="note" style="margin-top:14px">${t.next}</p></section>
+ <section><div class="kicker">Platform</div><h2>${t.upd}</h2>${upd}</section>
+ </details>`;
  }
 // Karpathy-style plot: one dot per idea in scoring order, running-best step line, gate fails in a band under the axis.
 const MARK={keep:'#059669',revise:'#D97706',discard:'#9CA3AF',crash:'#DC2626'};
