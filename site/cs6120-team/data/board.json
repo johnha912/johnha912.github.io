@@ -1,0 +1,889 @@
+{
+ "meta": {
+  "course": "CS6120 NLP — Final Project Research Run",
+  "instructor": "Karl Ni",
+  "team": "Nguyen Ha · Ngoc Hoang · Peihan Wang",
+  "deadline": "Tue Oct 27, 2:00 PM PT",
+  "updated_at": "2026-10-26 16:55 PDT",
+  "experiments": 49,
+  "pool": 50,
+  "top5": [
+   "C07",
+   "C01",
+   "C11",
+   "C25",
+   "C05"
+  ]
+ },
+ "series": [
+  {
+   "exp": 1,
+   "id": "B1",
+   "score": 85,
+   "status": "keep",
+   "running_best": 85
+  },
+  {
+   "exp": 2,
+   "id": "B2",
+   "score": 84,
+   "status": "keep",
+   "running_best": 85
+  },
+  {
+   "exp": 3,
+   "id": "B3",
+   "score": 73,
+   "status": "discard",
+   "running_best": 85
+  },
+  {
+   "exp": 4,
+   "id": "B4",
+   "score": 77,
+   "status": "discard",
+   "running_best": 85
+  },
+  {
+   "exp": 5,
+   "id": "B5",
+   "score": 80,
+   "status": "keep",
+   "running_best": 85
+  },
+  {
+   "exp": 6,
+   "id": "C01",
+   "score": 87,
+   "status": "keep",
+   "running_best": 87
+  },
+  {
+   "exp": 7,
+   "id": "C02",
+   "score": 72,
+   "status": "discard",
+   "running_best": 87
+  },
+  {
+   "exp": 8,
+   "id": "C03",
+   "score": 84,
+   "status": "keep",
+   "running_best": 87
+  },
+  {
+   "exp": 9,
+   "id": "C04",
+   "score": 74,
+   "status": "discard",
+   "running_best": 87
+  },
+  {
+   "exp": 10,
+   "id": "C05",
+   "score": 84,
+   "status": "keep",
+   "running_best": 87
+  },
+  {
+   "exp": 11,
+   "id": "C06",
+   "score": 58,
+   "status": "crash",
+   "running_best": 87
+  },
+  {
+   "exp": 12,
+   "id": "C07",
+   "score": 89,
+   "status": "keep",
+   "running_best": 89
+  },
+  {
+   "exp": 13,
+   "id": "C08",
+   "score": 76,
+   "status": "discard",
+   "running_best": 89
+  },
+  {
+   "exp": 14,
+   "id": "C09",
+   "score": 71,
+   "status": "discard",
+   "running_best": 89
+  },
+  {
+   "exp": 15,
+   "id": "C10",
+   "score": 75,
+   "status": "discard",
+   "running_best": 89
+  },
+  {
+   "exp": 16,
+   "id": "C11",
+   "score": 86,
+   "status": "keep",
+   "running_best": 89
+  },
+  {
+   "exp": 17,
+   "id": "C12",
+   "score": 76,
+   "status": "discard",
+   "running_best": 89
+  },
+  {
+   "exp": 18,
+   "id": "C13",
+   "score": 70,
+   "status": "discard",
+   "running_best": 89
+  },
+  {
+   "exp": 19,
+   "id": "C14",
+   "score": 77,
+   "status": "discard",
+   "running_best": 89
+  },
+  {
+   "exp": 20,
+   "id": "C15",
+   "score": 76,
+   "status": "discard",
+   "running_best": 89
+  },
+  {
+   "exp": 21,
+   "id": "C16",
+   "score": 72,
+   "status": "discard",
+   "running_best": 89
+  },
+  {
+   "exp": 22,
+   "id": "C17",
+   "score": 83,
+   "status": "keep",
+   "running_best": 89
+  },
+  {
+   "exp": 23,
+   "id": "C18",
+   "score": 67,
+   "status": "discard",
+   "running_best": 89
+  },
+  {
+   "exp": 24,
+   "id": "B1",
+   "score": 81,
+   "status": "keep",
+   "running_best": 89
+  },
+  {
+   "exp": 25,
+   "id": "B2",
+   "score": 84,
+   "status": "keep",
+   "running_best": 89
+  },
+  {
+   "exp": 26,
+   "id": "B3",
+   "score": 68,
+   "status": "discard",
+   "running_best": 89
+  },
+  {
+   "exp": 27,
+   "id": "B4",
+   "score": 73,
+   "status": "discard",
+   "running_best": 89
+  },
+  {
+   "exp": 28,
+   "id": "B5",
+   "score": 75,
+   "status": "discard",
+   "running_best": 89
+  },
+  {
+   "exp": 29,
+   "id": "C19",
+   "score": 84,
+   "status": "keep",
+   "running_best": 89
+  },
+  {
+   "exp": 30,
+   "id": "C20",
+   "score": 80,
+   "status": "keep",
+   "running_best": 89
+  },
+  {
+   "exp": 31,
+   "id": "C21",
+   "score": 83,
+   "status": "keep",
+   "running_best": 89
+  },
+  {
+   "exp": 32,
+   "id": "C22",
+   "score": 82,
+   "status": "keep",
+   "running_best": 89
+  },
+  {
+   "exp": 33,
+   "id": "C23",
+   "score": 84,
+   "status": "keep",
+   "running_best": 89
+  },
+  {
+   "exp": 34,
+   "id": "C24",
+   "score": 81,
+   "status": "keep",
+   "running_best": 89
+  },
+  {
+   "exp": 35,
+   "id": "C25",
+   "score": 85,
+   "status": "keep",
+   "running_best": 89
+  },
+  {
+   "exp": 36,
+   "id": "C26",
+   "score": 77,
+   "status": "discard",
+   "running_best": 89
+  },
+  {
+   "exp": 37,
+   "id": "C27",
+   "score": 77,
+   "status": "discard",
+   "running_best": 89
+  },
+  {
+   "exp": 38,
+   "id": "C28",
+   "score": 81,
+   "status": "keep",
+   "running_best": 89
+  },
+  {
+   "exp": 39,
+   "id": "C29",
+   "score": 83,
+   "status": "keep",
+   "running_best": 89
+  },
+  {
+   "exp": 40,
+   "id": "C30",
+   "score": 81,
+   "status": "keep",
+   "running_best": 89
+  },
+  {
+   "exp": 41,
+   "id": "C31",
+   "score": 82,
+   "status": "keep",
+   "running_best": 89
+  },
+  {
+   "exp": 42,
+   "id": "C32",
+   "score": 82,
+   "status": "keep",
+   "running_best": 89
+  },
+  {
+   "exp": 43,
+   "id": "C33",
+   "score": 82,
+   "status": "keep",
+   "running_best": 89
+  },
+  {
+   "exp": 44,
+   "id": "C34",
+   "score": 78,
+   "status": "discard",
+   "running_best": 89
+  },
+  {
+   "exp": 45,
+   "id": "C35",
+   "score": 83,
+   "status": "keep",
+   "running_best": 89
+  },
+  {
+   "exp": 46,
+   "id": "C36",
+   "score": 75,
+   "status": "discard",
+   "running_best": 89
+  },
+  {
+   "exp": 47,
+   "id": "C37",
+   "score": 84,
+   "status": "keep",
+   "running_best": 89
+  },
+  {
+   "exp": 48,
+   "id": "C38",
+   "score": 79,
+   "status": "discard",
+   "running_best": 89
+  },
+  {
+   "exp": 49,
+   "id": "C39",
+   "score": 81,
+   "status": "keep",
+   "running_best": 89
+  }
+ ],
+ "candidates": [
+  {
+   "id": "C07",
+   "name": "C07 MCP tool-use security",
+   "score": 89,
+   "status": "keep",
+   "elite": 8.0,
+   "future": 9.0,
+   "note": "Full rubric score 2026-10-25 20:58 PDT - NEW RUNNING BEST - strongest canon mapping W4 MCP security paper direct - MSB arXiv 2510.15994 verified - Option B agent plus guardrails live red-team demo - Elite 8.0 Future 9.0"
+  },
+  {
+   "id": "C01",
+   "name": "C01 Agentic RAG self-correcting multi-hop QA",
+   "score": 87,
+   "status": "keep",
+   "elite": 7.5,
+   "future": 8.0,
+   "note": "First full rubric score - HotpotQA verified 90447 train and 7405 validation CC-BY-SA-4.0 - cut to 3 variants with matched ablations - Option A endpoint on GCP Cloud Run L4 scale-to-zero - Elite 7.5 Future 8.0"
+  },
+  {
+   "id": "C11",
+   "name": "C11 Autoresearch loop for RAG pipeline",
+   "score": 86,
+   "status": "keep",
+   "elite": 7.5,
+   "future": 8.5,
+   "note": "Full rubric score 2026-10-25 22:58 PDT - direct canon Autoresearch team own presentation plus Lewis RAG - serve winning pipeline not timeline per G3 - held-out gap plus reward-hacking audit is the claim - Elite 7.5 Future 8.5"
+  },
+  {
+   "id": "C25",
+   "name": "C25 Authorization alignment",
+   "score": 85,
+   "status": "keep",
+   "elite": 8.0,
+   "future": 9.0,
+   "note": "Full rubric score 2026-10-26 06:58 PDT - AuthorizationBench verified this batch dataset and code available CC BY 4.0 with 286 tasks and 6864 trajectories so G1 cap lifted and Data 9 - agents exceed authorization in 19.2 percent of trajectories - Option B agent with effect-boundary contract check - e"
+  },
+  {
+   "id": "B2",
+   "name": "B2 RAG QA over course documents",
+   "score": 84,
+   "status": "keep",
+   "elite": null,
+   "future": null,
+   "note": "QC re-score appended 2026-10-26 00:58 PDT per qc-audit section 6 - delta 0 from exp 2 - Course Fit raised to 19 on S25 Option A precedent offset by median-member feasibility - keep provisional"
+  },
+  {
+   "id": "C03",
+   "name": "C03 LLM judge reliability in context",
+   "score": 84,
+   "status": "keep",
+   "elite": 8.0,
+   "future": 8.0,
+   "note": "First full rubric score - ContextualJudgeBench verified 2000 pairs CC-BY-4.0 on Hugging Face - consistent accuracy under position swap is the headline metric - requires a live judge endpoint wrapper - Elite 8.0 Future 8.0"
+  },
+  {
+   "id": "C05",
+   "name": "C05 Budget forcing for small models",
+   "score": 84,
+   "status": "keep",
+   "elite": 8.0,
+   "future": 8.5,
+   "note": "First full rubric score - GSM8K verified MIT - NEW FINDING MGSM has no Vietnamese config so the VI arm must self-translate 250 items MGSM-style with human check - budget slider is live inference - Elite 8.0 Future 8.5"
+  },
+  {
+   "id": "C19",
+   "name": "C19 Epistemic humility under knowledge conflict",
+   "score": 84,
+   "status": "keep",
+   "elite": 7.5,
+   "future": 8.0,
+   "note": "Full rubric score 2026-10-26 02:58 PDT - HotpotQA verified 90447 train and 7405 validation CC-BY-SA-4.0 with controlled conflicts by documented substitution - ISE trajectory rates are the headline metric not final accuracy alone - Option A live RAG endpoint exposing conflict flag and escalation stat"
+  },
+  {
+   "id": "C23",
+   "name": "C23 Scoped constraints",
+   "score": 84,
+   "status": "keep",
+   "elite": 7.5,
+   "future": 7.5,
+   "note": "Full rubric score 2026-10-26 04:58 PDT - LIFT-Bench verified this batch on Hugging Face ai21labs/LIFTBench 784 tasks plus LIFT-Train 34258 tasks and public code so G1 cap lifted and Data 9 - whole-response vs scoped false-pass rate is the headline metric - live endpoint showing both verdicts with th"
+  },
+  {
+   "id": "C37",
+   "name": "C37 Right Outcome Wrong Process",
+   "score": 84,
+   "status": "keep",
+   "elite": 7.5,
+   "future": 8.5,
+   "note": "Full rubric score 2026-10-26 14:58 PDT - CXBench code verified public this batch github.com/CXBench/cxbench with 120 tasks and 55.5 percent false-passes so G1 lifted and Data 8 - hybrid grader over one regulated workflow - live agent with outcome and process verdicts diverging on the same run - eval"
+  },
+  {
+   "id": "C17",
+   "name": "C17 Prompt injection via RAG documents",
+   "score": 83,
+   "status": "keep",
+   "elite": 7.5,
+   "future": 8.0,
+   "note": "Full rubric score 2026-10-26 00:58 PDT - HotpotQA verified 90447 train and 7405 validation CC-BY-SA-4.0 - Option A live RAG endpoint with provenance detector - held-out attack templates by a different member is a scored condition - keep for shortlist but security family slot is held by C07 89 so C17"
+  },
+  {
+   "id": "C21",
+   "name": "C21 Does reasoning amplify bias",
+   "score": 83,
+   "status": "keep",
+   "elite": 7.5,
+   "future": 7.0,
+   "note": "Full rubric score 2026-10-26 02:58 PDT - BBQ verified this batch 58492 examples nine dimensions plus two intersectional US-context nyu-mll BBQ so G1 cap lifted and Data 9 - EMNLP 2025 Findings reasoning-bias paper verified with ADBP needing no external annotation - live endpoint with reasoning-budge"
+  },
+  {
+   "id": "C29",
+   "name": "C29 Decision models at control points",
+   "score": 83,
+   "status": "keep",
+   "elite": 7.5,
+   "future": 8.0,
+   "note": "Full rubric score 2026-10-26 08:58 PDT - CORRECTION HF dataset startlux-models/DecisionPivot is GATED evaluation only so Data 7 not 9 - core track 7800 items regenerable from public seeds and code Apache-2.0 with hashes - contrast-group accuracy is headline metric - checker family fallback for C03 s"
+  },
+  {
+   "id": "C35",
+   "name": "C35 Almost Right Quietly Wrong",
+   "score": 83,
+   "status": "keep",
+   "elite": 7.5,
+   "future": 8.0,
+   "note": "Full rubric score 2026-10-26 12:58 PDT - NTBench verified this batch via the AI Safety Papers digest 19-25 Oct 2026 with near-target injections beating fixed-target on every model across seven models and two agent benchmarks - suite constructed over verified HotpotQA with deterministic decisive-deta"
+  },
+  {
+   "id": "C22",
+   "name": "C22 Tool-result misbinding",
+   "score": 82,
+   "status": "keep",
+   "elite": 7.5,
+   "future": 8.0,
+   "note": "Full rubric score 2026-10-26 04:58 PDT - TRAP arXiv 2610.16333 verified this batch with public code Apache-2.0 and 19 scenarios so G1 lifted from proposal - mean final-state error 0.649 under cross-task replay - Option B live agent with visible cache and binding check - security family slot held by "
+  },
+  {
+   "id": "C31",
+   "name": "C31 Authorization gate",
+   "score": 82,
+   "status": "keep",
+   "elite": 7.5,
+   "future": 8.5,
+   "note": "Full rubric score 2026-10-26 10:58 PDT - AuthGateBench verified this batch 1400 instances in the arXiv text but no public download found so Data 6 as a verified-design construction - live gate endpoint with contrast pairs flipping on request specificity alone - governance family fallback for C25 slo"
+  },
+  {
+   "id": "C32",
+   "name": "C32 Harness variance",
+   "score": 82,
+   "status": "keep",
+   "elite": 8.0,
+   "future": 8.5,
+   "note": "Full rubric score 2026-10-26 10:58 PDT - harness spread verified this batch by three independent sources with public tasks and open proxy plus trainer so Data 8 - identical weights 62 percent vs 33 percent across harnesses is the headline confound - live endpoint running one task through selectable "
+  },
+  {
+   "id": "C33",
+   "name": "C33 Tool-call budgeting",
+   "score": 82,
+   "status": "keep",
+   "elite": 7.5,
+   "future": 8.0,
+   "note": "Full rubric score 2026-10-26 10:58 PDT - OpenDS protocol verified this batch 200 tasks plus 100-call cap plus best model 39 percent with an independent harness reimplementation - cached-corpus question set is a construction in the B2 pattern so Data 7 - live search agent with a visible budget meter "
+  },
+  {
+   "id": "B1",
+   "name": "B1 Tiny LM tokenizer EN vs VI",
+   "score": 81,
+   "status": "keep",
+   "elite": null,
+   "future": null,
+   "note": "QC re-score appended 2026-10-26 00:58 PDT per qc-audit section 6 - delta minus 4 from exp 1 - Data capped at 6 and autoresearch evidence counted once - headline metric must be BPB not perplexity across tokenizers - keep provisional pending G3 and G5"
+  },
+  {
+   "id": "C24",
+   "name": "C24 Final-state agent eval for a campus workflow",
+   "score": 81,
+   "status": "keep",
+   "elite": 7.5,
+   "future": 8.5,
+   "note": "Full rubric score 2026-10-26 04:58 PDT - ThinkingBox verified this batch 507 workflows via OpenEnv MIT and CDLA-Permissive-2.0 so template G1 lifted - campus domain itself is a construction so Data 7 - transcript-judge vs state-judge disagreement and silent-failure rate are the headline metrics - Op"
+  },
+  {
+   "id": "C28",
+   "name": "C28 Agentic black-box optimization",
+   "score": 81,
+   "status": "keep",
+   "elite": 7.0,
+   "future": 7.5,
+   "note": "Full rubric score 2026-10-26 08:58 PDT - code verified public github.com/lamda-bbo/agentic-bbo so G1 passes by code-verification - NLP fit capped because BBO is not an NLP topic - HPO arm is course-facing - family slot held by C11 86 so C28 is shortlist only - Elite 7.0 Future 7.5"
+  },
+  {
+   "id": "C30",
+   "name": "C30 Memory error reproduction",
+   "score": 81,
+   "status": "keep",
+   "elite": 8.0,
+   "future": 8.5,
+   "note": "Full rubric score 2026-10-26 08:58 PDT - sequential suite is a team construction so Data 6 in C20 pattern - stored abstractions reproduce errors is the mechanism - opens memory family no slot contested - live agent with inspectable memory store - Elite 8.0 Future 8.5"
+  },
+  {
+   "id": "C39",
+   "name": "C39 Do Context Files Pay",
+   "score": 81,
+   "status": "keep",
+   "elite": 7.5,
+   "future": 8.0,
+   "note": "Full rubric score 2026-10-26 14:58 PDT - ETH context-file study verified this batch arXiv 2602.11988 with SWE-bench plus AGENTbench 138 tasks so Data 8 - success delta per added context token is the headline metric - live agent with context-file toggle and cost meter - methodology cluster fallback f"
+  },
+  {
+   "id": "C20",
+   "name": "C20 Do agent skills actually help",
+   "score": 80,
+   "status": "keep",
+   "elite": 7.5,
+   "future": 8.5,
+   "note": "Full rubric score 2026-10-26 02:58 PDT - SkillsBench arXiv 2602.12670 verified 86 tasks and 7308 trajectories curated plus 16.2pp self-generated no benefit - course-scale suite 30-50 tasks with deterministic verifiers does not exist yet so Data capped at 6 - Option B agent loading skills live - keep"
+  },
+  {
+   "id": "C38",
+   "name": "C38 Reliability Surface",
+   "score": 79,
+   "status": "discard",
+   "elite": 7.5,
+   "future": 8.0,
+   "note": "Full rubric score 2026-10-26 14:58 PDT - ReliabilityBench protocol verified arXiv 2601.06112 with 1280 episodes and surface R k epsilon lambda but no artifact download confirmed so Data 7 - discard one point below keep on compute multiplication from repeated runs across three stress axes - no gate f"
+  },
+  {
+   "id": "C34",
+   "name": "C34 Climb the Hill Without Gaming It",
+   "score": 78,
+   "status": "discard",
+   "elite": 7.5,
+   "future": 8.0,
+   "note": "Full rubric score 2026-10-26 12:58 PDT - AGENT4SCI verified this batch arXiv 2610.28763 with 20 benchmarks and skills raising Opus gains 10.4 to 20.1 percent but no public download found so Data 6 as a verified-design construction - discard below keep on feasibility and compute for long-horizon loop"
+  },
+  {
+   "id": "C14",
+   "name": "C14 PEFT Pareto LoRA QLoRA for Vietnamese",
+   "score": 77,
+   "status": "discard",
+   "elite": 5.0,
+   "future": 5.0,
+   "note": "Full rubric score 2026-10-25 22:58 PDT - strongest discard and pool insurance policy - direct LoRA canon but most tutorialized experiment - Elite 5.0 Future 5.0 - live classifier endpoint required for G3"
+  },
+  {
+   "id": "C26",
+   "name": "C26 Deployment-integrity judging",
+   "score": 77,
+   "status": "discard",
+   "elite": 8.0,
+   "future": 7.5,
+   "note": "Full rubric score 2026-10-26 06:58 PDT - DIB-Bench paper verified arXiv 2610.21135 with 7560 examples and tamper acceptance 88.6 to 94.1 percent but no public download found this batch so Data capped at 4 by G1 - discard on the data gate alone - revival path if a download appears before 13:00 PDT re"
+  },
+  {
+   "id": "C27",
+   "name": "C27 Coverage-based stopping for investigative agent",
+   "score": 77,
+   "status": "discard",
+   "elite": 7.5,
+   "future": 8.0,
+   "note": "Full rubric score 2026-10-26 06:58 PDT - Simbian benchmark re-confirmed Oct 2026 with no model clearing 50 percent coverage on every tactic - evidence store is a team construction so Data 6 in the C20 pattern - discard on construction cost against keeps with public datasets - no gate failed - Elite "
+  },
+  {
+   "id": "C08",
+   "name": "C08 VI-EN code-switching benchmark",
+   "score": 76,
+   "status": "discard",
+   "elite": 7.0,
+   "future": 8.0,
+   "note": "Full rubric score 2026-10-25 20:58 PDT - benchmark does not exist yet and agreement unproven - audience penalty minus 0.5 - Elite 7.0 Future 8.0 does not rescue discard - strongest discard and B4 replacement"
+  },
+  {
+   "id": "C12",
+   "name": "C12 Abstention and uncertainty",
+   "score": 76,
+   "status": "discard",
+   "elite": null,
+   "future": null,
+   "note": "Full rubric score 2026-10-25 22:58 PDT - strong risk-coverage skeleton but self-made unanswerable data is an artifact magnet - named perturbation sets unverified - fresher vehicle is new candidate C19"
+  },
+  {
+   "id": "C15",
+   "name": "C15 Multi-agent debate at matched compute",
+   "score": 76,
+   "status": "discard",
+   "elite": null,
+   "future": null,
+   "note": "Full rubric score 2026-10-25 22:58 PDT - matched token budget is the contribution - live latency and triple inference cost lose the agents family slot to C07 C01 C11"
+  },
+  {
+   "id": "B5",
+   "name": "B5 Summarization with faithfulness check",
+   "score": 75,
+   "status": "discard",
+   "elite": null,
+   "future": null,
+   "note": "QC re-score appended 2026-10-26 00:58 PDT per qc-audit section 6 - delta minus 5 from exp 5 at Rule 10 boundary - former keep loses keep on the Data gate - QC revival path via verified data reaches only 79"
+  },
+  {
+   "id": "C10",
+   "name": "C10 DPO for faithfulness judge",
+   "score": 75,
+   "status": "discard",
+   "elite": null,
+   "future": null,
+   "note": "Full rubric score 2026-10-25 20:58 PDT - HaluEval verified EN core - fragile SFT to DPO chain and adapter-toggle endpoint required for G3 - loses faithfulness family slot to C03 and C01 on feasibility"
+  },
+  {
+   "id": "C36",
+   "name": "C36 Read the Methods Reproduce the Result",
+   "score": 75,
+   "status": "discard",
+   "elite": 8.0,
+   "future": 8.5,
+   "note": "Full rubric score 2026-10-26 12:58 PDT - EMNLP 2026 reproduction study verified this batch with 48 papers and cell-level grading plus a corroborating 54-paper comparison but no paper data bundle verified in hand so Data capped at 4 by G1 - discard on the data gate alone in the C26 pattern - revival "
+  },
+  {
+   "id": "C04",
+   "name": "C04 SLM agent router",
+   "score": 74,
+   "status": "discard",
+   "elite": null,
+   "future": null,
+   "note": "First full rubric score - MCPToolBenchPP Hugging Face link confirmed in the paper but access not fully verified - routing oracle is circular as pitched - lock one cited-QA workflow - dashboard demo strong but the NLP question is thin"
+  },
+  {
+   "id": "B4",
+   "name": "B4 VI-EN code-switching LID plus sentiment",
+   "score": 73,
+   "status": "discard",
+   "elite": null,
+   "future": null,
+   "note": "QC re-score appended 2026-10-26 00:58 PDT per qc-audit section 6 - delta minus 4 from exp 4 - core code-switched test set does not exist so Data capped at 4 - superseded by C08"
+  },
+  {
+   "id": "C02",
+   "name": "C02 ViHallu small fine-tuned judge for Vietnamese hallucination detection",
+   "score": 72,
+   "status": "discard",
+   "elite": null,
+   "future": null,
+   "note": "First full rubric score - ViHallu paper confirms 10000 triplets but no canonical public download found - Data capped at 4 by gate G1 - audience penalty minus 1.0 without the bilingual verification layer - week-1 dataset kill-gate applies"
+  },
+  {
+   "id": "C16",
+   "name": "C16 Summarization faithfulness VI claim-level",
+   "score": 72,
+   "status": "discard",
+   "elite": null,
+   "future": null,
+   "note": "Full rubric score 2026-10-26 00:58 PDT - Red Team dataset kill-gate triggered - checked VietNews mirror has only text and no article-summary pairs and MLSUM has no verified VI config - EN CNN DailyMail pivot is verified but duplicates B5 family slot - audience penalty minus 1.0"
+  },
+  {
+   "id": "C09",
+   "name": "C09 Vietnamese dialect normalization",
+   "score": 71,
+   "status": "discard",
+   "elite": null,
+   "future": null,
+   "note": "Full rubric score 2026-10-25 20:58 PDT - NEW FINDING ViDia2Std IS public on HF Biu3010/ViDia2Std 13000 pairs so Data upgraded to 8 - discard stands on audience fit minus 1.5 largest in pool plus no canon anchor"
+  },
+  {
+   "id": "C13",
+   "name": "C13 VI faithfulness RAG for legal QA",
+   "score": 70,
+   "status": "discard",
+   "elite": null,
+   "future": null,
+   "note": "Full rubric score 2026-10-25 22:58 PDT - Red Team KILL as scoped - heaviest data build in pool plus audience penalty minus 1.5 - citation mechanism salvaged into C01 and C17"
+  },
+  {
+   "id": "B3",
+   "name": "B3 Neural spell correction",
+   "score": 68,
+   "status": "discard",
+   "elite": null,
+   "future": null,
+   "note": "QC re-score appended 2026-10-26 00:58 PDT per qc-audit section 6 - delta minus 5 from exp 3 at Rule 10 boundary - entire correction is the Data gate G1 cap at 4"
+  },
+  {
+   "id": "C18",
+   "name": "C18 Synthetic data for low-resource VI",
+   "score": 67,
+   "status": "discard",
+   "elite": null,
+   "future": null,
+   "note": "Full rubric score 2026-10-26 00:58 PDT - Red Team KILL as scoped - five sequential sub-projects in 3 weeks and a collapse claim two rounds cannot support - eval foundation unverified so Data capped at 4 by G1 - served fine-tuned SLM required for G3"
+  },
+  {
+   "id": "C06",
+   "name": "C06 SAE feature steering",
+   "score": 58,
+   "status": "crash",
+   "elite": null,
+   "future": null,
+   "note": "Full rubric score 2026-10-25 20:58 PDT - Red Team KILL plus feasibility NOT-FEASIBLE for training an SAE from scratch - soft unfalsifiable metrics and demo only works if hardest research step succeeds first"
+  },
+  {
+   "id": "C40",
+   "name": "Same Scaffold, Different Physics — A diffusion backbone for deep research (DiffResearch-st",
+   "score": null,
+   "status": "unscored",
+   "elite": null,
+   "future": null,
+   "note": ""
+  },
+  {
+   "id": "C41",
+   "name": "Hold the Line — Sycophancy under sustained pressure (SPINE-style)",
+   "score": null,
+   "status": "unscored",
+   "elite": null,
+   "future": null,
+   "note": ""
+  },
+  {
+   "id": "C42",
+   "name": "Trust, but Verify the Workflow — Selective reliance on external guidance (Box2-Bench-style",
+   "score": null,
+   "status": "unscored",
+   "elite": null,
+   "future": null,
+   "note": ""
+  },
+  {
+   "id": "C43",
+   "name": "Do Not Use After Expiry, Do Not Change a Byte — Observation contracts for tool outputs (Co",
+   "score": null,
+   "status": "unscored",
+   "elite": null,
+   "future": null,
+   "note": ""
+  },
+  {
+   "id": "C44",
+   "name": "When the Tool Lies Quietly — Dynamic replanning under tool failure (ToolMaze-style)",
+   "score": null,
+   "status": "unscored",
+   "elite": null,
+   "future": null,
+   "note": ""
+  },
+  {
+   "id": "C45",
+   "name": "Poisoned by Step Three — Invocation-level reliability and honest scoring (Invocation-Level",
+   "score": null,
+   "status": "unscored",
+   "elite": null,
+   "future": null,
+   "note": ""
+  }
+ ],
+ "discussion": [
+  {
+   "agent": "Course Scout",
+   "time": "Oct 25, 4:58 PM PDT",
+   "topic": "Syllabus trap",
+   "text": "The F26 course page is authoritative. The linked 'Official PDF Syllabus' is actually Spring 2026 with different grading — do not cite it. Final project = 15%. Proposal Mon Nov 16; report + demos Mon Dec 7."
+  },
+  {
+   "agent": "Reading Scholar",
+   "time": "Oct 25, 5:02 PM PDT",
+   "topic": "Canon verified",
+   "text": "Our group presented Karpathy Autoresearch on Sep 28 — the first reading-group slot of the semester. F26 canon = 17 papers. Every finalist needs a canon anchor line or an explicit justification."
+  },
+  {
+   "agent": "Method Agent",
+   "time": "Oct 25, 6:58 PM PDT",
+   "topic": "A metric bug, caught",
+   "text": "Comparing perplexity across tokenizers is invalid — the loop scores tokenizers with BPB (bits per byte) instead. B1's headline number only counts in BPB."
+  },
+  {
+   "agent": "Red Team Critic",
+   "time": "Oct 25, 7:15 PM PDT",
+   "topic": "Round 1 verdicts",
+   "text": "SURVIVE: C01, C03, C05, C07, C11. KILL: B3, B4 as written, C06, C13, C18. The survivors share three traits: English-primary, a falsifiable headline number, and a live endpoint."
+  },
+  {
+   "agent": "QC Scoring Auditor",
+   "time": "Oct 26, 12:58 AM PDT",
+   "topic": "Baseline re-scores",
+   "reply_to": "Red Team Critic",
+   "text": "Re-scored the five Oct 20 baselines under the gates (append-only rows, originals untouched): B1 85→81 (BPB fix + endpoint plan required), B2 84→84, B5 80→75 (data gate cap), B4 77→73, B3 73→68."
+  },
+  {
+   "agent": "Elite Panel",
+   "time": "Oct 26, 1:10 AM PDT",
+   "topic": "The insurance pick",
+   "reply_to": "QC Scoring Auditor",
+   "text": "B2 (84) is the panel's insurance slot: not the most novel, but it is the S25 Option-A shape and demo-safe. It stays first reserve behind the frontier picks — one hedge slot, no more."
+  },
+  {
+   "agent": "Trend Scout",
+   "time": "Oct 26, 6:58 AM PDT",
+   "topic": "Governance is crowded",
+   "text": "C25 Authorization Alignment scored 85 and entered the top five — but it shares the governance family with C07 (89). Holding both needs a written justification at finalization, or C03 returns. Flagged, not decided."
+  },
+  {
+   "agent": "Feasibility Scout",
+   "time": "Oct 26, 10:58 AM PDT",
+   "topic": "Budget reality",
+   "text": "GCP $50 ≈ T4 124h / L4 77h / A100 15h. Any live endpoint must scale to zero — a warm GPU for 3 weeks costs ≈ $339 and kills the budget. All current keeps fit the 16–24 GB envelope."
+  },
+  {
+   "agent": "Team Lead",
+   "time": "Oct 26, 4:58 PM PDT",
+   "topic": "One page, real votes",
+   "text": "The team now shares this single page. Votes and comments posted here are recorded, discussed by the agents, and answered within the hour — scores move only on verified evidence, never on vote volume."
+  }
+ ],
+ "feedback": {
+  "entries": [
+   {
+    "agent_response": "Adopted as CORRECTIONS point 9 and applied to every batch since: English-first / US-context framing is rewarded in scoring; NEU-useful and job-potential act as tie-breakers.",
+    "candidate": "General",
+    "comment_anonymized": "Keep the candidate pool international / US-first (not Vietnam-centric); prefer projects useful to Northeastern and with strong post-graduation job potential.",
+    "id": "FB-001",
+    "received_at": "2026-10-25 23:09 PDT",
+    "status": "ROUTED",
+    "type": "Direction"
+   }
+  ],
+  "votes": [],
+  "vote_tally": {},
+  "sla": "Every feedback item and vote is read, discussed and answered within 1 hour (loop runs hourly until final delivery)."
+ }
+}

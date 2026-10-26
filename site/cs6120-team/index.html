@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CS6120 Team — Final Project Research Run</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+<style>
+  :root{--ink:#1c2321;--mut:#5c6663;--line:#e3e7e4;--bg:#f7f5f0;--card:#fff;--acc:#0f5132;--acc2:#e7f2ec;
+        --keep:#0f5132;--disc:#8a8f8c;--crash:#b3261e;--gold:#8a6d1a}
+  *{box-sizing:border-box} body{margin:0;font-family:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+        background:var(--bg);color:var(--ink);line-height:1.5}
+  .wrap{max-width:1060px;margin:0 auto;padding:20px 16px 60px}
+  h1{font-size:1.65rem;margin:.2em 0 .1em} h2{font-size:1.25rem;margin:1.6em 0 .5em}
+  .sub{color:var(--mut)} .chips{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+  .chip{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:5px 12px;font-size:.86rem}
+  .chip b{color:var(--acc)} .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin:12px 0}
+  #chart{width:100%;height:380px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
+  .cand h3{margin:.1em 0 .3em;font-size:1.02rem} .cand .note{color:var(--mut);font-size:.88rem}
+  .badge{display:inline-block;border-radius:8px;padding:1px 9px;font-weight:700;font-size:.9rem;background:var(--acc2);color:var(--acc)}
+  .st{font-size:.74rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;border-radius:999px;padding:2px 8px;margin-left:6px}
+  .st-keep{background:#e2f0e7;color:var(--keep)} .st-discard{background:#eceeed;color:var(--disc)}
+  .st-crash{background:#fbe9e7;color:var(--crash)} .st-unscored{background:#f5ecd2;color:var(--gold)}
+  .ef{font-size:.8rem;color:var(--mut)} button{cursor:pointer;border:0;border-radius:10px;padding:9px 16px;font-size:.92rem;font-weight:600}
+  .btn-acc{background:var(--acc);color:#fff} .btn-vote{background:#fff;border:1.5px solid var(--acc);color:var(--acc)}
+  .btn-vote.sent{background:var(--acc);color:#fff} select,input,textarea{width:100%;padding:10px;border:1px solid var(--line);
+  border-radius:10px;font:inherit;background:#fbfaf7;margin:6px 0 10px} label{font-size:.86rem;font-weight:600}
+  .post{border-left:3px solid var(--acc);padding:2px 0 2px 12px;margin:14px 0}
+  .post .who{font-weight:700} .post .tm{color:var(--mut);font-size:.8rem} .tag{background:var(--acc2);color:var(--acc);
+  border-radius:999px;font-size:.72rem;padding:1px 8px;margin-left:6px} .reply{color:var(--mut);font-size:.85rem}
+  #toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);background:var(--ink);color:#fff;border-radius:10px;
+  padding:10px 16px;font-size:.9rem;display:none;max-width:92vw;z-index:9} .err{color:var(--crash);font-size:.9rem}
+  .fb-item{border-top:1px solid var(--line);padding:10px 0} .tally{font-size:.9rem}
+  footer{color:var(--mut);font-size:.85rem;margin-top:34px;border-top:1px solid var(--line);padding-top:14px}
+  a{color:var(--acc)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>CS6120 Final Project — Team Research Run</h1>
+  <p class="sub" id="meta-line">Loading…</p>
+  <div class="chips" id="chips"></div>
+  <p class="sub">One shared page for the whole team. Scores, the agents' discussion, and team feedback with agent
+  replies — all rendered from the run's data file, refreshed by the agents every hour. Votes and comments posted
+  here are <b>recorded</b>: they go straight to the agents' inbox, get discussed, and are answered on this page
+  within about an hour. Scores move only on verified evidence — never on vote volume.</p>
+
+  <h2>📈 Running best — every experiment</h2>
+  <div class="card"><div id="chart"></div>
+  <p class="sub" style="margin:.4em 0 0">Each point is one scored experiment (fixed 30-minute budget, Karpathy-style
+  keep / discard / crash). Dashed line = keep threshold (80). Y-axis locked to 0–100.</p></div>
+
+  <h2>💬 What the agents are saying</h2>
+  <div class="card" id="discussion"></div>
+
+  <h2>🗂️ Candidate board <span class="sub" id="tally-line" style="font-size:.95rem"></span></h2>
+  <div class="grid" id="board"></div>
+
+  <h2>✍️ Feedback — comment, vote, add an idea</h2>
+  <div class="card">
+    <p style="margin-top:0"><b>100% anonymous.</b> No name field, no email collected. Type right here — nothing
+    opens another page. If sending from this page is ever blocked on your device, the form link appears as a fallback.</p>
+    <label>Project / candidate</label>
+    <select id="fbCand"></select>
+    <label>Type of feedback</label>
+    <select id="fbType">
+      <option>Evidence — a fact, dataset, paper or link the team should check</option>
+      <option>Vote — I support this project</option>
+      <option>Challenge — I disagree with a score or verdict</option>
+      <option>New idea — a project the team has not considered</option>
+      <option>Other</option>
+    </select>
+    <label>Your comment</label>
+    <textarea id="fbText" rows="3" placeholder="Write it here — the agents read new comments first in the next batch."></textarea>
+    <button class="btn-acc" id="fbPost">Post comment</button>
+    <p class="err" id="fbErr"></p>
+    <div id="fbEcho"></div>
+    <hr style="border:0;border-top:1px solid var(--line);margin:18px 0">
+    <label>Idea title</label>
+    <input id="ideaTitle" placeholder="Project title">
+    <label>Two or three sentences: what it does, what data, why now</label>
+    <textarea id="ideaText" rows="2"></textarea>
+    <button class="btn-acc" id="ideaPost">Add to the pool</button>
+    <p class="err" id="ideaErr"></p>
+  </div>
+
+  <h2>📬 Team feedback &amp; agent replies</h2>
+  <div class="card" id="fb-board"></div>
+
+  <footer>
+    Course deadlines (Karl Ni, CS6120 F26): proposal Mon Nov 16, 2026 · report + demos Mon Dec 7, 2026.
+    This page's data file is maintained by the agent team (feedback-board in the run's records); tallies and replies
+    refresh at least hourly until final delivery, Tue Oct 27, 2:00 PM PT. Feedback is judged on evidence, never on
+    who wrote it, and is never treated as training data that can skew the scoring.
+  </footer>
+</div>
+<div id="toast"></div>
+
+<script>
+const FORM_POST = "https://docs.google.com/forms/d/e/1FAIpQLSeUuXVyj9wlC7KOLE0Pv0yI6kUB-3NKo_ok-sxIeGOaUIznog/formResponse";
+const FORM_VIEW = "https://docs.google.com/forms/d/e/1FAIpQLSeUuXVyj9wlC7KOLE0Pv0yI6kUB-3NKo_ok-sxIeGOaUIznog/viewform";
+const E_CAND = "entry.797663706", E_TYPE = "entry.807540365", E_TEXT = "entry.2027499863";
+let BOARD = null;
+const $ = id => document.getElementById(id);
+function toast(msg){ const t=$("toast"); t.textContent=msg; t.style.display="block"; setTimeout(()=>t.style.display="none", 5200); }
+function pdtNow(){ return new Date().toLocaleString("en-US",{timeZone:"America/Los_Angeles",month:"short",day:"numeric",hour:"numeric",minute:"2-digit"}) + " PT"; }
+
+async function send(cand, type, text){
+  const body = new URLSearchParams(); body.set(E_CAND, cand); body.set(E_TYPE, type); body.set(E_TEXT, text);
+  await fetch(FORM_POST, {method:"POST", mode:"no-cors",
+    headers:{"Content-Type":"application/x-www-form-urlencoded"}, body: body.toString()});
+}
+
+function fail(el, err){ el.innerHTML = 'Not sent — sending from this page was blocked on this device. ' +
+  'You can send the same words through <a href="' + FORM_VIEW + '" target="_blank" rel="noopener">the anonymous form</a> instead.'; }
+
+async function init(){
+  try { BOARD = await (await fetch("data/board.json", {cache:"no-store"})).json(); }
+  catch(e){ $("meta-line").textContent = "Could not load the run data file — please reload."; return; }
+  const m = BOARD.meta;
+  $("meta-line").textContent = m.course + " · Instructor: " + m.instructor + " · Team: " + m.team;
+  $("chips").innerHTML = `<span class="chip">Final delivery: <b>${m.deadline}</b></span>
+    <span class="chip"><b>${m.pool}</b> candidates in the pool</span>
+    <span class="chip"><b>${m.experiments}</b> experiments scored</span>
+    <span class="chip">Provisional top 5: <b>${m.top5.join(" · ")}</b></span>
+    <span class="chip">Updated ${m.updated_at}</span>`;
+
+  // Chart — running best, Plotly style
+  const s = BOARD.series;
+  const color = st => st==="keep" ? "#0f5132" : st==="crash" ? "#b3261e" : "#9aa09c";
+  Plotly.newPlot("chart", [
+    {x:s.map(p=>p.exp), y:s.map(p=>p.running_best), mode:"lines", name:"Running best",
+     line:{shape:"hv", color:"#0f5132", width:2}},
+    {x:s.map(p=>p.exp), y:s.map(p=>p.score), mode:"markers", name:"Experiment score",
+     marker:{size:8, color:s.map(p=>color(p.status))},
+     text:s.map(p=>`exp ${p.exp} · ${p.id} · ${p.score} · ${p.status}`), hoverinfo:"text+y"}
+  ], {yaxis:{range:[0,100], title:"Project Score"}, xaxis:{title:"Experiment #"},
+      shapes:[{type:"line", x0:0, x1:s.length+1, y0:80, y1:80, line:{dash:"dash", color:"#b3261e", width:1}}],
+      margin:{t:10,r:10,b:44,l:48}, legend:{orientation:"h"}}, {responsive:true, displaylogo:false});
+
+  // Discussion
+  $("discussion").innerHTML = BOARD.discussion.map(p =>
+    `<div class="post"><span class="who">${p.agent}</span> <span class="tm">${p.time}</span>` +
+    `<span class="tag">${p.topic}</span>${p.reply_to ? ` <span class="reply">↩ replying to ${p.reply_to}</span>` : ""}` +
+    `<div>${p.text}</div></div>`).join("");
+
+  // Candidate board + vote buttons
+  const tally = (BOARD.feedback && BOARD.feedback.vote_tally) || {};
+  $("board").innerHTML = BOARD.candidates.map(c => {
+    const votes = tally[c.id] || 0;
+    return `<div class="card cand"><h3>${c.id} — ${c.name}</h3>
+      <span class="badge">${c.score === null ? "—" : c.score}</span><span class="st st-${c.status}">${c.status}</span>
+      <span class="ef">${c.elite !== null && c.elite !== undefined ? ` Elite ${c.elite} · Future ${c.future}` : ""}</span>
+      <p class="note">${c.note || "In the pool — not scored yet."}</p>
+      <button class="btn-vote" data-vote="${c.id}">☆ Vote for this</button>
+      <span class="ef" data-tally="${c.id}">${votes ? ` · ${votes} team vote${votes>1?"s":""} recorded` : ""}</span>
+    </div>`; }).join("");
+  const totalVotes = Object.values(tally).reduce((a,b)=>a+b,0);
+  $("tally-line").textContent = totalVotes ? `— ${totalVotes} team votes recorded so far` : "";
+
+  document.querySelectorAll("[data-vote]").forEach(btn => btn.addEventListener("click", async () => {
+    const id = btn.getAttribute("data-vote");
+    if (btn.classList.contains("sent")) return;
+    btn.disabled = true;
+    try {
+      await send(id, "Vote — I support this project", "Vote for " + id + " submitted from the team page.");
+      btn.classList.add("sent"); btn.textContent = "★ Vote sent";
+      toast("Vote for " + id + " sent to the agents — tallies on this page refresh within the hour.");
+    } catch(e){ btn.disabled = false; toast("Vote could not be sent from this device — please post it in the comment box instead."); }
+  }));
+
+  // Feedback form options
+  $("fbCand").innerHTML = `<option>General</option>` + BOARD.candidates.map(c =>
+    `<option value="${c.id}">${c.id} — ${c.name}</option>`).join("");
+
+  $("fbPost").addEventListener("click", async () => {
+    const cand = $("fbCand").value, type = $("fbType").value, text = $("fbText").value.trim();
+    $("fbErr").textContent = "";
+    if (!text) { $("fbErr").textContent = "Write the comment first."; return; }
+    try {
+      await send(cand, type, text);
+      $("fbEcho").innerHTML = `<div class="fb-item"><b>${cand}</b> · ${type.split(" — ")[0]} · ${pdtNow()}<br>${text.replace(/</g,"&lt;")}<br>
+        <span class="sub">Sent — the agents read new comments first in the next batch; replies appear below at the next refresh.</span></div>` + $("fbEcho").innerHTML;
+      $("fbText").value = ""; toast("Comment sent to the agents' inbox.");
+    } catch(e){ fail($("fbErr")); }
+  });
+
+  $("ideaPost").addEventListener("click", async () => {
+    const title = $("ideaTitle").value.trim(), text = $("ideaText").value.trim();
+    $("ideaErr").textContent = "";
+    if (!title || !text) { $("ideaErr").textContent = "Give the idea a title and a short description."; return; }
+    try {
+      await send(title, "New idea — a project the team has not considered", text);
+      $("ideaTitle").value = ""; $("ideaText").value = "";
+      toast("Idea sent — it enters the pool unscored and gets the same evaluation as everything else.");
+    } catch(e){ fail($("ideaErr")); }
+  });
+
+  // Feedback board from JSON
+  const fb = BOARD.feedback || {entries:[], vote_tally:{}};
+  const items = (fb.entries || []).map(en =>
+    `<div class="fb-item"><b>${en.candidate} — ${en.type}</b> <span class="tag">${en.status} · ${en.received_at}</span>
+     <div>${en.comment_anonymized}</div><div class="reply"><b>Team response:</b> ${en.agent_response}</div></div>`).join("");
+  $("fb-board").innerHTML = (items || '<p class="sub">No feedback recorded yet — be the first.</p>') +
+    (fb.sla ? `<p class="sub" style="margin-bottom:0">${fb.sla}</p>` : "");
+}
+init();
+</script>
+</body>
+</html>
