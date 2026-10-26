@@ -93,16 +93,18 @@
   @keyframes pulse{0%{box-shadow:0 0 0 0 var(--accent-soft)}70%{box-shadow:0 0 0 8px transparent}100%{box-shadow:0 0 0 0 transparent}}
   @media (prefers-reduced-motion:reduce){.chip.on .dot{animation:none}}
   .doing{font-weight:600}
-  /* Bottom dock (Addendum 04): side, language and theme controls. Always open (owner, Oct 26), liquid glass: the page shows through, blurred. */
-  .dock{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:30;display:flex;align-items:center;gap:6px;padding:5px;background:var(--glass);-webkit-backdrop-filter:blur(7px) saturate(180%);backdrop-filter:blur(7px) saturate(180%);border:1px solid var(--glass-edge);border-radius:999px;box-shadow:var(--shadow),inset 0 1px 0 var(--glass-hi),inset 0 -1px 1px var(--glass-lo);max-width:calc(100vw - 24px);isolation:isolate}
-  .dock::before{content:"";position:absolute;inset:0;border-radius:inherit;z-index:-1;pointer-events:none;background:linear-gradient(180deg,var(--glass-sheen),transparent 60%)}
-  @supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.dock{background:var(--card)}}
+  /* Liquid glass (owner, Oct 26) for the bottom dock and the back-to-top button: the page shows through, blurred. */
+  .dock,.totop{background:var(--glass);-webkit-backdrop-filter:blur(7px) saturate(180%);backdrop-filter:blur(7px) saturate(180%);border:1px solid var(--glass-edge);box-shadow:var(--shadow),inset 0 1px 0 var(--glass-hi),inset 0 -1px 1px var(--glass-lo);isolation:isolate}
+  .dock::before,.totop::before{content:"";position:absolute;inset:0;border-radius:inherit;z-index:-1;pointer-events:none;background:linear-gradient(180deg,var(--glass-sheen),transparent 60%)}
+  @supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.dock,.totop{background:var(--card)}}
+  /* Bottom dock (Addendum 04): side, language and theme controls; always open (owner, Oct 26). */
+  .dock{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:30;display:flex;align-items:center;gap:6px;padding:5px;border-radius:999px;max-width:calc(100vw - 24px)}
   .dock .toggle{border:0;padding:0;background:transparent;gap:0}
   .dock .toggle button{padding:8px 13px;min-height:40px;font-size:.86rem}
   .dock .div{width:1px;align-self:stretch;margin:6px 0;background:var(--line)}
   .theme button{width:40px;padding:0;font-size:1rem;color:var(--grey)}
   .theme button.on{background:var(--accent);color:var(--on-accent)}
-  .totop{position:fixed;right:16px;bottom:84px;z-index:29;width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--ink);box-shadow:var(--shadow);cursor:pointer;display:grid;place-items:center;opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .2s,transform .2s,visibility .2s,background .15s,color .15s}
+  .totop{position:fixed;right:16px;bottom:84px;z-index:29;width:46px;height:46px;border-radius:50%;color:var(--ink);cursor:pointer;display:grid;place-items:center;opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .2s,transform .2s,visibility .2s,background .15s,color .15s}
   .totop.show{opacity:1;visibility:visible;transform:none}
   .totop:hover{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
   @media (max-width:420px){.dock{gap:2px;padding:4px}.dock .toggle button{padding:7px 9px;font-size:.8rem;min-height:38px}.theme button{width:34px;min-height:38px;height:38px}.dock .div{margin:6px 1px}}
