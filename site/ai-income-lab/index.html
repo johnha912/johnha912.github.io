@@ -218,6 +218,8 @@ let lang='en', side='muse';
 function setLang(l){lang=l;document.getElementById('btn-en').classList.toggle('on',l==='en');document.getElementById('btn-vi').classList.toggle('on',l==='vi');document.querySelectorAll('[data-en]').forEach(e=>e.textContent=e.dataset[l]);render();}
 function setSide(s){side=s;document.getElementById('side-muse').classList.toggle('on',s==='muse');document.getElementById('side-claude').classList.toggle('on',s==='claude');render();}
 function render(){const t=T[lang], d=SIDES[side];
+ // Preserve an in-progress comment and the sent confirmation across the 60s auto-refresh re-render.
+ const prevMsg=(document.getElementById('fb-msg')||{}).value||'';
  // Each side may ship its own pool + note in its JSON; only the Muse view falls back to the built-in POOL.
  const sidePool=Array.isArray(d.pool)?d.pool.map(p=>[p.en,p.vi,p.market,p.score]):(side==='muse'?POOL:[]);
  const nIdeas=sidePool.length||d.scored||0, poolTake=(d.poolNote&&d.poolNote[lang])||(sidePool.length?t.poolTake:t.noPool);
@@ -262,6 +264,8 @@ function render(){const t=T[lang], d=SIDES[side];
  <section><div class="kicker">Log</div><h2>${t.prog}</h2>${log}<p class="note" style="margin-top:14px">${t.next}</p></section>
  <section><div class="kicker">Platform</div><h2>${t.upd}</h2>${upd}</section>
  </details>`;
+ const nm=document.getElementById('fb-msg');if(nm&&prevMsg)nm.value=prevMsg;
+ if(window.__fbSent){const st2=document.getElementById('fb-status');if(st2)st2.textContent=t.fThanks;const b2=document.getElementById('fb-send');if(b2)b2.disabled=true;}
  }
 // Agent discussion thread (owner, Oct 26): each side publishes a `discussion` array in its JSON; posts render independently, replies nested.
 const AVA=['#059669','#2563EB','#D97706','#7C3AED','#0E7490','#BE185D'];
@@ -308,7 +312,7 @@ async function postComment(){const msg=document.getElementById('fb-msg').value.t
  btn.disabled=true;
  try{const body=new URLSearchParams();body.set('entry.113945713',msg);
   await fetch(COMMENT_POST,{method:'POST',mode:'no-cors',body});
-  document.getElementById('fb-msg').value='';st.textContent=t.fThanks;}
+  window.__fbSent=true;document.getElementById('fb-msg').value='';st.textContent=t.fThanks;}
  catch(e){btn.disabled=false;st.innerHTML=t.fFail+' <a href="'+ISSUES+'" target="_blank" rel="noopener">'+t.fAll+' ↗</a>';}}
 // Live status (Addendum 06): written by a script at session start/end, never by the model. Active only if fresh (< 2 h).
 const LIVE_MS=2*3600e3;
