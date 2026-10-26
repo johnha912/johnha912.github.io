@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Income Lab — Muse vs Claude Code</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&family=IBM+Plex+Mono:wght@500;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{--paper:#fff;--ink:#0a0a0a;--grey:#555;--line:#e5e5e5;--line-dark:#262626}
+  *{box-sizing:border-box} body{margin:0;font-family:"Be Vietnam Pro","Helvetica Neue",Helvetica,Arial,system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+  h1,h2,.logo,.num{font-family:Montserrat,"Be Vietnam Pro",sans-serif}
+  .mono{font-family:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,Consolas,monospace}
+  header{position:sticky;top:0;background:#fff;border-bottom:2px solid var(--ink);z-index:10}
+  .bar{max-width:1020px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .logo{font-weight:900;letter-spacing:-.02em;font-size:1.1rem;margin-right:auto}
+  .toggle{display:flex;border:2px solid var(--ink)}
+  .toggle button{background:#fff;color:var(--ink);border:0;padding:10px 16px;font-size:.95rem;font-weight:700;cursor:pointer;min-height:44px;font-family:inherit}
+  .toggle button.on{background:var(--ink);color:#fff}
+  .toggle .sep{width:2px;background:var(--ink)}
+  .hero{background:var(--ink);color:#fff;padding:52px 16px 44px}
+  .hero-in{max-width:1020px;margin:0 auto}
+  .kicker{text-transform:uppercase;letter-spacing:.22em;font-size:.78rem;font-weight:700}
+  .hero .kicker{color:#a3a3a3}
+  .hero h1{font-size:clamp(2.4rem,6.5vw,4.2rem);line-height:.98;letter-spacing:-.03em;margin:14px 0 10px;font-weight:900}
+  .hero p{font-size:clamp(1.02rem,2.4vw,1.25rem);max-width:660px;margin:0;color:#e5e5e5}
+  .hero .stats{display:flex;flex-wrap:wrap;margin-top:34px;border-top:1px solid var(--line-dark)}
+  .hero .stat{padding:16px 28px 4px 0;margin-right:28px}
+  .hero .num{font-size:2.1rem;font-weight:900;letter-spacing:-.02em}
+  .hero .lbl{color:#a3a3a3;font-size:.9rem}
+  .sideband{border-bottom:2px solid var(--ink);padding:14px 16px}
+  .sideband-in{max-width:1020px;margin:0 auto;display:flex;gap:14px;align-items:baseline;flex-wrap:wrap}
+  .sideband .who{font-weight:900;font-size:1.25rem;letter-spacing:-.01em}
+  main{max-width:1020px;margin:0 auto;padding:8px 16px 64px}
+  section{padding:32px 0 8px;border-bottom:1px solid var(--line)}
+  h2{font-size:clamp(1.55rem,4vw,2.2rem);letter-spacing:-.02em;margin:6px 0 6px;font-weight:900}
+  .take{font-size:1.06rem;font-weight:600;margin:0 0 16px}
+  .muted{color:var(--grey)}
+  .gate{display:grid;grid-template-columns:56px 1fr;gap:6px 14px;padding:12px 0;border-top:1px solid var(--line)}
+  .gate .n{font-size:1.7rem;font-weight:900}
+  .bar-row{display:flex;align-items:center;gap:12px;margin:9px 0}
+  .bar-row .lbl{flex:0 0 44%;font-size:.98rem}
+  .track{flex:1;background:#f0f0f0;height:22px}
+  .fill{height:100%;background:var(--ink)}
+  .pts{flex:0 0 46px;text-align:right;font-weight:900;font-size:1.1rem}
+  table{width:100%;border-collapse:collapse;font-size:.98rem}
+  th{text-align:left;text-transform:uppercase;letter-spacing:.12em;font-size:.75rem;border-bottom:2px solid var(--ink);padding:8px}
+  td{border-bottom:1px solid var(--line);padding:10px 8px;vertical-align:top}
+  td.idx{font-weight:900;width:44px}
+  .logline{padding:10px 0;border-top:1px solid var(--line)}
+  .logline .t{font-size:.85rem;color:var(--grey)}
+  input,select,textarea{width:100%;background:#fff;color:var(--ink);border:1.5px solid var(--ink);border-radius:0;padding:12px;font-size:1rem;margin:6px 0 14px;font-family:inherit}
+  button.send{background:var(--ink);color:#fff;border:0;padding:14px 28px;font-size:1.05rem;font-weight:800;cursor:pointer;min-height:48px}
+  button.send:hover{background:#fff;color:var(--ink);outline:2px solid var(--ink)}
+  a{color:var(--ink);font-weight:700}
+  :focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+  .note{font-size:.9rem;color:var(--grey)}
+  footer{max-width:1020px;margin:0 auto;padding:18px 16px 44px;color:var(--grey);font-size:.9rem}
+  @media (max-width:560px){.bar-row .lbl{flex-basis:50%} th.c3,td.c3{display:none} .hero .stat{margin-right:16px;padding-right:16px}}
+</style>
+</head>
+<body>
+<header><div class="bar">
+  <div class="logo">💡 AI INCOME LAB</div>
+  <div class="toggle" role="group" aria-label="Side">
+    <button id="side-muse" class="on" onclick="setSide('muse')">MUSE</button>
+    <div class="sep"></div>
+    <button id="side-claude" onclick="setSide('claude')">CLAUDE</button>
+  </div>
+  <div class="toggle" role="group" aria-label="Language">
+    <button id="btn-en" class="on" onclick="setLang('en')">EN</button>
+    <div class="sep"></div>
+    <button id="btn-vi" onclick="setLang('vi')">VI</button>
+  </div>
+</div></header>
+
+<div id="hero"></div>
+<div class="sideband"><div class="sideband-in" id="sideband"></div></div>
+<main id="app"></main>
+
+<footer>
+  <span data-en="Public progress page for a two-system comparison (Muse vs Claude Code), judged Dec 25, 2026. No personal data is published here. General information only — not legal or tax advice." data-vi="Trang tiến độ công khai của cuộc so sánh hai hệ thống (Muse vs Claude Code), chấm vào 25/12/2026. Không đăng dữ liệu cá nhân tại đây. Chỉ là thông tin chung — không phải tư vấn pháp lý hay thuế."></span>
+</footer>
+
+<script>
+const POOL = [
+ ["AI writing & editing service for small businesses","Dịch vụ viết & biên tập bằng AI cho doanh nghiệp nhỏ","US + VN"],
+ ["Social media content service for local shops","Dịch vụ nội dung mạng xã hội cho quán/doanh nghiệp địa phương","VN + US"],
+ ["EN ↔ VI translation & localization with AI + human QA","Dịch thuật & bản địa hóa EN ↔ VI bằng AI + người kiểm tra","US + VN"],
+ ["AI resume & LinkedIn makeover service","Dịch vụ sửa CV & LinkedIn bằng AI","US + VN"],
+ ["AI chatbot / automation setup for small businesses","Thiết lập chatbot / tự động hóa AI cho doanh nghiệp nhỏ","VN + US"],
+ ["Data cleaning & spreadsheet automation (Python + AI)","Vệ sinh dữ liệu & tự động hóa bảng tính (Python + AI)","US + VN"],
+ ["Digital products: Notion templates, prompt packs, sheets","Sản phẩm số: template Notion, prompt pack, spreadsheet","Global"],
+ ["AI print-on-demand designs (Etsy, Amazon Merch)","Thiết kế Print-on-Demand bằng AI (Etsy, Amazon Merch)","US"],
+ ["Faceless AI short-video channel (Shorts / TikTok)","Kênh video ngắn faceless bằng AI (Shorts / TikTok)","US + VN"],
+ ["Lofi / focus music channel with AI-assisted production","Kênh nhạc lofi/focus có AI hỗ trợ sản xuất","Global"],
+ ["AI-assisted SEO blog + affiliate (human-edited)","Blog SEO + affiliate bằng AI (có biên tập người)","US + VN"],
+ ["Amazon KDP books (low-content / AI-illustrated)","Sách Amazon KDP (low-content / minh họa AI)","US"],
+ ["AI stock assets (Adobe Stock and similar)","Tài sản stock do AI tạo (Adobe Stock...)","Global"],
+ ["AI-made courses & study materials (Udemy / Teachable)","Khóa học & tài liệu học tập soạn bằng AI","VN + US"],
+ ["AI dubbing / voiceover EN ↔ VI for videos","Lồng tiếng / thuyết minh AI EN ↔ VI cho video","VN + US"]
+];
+const RUBRIC = [
+ ["Legal clarity",20,"Pháp lý rõ ràng"],["After-tax margin",20,"Biên lời sau thuế"],
+ ["Startup fit ≤ $20/mo",15,"Vừa ngân sách $20/tháng"],["Scalability",15,"Khả năng nhân rộng"],
+ ["Time to first dollar",10,"Nhanh có đồng đầu tiên"],["Skill fit",10,"Hợp kỹ năng"],["Low risk",10,"Rủi ro thấp"]
+];
+const EMBED = {
+ muse:{ updated:"Sun, Oct 25, 2026 — 7:50 PM PDT",
+  status:{en:"Setup complete: plan, shared rubric, pool v1, bilingual dashboard and platform-watch are live. Legal-gate research is next.",vi:"Đã dựng xong khung: kế hoạch, rubric chung, pool v1, dashboard song ngữ và cơ chế tự cập nhật nền tảng. Việc tiếp theo là nghiên cứu cổng pháp lý."},
+  best:null, scored:0,
+  log:[
+   {t:"Oct 25, 2026 — 7:36 PM PDT",en:"Kickoff: goal created, 8-role team plan, pool v1 of 15 ideas across VN + US.",vi:"Khởi động: đã tạo goal, kế hoạch team 8 vai trò, pool v1 gồm 15 cách cho VN + Mỹ."},
+   {t:"Oct 25, 2026 — 7:40 PM PDT",en:"Platform-watch switched on: official-source check every Friday until Dec 25.",vi:"Đã bật cơ chế tự cập nhật nền tảng: kiểm tra nguồn chính thức mỗi thứ Sáu tới 25/12."},
+   {t:"Oct 25, 2026 — 7:50 PM PDT",en:"Dashboard restyled black & white with Vietnamese-safe fonts; security audit passed, no personal data.",vi:"Dashboard đã đổi sang trắng/đen với font an toàn tiếng Việt; kiểm tra bảo mật đạt, không có dữ liệu cá nhân."}],
+  updates:[
+   {t:"Oct 25, 2026 — 7:40 PM PDT",en:"Claude Pro is still $20/mo including Claude Code — the $20 budget gate is intact.",vi:"Claude Pro vẫn $20/tháng và gồm Claude Code — cổng ngân sách $20 còn nguyên."},
+   {t:"Oct 25, 2026 — 7:40 PM PDT",en:"Claude Code v2.1.299–2.1.301 changed hook behavior — logged so the comparison stays fair.",vi:"Claude Code v2.1.299–2.1.301 đã đổi hành vi hooks — đã ghi log để so sánh công bằng."}]},
+ claude:{"side":"claude","updated":"Sun, Oct 25, 2026 – 9:15 PM – PT","status":{"en":"First free tests are done. AI translation drafts were good for plain text but failed when adapting a product listing for a US store, so a human check is the real product. Real market prices were lower than assumed, and the best score moved from 74 to 72 (translation with human review). Next: human review timing and plan-capacity readings.","vi":"Đã xong các thí nghiệm miễn phí đầu tiên. Bản dịch AI tốt với văn bản thường nhưng trượt khi chuyển thể mô tả sản phẩm cho sàn Mỹ, nên phần người kiểm tra mới là sản phẩm thật. Giá thị trường thật thấp hơn giả định, điểm cao nhất giảm từ 74 xuống 72 (dịch thuật có người kiểm tra). Tiếp theo: đo thời gian người kiểm tra và sức chứa gói."},"best":72,"scored":14,"pool":[{"en":"EN↔VI translation & localization, with human review","vi":"Dịch thuật & bản địa hóa Anh↔Việt, có người kiểm tra","market":"VN + US","score":72},{"en":"Business automation & chatbot setup (no-code)","vi":"Thiết lập tự động hóa & chatbot cho doanh nghiệp (không cần code)","market":"US","score":70},{"en":"Resume & LinkedIn rewriting","vi":"Viết lại CV & LinkedIn","market":"US + VN","score":70},{"en":"Short-video scripts & editing for local businesses","vi":"Kịch bản & dựng video ngắn cho doanh nghiệp địa phương","market":"VN + US","score":69},{"en":"Product-listing optimization for Shopee / TikTok Shop sellers","vi":"Tối ưu mô tả sản phẩm cho người bán Shopee / TikTok Shop","market":"VN","score":69},{"en":"Spreadsheet & data-cleaning automation","vi":"Tự động hóa bảng tính & làm sạch dữ liệu","market":"US + VN","score":69},{"en":"Messenger / Zalo chatbot setup for small shops","vi":"Thiết lập chatbot Messenger / Zalo cho shop nhỏ","market":"VN","score":66},{"en":"AI-assisted writing & editing for small businesses","vi":"Viết & biên tập có AI hỗ trợ cho doanh nghiệp nhỏ","market":"US","score":63},{"en":"Digital templates & printables","vi":"Template & tài liệu in số","market":"US / global","score":63},{"en":"Self-study & test-prep materials","vi":"Tài liệu tự học & luyện thi","market":"VN","score":62},{"en":"AI-assisted books on Amazon KDP","vi":"Sách có AI hỗ trợ trên Amazon KDP","market":"US","score":57},{"en":"Affiliate content","vi":"Nội dung tiếp thị liên kết (affiliate)","market":"VN + US","score":55},{"en":"AI stock images","vi":"Ảnh stock tạo bằng AI","market":"Global","score":53},{"en":"Print-on-demand with AI designs","vi":"In theo yêu cầu với thiết kế AI","market":"US","score":49},{"en":"Mass-produced AI video channels (failed the gates)","vi":"Kênh video AI sản xuất hàng loạt (bị loại ở cổng)","market":"VN + US","score":null}],"poolNote":{"en":"Paper scores, updated after the first free tests. One idea failed the hard gates.","vi":"Điểm trên giấy, đã cập nhật sau các thí nghiệm miễn phí đầu tiên. Một cách bị loại ở cổng cứng."},"log":[{"t":"Oct 25, 2026 – 7:59 PM – PT","en":"Kickoff: read the shared brief, the comparison rubric and the platform-update rules.","vi":"Khởi động: đã đọc đề bài chung, rubric so sánh và quy định cập nhật nền tảng."},{"t":"Oct 25, 2026 – 8:00 PM – PT","en":"Platform check done: Claude Code is on the latest version, and the plan price still fits the $20/month budget.","vi":"Đã kiểm tra nền tảng: Claude Code đang ở bản mới nhất, giá gói vẫn nằm trong ngân sách $20/tháng."},{"t":"Oct 25, 2026 – 8:01 PM – PT","en":"Research team started in parallel: Vietnam market, US market, and legal & tax checker.","vi":"Team nghiên cứu bắt đầu chạy song song: thị trường Việt Nam, thị trường Mỹ, và kiểm tra pháp lý & thuế."},{"t":"Oct 25, 2026 – 8:35 PM – PT","en":"Research notes done, with official sources. Two key facts: in Vietnam, small sellers owe no VAT or income tax up to 1 billion VND a year from 2026 (they still declare); and there is no US–Vietnam tax treaty in force.","vi":"Xong ghi chú nghiên cứu, có nguồn chính thức. Hai điểm chính: tại Việt Nam, từ 2026 người bán nhỏ không phải nộp VAT và thuế thu nhập nếu doanh thu dưới 1 tỷ đồng/năm (vẫn phải khai báo); và Mỹ–Việt Nam chưa có hiệp định thuế có hiệu lực."},{"t":"Oct 25, 2026 – 8:40 PM – PT","en":"Pool v1 scored on paper: 15 ideas, 14 scored, 1 discarded (mass-produced AI video channels break YouTube's monetization rules). Best: translation with human review, 74.","vi":"Đã chấm pool v1 trên giấy: 15 cách, 14 cách có điểm, 1 cách bị loại (kênh video AI sản xuất hàng loạt vi phạm quy định kiếm tiền của YouTube). Cao nhất: dịch thuật có người kiểm tra, 74."},{"t":"Oct 25, 2026 – 9:00 PM – PT","en":"Owner approved three free tests (no selling, no clients). Feedback now goes to public GitHub Issues, and this side's idea table is shown on the page.","vi":"Chủ dự án duyệt ba thí nghiệm miễn phí (không bán hàng, không phục vụ khách). Góp ý giờ được gửi qua GitHub Issues công khai, và bảng ý tưởng của phía này đã hiện trên trang."},{"t":"Oct 25, 2026 – 9:10 PM – PT","en":"Test 1 (translation quality): AI drafted 1,012 words in about 40 seconds. A consumer guide and a law article passed an independent quality check. A product listing adapted for a US store failed because of market mistakes, not language.","vi":"Thí nghiệm 1 (chất lượng dịch): AI dịch nháp 1.012 từ trong khoảng 40 giây. Bài hướng dẫn người tiêu dùng và một điều luật đạt kiểm tra chất lượng độc lập. Mô tả sản phẩm chuyển thể cho sàn Mỹ thì trượt vì sai về thị trường, không phải về ngôn ngữ."},{"t":"Oct 25, 2026 – 9:13 PM – PT","en":"Test 2 (real prices, 58 live listings): translation about $10 per 1,000 words, resume packages about $20–$100, small spreadsheet jobs about $20. Two scores went down; best is now 72.","vi":"Thí nghiệm 2 (giá thật, 58 tin đang đăng): dịch thuật khoảng $10/1.000 từ, gói sửa CV khoảng $20–$100, việc bảng tính nhỏ khoảng $20. Hai điểm bị hạ; cao nhất giờ là 72."},{"t":"Oct 25, 2026 – 9:14 PM – PT","en":"Test 3 (plan capacity): Anthropic publishes no fixed limits for the $20 plan, only a 5-hour and a weekly allowance. It will be measured with the plan's own usage meter.","vi":"Thí nghiệm 3 (sức chứa gói): Anthropic không công bố giới hạn cố định cho gói $20, chỉ có hạn mức theo 5 giờ và theo tuần. Sẽ đo bằng đồng hồ sử dụng của chính gói."},{"t":"Oct 25, 2026 – 9:15 PM – PT","en":"Checkpoint: next are human review timing, the capacity reading, and Vietnamese market prices.","vi":"Checkpoint: tiếp theo là đo thời gian người kiểm tra, đọc số sức chứa gói, và tìm giá thị trường Việt Nam."}],"updates":[{"t":"Oct 25, 2026 – 8:00 PM – PT","en":"Claude Code 2.1.310 is the latest release, so no update was needed. Recent releases were bug fixes for web reading, file handling and helper agents; nothing changes fairness.","vi":"Claude Code 2.1.310 là bản mới nhất nên không cần cập nhật. Các bản gần đây chỉ sửa lỗi đọc web, xử lý file và agent phụ; không ảnh hưởng tính công bằng."},{"t":"Oct 25, 2026 – 8:00 PM – PT","en":"Claude Pro is still $20/month billed monthly (before tax) and includes Claude Code, so the budget gate holds.","vi":"Claude Pro vẫn $20/tháng khi trả theo tháng (chưa gồm thuế) và đã gồm Claude Code, nên cổng ngân sách vẫn giữ nguyên."},{"t":"Oct 25, 2026 – 8:00 PM – PT","en":"New Claude models (Sep–Oct 2026) and API credits for the higher Max and Team plans. The credits are outside the $20 budget, so this side does not use them.","vi":"Có model Claude mới (tháng 9–10/2026) và tín dụng API cho gói Max và Team cao hơn. Tín dụng này nằm ngoài ngân sách $20 nên phía này không dùng."},{"t":"Oct 25, 2026 – 9:02 PM – PT","en":"Auto-updates for Claude Code switched on with the owner's OK. The version is still recorded at every session start.","vi":"Đã bật tự động cập nhật Claude Code theo đồng ý của chủ dự án. Phiên bản vẫn được ghi lại mỗi lần bắt đầu phiên."},{"t":"Oct 25, 2026 – 9:14 PM – PT","en":"Pro plan limits: a 5-hour allowance plus a weekly allowance shared by all Claude apps. Claude Code's 5-hour limit was doubled on May 6, 2026. Paid usage credits can push spending past $20, so this side keeps them off.","vi":"Giới hạn gói Pro: hạn mức theo 5 giờ cộng hạn mức theo tuần, dùng chung cho mọi ứng dụng Claude. Hạn mức 5 giờ của Claude Code đã tăng gấp đôi từ 6/5/2026. Tín dụng trả thêm có thể đẩy chi phí vượt $20, nên phía này để tắt."}]}
+};
+let SIDES = JSON.parse(JSON.stringify(EMBED));
+async function loadSide(name){ try{ const r = await fetch('data/'+name+'.json', {cache:'no-store'}); if(r.ok){ SIDES[name] = await r.json(); } }catch(e){} render(); }
+const T = {
+ en:{kick:"A public research log · Vietnam + United States · Two AI systems, one brief",h1:"Make money with AI on ~$20/month.",tag:"Two independent AI teams — Muse and Claude Code — run the same brief for Vietnam and the US. Legal in both countries, profitable after tax, or the idea is out.",
+  s1:"ideas under test",s2:"hard gates",s3:"days to the Dec 25 deadline",viewing:"Now viewing",updated:"Updated",
+  gates:"Four hard gates",gTake:"Fail one and the idea is out — no points can save it.",g1:"Budget: AI subscriptions ≤ ~$20/month, all other costs listed openly.",g2:"Legal in both countries + platform rules: no banned industries, no spam, no fake engagement, AI/ad disclosure done right.",g3:"Profit AFTER tax, with taxes filed properly — no off-the-books income.",g4:"Work-authorization conditions for the operator are checked against official sources for every idea.",
+  rub:"How ideas are scored (100 points)",rubTake:"One shared rubric for both sides, fixed all season.",
+  pool:"Starting ideas — this side",poolTake:"Round 1 checks the gates for all 15; only 6–8 move on to small experiments.",
+  th1:"Idea",th2:"Main market",prog:"Progress — this side",noLog:"No milestones synced yet.",next:"Next checkpoint: Fri, Oct 30, 2026 — first legal-gate answers from official sources. Final judging: Fri, Dec 25, 2026.",
+  upd:"Platform updates — this side",noUpd:"No platform updates logged yet.",noPool:"This side lists its ideas and scores in its progress log below.",
+  fb:"Share your ideas & feedback",fbTake:"Feedback goes to public GitHub Issues. Every note gets a written answer: adopted or not, and why.",
+  fSide:"For which side",fBoth:"Both sides",fType:"Type",fIdea:"Comment on an idea",fNew:"Suggest a new idea",fVote:"Vote for an idea",fMsg:"Your message",fSend:"Open on GitHub",fAll:"See all feedback",fNote:"Opens a public GitHub issue (a free GitHub account is needed). Please don't include personal information.",
+  best:"Running best score",bestNone:"No idea scored yet — scoring starts after the legal gates."},
+ vi:{kick:"Nhật ký nghiên cứu công khai · Việt Nam + Hoa Kỳ · Hai hệ thống AI, một đề bài",h1:"Kiếm tiền bằng AI với ~$20/tháng.",tag:"Hai team AI độc lập — Muse và Claude Code — cùng chạy một đề bài cho Việt Nam và Mỹ. Hợp pháp ở cả hai nước, có lời sau thuế, không thì loại.",
+  s1:"cách đang kiểm chứng",s2:"cổng cứng",s3:"ngày tới deadline 25/12",viewing:"Đang xem phía",updated:"Cập nhật",
+  gates:"Bốn cổng cứng",gTake:"Rớt một cổng là loại — không điểm nào cứu được.",g1:"Ngân sách: subscription AI ≤ ~$20/tháng, mọi chi phí khác liệt kê công khai.",g2:"Hợp pháp ở cả hai nước + đúng điều khoản nền tảng: không ngành cấm, không spam, không tương tác ảo, công khai AI/quảng cáo đúng quy định.",g3:"Có lời SAU thuế và khai nộp thuế đầy đủ — không tính thu nhập chui.",g4:"Điều kiện được phép làm việc của người vận hành được kiểm tra bằng nguồn chính thức cho từng cách.",
+  rub:"Cách chấm điểm (thang 100)",rubTake:"Một rubric chung cho cả hai phía, cố định suốt mùa.",
+  pool:"Các cách khởi đầu — phía này",poolTake:"Vòng 1 soi cổng cho cả 15; chỉ 6–8 cách được vào vòng thí nghiệm nhỏ.",
+  th1:"Cách kiếm tiền",th2:"Thị trường chính",prog:"Tiến độ — phía này",noLog:"Chưa có mốc nào được đồng bộ.",next:"Mốc tiếp theo: Thứ Sáu, 30/10/2026 — trả lời đầu tiên về cổng pháp lý từ nguồn chính thức. Chấm chung kết: Thứ Sáu, 25/12/2026.",
+  upd:"Cập nhật nền tảng — phía này",noUpd:"Chưa ghi nhận cập nhật nền tảng nào.",noPool:"Phía này ghi danh sách ý tưởng và điểm trong nhật ký tiến độ bên dưới.",
+  fb:"Đóng góp ý kiến & ý tưởng",fbTake:"Góp ý được gửi lên GitHub Issues công khai. Mỗi góp ý đều có trả lời bằng văn bản: áp dụng hay không, và vì sao.",
+  fSide:"Góp ý cho phía nào",fBoth:"Cả hai phía",fType:"Loại góp ý",fIdea:"Bình luận về một cách",fNew:"Đề xuất cách mới",fVote:"Bình chọn cho một cách",fMsg:"Nội dung góp ý",fSend:"Mở trên GitHub",fAll:"Xem tất cả góp ý",fNote:"Sẽ mở một issue công khai trên GitHub (cần tài khoản GitHub miễn phí). Vui lòng không ghi thông tin cá nhân.",
+  best:"Điểm cao nhất hiện tại",bestNone:"Chưa có cách nào được chấm — việc chấm điểm bắt đầu sau vòng cổng pháp lý."}
+};
+let lang='en', side='muse';
+function setLang(l){lang=l;document.getElementById('btn-en').classList.toggle('on',l==='en');document.getElementById('btn-vi').classList.toggle('on',l==='vi');document.querySelectorAll('[data-en]').forEach(e=>e.textContent=e.dataset[l]);render();}
+function setSide(s){side=s;document.getElementById('side-muse').classList.toggle('on',s==='muse');document.getElementById('side-claude').classList.toggle('on',s==='claude');render();}
+function render(){const t=T[lang], d=SIDES[side];
+ // Each side may ship its own pool + note in its JSON; only the Muse view falls back to the built-in POOL.
+ const sidePool=Array.isArray(d.pool)?d.pool.map(p=>[p.en,p.vi,p.market,p.score]):(side==='muse'?POOL:[]);
+ const nIdeas=sidePool.length||d.scored||0, poolTake=(d.poolNote&&d.poolNote[lang])||(sidePool.length?t.poolTake:t.noPool);
+ const daysLeft=Math.max(0,Math.ceil((Date.UTC(2026,11,25,8)-Date.now())/864e5));
+ document.getElementById('hero').innerHTML=`<div class="hero"><div class="hero-in">
+  <div class="kicker">${t.kick}</div><h1>${t.h1}</h1><p>${t.tag}</p>
+  <div class="stats"><div class="stat"><div class="num mono">${String(nIdeas).padStart(2,"0")}</div><div class="lbl">${t.s1}</div></div>
+  <div class="stat"><div class="num mono">04</div><div class="lbl">${t.s2}</div></div>
+  <div class="stat"><div class="num mono">${daysLeft}</div><div class="lbl">${t.s3}</div></div></div></div></div>`;
+ document.getElementById('sideband').innerHTML=`<span class="who">${t.viewing}: ${side==='muse'?'MUSE':'CLAUDE CODE'}</span>
+  <span class="muted">${d.status[lang]}</span>${d.updated?`<span class="mono muted">${t.updated}: ${d.updated}</span>`:''}`;
+ const gates=[t.g1,t.g2,t.g3,t.g4].map((g,i)=>`<div class="gate"><div class="n mono">0${i+1}</div><div>${g}</div></div>`).join('');
+ const rubric=RUBRIC.map(r=>`<div class="bar-row"><div class="lbl">${lang==='en'?r[0]:r[2]}</div><div class="track"><div class="fill" style="width:${r[1]*5}%"></div></div><div class="pts mono">${r[1]}</div></div>`).join('');
+ const pool=sidePool.map((p,i)=>`<tr><td class="idx mono">${String(i+1).padStart(2,'0')}</td><td>${lang==='en'?p[0]:p[1]}</td><td class="c3">${p[2]}</td><td class="mono">${p[3]==null?"—":p[3]}</td></tr>`).join('');
+ const log=d.log.length?d.log.map(x=>`<div class="logline"><div class="t mono">${x.t}</div><div>${x[lang]||x.en}</div></div>`).join(''):`<p class="muted">${t.noLog}</p>`;
+ const upd=d.updates.length?d.updates.map(x=>`<div class="logline"><div class="t mono">${x.t}</div><div>${x[lang]||x.en}</div></div>`).join(''):`<p class="muted">${t.noUpd}</p>`;
+ document.getElementById('app').innerHTML=`
+ <section><div class="kicker">${t.gates}</div><h2>${t.gates}</h2><p class="take">${t.gTake}</p>${gates}</section>
+ <section><div class="kicker">Rubric</div><h2>${t.rub}</h2><p class="take">${t.rubTake}</p>${rubric}
+ <h2 style="margin-top:26px">${t.best} — ${side==='muse'?'Muse':'Claude Code'}</h2><p class="muted">${d.best?('<span class="mono" style="font-size:1.6rem;color:#0a0a0a;font-weight:700">'+d.best+' / 100</span>'):t.bestNone}</p></section>
+ <section><div class="kicker">Pool v1</div><h2>${t.pool}</h2><p class="take">${poolTake}</p>
+ ${sidePool.length?`<table><tr><th>#</th><th>${t.th1}</th><th class="c3">${t.th2}</th><th>Score</th></tr>${pool}</table>`:""}</section>
+ <section><div class="kicker">Log</div><h2>${t.prog}</h2>${log}<p class="note" style="margin-top:14px">${t.next}</p></section>
+ <section><div class="kicker">Platform</div><h2>${t.upd}</h2>${upd}</section>
+ <section><div class="kicker">Feedback</div><h2>${t.fb}</h2><p class="take">${t.fbTake}</p>
+ <label>${t.fSide}<select id="fb-side"><option value="Claude"${side==='claude'?' selected':''}>CLAUDE</option><option value="Muse"${side==='muse'?' selected':''}>MUSE</option><option value="Both">${t.fBoth}</option></select></label>
+ <label>${t.fType}<select id="fb-type"><option>${t.fIdea}</option><option>${t.fNew}</option><option>${t.fVote}</option></select></label>
+ <label>${t.fMsg}<textarea id="fb-msg" rows="4"></textarea></label>
+ <button class="send" onclick="openIssue()">${t.fSend} ↗</button><p class="note">${t.fNote} <a href="${ISSUES}?q=is%3Aissue+%22AI+Income+Lab%22" target="_blank" rel="noopener">${t.fAll} ↗</a></p></section>`;
+ }
+// Feedback becomes a public, timestamped GitHub issue so every note leaves a written record.
+const ISSUES='https://github.com/johnha912/johnha912.github.io/issues';
+function openIssue(){const sd=document.getElementById('fb-side').value,ty=document.getElementById('fb-type').value,msg=document.getElementById('fb-msg').value.trim();
+ const title='[AI Income Lab]['+sd+'] '+ty, body=(msg||'')+'\n\n---\nSent from the AI Income Lab page ('+lang.toUpperCase()+').';
+ window.open(ISSUES+'/new?title='+encodeURIComponent(title)+'&body='+encodeURIComponent(body),'_blank','noopener');}
+setLang('en'); loadSide('muse'); loadSide('claude');
+</script>
+</body>
+</html>
