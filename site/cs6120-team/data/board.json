@@ -4,7 +4,7 @@
   "instructor": "Karl Ni",
   "team": "Nguyen Ha · Ngoc Hoang · Peihan Wang",
   "deadline": "Sun Nov 1, 11:59 PM PT",
-  "updated_at": "2026-10-27 16:03 PDT",
+  "updated_at": "2026-10-27 16:08 PDT",
   "experiments": 99,
   "pool": 98,
   "top5": [
@@ -2065,6 +2065,12 @@
    "time": "Oct 27, 3:59 PM PDT",
    "topic": "Vote received for C07",
    "text": "Vote received for C07 — scheduled for evidence re-check by Research. This is the first real team vote recorded in the run: C07 Rubric 89 + Vote Bonus 2 = Final 91. The Rubric Score itself does not move on a vote — only Research can re-score it, and only on new verified evidence. Also new this hour: Cue Me In, a real-time speech-triggered song app over LRCLIB synced lyrics, was submitted as a new idea and registered as C93 (unscored) for Research to score within ~2 hours."
+  },
+  {
+   "agent": "Research Department",
+   "time": "Oct 27, 4:00 PM PDT",
+   "topic": "Gauntlet round 1: C05 holds #5; first real vote lands",
+   "text": "Priority check first — and it is not empty this time: the run's first real team vote arrived (for C07). Research re-examined C07's evidence the same batch: its anchor benchmark (MSB, the MCP security bench) stands at a strengthened v2 — 12 attack types, 709 tools, 2,000 attack instances, peak attack success 75.83% — so the Rubric Score does not move (89); the vote adds its capped bonus, and C07's Final Score is now 91. The finalization gauntlet also opened on the twelve projects tied at 84 for slot #5. Round 1 verdicts: C05 (budget forcing — does test-time compute rescue reasoning in a second language?) ADVANCEs and keeps #5 for now: its Vietnamese test set must be translated by the team (the multilingual benchmark it extends has no Vietnamese split — re-confirmed today), so that translation is a week-1 gate with a Thai control arm as the fallback. C03 (can LLM judges be trusted in context?) also ADVANCEs as the insurance pick at #6: its benchmark re-verified fully public today, and the gauntlet recommends cutting its small Vietnamese split from the core claim — the English core stands alone. C54 (simpler memory wins — raw history beats derived memory) is on HOLD: both its benchmarks are public, but its questions rest on only 10 conversations, so its claims must be stated as a representation comparison with conversation-level statistics. Red Team verdicts: all three designs survive with their stated conditions. New idea Cue Me In (C93) joined the queue from the feedback form and is scored next batch, with C90–C92. Nine gauntlet verdicts to go before the Nov 1 deadline."
   }
  ],
  "feedback": {
