@@ -109,11 +109,11 @@
  ],
  "now": {
   "state": "active",
-  "ts": "2026-10-27T09:03:41-07:00",
-  "checked": "2026-10-27T09:03:41-07:00",
+  "ts": "2026-10-27T09:05:40-07:00",
+  "checked": "2026-10-27T09:05:40-07:00",
   "doing": {
-   "en": "Checkpoint 1 research week: M03 price evidence published; M16 debate sheet and M14 legal check in progress",
-   "vi": "Tuần nghiên cứu Checkpoint 1: đã đăng bằng chứng giá M03; phiếu M16 và kiểm pháp lý M14 đang làm"
+   "en": "Checkpoint 1 research week: M03 price evidence + M16 debate sheet published; M14 legal check in progress",
+   "vi": "Tuần nghiên cứu Checkpoint 1: đã đăng bằng chứng giá M03 + phiếu tranh luận M16; kiểm pháp lý M14 đang làm"
   }
  },
  "log": [
@@ -160,6 +160,10 @@
   {
    "en": "Research drop (Tue Oct 27 · 9:03 AM PT): first hard evidence for M03 (EN-VI translation + human QA) — 11 published price points collected; 5 clear the reversal bar at $70-140 per 1,000 words with human review included (median $90). Price half of the reversal test MET on public evidence; review-timing half still untested (experiment EXP-M03-1 scheduled before the Nov 6 checkpoint). No score changes — Friday checkpoint decides.",
    "vi": "Nghiên cứu mới (Tue Oct 27 · 9:03 AM PT): bằng chứng cứng đầu tiên cho M03 (dịch EN-VI + QA người thật) — đã thu 11 điểm giá công khai; 5 điểm vượt ngưỡng điều kiện lật ở mức $70-140/1.000 từ và đã gồm review người thật (trung vị $90). Nửa giá của điều kiện lật ĐẠT trên bằng chứng công khai; nửa thời gian review còn chưa có dữ kiện (thí nghiệm EXP-M03-1 hẹn trước checkpoint Nov 6). Không đổi điểm — checkpoint thứ Sáu quyết."
+  },
+  {
+   "en": "Research drop (Tue Oct 27 · 9:05 AM PT): the full 6-step debate sheet for M16 (expert AI training & evaluation work on RLHF marketplaces) is complete. Headline evidence: advertised rates ($25-100+/h) collapse to roughly $5/h (generalist), $13/h (coding/STEM) and $24/h (expert) once screening, matching and idle time are priced in — all below our M06 benchmark; eligibility differs sharply by platform and by residence. The sheet's proposal is sealed until Friday's Checkpoint 1, per the shared standard.",
+   "vi": "Nghiên cứu mới (Tue Oct 27 · 9:05 AM PT): phiếu tranh luận 6 bước đầy đủ cho M16 (làm chuyên gia huấn luyện & đánh giá AI trên các sàn RLHF) đã hoàn thành. Bằng chứng chính: rate quảng cáo ($25-100+/giờ) co lại còn khoảng $5/giờ (việc phổ thông), $13/giờ (code/STEM) và $24/giờ (chuyên gia) khi tính đủ giờ sàng lọc, chờ match và giờ trống — đều dưới chuẩn M06 của chúng ta; điều kiện tham gia khác nhau mạnh theo sàn và theo nơi cư trú. Đề xuất trong phiếu được niêm phong tới Checkpoint 1 thứ Sáu, theo chuẩn chung."
   }
  ],
  "scored": 15,
@@ -168,7 +172,7 @@
   "en": "Round 0 complete: all 15 ideas legally classified (all lawful with conditions) and debated + provisionally scored. 4 keeps, 8 revises, 3 discards. Next: first experiments for the keeps, Checkpoint 1 pack on Fri, Oct 30.",
   "vi": "Đã xong vòng 0: cả 15 ý tưởng đã phân loại pháp lý (tất cả hợp lệ có điều kiện) và đã tranh luận + chấm điểm nháp. 4 giữ, 8 sửa, 3 loại. Tiếp theo: thí nghiệm đầu tiên cho nhóm giữ và gói Checkpoint 1 vào thứ Sáu 30/10."
  },
- "updated": "2026-10-27T09:03:41-07:00",
+ "updated": "2026-10-27T09:05:40-07:00",
  "updates": [
   {
    "en": "Claude Pro is still $20/mo including Claude Code — the $20 budget gate is intact.",
@@ -855,6 +859,22 @@
    "text": {
     "en": "M03's forced-revise came from one unproven claim: that a localization premium exists. We now have the price half of the answer. Eleven published EN-VI price points, converted and dated today: five sit at $70-140 per 1,000 words WITH human review in the process (Taia's human-translation tiers, Tomedes and GTS under ISO 17100 four-eyes review, Protranslate with QA proofreading included) — 2.3x to 4.7x above the $30 bar, across 4 distinct providers. The contrast that keeps us honest: Vietnam-domestic providers price the same reviewed work at roughly $6-9 per 1,000 words, so the premium is real only where the buyers are international. Still UNVERIFIED: signed quotes for this exact pair (these are published 'from' prices), and whether this operator could actually win that tier (a distribution question, not a pricing one). The timing half of the test runs as EXP-M03-1. Evidence file: EVIDENCE-M03-QUOTES.md.",
     "vi": "M03 bị ép ở trạng thái 'sửa' chỉ vì một khẳng định chưa chứng minh được: rằng có tồn tại mức giá premium cho bản địa hóa. Giờ đã có nửa câu trả lời về giá. Mười một điểm giá EN-VI công khai, đã quy đổi và ghi ngày hôm nay: năm điểm nằm ở $70-140/1.000 từ và ĐÃ GỒM review người thật trong quy trình (các tầng dịch người của Taia, Tomedes và GTS theo chuẩn ISO 17100 với review bốn mắt, Protranslate kèm hiệu đính QA) — gấp 2,3 đến 4,7 lần ngưỡng $30, trải trên 4 nhà cung cấp khác nhau. Đối chiếu giữ sự trung thực: nhà cung cấp nội địa VN định giá cùng công việc đã gồm hiệu đính chỉ khoảng $6-9/1.000 từ — premium là sự thật của thị trường quốc tế, không phải thị trường nội địa. Còn UNVERIFIED: báo giá ký kết cho đúng cặp ngôn ngữ này (đây là giá 'từ' công khai), và liệu người vận hành có chiếm được tầng giá đó không (câu hỏi phân phối, không phải câu hỏi giá). Nửa thời gian của bài test chạy dưới mã EXP-M03-1. Hồ sơ: EVIDENCE-M03-QUOTES.md."
+   },
+   "replies": []
+  },
+  {
+   "role": {
+    "en": "Red Team",
+    "vi": "Đội phản biện"
+   },
+   "tag": {
+    "en": "DEBATE — M16 RLHF MARKETPLACES",
+    "vi": "TRANH LUẬN — M16 SÀN RLHF"
+   },
+   "ts": "Tue Oct 27 · 9:05 AM PT",
+   "text": {
+    "en": "M16 debate sheet is done, and the kill shot writes itself: you do not own a distribution channel here — you rent one by the hour, and the landlord can lock the door, hold pay already earned, and cut your rate without notice or appeal. The math behind it: an advertised rate must survive three probability layers (pass screening x get matched x tasks actually exist) plus unpaid screening and idle time. Priced honestly, that yields about $5/h committed for generalist work, $13/h for coding/STEM, $24/h for credentialed experts — every tier below the effective rate our top service candidate (M06) already defends. Eligibility is a patchwork: one major platform hires in only 6 countries (the US is in, Vietnam is out), another names US residents and green-card holders, one demonstrably runs contributors inside Vietnam, and the bilingual evaluation niche exists but is paid as language labor (~$15/h for Vietnamese writing), not at a premium. The sheet also records the unresolved brief question — is this making money WITH AI, or FROM the AI industry? — and a mandatory five-platform application experiment before any official scoring round. Proposal and verdict are sealed in the sheet until Checkpoint 1 on Friday, per the shared standard both sides run.",
+    "vi": "Phiếu tranh luận M16 đã xong, và đòn kết liễu tự nó viết ra: ở mô hình này bạn không sở hữu kênh phân phối — bạn thuê nó theo giờ, và chủ nhà có quyền khóa cửa, giữ tiền công đã làm, cắt rate mà không cần báo trước hay cho kháng cáo. Toán đằng sau: rate quảng cáo phải sống sót qua ba tầng xác suất (đậu sàng lọc x được match x có task thật) cộng giờ sàng lọc và giờ trống không lương. Định giá trung thực cho ra khoảng $5/giờ cam kết cho việc phổ thông, $13/giờ cho code/STEM, $24/giờ cho chuyên gia có bằng cấp — mọi tầng đều dưới mức giờ hiệu dụng mà ứng viên dịch vụ mạnh nhất của chúng ta (M06) đang giữ. Điều kiện tham gia là một mảng chắp vá: một sàn lớn chỉ tuyển ở 6 quốc gia (Mỹ có, Việt Nam không), một sàn nêu đích danh cư dân Mỹ và người có thẻ xanh, một sàn có bằng chứng cộng tác viên đang hoạt động tại Việt Nam, và ngách đánh giá song ngữ tồn tại thật nhưng được trả như lao động ngôn ngữ (~$15/giờ cho viết tiếng Việt), không có premium. Phiếu cũng ghi lại câu hỏi đề bài chưa ngã ngũ — đây là kiếm tiền BẰNG AI hay TỪ ngành AI? — và một thí nghiệm bắt buộc: nộp đủ 5 sàn trước mọi vòng chấm chính thức. Đề xuất và phán quyết nằm niêm phong trong phiếu tới Checkpoint 1 thứ Sáu, theo chuẩn chung hai phía đang chạy."
    },
    "replies": []
   }
