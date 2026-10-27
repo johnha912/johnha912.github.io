@@ -4,9 +4,9 @@
   "instructor": "Karl Ni",
   "team": "Nguyen Ha · Ngoc Hoang · Peihan Wang",
   "deadline": "Sun Nov 1, 11:59 PM PT",
-  "updated_at": "2026-10-27 03:04 PDT",
-  "experiments": 82,
-  "pool": 80,
+  "updated_at": "2026-10-27 05:02 PDT",
+  "experiments": 85,
+  "pool": 82,
   "top5": [
    "C07",
    "C01",
@@ -589,6 +589,27 @@
    "score": 82,
    "status": "keep",
    "running_best": 89
+  },
+  {
+   "exp": 83,
+   "id": "C73",
+   "score": 82,
+   "status": "keep",
+   "running_best": 89
+  },
+  {
+   "exp": 84,
+   "id": "C74",
+   "score": 83,
+   "status": "keep",
+   "running_best": 89
+  },
+  {
+   "exp": 85,
+   "id": "C75",
+   "score": 79,
+   "status": "discard",
+   "running_best": 89
   }
  ],
  "candidates": [
@@ -821,6 +842,18 @@
    "final_score": 83
   },
   {
+   "id": "C74",
+   "name": "C74 Source-report validity",
+   "score": 83,
+   "status": "keep",
+   "elite": 7.5,
+   "future": 8.0,
+   "note": "Full rubric score 2026-10-27 04:59 PDT - source-report validity verified this batch arXiv 2610.32109 posted 23 Oct 2026 with 155 candidate facts and post-answer document swap flipping 0 percent of reports while cached-state transplant makes 97.2 to 100 percent follow the donor - course claim is the ",
+   "votes": 0,
+   "vote_bonus": 0,
+   "final_score": 83
+  },
+  {
    "id": "C22",
    "name": "C22 Tool-result misbinding",
    "score": 82,
@@ -984,6 +1017,18 @@
    "elite": 8.0,
    "future": 8.5,
    "note": "Full rubric score 2026-10-27 02:59 PDT - object-bound confinement verified arXiv 2610.14488 with 74 attacks and a name-based allowlist losing 66 - live sandbox console where staff approve a path and watch where the write lands - held-out substitution family and benign completion alongside attack suc",
+   "votes": 0,
+   "vote_bonus": 0,
+   "final_score": 82
+  },
+  {
+   "id": "C73",
+   "name": "C73 Compositional leakage",
+   "score": 82,
+   "status": "keep",
+   "elite": 8.0,
+   "future": 8.5,
+   "note": "Full rubric score 2026-10-27 04:59 PDT - Agent Mosaic verified this batch arXiv 2610.30418 with 30 scenarios and 10800 simulated plus 1440 live answers and best model 7.08 percent disclosure under benign queries but code promised only upon acceptance so Data 6 as verified-design construction - live ",
    "votes": 0,
    "vote_bonus": 0,
    "final_score": 82
@@ -1265,6 +1310,18 @@
    "final_score": 79
   },
   {
+   "id": "C75",
+   "name": "C75 Derivation gap in tool-call judging",
+   "score": 79,
+   "status": "discard",
+   "elite": 7.5,
+   "future": 8.0,
+   "note": "Full rubric score 2026-10-27 04:59 PDT - derivation gap reported Oct 2026 via HF tracker with gaps to 50.51 points and DeRef AUROC 98.40 to 99.59 but no arXiv record surfaced in two consecutive batches and named benchmark downloads not confirmed in hand so Data 6 as verified-design construction - di",
+   "votes": 0,
+   "vote_bonus": 0,
+   "final_score": 79
+  },
+  {
    "id": "C34",
    "name": "C34 Climb the Hill Without Gaming It",
    "score": 78,
@@ -1517,8 +1574,8 @@
    "final_score": 58
   },
   {
-   "id": "C73",
-   "name": "Every Document Was Allowed; the Answer Was Not — Compositional leakage in compartmentalized RAG (Agent…",
+   "id": "C76",
+   "name": "One of Its Own Pages Is Enough — RAG collapse from self-authored retrieval",
    "score": null,
    "status": "unscored",
    "elite": null,
@@ -1529,20 +1586,8 @@
    "final_score": null
   },
   {
-   "id": "C74",
-   "name": "Asking Where It Came From Is Not an Audit — Source-report validity for RAG answers",
-   "score": null,
-   "status": "unscored",
-   "elite": null,
-   "future": null,
-   "note": "",
-   "votes": 0,
-   "vote_bonus": 0,
-   "final_score": null
-  },
-  {
-   "id": "C75",
-   "name": "The Judge Cannot See Where the Value Came From — Derivation gap in tool-call judging",
+   "id": "C77",
+   "name": "The First Token Is Not the Verdict — Judge readout as a measurement artifact",
    "score": null,
    "status": "unscored",
    "elite": null,
@@ -1682,6 +1727,12 @@
    "time": "Oct 27, 12:59 AM PDT",
    "topic": "Memory fairness, memory permission, and a partner's mind",
    "text": "Priority check first: no vote-flagged re-examinations were waiting — the real vote tally is still empty, and no score moved by feedback. C68 (right memory, wrong principal) scored 82, keep: a retrieved memory can be relevant and correct and still not be yours to use — the project verifies support, admissibility, prompt exposure and answer disclosure as four separate stages, and in the source study text-only verification catches none of it under a strict false-denial limit while namespace routing preserves the required evidence. Its benchmarks are named public in the source but no download was confirmed in hand, so it was scored as a verified-design construction (Data 6), not lifted. C67 (equal inputs or it doesn't count) scored 81: a published 99% memory headline rests partly on photo captions only one side could read — on the 88 questions with no photo evidence, the leader and plain full context differ by one answer — so the project re-runs the comparison under a pre-registered parity protocol with every attempt counted and judging priced in. C69 (what does your partner think you think?) scored 81: an agent keeps an explicit, inspectable belief state about its collaboration partner, scored against ground truth, with a scramble test — corrupt the stated beliefs and success must fall, or the state is just narration. Red Team verdicts: all three SURVIVE, each with its stated condition (pre-registration for C67, the false-denial operating point for C68, the scramble ablation for C69). New in the queue: C70 says-no-does-it-anyway (a model refuses in text, then executes the same request as a tool call in 10–52% of cases), C71 who defers to whom (sycophancy measured on the human side too), C72 names are not objects (an approved path is not the file it resolves to). Top five unchanged."
+  },
+  {
+   "agent": "Trend Scout",
+   "time": "Oct 27, 4:59 AM PDT",
+   "topic": "Every document was allowed; the answer was not",
+   "text": "Priority check first: no vote-flagged re-examinations were waiting — the real vote tally is still empty, and no score moved by feedback. C74 (asking where it came from is not an audit) scored 83, keep: a RAG model asked whether its answer came from the document or from memory does not change its report when the document is swapped after the answer (0% of reports flip in the source study) — the project tests that behaviorally on a small model and checks whether an external span-grounding check tracks the real evidence better than the model's own report. C73 (compositional leakage) scored 82, keep: every retrieved document is individually permitted, yet the answer discloses a composite conclusion no single document states — the best model in the source leaks it in 7% of answers to deliberately benign questions, and standard safeguards still leave a third of answers disclosing; its corpus has to be built by the team, so it was scored as a verified-design construction. C75 (the judge cannot see where the value came from) scored 79, discard one point below keep with no gate failed: the finding is striking — tool-call judges reject correct arguments whose source is a schema default, by up to 50 points — but after two batches of searching, the team still cannot pin the study to a first-hand record or confirm its benchmark downloads, and this pool does not keep what it cannot verify; a revival path (pin the source, verify one download, re-score around 82) is written in the batch notes. Red Team verdicts: C73 and C74 SURVIVE with their stated conditions; C75's design survives too — the discard is an evidence outcome, not a kill. New in the queue: C76 one of its own pages is enough (a RAG system retrieving documents written from its own earlier answers collapses to a single answer in 80% of simulations — and one self-authored page can trigger it), C77 the first token is not the verdict (reading a judge's verdict from its first token manufactures about 42 points of 'position bias' that is really a readout artifact). Top five unchanged."
   },
   {
    "agent": "Trend Scout",
