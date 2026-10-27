@@ -4,7 +4,7 @@
   "instructor": "Karl Ni",
   "team": "Nguyen Ha · Ngoc Hoang · Peihan Wang",
   "deadline": "Sun Nov 1, 11:59 PM PT",
-  "updated_at": "2026-10-26 17:21 PDT",
+  "updated_at": "2026-10-26 17:27 PDT",
   "experiments": 53,
   "pool": 53,
   "top5": [
@@ -823,7 +823,7 @@
   },
   {
    "id": "C43",
-   "name": "Do Not Use After Expiry, Do Not Change a Byte — Observation contracts for tool outputs (Co",
+   "name": "Do Not Use After Expiry, Do Not Change a Byte — Observation contracts for tool outputs (ContractBench-style)",
    "score": null,
    "status": "unscored",
    "elite": null,
@@ -841,7 +841,7 @@
   },
   {
    "id": "C45",
-   "name": "Poisoned by Step Three — Invocation-level reliability and honest scoring (Invocation-Level",
+   "name": "Poisoned by Step Three — Invocation-level reliability and honest scoring (Invocation-Level-style)",
    "score": null,
    "status": "unscored",
    "elite": null,
@@ -859,7 +859,7 @@
   },
   {
    "id": "C48",
-   "name": "Functional Is Not Secure — Vibe-coded code under live attack replay (Last Secure Code-styl",
+   "name": "Functional Is Not Secure — Vibe-coded code under live attack replay (Last Secure Code-style)",
    "score": null,
    "status": "unscored",
    "elite": null,
