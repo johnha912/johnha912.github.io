@@ -42,6 +42,8 @@
   .line1 .who{font-weight:700;font-size:.88rem}
   .line1 .tm{margin-left:auto;color:var(--mut);font-size:.72rem;white-space:nowrap}
   .txt{font-size:.86rem;line-height:1.45;margin-top:1px}
+  .txt.clamped{display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+  .more-btn{background:none;border:0;border-radius:0;color:var(--acc);font-weight:700;font-size:.78rem;padding:2px 0 0}
   .reply{display:block;background:var(--acc2);border-left:3px solid var(--acc);border-radius:4px;
   padding:2px 8px;font-size:.78rem;color:var(--mut);margin:3px 0}
   #toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);background:var(--ink);color:#fff;border-radius:10px;
@@ -220,12 +222,22 @@ async function init(){
     `<span class="chat-count">${BOARD.discussion.length} messages · newest at the bottom</span></div>` +
     `<div class="chat-body" id="chatBody">` + BOARD.discussion.map(p => {
       const c = agentColor(p.agent);
+      const long = p.text.length > 400;
       return `<div class="msg"><div class="ava" style="background:${c}">${initials(p.agent)}</div>` +
         `<div class="msg-main"><div class="line1"><span class="who" style="color:${c}">${p.agent}</span>` +
         `<span class="tag">${p.topic}</span><span class="tm">${p.time}</span></div>` +
         (p.reply_to ? `<span class="reply">↩ replying to ${p.reply_to}</span>` : "") +
-        `<div class="txt">${p.text}</div></div></div>`; }).join("") + `</div>`;
+        `<div class="txt${long ? " clamped" : ""}">${p.text}</div>` +
+        (long ? `<button class="more-btn" data-more aria-expanded="false">Read more ▾</button>` : "") +
+        `</div></div>`; }).join("") + `</div>`;
   const chatBody = $("chatBody"); if (chatBody) chatBody.scrollTop = chatBody.scrollHeight;
+  if (chatBody) chatBody.addEventListener("click", e => {
+    const btn = e.target.closest("[data-more]"); if (!btn) return;
+    const txt = btn.closest(".msg-main").querySelector(".txt"); if (!txt) return;
+    const collapsed = txt.classList.toggle("clamped");
+    btn.textContent = collapsed ? "Read more ▾" : "Show less ▴";
+    btn.setAttribute("aria-expanded", collapsed ? "false" : "true");
+  });
 
   // Candidate board + vote buttons
   const tally = (BOARD.feedback && BOARD.feedback.vote_tally) || {};
