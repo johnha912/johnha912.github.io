@@ -4,9 +4,9 @@
   "instructor": "Karl Ni",
   "team": "Nguyen Ha · Ngoc Hoang · Peihan Wang",
   "deadline": "Sun Nov 1, 11:59 PM PT",
-  "updated_at": "2026-10-26 23:03 PDT",
-  "experiments": 76,
-  "pool": 74,
+  "updated_at": "2026-10-27 01:02 PDT",
+  "experiments": 79,
+  "pool": 77,
   "top5": [
    "C07",
    "C01",
@@ -547,6 +547,27 @@
    "score": 80,
    "status": "keep",
    "running_best": 89
+  },
+  {
+   "exp": 77,
+   "id": "C67",
+   "score": 81,
+   "status": "keep",
+   "running_best": 89
+  },
+  {
+   "exp": 78,
+   "id": "C68",
+   "score": 82,
+   "status": "keep",
+   "running_best": 89
+  },
+  {
+   "exp": 79,
+   "id": "C69",
+   "score": 81,
+   "status": "keep",
+   "running_best": 89
   }
  ],
  "candidates": [
@@ -911,6 +932,18 @@
    "final_score": 82
   },
   {
+   "id": "C68",
+   "name": "C68 Retrieval admissibility",
+   "score": 82,
+   "status": "keep",
+   "elite": 8.0,
+   "future": 8.5,
+   "note": "Full rubric score 2026-10-27 00:59 PDT - retrieval admissibility verified this batch arXiv 2610.07309 with 3767 queries from RHELM and MemOps and top-20 anchor recall 0.432 to 0.533 but no download confirmed in hand so Data 6 as verified-design construction - four-stage verification support admissib",
+   "votes": 0,
+   "vote_bonus": 0,
+   "final_score": 82
+  },
+  {
    "id": "B1",
    "name": "B1 Tiny LM tokenizer EN vs VI",
    "score": 81,
@@ -1050,6 +1083,30 @@
    "elite": 8.0,
    "future": 8.5,
    "note": "Full rubric score 2026-10-26 22:59 PDT - doctored datasets verified this batch via Nature 15 Jul 2026 feature and arXiv 2607.10712 with agents following doctored copies around half the time - course repository is a documented construction so Data 6 in verified-design pattern - live analysis console ",
+   "votes": 0,
+   "vote_bonus": 0,
+   "final_score": 81
+  },
+  {
+   "id": "C67",
+   "name": "C67 Input-parity audit for memory agents",
+   "score": 81,
+   "status": "keep",
+   "elite": 8.0,
+   "future": 8.0,
+   "note": "Full rubric score 2026-10-27 00:59 PDT - MemoryTax verified this batch arXiv 2610.29823 with photo-caption asymmetry in the abstract itself and LoCoMo verified public in the C54 batch so G1 lifted and Data 8 - parity protocol pre-registered with all attempts counted and judging priced - live memory-",
+   "votes": 0,
+   "vote_bonus": 0,
+   "final_score": 81
+  },
+  {
+   "id": "C69",
+   "name": "C69 Partner-belief state",
+   "score": 81,
+   "status": "keep",
+   "elite": 7.5,
+   "future": 8.0,
+   "note": "Full rubric score 2026-10-27 00:59 PDT - Mental-Models verified this batch arXiv 2610.12453 with code publicly available per the abstract so G1 lifted for the design and Data 7 with subset confirmation as the week-1 gate - inspectable text belief state scored against ground truth with a scramble abl",
    "votes": 0,
    "vote_bonus": 0,
    "final_score": 81
@@ -1403,8 +1460,8 @@
    "final_score": 58
   },
   {
-   "id": "C67",
-   "name": "Equal Inputs or It Doesn't Count — Input-parity and all-attempt cost audit for memory agents (MemoryTax-style)",
+   "id": "C70",
+   "name": "Says No, Does It Anyway — Refusal divergence between text and tool calls",
    "score": null,
    "status": "unscored",
    "elite": null,
@@ -1415,8 +1472,8 @@
    "final_score": null
   },
   {
-   "id": "C68",
-   "name": "Right Memory, Wrong Principal — Retrieval admissibility for long-term agent memory",
+   "id": "C71",
+   "name": "Who Defers to Whom? — Bidirectional sycophancy and human deference",
    "score": null,
    "status": "unscored",
    "elite": null,
@@ -1427,8 +1484,8 @@
    "final_score": null
   },
   {
-   "id": "C69",
-   "name": "What Does Your Partner Think You Think? — Explicit partner-belief state for a collaborating agent…",
+   "id": "C72",
+   "name": "Names Are Not Objects — Object-bound confinement for a coding agent",
    "score": null,
    "status": "unscored",
    "elite": null,
@@ -1562,6 +1619,12 @@
    "time": "Oct 26, 10:59 PM PDT",
    "topic": "Provenance-blind analysis joins at 81; executable evidence at 80",
    "text": "First batch under the new Research Department charter. Priority check: no vote-flagged re-examinations were waiting — the real vote tally is still empty, and no score moved by feedback. C65 (which copy is real?) scored 81, keep: an analysis agent given a repository holding one genuine public dataset and doctored near-copies follows the doctored copy about half the time in the source study (Nature, 15 Jul 2026); the project's defense checks the artifact itself — source, hash, lineage — before any analysis runs, with neutral datasets and a held-out transformation family as stated conditions. Red Team's construction-bias attack is answered by that held-out split, not waived. C66 (show me the script) scored 80, keep at threshold: a reproduction agent must deliver a re-runnable script, not a verdict — its benchmark is fully validated (60 tasks, 44 reproduced in the source), but the NLP paper subset is not yet verified in hand, so its data score is 8 and the subset selection is a week-1 gate. New in the queue: C67 equal-inputs audit for memory agents (a published 99% headline rests on captions only one side could read and on accepted-only trial counting), C68 right memory, wrong principal (a memory can be relevant, correct — and still not yours to use), C69 an explicit partner-belief state for a collaborating agent. Top five unchanged."
+  },
+  {
+   "agent": "Trend Scout",
+   "time": "Oct 27, 12:59 AM PDT",
+   "topic": "Memory fairness, memory permission, and a partner's mind",
+   "text": "Priority check first: no vote-flagged re-examinations were waiting — the real vote tally is still empty, and no score moved by feedback. C68 (right memory, wrong principal) scored 82, keep: a retrieved memory can be relevant and correct and still not be yours to use — the project verifies support, admissibility, prompt exposure and answer disclosure as four separate stages, and in the source study text-only verification catches none of it under a strict false-denial limit while namespace routing preserves the required evidence. Its benchmarks are named public in the source but no download was confirmed in hand, so it was scored as a verified-design construction (Data 6), not lifted. C67 (equal inputs or it doesn't count) scored 81: a published 99% memory headline rests partly on photo captions only one side could read — on the 88 questions with no photo evidence, the leader and plain full context differ by one answer — so the project re-runs the comparison under a pre-registered parity protocol with every attempt counted and judging priced in. C69 (what does your partner think you think?) scored 81: an agent keeps an explicit, inspectable belief state about its collaboration partner, scored against ground truth, with a scramble test — corrupt the stated beliefs and success must fall, or the state is just narration. Red Team verdicts: all three SURVIVE, each with its stated condition (pre-registration for C67, the false-denial operating point for C68, the scramble ablation for C69). New in the queue: C70 says-no-does-it-anyway (a model refuses in text, then executes the same request as a tool call in 10–52% of cases), C71 who defers to whom (sycophancy measured on the human side too), C72 names are not objects (an approved path is not the file it resolves to). Top five unchanged."
   }
  ],
  "feedback": {
