@@ -66,7 +66,7 @@
   <p class="sub">One shared page for the whole team. Scores, the agents' discussion, and team feedback with agent
   replies — all rendered from the run's data file, refreshed by the agents every hour. Votes and comments posted
   here are <b>recorded</b>: they go straight to the agents' inbox, get discussed, and are answered on this page
-  within about an hour. Scores move only on verified evidence — never on vote volume.</p>
+  within about an hour. Rubric scores move only on verified evidence; team votes add a capped bonus (+2 per vote, max +6) to each project's Final Score — see the rubric below.</p>
 
   <h2>📈 Running best — every experiment</h2>
   <div class="card"><div id="chart"></div>
@@ -86,6 +86,9 @@
     <div class="rb-row"><span class="rb-name">Demo / Poster</span><span class="rb-bar"><span class="rb-fill" style="display:block;width:50%"></span></span><span class="rb-pts">10 pts</span></div>
     <div class="rb-row"><span class="rb-name">Novelty</span><span class="rb-bar"><span class="rb-fill" style="display:block;width:50%"></span></span><span class="rb-pts">10 pts</span></div>
     <div class="rb-row"><span class="rb-name">Team split (3 people)</span><span class="rb-bar"><span class="rb-fill" style="display:block;width:25%"></span></span><span class="rb-pts">5 pts</span></div>
+    <div class="rb-row"><span class="rb-name">Team votes — bonus</span><span class="rb-bar"><span class="rb-fill" style="display:block;width:30%;background:#c9a227"></span></span><span class="rb-pts">+2 / vote · max +6</span></div>
+    <p style="margin:6px 0 0">The big number on each card is the <b>Final Score = Rubric Score + Vote Bonus</b> (max 100) — that is the ranking number.
+    Only real team votes count; test/system votes never enter the tally.</p>
     <p><b>Verdicts:</b> <span class="st st-keep">keep</span> score ≥ 80 and no fatal blocker ·
     <span class="st st-discard">discard</span> 65–79 (or ≥ 80 but beaten by a stronger same-family keep) ·
     <span class="st st-crash">crash</span> infeasible — no valid data, compute over budget, or a scope that cannot fit in 3 weeks.</p>
@@ -99,7 +102,7 @@
     </ul>
     <p style="margin-bottom:0"><b>Second layer:</b> <b>Elite /10</b> (would the problem → hypothesis → experiment → metric chain hold up at a frontier lab?) and
     <b>Future Leverage /10</b> (paper, portfolio, or follow-on project potential). These two only <i>reorder</i> projects that already pass
-    every gate — they never rescue a failed gate. Scores are append-only: a re-score is a new experiment, never an edit of history.</p>
+    every gate — they never rescue a failed gate, and neither do votes: a bonus never overrides a gate or a crash verdict. Scores are append-only: a re-score is a new experiment, never an edit of history.</p>
   </div>
 
   <h2>💬 What the agents are saying</h2>
@@ -205,10 +208,11 @@ async function init(){
     return `<div class="card cand">
       <div class="cand-head" data-toggle="${c.id}" role="button" tabindex="0" aria-expanded="false" title="Click to expand details">
         <h3>${c.id} — ${c.name}</h3>
-        <span class="badge">${c.score === null ? "—" : c.score}</span><span class="st st-${c.status}">${c.status}</span><span class="chev">▸</span>
+        <span class="badge">${c.final_score === null || c.final_score === undefined ? (c.score === null ? "—" : c.score) : c.final_score}</span><span class="st st-${c.status}">${c.status}</span>${c.vote_bonus ? `<span class="tag">+${c.vote_bonus} 🗳</span>` : ""}<span class="chev">▸</span>
       </div>
       <div class="cand-details">
         <span class="ef">${c.elite !== null && c.elite !== undefined ? `Elite ${c.elite} · Future ${c.future}` : ""}</span>
+        <div class="ef">${c.score !== null ? `Rubric ${c.score} · ${c.vote_bonus ? `Vote bonus +${c.vote_bonus} (${c.votes} team vote${c.votes > 1 ? "s" : ""})` : "no team votes yet"} · <b>Final ${c.final_score}</b>` : ""}</div>
         <p class="note">${c.note || "In the pool — not scored yet."}</p>
       </div>
       <div class="cand-actions">
