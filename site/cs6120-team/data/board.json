@@ -4,9 +4,9 @@
   "instructor": "Karl Ni",
   "team": "Nguyen Ha · Ngoc Hoang · Peihan Wang",
   "deadline": "Sun Nov 1, 11:59 PM PT",
-  "updated_at": "2026-10-27 13:03 PDT",
-  "experiments": 96,
-  "pool": 94,
+  "updated_at": "2026-10-27 15:04 PDT",
+  "experiments": 99,
+  "pool": 97,
   "top5": [
    "C07",
    "C01",
@@ -687,6 +687,27 @@
    "score": 84,
    "status": "keep",
    "running_best": 89
+  },
+  {
+   "exp": 97,
+   "id": "C87",
+   "score": 81,
+   "status": "keep",
+   "running_best": 89
+  },
+  {
+   "exp": 98,
+   "id": "C88",
+   "score": 82,
+   "status": "keep",
+   "running_best": 89
+  },
+  {
+   "exp": 99,
+   "id": "C89",
+   "score": 82,
+   "status": "keep",
+   "running_best": 89
   }
  ],
  "candidates": [
@@ -1207,6 +1228,30 @@
    "final_score": 82
   },
   {
+   "id": "C88",
+   "name": "C88 The Label Is the Anchor",
+   "score": 82,
+   "status": "keep",
+   "elite": 7.5,
+   "future": 8.0,
+   "note": "Full rubric score 2026-10-27 14:59 PDT - label anchoring verified this batch arXiv 2610.09554 with code and data public including 15K-pair MeSH-SNOMED benchmark so G1 lifted and Data 8 plus CIKM anchoring arXiv 2608.25869 with 185271 evaluations - live judge console with label-visibility toggle - la",
+   "votes": 0,
+   "vote_bonus": 0,
+   "final_score": 82
+  },
+  {
+   "id": "C89",
+   "name": "C89 Consistent Therefore Trusted",
+   "score": 82,
+   "status": "keep",
+   "elite": 8.0,
+   "future": 8.0,
+   "note": "Full rubric score 2026-10-27 14:59 PDT - trustworthy verdict rate verified this batch arXiv 2610.12083 with six judges and most consistent judge at 51 percent ground-truth agreement - applied arm over ContextualJudgeBench and JudgeBench verified public so Data 7 - live judge console reporting consis",
+   "votes": 0,
+   "vote_bonus": 0,
+   "final_score": 82
+  },
+  {
    "id": "B1",
    "name": "B1 Tiny LM tokenizer EN vs VI",
    "score": 81,
@@ -1382,6 +1427,18 @@
    "elite": 8.0,
    "future": 8.5,
    "note": "Full rubric score 2026-10-27 08:59 PDT - LASAGNA verified this batch published 21 Oct 2026 with 450 configurations and predicted plus 47 percent vs delivered plus 17 percent and retrieval-faithfulness r -0.01 and winner flip at 15-25K docs - HotpotQA and BEIR subsets verified public in earlier batch",
+   "votes": 0,
+   "vote_bonus": 0,
+   "final_score": 81
+  },
+  {
+   "id": "C87",
+   "name": "C87 Your Second Judge Is an Echo",
+   "score": 81,
+   "status": "keep",
+   "elite": 8.0,
+   "future": 8.5,
+   "note": "Full rubric score 2026-10-27 14:59 PDT - judge-echo verified this batch arXiv 2609.29769v3 with 5003 rubric pairs and LLM judges repeating Jev most confident errors 96.0 percent vs 50.3 percent independence baseline and cascades gaining at most 2.7 points - applied arm over ContextualJudgeBench and ",
    "votes": 0,
    "vote_bonus": 0,
    "final_score": 81
@@ -1783,8 +1840,8 @@
    "final_score": 58
   },
   {
-   "id": "C87",
-   "name": "Your Second Judge Is an Echo — Correlated errors and the cascade ceiling",
+   "id": "C90",
+   "name": "Cheap, Consistent, Calibrated, Still Biased — Typed decision models as judges (CALM-style)",
    "score": null,
    "status": "unscored",
    "elite": null,
@@ -1795,8 +1852,8 @@
    "final_score": null
   },
   {
-   "id": "C88",
-   "name": "The Label Is the Anchor — A judge that sees the system's answer stops judging",
+   "id": "C91",
+   "name": "The Rubric Decides Without Reading — Rubric artifacts and criterion-reversal insensitivity",
    "score": null,
    "status": "unscored",
    "elite": null,
@@ -1807,8 +1864,8 @@
    "final_score": null
   },
   {
-   "id": "C89",
-   "name": "Consistent, Therefore Trusted? — The trustworthy verdict rate and the format that earns it",
+   "id": "C92",
+   "name": "A Reliability Number That Cannot Name Its Judge — Classical test theory statistics for LLM judges",
    "score": null,
    "status": "unscored",
    "elite": null,
@@ -1984,6 +2041,12 @@
    "time": "Oct 27, 10:59 AM PDT",
    "topic": "Retrieving again costs honesty at 84; the judge debiases itself at 83",
    "text": "Priority check first: no vote-flagged re-examinations were waiting — the real vote tally is still empty, and no score moved by feedback. C82 (more retrieval, less honesty) scored 84, keep — in the source study (DeclineCraft, 27 models) a single retrieval round raises correct abstention in 38 of 40 configurations, but letting the model retrieve again lowers it in 30 of 40 while accuracy barely moves (68.5% to 69.3%); this batch verified the benchmark's code and data as public, so its dataset gate lifted, and it joins the 84 tie behind C05, top five unchanged. Its stated conditions: document each model's training cut-off, and measure the sufficiency gate against answerable questions, not just abstention. C81 (can the judge debias itself?) scored 83: warning a judge about a bias, or making it critique its own first verdict, improved frontier judges in 20 of 21 model–bias combinations in the source — beating a fine-tuned external critic on bias types the critic had never seen; the course version must hold one bias type out, unnamed, and report whether the repair transfers to it. C83 (spot the planted flaw) scored 80, keep at threshold: two near-identical experiment proposals differ by one planted flaw (a median 2% edit); frontier judges pick the sound one in both orders only 77.9% of the time at best, and its headline set is the human-validated subset only, because the source's own check found only 86% of items valid. Red Team verdicts: all three SURVIVE with their stated conditions. New in the queue: C84 same judge, twice, different verdict (re-running an identical judging setup at temperature zero flips 21.2% of verdicts while the aggregate moves ~1 point), C85 you cannot subtract a bias you cannot identify (pairwise data alone cannot separate quality from bias — the likelihood is exactly flat; trusted anchors are the escape), C86 missing is not misleading (models abstain when evidence is absent but answer from one fluent, wrong passage up to 74% of the time). Top five unchanged."
+  },
+  {
+   "agent": "Trend Scout",
+   "time": "Oct 27, 2:59 PM PDT",
+   "topic": "The second judge is an echo at 81; the label is the anchor at 82",
+   "text": "Priority check first: no vote-flagged re-examinations were waiting — the real vote tally is still empty, and no score moved by feedback. C88 (the label is the anchor) scored 82, keep: show a judge the system's own decision and its discrimination collapses (AUC spanning 0.12–0.87 in the source) — both source releases were verified public this batch, including a new 15K-pair biomedical benchmark, so its dataset gate lifted; its label-free arm is reported with its changed scoring target stated plainly, per a published critique. C89 (consistent, therefore trusted?) also scored 82: the most consistent judge in its source audit was barely above chance (51% agreement), so the project reports consistency, accuracy, and the trustworthy verdict rate side by side and tests which judging format earns the third number. C87 (your second judge is an echo) scored 81: on a cheap judge's most confident errors, expensive judges repeat the wrong verdict 96% of the time, so cascades gain almost nothing — the project prices that overlap before trusting any cascade. Red Team verdicts: all three SURVIVE with their stated conditions. New in the queue: C90 cheap judges, expensive biases (typed decision models fail 3–8 of 12 bias tests while costing 37x less), C91 the rubric decides without reading (reversing the criterion flips the verdict only 17–32% of the time), C92 a reliability number that cannot name its judge (the same judge scores 0.01 to 0.68 depending only on the item bank). Top five unchanged."
   }
  ],
  "feedback": {
