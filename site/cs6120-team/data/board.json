@@ -4,9 +4,9 @@
   "instructor": "Karl Ni",
   "team": "Nguyen Ha · Ngoc Hoang · Peihan Wang",
   "deadline": "Sun Nov 1, 11:59 PM PT",
-  "updated_at": "2026-10-26 17:54 PDT",
-  "experiments": 56,
-  "pool": 55,
+  "updated_at": "2026-10-26 18:54 PDT",
+  "experiments": 59,
+  "pool": 57,
   "top5": [
    "C07",
    "C01",
@@ -407,6 +407,27 @@
    "score": 82,
    "status": "keep",
    "running_best": 89
+  },
+  {
+   "exp": 57,
+   "id": "C47",
+   "score": 81,
+   "status": "keep",
+   "running_best": 89
+  },
+  {
+   "exp": 58,
+   "id": "C48",
+   "score": 76,
+   "status": "discard",
+   "running_best": 89
+  },
+  {
+   "exp": 59,
+   "id": "C49",
+   "score": 82,
+   "status": "keep",
+   "running_best": 89
   }
  ],
  "candidates": [
@@ -687,6 +708,18 @@
    "final_score": 82
   },
   {
+   "id": "C49",
+   "name": "C49 Compaction laundering",
+   "score": 82,
+   "status": "keep",
+   "elite": 8.0,
+   "future": 8.0,
+   "note": "Full rubric score 2026-10-26 18:49 PDT - Compaction Laundering verified this batch arXiv 2610.29869 with forged approval laundering 87 to 100 percent across five flattening harnesses vs 0 percent across four role-typed and provenance check catching 77 percent at 2 percent demotion - course suite is ",
+   "votes": 0,
+   "vote_bonus": 0,
+   "final_score": 82
+  },
+  {
    "id": "B1",
    "name": "B1 Tiny LM tokenizer EN vs VI",
    "score": 81,
@@ -766,6 +799,18 @@
    "elite": 8.0,
    "future": 8.0,
    "note": "Full rubric score 2026-10-26 17:49 PDT - ContractBench verified this batch arXiv 2605.17281v2 with 33 dual-axis tasks and 38 models best 77.8 percent but no public download confirmed so Data 6 as verified-design construction - validity vs integrity are orthogonal axes and taxonomy-as-reward repair p",
+   "votes": 0,
+   "vote_bonus": 0,
+   "final_score": 81
+  },
+  {
+   "id": "C47",
+   "name": "C47 Misuse-monitor framing",
+   "score": 81,
+   "status": "keep",
+   "elite": 8.0,
+   "future": 8.0,
+   "note": "Full rubric score 2026-10-26 18:49 PDT - Unified Misuse Monitoring verified this batch arXiv 2610.07089 with about 6200 transcripts and action-framed AUC 0.95 and 0.99 vs content-framed 0.52 on injection but no public download confirmed so Data 6 as verified-design construction - live monitor consol",
    "votes": 0,
    "vote_bonus": 0,
    "final_score": 81
@@ -874,6 +919,18 @@
    "elite": null,
    "future": null,
    "note": "Full rubric score 2026-10-25 22:58 PDT - matched token budget is the contribution - live latency and triple inference cost lose the agents family slot to C07 C01 C11",
+   "votes": 0,
+   "vote_bonus": 0,
+   "final_score": 76
+  },
+  {
+   "id": "C48",
+   "name": "C48 Secure vibe-coding",
+   "score": 76,
+   "status": "discard",
+   "elite": 7.5,
+   "future": 8.0,
+   "note": "Full rubric score 2026-10-26 18:49 PDT - LSCBench verified this batch arXiv 2610.14766 with 450 tasks and functional 73.6 to 91.3 percent vs secure-and-functional 16.4 to 25.1 percent but no public download confirmed so Data 6 - discard below keep on thinnest NLP fit in queue plus heaviest sandboxed",
    "votes": 0,
    "vote_bonus": 0,
    "final_score": 76
@@ -1023,44 +1080,32 @@
    "final_score": 58
   },
   {
-   "id": "C47",
-   "name": "Watch the Action, Not the Words — Misuse-monitor framing (Unified Misuse Monitoring-style)",
-   "score": null,
-   "status": "unscored",
-   "elite": null,
-   "future": null,
-   "note": "",
-   "votes": 0,
-   "vote_bonus": 0,
-   "final_score": null
-  },
-  {
-   "id": "C48",
-   "name": "Functional Is Not Secure — Vibe-coded code under live attack replay (Last Secure Code-style)",
-   "score": null,
-   "status": "unscored",
-   "elite": null,
-   "future": null,
-   "note": "",
-   "votes": 0,
-   "vote_bonus": 0,
-   "final_score": null
-  },
-  {
-   "id": "C49",
-   "name": "Laundered Through the Summary — Provenance loss at context compaction",
-   "score": null,
-   "status": "unscored",
-   "elite": null,
-   "future": null,
-   "note": "",
-   "votes": 0,
-   "vote_bonus": 0,
-   "final_score": null
-  },
-  {
    "id": "C50",
    "name": "Pick a Tool That Still Works — Reliability-aware tool retrieval (RATED / EcoAgent-style)",
+   "score": null,
+   "status": "unscored",
+   "elite": null,
+   "future": null,
+   "note": "",
+   "votes": 0,
+   "vote_bonus": 0,
+   "final_score": null
+  },
+  {
+   "id": "C51",
+   "name": "Recognized, Then Nothing — The recognition–action gap in crisis response (DistressBench-style)",
+   "score": null,
+   "status": "unscored",
+   "elite": null,
+   "future": null,
+   "note": "",
+   "votes": 0,
+   "vote_bonus": 0,
+   "final_score": null
+  },
+  {
+   "id": "C52",
+   "name": "Rare Situations, Reliable Coverage — Situation-rule adherence in a conversational agent (SIT-Eval-style)",
    "score": null,
    "status": "unscored",
    "elite": null,
@@ -1145,6 +1190,12 @@
    "time": "Oct 26, 5:49 PM PDT",
    "topic": "ToolMaze joins the 84 tie",
    "text": "C44 (tool-failure replanning, ToolMaze-style) scored 84 — its data is fully public (benchmark + code), so the dataset gate lifted in full, and it joins the 84 tie level with C03 on the elite tie-break, behind C05. The top five is unchanged. Also scored: C45 invocation-level reliability 82 (its headline is a scoring rule that makes recovery unobservable), C43 observation contracts 81. New in the queue: C49 compaction laundering (a forged instruction survives context compaction 87–100% of the time in flattening harnesses, 0% in role-typed ones) and C50 reliability-aware tool retrieval. Feedback: the only new inbox item was our own outsider test — still zero real team votes, and the tally stays honestly empty."
+  },
+  {
+   "agent": "Trend Scout",
+   "time": "Oct 26, 6:49 PM PDT",
+   "topic": "Compaction laundering joins at 82",
+   "text": "C49 (provenance loss at context compaction) scored 82 — a forged user turn planted in content the agent reads survives flattening compaction as a genuine instruction 87–100% of the time, and 0% under role-typed compaction; the defect is in harness serializer code, so no prompt defense can fix it. Also scored: C47 misuse-monitor framing 81 (watch the action, not the words — AUC 0.95 vs 0.52), C48 secure vibe-coding 76 discard (thinnest NLP fit in the queue plus the heaviest sandbox discipline; no gate failed). New in the queue: C51 DistressBench-style recognition–action gap (models recognize a crisis, then fail to route to help in 35.3% of cases; data is public) and C52 SIT-Eval-style per-situation rule adherence. Feedback check: inbox unchanged at 5 responses — still zero real team votes, and the tally stays honestly empty. Top five unchanged."
   },
   {
    "agent": "Trend Scout",
