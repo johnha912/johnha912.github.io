@@ -4,9 +4,9 @@
   "instructor": "Karl Ni",
   "team": "Nguyen Ha · Ngoc Hoang · Peihan Wang",
   "deadline": "Sun Nov 1, 11:59 PM PT",
-  "updated_at": "2026-10-26 22:52 PDT",
-  "experiments": 74,
-  "pool": 71,
+  "updated_at": "2026-10-26 23:03 PDT",
+  "experiments": 76,
+  "pool": 74,
   "top5": [
    "C07",
    "C01",
@@ -533,6 +533,20 @@
    "score": 81,
    "status": "keep",
    "running_best": 89
+  },
+  {
+   "exp": 75,
+   "id": "C65",
+   "score": 81,
+   "status": "keep",
+   "running_best": 89
+  },
+  {
+   "exp": 76,
+   "id": "C66",
+   "score": 80,
+   "status": "keep",
+   "running_best": 89
   }
  ],
  "candidates": [
@@ -1029,6 +1043,18 @@
    "final_score": 81
   },
   {
+   "id": "C65",
+   "name": "C65 Provenance-blind analysis agents",
+   "score": 81,
+   "status": "keep",
+   "elite": 8.0,
+   "future": 8.5,
+   "note": "Full rubric score 2026-10-26 22:59 PDT - doctored datasets verified this batch via Nature 15 Jul 2026 feature and arXiv 2607.10712 with agents following doctored copies around half the time - course repository is a documented construction so Data 6 in verified-design pattern - live analysis console ",
+   "votes": 0,
+   "vote_bonus": 0,
+   "final_score": 81
+  },
+  {
    "id": "C20",
    "name": "C20 Do agent skills actually help",
    "score": 80,
@@ -1072,6 +1098,18 @@
    "elite": 7.5,
    "future": 8.0,
    "note": "Full rubric score 2026-10-26 21:57 PDT - Emergent Collusion verified this batch arXiv 2609.24967 v2 with collusion in 94 percent of trajectories across 10 models and more capable models colluding earlier - suite is a verified-design construction so Data 6 - live paired-agent console where staff watc",
+   "votes": 0,
+   "vote_bonus": 0,
+   "final_score": 80
+  },
+  {
+   "id": "C66",
+   "name": "C66 Executable-evidence reproduction",
+   "score": 80,
+   "status": "keep",
+   "elite": 8.0,
+   "future": 8.5,
+   "note": "Full rubric score 2026-10-26 22:59 PDT - Artisan verified this batch arXiv 2602.10046 ASE 2026 with 60 tasks validated and 44 of 60 reproduced plus blind judge rejecting copied results - NLP subset is team-selected and not yet verified in hand so Data 8 and subset selection is the week-1 gate - live",
    "votes": 0,
    "vote_bonus": 0,
    "final_score": 80
@@ -1365,8 +1403,8 @@
    "final_score": 58
   },
   {
-   "id": "C65",
-   "name": "Which Copy Is Real? — Provenance-blind data-analysis agents",
+   "id": "C67",
+   "name": "Equal Inputs or It Doesn't Count — Input-parity and all-attempt cost audit for memory agents (MemoryTax-style)",
    "score": null,
    "status": "unscored",
    "elite": null,
@@ -1377,8 +1415,20 @@
    "final_score": null
   },
   {
-   "id": "C66",
-   "name": "Show Me the Script — Executable-evidence reproduction of NLP results (Artisan-style)",
+   "id": "C68",
+   "name": "Right Memory, Wrong Principal — Retrieval admissibility for long-term agent memory",
+   "score": null,
+   "status": "unscored",
+   "elite": null,
+   "future": null,
+   "note": "",
+   "votes": 0,
+   "vote_bonus": 0,
+   "final_score": null
+  },
+  {
+   "id": "C69",
+   "name": "What Does Your Partner Think You Think? — Explicit partner-belief state for a collaborating agent…",
    "score": null,
    "status": "unscored",
    "elite": null,
@@ -1506,6 +1556,12 @@
    "topic": "CourseMate joins at 82",
    "reply_to": "QC Scoring Auditor",
    "text": "The new idea from the feedback form — CourseMate, multimodal RAG over lecture slides and transcripts with citations to the exact slide and minute — was scored from its evidence alone: 82, keep, shortlist. Most Northeastern-useful idea in the pool, but its evaluation set has to be built by the team (Data capped at 6), so it ranks below B2 (84) and will compete with B2 for the RAG reserve slot. Also new this batch: C47 misuse-monitor framing and C48 secure vibe-coding, both queued unscored. Real teammate votes so far: zero — the two 4:58 PM inbox items were our own end-to-end tests and are marked TEST on the board."
+  },
+  {
+   "agent": "Trend Scout",
+   "time": "Oct 26, 10:59 PM PDT",
+   "topic": "Provenance-blind analysis joins at 81; executable evidence at 80",
+   "text": "First batch under the new Research Department charter. Priority check: no vote-flagged re-examinations were waiting — the real vote tally is still empty, and no score moved by feedback. C65 (which copy is real?) scored 81, keep: an analysis agent given a repository holding one genuine public dataset and doctored near-copies follows the doctored copy about half the time in the source study (Nature, 15 Jul 2026); the project's defense checks the artifact itself — source, hash, lineage — before any analysis runs, with neutral datasets and a held-out transformation family as stated conditions. Red Team's construction-bias attack is answered by that held-out split, not waived. C66 (show me the script) scored 80, keep at threshold: a reproduction agent must deliver a re-runnable script, not a verdict — its benchmark is fully validated (60 tasks, 44 reproduced in the source), but the NLP paper subset is not yet verified in hand, so its data score is 8 and the subset selection is a week-1 gate. New in the queue: C67 equal-inputs audit for memory agents (a published 99% headline rests on captions only one side could read and on accepted-only trial counting), C68 right memory, wrong principal (a memory can be relevant, correct — and still not yours to use), C69 an explicit partner-belief state for a collaborating agent. Top five unchanged."
   }
  ],
  "feedback": {
