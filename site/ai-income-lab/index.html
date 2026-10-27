@@ -62,16 +62,23 @@
   .pill{font-size:.75rem;font-weight:700;padding:2px 10px;border-radius:999px;border:1px solid var(--line);color:var(--grey)}
   .idea p{margin:6px 0}
   .idea .lbl2{font-weight:700}
-  .post{border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:14px 0;background:var(--card)}
-  .post-head{display:flex;gap:12px;align-items:flex-start}
-  .ava{width:44px;height:44px;border-radius:50%;color:#fff;font-weight:800;display:grid;place-items:center;flex:none;font-size:.95rem}
-  .ava.sm{width:32px;height:32px;font-size:.75rem}
-  .p-name{font-weight:800}
-  .p-ts{font-size:.82rem;color:var(--grey)}
-  .p-text{margin-top:8px}
-  .replies{margin:14px 0 2px 20px;border-left:2px solid var(--line);padding-left:16px}
-  .reply{margin:12px 0}
-  .reply .p-text{margin-top:2px}
+  /* Agent discussion as a compact forum chat frame (owner, Oct 27): tight rows, colored role names, right-aligned timestamps, replies as quote blocks. */
+  .chat{border:1px solid var(--line);border-radius:12px;background:var(--card);overflow:hidden}
+  .msg{padding:8px 12px 9px;border-top:1px solid var(--line)}
+  .msg:first-child{border-top:0}
+  .msg-head{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  .msg-ava{width:22px;height:22px;border-radius:50%;color:#fff;font-weight:800;display:grid;place-items:center;flex:none;font-size:.6rem;letter-spacing:.02em}
+  .msg-name{font-weight:700;font-size:.92rem}
+  .msg .pill{font-size:.66rem;padding:0 7px;line-height:1.7}
+  .msg-ts{margin-left:auto;font-size:.72rem;color:var(--grey);white-space:nowrap}
+  .msg-body{font-size:.94rem;line-height:1.5;margin:2px 0 0 30px;overflow-wrap:break-word}
+  .quotes{margin:7px 0 1px 30px;display:grid;gap:6px}
+  .quote{border-left:3px solid var(--line);background:var(--band);border-radius:0 8px 8px 0;padding:5px 10px 6px}
+  .q-head{font-size:.8rem;display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}
+  .q-name{font-weight:700}
+  .q-ts{font-size:.7rem;color:var(--grey)}
+  .q-body{font-size:.9rem;line-height:1.5;margin-top:1px;overflow-wrap:break-word}
+  @media (max-width:560px){.msg-body{margin-left:0}.quotes{margin-left:8px}}
   .parts{display:flex;gap:4px;flex-wrap:wrap;margin:8px 0}
   .parts span{font-size:.72rem;border:1px solid var(--line);border-radius:999px;padding:2px 8px;color:var(--grey)}
   .sys{border:1px dashed var(--line);border-radius:14px;padding:6px 18px 14px;margin:26px 0}
@@ -274,8 +281,9 @@ function initials(name){const w=String(name).replace(/[^A-Za-z ]/g,'').split(/\s
 function locText(x){return typeof x==='string'?x:(x&&(x[lang]||x.en))||'';}
 function discHTML(dd,t){
  if(!Array.isArray(dd)||!dd.length) return `<p class="muted">${t.discNone}</p>`;
- return dd.map(p=>{const rn=(p.role&&(p.role[lang]||p.role.en))||'';const reps=(Array.isArray(p.replies)?p.replies:[]).map(r=>{const rrn=(r.role&&(r.role[lang]||r.role.en))||'';return `<div class="reply"><div class="post-head"><div class="ava sm" style="background:${avaColor(r.role&&r.role.en)}">${esc(initials(r.role&&r.role.en))}</div><div><span class="p-name">${esc(rrn)}</span> <span class="p-ts mono">${esc(r.ts||'')}</span><div class="p-text">${esc(locText(r.text))}</div></div></div></div>`;}).join('');
- return `<div class="post"><div class="post-head"><div class="ava" style="background:${avaColor(p.role&&p.role.en)}">${esc(initials(p.role&&p.role.en))}</div><div><span class="p-name">${esc(rn)}</span>${p.tag?` <span class="pill">${esc(locText(p.tag))}</span>`:''}<div class="p-ts mono">${esc(p.ts||'')}</div></div></div><div class="p-text">${esc(locText(p.text))}</div>${reps?`<div class="replies">${reps}</div>`:''}</div>`;}).join('');
+ const rows=dd.map(p=>{const rn=(p.role&&(p.role[lang]||p.role.en))||'';const col=avaColor(p.role&&p.role.en);const reps=(Array.isArray(p.replies)?p.replies:[]).map(r=>{const rrn=(r.role&&(r.role[lang]||r.role.en))||'';const rc=avaColor(r.role&&r.role.en);return `<div class="quote" style="border-left-color:${rc}"><div class="q-head"><span class="q-name" style="color:${rc}">${esc(rrn)}</span><span class="q-ts mono">${esc(r.ts||'')}</span></div><div class="q-body">${esc(locText(r.text))}</div></div>`;}).join('');
+ return `<div class="msg"><div class="msg-head"><span class="msg-ava" style="background:${col}">${esc(initials(p.role&&p.role.en))}</span><span class="msg-name" style="color:${col}">${esc(rn)}</span>${p.tag?`<span class="pill">${esc(locText(p.tag))}</span>`:''}<span class="msg-ts mono">${esc(p.ts||'')}</span></div><div class="msg-body">${esc(locText(p.text))}</div>${reps?`<div class="quotes">${reps}</div>`:''}</div>`;}).join('');
+ return `<div class="chat">${rows}</div>`;
 }
 // Karpathy-style plot: one dot per idea in scoring order, running-best step line, gate fails in a band under the axis.
 const MARK={keep:'#059669',revise:'#D97706',discard:'#9CA3AF',crash:'#DC2626'};
