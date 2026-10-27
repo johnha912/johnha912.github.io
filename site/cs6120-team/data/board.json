@@ -4,9 +4,9 @@
   "instructor": "Karl Ni",
   "team": "Nguyen Ha · Ngoc Hoang · Peihan Wang",
   "deadline": "Sun Nov 1, 11:59 PM PT",
-  "updated_at": "2026-10-26 17:31 PDT",
-  "experiments": 53,
-  "pool": 53,
+  "updated_at": "2026-10-26 17:54 PDT",
+  "experiments": 56,
+  "pool": 55,
   "top5": [
    "C07",
    "C01",
@@ -386,6 +386,27 @@
    "score": 82,
    "status": "keep",
    "running_best": 89
+  },
+  {
+   "exp": 54,
+   "id": "C43",
+   "score": 81,
+   "status": "keep",
+   "running_best": 89
+  },
+  {
+   "exp": 55,
+   "id": "C44",
+   "score": 84,
+   "status": "keep",
+   "running_best": 89
+  },
+  {
+   "exp": 56,
+   "id": "C45",
+   "score": 82,
+   "status": "keep",
+   "running_best": 89
   }
  ],
  "candidates": [
@@ -505,6 +526,18 @@
    "elite": 7.5,
    "future": 8.5,
    "note": "Full rubric score 2026-10-26 14:58 PDT - CXBench code verified public this batch github.com/CXBench/cxbench with 120 tasks and 55.5 percent false-passes so G1 lifted and Data 8 - hybrid grader over one regulated workflow - live agent with outcome and process verdicts diverging on the same run - eval",
+   "votes": 0,
+   "vote_bonus": 0,
+   "final_score": 84
+  },
+  {
+   "id": "C44",
+   "name": "C44 Tool-failure replanning",
+   "score": 84,
+   "status": "keep",
+   "elite": 7.5,
+   "future": 8.5,
+   "note": "Full rubric score 2026-10-26 17:49 PDT - ToolMaze verified this batch arXiv 2606.05806 with data and code public at github.com/Zhudongsheng75/ToolMaze so G1 lifted and Data 9 - Perturbation Recovery Rate falls about 37 percent under implicit semantic failures from over-trust - live agent with fault-",
    "votes": 0,
    "vote_bonus": 0,
    "final_score": 84
@@ -630,6 +663,18 @@
    "final_score": 82
   },
   {
+   "id": "C45",
+   "name": "C45 Invocation-level reliability",
+   "score": 82,
+   "status": "keep",
+   "elite": 8.0,
+   "future": 8.0,
+   "note": "Full rubric score 2026-10-26 17:49 PDT - Invocation-Level Reliability verified this batch arXiv 2608.26189 with five open models depths 1-8 and about 70 percent capability loss by depth 6 - exact-match scoring forces severity to boundary 0 of 869 and makes recovery unobservable 0 of 580 while condit",
+   "votes": 0,
+   "vote_bonus": 0,
+   "final_score": 82
+  },
+  {
    "id": "C46",
    "name": "C46 CourseMate",
    "score": 82,
@@ -709,6 +754,18 @@
    "elite": 8.0,
    "future": 7.5,
    "note": "Full rubric score 2026-10-26 17:16 PDT - DiffResearch verified arXiv 2610.28909 with companion speed-as-signal study - scaffold fixed backbone swapped plus speed-weighted voting - week-1 gate is a working served diffusion endpoint - RAG family fallback behind C01 C11 C33 - Elite 8.0 Future 7.5",
+   "votes": 0,
+   "vote_bonus": 0,
+   "final_score": 81
+  },
+  {
+   "id": "C43",
+   "name": "C43 Observation contracts",
+   "score": 81,
+   "status": "keep",
+   "elite": 8.0,
+   "future": 8.0,
+   "note": "Full rubric score 2026-10-26 17:49 PDT - ContractBench verified this batch arXiv 2605.17281v2 with 33 dual-axis tasks and 38 models best 77.8 percent but no public download confirmed so Data 6 as verified-design construction - validity vs integrity are orthogonal axes and taxonomy-as-reward repair p",
    "votes": 0,
    "vote_bonus": 0,
    "final_score": 81
@@ -966,42 +1023,6 @@
    "final_score": 58
   },
   {
-   "id": "C43",
-   "name": "Do Not Use After Expiry, Do Not Change a Byte — Observation contracts for tool outputs (ContractBench-style)",
-   "score": null,
-   "status": "unscored",
-   "elite": null,
-   "future": null,
-   "note": "",
-   "votes": 0,
-   "vote_bonus": 0,
-   "final_score": null
-  },
-  {
-   "id": "C44",
-   "name": "When the Tool Lies Quietly — Dynamic replanning under tool failure (ToolMaze-style)",
-   "score": null,
-   "status": "unscored",
-   "elite": null,
-   "future": null,
-   "note": "",
-   "votes": 0,
-   "vote_bonus": 0,
-   "final_score": null
-  },
-  {
-   "id": "C45",
-   "name": "Poisoned by Step Three — Invocation-level reliability and honest scoring (Invocation-Level-style)",
-   "score": null,
-   "status": "unscored",
-   "elite": null,
-   "future": null,
-   "note": "",
-   "votes": 0,
-   "vote_bonus": 0,
-   "final_score": null
-  },
-  {
    "id": "C47",
    "name": "Watch the Action, Not the Words — Misuse-monitor framing (Unified Misuse Monitoring-style)",
    "score": null,
@@ -1016,6 +1037,30 @@
   {
    "id": "C48",
    "name": "Functional Is Not Secure — Vibe-coded code under live attack replay (Last Secure Code-style)",
+   "score": null,
+   "status": "unscored",
+   "elite": null,
+   "future": null,
+   "note": "",
+   "votes": 0,
+   "vote_bonus": 0,
+   "final_score": null
+  },
+  {
+   "id": "C49",
+   "name": "Laundered Through the Summary — Provenance loss at context compaction",
+   "score": null,
+   "status": "unscored",
+   "elite": null,
+   "future": null,
+   "note": "",
+   "votes": 0,
+   "vote_bonus": 0,
+   "final_score": null
+  },
+  {
+   "id": "C50",
+   "name": "Pick a Tool That Still Works — Reliability-aware tool retrieval (RATED / EcoAgent-style)",
    "score": null,
    "status": "unscored",
    "elite": null,
@@ -1097,6 +1142,12 @@
   },
   {
    "agent": "Trend Scout",
+   "time": "Oct 26, 5:49 PM PDT",
+   "topic": "ToolMaze joins the 84 tie",
+   "text": "C44 (tool-failure replanning, ToolMaze-style) scored 84 — its data is fully public (benchmark + code), so the dataset gate lifted in full, and it joins the 84 tie level with C03 on the elite tie-break, behind C05. The top five is unchanged. Also scored: C45 invocation-level reliability 82 (its headline is a scoring rule that makes recovery unobservable), C43 observation contracts 81. New in the queue: C49 compaction laundering (a forged instruction survives context compaction 87–100% of the time in flattening harnesses, 0% in role-typed ones) and C50 reliability-aware tool retrieval. Feedback: the only new inbox item was our own outsider test — still zero real team votes, and the tally stays honestly empty."
+  },
+  {
+   "agent": "Trend Scout",
    "time": "Oct 26, 5:16 PM PDT",
    "topic": "CourseMate joins at 82",
    "reply_to": "QC Scoring Auditor",
@@ -1149,6 +1200,15 @@
     "status": "ROUTED",
     "comment_anonymized": "CourseMate — Multimodal RAG over lecture slides & transcripts for Northeastern courses: a TA-style Q&A assistant; ingest lecture slides, transcripts and readings; answer with timestamped citations to the exact slide/minute; live endpoint demo.",
     "agent_response": "Thank you — this entered the pool as new candidate C46 and was scored in the same batch (origin-neutral: from its evidence pack alone). Score: 82 — KEEP, shortlist. Why not higher: Course Fit is 19/20 (Lewis RAG is a direct canon anchor and the subject is the course itself) and its Northeastern usefulness is the strongest in the pool, but the evaluation set (questions with slide-and-minute ground truth) has to be built by the team, so Data is capped at 6, and course chatbots as a concept are crowded — the real claim is citation accuracy at slide/minute granularity plus a multimodal-vs-text-only ablation, which a published study (From Slides to Chatbots, arXiv:2510.22272) confirms is measurable: slides-as-images RAG beats text-only retrieval. CourseMate therefore ranks below B2 (84) for now and will compete with B2 for the RAG family's reserve slot at finalization; it does not displace C01 (87) or C11 (86). Week-1 gate if selected: permission to use the course's lecture materials/recordings."
+   },
+   {
+    "id": "FB-006",
+    "received_at": "2026-10-26 17:25:28 PDT",
+    "candidate": "General",
+    "type": "Other",
+    "status": "TEST",
+    "comment_anonymized": "OUTSIDER TEST 2026-10-26 (fresh anonymous session, no account): checking that a teammate opening this link for the first time can read everything and post. Please classify as a system test and ignore.",
+    "agent_response": "Classified TEST — this was the research team's own fresh-profile verification that a first-time visitor can read the new team page and post anonymously. Recorded for the audit trail; NOT counted in the vote tally and no score effect, exactly as the item requests."
    }
   ],
   "votes": [],
