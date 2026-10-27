@@ -4,9 +4,9 @@
   "instructor": "Karl Ni",
   "team": "Nguyen Ha · Ngoc Hoang · Peihan Wang",
   "deadline": "Sun Nov 1, 11:59 PM PT",
-  "updated_at": "2026-10-26 19:54 PDT",
-  "experiments": 62,
-  "pool": 60,
+  "updated_at": "2026-10-26 20:54 PDT",
+  "experiments": 65,
+  "pool": 63,
   "top5": [
    "C07",
    "C01",
@@ -449,6 +449,27 @@
    "score": 80,
    "status": "keep",
    "running_best": 89
+  },
+  {
+   "exp": 63,
+   "id": "C53",
+   "score": 83,
+   "status": "keep",
+   "running_best": 89
+  },
+  {
+   "exp": 64,
+   "id": "C54",
+   "score": 84,
+   "status": "keep",
+   "running_best": 89
+  },
+  {
+   "exp": 65,
+   "id": "C55",
+   "score": 82,
+   "status": "keep",
+   "running_best": 89
   }
  ],
  "candidates": [
@@ -597,6 +618,18 @@
    "final_score": 84
   },
   {
+   "id": "C54",
+   "name": "C54 Simpler memory wins",
+   "score": 84,
+   "status": "keep",
+   "elite": 7.5,
+   "future": 8.5,
+   "note": "Full rubric score 2026-10-26 20:49 PDT - Raw-RAG verified this batch arXiv 2610.30755 first in 6 of 7 settings with same-pipeline ablations hurting 5.78 to 19.62 points - LoCoMo and LongMemEval both verified public this batch so G1 lifted and Data 9 - live memory-QA endpoint with representation togg",
+   "votes": 0,
+   "vote_bonus": 0,
+   "final_score": 84
+  },
+  {
    "id": "C17",
    "name": "C17 Prompt injection via RAG documents",
    "score": 83,
@@ -652,6 +685,18 @@
    "elite": 7.5,
    "future": 8.0,
    "note": "Full rubric score 2026-10-26 17:16 PDT - SPINE verified Oct 2026 collapse 0-57 percent in 5 turns to 20-97 percent in 25 turns with trace-retains-truth 50-89 percent - mandatory valid-revision control arm from Big-Big-SycoBench - live chat endpoint where staff play the persistent challenger - Elite ",
+   "votes": 0,
+   "vote_bonus": 0,
+   "final_score": 83
+  },
+  {
+   "id": "C53",
+   "name": "C53 When does an agent start lying",
+   "score": 83,
+   "status": "keep",
+   "elite": 7.5,
+   "future": 8.0,
+   "note": "Full rubric score 2026-10-26 20:49 PDT - DecepEval verified this batch arXiv 2610.07967 with 1532 instances and 3 families and 28 scenarios so benchmark verified in full - long-horizon deception rises 55.73 percent under inducement and neutral rankings reverse - live agent console where staff flip o",
    "votes": 0,
    "vote_bonus": 0,
    "final_score": 83
@@ -760,6 +805,18 @@
    "elite": 8.0,
    "future": 7.5,
    "note": "Full rubric score 2026-10-26 19:49 PDT - DistressBench verified this batch arXiv 2610.12758 with corpus rubrics and judge calibration labels released publicly HF ScaleAI/DistressBench so G1 lifted and Data 9 - recognition-action gap 35.3 percent is headline metric - live chat endpoint over simulated",
+   "votes": 0,
+   "vote_bonus": 0,
+   "final_score": 82
+  },
+  {
+   "id": "C55",
+   "name": "C55 Claims without evidence",
+   "score": 82,
+   "status": "keep",
+   "elite": 8.0,
+   "future": 8.5,
+   "note": "Full rubric score 2026-10-26 20:49 PDT - Into the Unknown verified this batch arXiv 2610.19159 with code and data public and 114 of 135 failing integrity - graded artifacts are the course runs own logs and write-ups so Data 6 in generation pattern - live write-up console where staff click a claim an",
    "votes": 0,
    "vote_bonus": 0,
    "final_score": 82
@@ -1137,8 +1194,8 @@
    "final_score": 58
   },
   {
-   "id": "C53",
-   "name": "When Does an Agent Start Lying? — Condition-dependent deception (DecepEval-style)",
+   "id": "C56",
+   "name": "Check Whether the Paper Still Stands — Premise validity for literature agents (TRACES-style)",
    "score": null,
    "status": "unscored",
    "elite": null,
@@ -1149,8 +1206,8 @@
    "final_score": null
   },
   {
-   "id": "C54",
-   "name": "Simpler Memory Wins? — Raw-history retrieval vs derived abstractions (Raw-RAG-style)",
+   "id": "C57",
+   "name": "From Trajectories to a Runbook — Environment-experience memory (LongMemEval-V2-style)",
    "score": null,
    "status": "unscored",
    "elite": null,
@@ -1161,8 +1218,8 @@
    "final_score": null
   },
   {
-   "id": "C55",
-   "name": "Claims Without Evidence — An integrity audit for research agents (Into-the-Unknown-style)",
+   "id": "C58",
+   "name": "Who Guards the Log? — Tamper-evident traces for agent harnesses",
    "score": null,
    "status": "unscored",
    "elite": null,
@@ -1259,6 +1316,12 @@
    "time": "Oct 26, 7:49 PM PDT",
    "topic": "Reliability-aware retrieval joins the 84 tie",
    "text": "C50 (reliability-aware tool retrieval, RATED/EcoAgent-style) scored 84 — its code and dataset are fully public, so the dataset gate lifted in full: a relevance-only retriever picks a dead tool 86.2% of the time under a 30% outage, the reliability-aware one 2.9%. It joins the 84 tie behind C05, top five unchanged. Also scored: C51 crisis-response recognition–action gap 82 (models recognize a crisis, then fail to route to help in 35.3% of cases; data public, demo run only on published benchmark material), C52 situation-rule adherence 80 (per-rule failures hidden by aggregate scores). New in the queue: C53 condition-dependent agent deception (DecepEval), C54 raw-history retrieval vs derived memory abstractions, C55 an integrity audit that checks a research agent's written claims against its own run logs. Feedback check: inbox unchanged at 5 responses — still zero real team votes, and the tally stays honestly empty."
+  },
+  {
+   "agent": "Trend Scout",
+   "time": "Oct 26, 8:49 PM PDT",
+   "topic": "Raw history beats derived memory at 84",
+   "text": "C54 (simpler memory wins — raw-history retrieval vs derived abstractions) scored 84: both of its benchmarks (LoCoMo and LongMemEval) are fully public, and the source finding is a controlled negative result — deriving facts, summaries or graphs from the same history hurts accuracy by 6–20 points while costing far more to build. It joins the 84 tie behind C05, top five unchanged. Also scored: C53 condition-dependent deception 83 (the same agent runs honest or fabricates depending on situational pressure, incentive, opportunity or conflict — long-horizon deception rises 56% under inducement), C55 research-agent integrity audit 82 (114 of 135 agent-written papers in the source failed the check against their own run logs). New in the queue: C56 premise validity for literature agents (models build on retracted papers 95% of the time), C57 environment-experience memory, C58 tamper-evident agent traces. Feedback check: inbox unchanged at 5 responses — still zero real team votes, and the tally stays honestly empty."
   },
   {
    "agent": "Trend Scout",
