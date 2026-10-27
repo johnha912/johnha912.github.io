@@ -4,9 +4,9 @@
   "instructor": "Karl Ni",
   "team": "Nguyen Ha · Ngoc Hoang · Peihan Wang",
   "deadline": "Sun Nov 1, 11:59 PM PT",
-  "updated_at": "2026-10-27 05:02 PDT",
-  "experiments": 85,
-  "pool": 82,
+  "updated_at": "2026-10-27 07:03 PDT",
+  "experiments": 87,
+  "pool": 85,
   "top5": [
    "C07",
    "C01",
@@ -610,6 +610,20 @@
    "score": 79,
    "status": "discard",
    "running_best": 89
+  },
+  {
+   "exp": 86,
+   "id": "C76",
+   "score": 83,
+   "status": "keep",
+   "running_best": 89
+  },
+  {
+   "exp": 87,
+   "id": "C77",
+   "score": 83,
+   "status": "keep",
+   "running_best": 89
   }
  ],
  "candidates": [
@@ -849,6 +863,30 @@
    "elite": 7.5,
    "future": 8.0,
    "note": "Full rubric score 2026-10-27 04:59 PDT - source-report validity verified this batch arXiv 2610.32109 posted 23 Oct 2026 with 155 candidate facts and post-answer document swap flipping 0 percent of reports while cached-state transplant makes 97.2 to 100 percent follow the donor - course claim is the ",
+   "votes": 0,
+   "vote_bonus": 0,
+   "final_score": 83
+  },
+  {
+   "id": "C76",
+   "name": "C76 One of Its Own Pages Is Enough",
+   "score": 83,
+   "status": "keep",
+   "elite": 8.0,
+   "future": 8.0,
+   "note": "Full rubric score 2026-10-27 06:59 PDT - RAG Collapse verified this batch arXiv 2608.22118 with 1528 simulations and collapse in 79.6 percent and a single self-authored reference triggering it - TriviaQA prompt substrate verified public so G1 passes and the graded document pool is a documented gener",
+   "votes": 0,
+   "vote_bonus": 0,
+   "final_score": 83
+  },
+  {
+   "id": "C77",
+   "name": "C77 The First Token Is Not the Verdict",
+   "score": 83,
+   "status": "keep",
+   "elite": 7.5,
+   "future": 8.0,
+   "note": "Full rubric score 2026-10-27 06:59 PDT - First Token verified this batch arXiv 2610.00054 submitted 4 Sep 2026 with forced read flipping 89.7 percent vs 47.5 percent after generation for a plus 42 point bias artifact while accuracy moves under one point - JudgeBench data and code verified public thi",
    "votes": 0,
    "vote_bonus": 0,
    "final_score": 83
@@ -1574,8 +1612,8 @@
    "final_score": 58
   },
   {
-   "id": "C76",
-   "name": "One of Its Own Pages Is Enough — RAG collapse from self-authored retrieval",
+   "id": "C78",
+   "name": "The Judge Remembers Its Own Verdicts — Accumulated-history bias in batched judging",
    "score": null,
    "status": "unscored",
    "elite": null,
@@ -1586,8 +1624,20 @@
    "final_score": null
   },
   {
-   "id": "C77",
-   "name": "The First Token Is Not the Verdict — Judge readout as a measurement artifact",
+   "id": "C79",
+   "name": "Empty Answers That Pass — Master-key false positives in reference-based judging",
+   "score": null,
+   "status": "unscored",
+   "elite": null,
+   "future": null,
+   "note": "",
+   "votes": 0,
+   "vote_bonus": 0,
+   "final_score": null
+  },
+  {
+   "id": "C80",
+   "name": "Winners Don't Stack — RAG compositionality and the corpus-scale flip",
    "score": null,
    "status": "unscored",
    "elite": null,
@@ -1733,6 +1783,12 @@
    "time": "Oct 27, 4:59 AM PDT",
    "topic": "Every document was allowed; the answer was not",
    "text": "Priority check first: no vote-flagged re-examinations were waiting — the real vote tally is still empty, and no score moved by feedback. C74 (asking where it came from is not an audit) scored 83, keep: a RAG model asked whether its answer came from the document or from memory does not change its report when the document is swapped after the answer (0% of reports flip in the source study) — the project tests that behaviorally on a small model and checks whether an external span-grounding check tracks the real evidence better than the model's own report. C73 (compositional leakage) scored 82, keep: every retrieved document is individually permitted, yet the answer discloses a composite conclusion no single document states — the best model in the source leaks it in 7% of answers to deliberately benign questions, and standard safeguards still leave a third of answers disclosing; its corpus has to be built by the team, so it was scored as a verified-design construction. C75 (the judge cannot see where the value came from) scored 79, discard one point below keep with no gate failed: the finding is striking — tool-call judges reject correct arguments whose source is a schema default, by up to 50 points — but after two batches of searching, the team still cannot pin the study to a first-hand record or confirm its benchmark downloads, and this pool does not keep what it cannot verify; a revival path (pin the source, verify one download, re-score around 82) is written in the batch notes. Red Team verdicts: C73 and C74 SURVIVE with their stated conditions; C75's design survives too — the discard is an evidence outcome, not a kill. New in the queue: C76 one of its own pages is enough (a RAG system retrieving documents written from its own earlier answers collapses to a single answer in 80% of simulations — and one self-authored page can trigger it), C77 the first token is not the verdict (reading a judge's verdict from its first token manufactures about 42 points of 'position bias' that is really a readout artifact). Top five unchanged."
+  },
+  {
+   "agent": "Trend Scout",
+   "time": "Oct 27, 6:59 AM PDT",
+   "topic": "It cites itself into one answer; the first token is not the verdict",
+   "text": "Priority check first: no vote-flagged re-examinations were waiting — the real vote tally is still empty, and no score moved by feedback. C76 (one of its own pages is enough) scored 83, keep: a RAG system that retrieves documents written from its own earlier answers collapses to essentially one answer in 79.6% of 1,528 simulations in the source study, a single self-authored page can trigger it, and the model cites its own writing far more often than quality-matched pages by others — the project re-tests that at retrieval time (no training at all), with a pre-registered diversity metric, a single-factual-answer control arm, and a provenance filter priced on the same chart. C77 (the first token is not the verdict) also scored 83, keep: reading a judge's verdict from its first token manufactures about 42 points of measured 'position bias' that is really a readout artifact, while accuracy barely moves — and this batch verified its primary benchmark, JudgeBench, as a public download (data + code), so its dataset gate lifted to 8; every bias figure in the project must ship with its verdict-leading compliance rate. Red Team verdicts: both SURVIVE with their stated conditions. The scoring queue is now empty for the first time — every candidate proposed before this batch has a score. New in the queue: C78 the judge remembers its own verdicts (a judge's prior 'no' verdicts in the same conversation bias the next item, d = −0.36 on uncertain items), C79 empty answers that pass (a single ':' or 'Thought process:' earns a positive reward from a reference-based judge in up to 60–90% of cases), C80 winners don't stack (RAG techniques that each look strong alone deliver +17% combined where +47% was predicted, and the small-corpus winner flips at scale). Top five unchanged."
   },
   {
    "agent": "Trend Scout",
