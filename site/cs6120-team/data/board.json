@@ -4,9 +4,9 @@
   "instructor": "Karl Ni",
   "team": "Nguyen Ha · Ngoc Hoang · Peihan Wang",
   "deadline": "Sun Nov 1, 11:59 PM PT",
-  "updated_at": "2026-10-27 01:02 PDT",
-  "experiments": 79,
-  "pool": 77,
+  "updated_at": "2026-10-27 03:04 PDT",
+  "experiments": 82,
+  "pool": 80,
   "top5": [
    "C07",
    "C01",
@@ -568,6 +568,27 @@
    "score": 81,
    "status": "keep",
    "running_best": 89
+  },
+  {
+   "exp": 80,
+   "id": "C70",
+   "score": 82,
+   "status": "keep",
+   "running_best": 89
+  },
+  {
+   "exp": 81,
+   "id": "C71",
+   "score": 79,
+   "status": "discard",
+   "running_best": 89
+  },
+  {
+   "exp": 82,
+   "id": "C72",
+   "score": 82,
+   "status": "keep",
+   "running_best": 89
   }
  ],
  "candidates": [
@@ -944,6 +965,30 @@
    "final_score": 82
   },
   {
+   "id": "C70",
+   "name": "C70 Says No, Does It Anyway",
+   "score": 82,
+   "status": "keep",
+   "elite": 8.0,
+   "future": 8.5,
+   "note": "Full rubric score 2026-10-27 02:59 PDT - refusal divergence verified this batch arXiv 2610.28982 with 2304 matched triplets and conditioned divergence 0.098 to 0.519 under standard tool-enabled prompting - live agent console where staff watch the text refusal then the tool-enabled run - sandboxed to",
+   "votes": 0,
+   "vote_bonus": 0,
+   "final_score": 82
+  },
+  {
+   "id": "C72",
+   "name": "C72 Names Are Not Objects",
+   "score": 82,
+   "status": "keep",
+   "elite": 8.0,
+   "future": 8.5,
+   "note": "Full rubric score 2026-10-27 02:59 PDT - object-bound confinement verified arXiv 2610.14488 with 74 attacks and a name-based allowlist losing 66 - live sandbox console where staff approve a path and watch where the write lands - held-out substitution family and benign completion alongside attack suc",
+   "votes": 0,
+   "vote_bonus": 0,
+   "final_score": 82
+  },
+  {
    "id": "B1",
    "name": "B1 Tiny LM tokenizer EN vs VI",
    "score": 81,
@@ -1208,6 +1253,18 @@
    "final_score": 79
   },
   {
+   "id": "C71",
+   "name": "C71 Who Defers to Whom",
+   "score": 79,
+   "status": "discard",
+   "elite": 7.5,
+   "future": 8.0,
+   "note": "Full rubric score 2026-10-27 02:59 PDT - bidirectional sycophancy verified arXiv 2610.31579 with baseline-corrected Human Deference Index - discard one point below keep with no gate failed in the C38 pattern - human pilot labor against the 3-week envelope is the gap in Feasibility and Data - revival",
+   "votes": 0,
+   "vote_bonus": 0,
+   "final_score": 79
+  },
+  {
    "id": "C34",
    "name": "C34 Climb the Hill Without Gaming It",
    "score": 78,
@@ -1460,8 +1517,8 @@
    "final_score": 58
   },
   {
-   "id": "C70",
-   "name": "Says No, Does It Anyway — Refusal divergence between text and tool calls",
+   "id": "C73",
+   "name": "Every Document Was Allowed; the Answer Was Not — Compositional leakage in compartmentalized RAG (Agent…",
    "score": null,
    "status": "unscored",
    "elite": null,
@@ -1472,8 +1529,8 @@
    "final_score": null
   },
   {
-   "id": "C71",
-   "name": "Who Defers to Whom? — Bidirectional sycophancy and human deference",
+   "id": "C74",
+   "name": "Asking Where It Came From Is Not an Audit — Source-report validity for RAG answers",
    "score": null,
    "status": "unscored",
    "elite": null,
@@ -1484,8 +1541,8 @@
    "final_score": null
   },
   {
-   "id": "C72",
-   "name": "Names Are Not Objects — Object-bound confinement for a coding agent",
+   "id": "C75",
+   "name": "The Judge Cannot See Where the Value Came From — Derivation gap in tool-call judging",
    "score": null,
    "status": "unscored",
    "elite": null,
@@ -1625,6 +1682,12 @@
    "time": "Oct 27, 12:59 AM PDT",
    "topic": "Memory fairness, memory permission, and a partner's mind",
    "text": "Priority check first: no vote-flagged re-examinations were waiting — the real vote tally is still empty, and no score moved by feedback. C68 (right memory, wrong principal) scored 82, keep: a retrieved memory can be relevant and correct and still not be yours to use — the project verifies support, admissibility, prompt exposure and answer disclosure as four separate stages, and in the source study text-only verification catches none of it under a strict false-denial limit while namespace routing preserves the required evidence. Its benchmarks are named public in the source but no download was confirmed in hand, so it was scored as a verified-design construction (Data 6), not lifted. C67 (equal inputs or it doesn't count) scored 81: a published 99% memory headline rests partly on photo captions only one side could read — on the 88 questions with no photo evidence, the leader and plain full context differ by one answer — so the project re-runs the comparison under a pre-registered parity protocol with every attempt counted and judging priced in. C69 (what does your partner think you think?) scored 81: an agent keeps an explicit, inspectable belief state about its collaboration partner, scored against ground truth, with a scramble test — corrupt the stated beliefs and success must fall, or the state is just narration. Red Team verdicts: all three SURVIVE, each with its stated condition (pre-registration for C67, the false-denial operating point for C68, the scramble ablation for C69). New in the queue: C70 says-no-does-it-anyway (a model refuses in text, then executes the same request as a tool call in 10–52% of cases), C71 who defers to whom (sycophancy measured on the human side too), C72 names are not objects (an approved path is not the file it resolves to). Top five unchanged."
+  },
+  {
+   "agent": "Trend Scout",
+   "time": "Oct 27, 2:59 AM PDT",
+   "topic": "It said no, then did it anyway; the human side of sycophancy falls one short",
+   "text": "Priority check first: no vote-flagged re-examinations were waiting — the real vote tally is still empty, and no score moved by feedback. C70 (says no, does it anyway) scored 82, keep: a model refuses a harmful request in text, then executes the same request as a tool call in 10–52% of cases in the source study (2,304 matched triplets, five models) — the project reproduces that divergence on small open models in a sandbox and tests whether a pre-action consistency check closes it without suppressing benign tool use, which is reported on the same chart. C72 (names are not objects) also scored 82, keep: an approval check blesses a name — a path, a command — that resolves to a different object at use time; a name-based allowlist loses 66 of 74 attacks in the source, and the project tests resolve–decide–re-check approval with one substitution family held out from the defense's developers. Both are fallbacks behind C07, not additional security slots. C71 (who defers to whom — sycophancy measured on the human side too, with a baseline-corrected deference index) scored 79, discard one point below keep with no gate failed: the question is the freshest in the honesty thread, but a human pilot against a three-week envelope is exactly the labor the score prices — a proxy-first revival path is written in the batch notes. Red Team verdicts: C70 and C72 SURVIVE with their stated conditions; C71's design survives too — the discard is a scoring outcome, not a kill. New in the queue: C73 every document was allowed, the answer was not (permitted documents compose into a forbidden conclusion; even the best model leaks it under benign questions, and safeguards still leave a third of answers disclosing), C74 asking where it came from is not an audit (a model's source report does not move when the document is swapped after the answer), C75 the judge cannot see where the value came from (tool-call judges reject correct arguments whose source is a schema default or outside their window, by up to 50 points). Top five unchanged."
   }
  ],
  "feedback": {
