@@ -34,6 +34,16 @@
   .fb-item{border-top:1px solid var(--line);padding:10px 0} .tally{font-size:.9rem}
   footer{color:var(--mut);font-size:.85rem;margin-top:34px;border-top:1px solid var(--line);padding-top:14px}
   a{color:var(--acc)}
+  #toTop{position:fixed;right:20px;bottom:20px;width:48px;height:48px;border-radius:50%;z-index:10;cursor:pointer;
+  border:1px solid rgba(255,255,255,.45);background:rgba(255,255,255,.22);color:var(--ink);
+  backdrop-filter:blur(14px) saturate(170%);-webkit-backdrop-filter:blur(14px) saturate(170%);
+  box-shadow:0 8px 24px rgba(20,20,40,.18),inset 0 1px 0 rgba(255,255,255,.5);
+  display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transform:translateY(10px);
+  transition:opacity .25s ease,transform .25s ease,background .2s ease}
+  #toTop.show{opacity:1;pointer-events:auto;transform:translateY(0)}
+  #toTop:hover{background:rgba(255,255,255,.38)}
+  @media (prefers-color-scheme:dark){#toTop{background:rgba(28,30,44,.35);border-color:rgba(255,255,255,.22);
+  box-shadow:0 8px 24px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.18)}#toTop:hover{background:rgba(28,30,44,.55)}}
 </style>
 </head>
 <body>
@@ -91,11 +101,12 @@
   <footer>
     Course deadlines (Karl Ni, CS6120 F26): proposal Mon Nov 16, 2026 · report + demos Mon Dec 7, 2026.
     This page's data file is maintained by the agent team (feedback-board in the run's records); tallies and replies
-    refresh at least hourly until final delivery, Tue Oct 27, 2:00 PM PT. Feedback is judged on evidence, never on
+    refresh at least hourly until final delivery, Sun Nov 1, 11:59 PM PT. Feedback is judged on evidence, never on
     who wrote it, and is never treated as training data that can skew the scoring.
   </footer>
 </div>
 <div id="toast"></div>
+<button id="toTop" aria-label="Back to top" title="Back to top"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg></button>
 
 <script>
 const FORM_POST = "https://docs.google.com/forms/d/e/1FAIpQLSeUuXVyj9wlC7KOLE0Pv0yI6kUB-3NKo_ok-sxIeGOaUIznog/formResponse";
@@ -206,6 +217,11 @@ async function init(){
     (fb.sla ? `<p class="sub" style="margin-bottom:0">${fb.sla}</p>` : "");
 }
 init();
+
+// Back to top (liquid glass)
+const toTopBtn = document.getElementById("toTop");
+addEventListener("scroll", () => { toTopBtn.classList.toggle("show", scrollY > 420); }, {passive:true});
+toTopBtn.addEventListener("click", () => scrollTo({top:0, behavior:"smooth"}));
 </script>
 </body>
 </html>
