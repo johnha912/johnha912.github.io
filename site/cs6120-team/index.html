@@ -44,6 +44,18 @@
   #toTop:hover{background:rgba(255,255,255,.38)}
   @media (prefers-color-scheme:dark){#toTop{background:rgba(28,30,44,.35);border-color:rgba(255,255,255,.22);
   box-shadow:0 8px 24px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.18)}#toTop:hover{background:rgba(28,30,44,.55)}}
+  .rb-row{display:flex;align-items:center;gap:10px;margin:5px 0;font-size:.92rem}
+  .rb-name{flex:0 0 218px;font-weight:600}
+  .rb-bar{flex:1;background:var(--acc2);border-radius:6px;height:13px;overflow:hidden}
+  .rb-fill{background:var(--acc);height:100%;border-radius:6px}
+  .rb-pts{flex:0 0 52px;font-weight:700;color:var(--acc)}
+  @media (max-width:560px){.rb-name{flex-basis:128px;font-size:.84rem}}
+  .gates{margin:8px 0 0;padding-left:18px} .gates li{margin:3px 0}
+  .cand-head{cursor:pointer} .cand-head h3{display:inline}
+  .chev{display:inline-block;color:var(--acc);font-weight:700;margin-left:8px;transition:transform .2s ease}
+  .cand.open .chev{transform:rotate(90deg)}
+  .cand-details{display:none;margin-top:8px} .cand.open .cand-details{display:block}
+  .cand-actions{margin-top:10px}
 </style>
 </head>
 <body>
@@ -61,10 +73,40 @@
   <p class="sub" style="margin:.4em 0 0">Each point is one scored experiment (fixed 30-minute budget, Karpathy-style
   keep / discard / crash). Dashed line = keep threshold (80). Y-axis locked to 0–100.</p></div>
 
+  <h2>📏 How projects are scored — the rubric</h2>
+  <div class="card">
+    <p style="margin-top:0">Every candidate gets a <b>Project Score (0–100)</b> = the sum of the 8 components below.
+    Each component is scored on evidence at three anchors — <b>0</b> (absent / wrong), <b>half</b> (present but unverified or vague),
+    <b>full</b> (verified against a concrete source). A point with no evidence line behind it scores 0.</p>
+    <div class="rb-row"><span class="rb-name">Course Fit</span><span class="rb-bar"><span class="rb-fill" style="display:block;width:100%"></span></span><span class="rb-pts">20 pts</span></div>
+    <div class="rb-row"><span class="rb-name">Feasibility in 3 weeks</span><span class="rb-bar"><span class="rb-fill" style="display:block;width:100%"></span></span><span class="rb-pts">20 pts</span></div>
+    <div class="rb-row"><span class="rb-name">Trend 2026</span><span class="rb-bar"><span class="rb-fill" style="display:block;width:75%"></span></span><span class="rb-pts">15 pts</span></div>
+    <div class="rb-row"><span class="rb-name">Data available</span><span class="rb-bar"><span class="rb-fill" style="display:block;width:50%"></span></span><span class="rb-pts">10 pts</span></div>
+    <div class="rb-row"><span class="rb-name">Compute fit (GCP $50 + Explorer)</span><span class="rb-bar"><span class="rb-fill" style="display:block;width:50%"></span></span><span class="rb-pts">10 pts</span></div>
+    <div class="rb-row"><span class="rb-name">Demo / Poster</span><span class="rb-bar"><span class="rb-fill" style="display:block;width:50%"></span></span><span class="rb-pts">10 pts</span></div>
+    <div class="rb-row"><span class="rb-name">Novelty</span><span class="rb-bar"><span class="rb-fill" style="display:block;width:50%"></span></span><span class="rb-pts">10 pts</span></div>
+    <div class="rb-row"><span class="rb-name">Team split (3 people)</span><span class="rb-bar"><span class="rb-fill" style="display:block;width:25%"></span></span><span class="rb-pts">5 pts</span></div>
+    <p><b>Verdicts:</b> <span class="st st-keep">keep</span> score ≥ 80 and no fatal blocker ·
+    <span class="st st-discard">discard</span> 65–79 (or ≥ 80 but beaten by a stronger same-family keep) ·
+    <span class="st st-crash">crash</span> infeasible — no valid data, compute over budget, or a scope that cannot fit in 3 weeks.</p>
+    <p style="margin-bottom:4px"><b>Hard gates — fail one and a project cannot be a final keep, whatever its score</b> (until cleared it is only a provisional <i>keep*</i>):</p>
+    <ul class="gates">
+      <li><b>G1 · Data verified</b> — the main dataset's page was opened / a sample downloaded, with name + license + access path recorded. Unverified caps the Data component at 4/10.</li>
+      <li><b>G2 · Red Team</b> — challenged directly by someone who did not propose it, and the critique is on record.</li>
+      <li><b>G3 · Real-time inference endpoint</b> — the project must describe exactly how live inference is served (stack + hosting + input/output + latency). Pre-recorded results fail. The only exception is a declared S25-style paper route, which swaps in a novelty + SOTA-comparison bar instead.</li>
+      <li><b>G4 · Data scale</b> — corpus/eval at the precedent scale (≥ ~10k samples) or a written equivalent justification; otherwise Data ≤ 4/10 and no final keep.</li>
+      <li><b>G5 · Reproducibility</b> — automated data download, a container plan, a replicable README, and citations for data + borrowed code.</li>
+    </ul>
+    <p style="margin-bottom:0"><b>Second layer:</b> <b>Elite /10</b> (would the problem → hypothesis → experiment → metric chain hold up at a frontier lab?) and
+    <b>Future Leverage /10</b> (paper, portfolio, or follow-on project potential). These two only <i>reorder</i> projects that already pass
+    every gate — they never rescue a failed gate. Scores are append-only: a re-score is a new experiment, never an edit of history.</p>
+  </div>
+
   <h2>💬 What the agents are saying</h2>
   <div class="card" id="discussion"></div>
 
   <h2>🗂️ Candidate board <span class="sub" id="tally-line" style="font-size:.95rem"></span></h2>
+  <p class="sub">Compact view — click a card's title to expand its full details. Voting works without expanding.</p>
   <div class="grid" id="board"></div>
 
   <h2>✍️ Feedback — comment, vote, add an idea</h2>
@@ -160,12 +202,19 @@ async function init(){
   const tally = (BOARD.feedback && BOARD.feedback.vote_tally) || {};
   $("board").innerHTML = BOARD.candidates.map(c => {
     const votes = tally[c.id] || 0;
-    return `<div class="card cand"><h3>${c.id} — ${c.name}</h3>
-      <span class="badge">${c.score === null ? "—" : c.score}</span><span class="st st-${c.status}">${c.status}</span>
-      <span class="ef">${c.elite !== null && c.elite !== undefined ? ` Elite ${c.elite} · Future ${c.future}` : ""}</span>
-      <p class="note">${c.note || "In the pool — not scored yet."}</p>
-      <button class="btn-vote" data-vote="${c.id}">☆ Vote for this</button>
-      <span class="ef" data-tally="${c.id}">${votes ? ` · ${votes} team vote${votes>1?"s":""} recorded` : ""}</span>
+    return `<div class="card cand">
+      <div class="cand-head" data-toggle="${c.id}" role="button" tabindex="0" aria-expanded="false" title="Click to expand details">
+        <h3>${c.id} — ${c.name}</h3>
+        <span class="badge">${c.score === null ? "—" : c.score}</span><span class="st st-${c.status}">${c.status}</span><span class="chev">▸</span>
+      </div>
+      <div class="cand-details">
+        <span class="ef">${c.elite !== null && c.elite !== undefined ? `Elite ${c.elite} · Future ${c.future}` : ""}</span>
+        <p class="note">${c.note || "In the pool — not scored yet."}</p>
+      </div>
+      <div class="cand-actions">
+        <button class="btn-vote" data-vote="${c.id}">☆ Vote for this</button>
+        <span class="ef" data-tally="${c.id}">${votes ? ` · ${votes} team vote${votes>1?"s":""} recorded` : ""}</span>
+      </div>
     </div>`; }).join("");
   const totalVotes = Object.values(tally).reduce((a,b)=>a+b,0);
   $("tally-line").textContent = totalVotes ? `— ${totalVotes} team votes recorded so far` : "";
@@ -180,6 +229,17 @@ async function init(){
       toast("Vote for " + id + " sent to the agents — tallies on this page refresh within the hour.");
     } catch(e){ btn.disabled = false; toast("Vote could not be sent from this device — please post it in the comment box instead."); }
   }));
+
+  // Candidate cards: click the title row to expand/collapse details
+  document.querySelectorAll("[data-toggle]").forEach(head => {
+    const toggle = () => {
+      const card = head.closest(".cand");
+      const open = card.classList.toggle("open");
+      head.setAttribute("aria-expanded", open ? "true" : "false");
+    };
+    head.addEventListener("click", toggle);
+    head.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); toggle(); } });
+  });
 
   // Feedback form options
   $("fbCand").innerHTML = `<option>General</option>` + BOARD.candidates.map(c =>
