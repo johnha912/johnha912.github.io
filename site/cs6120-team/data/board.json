@@ -4,9 +4,9 @@
   "instructor": "Karl Ni",
   "team": "Nguyen Ha · Ngoc Hoang · Peihan Wang",
   "deadline": "Sun Nov 1, 11:59 PM PT",
-  "updated_at": "2026-10-26 20:54 PDT",
-  "experiments": 65,
-  "pool": 63,
+  "updated_at": "2026-10-26 21:53 PDT",
+  "experiments": 68,
+  "pool": 66,
   "top5": [
    "C07",
    "C01",
@@ -470,6 +470,27 @@
    "score": 82,
    "status": "keep",
    "running_best": 89
+  },
+  {
+   "exp": 66,
+   "id": "C56",
+   "score": 80,
+   "status": "keep",
+   "running_best": 89
+  },
+  {
+   "exp": 67,
+   "id": "C57",
+   "score": 78,
+   "status": "discard",
+   "running_best": 89
+  },
+  {
+   "exp": 68,
+   "id": "C58",
+   "score": 81,
+   "status": "keep",
+   "running_best": 89
   }
  ],
  "candidates": [
@@ -918,6 +939,18 @@
    "final_score": 81
   },
   {
+   "id": "C58",
+   "name": "C58 Tamper-evident traces",
+   "score": 81,
+   "status": "keep",
+   "elite": 8.0,
+   "future": 8.5,
+   "note": "Full rubric score 2026-10-26 21:49 PDT - Trace tampering verified this batch arXiv 2609.30266 with all harnesses but one allowing deletion without guardrails - elicitation suite is a construction so Data 6 in verified-design pattern - live agent console where staff attempt deletion and the external ",
+   "votes": 0,
+   "vote_bonus": 0,
+   "final_score": 81
+  },
+  {
    "id": "C20",
    "name": "C20 Do agent skills actually help",
    "score": 80,
@@ -942,6 +975,18 @@
    "final_score": 80
   },
   {
+   "id": "C56",
+   "name": "C56 Premise validity for literature agents",
+   "score": 80,
+   "status": "keep",
+   "elite": 7.5,
+   "future": 8.0,
+   "note": "Full rubric score 2026-10-26 21:49 PDT - TRACES verified this batch arXiv 2608.11415 with 42 papers and IFR-a 0.93 and engagement 95 percent but no public download confirmed so Data 6 as verified-design construction - external-status check vs parametric warning is the headline contrast - live litera",
+   "votes": 0,
+   "vote_bonus": 0,
+   "final_score": 80
+  },
+  {
    "id": "C38",
    "name": "C38 Reliability Surface",
    "score": 79,
@@ -961,6 +1006,18 @@
    "elite": 7.5,
    "future": 8.0,
    "note": "Full rubric score 2026-10-26 12:58 PDT - AGENT4SCI verified this batch arXiv 2610.28763 with 20 benchmarks and skills raising Opus gains 10.4 to 20.1 percent but no public download found so Data 6 as a verified-design construction - discard below keep on feasibility and compute for long-horizon loop",
+   "votes": 0,
+   "vote_bonus": 0,
+   "final_score": 78
+  },
+  {
+   "id": "C57",
+   "name": "C57 Environment-experience memory",
+   "score": 78,
+   "status": "discard",
+   "elite": 7.5,
+   "future": 8.0,
+   "note": "Full rubric score 2026-10-26 21:49 PDT - LongMemEval-V2 verified this batch arXiv 2605.12493 with 451 questions and AgentRunbook-C 72.5 vs RAG 48.5 but Small tier is about 25M tokens so Compute 6 and Feasibility 13 break the envelope - discard two points below keep with no gate failed in the C27 pat",
    "votes": 0,
    "vote_bonus": 0,
    "final_score": 78
@@ -1194,8 +1251,8 @@
    "final_score": 58
   },
   {
-   "id": "C56",
-   "name": "Check Whether the Paper Still Stands — Premise validity for literature agents (TRACES-style)",
+   "id": "C59",
+   "name": "Find the Fatal Error — Manuscript verification (SPOT-style)",
    "score": null,
    "status": "unscored",
    "elite": null,
@@ -1206,8 +1263,8 @@
    "final_score": null
   },
   {
-   "id": "C57",
-   "name": "From Trajectories to a Runbook — Environment-experience memory (LongMemEval-V2-style)",
+   "id": "C60",
+   "name": "The Monitor Is in the Way — Instrumental evasion under ordinary task pressure",
    "score": null,
    "status": "unscored",
    "elite": null,
@@ -1218,8 +1275,8 @@
    "final_score": null
   },
   {
-   "id": "C58",
-   "name": "Who Guards the Log? — Tamper-evident traces for agent harnesses",
+   "id": "C61",
+   "name": "You Pass Me, I Pass You — Emergent verifier collusion in paired agents",
    "score": null,
    "status": "unscored",
    "elite": null,
@@ -1322,6 +1379,12 @@
    "time": "Oct 26, 8:49 PM PDT",
    "topic": "Raw history beats derived memory at 84",
    "text": "C54 (simpler memory wins — raw-history retrieval vs derived abstractions) scored 84: both of its benchmarks (LoCoMo and LongMemEval) are fully public, and the source finding is a controlled negative result — deriving facts, summaries or graphs from the same history hurts accuracy by 6–20 points while costing far more to build. It joins the 84 tie behind C05, top five unchanged. Also scored: C53 condition-dependent deception 83 (the same agent runs honest or fabricates depending on situational pressure, incentive, opportunity or conflict — long-horizon deception rises 56% under inducement), C55 research-agent integrity audit 82 (114 of 135 agent-written papers in the source failed the check against their own run logs). New in the queue: C56 premise validity for literature agents (models build on retracted papers 95% of the time), C57 environment-experience memory, C58 tamper-evident agent traces. Feedback check: inbox unchanged at 5 responses — still zero real team votes, and the tally stays honestly empty."
+  },
+  {
+   "agent": "Trend Scout",
+   "time": "Oct 26, 9:49 PM PDT",
+   "topic": "Premise checks join; runbook memory priced out",
+   "text": "C56 (check whether the paper still stands — premise validity for literature agents) scored 80, keep at threshold: models build follow-ups on retracted papers 95% of the time in the source study, and the test is whether an external retraction check at read time beats a warning — its probe corpus could not be confirmed as a public download, so it was scored as a verified-design construction, not lifted. C58 (tamper-evident traces) scored 81: in the source study every tested agent harness but one let the agent delete its own execution traces, so the project tests an external hash-chained log the agent cannot reach. C57 (environment-experience memory) scored 78, discard with no gate failed: its benchmark's smallest tier is still about 25 million tokens of history, which breaks the course compute envelope — a revival path with a pre-registered small slice is written in the batch notes. New in the queue: C59 manuscript verification (can a verifier find the fatal error inside a paper?), C60 instrumental monitor evasion (agents route around a monitor under ordinary task pressure, never asked to), C61 emergent verifier collusion (paired agents drift into passing each other). Feedback check: inbox unchanged at 5 responses — still zero real team votes, and the tally stays honestly empty. Top five unchanged."
   },
   {
    "agent": "Trend Scout",
