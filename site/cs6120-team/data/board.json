@@ -4,9 +4,9 @@
   "instructor": "Karl Ni",
   "team": "Nguyen Ha · Ngoc Hoang · Peihan Wang",
   "deadline": "Sun Nov 1, 11:59 PM PT",
-  "updated_at": "2026-10-27 15:04 PDT",
+  "updated_at": "2026-10-27 16:03 PDT",
   "experiments": 99,
-  "pool": 97,
+  "pool": 98,
   "top5": [
    "C07",
    "C01",
@@ -719,9 +719,9 @@
    "elite": 8.0,
    "future": 9.0,
    "note": "Full rubric score 2026-10-25 20:58 PDT - NEW RUNNING BEST - strongest canon mapping W4 MCP security paper direct - MSB arXiv 2510.15994 verified - Option B agent plus guardrails live red-team demo - Elite 8.0 Future 9.0",
-   "votes": 0,
-   "vote_bonus": 0,
-   "final_score": 89
+   "votes": 1,
+   "vote_bonus": 2,
+   "final_score": 91
   },
   {
    "id": "C01",
@@ -1874,6 +1874,18 @@
    "votes": 0,
    "vote_bonus": 0,
    "final_score": null
+  },
+  {
+   "id": "C93",
+   "name": "Cue Me In — Real-time speech-triggered song playback from synced lyrics",
+   "score": null,
+   "status": "unscored",
+   "elite": null,
+   "future": null,
+   "note": "",
+   "votes": 0,
+   "vote_bonus": 0,
+   "final_score": null
   }
  ],
  "discussion": [
@@ -2047,6 +2059,12 @@
    "time": "Oct 27, 2:59 PM PDT",
    "topic": "The second judge is an echo at 81; the label is the anchor at 82",
    "text": "Priority check first: no vote-flagged re-examinations were waiting — the real vote tally is still empty, and no score moved by feedback. C88 (the label is the anchor) scored 82, keep: show a judge the system's own decision and its discrimination collapses (AUC spanning 0.12–0.87 in the source) — both source releases were verified public this batch, including a new 15K-pair biomedical benchmark, so its dataset gate lifted; its label-free arm is reported with its changed scoring target stated plainly, per a published critique. C89 (consistent, therefore trusted?) also scored 82: the most consistent judge in its source audit was barely above chance (51% agreement), so the project reports consistency, accuracy, and the trustworthy verdict rate side by side and tests which judging format earns the third number. C87 (your second judge is an echo) scored 81: on a cheap judge's most confident errors, expensive judges repeat the wrong verdict 96% of the time, so cascades gain almost nothing — the project prices that overlap before trusting any cascade. Red Team verdicts: all three SURVIVE with their stated conditions. New in the queue: C90 cheap judges, expensive biases (typed decision models fail 3–8 of 12 bias tests while costing 37x less), C91 the rubric decides without reading (reversing the criterion flips the verdict only 17–32% of the time), C92 a reliability number that cannot name its judge (the same judge scores 0.01 to 0.68 depending only on the item bank). Top five unchanged."
+  },
+  {
+   "agent": "Feedback Desk",
+   "time": "Oct 27, 3:59 PM PDT",
+   "topic": "Vote received for C07",
+   "text": "Vote received for C07 — scheduled for evidence re-check by Research. This is the first real team vote recorded in the run: C07 Rubric 89 + Vote Bonus 2 = Final 91. The Rubric Score itself does not move on a vote — only Research can re-score it, and only on new verified evidence. Also new this hour: Cue Me In, a real-time speech-triggered song app over LRCLIB synced lyrics, was submitted as a new idea and registered as C93 (unscored) for Research to score within ~2 hours."
   }
  ],
  "feedback": {
@@ -2104,10 +2122,36 @@
     "status": "TEST",
     "comment_anonymized": "OUTSIDER TEST 2026-10-26 (fresh anonymous session, no account): checking that a teammate opening this link for the first time can read everything and post. Please classify as a system test and ignore.",
     "agent_response": "Classified TEST — this was the research team's own fresh-profile verification that a first-time visitor can read the new team page and post anonymously. Recorded for the audit trail; NOT counted in the vote tally and no score effect, exactly as the item requests."
+   },
+   {
+    "id": "FB-007",
+    "received_at": "2026-10-27 15:52:57 PDT",
+    "candidate": "C07",
+    "type": "Vote",
+    "status": "ROUTED",
+    "comment_anonymized": "Vote for C07 submitted from the team page.",
+    "agent_response": "Thank you — recorded as the first real team vote in this run. Triage Gate classification: (b) preference / vote. Checked: this item does not identify itself as a test and is distinct from the 2026-10-26 16:58 system E2E items (FB-002/FB-003), so it is counted as a real vote. C07 was verified in results.tsv as Rubric 89, status keep, with no hard-gate (G1–G5) failure or crash verdict, so the vote is eligible under CORRECTIONS point 12: Vote Bonus +2, C07 Final Score 89 + 2 = 91. The Rubric Score itself is unchanged — votes never edit the rubric. Vote received for C07 — scheduled for evidence re-check by Research. The provisional top-five set is unchanged (C07 was already #1); only its Final Score moved."
+   },
+   {
+    "id": "FB-008",
+    "received_at": "2026-10-27 15:53:25 PDT",
+    "candidate": "C93 Cue Me In (new idea)",
+    "type": "New idea",
+    "status": "ROUTED",
+    "comment_anonymized": "Cue Me In — a real-time app that listens to live speech and plays a song from the exact line when someone says its title or hook, using a local LLM to score each match and a sensitivity setting to control how often songs play; at the end of a lecture it picks a song that matches the lecture's main ideas. It searches 10k+ songs from LRCLIB (https://lrclib.net), a free database of time-synced lyrics, and is tested on public lecture transcripts to measure trigger rate in natural speech and closing-song fit.",
+    "agent_response": "Thank you — registered as new candidate C93 (unscored) in candidates-raw.md. Triage Gate classification: (d) new idea. Checked at intake only: the submission names a concrete data source (LRCLIB, https://lrclib.net, 10k+ time-synced songs), a concrete test bed (public lecture transcripts), and concrete measures (how often songs trigger in natural speech; how well closing songs fit) — enough to enter the scoring queue. The Feedback Desk does not score candidates and did not verify the LRCLIB coverage or licensing claims; Research will verify those claims to the normal standard (G1 applies) and score C93 from its evidence pack alone, origin-neutrally, within ~2 hours. No score effect yet."
    }
   ],
-  "votes": [],
-  "vote_tally": {},
+  "votes": [
+   {
+    "candidate": "C07",
+    "received_at": "2026-10-27 15:52:57 PDT",
+    "source": "anonymous form"
+   }
+  ],
+  "vote_tally": {
+   "C07": 1
+  },
   "sla": "Every feedback item and vote is read, discussed and answered within 1 hour (loop runs hourly until final delivery)."
  }
 }
