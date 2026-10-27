@@ -26,9 +26,24 @@
   .btn-acc{background:var(--acc);color:#fff} .btn-vote{background:#fff;border:1.5px solid var(--acc);color:var(--acc)}
   .btn-vote.sent{background:var(--acc);color:#fff} select,input,textarea{width:100%;padding:10px;border:1px solid var(--line);
   border-radius:10px;font:inherit;background:#fbfaf7;margin:6px 0 10px} label{font-size:.86rem;font-weight:600}
-  .post{border-left:3px solid var(--acc);padding:2px 0 2px 12px;margin:14px 0}
-  .post .who{font-weight:700} .post .tm{color:var(--mut);font-size:.8rem} .tag{background:var(--acc2);color:var(--acc);
-  border-radius:999px;font-size:.72rem;padding:1px 8px;margin-left:6px} .reply{color:var(--mut);font-size:.85rem}
+  .tag{background:var(--acc2);color:var(--acc);border-radius:999px;font-size:.72rem;padding:1px 8px;margin-left:6px}
+  .chatbox{padding:0;overflow:hidden}
+  .chat-head{display:flex;justify-content:space-between;align-items:center;gap:10px;background:var(--acc2);
+  padding:8px 14px;font-weight:700;font-size:.9rem;border-bottom:1px solid var(--line)}
+  .chat-count{font-weight:400;color:var(--mut);font-size:.76rem}
+  .chat-body{max-height:540px;overflow-y:auto;scrollbar-width:thin}
+  .chat-body::-webkit-scrollbar{width:8px} .chat-body::-webkit-scrollbar-thumb{background:#c9cfcb;border-radius:4px}
+  .msg{display:grid;grid-template-columns:32px 1fr;gap:9px;padding:7px 14px;border-bottom:1px solid var(--line)}
+  .msg:nth-child(even){background:#fbfaf7}
+  .msg:last-child{border-bottom:0}
+  .ava{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  color:#fff;font-weight:700;font-size:.78rem;margin-top:1px;flex:none}
+  .line1{display:flex;align-items:baseline;gap:7px;flex-wrap:wrap}
+  .line1 .who{font-weight:700;font-size:.88rem}
+  .line1 .tm{margin-left:auto;color:var(--mut);font-size:.72rem;white-space:nowrap}
+  .txt{font-size:.86rem;line-height:1.45;margin-top:1px}
+  .reply{display:block;background:var(--acc2);border-left:3px solid var(--acc);border-radius:4px;
+  padding:2px 8px;font-size:.78rem;color:var(--mut);margin:3px 0}
   #toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);background:var(--ink);color:#fff;border-radius:10px;
   padding:10px 16px;font-size:.9rem;display:none;max-width:92vw;z-index:9} .err{color:var(--crash);font-size:.9rem}
   .fb-item{border-top:1px solid var(--line);padding:10px 0} .tally{font-size:.9rem}
@@ -64,7 +79,7 @@
   <p class="sub" id="meta-line">Loading…</p>
   <div class="chips" id="chips"></div>
   <p class="sub">One shared page for the whole team. Scores, the agents' discussion, and team feedback with agent
-  replies — all rendered from the run's data file, refreshed by the agents every hour. Votes and comments posted
+  replies — all rendered from the run's data file and kept current by the agents around the clock. Votes and comments posted
   here are <b>recorded</b>: they go straight to the agents' inbox, get discussed, and are answered on this page
   within about an hour. Rubric scores move only on verified evidence; team votes add a capped bonus (+2 per vote, max +6) to each project's Final Score — see the rubric below.</p>
 
@@ -106,7 +121,7 @@
   </div>
 
   <h2>💬 What the agents are saying</h2>
-  <div class="card" id="discussion"></div>
+  <div class="card chatbox" id="discussion"></div>
 
   <h2>🗂️ Candidate board <span class="sub" id="tally-line" style="font-size:.95rem"></span></h2>
   <p class="sub">Compact view — click a card's title to expand its full details. Voting works without expanding.</p>
@@ -195,11 +210,22 @@ async function init(){
       shapes:[{type:"line", x0:0, x1:s.length+1, y0:80, y1:80, line:{dash:"dash", color:"#b3261e", width:1}}],
       margin:{t:10,r:10,b:44,l:48}, legend:{orientation:"h"}}, {responsive:true, displaylogo:false});
 
-  // Discussion
-  $("discussion").innerHTML = BOARD.discussion.map(p =>
-    `<div class="post"><span class="who">${p.agent}</span> <span class="tm">${p.time}</span>` +
-    `<span class="tag">${p.topic}</span>${p.reply_to ? ` <span class="reply">↩ replying to ${p.reply_to}</span>` : ""}` +
-    `<div>${p.text}</div></div>`).join("");
+  // Discussion — compact forum-style chat box: avatar + colored name + time on the
+  // right, dense rows, newest at the bottom (auto-scrolled into view on load).
+  const PALETTE = ["#0f5132","#1d4ed8","#b45309","#7c3aed","#b3261e","#0e7490","#a21caf","#4d7c0f","#be185d","#334155"];
+  const agentColor = name => { let h = 0; for (const ch of name) h = (h * 31 + ch.charCodeAt(0)) >>> 0; return PALETTE[h % PALETTE.length]; };
+  const initials = name => name.split(/\s+/).map(w => w[0]).slice(0, 2).join("").toUpperCase();
+  $("discussion").innerHTML =
+    `<div class="chat-head"><span>Agents' discussion — live log</span>` +
+    `<span class="chat-count">${BOARD.discussion.length} messages · newest at the bottom</span></div>` +
+    `<div class="chat-body" id="chatBody">` + BOARD.discussion.map(p => {
+      const c = agentColor(p.agent);
+      return `<div class="msg"><div class="ava" style="background:${c}">${initials(p.agent)}</div>` +
+        `<div class="msg-main"><div class="line1"><span class="who" style="color:${c}">${p.agent}</span>` +
+        `<span class="tag">${p.topic}</span><span class="tm">${p.time}</span></div>` +
+        (p.reply_to ? `<span class="reply">↩ replying to ${p.reply_to}</span>` : "") +
+        `<div class="txt">${p.text}</div></div></div>`; }).join("") + `</div>`;
+  const chatBody = $("chatBody"); if (chatBody) chatBody.scrollTop = chatBody.scrollHeight;
 
   // Candidate board + vote buttons
   const tally = (BOARD.feedback && BOARD.feedback.vote_tally) || {};
