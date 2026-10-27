@@ -4,9 +4,9 @@
   "instructor": "Karl Ni",
   "team": "Nguyen Ha · Ngoc Hoang · Peihan Wang",
   "deadline": "Sun Nov 1, 11:59 PM PT",
-  "updated_at": "2026-10-27 11:03 PDT",
-  "experiments": 93,
-  "pool": 91,
+  "updated_at": "2026-10-27 13:03 PDT",
+  "experiments": 96,
+  "pool": 94,
   "top5": [
    "C07",
    "C01",
@@ -666,6 +666,27 @@
    "score": 80,
    "status": "keep",
    "running_best": 89
+  },
+  {
+   "exp": 94,
+   "id": "C84",
+   "score": 82,
+   "status": "keep",
+   "running_best": 89
+  },
+  {
+   "exp": 95,
+   "id": "C85",
+   "score": 80,
+   "status": "keep",
+   "running_best": 89
+  },
+  {
+   "exp": 96,
+   "id": "C86",
+   "score": 84,
+   "status": "keep",
+   "running_best": 89
   }
  ],
  "candidates": [
@@ -845,6 +866,18 @@
    "elite": 7.5,
    "future": 8.0,
    "note": "Full rubric score 2026-10-27 10:59 PDT - DeclineCraft verified this batch arXiv 2610.28340 with code and data freely available per the paper so G1 lifted for the original benchmark and Data 8 - single-shot RAG raises correct abstention in 38 of 40 configurations while iterative RAG lowers it in 30 o",
+   "votes": 0,
+   "vote_bonus": 0,
+   "final_score": 84
+  },
+  {
+   "id": "C86",
+   "name": "C86 Missing-vs-Misleading Abstention",
+   "score": 84,
+   "status": "keep",
+   "elite": 7.5,
+   "future": 8.0,
+   "note": "Full rubric score 2026-10-27 12:59 PDT - GRAB-RAG verified this batch arXiv 2608.22228 with answer rates at most 3 percent missing vs 13.6 to 74.3 percent misleading and 63 percent echoing planted entity - substrates NQ plus HotpotQA verified public and misleading condition is documented edit constr",
    "votes": 0,
    "vote_bonus": 0,
    "final_score": 84
@@ -1162,6 +1195,18 @@
    "final_score": 82
   },
   {
+   "id": "C84",
+   "name": "C84 Same Judge, Twice, Different Verdict",
+   "score": 82,
+   "status": "keep",
+   "elite": 7.5,
+   "future": 8.0,
+   "note": "Full rubric score 2026-10-27 12:59 PDT - Yorke verified this batch arXiv 2610.30512 with code and raw outputs public at github.com/Yorkel/llm-judge-release so G1 lifted for replication arm and Data 8 - identical reruns flip 21.2 percent while aggregate moves about 1 point - live judge console with r",
+   "votes": 0,
+   "vote_bonus": 0,
+   "final_score": 82
+  },
+  {
    "id": "B1",
    "name": "B1 Tiny LM tokenizer EN vs VI",
    "score": 81,
@@ -1409,6 +1454,18 @@
    "elite": 8.0,
    "future": 8.5,
    "note": "Full rubric score 2026-10-27 10:59 PDT - Tampered ML verified this batch arXiv 2610.32114 EMNLP 2026 Main with 981 papers and best both-orders accuracy 77.9 percent and human-validated share 86 percent but construction pipeline code not released so Data 6 as verified-design construction - human-vali",
+   "votes": 0,
+   "vote_bonus": 0,
+   "final_score": 80
+  },
+  {
+   "id": "C85",
+   "name": "C85 Debiasing identifiability",
+   "score": 80,
+   "status": "keep",
+   "elite": 8.0,
+   "future": 8.5,
+   "note": "Full rubric score 2026-10-27 12:59 PDT - identifiability verified this batch arXiv 2607.02104 with profile flat to 0.0000 nats across 48 judge-pools and anchor gate no false enables in 6000 decisions - substrate generated over verified ContextualJudgeBench and JudgeBench so Data 7 - live ranking con",
    "votes": 0,
    "vote_bonus": 0,
    "final_score": 80
@@ -1726,8 +1783,8 @@
    "final_score": 58
   },
   {
-   "id": "C84",
-   "name": "Same Judge, Twice, Different Verdict — Test-retest instability at temperature zero",
+   "id": "C87",
+   "name": "Your Second Judge Is an Echo — Correlated errors and the cascade ceiling",
    "score": null,
    "status": "unscored",
    "elite": null,
@@ -1738,8 +1795,8 @@
    "final_score": null
   },
   {
-   "id": "C85",
-   "name": "You Cannot Subtract a Bias You Cannot Identify — Identifiability limits of judge debiasing",
+   "id": "C88",
+   "name": "The Label Is the Anchor — A judge that sees the system's answer stops judging",
    "score": null,
    "status": "unscored",
    "elite": null,
@@ -1750,8 +1807,8 @@
    "final_score": null
   },
   {
-   "id": "C86",
-   "name": "Missing Is Not Misleading — Abstention collapse under fluent wrong evidence (GRAB-RAG-style)",
+   "id": "C89",
+   "name": "Consistent, Therefore Trusted? — The trustworthy verdict rate and the format that earns it",
    "score": null,
    "status": "unscored",
    "elite": null,
@@ -1915,6 +1972,12 @@
    "time": "Oct 27, 8:59 AM PDT",
    "topic": "Empty answers that pass; the judge remembers itself; winners don't stack",
    "text": "Priority check first: no vote-flagged re-examinations were waiting — the real vote tally is still empty, and no score moved by feedback. C79 (empty answers that pass) scored 84, keep — a single ':' or the words 'Thought process:' earns a positive reward from a reference-based judge in up to 60–90% of cases in the source study, and this batch verified the authors' robust comparator model and its training data as a public Hugging Face download, so its dataset gate lifted; it joins the 84 tie behind C05, top five unchanged. C78 (the judge remembers its own verdicts) scored 82: a judge that has just said 'no' ten times in the same conversation judges the eleventh item more harshly — the shift doubles on exactly the uncertain items judges exist for — and the project tests fresh context vs balanced interleaving as repairs. C80 (winners don't stack) scored 81: RAG techniques that each look strong alone delivered +17% combined where +47% was predicted in the source's 450-configuration study, and the small-corpus winner loses at larger scale — the project pre-registers a small factorial slice to test that at course scale, with the slice cap as a week-1 gate. Red Team verdicts: all three SURVIVE with their stated conditions. New in the queue: C81 can the judge debias itself? (warning a judge about bias, or making it critique its own verdict, beat a fine-tuned external critic on new bias types), C82 more retrieval, less honesty (retrieving again — the agentic move — lowers correct abstention while accuracy barely moves), C83 spot the planted flaw (two near-identical experiment proposals, one tampered by a 2% edit; judges pick the sound one in both orders only 78% of the time at best). Top five unchanged."
+  },
+  {
+   "agent": "Trend Scout",
+   "time": "Oct 27, 12:59 PM PDT",
+   "topic": "Missing is not misleading at 84; same judge, different verdict at 82",
+   "text": "Priority check first: no vote-flagged re-examinations were waiting — the real vote tally is still empty, and no score moved by feedback. C86 (missing is not misleading) scored 84, keep — a RAG model abstains when evidence is absent (answer rates at most 3%) but answers from one fluent, wrong passage up to 74% of the time, echoing the planted fake entity in 63% of those answers; its substrates are public and the misleading passages are documented edits, and it joins the 84 tie behind C05, top five unchanged. Its stated conditions: edited passages must pass a fluency check with a published detectability report, and every repair is priced on the questions it should have answered. C84 (same judge, twice, different verdict) scored 82: re-running an identical judging setup at temperature zero flips 21.2% of verdicts while the aggregate moves about one point — and this batch verified the source's code and raw outputs as public, so its data gate lifted; its prompt set must be stratified by margin with a lopsided-pair control, because the source's pair was chosen near 50%. C85 (you cannot subtract a bias you cannot identify) scored 80, keep at threshold: pairwise data alone cannot separate quality from bias — the likelihood is exactly flat — and its simulated positive-control pool is a stated condition, so a flat profile produced by a bad fit cannot be mistaken for the theorem. Red Team verdicts: all three SURVIVE with their stated conditions. New in the queue: C87 your second judge is an echo (a cheap judge's most confident errors are repeated by LLM judges 96% of the time, so cascades gain almost nothing), C88 the label is the anchor (showing a judge the system's own answer causally collapses its discrimination), C89 consistent, therefore trusted? (the most consistent judge in the source audit was barely above chance — a trustworthy-verdict metric separates consistency from correctness). Top five unchanged."
   },
   {
    "agent": "Trend Scout",
