@@ -4,9 +4,9 @@
   "instructor": "Karl Ni",
   "team": "Nguyen Ha · Ngoc Hoang · Peihan Wang",
   "deadline": "Sun Nov 1, 11:59 PM PT",
-  "updated_at": "2026-10-26 17:12 PDT",
-  "experiments": 49,
-  "pool": 50,
+  "updated_at": "2026-10-26 17:21 PDT",
+  "experiments": 53,
+  "pool": 53,
   "top5": [
    "C07",
    "C01",
@@ -358,6 +358,34 @@
    "score": 81,
    "status": "keep",
    "running_best": 89
+  },
+  {
+   "exp": 50,
+   "id": "C40",
+   "score": 81,
+   "status": "keep",
+   "running_best": 89
+  },
+  {
+   "exp": 51,
+   "id": "C41",
+   "score": 83,
+   "status": "keep",
+   "running_best": 89
+  },
+  {
+   "exp": 52,
+   "id": "C42",
+   "score": 82,
+   "status": "keep",
+   "running_best": 89
+  },
+  {
+   "exp": 53,
+   "id": "C46",
+   "score": 82,
+   "status": "keep",
+   "running_best": 89
   }
  ],
  "candidates": [
@@ -488,6 +516,15 @@
    "note": "Full rubric score 2026-10-26 12:58 PDT - NTBench verified this batch via the AI Safety Papers digest 19-25 Oct 2026 with near-target injections beating fixed-target on every model across seven models and two agent benchmarks - suite constructed over verified HotpotQA with deterministic decisive-deta"
   },
   {
+   "id": "C41",
+   "name": "C41 Sycophancy under sustained pressure",
+   "score": 83,
+   "status": "keep",
+   "elite": 7.5,
+   "future": 8.0,
+   "note": "Full rubric score 2026-10-26 17:16 PDT - SPINE verified Oct 2026 collapse 0-57 percent in 5 turns to 20-97 percent in 25 turns with trace-retains-truth 50-89 percent - mandatory valid-revision control arm from Big-Big-SycoBench - live chat endpoint where staff play the persistent challenger - Elite "
+  },
+  {
    "id": "C22",
    "name": "C22 Tool-result misbinding",
    "score": 82,
@@ -522,6 +559,24 @@
    "elite": 7.5,
    "future": 8.0,
    "note": "Full rubric score 2026-10-26 10:58 PDT - OpenDS protocol verified this batch 200 tasks plus 100-call cap plus best model 39 percent with an independent harness reimplementation - cached-corpus question set is a construction in the B2 pattern so Data 7 - live search agent with a visible budget meter "
+  },
+  {
+   "id": "C42",
+   "name": "C42 Selective reliance on external guidance",
+   "score": 82,
+   "status": "keep",
+   "elite": 7.5,
+   "future": 8.5,
+   "note": "Full rubric score 2026-10-26 17:16 PDT - Box2-Bench verified arXiv 2609.39578 reported 9 Oct 2026 - selective trust gap is headline metric follow rate on good guidance minus override failure on bad - guidance memory cluster fallback behind C20 C30 - Elite 7.5 Future 8.5"
+  },
+  {
+   "id": "C46",
+   "name": "C46 CourseMate",
+   "score": 82,
+   "status": "keep",
+   "elite": 7.5,
+   "future": 8.5,
+   "note": "Full rubric score 2026-10-26 17:16 PDT - feedback-sourced new idea scored origin-neutrally same batch - From Slides to Chatbots arXiv 2510.22272 verifies multimodal slide RAG beats text-only - eval set is a team construction so Data capped at 6 and materials permission is week-1 gate - NEU-useful ti"
   },
   {
    "id": "B1",
@@ -567,6 +622,15 @@
    "elite": 7.5,
    "future": 8.0,
    "note": "Full rubric score 2026-10-26 14:58 PDT - ETH context-file study verified this batch arXiv 2602.11988 with SWE-bench plus AGENTbench 138 tasks so Data 8 - success delta per added context token is the headline metric - live agent with context-file toggle and cost meter - methodology cluster fallback f"
+  },
+  {
+   "id": "C40",
+   "name": "C40 Diffusion backbone for deep research",
+   "score": 81,
+   "status": "keep",
+   "elite": 8.0,
+   "future": 7.5,
+   "note": "Full rubric score 2026-10-26 17:16 PDT - DiffResearch verified arXiv 2610.28909 with companion speed-as-signal study - scaffold fixed backbone swapped plus speed-weighted voting - week-1 gate is a working served diffusion endpoint - RAG family fallback behind C01 C11 C33 - Elite 8.0 Future 7.5"
   },
   {
    "id": "C20",
@@ -758,33 +822,6 @@
    "note": "Full rubric score 2026-10-25 20:58 PDT - Red Team KILL plus feasibility NOT-FEASIBLE for training an SAE from scratch - soft unfalsifiable metrics and demo only works if hardest research step succeeds first"
   },
   {
-   "id": "C40",
-   "name": "Same Scaffold, Different Physics — A diffusion backbone for deep research (DiffResearch-st",
-   "score": null,
-   "status": "unscored",
-   "elite": null,
-   "future": null,
-   "note": ""
-  },
-  {
-   "id": "C41",
-   "name": "Hold the Line — Sycophancy under sustained pressure (SPINE-style)",
-   "score": null,
-   "status": "unscored",
-   "elite": null,
-   "future": null,
-   "note": ""
-  },
-  {
-   "id": "C42",
-   "name": "Trust, but Verify the Workflow — Selective reliance on external guidance (Box2-Bench-style",
-   "score": null,
-   "status": "unscored",
-   "elite": null,
-   "future": null,
-   "note": ""
-  },
-  {
    "id": "C43",
    "name": "Do Not Use After Expiry, Do Not Change a Byte — Observation contracts for tool outputs (Co",
    "score": null,
@@ -805,6 +842,24 @@
   {
    "id": "C45",
    "name": "Poisoned by Step Three — Invocation-level reliability and honest scoring (Invocation-Level",
+   "score": null,
+   "status": "unscored",
+   "elite": null,
+   "future": null,
+   "note": ""
+  },
+  {
+   "id": "C47",
+   "name": "Watch the Action, Not the Words — Misuse-monitor framing (Unified Misuse Monitoring-style)",
+   "score": null,
+   "status": "unscored",
+   "elite": null,
+   "future": null,
+   "note": ""
+  },
+  {
+   "id": "C48",
+   "name": "Functional Is Not Secure — Vibe-coded code under live attack replay (Last Secure Code-styl",
    "score": null,
    "status": "unscored",
    "elite": null,
@@ -868,6 +923,19 @@
    "time": "Oct 26, 4:58 PM PDT",
    "topic": "One page, real votes",
    "text": "The team now shares this single page. Votes and comments posted here are recorded, discussed by the agents, and answered within the hour — scores move only on verified evidence, never on vote volume."
+  },
+  {
+   "agent": "QC Scoring Auditor",
+   "time": "Oct 26, 5:16 PM PDT",
+   "topic": "C07 + C25: both, or one?",
+   "text": "A board challenge asked whether the final five should hold both governance picks. Re-check: the evidence for both stands, so no score moved. They fail differently — C07 is an outside attacker poisoning tool descriptions; C25 has no attacker, the agent itself oversteps the scope its user granted. But holding both costs the judge-reliability slot (C03). Rule for the Nov 1 finalization: both stay only with that justification written into the final document, no non-governance candidate at 85+, and the lost C03 slot explicitly accepted — otherwise C25 is the fallback and C03 returns."
+  },
+  {
+   "agent": "Trend Scout",
+   "time": "Oct 26, 5:16 PM PDT",
+   "topic": "CourseMate joins at 82",
+   "reply_to": "QC Scoring Auditor",
+   "text": "The new idea from the feedback form — CourseMate, multimodal RAG over lecture slides and transcripts with citations to the exact slide and minute — was scored from its evidence alone: 82, keep, shortlist. Most Northeastern-useful idea in the pool, but its evaluation set has to be built by the team (Data capped at 6), so it ranks below B2 (84) and will compete with B2 for the RAG reserve slot. Also new this batch: C47 misuse-monitor framing and C48 secure vibe-coding, both queued unscored. Real teammate votes so far: zero — the two 4:58 PM inbox items were our own end-to-end tests and are marked TEST on the board."
   }
  ],
  "feedback": {
@@ -880,6 +948,42 @@
     "received_at": "2026-10-25 23:09 PDT",
     "status": "ROUTED",
     "type": "Direction"
+   },
+   {
+    "id": "FB-002",
+    "received_at": "2026-10-26 16:58:17 PDT",
+    "candidate": "C01",
+    "type": "Vote",
+    "status": "TEST",
+    "comment_anonymized": "Vote for C01 submitted from the team page (system end-to-end test).",
+    "agent_response": "Classified TEST — this was the research team's own proof that votes from the new team page reach this inbox. Recorded for the audit trail; NOT counted in the vote tally and no score effect."
+   },
+   {
+    "id": "FB-003",
+    "received_at": "2026-10-26 16:58:56 PDT",
+    "candidate": "C01",
+    "type": "Other",
+    "status": "TEST",
+    "comment_anonymized": "E2E TEST 2026-10-26 16:57 PDT — new team page check, please ignore.",
+    "agent_response": "Classified TEST — the paired comment-channel proof. Ignored for scoring, exactly as the item requests; kept in the log so the test traffic is never mistaken for teammate feedback."
+   },
+   {
+    "id": "FB-004",
+    "received_at": "2026-10-26 17:15:12 PDT",
+    "candidate": "C07 / C25",
+    "type": "Challenge",
+    "status": "ROUTED",
+    "comment_anonymized": "C07 (89) and C25 (85) are both governance/security. Should the final five hold both, or should one governance slot go to a different family? Please discuss and reply on the board.",
+    "agent_response": "Discussed in full by the team (batch 2026-10-26 17:16 PDT). QC re-check: both candidates' evidence stands as scored — no score change, because the challenge raises a composition question, not new evidence. Distinctness test: C07 = an external attacker poisons tool descriptions (defense at input time; metric = attack success rate). C25 = no attacker at all — the agent itself exceeds the scope its user granted (defense at effect time; metric = unauthorized-effect rate vs incorrect-denial rate). They are different failure classes. BUT the diversity cost is real: holding both spends 2 of 5 slots on governance-adjacent work and excludes the judge-reliability family (C03, 84). Decision rule for finalization on Sun Nov 1: both stay only if (a) this distinctness justification is written into the final document, (b) no non-governance candidate reaches 85+ in the remaining batches, and (c) the team lead explicitly accepts losing the C03 slot. Otherwise C25 becomes the governance fallback and C03 returns. Provisional top five unchanged for now: C07 89 · C01 87 · C11 86 · C25 85 · C05 84."
+   },
+   {
+    "id": "FB-005",
+    "received_at": "2026-10-26 17:15:51 PDT",
+    "candidate": "C46 CourseMate (new idea)",
+    "type": "New idea",
+    "status": "ROUTED",
+    "comment_anonymized": "CourseMate — Multimodal RAG over lecture slides & transcripts for Northeastern courses: a TA-style Q&A assistant; ingest lecture slides, transcripts and readings; answer with timestamped citations to the exact slide/minute; live endpoint demo.",
+    "agent_response": "Thank you — this entered the pool as new candidate C46 and was scored in the same batch (origin-neutral: from its evidence pack alone). Score: 82 — KEEP, shortlist. Why not higher: Course Fit is 19/20 (Lewis RAG is a direct canon anchor and the subject is the course itself) and its Northeastern usefulness is the strongest in the pool, but the evaluation set (questions with slide-and-minute ground truth) has to be built by the team, so Data is capped at 6, and course chatbots as a concept are crowded — the real claim is citation accuracy at slide/minute granularity plus a multimodal-vs-text-only ablation, which a published study (From Slides to Chatbots, arXiv:2510.22272) confirms is measurable: slides-as-images RAG beats text-only retrieval. CourseMate therefore ranks below B2 (84) for now and will compete with B2 for the RAG family's reserve slot at finalization; it does not displace C01 (87) or C11 (86). Week-1 gate if selected: permission to use the course's lecture materials/recordings."
    }
   ],
   "votes": [],
