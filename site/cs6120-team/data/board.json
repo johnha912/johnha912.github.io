@@ -4,9 +4,9 @@
   "instructor": "Karl Ni",
   "team": "Nguyen Ha · Ngoc Hoang · Peihan Wang",
   "deadline": "Sun Nov 1, 11:59 PM PT",
-  "updated_at": "2026-10-26 18:54 PDT",
-  "experiments": 59,
-  "pool": 57,
+  "updated_at": "2026-10-26 19:54 PDT",
+  "experiments": 62,
+  "pool": 60,
   "top5": [
    "C07",
    "C01",
@@ -428,6 +428,27 @@
    "score": 82,
    "status": "keep",
    "running_best": 89
+  },
+  {
+   "exp": 60,
+   "id": "C50",
+   "score": 84,
+   "status": "keep",
+   "running_best": 89
+  },
+  {
+   "exp": 61,
+   "id": "C51",
+   "score": 82,
+   "status": "keep",
+   "running_best": 89
+  },
+  {
+   "exp": 62,
+   "id": "C52",
+   "score": 80,
+   "status": "keep",
+   "running_best": 89
   }
  ],
  "candidates": [
@@ -559,6 +580,18 @@
    "elite": 7.5,
    "future": 8.5,
    "note": "Full rubric score 2026-10-26 17:49 PDT - ToolMaze verified this batch arXiv 2606.05806 with data and code public at github.com/Zhudongsheng75/ToolMaze so G1 lifted and Data 9 - Perturbation Recovery Rate falls about 37 percent under implicit semantic failures from over-trust - live agent with fault-",
+   "votes": 0,
+   "vote_bonus": 0,
+   "final_score": 84
+  },
+  {
+   "id": "C50",
+   "name": "C50 Reliability-aware tool retrieval",
+   "score": 84,
+   "status": "keep",
+   "elite": 7.5,
+   "future": 8.5,
+   "note": "Full rubric score 2026-10-26 19:49 PDT - RATED verified this batch arXiv 2610.13889 with code and dataset available at github.com/Elliotes/EcoAgent so G1 lifted and Data 9 - 5172 tools and fault selection 86.2 to 2.9 percent under 30 percent outage - live agent with reliability panel where staff inj",
    "votes": 0,
    "vote_bonus": 0,
    "final_score": 84
@@ -720,6 +753,18 @@
    "final_score": 82
   },
   {
+   "id": "C51",
+   "name": "C51 Recognition-action gap in crisis response",
+   "score": 82,
+   "status": "keep",
+   "elite": 8.0,
+   "future": 7.5,
+   "note": "Full rubric score 2026-10-26 19:49 PDT - DistressBench verified this batch arXiv 2610.12758 with corpus rubrics and judge calibration labels released publicly HF ScaleAI/DistressBench so G1 lifted and Data 9 - recognition-action gap 35.3 percent is headline metric - live chat endpoint over simulated",
+   "votes": 0,
+   "vote_bonus": 0,
+   "final_score": 82
+  },
+  {
    "id": "B1",
    "name": "B1 Tiny LM tokenizer EN vs VI",
    "score": 81,
@@ -823,6 +868,18 @@
    "elite": 7.5,
    "future": 8.5,
    "note": "Full rubric score 2026-10-26 02:58 PDT - SkillsBench arXiv 2602.12670 verified 86 tasks and 7308 trajectories curated plus 16.2pp self-generated no benefit - course-scale suite 30-50 tasks with deterministic verifiers does not exist yet so Data capped at 6 - Option B agent loading skills live - keep",
+   "votes": 0,
+   "vote_bonus": 0,
+   "final_score": 80
+  },
+  {
+   "id": "C52",
+   "name": "C52 Situation-rule adherence",
+   "score": 80,
+   "status": "keep",
+   "elite": 7.5,
+   "future": 8.0,
+   "note": "Full rubric score 2026-10-26 19:49 PDT - SIT-Eval verified this batch arXiv 2610.23612 with 8 LLMs over 1292 turns and per-rule spread hidden by aggregates - domain rule set and golden dialogues are a team construction so Data 6 in verified-design pattern - live conversational agent whose interlocut",
    "votes": 0,
    "vote_bonus": 0,
    "final_score": 80
@@ -1080,8 +1137,8 @@
    "final_score": 58
   },
   {
-   "id": "C50",
-   "name": "Pick a Tool That Still Works — Reliability-aware tool retrieval (RATED / EcoAgent-style)",
+   "id": "C53",
+   "name": "When Does an Agent Start Lying? — Condition-dependent deception (DecepEval-style)",
    "score": null,
    "status": "unscored",
    "elite": null,
@@ -1092,8 +1149,8 @@
    "final_score": null
   },
   {
-   "id": "C51",
-   "name": "Recognized, Then Nothing — The recognition–action gap in crisis response (DistressBench-style)",
+   "id": "C54",
+   "name": "Simpler Memory Wins? — Raw-history retrieval vs derived abstractions (Raw-RAG-style)",
    "score": null,
    "status": "unscored",
    "elite": null,
@@ -1104,8 +1161,8 @@
    "final_score": null
   },
   {
-   "id": "C52",
-   "name": "Rare Situations, Reliable Coverage — Situation-rule adherence in a conversational agent (SIT-Eval-style)",
+   "id": "C55",
+   "name": "Claims Without Evidence — An integrity audit for research agents (Into-the-Unknown-style)",
    "score": null,
    "status": "unscored",
    "elite": null,
@@ -1196,6 +1253,12 @@
    "time": "Oct 26, 6:49 PM PDT",
    "topic": "Compaction laundering joins at 82",
    "text": "C49 (provenance loss at context compaction) scored 82 — a forged user turn planted in content the agent reads survives flattening compaction as a genuine instruction 87–100% of the time, and 0% under role-typed compaction; the defect is in harness serializer code, so no prompt defense can fix it. Also scored: C47 misuse-monitor framing 81 (watch the action, not the words — AUC 0.95 vs 0.52), C48 secure vibe-coding 76 discard (thinnest NLP fit in the queue plus the heaviest sandbox discipline; no gate failed). New in the queue: C51 DistressBench-style recognition–action gap (models recognize a crisis, then fail to route to help in 35.3% of cases; data is public) and C52 SIT-Eval-style per-situation rule adherence. Feedback check: inbox unchanged at 5 responses — still zero real team votes, and the tally stays honestly empty. Top five unchanged."
+  },
+  {
+   "agent": "Trend Scout",
+   "time": "Oct 26, 7:49 PM PDT",
+   "topic": "Reliability-aware retrieval joins the 84 tie",
+   "text": "C50 (reliability-aware tool retrieval, RATED/EcoAgent-style) scored 84 — its code and dataset are fully public, so the dataset gate lifted in full: a relevance-only retriever picks a dead tool 86.2% of the time under a 30% outage, the reliability-aware one 2.9%. It joins the 84 tie behind C05, top five unchanged. Also scored: C51 crisis-response recognition–action gap 82 (models recognize a crisis, then fail to route to help in 35.3% of cases; data public, demo run only on published benchmark material), C52 situation-rule adherence 80 (per-rule failures hidden by aggregate scores). New in the queue: C53 condition-dependent agent deception (DecepEval), C54 raw-history retrieval vs derived memory abstractions, C55 an integrity audit that checks a research agent's written claims against its own run logs. Feedback check: inbox unchanged at 5 responses — still zero real team votes, and the tally stays honestly empty."
   },
   {
    "agent": "Trend Scout",
