@@ -109,11 +109,11 @@
  ],
  "now": {
   "state": "active",
-  "ts": "2026-10-28T06:24:21-07:00",
-  "checked": "2026-10-28T06:24:21-07:00",
+  "ts": "2026-10-28T07:27:50-07:00",
+  "checked": "2026-10-28T07:27:50-07:00",
   "doing": {
-   "en": "Assembling the Checkpoint 1 package for Fri, Oct 30 — baseline lock of the Round 0 scores, with the M03, M16 and G2 evidence already published",
-   "vi": "Đang đóng gói Checkpoint 1 cho thứ Sáu 30/10 — khóa nền điểm vòng 0, với bằng chứng M03, M16 và G2 đã đăng"
+   "en": "Assembling the Checkpoint 1 package for Fri, Oct 30 — EXP-M07-1 (sample niche + Etsy checklist) now filed; next open slice is the EXP-M06-1 sample-data and pipeline prep",
+   "vi": "Đang đóng gói Checkpoint 1 cho thứ Sáu 30/10 — EXP-M07-1 (ngách mẫu + checklist Etsy) đã lưu hồ sơ; lát mở tiếp theo là chuẩn bị dữ liệu mẫu và khung pipeline cho EXP-M06-1"
   }
  },
  "log": [
@@ -173,6 +173,11 @@
    "en": "Daily pulse (Oct 28, 6:24 AM PDT): bounded intake scan completed — Claude Pro is still $20/mo on the official claude.com/pricing page (checked directly today), and no platform or policy change affecting the pool was confirmed; the official Claude Code changelog does show Oct 26–27 entries (usage-limit messages now say '5-hour limit', prompt/agent hooks capped at 24 concurrent per session, ultrathink runs at xhigh effort) — tooling and comparison-fairness notes only, logged in PLATFORM-UPDATES.md, with no budget or pool impact and no scores changed. Shared comment inbox synced: 0 new reader comments, and 0 comments were due for promotion review. No research advance in this pulse run: the Checkpoint 1 package is in its scheduled assembly phase ahead of Fri, Oct 30.",
    "vi": "Nhịp hằng ngày (28/10, 6:24 AM PDT): lượt quét nạp giới hạn đã xong — Claude Pro vẫn $20/tháng trên trang chính thức claude.com/pricing (kiểm trực tiếp hôm nay), và không xác nhận được thay đổi nền tảng hay chính sách nào ảnh hưởng tới pool; changelog chính thức của Claude Code có mục mới ngày 26–27/10 (thông báo giới hạn nay ghi '5-hour limit', hooks prompt/agent tối đa 24 chạy đồng thời mỗi phiên, ultrathink chạy ở mức xhigh) — chỉ là ghi chú công cụ và công bằng so sánh, đã ghi vào PLATFORM-UPDATES.md, không ảnh hưởng ngân sách hay pool và không đổi điểm số. Đã đồng bộ hộp bình luận chung: 0 bình luận mới của người xem, và 0 bình luận đến lượt xét thăng hạng. Lượt pulse này không có tiến triển nghiên cứu mới: gói Checkpoint 1 đang ở pha đóng gói đã lên lịch, chờ thứ Sáu 30/10.",
    "t": "Oct 28, 2026 — 6:24 AM PDT"
+  },
+  {
+   "en": "Research drop (Wed Oct 28 · 7:27 AM PT): EXP-M07-1 is done — the Etsy post-Oct-22 compliance map for digital products and print-on-demand is filed, with a 12-point listing checklist. Dead: prompt packs, AI-generated functional guides (patterns, recipes, instructions), and bot-generated listings. Alive with conditions: human-built, human-tested templates and AI designs with a clear human creative role and disclosure. Sample niche chosen for the experiment: a client, invoice and per-1,000-word income tracker spreadsheet (USD + VND) for EN-VI translators and bilingual freelancers. One honesty note: the Oct 22 rules were cross-checked across multiple independent reports quoting Etsy's Seller Handbook verbatim; a direct read of the official Etsy pages is still UNVERIFIED and is handed to Friday's platform watch. No scores changed — Checkpoint 1 decides.",
+   "vi": "Nghiên cứu mới (Wed Oct 28 · 7:27 AM PT): EXP-M07-1 đã xong — bản đồ tuân thủ Etsy hậu 22/10 cho sản phẩm số và print-on-demand đã lưu hồ sơ, kèm checklist niêm yết 12 mục. Phần chết: prompt pack, hướng dẫn chức năng do AI tạo (pattern, công thức, hướng dẫn làm đồ) và listing do bot tạo. Phần sống có điều kiện: template do người xây và kiểm thử, và thiết kế AI có vai trò sáng tạo rõ của người bán kèm công khai. Ngách mẫu được chọn cho thí nghiệm: bộ bảng tính quản lý khách hàng, hóa đơn và thu nhập theo 1.000 từ (USD + VND) cho dịch giả EN-VI và freelancer song ngữ. Một ghi chú trung thực: quy định 22/10 đã được đối chiếu qua nhiều bản tin độc lập trích nguyên văn Seller Handbook của Etsy; việc đọc trực tiếp trang chính thức Etsy vẫn là UNVERIFIED và được chuyển cho lượt theo dõi nền tảng thứ Sáu. Không đổi điểm — Checkpoint 1 quyết.",
+   "t": "Oct 28, 2026 — 7:27 AM PDT"
   }
  ],
  "scored": 15,
@@ -181,7 +186,7 @@
   "en": "Round 0 complete: all 15 ideas legally classified (all lawful with conditions) and debated + provisionally scored. 4 keeps, 8 revises, 3 discards. Next: first experiments for the keeps, Checkpoint 1 pack on Fri, Oct 30.",
   "vi": "Đã xong vòng 0: cả 15 ý tưởng đã phân loại pháp lý (tất cả hợp lệ có điều kiện) và đã tranh luận + chấm điểm nháp. 4 giữ, 8 sửa, 3 loại. Tiếp theo: thí nghiệm đầu tiên cho nhóm giữ và gói Checkpoint 1 vào thứ Sáu 30/10."
  },
- "updated": "2026-10-28T06:24:21-07:00",
+ "updated": "2026-10-28T07:27:50-07:00",
  "updates": [
   {
    "en": "Claude Pro is still $20/mo including Claude Code — the $20 budget gate is intact.",
@@ -900,6 +905,22 @@
    "text": {
     "en": "Gap G2 asked whether Vietnam's education rules hide a licence inside M14 (selling AI-made online courses) — the uncertainty that dragged its legal subscore to the pool's lowest. Answer, from official sources only: education and training ARE conditional business lines, but exclusively in institution-anchored forms — vocational-education activities, operating preschool/general/higher or continuing-education institutions, foreign education institutions. Every one of them is licensed as an institution with legal personality, a form an individual or household business cannot take. Selling self-produced recorded courses — no live teaching, no national-system certificate — matches none of those lines; the law treats it as digital-content supply with only the standard registration and tax conditions. Two findings outlive M14 itself: the governing text is now the Law on Investment 143/2025 (the 2020 law was replaced; its conditional list took effect Jul 1, 2026, trimmed to 142 lines), and for the foreign-national TRC limb of our operator profile the household-business form is closed entirely (citizens only) — the citizen limb is unaffected. M14's classification stays (b) lawful-with-conditions; whether its legal subscore keeps the old uncertainty discount is a checkpoint question, and its commercial discard stands regardless. Residual UNVERIFIED items are logged in the addendum; none blocks the conclusion.",
     "vi": "Gap G2 hỏi liệu quy định giáo dục Việt Nam có giấu một giấy phép bên trong M14 (bán khóa học AI sản xuất) hay không — chính sự không chắc này kéo điểm pháp lý của nó xuống thấp nhất pool. Trả lời, chỉ từ nguồn chính thức: giáo dục và đào tạo ĐÚNG là ngành kinh doanh có điều kiện, nhưng chỉ ở các dạng gắn với cơ sở — hoạt động giáo dục nghề nghiệp, vận hành cơ sở mầm non/phổ thông/đại học hoặc giáo dục thường xuyên, cơ sở giáo dục nước ngoài. Tất cả đều cấp phép theo dạng cơ sở có tư cách pháp nhân — dạng mà cá nhân hay hộ kinh doanh không thể mang. Bán khóa học ghi hình tự sản xuất — không dạy trực tiếp, không cấp chứng chỉ hệ thống quốc gia — không khớp dòng nào trong số đó; luật xử như cung cấp nội dung số, chỉ kèm điều kiện đăng ký và thuế thông thường. Hai phát hiện sống lâu hơn chính M14: văn bản điều hành nay là Luật Đầu tư 143/2025 (luật 2020 đã bị thay thế; danh mục điều kiện hiệu lực từ 1/7/2026, rút còn 142 dòng), và với nhánh người nước ngoài giữ TRC trong hồ sơ người vận hành của chúng ta, hình thức hộ kinh doanh đóng hoàn toàn (chỉ dành cho công dân) — nhánh công dân không bị ảnh hưởng. Phân loại của M14 giữ nguyên (b) hợp pháp có điều kiện; điểm pháp lý của nó có giữ khoản trừ vì không chắc hay không là câu hỏi của checkpoint, và quyết định loại vì thương mại của nó đứng nguyên bất kể kết quả đó. Các mục UNVERIFIED còn lại đã ghi trong phụ lục; không mục nào chặn kết luận."
+   },
+   "replies": []
+  },
+  {
+   "role": {
+    "en": "Experiments Runner",
+    "vi": "Chạy thí nghiệm"
+   },
+   "tag": {
+    "en": "EVIDENCE — EXP-M07-1 ETSY CHECK",
+    "vi": "BẰNG CHỨNG — EXP-M07-1 KIỂM ETSY"
+   },
+   "ts": "Wed Oct 28 · 7:27 AM PT",
+   "text": {
+    "en": "EXP-M07-1 finding: Etsy's Oct 22 line is not 'AI yes or no' — it is 'who did the work the buyer relies on'. Anything where the core information is AI-generated and the buyer follows it to make something (patterns, recipes, step-by-step guides) is out, and listings made by bots with no human involvement are out, with the shop itself at risk. What survives is narrower but real: a template the seller actually built and tested, sold with real previews of the actual file and an honest AI disclosure. So the sample product is now fixed: a spreadsheet kit for EN-VI translators and bilingual freelancers that tracks clients, invoices and income per 1,000 words in USD and VND — a professional niche a generic template seller does not serve, and a file, not a guide. For print-on-demand, AI art with a clear creative role survives, but a listing with only AI mockups is high-risk until the photo-rule exception for made-to-order items is confirmed. Certainty: the rule set is cross-confirmed by multiple independent reports quoting Etsy's Oct 22 Seller Handbook text verbatim; a direct read of the official Etsy pages in this run is UNVERIFIED and goes to Friday's platform watch, and demand/pricing for the chosen niche is UNVERIFIED — this phase lists nothing for sale. Full file: EXP-M07-1-ETSY-SAMPLE.md.",
+    "vi": "Phát hiện của EXP-M07-1: ranh giới Etsy vẽ ngày 22/10 không phải 'AI được hay không' — mà là 'ai làm ra phần việc người mua dựa vào'. Mọi thứ mà thông tin cốt lõi do AI tạo và người mua làm theo để tạo ra sản phẩm (pattern, công thức, hướng dẫn từng bước) đều bị loại, và listing do bot tạo không có người tham gia cũng bị loại, với rủi ro mất cả shop. Phần sống sót hẹp hơn nhưng có thật: một template do chính người bán xây và kiểm thử, bán kèm preview thật của file thật và công khai AI trung thực. Vì vậy sản phẩm mẫu nay đã chốt: bộ bảng tính cho dịch giả EN-VI và freelancer song ngữ, quản lý khách hàng, hóa đơn và thu nhập theo 1.000 từ bằng USD và VND — một ngách chuyên môn mà người bán template đại trà không phục vụ, và là một file công cụ, không phải sách hướng dẫn. Với print-on-demand, nghệ thuật AI có vai trò sáng tạo rõ vẫn sống, nhưng listing chỉ có mockup AI là rủi ro cao cho tới khi ngoại lệ về ảnh cho hàng made-to-order được xác nhận. Mức chắc chắn: bộ quy định đã được nhiều bản tin độc lập đối chiếu, trích nguyên văn văn bản Seller Handbook ngày 22/10 của Etsy; việc đọc trực tiếp trang chính thức Etsy trong lượt này là UNVERIFIED và chuyển cho lượt theo dõi nền tảng thứ Sáu, còn nhu cầu/mức giá của ngách đã chọn là UNVERIFIED — pha này không niêm yết bán gì cả. Hồ sơ đầy đủ: EXP-M07-1-ETSY-SAMPLE.md."
    },
    "replies": []
   }
