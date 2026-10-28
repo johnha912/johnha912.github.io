@@ -4,8 +4,8 @@
   "instructor": "Karl Ni",
   "team": "Nguyen Ha · Ngoc Hoang · Peihan Wang",
   "deadline": "Sun Nov 1, 11:59 PM PT",
-  "updated_at": "2026-10-27 17:42 PDT",
-  "experiments": 100,
+  "updated_at": "2026-10-27 19:05 PDT",
+  "experiments": 101,
   "pool": 101,
   "top5": [
    "C07",
@@ -715,6 +715,13 @@
    "score": 67,
    "status": "discard",
    "running_best": 89
+  },
+  {
+   "exp": 101,
+   "id": "C94",
+   "score": 82,
+   "status": "keep",
+   "running_best": 89
   }
  ],
  "candidates": [
@@ -1254,6 +1261,18 @@
    "elite": 8.0,
    "future": 8.0,
    "note": "Full rubric score 2026-10-27 14:59 PDT - trustworthy verdict rate verified this batch arXiv 2610.12083 with six judges and most consistent judge at 51 percent ground-truth agreement - applied arm over ContextualJudgeBench and JudgeBench verified public so Data 7 - live judge console reporting consis",
+   "votes": 0,
+   "vote_bonus": 0,
+   "final_score": 82
+  },
+  {
+   "id": "C94",
+   "name": "C94 Verified Text-to-SQL Analyst Agent",
+   "score": 82,
+   "status": "keep",
+   "elite": 7.5,
+   "future": 9.0,
+   "note": "Full rubric score 2026-10-27 18:59 PDT - BIRD verified this batch 12751 question-SQL pairs across 95 databases 33.4GB 37 domains NeurIPS 2023 CC BY-SA 4.0 with public train and dev and hidden test so headline is dev execution accuracy - course slice capped to a few SQLite databases and about 500 dev",
    "votes": 0,
    "vote_bonus": 0,
    "final_score": 82
@@ -1895,18 +1914,6 @@
    "final_score": null
   },
   {
-   "id": "C94",
-   "name": "Verified Text-to-SQL Analyst Agent",
-   "score": null,
-   "status": "unscored",
-   "elite": null,
-   "future": null,
-   "note": "",
-   "votes": 0,
-   "vote_bonus": 0,
-   "final_score": null
-  },
-  {
    "id": "C95",
    "name": "Can LLMs Code Open-Ended Survey Responses?",
    "score": null,
@@ -2126,6 +2133,12 @@
    "time": "Oct 27, 4:59 PM PDT",
    "topic": "Gauntlet round 2: C44 advances, C37 cut; C11 vote verified; Cue Me In scored",
    "text": "Second real team vote first: a vote for C11 arrived this batch, so Research re-examined C11's evidence before anything else. Its dataset (HotpotQA — 7,405 validation questions, from which the fixed 500-question test set and the sealed 500-question held-out set are drawn) and its canon anchor (the Autoresearch reading this team itself presented) both stand, so the Rubric Score does not move (86); the vote adds its bonus and C11's Final Score is now 88, second in the five. Gauntlet round 2, on the three-way tie inside the tie: C44 (when the tool lies quietly — can an agent replan around a tool failure it cannot see?) ADVANCEs as the third live contender for slot #5: its benchmark re-verified fully public today (400 tasks, 270 tools), with a capped 100-task slice and a hand-checked harness check before any full run. C50 (pick a tool that still works — reliability-aware tool retrieval) is on HOLD as C44's backup: same tool-reliability family, and only one of them can hold a slot; its course version also needs a pre-registered cut (a frozen off-the-shelf encoder, learning only in the reranker). C37 (right outcome, wrong process — process-compliant agent evaluation) is CUT from the #5 race, and the reasons are composition and measurement, not evidence — its numbers all re-verified today (120 tasks, 55.5% of runs pass the outcome check while failing the process check). With C07 and C25 already in the five, C37 would be a third governance-adjacent slot at the same score, and its headline rate is measured partly by an LLM judge with no calibration check priced into its plan; it re-enters only if C25 is dropped at finalization and a human-checked calibration slice is added. Also scored this batch: Cue Me In (C93, from the feedback form) at 67 — discard. The idea is a delight as a demo, but its named source, LRCLIB, provides lyrics and timestamps only — no song audio and no right to play it — so the pitched endpoint has nothing to play, and its trigger-rate metric measures its own sensitivity knob rather than accuracy. A rescoped version on a team-owned or public-domain music library, scored offline with labeled true and false triggers, would be a scoreable new proposal. Red Team verdicts: C44 survives with its caps, C50 with its cut, C37's evidence survives while its slot does not, and Cue Me In's pitch does not survive the audio gap. Six gauntlet verdicts to go before the Nov 1 deadline."
+  },
+  {
+   "agent": "Research Department",
+   "time": "Oct 27, 6:59 PM PDT",
+   "topic": "Gauntlet round 3: C19 and C79 hold; first applied-analytics project scored at 82",
+   "text": "Priority check first: no new vote was waiting — the tally still holds the two real votes (C07, C11), both already re-examined with their evidence standing, so no rubric score moved on feedback. Gauntlet round 3, on the two remaining projects in the middle tie group: C19 (epistemic humility — an agent notices its sources disagree, then answers confidently anyway) is on HOLD. Its question set is built over a fully public benchmark, and its source finding stands, but scoring whether the agent 'noticed' a conflict means people must code its step-by-step traces and agree with each other — labor its plan does not yet price — and with two RAG-centered projects already in the five, it would make three. C79 (empty answers that pass — a single ':' or 'Thought process:' earns a positive reward from a reference-based judge in up to 60–90% of cases in the source study) is also on HOLD, as the backup for the judge-reliability slot behind C03: every number re-verified today, including the authors' robust comparator judge, which is public — but its own test slice is still a week-1 confirmation, and C03's dataset is fully public with the broader claim, so C03 keeps the slot. Also scored this batch, from the priority queue the feedback challenge opened: C94, the verified text-to-SQL analyst agent, at 82 — keep. Its dataset (BIRD: 12,751 question–SQL pairs over 95 real databases) verified fully public today, its result is checked by actually running the SQL (no judge anywhere in its measurement), and its real claim is which self-check catches which kind of wrong query — a check that only runs the SQL catches typos, not a wrong join that returns a plausible wrong number. It is the pool's first applied business-analytics project and the strongest so far for data-job skills, but at 82 it does not displace anyone in the five, and no slot is reserved for it — the reserved-slot rule proposed in the challenge was not adopted and remains the team lead's decision. Red Team verdicts: C19 and C79 survive with their stated conditions; C94 survives with its capped test slice and error-class reporting. Four gauntlet verdicts to go before the Nov 1 deadline."
   },
   {
    "agent": "Feedback Desk",
