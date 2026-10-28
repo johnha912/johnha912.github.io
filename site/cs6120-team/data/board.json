@@ -4,8 +4,8 @@
   "instructor": "Karl Ni",
   "team": "Nguyen Ha · Ngoc Hoang · Peihan Wang",
   "deadline": "Sun Nov 1, 11:59 PM PT",
-  "updated_at": "2026-10-27 22:31 PDT",
-  "experiments": 103,
+  "updated_at": "2026-10-27 23:05 PDT",
+  "experiments": 106,
   "pool": 101,
   "top5": [
    "C07",
@@ -736,6 +736,27 @@
    "score": 83,
    "status": "keep",
    "running_best": 89
+  },
+  {
+   "exp": 104,
+   "id": "C90",
+   "score": 82,
+   "status": "keep",
+   "running_best": 89
+  },
+  {
+   "exp": 105,
+   "id": "C91",
+   "score": 82,
+   "status": "keep",
+   "running_best": 89
+  },
+  {
+   "exp": 106,
+   "id": "C92",
+   "score": 80,
+   "status": "keep",
+   "running_best": 89
   }
  ],
  "candidates": [
@@ -1292,6 +1313,30 @@
    "final_score": 82
   },
   {
+   "id": "C90",
+   "name": "C90 Typed decision models as judges",
+   "score": 82,
+   "status": "keep",
+   "elite": 7.5,
+   "future": 8.0,
+   "note": "Full rubric score 2026-10-27 22:59 PDT - CALM verified this batch arXiv 2610.18122 with eight TDMs biased on 3-8 of 12 tests and emotional tone dropping a typical TDM 99 to 42 percent and code plus data linked from the record so G1 lifted for the battery arm and Data 8 - confidence distribution of f",
+   "votes": 0,
+   "vote_bonus": 0,
+   "final_score": 82
+  },
+  {
+   "id": "C91",
+   "name": "C91 Rubric artifacts",
+   "score": 82,
+   "status": "keep",
+   "elite": 8.0,
+   "future": 8.0,
+   "note": "Full rubric score 2026-10-27 22:59 PDT - rubric artifacts verified this batch arXiv 2609.02942 with rubric-only label predictability above chance and criterion reversal flipping only 16.8 to 32.2 percent - HealthBench verified public this batch OpenAI open-source 5000 conversations and 48562 physici",
+   "votes": 0,
+   "vote_bonus": 0,
+   "final_score": 82
+  },
+  {
    "id": "C94",
    "name": "C94 Verified Text-to-SQL Analyst Agent",
    "score": 82,
@@ -1575,6 +1620,18 @@
    "elite": 8.0,
    "future": 8.5,
    "note": "Full rubric score 2026-10-27 12:59 PDT - identifiability verified this batch arXiv 2607.02104 with profile flat to 0.0000 nats across 48 judge-pools and anchor gate no false enables in 6000 decisions - substrate generated over verified ContextualJudgeBench and JudgeBench so Data 7 - live ranking con",
+   "votes": 0,
+   "vote_bonus": 0,
+   "final_score": 80
+  },
+  {
+   "id": "C92",
+   "name": "C92 Classical test theory statistics for LLM judges",
+   "score": 80,
+   "status": "keep",
+   "elite": 8.0,
+   "future": 8.5,
+   "note": "Full rubric score 2026-10-27 22:59 PDT - CTT misleading verified this batch arXiv 2609.29709 v2 with KR-20 ranging 0.01 to 0.68 at a fixed 4.72 percent judge error as the bank is redesigned - graded bank is a documented construction in the source published design so Data 6 in verified-design pattern",
    "votes": 0,
    "vote_bonus": 0,
    "final_score": 80
@@ -1914,42 +1971,6 @@
    "votes": 0,
    "vote_bonus": 0,
    "final_score": 58
-  },
-  {
-   "id": "C90",
-   "name": "Cheap, Consistent, Calibrated, Still Biased — Typed decision models as judges (CALM-style)",
-   "score": null,
-   "status": "unscored",
-   "elite": null,
-   "future": null,
-   "note": "",
-   "votes": 0,
-   "vote_bonus": 0,
-   "final_score": null
-  },
-  {
-   "id": "C91",
-   "name": "The Rubric Decides Without Reading — Rubric artifacts and criterion-reversal insensitivity",
-   "score": null,
-   "status": "unscored",
-   "elite": null,
-   "future": null,
-   "note": "",
-   "votes": 0,
-   "vote_bonus": 0,
-   "final_score": null
-  },
-  {
-   "id": "C92",
-   "name": "A Reliability Number That Cannot Name Its Judge — Classical test theory statistics for LLM judges",
-   "score": null,
-   "status": "unscored",
-   "elite": null,
-   "future": null,
-   "note": "",
-   "votes": 0,
-   "vote_bonus": 0,
-   "final_score": null
   }
  ],
  "discussion": [
@@ -2165,6 +2186,12 @@
    "time": "Oct 27, 10:24 PM PDT",
    "topic": "Gauntlet complete (12 of 12): B2 cut, #5 and #6 named; Silicon Samples scored at 83",
    "text": "Priority check first: no new vote was waiting — the tally still holds the two real votes (C07, C11), both already re-examined, so no rubric score moved on feedback. The tie-break gauntlet is now complete. Its last verdict is on the course-documents RAG project (B2, 84): CUT from the race for slot #5, on measurement and composition rather than feasibility — it is the easiest build in the cluster and the exact shape of the precedent's RAG option, but its test set is about 40 questions its own builders wrote over a document set they chose, and a small document set makes every retrieval setup look good, so the comparison it exists to make may carry no signal; with two RAG-centered projects already in the five on public benchmarks, it would also be a third RAG slot and the weakest of the three. It stays the pool's safest delivery hedge, and it re-enters only if a RAG slot opens and an adversarial question set — questions the documents do not answer, cross-document questions, out-of-date traps, written by someone who did not build the retriever — is added. The gauntlet's closing ranking names #5 = C05 (budget forcing) and #6 = C03 (judge reliability, the insurance pick), with C44 third. Also scored this batch, completing the priority queue from the applied-analytics challenge: C96 Silicon Samples at 83 — keep, and now the applied family's best score. Its dataset verified public today (1,498 Pew survey questions with real US opinion distributions for 60 demographic groups), and its design had to survive three published traps: a per-group 'alignment' score can just be measuring how spread out that group's answers are (so every figure ships beside a spread-matched uniform baseline, with question order randomized); pooled averages can look right while per-group answers fail — Pew's own 2026 test of AI stand-ins, built with far richer profiles than this project can use, still missed real results by about 12 points on average — so per-group numbers are the headline, never the pooled one; and how you ask changes the answer — sampling one persona at a time tripled the error in a 2026 study versus asking for the distribution directly — so the project compares three ways of asking instead of picking one silently. At 83 it does not displace anyone in the five under the current rules, and no slot is reserved for it: the reserved-slot proposal from the challenge is still the team lead's decision, now with all three applied projects scored (C96 83, C94 82, C95 77). Red Team verdicts: B2's evidence survives while its slot does not; the Silicon Samples design survives only with its three stated controls, which are part of the scored design."
+  },
+  {
+   "agent": "Research Department",
+   "time": "Oct 27, 10:59 PM PDT",
+   "topic": "All verification complete: top four re-checked; last three projects scored; queue empty",
+   "text": "Priority check first: no new vote was waiting — the tally still holds the two real votes (C07, C11), both already re-examined, so no rubric score moved on feedback. The last two top-four verifications are done, so every check owed before the Nov 1 finalization is now on record (the twelve-project tie-break gauntlet finished earlier tonight). C01 (agentic RAG that corrects its own retrieval) was re-verified: its benchmark is fully public (90,447 training and 7,405 validation questions), its endpoint shape stands, and its score does not move (87) — the condition that carries it is that its three variants are compared at matched budgets, which is what separates the claim from engineering glue. C25 (authorization alignment — does an agent stay inside the scope its user granted?) was also re-verified at the benchmark's revised version: 286 tasks, 6,864 recorded runs, agents acting outside their authorization in 19.2% of runs, with data and code available — score unchanged (85). One open question is restated, not decided, for finalization: holding both C07 and C25 spends two of five slots on governance-adjacent work, and the recorded rule says both stay only if that distinctness case is written into the final document and the lost judge-reliability slot (C03) is explicitly accepted — otherwise C25 is the fallback and C03 returns. Also scored this batch, clearing the last of the queue: C90 (cheap typed decision models as judges) at 82 — they cost 37 times less than LLM judges, yet every one tested is biased on several of twelve bias tests, and an emotional rewrite of the better answer drops a typical one from 99% to 42%; the project tests whether the flips concentrate where the model's own confidence is low, so a confidence gate could catch them. C91 (the rubric decides without reading) at 82 — rubric text alone predicts a judge's labels with the answer withheld, and reversing the criterion flips the verdict only 17–32% of the time when it should always flip; its benchmark (HealthBench: 5,000 conversations, 48,562 physician-written criteria) verified public today. C92 (a reliability number that cannot name its judge) at 80, keep at threshold — at a fixed error rate, redesigning the question bank alone moves the standard reliability coefficient from 0.01 to 0.68, so the number describes the bank as much as the judge; the project reproduces that sweep and tests the reporting rules that keep the number honest. All three are backups behind C03 for the judge-reliability slot, not additional slots, and the top five is unchanged. The fresh-news scan considered one new paper (an agent that writes down its claims and confidence before hearing criticism reverses correct work far less often) and added nothing: that ground is already held by the pool's sycophancy and conflict projects, and its evidence does not clear the bar for displacing anyone. The pool now stands at 101 projects, 106 scored experiments, and an empty queue."
   },
   {
    "agent": "Feedback Desk",
