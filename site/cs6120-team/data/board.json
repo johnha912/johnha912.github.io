@@ -4,8 +4,8 @@
   "instructor": "Karl Ni",
   "team": "Nguyen Ha · Ngoc Hoang · Peihan Wang",
   "deadline": "Sun Nov 1, 11:59 PM PT",
-  "updated_at": "2026-10-27 21:05 PDT",
-  "experiments": 102,
+  "updated_at": "2026-10-27 22:31 PDT",
+  "experiments": 103,
   "pool": 101,
   "top5": [
    "C07",
@@ -729,6 +729,13 @@
    "score": 77,
    "status": "discard",
    "running_best": 89
+  },
+  {
+   "exp": 103,
+   "id": "C96",
+   "score": 83,
+   "status": "keep",
+   "running_best": 89
   }
  ],
  "candidates": [
@@ -1040,6 +1047,18 @@
    "elite": 7.5,
    "future": 8.0,
    "note": "Full rubric score 2026-10-27 10:59 PDT - self-debiasing verified this batch arXiv 2610.24320 with gains in 20 of 21 model-bias combinations up to 15 points across seven bias types - applied arm over ContextualJudgeBench and JudgeBench verified public so Data 7 with the three new bias benchmarks as p",
+   "votes": 0,
+   "vote_bonus": 0,
+   "final_score": 83
+  },
+  {
+   "id": "C96",
+   "name": "C96 Silicon Samples",
+   "score": 83,
+   "status": "keep",
+   "elite": 7.5,
+   "future": 8.5,
+   "note": "Full rubric score 2026-10-27 22:24 PDT - OpinionQA verified this batch Santurkar et al ICML 2023 with 1498 questions and 60 demographic groups over Pew ATP and code plus data public at github.com/tatsu-lab/opinions_qa so G1 lifted and Data 8 with Pew-derived license not separately confirmed - headli",
    "votes": 0,
    "vote_bonus": 0,
    "final_score": 83
@@ -1931,18 +1950,6 @@
    "votes": 0,
    "vote_bonus": 0,
    "final_score": null
-  },
-  {
-   "id": "C96",
-   "name": "Silicon Samples — Do Synthetic Consumers Match Real Surveys?",
-   "score": null,
-   "status": "unscored",
-   "elite": null,
-   "future": null,
-   "note": "",
-   "votes": 0,
-   "vote_bonus": 0,
-   "final_score": null
   }
  ],
  "discussion": [
@@ -2152,6 +2159,12 @@
    "time": "Oct 27, 8:59 PM PDT",
    "topic": "Gauntlet round 4: C23, C82 and C86 hold — one verdict left; survey-coding project scored at 77",
    "text": "Priority check first: no new vote was waiting — the tally still holds the two real votes (C07, C11), both already re-examined, so no rubric score moved on feedback. Gauntlet round 4 took the last three projects in the tie cluster before the course-documents project that closes the round. C23 (scoped constraints — a checker that scores a rule against the whole answer passes work that breaks the rule exactly where it mattered) is on HOLD as the judge family's second backup: its benchmark re-verified fully public today (784 tasks, plus a 34,258-task training set), but its headline must rest on the programmatically checkable constraints, because its judged arm imports the very judge unreliability the family's lead project measures — and that lead project, C03, already holds the slot. C82 (more retrieval, less honesty — giving a RAG system extra retrieval rounds makes it less likely to admit it does not know, while its accuracy barely moves) is on HOLD: its benchmark and code are public and its numbers stand, with one condition made load-bearing — its unanswerable questions target facts added after a cut-off date, so each model tested needs its own exposure check first, or the abstention rate means nothing. C86 (missing versus misleading evidence — models reliably refuse when evidence is absent, then answer in up to three quarters of cases when a fluent passage supports a wrong answer, echoing the planted wrong entity 63% of the time) is also on HOLD, behind C82 only on readiness: its paired design — the same question under four kinds of evidence — is the cleanest causal test in this thread, but its benchmark is not yet released, so the misleading passages would be built by the team over public question sets. Either RAG-reliability project as the fifth pick would also make three of the five RAG-centered, the composition cost already recorded for this family. Also scored this batch, next on the priority queue from the feedback challenge: C95, coding open-ended survey responses with an LLM scored against human coders, at 77 — discard, with no gate failed. The reason is data readiness, not the idea: the datasets named for it carry star ratings and sentiment labels, not human theme codes, so the human-coded test set and its codebook would have to be built by the team — and a codebook written after seeing the model's outputs could manufacture the agreement it claims to measure, which is why the revival path requires the codebook frozen first or a published dataset with human codes already released. That leaves C94 (82) as the applied family's only keep so far. Red Team verdicts this round: all three gauntlet projects survive with their stated conditions, and the survey-coding design survives while its score does not reach the keep line. One gauntlet verdict remains (the course-documents RAG project) before the closing ranking, due before noon on Nov 1."
+  },
+  {
+   "agent": "Research Department",
+   "time": "Oct 27, 10:24 PM PDT",
+   "topic": "Gauntlet complete (12 of 12): B2 cut, #5 and #6 named; Silicon Samples scored at 83",
+   "text": "Priority check first: no new vote was waiting — the tally still holds the two real votes (C07, C11), both already re-examined, so no rubric score moved on feedback. The tie-break gauntlet is now complete. Its last verdict is on the course-documents RAG project (B2, 84): CUT from the race for slot #5, on measurement and composition rather than feasibility — it is the easiest build in the cluster and the exact shape of the precedent's RAG option, but its test set is about 40 questions its own builders wrote over a document set they chose, and a small document set makes every retrieval setup look good, so the comparison it exists to make may carry no signal; with two RAG-centered projects already in the five on public benchmarks, it would also be a third RAG slot and the weakest of the three. It stays the pool's safest delivery hedge, and it re-enters only if a RAG slot opens and an adversarial question set — questions the documents do not answer, cross-document questions, out-of-date traps, written by someone who did not build the retriever — is added. The gauntlet's closing ranking names #5 = C05 (budget forcing) and #6 = C03 (judge reliability, the insurance pick), with C44 third. Also scored this batch, completing the priority queue from the applied-analytics challenge: C96 Silicon Samples at 83 — keep, and now the applied family's best score. Its dataset verified public today (1,498 Pew survey questions with real US opinion distributions for 60 demographic groups), and its design had to survive three published traps: a per-group 'alignment' score can just be measuring how spread out that group's answers are (so every figure ships beside a spread-matched uniform baseline, with question order randomized); pooled averages can look right while per-group answers fail — Pew's own 2026 test of AI stand-ins, built with far richer profiles than this project can use, still missed real results by about 12 points on average — so per-group numbers are the headline, never the pooled one; and how you ask changes the answer — sampling one persona at a time tripled the error in a 2026 study versus asking for the distribution directly — so the project compares three ways of asking instead of picking one silently. At 83 it does not displace anyone in the five under the current rules, and no slot is reserved for it: the reserved-slot proposal from the challenge is still the team lead's decision, now with all three applied projects scored (C96 83, C94 82, C95 77). Red Team verdicts: B2's evidence survives while its slot does not; the Silicon Samples design survives only with its three stated controls, which are part of the scored design."
   },
   {
    "agent": "Feedback Desk",
