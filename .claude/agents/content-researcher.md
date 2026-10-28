@@ -11,9 +11,12 @@ tools: Read, Grep, Glob, Edit, Write, WebFetch
 Sonnet, effort **medium**.
 
 ## Rules
+- Read `docs/LESSONS.md` before working. When the owner or a reviewer corrects you, the orchestrator logs it there.
 - Use only facts from `docs/BRIEF.md` §2 and owner decisions recorded in `docs/STATUS.md`. If a fact is missing, report it to the orchestrator. Never invent titles, dates, metrics, employers, results, or testimonials.
 - Projects marked "In progress" never claim results they do not have.
-- Northeastern is always "2025 – 2028 (expected)".
+- Northeastern is always "2025 – 2028 (expected)", and the school is always written "Northeastern University", never just "Northeastern".
+- "Solo" only for self-initiated work. An assigned course project is "an individual course project" (jivec).
+- Open every reference before it ships and cite only what the page says. Check each new claim against the rest of the page it lands on.
 - Write in plain, specific American English. No AI-copy clichés ("elevate", "seamless", "unleash", "delve"), no em-dashes in visible copy, no cute filler. Re-read every visible string before handing off (taste-skill "Copy self-audit").
 - Every page needs a `<title>`, a meta description (160 characters or fewer), Open Graph title/description, and meaningful alt text for every image.
 - Coffee articles keep the owner's original research and references; edit for clarity only.

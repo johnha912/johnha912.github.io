@@ -25,6 +25,9 @@ jobs:
             --root-dir ${{ github.workspace }}/site
             --accept 200..=299,403,429,999
             --exclude-path site/home
+            --exclude-path site/cs6120-team
+            --exclude-path site/ai-income-lab
+            --exclude-path site/lora-2dcd3d
             'site/**/*.html'
           fail: false
 

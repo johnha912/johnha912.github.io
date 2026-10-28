@@ -4,9 +4,11 @@ _Last updated: 2026-10-27_
 
 ## Where the build stands
 
+**Mode since 2026-10-27: live site, maintenance.** Owner requests are triaged S / M / L and staffed per `.claude/agents/orchestrator.md`; mistakes are logged in `docs/LESSONS.md`.
+
 | Phase | State | Notes |
 |---|---|---|
-| 0. Toolchain + assets | ⚠️ Partial | Node.js 24 present. Playwright CLI, Ponytail, and Graphify are **not installed** yet (see Toolchain below). Verification so far used `playwright-core` driving the installed Chrome. |
+| 0. Toolchain + assets | ✅ Done 2026-10-27 | Node.js 24, Playwright CLI, Ponytail, and Graphify are installed (see Toolchain below). |
 | 1. Content | ✅ Drafted | All pages written from BRIEF facts and the old site's own copy. Awaiting GATE 1 review. |
 | GATE 1 | ⏳ Owner | Review the copy on every page. |
 | 2. Design | ✅ Drafted | `docs/DESIGN.md`. Awaiting GATE 2 review. |
@@ -14,7 +16,7 @@ _Last updated: 2026-10-27_
 | 3. Build | ✅ Done | Ten pages in `site/` plus a `/home/` redirect for the old Google Sites URL. |
 | 4. QC + test | ✅ First pass | 11 pages × 360/390/1440 × dark/light: no horizontal scroll, no console errors, no broken internal links, all images have alt text, touch targets ≥ 44px. Home page ≈ 220 KB worst case (budget 1.5 MB). Lighthouse and HTML validation still to run with the full toolchain. |
 | 5. Deploy | ✅ Pushed 2026-10-07 | `.github/workflows/deploy.yml`, `.github/workflows/link-check.yml`, `site/CNAME`. Pages source set to **GitHub Actions** by the owner on 2026-10-07. |
-| GATE 3 | ✅ Live 2026-10-07 | https://johnha912.github.io serves `site/` via GitHub Actions (Pages source = GitHub Actions). All pages 200, docs/agents not published, live QA clean. Next: owner switches `johnha.info` DNS per `docs/DOMAIN-MIGRATION.md`. |
+| GATE 3 | ✅ Live 2026-10-07 | https://johnha912.github.io serves `site/` via GitHub Actions (Pages source = GitHub Actions). All pages 200, docs/agents not published, live QA clean. The owner switched DNS: https://johnha.info serves the site over HTTPS and johnha912.github.io redirects to it (verified 2026-10-27). |
 
 ## Owner decisions (dated)
 
@@ -57,6 +59,7 @@ _Last updated: 2026-10-27_
 - **2026-10-27:** The Tech page drops the "Toolbox" skills section entirely (its unused CSS removed too).
 - **2026-10-27:** About right column renamed "Credentials": Credly and Kaggle sit side by side under "Badge & Profile", above the "Certificate" cards (IBM, then CS50).
 - **2026-10-27:** About adds the Kaggle profile (kaggle.com/johnha9) as a "Profile" link card under Badge in the right column; Kaggle also joins the homepage `sameAs` structured data.
+- **2026-10-27:** Team process upgraded for maintenance: size-based triage (S done in the main session, M with one reviewer that also runs browser checks, L with the full pipeline), `docs/LESSONS.md` learning loop with promotion into agent files, STATUS/BRIEF kept in sync in the same commit, and a defined health check in `docs/MAINTENANCE.md`.
 
 ## Orchestrator decisions
 
@@ -76,15 +79,16 @@ _Last updated: 2026-10-27_
 5. ~~Other public repos~~ Resolved 2026-10-07: JOIN Order Optimization and jivec added under "Earlier work" (theta-coffee-lab and ptms not added).
 6. **Homepage availability pill:** BRIEF allows only the subtitle as a homepage addition. The "Open to Summer 2027 internships" pill appears on About, Tech, and Contact only. Approve it on Home too?
 7. **Your own photos:** coffee articles now use licensed Commons photos; your own shots could replace them and could power an internal Photography gallery.
+8. **Guest folders:** `/cs6120-team/` and `/ai-income-lab/` are public under johnha.info without `noindex`, so search engines can list them next to the portfolio (`/lora-2dcd3d/` already has it). Add `noindex` to both?
 
 ## Toolchain
 
 | Tool | State | Action |
 |---|---|---|
 | Node.js 18+ | ✅ v24.14.1 | none |
-| Playwright CLI | ❌ not installed | `npm install -g @playwright/cli@latest` then `playwright-cli install --skills` |
-| Ponytail | ❌ not installed | inside Claude Code: `/plugin marketplace add DietrichGebert/ponytail`, `/plugin install ponytail@ponytail` |
-| Graphify | ❌ not installed | see `docs/TOOLS.md` §4 |
+| Playwright CLI | ✅ installed (global npm) | none |
+| Ponytail | ✅ installed (user-scope plugin, full mode) | none |
+| Graphify | ✅ installed (CLI) | none |
 | frontend-design (Anthropic) | ❌ not installed | inside Claude Code: `/plugin install frontend-design@claude-plugins-official` |
 | Project skills | ✅ taste-skill, redesign-skill, ui-ux-pro-max | logged in `docs/TOOLS.md` |
 | `.claude/agents/devops.md` | ✅ created | owner approved 2026-10-07 |

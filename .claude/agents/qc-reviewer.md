@@ -16,5 +16,9 @@ Sonnet, effort **medium**.
 3. Facts match `docs/BRIEF.md` §2 exactly: Northeastern "2025 – 2028 (expected)", projects "In progress", OmniRAG only under "Earlier work".
 4. The `taste-skill` §14 pre-flight items that apply to a vanilla static site: em-dash ban, CTA contrast, one accent, one radius system, motivated motion, copy self-audit.
 5. The `ui-ux-pro-max` priority table, accessibility and touch first.
+6. Specs in sync: the change has a dated line in `docs/STATUS.md`; if it changes what BRIEF specifies, BRIEF is edited in the same commit; no agent file or doc still describes the old behavior.
+7. Every rule in `docs/LESSONS.md` that applies to the change.
+
+For an M-size change you also run the tester's browser checks on the touched pages (see `tester.md` Scope), so one review covers both. Guest folders are out of scope.
 
 Output either APPROVED or a numbered fix list with file:line, the problem, and the exact expected result. Use tester screenshots as evidence.

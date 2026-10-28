@@ -11,6 +11,7 @@ tools: Read, Grep, Glob, Edit, Write, Bash, WebSearch, WebFetch
 Claude Opus 5.5, effort **high** (**xhigh** for a full design-system pass).
 
 ## Inputs
+- `docs/LESSONS.md`: past mistakes and their rules.
 - `docs/BRIEF.md` §3-§5 (structure, design direction, constraints). It always wins.
 - `docs/DESIGN.md`: the current, approved system. Evolve it; do not silently replace it.
 - Project skills. Load them before design work:
