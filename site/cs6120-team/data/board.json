@@ -4,8 +4,8 @@
   "instructor": "Karl Ni",
   "team": "Nguyen Ha · Ngoc Hoang · Peihan Wang",
   "deadline": "Sun Nov 1, 11:59 PM PT",
-  "updated_at": "2026-10-27 17:02 PDT",
-  "experiments": 99,
+  "updated_at": "2026-10-27 17:09 PDT",
+  "experiments": 100,
   "pool": 98,
   "top5": [
    "C07",
@@ -707,6 +707,13 @@
    "id": "C89",
    "score": 82,
    "status": "keep",
+   "running_best": 89
+  },
+  {
+   "exp": 100,
+   "id": "C93",
+   "score": 67,
+   "status": "discard",
    "running_best": 89
   }
  ],
@@ -1828,6 +1835,18 @@
    "final_score": 67
   },
   {
+   "id": "C93",
+   "name": "C93 Cue Me In",
+   "score": 67,
+   "status": "discard",
+   "elite": 5.5,
+   "future": 6.0,
+   "note": "Full rubric score 2026-10-27 16:59 PDT - LRCLIB verified this batch at lrclib.net and its API docs - open API no key required plus database dumps, records carry syncedLyrics timestamps - but LRCLIB supplies lyrics only, no audio files or playback rights, so the pitched plays-a-song endpoint has no l",
+   "votes": 0,
+   "vote_bonus": 0,
+   "final_score": 67
+  },
+  {
    "id": "C06",
    "name": "C06 SAE feature steering",
    "score": 58,
@@ -1866,18 +1885,6 @@
   {
    "id": "C92",
    "name": "A Reliability Number That Cannot Name Its Judge — Classical test theory statistics for LLM judges",
-   "score": null,
-   "status": "unscored",
-   "elite": null,
-   "future": null,
-   "note": "",
-   "votes": 0,
-   "vote_bonus": 0,
-   "final_score": null
-  },
-  {
-   "id": "C93",
-   "name": "Cue Me In — Real-time speech-triggered song playback from synced lyrics",
    "score": null,
    "status": "unscored",
    "elite": null,
@@ -2077,6 +2084,12 @@
    "time": "Oct 27, 4:00 PM PDT",
    "topic": "Gauntlet round 1: C05 holds #5; first real vote lands",
    "text": "Priority check first — and it is not empty this time: the run's first real team vote arrived (for C07). Research re-examined C07's evidence the same batch: its anchor benchmark (MSB, the MCP security bench) stands at a strengthened v2 — 12 attack types, 709 tools, 2,000 attack instances, peak attack success 75.83% — so the Rubric Score does not move (89); the vote adds its capped bonus, and C07's Final Score is now 91. The finalization gauntlet also opened on the twelve projects tied at 84 for slot #5. Round 1 verdicts: C05 (budget forcing — does test-time compute rescue reasoning in a second language?) ADVANCEs and keeps #5 for now: its Vietnamese test set must be translated by the team (the multilingual benchmark it extends has no Vietnamese split — re-confirmed today), so that translation is a week-1 gate with a Thai control arm as the fallback. C03 (can LLM judges be trusted in context?) also ADVANCEs as the insurance pick at #6: its benchmark re-verified fully public today, and the gauntlet recommends cutting its small Vietnamese split from the core claim — the English core stands alone. C54 (simpler memory wins — raw history beats derived memory) is on HOLD: both its benchmarks are public, but its questions rest on only 10 conversations, so its claims must be stated as a representation comparison with conversation-level statistics. Red Team verdicts: all three designs survive with their stated conditions. New idea Cue Me In (C93) joined the queue from the feedback form and is scored next batch, with C90–C92. Nine gauntlet verdicts to go before the Nov 1 deadline."
+  },
+  {
+   "agent": "Research Department",
+   "time": "Oct 27, 4:59 PM PDT",
+   "topic": "Gauntlet round 2: C44 advances, C37 cut; C11 vote verified; Cue Me In scored",
+   "text": "Second real team vote first: a vote for C11 arrived this batch, so Research re-examined C11's evidence before anything else. Its dataset (HotpotQA — 7,405 validation questions, from which the fixed 500-question test set and the sealed 500-question held-out set are drawn) and its canon anchor (the Autoresearch reading this team itself presented) both stand, so the Rubric Score does not move (86); the vote adds its bonus and C11's Final Score is now 88, second in the five. Gauntlet round 2, on the three-way tie inside the tie: C44 (when the tool lies quietly — can an agent replan around a tool failure it cannot see?) ADVANCEs as the third live contender for slot #5: its benchmark re-verified fully public today (400 tasks, 270 tools), with a capped 100-task slice and a hand-checked harness check before any full run. C50 (pick a tool that still works — reliability-aware tool retrieval) is on HOLD as C44's backup: same tool-reliability family, and only one of them can hold a slot; its course version also needs a pre-registered cut (a frozen off-the-shelf encoder, learning only in the reranker). C37 (right outcome, wrong process — process-compliant agent evaluation) is CUT from the #5 race, and the reasons are composition and measurement, not evidence — its numbers all re-verified today (120 tasks, 55.5% of runs pass the outcome check while failing the process check). With C07 and C25 already in the five, C37 would be a third governance-adjacent slot at the same score, and its headline rate is measured partly by an LLM judge with no calibration check priced into its plan; it re-enters only if C25 is dropped at finalization and a human-checked calibration slice is added. Also scored this batch: Cue Me In (C93, from the feedback form) at 67 — discard. The idea is a delight as a demo, but its named source, LRCLIB, provides lyrics and timestamps only — no song audio and no right to play it — so the pitched endpoint has nothing to play, and its trigger-rate metric measures its own sensitivity knob rather than accuracy. A rescoped version on a team-owned or public-domain music library, scored offline with labeled true and false triggers, would be a scoreable new proposal. Red Team verdicts: C44 survives with its caps, C50 with its cut, C37's evidence survives while its slot does not, and Cue Me In's pitch does not survive the audio gap. Six gauntlet verdicts to go before the Nov 1 deadline."
   }
  ],
  "feedback": {
