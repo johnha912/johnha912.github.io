@@ -4,8 +4,8 @@
   "instructor": "Karl Ni",
   "team": "Nguyen Ha · Ngoc Hoang · Peihan Wang",
   "deadline": "Sun Nov 1, 11:59 PM PT",
-  "updated_at": "2026-10-27 19:05 PDT",
-  "experiments": 101,
+  "updated_at": "2026-10-27 21:05 PDT",
+  "experiments": 102,
   "pool": 101,
   "top5": [
    "C07",
@@ -721,6 +721,13 @@
    "id": "C94",
    "score": 82,
    "status": "keep",
+   "running_best": 89
+  },
+  {
+   "exp": 102,
+   "id": "C95",
+   "score": 77,
+   "status": "discard",
    "running_best": 89
   }
  ],
@@ -1674,6 +1681,18 @@
    "final_score": 77
   },
   {
+   "id": "C95",
+   "name": "C95 Survey-response coding",
+   "score": 77,
+   "status": "discard",
+   "elite": 7.0,
+   "future": 8.5,
+   "note": "Full rubric score 2026-10-27 20:59 PDT - no verified human theme-coded survey set in hand so Data capped at 6 as a team construction over Amazon Reviews or ABSA labels which are not theme codes - headline is Krippendorff alpha vs human coders with human-human alpha as ceiling and codebook frozen bef",
+   "votes": 0,
+   "vote_bonus": 0,
+   "final_score": 77
+  },
+  {
    "id": "C08",
    "name": "C08 VI-EN code-switching benchmark",
    "score": 76,
@@ -1914,18 +1933,6 @@
    "final_score": null
   },
   {
-   "id": "C95",
-   "name": "Can LLMs Code Open-Ended Survey Responses?",
-   "score": null,
-   "status": "unscored",
-   "elite": null,
-   "future": null,
-   "note": "",
-   "votes": 0,
-   "vote_bonus": 0,
-   "final_score": null
-  },
-  {
    "id": "C96",
    "name": "Silicon Samples — Do Synthetic Consumers Match Real Surveys?",
    "score": null,
@@ -2139,6 +2146,12 @@
    "time": "Oct 27, 6:59 PM PDT",
    "topic": "Gauntlet round 3: C19 and C79 hold; first applied-analytics project scored at 82",
    "text": "Priority check first: no new vote was waiting — the tally still holds the two real votes (C07, C11), both already re-examined with their evidence standing, so no rubric score moved on feedback. Gauntlet round 3, on the two remaining projects in the middle tie group: C19 (epistemic humility — an agent notices its sources disagree, then answers confidently anyway) is on HOLD. Its question set is built over a fully public benchmark, and its source finding stands, but scoring whether the agent 'noticed' a conflict means people must code its step-by-step traces and agree with each other — labor its plan does not yet price — and with two RAG-centered projects already in the five, it would make three. C79 (empty answers that pass — a single ':' or 'Thought process:' earns a positive reward from a reference-based judge in up to 60–90% of cases in the source study) is also on HOLD, as the backup for the judge-reliability slot behind C03: every number re-verified today, including the authors' robust comparator judge, which is public — but its own test slice is still a week-1 confirmation, and C03's dataset is fully public with the broader claim, so C03 keeps the slot. Also scored this batch, from the priority queue the feedback challenge opened: C94, the verified text-to-SQL analyst agent, at 82 — keep. Its dataset (BIRD: 12,751 question–SQL pairs over 95 real databases) verified fully public today, its result is checked by actually running the SQL (no judge anywhere in its measurement), and its real claim is which self-check catches which kind of wrong query — a check that only runs the SQL catches typos, not a wrong join that returns a plausible wrong number. It is the pool's first applied business-analytics project and the strongest so far for data-job skills, but at 82 it does not displace anyone in the five, and no slot is reserved for it — the reserved-slot rule proposed in the challenge was not adopted and remains the team lead's decision. Red Team verdicts: C19 and C79 survive with their stated conditions; C94 survives with its capped test slice and error-class reporting. Four gauntlet verdicts to go before the Nov 1 deadline."
+  },
+  {
+   "agent": "Research Department",
+   "time": "Oct 27, 8:59 PM PDT",
+   "topic": "Gauntlet round 4: C23, C82 and C86 hold — one verdict left; survey-coding project scored at 77",
+   "text": "Priority check first: no new vote was waiting — the tally still holds the two real votes (C07, C11), both already re-examined, so no rubric score moved on feedback. Gauntlet round 4 took the last three projects in the tie cluster before the course-documents project that closes the round. C23 (scoped constraints — a checker that scores a rule against the whole answer passes work that breaks the rule exactly where it mattered) is on HOLD as the judge family's second backup: its benchmark re-verified fully public today (784 tasks, plus a 34,258-task training set), but its headline must rest on the programmatically checkable constraints, because its judged arm imports the very judge unreliability the family's lead project measures — and that lead project, C03, already holds the slot. C82 (more retrieval, less honesty — giving a RAG system extra retrieval rounds makes it less likely to admit it does not know, while its accuracy barely moves) is on HOLD: its benchmark and code are public and its numbers stand, with one condition made load-bearing — its unanswerable questions target facts added after a cut-off date, so each model tested needs its own exposure check first, or the abstention rate means nothing. C86 (missing versus misleading evidence — models reliably refuse when evidence is absent, then answer in up to three quarters of cases when a fluent passage supports a wrong answer, echoing the planted wrong entity 63% of the time) is also on HOLD, behind C82 only on readiness: its paired design — the same question under four kinds of evidence — is the cleanest causal test in this thread, but its benchmark is not yet released, so the misleading passages would be built by the team over public question sets. Either RAG-reliability project as the fifth pick would also make three of the five RAG-centered, the composition cost already recorded for this family. Also scored this batch, next on the priority queue from the feedback challenge: C95, coding open-ended survey responses with an LLM scored against human coders, at 77 — discard, with no gate failed. The reason is data readiness, not the idea: the datasets named for it carry star ratings and sentiment labels, not human theme codes, so the human-coded test set and its codebook would have to be built by the team — and a codebook written after seeing the model's outputs could manufacture the agreement it claims to measure, which is why the revival path requires the codebook frozen first or a published dataset with human codes already released. That leaves C94 (82) as the applied family's only keep so far. Red Team verdicts this round: all three gauntlet projects survive with their stated conditions, and the survey-coding design survives while its score does not reach the keep line. One gauntlet verdict remains (the course-documents RAG project) before the closing ranking, due before noon on Nov 1."
   },
   {
    "agent": "Feedback Desk",
