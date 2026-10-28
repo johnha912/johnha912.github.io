@@ -4,9 +4,9 @@
   "instructor": "Karl Ni",
   "team": "Nguyen Ha · Ngoc Hoang · Peihan Wang",
   "deadline": "Sun Nov 1, 11:59 PM PT",
-  "updated_at": "2026-10-27 17:09 PDT",
+  "updated_at": "2026-10-27 17:42 PDT",
   "experiments": 100,
-  "pool": 98,
+  "pool": 101,
   "top5": [
    "C07",
    "C11",
@@ -1893,6 +1893,42 @@
    "votes": 0,
    "vote_bonus": 0,
    "final_score": null
+  },
+  {
+   "id": "C94",
+   "name": "Verified Text-to-SQL Analyst Agent",
+   "score": null,
+   "status": "unscored",
+   "elite": null,
+   "future": null,
+   "note": "",
+   "votes": 0,
+   "vote_bonus": 0,
+   "final_score": null
+  },
+  {
+   "id": "C95",
+   "name": "Can LLMs Code Open-Ended Survey Responses?",
+   "score": null,
+   "status": "unscored",
+   "elite": null,
+   "future": null,
+   "note": "",
+   "votes": 0,
+   "vote_bonus": 0,
+   "final_score": null
+  },
+  {
+   "id": "C96",
+   "name": "Silicon Samples — Do Synthetic Consumers Match Real Surveys?",
+   "score": null,
+   "status": "unscored",
+   "elite": null,
+   "future": null,
+   "note": "",
+   "votes": 0,
+   "vote_bonus": 0,
+   "final_score": null
   }
  ],
  "discussion": [
@@ -2090,6 +2126,12 @@
    "time": "Oct 27, 4:59 PM PDT",
    "topic": "Gauntlet round 2: C44 advances, C37 cut; C11 vote verified; Cue Me In scored",
    "text": "Second real team vote first: a vote for C11 arrived this batch, so Research re-examined C11's evidence before anything else. Its dataset (HotpotQA — 7,405 validation questions, from which the fixed 500-question test set and the sealed 500-question held-out set are drawn) and its canon anchor (the Autoresearch reading this team itself presented) both stand, so the Rubric Score does not move (86); the vote adds its bonus and C11's Final Score is now 88, second in the five. Gauntlet round 2, on the three-way tie inside the tie: C44 (when the tool lies quietly — can an agent replan around a tool failure it cannot see?) ADVANCEs as the third live contender for slot #5: its benchmark re-verified fully public today (400 tasks, 270 tools), with a capped 100-task slice and a hand-checked harness check before any full run. C50 (pick a tool that still works — reliability-aware tool retrieval) is on HOLD as C44's backup: same tool-reliability family, and only one of them can hold a slot; its course version also needs a pre-registered cut (a frozen off-the-shelf encoder, learning only in the reranker). C37 (right outcome, wrong process — process-compliant agent evaluation) is CUT from the #5 race, and the reasons are composition and measurement, not evidence — its numbers all re-verified today (120 tasks, 55.5% of runs pass the outcome check while failing the process check). With C07 and C25 already in the five, C37 would be a third governance-adjacent slot at the same score, and its headline rate is measured partly by an LLM judge with no calibration check priced into its plan; it re-enters only if C25 is dropped at finalization and a human-checked calibration slice is added. Also scored this batch: Cue Me In (C93, from the feedback form) at 67 — discard. The idea is a delight as a demo, but its named source, LRCLIB, provides lyrics and timestamps only — no song audio and no right to play it — so the pitched endpoint has nothing to play, and its trigger-rate metric measures its own sensitivity knob rather than accuracy. A rescoped version on a team-owned or public-domain music library, scored offline with labeled true and false triggers, would be a scoreable new proposal. Red Team verdicts: C44 survives with its caps, C50 with its cut, C37's evidence survives while its slot does not, and Cue Me In's pitch does not survive the audio gap. Six gauntlet verdicts to go before the Nov 1 deadline."
+  },
+  {
+   "agent": "Feedback Desk",
+   "time": "Oct 27, 5:39 PM PDT",
+   "topic": "Applied-analytics gap challenged; three new ideas registered (C94–C96)",
+   "text": "Four inbox items this hour, all answered on the feedback board (FB-010–FB-013). First, a challenge: at the 17:09 snapshot, 0 of 98 candidates target business / data-analytics NLP and the top five are all agent-security / RAG / reasoning. The Desk checked it — the top five are exactly as named, and no candidate in the pool has text-to-SQL, survey coding, review mining or consumer research as its primary task, so the gap stands. The challenge's two example projects arrived the same hour and are now registered, with a third alongside: C94 Verified Text-to-SQL Analyst Agent (BIRD, execution accuracy, question → SQL → chart demo), C95 Can LLMs Code Open-Ended Survey Responses? (LLM theme coding vs human coders, Krippendorff's alpha), and C96 Silicon Samples (do LLM personas reproduce real Pew/OpinionQA opinion distributions by demographic group?). All three are UNSCORED, flagged to Research as the priority queue, and will be scored from their evidence packs alone, origin-neutrally, within ~2 hours; registering them is the intake justification the finalization throttle requires — they fill an underrepresented family. The challenge also proposed a selection rule (at most 3 of 5 slots from one family, one slot reserved for the best applied candidate at 80+). That is a rule change, and selection rules are frozen mid-run: the Desk did not adopt it, recorded it verbatim, and forwarded it to the team lead, who alone can decide it. No score or top-five place moved because of the challenge itself."
   }
  ],
  "feedback": {
@@ -2174,6 +2216,42 @@
     "status": "ROUTED",
     "comment_anonymized": "Vote for C11 submitted from the team page.",
     "agent_response": "Thank you — recorded as a real team vote. Triage Gate classification: (b) preference / vote. Checked: this item does not identify itself as a test and is distinct from the 2026-10-26 16:58 system E2E items (FB-002/FB-003), so it is counted as a real vote. C11 was verified in results.tsv as Rubric 86, status keep, with no hard-gate (G1–G5) failure or crash verdict, so the vote is eligible under CORRECTIONS point 12: Vote Bonus +2, C11 Final Score 86 + 2 = 88. The Rubric Score itself is unchanged — votes never edit the rubric. Vote received for C11 — scheduled for evidence re-check by Research. The provisional top-five set is unchanged (the same five projects); the ranking inside the top five changes, with C11 moving ahead of C01 (87) to #2 on Final Score."
+   },
+   {
+    "id": "FB-010",
+    "received_at": "2026-10-27 17:23:58 PDT",
+    "candidate": "General",
+    "type": "Challenge",
+    "status": "ROUTED",
+    "comment_anonymized": "Challenge: at the 2026-10-27 17:09 PDT board snapshot, 0 of 98 candidates target business / data-analytics NLP (no text-to-SQL, survey coding, review mining or consumer research), and the top five (C07, C11, C01, C25, C05) are all agent-security / RAG / reasoning — even though FB-001 made post-graduation job potential a tie-breaker. Requests: (1) score at least one applied-analytics candidate this week; (2) add a family-diversity rule for finalization — at most 3 of 5 slots from one family, with one slot reserved for the best applied/industry candidate scoring 80+ if one exists. Cites BIRD (~12.7k question–SQL pairs) as a ready dataset for this family.",
+    "agent_response": "Thank you — this is a substantive composition challenge, and the Desk checked it against the board before answering. Triage Gate classification: (c) challenge to final-five composition and pool coverage. What was checked: the 17:09 PDT snapshot does show pool 98 with the top five exactly as named (C07, C11, C01, C25, C05 — agent security, RAG and reasoning), and a scan of all 98 candidate titles and notes finds no candidate whose primary task is text-to-SQL, survey-response coding, review mining or consumer research (the closest adjacencies are a sentiment component inside B4 and data-analysis-agent provenance work in C65, neither of which is a business-analytics project). So the coverage gap stands in substance. On request (1): the two example projects named in this challenge were submitted separately in the same hour and are now registered as C94 (Verified Text-to-SQL Analyst Agent) and C95 (survey-response coding), with a third applied candidate, C96 (Silicon Samples), alongside them — all three are flagged to Research as the priority scoring queue, so at least one applied-analytics candidate will be scored from evidence, origin-neutrally, rather than asserted. On request (2): a family-diversity / reserved-slot rule is a change to the selection rules. Under the Triage Gate (point 4) the rubric, gates and selection rules are frozen mid-run and feedback cannot change them; only the team lead (the Owner) can decide a rule change. The Desk therefore does NOT adopt the rule, records the proposal verbatim here and in FEEDBACK.md, and forwards it to the Owner for a decision. No score and no top-five place changes because of this challenge itself — a challenge raises a composition question, not new evidence about any scored candidate (Anti-Skew Rule 3). If the Owner adopts a diversity rule, it will be announced on this board as a rule change with its own timestamp."
+   },
+   {
+    "id": "FB-011",
+    "received_at": "2026-10-27 17:24:35 PDT",
+    "candidate": "C94 Verified Text-to-SQL Analyst Agent (new idea)",
+    "type": "New idea",
+    "status": "ROUTED",
+    "comment_anonymized": "Verified Text-to-SQL Analyst Agent — an agent answers business questions over a real database, then checks its own SQL before returning a result. Evaluated on BIRD (~12.7k question–SQL pairs) with an execution-accuracy metric. Why now: 'data agents' are a 2026 hiring trend, and the live demo is simple (question → SQL → chart).",
+    "agent_response": "Thank you — registered as new candidate C94 (unscored) in candidates-raw.md. Triage Gate classification: (d) new idea. Checked at intake only: the submission names a concrete dataset (BIRD, claimed ~12.7k question–SQL pairs), a concrete falsifiable metric (execution accuracy — the SQL is run and the result compared, not judged by eye), a concrete verification step inside the project itself (the agent checks its own SQL before answering), and a live-endpoint demo shape (question → SQL → chart), which is exactly the kind of demo the course format rewards. The Feedback Desk does not score candidates and did not verify the BIRD size, split or licensing claims; Research will verify them to the normal standard (G1 applies) and score C94 from its evidence pack alone, origin-neutrally, within ~2 hours. Intake justification under the finalization-phase throttle (CORRECTIONS point 13): this candidate fills the underrepresented applied-analytics family documented in FB-010. No score effect yet."
+   },
+   {
+    "id": "FB-012",
+    "received_at": "2026-10-27 17:25:27 PDT",
+    "candidate": "C95 Can LLMs Code Open-Ended Survey Responses? (new idea)",
+    "type": "New idea",
+    "status": "ROUTED",
+    "comment_anonymized": "Can LLMs Code Open-Ended Survey Responses? — LLMs code customer or survey verbatims into themes, and their agreement with human coders is measured with Krippendorff's alpha. Data could be Amazon Reviews 2023 or ABSA sets. It reuses the team's judge-reliability family, but applies it to a real market-research workflow.",
+    "agent_response": "Thank you — registered as new candidate C95 (unscored) in candidates-raw.md. Triage Gate classification: (d) new idea. Checked at intake only: the submission names a concrete measurement design (LLM coding of verbatims into themes, scored by agreement with human coders using Krippendorff's alpha — a standard inter-rater reliability statistic, so the headline claim is falsifiable against human ground truth) and names candidate data sources (Amazon Reviews 2023 or ABSA sets). One open point Research must pin down at scoring: which dataset is primary and whether it carries human theme codes to agree with, or whether a human-coded evaluation slice has to be built — that is a G1/data question priced at full scoring, not an intake decision. The note that this reuses the judge-reliability family is recorded as the submitter's framing; family resemblance and origin carry no premium or penalty (Anti-Skew Rule 2). The Feedback Desk does not score candidates; Research will verify the data claims and score C95 from its evidence pack alone within ~2 hours. Intake justification under CORRECTIONS point 13: fills the underrepresented applied-analytics family documented in FB-010. No score effect yet."
+   },
+   {
+    "id": "FB-013",
+    "received_at": "2026-10-27 17:25:57 PDT",
+    "candidate": "C96 Silicon Samples: Do Synthetic Consumers Match Real Surveys? (new idea)",
+    "type": "New idea",
+    "status": "ROUTED",
+    "comment_anonymized": "Silicon Samples: Do Synthetic Consumers Match Real Surveys? — the project tests whether LLM 'personas' reproduce real US public-opinion distributions by demographic group, using OpinionQA (Pew ATP). Synthetic respondents are a hot and controversial topic in the market-research industry right now, which gives it strong novelty.",
+    "agent_response": "Thank you — registered as new candidate C96 (unscored) in candidates-raw.md. Triage Gate classification: (d) new idea. Checked at intake only: the submission names a concrete reference dataset (OpinionQA, built on Pew American Trends Panel responses, as claimed by the submitter), a concrete comparison (synthetic persona distributions vs real survey distributions, broken out by demographic group — so the claim succeeds or fails on a measurable distribution gap, not on cherry-picked example answers), and a US-context public-opinion framing that fits the run's international / US-first rule. The Feedback Desk does not score candidates and did not verify OpinionQA's access terms, the demographic conditioning design, or the novelty claim about the synthetic-respondent debate; Research will verify those to the normal standard (G1 applies) and score C96 from its evidence pack alone, origin-neutrally, within ~2 hours. Intake justification under CORRECTIONS point 13: fills the underrepresented applied / consumer-research family documented in FB-010. No score effect yet."
    }
   ],
   "votes": [
