@@ -28,7 +28,8 @@ Owned by devops; results go to the owner in one short report (problems first, th
 3. Links: no broken internal links in `site/` (guest folders excluded); external links return 200, or a known bot-block code (403/429/999) that opens fine in a browser.
 4. Pages: the S-size browser self-check (`.claude/agents/orchestrator.md`) on Home, About, and Tech.
 5. Budgets: Lighthouse mobile on Home (Performance ≥ 90, Accessibility ≥ 95) once a semester or after a design change.
-6. Docs: `docs/STATUS.md` "Last updated" is not older than the newest owner decision, and its open questions are still open.
+6. Guest folders: each `site/<guest>/index.html` still has `<meta name="robots" content="noindex">`, so the boards stay out of search results.
+7. Docs: `docs/STATUS.md` "Last updated" is not older than the newest owner decision, and its open questions are still open.
 
 ## Once a semester
 
