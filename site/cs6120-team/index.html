@@ -73,6 +73,8 @@
   .cand.open .chev{transform:rotate(90deg)}
   .cand-details{display:none;margin-top:8px} .cand.open .cand-details{display:block}
   .cand-actions{margin-top:10px}
+  .cand-extra{display:none} #board.expanded .cand-extra{display:block}
+  .more-wrap{text-align:center;margin:14px 0 4px} #candMore{min-width:280px}
 </style>
 </head>
 <body>
@@ -126,8 +128,9 @@
   <div class="card chatbox" id="discussion"></div>
 
   <h2>🗂️ Candidate board <span class="sub" id="tally-line" style="font-size:.95rem"></span></h2>
-  <p class="sub">Compact view — click a card's title to expand its full details. Voting works without expanding.</p>
+  <p class="sub">Showing the top 10 by Final Score — the button below the board reveals the full pool. Click a card's title to expand its full details; voting works without expanding.</p>
   <div class="grid" id="board"></div>
+  <div class="more-wrap"><button class="btn-acc" id="candMore" style="display:none" aria-expanded="false">Show all projects ▾</button></div>
 
   <h2>✍️ Feedback — comment, vote, add an idea</h2>
   <div class="card">
@@ -241,9 +244,9 @@ async function init(){
 
   // Candidate board + vote buttons
   const tally = (BOARD.feedback && BOARD.feedback.vote_tally) || {};
-  $("board").innerHTML = BOARD.candidates.map(c => {
+  $("board").innerHTML = BOARD.candidates.map((c, i) => {
     const votes = tally[c.id] || 0;
-    return `<div class="card cand">
+    return `<div class="card cand${i >= 10 ? " cand-extra" : ""}">
       <div class="cand-head" data-toggle="${c.id}" role="button" tabindex="0" aria-expanded="false" title="Click to expand details">
         <h3>${c.id} — ${c.name}</h3>
         <span class="badge">${c.final_score === null || c.final_score === undefined ? (c.score === null ? "—" : c.score) : c.final_score}</span><span class="st st-${c.status}">${c.status}</span>${c.vote_bonus ? `<span class="tag">+${c.vote_bonus} 🗳</span>` : ""}<span class="chev">▸</span>
@@ -260,6 +263,18 @@ async function init(){
     </div>`; }).join("");
   const totalVotes = Object.values(tally).reduce((a,b)=>a+b,0);
   $("tally-line").textContent = totalVotes ? `— ${totalVotes} team votes recorded so far` : "";
+
+  // Candidate board: only the top 10 are visible until the reader expands the pool
+  const moreBtn = $("candMore");
+  if (BOARD.candidates.length > 10) {
+    moreBtn.style.display = "";
+    moreBtn.textContent = `Show all ${BOARD.candidates.length} projects ▾`;
+    moreBtn.addEventListener("click", () => {
+      const open = $("board").classList.toggle("expanded");
+      moreBtn.textContent = open ? "Show top 10 only ▴" : `Show all ${BOARD.candidates.length} projects ▾`;
+      moreBtn.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+  }
 
   document.querySelectorAll("[data-vote]").forEach(btn => btn.addEventListener("click", async () => {
     const id = btn.getAttribute("data-vote");
