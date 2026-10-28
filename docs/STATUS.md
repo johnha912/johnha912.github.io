@@ -1,6 +1,6 @@
 # STATUS.md
 
-_Last updated: 2026-10-10_
+_Last updated: 2026-10-27_
 
 ## Where the build stands
 
@@ -53,6 +53,8 @@ _Last updated: 2026-10-10_
 
 - **2026-10-10:** The theme toggle becomes a sun/moon pill switch (modeled on speedtest.net): both icons visible, an emerald thumb slides under the active theme. Still one tap, still Dark by default.
 - **2026-10-10:** Pour-over grind note corrected: a finer grind drains slower (longer brew time) and extracts more. The old "finer grind, shorter brew time" line contradicted the article's own troubleshooting tip. The AeroPress note ("finer grind, shorter steep") stays: there the steep time is chosen, not a result.
+
+- **2026-10-27:** The Tech page drops the "Toolbox" skills section entirely (its unused CSS removed too).
 
 ## Orchestrator decisions
 

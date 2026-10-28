@@ -1053,12 +1053,6 @@ main { flex: 1; padding-top: var(--nav-h); }
   text-align: center;
 }
 
-.skills { display: grid; gap: var(--space-4); }
-@media (min-width: 40rem) { .skills { grid-template-columns: repeat(2, 1fr); } }
-@media (min-width: 60rem) { .skills { grid-template-columns: repeat(4, 1fr); } }
-.skill-group h3 { font-size: var(--fs-base); margin-bottom: var(--space-3); }
-.skill-group .chips .chip { font-size: 0.78rem; }
-
 .earlier {
   display: grid;
   gap: var(--space-4);
