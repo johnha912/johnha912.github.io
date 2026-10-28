@@ -23,6 +23,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/configure-pages@v5
+      # Stamp CSS/JS URLs with the commit so browsers never pair new HTML with a cached stylesheet.
+      - name: Cache-bust assets
+        run: |
+          find site -name '*.html' -exec sed -i -E "s#(/assets/(css|js)/[A-Za-z0-9_-]+\.(css|js))\"#\1?v=${GITHUB_SHA::7}\"#g" {} +
       # Publish only the static site; docs, agents, and skills stay out of the artifact.
       - uses: actions/upload-pages-artifact@v3
         with:
