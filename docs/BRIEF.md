@@ -18,6 +18,7 @@ Content agents may **only** use the facts in this section. If a fact is missing,
 - Name: Nguyen "John" Ha
 - GitHub: github.com/johnha912
 - Socials: LinkedIn (linkedin.com/in/nguyenha912), GitHub (github.com/johnha912), Instagram (instagram.com/johnha.ns)
+- Kaggle: kaggle.com/johnha9 (owner-provided 2026-10-27; shown on About under "Profile")
 - Email: johnha0912@gmail.com (owner-provided 2026-10-07 for the Contact page `mailto:` button)
 - Music: soundcloud.com/johnhamusic (from the old site)
 
@@ -55,7 +56,7 @@ Content agents may **only** use the facts in this section. If a fact is missing,
 | Page | Content |
 |---|---|
 | **Home** | Preserves the old landing page's structure, restyled — see "Homepage" below. No featured projects, no extra sections. |
-| **About** | Structure preserved from the old site: H1 "About Me" → 3-photo horizontal collage → short intro paragraph → two columns: left **Educational Background** (Section 2 entries, newest first), right **Certificate** (linked entries — the IBM AI Engineering Professional Certificate from Section 2; flag any others as owner input) + **Badge** (Credly link). The intro and columns carry the career story: marketing & market research → financial engineering → computer science & data. |
+| **About** | Structure preserved from the old site: H1 "About Me" → 3-photo horizontal collage → short intro paragraph → two columns: left **Educational Background** (Section 2 entries, newest first), right **Certificate** (linked entries — the IBM AI Engineering Professional Certificate from Section 2; flag any others as owner input) + **Badge** (Credly link) + **Profile** (Kaggle link). The intro and columns carry the career story: marketing & market research → financial engineering → computer science & data. |
 | **Tech** | An internal **Projects** page (on the old site this button left the site to John's GitHub profile; now it stays on-site). A bento/grid card treatment may be used on this page. Featured highlights, **in this order**: (1) **Product Analytics ELT Pipeline** — marked "In progress"; (2) **OmniRAG Data Platform Upgrade** — marked "In progress". Below them, an **"Earlier work"** heading, newest first: JOIN Order Optimization, the original team OmniRAG, and jivec (each with a GitHub link) — never labeled featured. No skills grid: the "Toolbox" section was removed (owner decision 2026-10-27). |
 | **Coffee** | Structure preserved from the old site: H1 "I'm a Coffee Lover" → **2×2 image-card grid** — Pour Over / Flash Brew, AeroPress, Espresso, Vietnamese Phin. Each card opens a **recipe article**: title → explainer/history → sections → steps/profile notes → references. Cards and article tops use the site's line-art brew icons; article bodies carry freely licensed Commons photos with on-page credits (owner request 2026-10-07; see `docs/IMAGE-CREDITS.md`). The Espresso article includes an interactive TDS brewing control chart. |
 | **Music** | May stay an **external link** (SoundCloud, as on the old site) or become a simple internal gallery-led page — either is acceptable; owner's choice. **Current: internal `/music/` page (owner request 2026-10-08) with the three Fun Mix Radio tracks embedded newest first (#3, #2, #1) via click-to-load SoundCloud players.** |
