@@ -55,6 +55,7 @@ _Last updated: 2026-10-27_
 - **2026-10-10:** Pour-over grind note corrected: a finer grind drains slower (longer brew time) and extracts more. The old "finer grind, shorter brew time" line contradicted the article's own troubleshooting tip. The AeroPress note ("finer grind, shorter steep") stays: there the steep time is chosen, not a result.
 
 - **2026-10-27:** The Tech page drops the "Toolbox" skills section entirely (its unused CSS removed too).
+- **2026-10-27:** About right column renamed "Credentials": Credly and Kaggle sit side by side under "Badge & Profile", above the "Certificate" cards (IBM, then CS50).
 - **2026-10-27:** About adds the Kaggle profile (kaggle.com/johnha9) as a "Profile" link card under Badge in the right column; Kaggle also joins the homepage `sameAs` structured data.
 
 ## Orchestrator decisions

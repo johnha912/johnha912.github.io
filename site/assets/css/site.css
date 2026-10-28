@@ -895,6 +895,8 @@ main { flex: 1; padding-top: var(--nav-h); }
 .timeline__degree { color: var(--text-muted); }
 
 .link-list { display: grid; gap: var(--space-3); list-style: none; padding: 0; }
+.link-list--pair { grid-template-columns: 1fr 1fr; }
+.link-list--pair .link-card { height: 100%; padding-inline: var(--space-4); gap: var(--space-2); }
 .link-card {
   display: grid;
   grid-template-columns: 1fr auto;
