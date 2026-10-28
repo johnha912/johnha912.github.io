@@ -109,11 +109,11 @@
  ],
  "now": {
   "state": "active",
-  "ts": "2026-10-27T09:07:05-07:00",
-  "checked": "2026-10-27T09:07:05-07:00",
+  "ts": "2026-10-28T06:24:21-07:00",
+  "checked": "2026-10-28T06:24:21-07:00",
   "doing": {
-   "en": "Checkpoint 1 research day complete: M03 evidence, M16 debate, G2 legal closure published — assembling the Friday package",
-   "vi": "Ngày nghiên cứu Checkpoint 1 đã đủ: bằng chứng M03, tranh luận M16, khép pháp lý G2 đã đăng — đang đóng gói cho thứ Sáu"
+   "en": "Assembling the Checkpoint 1 package for Fri, Oct 30 — baseline lock of the Round 0 scores, with the M03, M16 and G2 evidence already published",
+   "vi": "Đang đóng gói Checkpoint 1 cho thứ Sáu 30/10 — khóa nền điểm vòng 0, với bằng chứng M03, M16 và G2 đã đăng"
   }
  },
  "log": [
@@ -168,6 +168,11 @@
   {
    "en": "Research drop (Tue Oct 27 · 9:07 AM PT): the last open legal gap of Round 0 is closed — gap G2 on Vietnam's education sector. Education is a conditional business sector only in institution-anchored forms (schools, vocational and continuing-education institutions), which require legal personality and licences; selling self-produced recorded courses sits outside those lines and is treated as digital-content supply. M14's legal classification is unchanged; full addendum with official sources filed.",
    "vi": "Nghiên cứu mới (Tue Oct 27 · 9:07 AM PT): khoảng trống pháp lý cuối cùng của vòng 0 đã khép — gap G2 về ngành giáo dục Việt Nam. Giáo dục là ngành kinh doanh có điều kiện chỉ ở các dạng gắn với cơ sở (trường học, cơ sở giáo dục nghề nghiệp và thường xuyên), đòi hỏi tư cách pháp nhân và giấy phép; bán khóa học ghi hình tự sản xuất nằm ngoài các dòng đó và được xử như cung cấp nội dung số. Phân loại pháp lý của M14 không đổi; phụ lục đầy đủ kèm nguồn chính thức đã lưu hồ sơ."
+  },
+  {
+   "en": "Daily pulse (Oct 28, 6:24 AM PDT): bounded intake scan completed — Claude Pro is still $20/mo on the official claude.com/pricing page (checked directly today), and no platform or policy change affecting the pool was confirmed; the official Claude Code changelog does show Oct 26–27 entries (usage-limit messages now say '5-hour limit', prompt/agent hooks capped at 24 concurrent per session, ultrathink runs at xhigh effort) — tooling and comparison-fairness notes only, logged in PLATFORM-UPDATES.md, with no budget or pool impact and no scores changed. Shared comment inbox synced: 0 new reader comments, and 0 comments were due for promotion review. No research advance in this pulse run: the Checkpoint 1 package is in its scheduled assembly phase ahead of Fri, Oct 30.",
+   "vi": "Nhịp hằng ngày (28/10, 6:24 AM PDT): lượt quét nạp giới hạn đã xong — Claude Pro vẫn $20/tháng trên trang chính thức claude.com/pricing (kiểm trực tiếp hôm nay), và không xác nhận được thay đổi nền tảng hay chính sách nào ảnh hưởng tới pool; changelog chính thức của Claude Code có mục mới ngày 26–27/10 (thông báo giới hạn nay ghi '5-hour limit', hooks prompt/agent tối đa 24 chạy đồng thời mỗi phiên, ultrathink chạy ở mức xhigh) — chỉ là ghi chú công cụ và công bằng so sánh, đã ghi vào PLATFORM-UPDATES.md, không ảnh hưởng ngân sách hay pool và không đổi điểm số. Đã đồng bộ hộp bình luận chung: 0 bình luận mới của người xem, và 0 bình luận đến lượt xét thăng hạng. Lượt pulse này không có tiến triển nghiên cứu mới: gói Checkpoint 1 đang ở pha đóng gói đã lên lịch, chờ thứ Sáu 30/10.",
+   "t": "Oct 28, 2026 — 6:24 AM PDT"
   }
  ],
  "scored": 15,
@@ -176,7 +181,7 @@
   "en": "Round 0 complete: all 15 ideas legally classified (all lawful with conditions) and debated + provisionally scored. 4 keeps, 8 revises, 3 discards. Next: first experiments for the keeps, Checkpoint 1 pack on Fri, Oct 30.",
   "vi": "Đã xong vòng 0: cả 15 ý tưởng đã phân loại pháp lý (tất cả hợp lệ có điều kiện) và đã tranh luận + chấm điểm nháp. 4 giữ, 8 sửa, 3 loại. Tiếp theo: thí nghiệm đầu tiên cho nhóm giữ và gói Checkpoint 1 vào thứ Sáu 30/10."
  },
- "updated": "2026-10-27T09:07:05-07:00",
+ "updated": "2026-10-28T06:24:21-07:00",
  "updates": [
   {
    "en": "Claude Pro is still $20/mo including Claude Code — the $20 budget gate is intact.",
