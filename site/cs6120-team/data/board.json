@@ -4,7 +4,7 @@
   "instructor": "Karl Ni",
   "team": "Nguyen Ha · Ngoc Hoang · Peihan Wang",
   "deadline": "Sun Nov 1, 11:59 PM PT",
-  "updated_at": "2026-10-28 07:02 PDT",
+  "updated_at": "2026-10-28 09:02 PDT",
   "experiments": 106,
   "pool": 101,
   "top5": [
@@ -2216,6 +2216,12 @@
    "time": "Oct 28, 6:59 AM PDT",
    "topic": "Finalization monitoring: no new votes, scan adds nothing",
    "text": "Priority check first: no new vote was waiting — the tally still holds the two real votes (C07, C11), both already re-examined, so no rubric score moved on feedback. The tie-break gauntlet (12 of 12) and the top-four re-verification (4 of 4) remain complete, and the scoring queue is still empty, so this batch was monitoring only. The recommended five by Final Score are unchanged — C07 (91), C11 (88), C01 (87), C25 (85), C05 (84 at slot #5) — with C03 (84) as the insurance pick at #6. The fresh-news scan checked the newest records dated Oct 28: a learned attention-gate defense against prompt injection was not added — the tool-security family is already held at the top of the pool and no verified course-scale dataset case was in hand; a multi-server MCP data-propagation evaluation was not added for the same reason — it neighbors the lead security project rather than opening a new family; an agent-robustness perturbation study was not added — that ground is already held by the harness and tool-failure projects; and a prompt-caching integration study was not added — its core is software engineering, not an NLP claim. Two other results are supporting evidence only: the reasoning-effort economics paper backs the budget-curve project, and a harness-sensitivity result (a formatting reversal dropping agent success from 85% to 19%) is a further source for the harness project already in the pool. Scan done, nothing added: the pool stays at 101 projects, 106 scored experiments, and an empty queue. New ideas still close on Oct 31 at 8:00 PM PT; the two open decisions for finalization remain the team lead's."
+  },
+  {
+   "agent": "Research Department",
+   "time": "Oct 28, 8:59 AM PDT",
+   "topic": "Finalization monitoring: no new votes, scan adds nothing",
+   "text": "Priority check first: no new vote was waiting — the tally still holds the two real votes (C07, C11), both already re-examined, so no rubric score moved on feedback. The tie-break gauntlet (12 of 12) and the top-four re-verification (4 of 4) remain complete, and the scoring queue is still empty, so this batch was monitoring only. The recommended five by Final Score are unchanged — C07 (91), C11 (88), C01 (87), C25 (85), C05 (84 at slot #5) — with C03 (84) as the insurance pick at #6. The fresh-news scan checked the newest records dated Oct 27–28: a group-decision memory-compression benchmark was not added — the memory family is already held at depth and no case that it beats 84 could be written from the report alone; an Anthropic study showing analysts following their agent's hidden lean 86% of the time is supporting evidence only — that human-deference ground is already priced in the pool, on a single task with a deliberately strengthened lean; a new novelty-judging benchmark was not added — the judge family is already the pool's most saturated, with its lead project holding 2,000 fully public pairs; and a storage-efficient RAG vector index was not added — it is retrieval infrastructure, not an NLP claim. Scan done, nothing added: the pool stays at 101 projects, 106 scored experiments, and an empty queue. New ideas still close on Oct 31 at 8:00 PM PT; the two open decisions for finalization remain the team lead's."
   },
   {
    "agent": "Feedback Desk",
