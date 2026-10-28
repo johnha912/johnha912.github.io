@@ -4,13 +4,13 @@
   "instructor": "Karl Ni",
   "team": "Nguyen Ha · Ngoc Hoang · Peihan Wang",
   "deadline": "Sun Nov 1, 11:59 PM PT",
-  "updated_at": "2026-10-27 16:08 PDT",
+  "updated_at": "2026-10-27 17:02 PDT",
   "experiments": 99,
   "pool": 98,
   "top5": [
    "C07",
-   "C01",
    "C11",
+   "C01",
    "C25",
    "C05"
   ]
@@ -724,6 +724,18 @@
    "final_score": 91
   },
   {
+   "id": "C11",
+   "name": "C11 Autoresearch loop for RAG pipeline",
+   "score": 86,
+   "status": "keep",
+   "elite": 7.5,
+   "future": 8.5,
+   "note": "Full rubric score 2026-10-25 22:58 PDT - direct canon Autoresearch team own presentation plus Lewis RAG - serve winning pipeline not timeline per G3 - held-out gap plus reward-hacking audit is the claim - Elite 7.5 Future 8.5",
+   "votes": 1,
+   "vote_bonus": 2,
+   "final_score": 88
+  },
+  {
    "id": "C01",
    "name": "C01 Agentic RAG self-correcting multi-hop QA",
    "score": 87,
@@ -734,18 +746,6 @@
    "votes": 0,
    "vote_bonus": 0,
    "final_score": 87
-  },
-  {
-   "id": "C11",
-   "name": "C11 Autoresearch loop for RAG pipeline",
-   "score": 86,
-   "status": "keep",
-   "elite": 7.5,
-   "future": 8.5,
-   "note": "Full rubric score 2026-10-25 22:58 PDT - direct canon Autoresearch team own presentation plus Lewis RAG - serve winning pipeline not timeline per G3 - held-out gap plus reward-hacking audit is the claim - Elite 7.5 Future 8.5",
-   "votes": 0,
-   "vote_bonus": 0,
-   "final_score": 86
   },
   {
    "id": "C25",
@@ -2067,6 +2067,12 @@
    "text": "Vote received for C07 — scheduled for evidence re-check by Research. This is the first real team vote recorded in the run: C07 Rubric 89 + Vote Bonus 2 = Final 91. The Rubric Score itself does not move on a vote — only Research can re-score it, and only on new verified evidence. Also new this hour: Cue Me In, a real-time speech-triggered song app over LRCLIB synced lyrics, was submitted as a new idea and registered as C93 (unscored) for Research to score within ~2 hours."
   },
   {
+   "agent": "Feedback Desk",
+   "time": "Oct 27, 4:59 PM PDT",
+   "topic": "Vote received for C11",
+   "text": "Vote received for C11 — scheduled for evidence re-check by Research. This is the second real team vote recorded in the run: C11 Rubric 86 + Vote Bonus 2 = Final 88. The Rubric Score itself does not move on a vote — only Research can re-score it, and only on new verified evidence. The provisional top-five set is unchanged; on Final Score C11 now ranks #2, ahead of C01 (87)."
+  },
+  {
    "agent": "Research Department",
    "time": "Oct 27, 4:00 PM PDT",
    "topic": "Gauntlet round 1: C05 holds #5; first real vote lands",
@@ -2146,6 +2152,15 @@
     "status": "ROUTED",
     "comment_anonymized": "Cue Me In — a real-time app that listens to live speech and plays a song from the exact line when someone says its title or hook, using a local LLM to score each match and a sensitivity setting to control how often songs play; at the end of a lecture it picks a song that matches the lecture's main ideas. It searches 10k+ songs from LRCLIB (https://lrclib.net), a free database of time-synced lyrics, and is tested on public lecture transcripts to measure trigger rate in natural speech and closing-song fit.",
     "agent_response": "Thank you — registered as new candidate C93 (unscored) in candidates-raw.md. Triage Gate classification: (d) new idea. Checked at intake only: the submission names a concrete data source (LRCLIB, https://lrclib.net, 10k+ time-synced songs), a concrete test bed (public lecture transcripts), and concrete measures (how often songs trigger in natural speech; how well closing songs fit) — enough to enter the scoring queue. The Feedback Desk does not score candidates and did not verify the LRCLIB coverage or licensing claims; Research will verify those claims to the normal standard (G1 applies) and score C93 from its evidence pack alone, origin-neutrally, within ~2 hours. No score effect yet."
+   },
+   {
+    "id": "FB-009",
+    "received_at": "2026-10-27 16:55:28 PDT",
+    "candidate": "C11",
+    "type": "Vote",
+    "status": "ROUTED",
+    "comment_anonymized": "Vote for C11 submitted from the team page.",
+    "agent_response": "Thank you — recorded as a real team vote. Triage Gate classification: (b) preference / vote. Checked: this item does not identify itself as a test and is distinct from the 2026-10-26 16:58 system E2E items (FB-002/FB-003), so it is counted as a real vote. C11 was verified in results.tsv as Rubric 86, status keep, with no hard-gate (G1–G5) failure or crash verdict, so the vote is eligible under CORRECTIONS point 12: Vote Bonus +2, C11 Final Score 86 + 2 = 88. The Rubric Score itself is unchanged — votes never edit the rubric. Vote received for C11 — scheduled for evidence re-check by Research. The provisional top-five set is unchanged (the same five projects); the ranking inside the top five changes, with C11 moving ahead of C01 (87) to #2 on Final Score."
    }
   ],
   "votes": [
@@ -2153,10 +2168,16 @@
     "candidate": "C07",
     "received_at": "2026-10-27 15:52:57 PDT",
     "source": "anonymous form"
+   },
+   {
+    "candidate": "C11",
+    "received_at": "2026-10-27 16:55:28 PDT",
+    "source": "anonymous form"
    }
   ],
   "vote_tally": {
-   "C07": 1
+   "C07": 1,
+   "C11": 1
   },
   "sla": "Every feedback item and vote is read, discussed and answered within 1 hour (loop runs hourly until final delivery)."
  }
