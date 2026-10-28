@@ -60,6 +60,7 @@ _Last updated: 2026-10-27_
 - **2026-10-27:** About right column renamed "Credentials": Credly and Kaggle sit side by side under "Badge & Profile", above the "Certificate" cards (IBM, then CS50).
 - **2026-10-27:** About adds the Kaggle profile (kaggle.com/johnha9) as a "Profile" link card under Badge in the right column; Kaggle also joins the homepage `sameAs` structured data.
 - **2026-10-27:** Team process upgraded for maintenance: size-based triage (S done in the main session, M with one reviewer that also runs browser checks, L with the full pipeline), `docs/LESSONS.md` learning loop with promotion into agent files, STATUS/BRIEF kept in sync in the same commit, and a defined health check in `docs/MAINTENANCE.md`.
+- **2026-10-27:** Guest boards `/cs6120-team/` and `/ai-income-lab/` get `noindex` so they stay out of search results; the pages still open by direct link.
 
 ## Orchestrator decisions
 
@@ -79,7 +80,7 @@ _Last updated: 2026-10-27_
 5. ~~Other public repos~~ Resolved 2026-10-07: JOIN Order Optimization and jivec added under "Earlier work" (theta-coffee-lab and ptms not added).
 6. **Homepage availability pill:** BRIEF allows only the subtitle as a homepage addition. The "Open to Summer 2027 internships" pill appears on About, Tech, and Contact only. Approve it on Home too?
 7. **Your own photos:** coffee articles now use licensed Commons photos; your own shots could replace them and could power an internal Photography gallery.
-8. **Guest folders:** `/cs6120-team/` and `/ai-income-lab/` are public under johnha.info without `noindex`, so search engines can list them next to the portfolio (`/lora-2dcd3d/` already has it). Add `noindex` to both?
+8. ~~Guest folders~~ Resolved 2026-10-27: the owner approved `noindex` on `/cs6120-team/` and `/ai-income-lab/` (`/lora-2dcd3d/` already had it); the health check verifies it stays.
 
 ## Toolchain
 
