@@ -16,6 +16,11 @@ Sonnet, effort **medium**.
 - `site/CNAME`: exactly `johnha.info`.
 - `docs/MAINTENANCE.md`.
 
+## Also owns
+- The health check in `docs/MAINTENANCE.md`, run monthly or when the owner asks whether the site is OK.
+- After every push: confirm the deploy run succeeded and the live page shows the change.
+
 ## Boundaries
+- Guest folders (`site/cs6120-team/`, `site/ai-income-lab/`, `site/lora-2dcd3d/`) belong to other projects. They are excluded from the link check and the sitemap; report problems there to the owner.
 - DNS, Namecheap, and the GitHub Pages custom-domain/HTTPS settings belong to the owner (`docs/DOMAIN-MIGRATION.md`). Flag those steps; never change them.
 - Only `site/` is published. Docs, agent files, and skills must never be deployed.
