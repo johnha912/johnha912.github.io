@@ -4,7 +4,7 @@
   "instructor": "Karl Ni",
   "team": "Nguyen Ha · Ngoc Hoang · Peihan Wang",
   "deadline": "Sun Nov 1, 11:59 PM PT",
-  "updated_at": "2026-10-28 01:03 PDT",
+  "updated_at": "2026-10-28 03:01 PDT",
   "experiments": 106,
   "pool": 101,
   "top5": [
@@ -2198,6 +2198,12 @@
    "time": "Oct 28, 12:59 AM PDT",
    "topic": "Finalization prep: evidence packs ready; scan adds nothing",
    "text": "Priority check first: no new vote was waiting — the tally still holds the two real votes (C07, C11), both already re-examined, so no rubric score moved on feedback. With the tie-break gauntlet complete (12 of 12) and all four top projects re-verified, this batch prepared the finalization packs the delivery run will use: one short evidence pack per recommended project — C07 (tool-use security, Final 91), C11 (autoresearch loop for a RAG pipeline, Final 88), C01 (agentic RAG, 87), C25 (authorization alignment, 85), C05 (budget forcing, 84, at slot #5) — plus the insurance pick C03 (judge reliability, 84, at #6). Each pack restates the verified dataset, the live-endpoint shape and its cost inside the $50 credit, and the conditions that carry the score. Two decisions are restated, not decided, for finalization: holding both governance picks (C07 and C25) still requires the distinctness case written into the final document and the lost judge-reliability slot explicitly accepted — otherwise C25 is the fallback and C03 returns; and the proposed reserved slot for an applied-analytics project is still the team lead's decision, with Silicon Samples (83) ahead of the text-to-SQL agent (82) if it is adopted. The fresh-news scan checked the newest agent and reasoning papers dated Oct 25–28: one finds maximum reasoning effort costs up to 42 times the cheapest level and often fails tasks the cheaper level solved (supporting evidence for C05's budget curve, not a new project), one shows a small formatting change collapsing an agent's success from 85% to 19% (a second source for the harness project already in the pool), and a new group-decision memory benchmark was considered and not added — the memory family is already held at depth and no case that it beats 84 could be written from the report alone. Scan done, nothing added: the pool stays at 101 projects, 106 scored experiments, and an empty queue. New ideas still close on Oct 31 at 8:00 PM PT."
+  },
+  {
+   "agent": "Research Department",
+   "time": "Oct 28, 2:59 AM PDT",
+   "topic": "Finalization monitoring: no new votes, scan adds nothing",
+   "text": "Priority check first: no new vote was waiting — the tally still holds the two real votes (C07, C11), both already re-examined, so no rubric score moved on feedback. The tie-break gauntlet (12 of 12) and the top-four re-verification (4 of 4) remain complete, and the scoring queue is still empty, so this batch was monitoring and preparation only. The recommended five by Final Score are unchanged — C07 (91), C11 (88), C01 (87), C25 (85), C05 (84 at slot #5) — with C03 (84) as the insurance pick at #6. The fresh-news scan checked the newest reports dated Oct 27–28: press coverage of the authorization benchmark confirms the C25 anchor already verified by the team; a simple-harness root-cause study is a second source for the harness project already in the pool; a new hallucination-detector calibration set (408 re-annotated answers) was considered and not added — the evaluation family is already the pool's most saturated and its lead project holds 2,000 fully public pairs; and a finance trading-agent benchmark was considered and not added — its core is trading attribution, not NLP, and the applied-analytics family is already filled by stronger NLP projects (83 and 82). Scan done, nothing added: the pool stays at 101 projects, 106 scored experiments, and an empty queue. New ideas still close on Oct 31 at 8:00 PM PT; the two open decisions for finalization (whether both governance picks stay, and whether a reserved applied-analytics slot is adopted) remain the team lead's, restated in the finalization packs."
   },
   {
    "agent": "Feedback Desk",
