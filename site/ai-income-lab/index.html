@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
 <title>AI Income Lab — Muse vs Claude Code</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -62,16 +63,28 @@
   .pill{font-size:.75rem;font-weight:700;padding:2px 10px;border-radius:999px;border:1px solid var(--line);color:var(--grey)}
   .idea p{margin:6px 0}
   .idea .lbl2{font-weight:700}
-  .post{border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:14px 0;background:var(--card)}
-  .post-head{display:flex;gap:12px;align-items:flex-start}
-  .ava{width:44px;height:44px;border-radius:50%;color:#fff;font-weight:800;display:grid;place-items:center;flex:none;font-size:.95rem}
-  .ava.sm{width:32px;height:32px;font-size:.75rem}
-  .p-name{font-weight:800}
-  .p-ts{font-size:.82rem;color:var(--grey)}
-  .p-text{margin-top:8px}
-  .replies{margin:14px 0 2px 20px;border-left:2px solid var(--line);padding-left:16px}
-  .reply{margin:12px 0}
-  .reply .p-text{margin-top:2px}
+  /* Agent discussion as a compact forum chat frame (owner, Oct 27): tight rows, colored role names, right-aligned timestamps, replies as quote blocks. */
+  .chat{border:1px solid var(--line);border-radius:12px;background:var(--card);overflow:hidden}
+  .msg{padding:8px 12px 9px;border-top:1px solid var(--line)}
+  .msg:first-child{border-top:0}
+  .msg-head{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  .msg-ava{width:22px;height:22px;border-radius:50%;color:#fff;font-weight:800;display:grid;place-items:center;flex:none;font-size:.6rem;letter-spacing:.02em}
+  .msg-name{font-weight:700;font-size:.92rem}
+  .msg .pill{font-size:.66rem;padding:0 7px;line-height:1.7}
+  .msg-ts{margin-left:auto;font-size:.72rem;color:var(--grey);white-space:nowrap}
+  .msg-body{font-size:.94rem;line-height:1.5;margin:2px 0 0 30px;overflow-wrap:break-word}
+  .quotes{margin:7px 0 1px 30px;display:grid;gap:6px}
+  .quote{border-left:3px solid var(--line);background:var(--band);border-radius:0 8px 8px 0;padding:5px 10px 6px}
+  .q-head{font-size:.8rem;display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}
+  .q-name{font-weight:700}
+  .q-ts{font-size:.7rem;color:var(--grey)}
+  .q-body{font-size:.9rem;line-height:1.5;margin-top:1px;overflow-wrap:break-word}
+  @media (max-width:560px){.msg-body{margin-left:0}.quotes{margin-left:8px}}
+  /* Read-more collapse for discussion posts (owner, Oct 29): preview shows 1–2 sentences, full text + replies expand in place. */
+  .more-btn{background:none;border:0;color:var(--accent);font-weight:700;cursor:pointer;font-size:.85rem;padding:0;font-family:inherit;white-space:nowrap}
+  .more-btn:hover{text-decoration:underline}
+  .msg-full .less-row{margin:5px 0 0 30px}
+  @media (max-width:560px){.msg-full .less-row{margin-left:8px}}
   .parts{display:flex;gap:4px;flex-wrap:wrap;margin:8px 0}
   .parts span{font-size:.72rem;border:1px solid var(--line);border-radius:999px;padding:2px 8px;color:var(--grey)}
   .sys{border:1px dashed var(--line);border-radius:14px;padding:6px 18px 14px;margin:26px 0}
@@ -201,7 +214,7 @@ const T = {
   fb:"Comment right here — anonymous, in the page",fbTake:"One box for everything: challenge a score, suggest a new idea, drop evidence. No name, no email, no account — and you never leave this page. Both teams read every comment and sort out what it is; new ideas enter the pool through the same gates as everything else.",
   fMsg:"Your comment",fPh:"The evidence, the disagreement, the new idea — in your own words",fSend:"Post comment",fAll:"GitHub Issues",fNote:"100% anonymous: there is no name field and no email is collected. Feedback is judged on its evidence, never on who wrote it — and a comment never changes a score by itself.",fThanks:"Sent — thank you. Both teams read every comment at the Friday review.",fFail:"Sending failed — please try again in a moment, or use GitHub instead:",fNone:"Reader comments are answered inside the agent discussion below, after the teams' Friday review.",
   best:"Running best score",plotK:"Experiments",plot:"Every idea scored — and the best so far",plotTake:"Each dot is one idea. The green step line is the best score reached so far.",plotNone:"No ideas scored yet — this side's plot appears after its first scoring round.",xLbl:"Ideas, in the order they were scored",gateBand:"failed a gate",lgKeep:"kept",lgRevise:"needs revision",lgDiscard:"discarded",lgCrash:"crashed",lgGate:"failed a hard gate (no score)",lgBest:"running best",bestNone:"No idea scored yet — scoring starts after the legal gates.",
-  ideasH:"The ideas — debated & scored by the agents",ideasTake:"Every idea survives a 6-step agent debate (claim → kill shot → base rate → money math → distribution → pre-mortem) before it earns a score. Scores stay provisional until each side locks them at a Friday checkpoint when new evidence lands; final judging is Dec 25.",killL:"Kill shot",verdL:"Team verdict",clsB:"Legal gate: lawful with conditions",noIdeas:"This side has not published scored debates yet.",showSys:"System & platform details — show",prov:"Provisional",discH:"What the agents are saying to each other",discTake:"Not just the scores — the working thread behind them. Each role posts what it found, the others challenge it in replies, and no score moves until the argument survives here.",discNone:"This side has not published its agent discussion yet."},
+  ideasH:"The ideas — debated & scored by the agents",ideasTake:"Every idea survives a 6-step agent debate (claim → kill shot → base rate → money math → distribution → pre-mortem) before it earns a score. Scores stay provisional until each side locks them at a Friday checkpoint when new evidence lands; final judging is Dec 25.",killL:"Kill shot",verdL:"Team verdict",clsB:"Legal gate: lawful with conditions",noIdeas:"This side has not published scored debates yet.",showSys:"System & platform details — show",prov:"Provisional",discH:"What the agents are saying to each other",discTake:"Not just the scores — the working thread behind them. Each role posts what it found, the others challenge it in replies, and no score moves until the argument survives here.",discNone:"This side has not published its agent discussion yet.",more:"Read more",less:"Show less",reps:"replies"},
  vi:{kick:"Nhật ký nghiên cứu công khai · Việt Nam + Hoa Kỳ · Hai hệ thống AI, một đề bài",h1:"Kiếm tiền bằng AI với ~$20/tháng.",tag:"Hai team AI độc lập — Muse và Claude Code — cùng chạy một đề bài cho Việt Nam và Mỹ. Hợp pháp ở cả hai nước, có lời sau thuế, không thì loại.",
   s1:"cách đang kiểm chứng",s2:"cổng cứng",s3:"ngày tới deadline 25/12",viewing:"Đang xem phía",liveOn:"Đang hoạt động",liveOff:"Đang nghỉ",lastUpd:"cập nhật lần cuối",ago:"trước",justNow:"vừa xong",uMin:"phút",uHr:"giờ",uDay:"ngày",chk:"đã kiểm tra trạng thái lúc",updated:"Cập nhật",
   gates:"Bốn cổng cứng",gTake:"Rớt một cổng là loại — không điểm nào cứu được.",g1:"Ngân sách: subscription AI ≤ ~$20/tháng, mọi chi phí khác liệt kê công khai.",g2:"Hợp pháp ở cả hai nước + đúng điều khoản nền tảng: không ngành cấm, không spam, không tương tác ảo, công khai AI/quảng cáo đúng quy định.",g3:"Có lời SAU thuế và khai nộp thuế đầy đủ — không tính thu nhập chui.",g4:"Hợp pháp cho người vận hành mẫu — cư dân dài hạn hợp pháp của cả Mỹ và Việt Nam — gồm đăng ký kinh doanh và khai thuế ở cả hai nước, kiểm tra bằng nguồn chính thức cho từng cách.",
@@ -212,7 +225,7 @@ const T = {
   fb:"Bình luận ngay tại đây — ẩn danh, ngay trong trang",fbTake:"Một ô cho mọi thứ: phản biện một điểm số, đề xuất ý tưởng mới, gửi bằng chứng. Không tên, không email, không tài khoản — và bạn không rời khỏi trang này. Cả hai team đều đọc mọi bình luận và tự phân loại nó là gì; ý tưởng mới vào pool qua đúng các cổng như mọi ý tưởng khác.",
   fMsg:"Bình luận của bạn",fPh:"Bằng chứng, điểm bạn không đồng ý, ý tưởng mới — bằng lời của bạn",fSend:"Đăng bình luận",fAll:"GitHub Issues",fNote:"Ẩn danh 100%: không có ô tên và không thu thập email. Góp ý được xét trên bằng chứng của nó, không xét người viết — và một bình luận tự nó không bao giờ đổi điểm.",fThanks:"Đã gửi — cảm ơn bạn. Cả hai team sẽ đọc mọi bình luận ở lượt rà soát thứ Sáu.",fFail:"Gửi chưa thành công — vui lòng thử lại sau ít phút, hoặc dùng GitHub thay thế:",fNone:"Bình luận của người xem sẽ được trả lời ngay trong mục thảo luận của các agents bên dưới, sau lượt rà soát thứ Sáu của các team.",
   best:"Điểm cao nhất hiện tại",plotK:"Thí nghiệm",plot:"Mọi ý tưởng đã chấm — và điểm cao nhất tới nay",plotTake:"Mỗi chấm là một ý tưởng. Đường bậc thang xanh là điểm cao nhất đạt được tới thời điểm đó.",plotNone:"Chưa có ý tưởng nào được chấm — biểu đồ của phía này sẽ hiện sau vòng chấm đầu tiên.",xLbl:"Các ý tưởng, theo thứ tự được chấm",gateBand:"rớt cổng",lgKeep:"giữ lại",lgRevise:"cần xem lại",lgDiscard:"loại",lgCrash:"lỗi",lgGate:"rớt cổng cứng (không chấm)",lgBest:"điểm cao nhất tới nay",bestNone:"Chưa có cách nào được chấm — việc chấm điểm bắt đầu sau vòng cổng pháp lý.",
-  ideasH:"Các ý tưởng — agents tranh luận & chấm điểm",ideasTake:"Mỗi ý tưởng phải qua một phiên tranh luận 6 bước của các agents (luận điểm → đòn chí mạng → tỷ lệ thành công thực tế → toán tiền → kênh khách đầu tiên → dự phòng thất bại) rồi mới có điểm. Điểm là tạm cho tới khi mỗi phía chốt ở một checkpoint thứ Sáu khi có bằng chứng mới; chấm chung kết vào 25/12.",killL:"Đòn chí mạng",verdL:"Kết luận của team",clsB:"Cổng pháp lý: hợp lệ có điều kiện",noIdeas:"Phía này chưa công bố ý tưởng đã tranh luận & chấm điểm.",showSys:"Chi tiết hệ thống & nền tảng — hiện",prov:"Điểm nháp",discH:"Các agents đang nói gì với nhau",discTake:"Không chỉ là điểm số — đây là luồng làm việc phía sau chúng. Mỗi vai trò đăng điều mình tìm được, các vai trò khác phản biện ngay trong phần trả lời, và không điểm nào thay đổi cho tới khi lập luận đứng vững ở đây.",discNone:"Phía này chưa công bố phần thảo luận của các agents."}
+  ideasH:"Các ý tưởng — agents tranh luận & chấm điểm",ideasTake:"Mỗi ý tưởng phải qua một phiên tranh luận 6 bước của các agents (luận điểm → đòn chí mạng → tỷ lệ thành công thực tế → toán tiền → kênh khách đầu tiên → dự phòng thất bại) rồi mới có điểm. Điểm là tạm cho tới khi mỗi phía chốt ở một checkpoint thứ Sáu khi có bằng chứng mới; chấm chung kết vào 25/12.",killL:"Đòn chí mạng",verdL:"Kết luận của team",clsB:"Cổng pháp lý: hợp lệ có điều kiện",noIdeas:"Phía này chưa công bố ý tưởng đã tranh luận & chấm điểm.",showSys:"Chi tiết hệ thống & nền tảng — hiện",prov:"Điểm nháp",discH:"Các agents đang nói gì với nhau",discTake:"Không chỉ là điểm số — đây là luồng làm việc phía sau chúng. Mỗi vai trò đăng điều mình tìm được, các vai trò khác phản biện ngay trong phần trả lời, và không điểm nào thay đổi cho tới khi lập luận đứng vững ở đây.",discNone:"Phía này chưa công bố phần thảo luận của các agents.",more:"Đọc tiếp",less:"Thu gọn",reps:"phản hồi"}
 };
 let lang='en', side='muse';
 function setLang(l){lang=l;document.getElementById('btn-en').classList.toggle('on',l==='en');document.getElementById('btn-vi').classList.toggle('on',l==='vi');document.querySelectorAll('[data-en]').forEach(e=>e.textContent=e.dataset[l]);render();}
@@ -272,10 +285,27 @@ const AVA=['#059669','#2563EB','#D97706','#7C3AED','#0E7490','#BE185D'];
 function avaColor(name){let h=0;for(const c of String(name))h=(h*31+c.charCodeAt(0))>>>0;return AVA[h%AVA.length];}
 function initials(name){const w=String(name).replace(/[^A-Za-z ]/g,'').split(/\s+/).filter(Boolean);return ((w[0]||'?')[0]+(w[1]?w[1][0]:'')).toUpperCase();}
 function locText(x){return typeof x==='string'?x:(x&&(x[lang]||x.en))||'';}
+// Compact preview (owner, Oct 29): each post shows only its first 1–2 sentences; the full text and the replies expand in place via Read more. Expansion state survives the 60s re-render via window.__discOpen keys (side:index).
+function previewOf(txt){
+ const ends=[];const re=/[.!?…](?=\s|$)/g;let m;while((m=re.exec(txt))&&ends.length<2){ends.push(m.index+1);}
+ let pv=ends.length?txt.slice(0,ends[ends.length-1]):txt;
+ if(pv.length>320){pv=pv.slice(0,300).replace(/\s+\S*$/,'')+'…';}
+ return pv;
+}
+window.__discOpen=window.__discOpen||new Set();
+function toggleDisc(k){const s=window.__discOpen;if(s.has(k))s.delete(k);else s.add(k);render();}
 function discHTML(dd,t){
  if(!Array.isArray(dd)||!dd.length) return `<p class="muted">${t.discNone}</p>`;
- return dd.map(p=>{const rn=(p.role&&(p.role[lang]||p.role.en))||'';const reps=(Array.isArray(p.replies)?p.replies:[]).map(r=>{const rrn=(r.role&&(r.role[lang]||r.role.en))||'';return `<div class="reply"><div class="post-head"><div class="ava sm" style="background:${avaColor(r.role&&r.role.en)}">${esc(initials(r.role&&r.role.en))}</div><div><span class="p-name">${esc(rrn)}</span> <span class="p-ts mono">${esc(r.ts||'')}</span><div class="p-text">${esc(locText(r.text))}</div></div></div></div>`;}).join('');
- return `<div class="post"><div class="post-head"><div class="ava" style="background:${avaColor(p.role&&p.role.en)}">${esc(initials(p.role&&p.role.en))}</div><div><span class="p-name">${esc(rn)}</span>${p.tag?` <span class="pill">${esc(locText(p.tag))}</span>`:''}<div class="p-ts mono">${esc(p.ts||'')}</div></div></div><div class="p-text">${esc(locText(p.text))}</div>${reps?`<div class="replies">${reps}</div>`:''}</div>`;}).join('');
+ const rows=dd.map((p,i)=>{const rn=(p.role&&(p.role[lang]||p.role.en))||'';const col=avaColor(p.role&&p.role.en);const full=locText(p.text);const repsArr=Array.isArray(p.replies)?p.replies:[];
+ const reps=repsArr.map(r=>{const rrn=(r.role&&(r.role[lang]||r.role.en))||'';const rc=avaColor(r.role&&r.role.en);return `<div class="quote" style="border-left-color:${rc}"><div class="q-head"><span class="q-name" style="color:${rc}">${esc(rrn)}</span><span class="q-ts mono">${esc(r.ts||'')}</span></div><div class="q-body">${esc(locText(r.text))}</div></div>`;}).join('');
+ const head=`<div class="msg-head"><span class="msg-ava" style="background:${col}">${esc(initials(p.role&&p.role.en))}</span><span class="msg-name" style="color:${col}">${esc(rn)}</span>${p.tag?`<span class="pill">${esc(locText(p.tag))}</span>`:''}<span class="msg-ts mono">${esc(p.ts||'')}</span></div>`;
+ if(!(full.length>300||repsArr.length)) return `<div class="msg">${head}<div class="msg-body">${esc(full)}</div></div>`;
+ const k=side+':'+i, open=window.__discOpen.has(k);
+ const moreLbl=`${esc(t.more)}${repsArr.length?` · ${repsArr.length} ${esc(t.reps)}`:''}`;
+ const pv=`<div class="msg-body"${open?' hidden':''}>${esc(previewOf(full))} <button class="more-btn" onclick="toggleDisc('${k}')">${moreLbl} ▾</button></div>`;
+ const fu=`<div class="msg-full"${open?'':' hidden'}><div class="msg-body">${esc(full)}</div>${reps?`<div class="quotes">${reps}</div>`:''}<div class="less-row"><button class="more-btn" onclick="toggleDisc('${k}')">${esc(t.less)} ▴</button></div></div>`;
+ return `<div class="msg">${head}${pv}${fu}</div>`;}).join('');
+ return `<div class="chat">${rows}</div>`;
 }
 // Karpathy-style plot: one dot per idea in scoring order, running-best step line, gate fails in a band under the axis.
 const MARK={keep:'#059669',revise:'#D97706',discard:'#9CA3AF',crash:'#DC2626'};
