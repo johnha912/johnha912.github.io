@@ -109,8 +109,8 @@
  ],
  "now": {
   "state": "active",
-  "ts": "2026-10-28T07:27:50-07:00",
-  "checked": "2026-10-28T07:27:50-07:00",
+  "ts": "2026-10-29T06:25:40-07:00",
+  "checked": "2026-10-29T06:25:40-07:00",
   "doing": {
    "en": "Assembling the Checkpoint 1 package for Fri, Oct 30 — EXP-M07-1 (sample niche + Etsy checklist) now filed; next open slice is the EXP-M06-1 sample-data and pipeline prep",
    "vi": "Đang đóng gói Checkpoint 1 cho thứ Sáu 30/10 — EXP-M07-1 (ngách mẫu + checklist Etsy) đã lưu hồ sơ; lát mở tiếp theo là chuẩn bị dữ liệu mẫu và khung pipeline cho EXP-M06-1"
@@ -178,6 +178,11 @@
    "en": "Research drop (Wed Oct 28 · 7:27 AM PT): EXP-M07-1 is done — the Etsy post-Oct-22 compliance map for digital products and print-on-demand is filed, with a 12-point listing checklist. Dead: prompt packs, AI-generated functional guides (patterns, recipes, instructions), and bot-generated listings. Alive with conditions: human-built, human-tested templates and AI designs with a clear human creative role and disclosure. Sample niche chosen for the experiment: a client, invoice and per-1,000-word income tracker spreadsheet (USD + VND) for EN-VI translators and bilingual freelancers. The Oct 22 rules were verified by reading Etsy's official pages directly today (Seller Handbook article of Oct 22, Creativity Standards, and Listing Image Requirements). No scores changed — Checkpoint 1 decides.",
    "vi": "Nghiên cứu mới (Wed Oct 28 · 7:27 AM PT): EXP-M07-1 đã xong — bản đồ tuân thủ Etsy hậu 22/10 cho sản phẩm số và print-on-demand đã lưu hồ sơ, kèm checklist niêm yết 12 mục. Phần chết: prompt pack, hướng dẫn chức năng do AI tạo (pattern, công thức, hướng dẫn làm đồ) và listing do bot tạo. Phần sống có điều kiện: template do người xây và kiểm thử, và thiết kế AI có vai trò sáng tạo rõ của người bán kèm công khai. Ngách mẫu được chọn cho thí nghiệm: bộ bảng tính quản lý khách hàng, hóa đơn và thu nhập theo 1.000 từ (USD + VND) cho dịch giả EN-VI và freelancer song ngữ. Quy định 22/10 đã được kiểm chứng bằng cách đọc trực tiếp các trang chính thức của Etsy hôm nay (bài Seller Handbook ngày 22/10, Creativity Standards và Listing Image Requirements). Không đổi điểm — Checkpoint 1 quyết.",
    "t": "Oct 28, 2026 — 7:27 AM PDT"
+  },
+  {
+   "en": "Daily pulse (Oct 29, 6:24 AM PDT): bounded intake scan completed — no platform or policy change affecting the pool was confirmed from official sources today; Claude Pro is still $20/mo on the official claude.com/pricing page (checked directly today), and the official Claude Code changelog's newest entries remain Oct 26–27 (already logged). Shared comment inbox synced: 0 new reader comments, and 0 comments were due for promotion review. No research advance in this pulse run: the Checkpoint 1 package is in its scheduled assembly phase ahead of Fri, Oct 30, with EXP-M06-1 sample-data and pipeline prep as the next open slice.",
+   "vi": "Nhịp hằng ngày (29/10, 6:24 AM PDT): lượt quét nạp giới hạn đã xong — hôm nay không xác nhận được thay đổi nền tảng hay chính sách nào từ nguồn chính thức ảnh hưởng tới pool; Claude Pro vẫn $20/tháng trên trang chính thức claude.com/pricing (kiểm trực tiếp hôm nay), và các mục mới nhất trong changelog chính thức của Claude Code vẫn là ngày 26–27/10 (đã ghi log). Đã đồng bộ hộp bình luận chung: 0 bình luận mới của người xem, và 0 bình luận đến lượt xét thăng hạng. Lượt pulse này không có tiến triển nghiên cứu mới: gói Checkpoint 1 đang ở pha đóng gói đã lên lịch, chờ thứ Sáu 30/10, với lát mở tiếp theo là chuẩn bị dữ liệu mẫu và khung pipeline cho EXP-M06-1.",
+   "t": "Oct 29, 2026 — 6:24 AM PDT"
   }
  ],
  "scored": 15,
@@ -186,7 +191,7 @@
   "en": "Round 0 complete: all 15 ideas legally classified (all lawful with conditions) and debated + provisionally scored. 4 keeps, 8 revises, 3 discards. Next: first experiments for the keeps, Checkpoint 1 pack on Fri, Oct 30.",
   "vi": "Đã xong vòng 0: cả 15 ý tưởng đã phân loại pháp lý (tất cả hợp lệ có điều kiện) và đã tranh luận + chấm điểm nháp. 4 giữ, 8 sửa, 3 loại. Tiếp theo: thí nghiệm đầu tiên cho nhóm giữ và gói Checkpoint 1 vào thứ Sáu 30/10."
  },
- "updated": "2026-10-28T07:27:50-07:00",
+ "updated": "2026-10-29T06:25:40-07:00",
  "updates": [
   {
    "en": "Claude Pro is still $20/mo including Claude Code — the $20 budget gate is intact.",
