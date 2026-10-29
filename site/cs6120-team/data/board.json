@@ -4,7 +4,7 @@
   "instructor": "Karl Ni",
   "team": "Nguyen Ha · Ngoc Hoang · Peihan Wang",
   "deadline": "Sun Nov 1, 11:59 PM PT",
-  "updated_at": "2026-10-29 00:00 PDT",
+  "updated_at": "2026-10-29 01:02 PDT",
   "experiments": 106,
   "pool": 101,
   "top5": [
@@ -2270,6 +2270,12 @@
    "time": "Oct 28, 10:59 PM PDT",
    "topic": "Finalization monitoring: no new votes, scan adds nothing",
    "text": "Priority check first: no new vote was waiting — the tally still holds the two real votes (C07, C11), both already re-examined, so no rubric score moved on feedback. The tie-break gauntlet (12 of 12) and the top-four re-verification (4 of 4) remain complete, and the scoring queue is still empty, so this batch was monitoring only. The recommended five by Final Score are unchanged — C07 (91), C11 (88), C01 (87), C25 (85), C05 (84 at slot #5) — with C03 (84) as the insurance pick at #6. The fresh-news scan checked the newest records dated Oct 27–28: an Ai2 study showing LLM judges of research novelty flipping from 93.5% to 40.9% accuracy on a single prompt-wording change was not added — the judge family is the pool's most saturated, with its lead project holding 2,000 fully public pairs, so it stands as supporting evidence for that family only; a training-data provenance audit of an open-data model was not added — its core is pretraining-scale interpretability with no verified course-scale dataset and live-endpoint case, and provenance ground is already held in the pool; and the prompt-cache, agent-restart, reasoning-effort, ontology-RAG and micro-model reports were all re-checked and not added — each is already scanned, already held, or not an NLP-first course project. Scan done, nothing added: the pool stays at 101 projects, 106 scored experiments, and an empty queue. New ideas still close on Oct 31 at 8:00 PM PT; the two open decisions for finalization remain the team lead's."
+  },
+  {
+   "agent": "Research Department",
+   "time": "Oct 29, 12:59 AM PDT",
+   "topic": "Finalization monitoring: no new votes, scan adds nothing",
+   "text": "Priority check first: no new vote was waiting — the tally still holds the two real votes (C07, C11), both already re-examined, so no rubric score moved on feedback. The tie-break gauntlet (12 of 12) and the top-four re-verification (4 of 4) remain complete, and the scoring queue is still empty, so this batch was monitoring only. The recommended five by Final Score are unchanged — C07 (91), C11 (88), C01 (87), C25 (85), C05 (84 at slot #5) — with C03 (84) as the insurance pick at #6. The fresh-news scan checked the newest records dated Oct 28–29: the Simbian coverage-stopping report was not added — it is the source already scored in the pool as a stopping-rule project; the Oxford misuse-monitoring benchmark was not added — already scored as the pool's monitor-framing project; a software-engineering skills benchmark was not added — the skills question is already held and its core is software engineering, not an NLP claim; secure-coding benchmark results were not added — already scored, with the thinnest NLP fit in the queue; a harness-engineering result (migration success rising from 6.5% to 31.0% from harness structure alone, weights fixed) is supporting evidence only for the pool's harness-variance project; hallucination-calibration results and the EMNLP 2026 evaluation wave were not added — the evaluation family is the pool's most saturated, with its lead project holding 2,000 fully public pairs; the Ai2 novelty-judging benchmark was not added — already scanned, judge family saturated; and the GraphRAG roundup and Hugging Face trending model releases were not added — RAG ground is held at the top of the pool and model releases carry no candidate-shaped claim. Scan done, nothing added: the pool stays at 101 projects, 106 scored experiments, and an empty queue. New ideas still close on Oct 31 at 8:00 PM PT; the two open decisions for finalization remain the team lead's."
   }
  ],
  "feedback": {
