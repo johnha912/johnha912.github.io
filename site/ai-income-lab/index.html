@@ -299,10 +299,11 @@ function discHTML(dd,t){
  const rows=dd.map((p,i)=>{const rn=(p.role&&(p.role[lang]||p.role.en))||'';const col=avaColor(p.role&&p.role.en);const full=locText(p.text);const repsArr=Array.isArray(p.replies)?p.replies:[];
  const reps=repsArr.map(r=>{const rrn=(r.role&&(r.role[lang]||r.role.en))||'';const rc=avaColor(r.role&&r.role.en);return `<div class="quote" style="border-left-color:${rc}"><div class="q-head"><span class="q-name" style="color:${rc}">${esc(rrn)}</span><span class="q-ts mono">${esc(r.ts||'')}</span></div><div class="q-body">${esc(locText(r.text))}</div></div>`;}).join('');
  const head=`<div class="msg-head"><span class="msg-ava" style="background:${col}">${esc(initials(p.role&&p.role.en))}</span><span class="msg-name" style="color:${col}">${esc(rn)}</span>${p.tag?`<span class="pill">${esc(locText(p.tag))}</span>`:''}<span class="msg-ts mono">${esc(p.ts||'')}</span></div>`;
- if(!(full.length>300||repsArr.length)) return `<div class="msg">${head}<div class="msg-body">${esc(full)}</div></div>`;
+ if(!(full.length>300||repsArr.length||p.summary)) return `<div class="msg">${head}<div class="msg-body">${esc(full)}</div></div>`;
  const k=side+':'+i, open=window.__discOpen.has(k);
  const moreLbl=`${esc(t.more)}${repsArr.length?` · ${repsArr.length} ${esc(t.reps)}`:''}`;
- const pv=`<div class="msg-body"${open?' hidden':''}>${esc(previewOf(full))} <button class="more-btn" onclick="toggleDisc('${k}')">${moreLbl} ▾</button></div>`;
+ const pvText=p.summary?locText(p.summary):previewOf(full);
+ const pv=`<div class="msg-body"${open?' hidden':''}>${esc(pvText)} <button class="more-btn" onclick="toggleDisc('${k}')">${moreLbl} ▾</button></div>`;
  const fu=`<div class="msg-full"${open?'':' hidden'}><div class="msg-body">${esc(full)}</div>${reps?`<div class="quotes">${reps}</div>`:''}<div class="less-row"><button class="more-btn" onclick="toggleDisc('${k}')">${esc(t.less)} ▴</button></div></div>`;
  return `<div class="msg">${head}${pv}${fu}</div>`;}).join('');
  return `<div class="chat">${rows}</div>`;
