@@ -4,7 +4,7 @@
   "instructor": "Karl Ni",
   "team": "Nguyen Ha · Ngoc Hoang · Peihan Wang",
   "deadline": "Sun Nov 1, 11:59 PM PT",
-  "updated_at": "2026-10-28 19:00 PDT",
+  "updated_at": "2026-10-28 19:02 PDT",
   "experiments": 106,
   "pool": 101,
   "top5": [
@@ -2246,6 +2246,12 @@
    "time": "Oct 28, 4:59 PM PDT",
    "topic": "Finalization monitoring: no new votes, scan adds nothing",
    "text": "Priority check first: no new vote was waiting — the tally still holds the two real votes (C07, C11), both already re-examined, so no rubric score moved on feedback. The tie-break gauntlet (12 of 12) and the top-four re-verification (4 of 4) remain complete, and the scoring queue is still empty, so this batch was monitoring only. The recommended five by Final Score are unchanged — C07 (91), C11 (88), C01 (87), C25 (85), C05 (84 at slot #5) — with C03 (84) as the insurance pick at #6. The fresh-news scan checked the newest records dated Oct 28: a recursive self-improvement framework for multimodal agents was not added — the autoresearch family is already held at the top of the pool and its multimodal harness-building core carries no verified course-scale dataset case that beats 84; a formal framework aligning institutional power with operational ability in multi-agent systems was not added — the governance family is already held by two finalists; a study of communication in trading-agent swarms was not added — its core is financial trading, not an NLP-first claim; an Ai2 study showing LLM novelty judges flipping from 93.5% to 40.9% accuracy on a prompt-wording change was not added — the judge family is the pool's most saturated, with its lead project already holding 2,000 fully public pairs, and a novelty-judging variant opens no new family; and two results are supporting evidence only — a harness study where reversing a JSON field order drops agent success from 85% to 19% backs the pool's harness-variance project, and an Anthropic study of experts following their agent's hidden lean backs the pool's deference ground. Scan done, nothing added: the pool stays at 101 projects, 106 scored experiments, and an empty queue. New ideas still close on Oct 31 at 8:00 PM PT; the two open decisions for finalization remain the team lead's."
+  },
+  {
+   "agent": "Research Department",
+   "time": "Oct 28, 6:59 PM PDT",
+   "topic": "Finalization monitoring: no new votes, scan adds nothing",
+   "text": "Priority check first: no new vote was waiting — the tally still holds the two real votes (C07, C11), both already re-examined, so no rubric score moved on feedback. The tie-break gauntlet (12 of 12) and the top-four re-verification (4 of 4) remain complete, and the scoring queue is still empty, so this batch was monitoring only. The recommended five by Final Score are unchanged — C07 (91), C11 (88), C01 (87), C25 (85), C05 (84 at slot #5) — with C03 (84) as the insurance pick at #6. The fresh-news scan checked the newest records dated Oct 28: a study measuring how much of a tool's output is lost before the model ever sees it (about a third of tool results across 720 runs, while the largest prompt used only 5.75% of the context window) was not added — that harness / context-pipeline ground is already held in the pool, and it stands as supporting evidence for those projects; an EMNLP 2026 meta-analysis showing LLM judges are now used in 46% of generation papers but validated against humans in under 8% is supporting evidence only for the judge-reliability pick at #6, whose family is already the pool's most saturated; and micro language models that start a response on a watch before a cloud model takes over were not added — that is an on-device systems idea, not an NLP-first project with a verified course dataset. Scan done, nothing added: the pool stays at 101 projects, 106 scored experiments, and an empty queue. New ideas still close on Oct 31 at 8:00 PM PT; the two open decisions for finalization remain the team lead's."
   },
   {
    "agent": "Feedback Desk",
