@@ -4,7 +4,7 @@
   "instructor": "Karl Ni",
   "team": "Nguyen Ha · Ngoc Hoang · Peihan Wang",
   "deadline": "Sun Nov 1, 11:59 PM PT",
-  "updated_at": "2026-10-30 00:00 PDT",
+  "updated_at": "2026-10-30 01:00 PDT",
   "experiments": 106,
   "pool": 101,
   "top5": [
@@ -2342,6 +2342,12 @@
    "time": "Oct 29, 10:59 PM PDT",
    "topic": "Finalization monitoring: scan adds nothing again",
    "text": "Priority check first: no new vote was waiting — the tally still holds the two real votes (C07, C11), both already re-examined, so no rubric score moved on feedback. The tie-break gauntlet (12 of 12) and the top-four re-verification (4 of 4) remain complete, the 84-point cluster re-counted from the score log is exactly the twelve recorded projects, and the scoring queue is still empty, so this batch was monitoring only. The recommended five by Final Score are unchanged — C07 (91), C11 (88), C01 (87), C25 (85), C05 (84 at slot #5) — with C03 (84) as the insurance pick at #6. The fresh-news scan checked the newest records dated Oct 29: a multi-LLM code-repair collaboration paper and a review of language-model routers were not added — code repair is a software-engineering build and routing ground is already held in this pool, and neither writes a case that it beats 84 under the language-first rule; closing-day conference items — a shared selective persistent-memory poster for agentic systems and a training-compute method — were not added, because the memory family already has its lead project and a training method sits outside the course envelope, with no verified course-scale dataset case in either; a multi-turn code-switching benchmark name surfaced in conference coverage was noted but not added, because no verified public download or scale was established in this scan and the code-switching family was already fully scored earlier in the run; and the day's trending releases (a robotics dataset, a genomics chat model, and transcription script bundles) are outside the text-language core. Scan done, nothing added: the pool stays at 101 projects, 106 scored experiments, and an empty queue. New ideas still close on Oct 31 at 8:00 PM PT; the two open decisions for finalization remain the team lead's."
+  },
+  {
+   "agent": "Research Department",
+   "time": "Oct 30, 12:59 AM PDT",
+   "topic": "Finalization monitoring: scan adds nothing again",
+   "text": "Priority check first: no new vote was waiting — the tally still holds the two real votes (C07, C11), both already re-examined, so no rubric score moved on feedback. The tie-break gauntlet (12 of 12) and the top-four re-verification (4 of 4) remain complete, the 84-point cluster re-counted from the score log is exactly the twelve recorded projects, and the scoring queue is still empty, so this batch was monitoring only. The recommended five by Final Score are unchanged — C07 (91), C11 (88), C01 (87), C25 (85), C05 (84 at slot #5) — with C03 (84) as the insurance pick at #6. The fresh-news scan checked the newest records dated Oct 29-30: a procedure-aware banking benchmark for tool-using conversational agents was not added — procedure compliance and final-state evaluation ground is already held and priced in this pool, and its single-country domain framing writes no case that it beats 84 under the language-first rule; a benchmark varying computer-use agent tasks by user persona was not added — it is a graphical-interface benchmark, not a text-language claim; a mobile image-generation benchmark was not added — vision, outside the text core; a study of memory failing group decisions was not added — supporting evidence for the memory thread only, whose lead project is already verified; a research-agent arena posted Oct 26 was not added — it supports a project already ranked second, and its testbed is training-loop optimization rather than a new language question; a finance agent exam published Oct 28 was not added — the judgment-chain evaluation family is saturated; and the trending model releases are vision, genomics or model drops with no candidate-shaped claim. Scan done, nothing added: the pool stays at 101 projects, 106 scored experiments, and an empty queue. New ideas still close on Oct 31 at 8:00 PM PT; the two open decisions for finalization remain the team lead's."
   }
  ],
  "feedback": {
