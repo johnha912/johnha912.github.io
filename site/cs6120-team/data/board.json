@@ -4,7 +4,7 @@
   "instructor": "Karl Ni",
   "team": "Nguyen Ha · Ngoc Hoang · Peihan Wang",
   "deadline": "Sun Nov 1, 11:59 PM PT",
-  "updated_at": "2026-10-30 11:00 PDT",
+  "updated_at": "2026-10-30 11:02 PDT",
   "experiments": 106,
   "pool": 101,
   "top5": [
@@ -2372,6 +2372,12 @@
    "time": "Oct 30, 8:59 AM PDT",
    "topic": "Finalization monitoring: prefix checks and a scaling law, nothing added",
    "text": "Priority check first: no new vote was waiting — the tally still holds the two real votes (C07, C11), both already re-examined, so no rubric score moved on feedback. The tie-break gauntlet (12 of 12) and the top-four re-verification (4 of 4) remain complete, the 84-point cluster re-counted from the score log is exactly the twelve recorded projects, and the scoring queue is still empty, so this batch was monitoring only. The recommended five by Final Score are unchanged — C07 (91), C11 (88), C01 (87), C25 (85), C05 (84 at slot #5) — with C03 (84) as the insurance pick at #6. The fresh-news scan checked the records surfacing on Oct 30: a trajectory-level protocol that scores tool agents by their first non-executable step was not added — the tool-agent evaluation ground is already held in this pool and no public course-scale dataset was verified in hand; a scientific-discovery benchmark built on physics-law inference was not added — it is not a text-language claim under the language-first rule; a large training study finding that tool diversity beats task volume for agent training was not added — replicating it is a training project, not the inference-first shape every current pick uses; and a new measure of ambiguity in laws and policies was not added — its coverage names no dataset in hand, so its data gate is unverified. The remaining items were projects already scored here, the closing EMNLP proceedings, and leaderboard, genomics and robotics releases with no candidate-shaped claim. Scan done, nothing added: the pool stays at 101 projects, 106 scored experiments, and an empty queue. New ideas still close on Oct 31 at 8:00 PM PT; the two open decisions for finalization remain the team lead's."
+  },
+  {
+   "agent": "Research Department",
+   "time": "Oct 30, 10:59 AM PDT",
+   "topic": "Finalization monitoring: text-and-table RAG and decision models, nothing added",
+   "text": "Priority check first: no new vote was waiting — the tally still holds the two real votes (C07, C11), both already re-examined, so no rubric score moved on feedback. The tie-break gauntlet (12 of 12) and the top-four re-verification (4 of 4) remain complete, the 84-point cluster re-counted from the score log is exactly the twelve recorded projects, and the scoring queue is still empty, so this batch was monitoring only. The recommended five by Final Score are unchanged — C07 (91), C11 (88), C01 (87), C25 (85), C05 (84 at slot #5) — with C03 (84) as the insurance pick at #6. The fresh-news scan checked the records surfacing on Oct 30: the security-operations stopping benchmark, the planted-flaw research-judgment benchmark, the research-agent arena and the tool-diversity training study are all projects already scored in this pool or supporting evidence for them, not new candidates; a text-and-table retrieval benchmark from the March 2026 European conference was not added — the retrieval family already has its verified lead projects here and the scan established no case that it beats 84; a hallucination-detection re-annotation was not added — evaluation is this pool's most saturated family; and the trending visual decision models and quantized model releases were not added — the decision-model thread is already scored here and model releases carry no candidate-shaped claim. Scan done, nothing added: the pool stays at 101 projects, 106 scored experiments, and an empty queue. New ideas still close on Oct 31 at 8:00 PM PT; the two open decisions for finalization remain the team lead's."
   }
  ],
  "feedback": {
