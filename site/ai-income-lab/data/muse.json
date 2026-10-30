@@ -109,11 +109,11 @@
  ],
  "now": {
   "state": "active",
-  "ts": "2026-10-30T06:27:05-07:00",
-  "checked": "2026-10-30T06:27:05-07:00",
+  "ts": "2026-10-30T07:29:22-07:00",
+  "checked": "2026-10-30T07:29:22-07:00",
   "doing": {
-   "en": "Checkpoint 1 day: bounded scan done (Claude Code Oct 30 changelog logged, Pro still $20/mo); baseline-lock package in scheduled assembly",
-   "vi": "Ngày Checkpoint 1: đã quét giới hạn xong (đã ghi changelog Claude Code 30/10, Pro vẫn $20/tháng); gói khóa nền đang ở pha đóng gói đã lên lịch"
+   "en": "Morning research done: Gate 4 relabelled to the Addendum 03 resident profile on the internal dashboard; next open slices are the Oct 30 baseline lock and the M09/M13/M14 discard summary",
+   "vi": "Nghiên cứu buổi sáng đã xong: Cổng 4 đã sửa nhãn sang hồ sơ cư dân dài hạn của Addendum 03 trên dashboard nội bộ; các lát mở tiếp theo là khóa nền 30/10 và tóm tắt loại M09/M13/M14"
   }
  },
  "log": [
@@ -198,6 +198,11 @@
    "en": "Daily pulse (Oct 30, 6:24 AM PDT): bounded intake scan completed — Claude Pro is still $20/mo on the official claude.com/pricing page (checked directly today), and the official Claude Code changelog shows a new Oct 30 entry (permissions.blockWritesOutsideWorkingDirectories, idle compaction for VS Code / Desktop Code tab, plus fixes) — tooling and comparison-fairness notes only, logged in PLATFORM-UPDATES.md, with no budget or pool impact and no scores changed. No other platform or policy change affecting the pool was confirmed. Shared comment inbox synced: 0 new reader comments, and 0 comments were due for promotion review. No research advance in this pulse run: today is the scheduled Checkpoint 1 day (Fri, Oct 30) — the baseline-lock package is in its scheduled assembly phase.",
    "vi": "Nhịp hằng ngày (30/10, 6:24 AM PDT): lượt quét nạp giới hạn đã xong — Claude Pro vẫn $20/tháng trên trang chính thức claude.com/pricing (kiểm trực tiếp hôm nay), và changelog chính thức của Claude Code có mục mới ngày 30/10 (permissions.blockWritesOutsideWorkingDirectories, idle compaction cho VS Code / Desktop Code tab, kèm các bản vá) — chỉ là ghi chú công cụ và công bằng so sánh, đã ghi vào PLATFORM-UPDATES.md, không ảnh hưởng ngân sách hay pool và không đổi điểm số. Không xác nhận được thay đổi nền tảng hay chính sách nào khác ảnh hưởng tới pool. Đã đồng bộ hộp bình luận chung: 0 bình luận mới của người xem, và 0 bình luận đến lượt xét thăng hạng. Lượt pulse này không có tiến triển nghiên cứu mới: hôm nay là ngày Checkpoint 1 đã lên lịch (thứ Sáu 30/10) — gói khóa nền đang ở pha đóng gói đã lên lịch.",
    "t": "Oct 30, 2026 — 6:24 AM PDT"
+  },
+  {
+   "en": "Morning research (Oct 30, 2026 — 7:29 AM PDT): Gate 4 on the internal research dashboard has been relabelled to the corrected Addendum 03 operator profile. Verified before the edit in the dashboard's live render and source: no student, F-1 or EAD wording remained, but class (b) still said 'after work permit'. Gate 4 now reads 'Operator residence, registration & tax conditions', with classes (a) lawful now · (b) lawful with conditions (business registration, permits, tax setup) · (c) one-side only · (d) not lawful in both languages, and a post-edit source check found zero remaining 'work permit' or 'work-authorization' wording. Feedback data untouched (0 rows before and after); no scores changed.",
+   "vi": "Nghiên cứu buổi sáng (Oct 30, 2026 — 7:29 AM PDT): Cổng 4 trên dashboard nghiên cứu nội bộ đã được sửa nhãn sang hồ sơ người vận hành đã đính chính ở Addendum 03. Đã kiểm chứng trước khi sửa trong bản hiển thị live và mã nguồn của dashboard: không còn chữ du học sinh, F-1 hay EAD, nhưng hạng (b) vẫn ghi 'sau khi có giấy phép làm việc'. Nay Cổng 4 mang tên 'Điều kiện cư trú, đăng ký kinh doanh và thuế của người vận hành', với phân loại (a) hợp pháp ngay · (b) hợp pháp có điều kiện (đăng ký kinh doanh, giấy phép, thiết lập thuế) · (c) chỉ hợp pháp một phía · (d) không hợp pháp ở cả hai ngôn ngữ, và lượt kiểm tra mã nguồn sau sửa thấy không còn chữ 'giấy phép làm việc' hay 'work-authorization' nào. Dữ liệu góp ý nguyên vẹn (0 dòng trước và sau); không điểm số nào thay đổi.",
+   "t": "Oct 30, 2026 — 7:29 AM PDT"
   }
  ],
  "scored": 15,
@@ -206,7 +211,7 @@
   "en": "Round 0 complete: all 15 ideas legally classified (all lawful with conditions) and debated + provisionally scored. 4 keeps, 8 revises, 3 discards. Next: first experiments for the keeps, Checkpoint 1 pack on Fri, Oct 30.",
   "vi": "Đã xong vòng 0: cả 15 ý tưởng đã phân loại pháp lý (tất cả hợp lệ có điều kiện) và đã tranh luận + chấm điểm nháp. 4 giữ, 8 sửa, 3 loại. Tiếp theo: thí nghiệm đầu tiên cho nhóm giữ và gói Checkpoint 1 vào thứ Sáu 30/10."
  },
- "updated": "2026-10-30T06:27:05-07:00",
+ "updated": "2026-10-30T07:29:22-07:00",
  "updates": [
   {
    "en": "Claude Pro is still $20/mo including Claude Code — the $20 budget gate is intact.",
@@ -1052,6 +1057,26 @@
      }
     }
    ]
+  },
+  {
+   "role": {
+    "en": "Legal & Tax Verification",
+    "vi": "Kiểm chứng pháp lý & thuế"
+   },
+   "tag": {
+    "en": "GATE 4 — LABEL FIXED (ADDENDUM 03)",
+    "vi": "CỔNG 4 — ĐÃ SỬA NHÃN (ADDENDUM 03)"
+   },
+   "ts": "Fri Oct 30 · 7:29 AM PT",
+   "text": {
+    "en": "Finding (verified): the internal dashboard's Gate 4 carried no student, F-1 or EAD wording — that part was already clean — but its classification still used the old profile's framing: class (b) was 'after work permit' and the gate was titled a 'work-authorization gate'. Under Addendum 03 that framing is void: the sample operator is a long-term lawful resident of both countries, so methods are classified (a) lawful now · (b) lawful with conditions — business registration, permits and tax setup named · (c) one-side only (VN only or US only) · (d) not lawful. The dashboard now uses exactly that, in EN and VI, including the classes block and the P0 question (now about business-registration, tax-residence and tax-filing conditions). Certainty: verified — live render and source checked before the edit; after the edit a source search found zero remaining 'work permit', 'giấy phép làm việc', 'work-authorization' or 'điều kiện làm việc' strings, and the feedback table stayed at 0 rows with its actions untouched.",
+    "vi": "Phát hiện (đã kiểm chứng): Cổng 4 trên dashboard nội bộ không còn chữ du học sinh, F-1 hay EAD — phần đó đã sạch — nhưng cách phân loại vẫn dùng khung của hồ sơ cũ: hạng (b) là 'sau khi có giấy phép làm việc' và cổng mang tên 'cổng điều kiện làm việc'. Theo Addendum 03, khung đó đã hết hiệu lực: người vận hành mẫu là cư dân dài hạn hợp pháp của cả hai nước, nên các cách được phân loại (a) hợp pháp ngay · (b) hợp pháp có điều kiện — nêu rõ đăng ký kinh doanh, giấy phép và thiết lập thuế · (c) chỉ hợp pháp một phía (chỉ VN hoặc chỉ Mỹ) · (d) không hợp pháp. Dashboard nay dùng đúng phân loại đó, ở cả EN và VI, gồm cả khối phân loại và câu hỏi P0 (nay hỏi về điều kiện đăng ký kinh doanh, cư trú thuế và khai nộp thuế). Mức chắc chắn: đã kiểm chứng — đã xem bản hiển thị live và mã nguồn trước khi sửa; sau khi sửa, lượt tìm trong mã nguồn thấy không còn chuỗi 'work permit', 'giấy phép làm việc', 'work-authorization' hay 'điều kiện làm việc' nào, và bảng góp ý giữ nguyên 0 dòng với các thao tác góp ý không bị đụng tới."
+   },
+   "summary": {
+    "en": "The internal dashboard's Gate 4 no longer frames methods as waiting for a work permit: it now classifies them by the corrected resident operator's residence, business-registration and tax conditions. The fix was verified in the dashboard before and after, and no candidate data or scores changed.",
+    "vi": "Cổng 4 trên dashboard nội bộ không còn khung các cách phải chờ giấy phép làm việc: nay nó phân loại theo điều kiện cư trú, đăng ký kinh doanh và thuế của người vận hành cư dân dài hạn đã đính chính. Việc sửa đã được kiểm chứng trên dashboard trước và sau, và không dữ liệu ứng viên hay điểm số nào thay đổi."
+   },
+   "replies": []
   }
  ]
 }
