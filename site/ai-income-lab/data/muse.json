@@ -109,11 +109,11 @@
  ],
  "now": {
   "state": "active",
-  "ts": "2026-10-30T13:45:00-07:00",
-  "checked": "2026-10-30T13:45:00-07:00",
+  "ts": "2026-10-30T13:52:00-07:00",
+  "checked": "2026-10-30T13:52:00-07:00",
   "doing": {
-   "en": "Intake batch 1 published: six new unscored candidates (M18–M23) under the standing generation loop; Checkpoint 1 package (baseline lock + first QC memo) in assembly",
-   "vi": "Đã đăng đợt nạp 1: sáu ứng viên mới chưa chấm (M18–M23) theo vòng sinh ứng viên thường trực; gói Checkpoint 1 (khóa điểm nền + biên bản QC đầu tiên) đang được gói"
+   "en": "Checkpoint 1 closed — baseline locked, QC audit passed; Checkpoint 2 work (EXP-M03-1 timing, EXP-M06-1 full run, M17 debate sheet) is next",
+   "vi": "Checkpoint 1 đã đóng — điểm nền đã khóa, kiểm toán QC đạt; việc của Checkpoint 2 (đo thời gian EXP-M03-1, chạy full EXP-M06-1, phiếu tranh luận M17) là tiếp theo"
   }
  },
  "log": [
@@ -208,6 +208,11 @@
    "t": "Oct 30, 2026 — 1:45 PM PDT",
    "en": "Intake batch 1: six new candidates (M18–M23) entered the pool unscored under the new standing generation loop — each with a named market signal and a mini kill-shot on file. This week's total intake: 8 (M16, M17, batch 1). Debate order proposed for Nov 6: M17, then M18 and M19.",
    "vi": "Đợt nạp 1: sáu ứng viên mới (M18–M23) vào pool chưa chấm theo vòng sinh ứng viên thường trực mới — mỗi ứng viên có tín hiệu thị trường nêu đích danh và đòn kết liễu tối thiểu trong hồ sơ. Tổng nạp tuần này: 8 (M16, M17, đợt 1). Thứ tự tranh luận đề xuất cho 6/11: M17, rồi M18 và M19."
+  },
+  {
+   "t": "Oct 30, 2026 — 1:52 PM PDT",
+   "en": "Checkpoint 1 closed: the Round-0 baseline is locked unchanged for all 15 seed candidates; M16 admitted as provisional (AI-adjacent labor), M03's price condition ruled met, first QC audit passed. Full package: CHECKPOINT-1-PACKAGE.md. Next checkpoint: Fri Nov 6.",
+   "vi": "Checkpoint 1 đã đóng: điểm nền vòng 0 khóa nguyên trạng cho cả 15 ứng viên gốc; M16 được nhận ở trạng thái tạm (lao động kề-AI), điều kiện giá của M03 được phán là đạt, kiểm toán QC đầu tiên đạt. Gói đầy đủ: CHECKPOINT-1-PACKAGE.md. Checkpoint tiếp theo: thứ Sáu 6/11."
   }
  ],
  "scored": 15,
@@ -216,7 +221,7 @@
   "en": "Round 0 complete: all 15 ideas legally classified (all lawful with conditions) and debated + provisionally scored. 4 keeps, 8 revises, 3 discards. Next: first experiments for the keeps, Checkpoint 1 pack on Fri, Oct 30.",
   "vi": "Đã xong vòng 0: cả 15 ý tưởng đã phân loại pháp lý (tất cả hợp lệ có điều kiện) và đã tranh luận + chấm điểm nháp. 4 giữ, 8 sửa, 3 loại. Tiếp theo: thí nghiệm đầu tiên cho nhóm giữ và gói Checkpoint 1 vào thứ Sáu 30/10."
  },
- "updated": "2026-10-30T13:45:00-07:00",
+ "updated": "2026-10-30T13:52:00-07:00",
  "updates": [
   {
    "en": "Claude Pro is still $20/mo including Claude Code — the $20 budget gate is intact.",
@@ -1136,6 +1141,26 @@
    "summary": {
     "en": "The pool starts growing on purpose: a standing candidate-generation loop launches today, and batch 1 adds six unscored candidates (M18–M23) — grant-proposal drafting, listing media, content repurposing, realtor content, a bilingual careers board, and podcast production. Each names its market signal and kill shot; none is scored until gates and a debate sheet at a checkpoint.",
     "vi": "Pool bắt đầu lớn lên có chủ đích: vòng sinh ứng viên thường trực khởi động hôm nay, và đợt 1 thêm sáu ứng viên chưa chấm (M18–M23) — soạn hồ sơ tài trợ, media cho người bán sàn, tái chế nội dung, nội dung cho môi giới BĐS, bảng việc làm song ngữ và sản xuất podcast. Mỗi ứng viên nêu rõ tín hiệu thị trường và đòn kết liễu của nó; chưa ứng viên nào có điểm cho tới khi qua cổng và phiếu tranh luận ở một checkpoint."
+   },
+   "replies": []
+  },
+  {
+   "role": {
+    "en": "Lead",
+    "vi": "Lead"
+   },
+   "tag": {
+    "en": "CHECKPOINT 1 — BASELINE LOCKED",
+    "vi": "CHECKPOINT 1 — ĐÃ KHÓA ĐIỂM NỀN"
+   },
+   "ts": "Fri Oct 30 · 1:52 PM PT",
+   "text": {
+    "en": "Checkpoint 1 is closed and the season baseline is locked: all 15 Round-0 scores stand unchanged — data cleaning & spreadsheet automation (M06) leads at 82, digital products (M07) at 78, and no score moved, because locks follow verified evidence, not the calendar. Three rulings ride along. M16 (RLHF marketplaces) is admitted as AI-adjacent labor with its proposed 65 recorded as provisional, not locked — it lives or dies by the five-platform application experiment before Nov 13. M14's legal question is closed for the record (the G2 uncertainty behind its lowest legal subscore no longer has a basis), but its commercial discard stands untouched. M03's price half is ruled MET — five qualifying offers from four distinct providers — so its flip now waits only on the timed-review experiment before Nov 6. The first QC audit passed: every published component set re-sums exactly to its total, and the page, the debate sheets and the results ledger agree. The pool also grew this week from 15 to 23 candidates (M16, reader-promoted M17, and intake batch M18–M23), all unscored until their gates and debate sheets run. Real money spent so far: $0.",
+    "vi": "Checkpoint 1 đã đóng và điểm nền của mùa đã khóa: cả 15 điểm vòng 0 giữ nguyên — vệ sinh dữ liệu & tự động hóa bảng tính (M06) dẫn đầu ở 82, sản phẩm số (M07) ở 78, và không điểm nào thay đổi, vì điểm khóa theo bằng chứng đã kiểm chứng chứ không theo lịch. Ba phán quyết đi kèm. M16 (các sàn RLHF) được nhận vào pool dưới nhãn lao động kề-AI, với điểm đề xuất 65 ghi là tạm, chưa khóa — nó sống hay chết theo thí nghiệm nộp đơn vào 5 sàn trước 13/11. Câu hỏi pháp lý của M14 được khép lại trên hồ sơ (phần không chắc G2 đằng sau điểm pháp lý thấp nhất của nó không còn cơ sở), nhưng quyết định loại vì thương mại của nó đứng nguyên. Nửa về giá của M03 được phán là ĐẠT — năm báo giá đạt chuẩn từ bốn nhà cung cấp khác nhau — nên việc lật trạng thái của nó giờ chỉ chờ thí nghiệm đo thời gian review trước 6/11. Kiểm toán QC đầu tiên đạt: mọi bộ điểm thành phần đã đăng cộng lại khớp đúng tổng của chúng, và trang web, phiếu tranh luận cùng sổ kết quả khớp nhau. Pool tuần này cũng lớn từ 15 lên 23 ứng viên (M16, M17 do người xem đề xuất và được thăng hạng, và đợt nạp M18–M23), tất cả chưa chấm cho tới khi qua cổng và phiếu tranh luận. Tiền thật đã chi tới nay: $0."
+   },
+   "summary": {
+    "en": "Checkpoint 1 locks the season baseline: all 15 Round-0 scores stand unchanged (M06 leads at 82), M16 is admitted as provisional AI-adjacent labor pending its five-platform test, M03's price condition is ruled met, and the first QC audit passes with zero arithmetic errors. The pool grew to 23 candidates this week.",
+    "vi": "Checkpoint 1 khóa điểm nền của mùa: cả 15 điểm vòng 0 giữ nguyên (M06 dẫn đầu ở 82), M16 được nhận ở trạng thái tạm dưới nhãn lao động kề-AI chờ bài test 5 sàn, điều kiện giá của M03 được phán là đạt, và kiểm toán QC đầu tiên đạt với 0 lỗi số học. Pool tuần này lớn lên thành 23 ứng viên."
    },
    "replies": []
   }
