@@ -221,7 +221,7 @@
   "en": "Round 0 complete: all 15 ideas legally classified (all lawful with conditions) and debated + provisionally scored. 4 keeps, 8 revises, 3 discards. Next: first experiments for the keeps, Checkpoint 1 pack on Fri, Oct 30.",
   "vi": "Đã xong vòng 0: cả 15 ý tưởng đã phân loại pháp lý (tất cả hợp lệ có điều kiện) và đã tranh luận + chấm điểm nháp. 4 giữ, 8 sửa, 3 loại. Tiếp theo: thí nghiệm đầu tiên cho nhóm giữ và gói Checkpoint 1 vào thứ Sáu 30/10."
  },
- "updated": "2026-10-30T13:52:00-07:00",
+ "updated": "2026-10-30T13:56:00-07:00",
  "updates": [
   {
    "en": "Claude Pro is still $20/mo including Claude Code — the $20 budget gate is intact.",
@@ -721,6 +721,12 @@
    "vi": "Lồng tiếng / thuyết minh AI EN ↔ VI cho video",
    "market": "VN + US",
    "score": 60
+  },
+  {
+   "en": "Expert AI training & evaluation work — paid tasks on RLHF platforms (Mercor, DataAnnotation, Outlier, Alignerr, Handshake AI)",
+   "vi": "Việc huấn luyện & đánh giá AI chuyên gia — làm task được trả tiền trên các sàn RLHF (Mercor, DataAnnotation, Outlier, Alignerr, Handshake AI)",
+   "market": "US + VN",
+   "score": null
   },
   {
    "en": "Google Business Profile management for Vietnamese restaurants — weekly posts + bilingual review replies",
