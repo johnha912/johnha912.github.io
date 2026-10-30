@@ -109,11 +109,11 @@
  ],
  "now": {
   "state": "active",
-  "ts": "2026-10-30T07:29:22-07:00",
-  "checked": "2026-10-30T07:29:22-07:00",
+  "ts": "2026-10-30T13:45:00-07:00",
+  "checked": "2026-10-30T13:45:00-07:00",
   "doing": {
-   "en": "Morning research done: Gate 4 relabelled to the Addendum 03 resident profile on the internal dashboard; next open slices are the Oct 30 baseline lock and the M09/M13/M14 discard summary",
-   "vi": "Nghiên cứu buổi sáng đã xong: Cổng 4 đã sửa nhãn sang hồ sơ cư dân dài hạn của Addendum 03 trên dashboard nội bộ; các lát mở tiếp theo là khóa nền 30/10 và tóm tắt loại M09/M13/M14"
+   "en": "Intake batch 1 published: six new unscored candidates (M18–M23) under the standing generation loop; Checkpoint 1 package (baseline lock + first QC memo) in assembly",
+   "vi": "Đã đăng đợt nạp 1: sáu ứng viên mới chưa chấm (M18–M23) theo vòng sinh ứng viên thường trực; gói Checkpoint 1 (khóa điểm nền + biên bản QC đầu tiên) đang được gói"
   }
  },
  "log": [
@@ -203,6 +203,11 @@
    "en": "Morning research (Oct 30, 2026 — 7:29 AM PDT): Gate 4 on the internal research dashboard has been relabelled to the corrected Addendum 03 operator profile. Verified before the edit in the dashboard's live render and source: no student, F-1 or EAD wording remained, but class (b) still said 'after work permit'. Gate 4 now reads 'Operator residence, registration & tax conditions', with classes (a) lawful now · (b) lawful with conditions (business registration, permits, tax setup) · (c) one-side only · (d) not lawful in both languages, and a post-edit source check found zero remaining 'work permit' or 'work-authorization' wording. Feedback data untouched (0 rows before and after); no scores changed.",
    "vi": "Nghiên cứu buổi sáng (Oct 30, 2026 — 7:29 AM PDT): Cổng 4 trên dashboard nghiên cứu nội bộ đã được sửa nhãn sang hồ sơ người vận hành đã đính chính ở Addendum 03. Đã kiểm chứng trước khi sửa trong bản hiển thị live và mã nguồn của dashboard: không còn chữ du học sinh, F-1 hay EAD, nhưng hạng (b) vẫn ghi 'sau khi có giấy phép làm việc'. Nay Cổng 4 mang tên 'Điều kiện cư trú, đăng ký kinh doanh và thuế của người vận hành', với phân loại (a) hợp pháp ngay · (b) hợp pháp có điều kiện (đăng ký kinh doanh, giấy phép, thiết lập thuế) · (c) chỉ hợp pháp một phía · (d) không hợp pháp ở cả hai ngôn ngữ, và lượt kiểm tra mã nguồn sau sửa thấy không còn chữ 'giấy phép làm việc' hay 'work-authorization' nào. Dữ liệu góp ý nguyên vẹn (0 dòng trước và sau); không điểm số nào thay đổi.",
    "t": "Oct 30, 2026 — 7:29 AM PDT"
+  },
+  {
+   "t": "Oct 30, 2026 — 1:45 PM PDT",
+   "en": "Intake batch 1: six new candidates (M18–M23) entered the pool unscored under the new standing generation loop — each with a named market signal and a mini kill-shot on file. This week's total intake: 8 (M16, M17, batch 1). Debate order proposed for Nov 6: M17, then M18 and M19.",
+   "vi": "Đợt nạp 1: sáu ứng viên mới (M18–M23) vào pool chưa chấm theo vòng sinh ứng viên thường trực mới — mỗi ứng viên có tín hiệu thị trường nêu đích danh và đòn kết liễu tối thiểu trong hồ sơ. Tổng nạp tuần này: 8 (M16, M17, đợt 1). Thứ tự tranh luận đề xuất cho 6/11: M17, rồi M18 và M19."
   }
  ],
  "scored": 15,
@@ -211,7 +216,7 @@
   "en": "Round 0 complete: all 15 ideas legally classified (all lawful with conditions) and debated + provisionally scored. 4 keeps, 8 revises, 3 discards. Next: first experiments for the keeps, Checkpoint 1 pack on Fri, Oct 30.",
   "vi": "Đã xong vòng 0: cả 15 ý tưởng đã phân loại pháp lý (tất cả hợp lệ có điều kiện) và đã tranh luận + chấm điểm nháp. 4 giữ, 8 sửa, 3 loại. Tiếp theo: thí nghiệm đầu tiên cho nhóm giữ và gói Checkpoint 1 vào thứ Sáu 30/10."
  },
- "updated": "2026-10-30T07:29:22-07:00",
+ "updated": "2026-10-30T13:45:00-07:00",
  "updates": [
   {
    "en": "Claude Pro is still $20/mo including Claude Code — the $20 budget gate is intact.",
@@ -717,11 +722,47 @@
    "vi": "Quản lý Google Business Profile cho nhà hàng Việt — bài đăng hằng tuần + trả lời review song ngữ",
    "market": "US",
    "score": null
+  },
+  {
+   "en": "Grant & funding-proposal drafting service for small nonprofits and minority-owned businesses",
+   "vi": "Dịch vụ soạn hồ sơ xin tài trợ & đề xuất dự án cho tổ chức phi lợi nhuận nhỏ và doanh nghiệp thiểu số",
+   "market": "US",
+   "score": null
+  },
+  {
+   "en": "Listing-media packs for marketplace sellers — product photos into short listing videos + SEO copy",
+   "vi": "Gói media cho người bán sàn TMĐT — ảnh sản phẩm thành video listing ngắn + nội dung SEO",
+   "market": "VN + US",
+   "score": null
+  },
+  {
+   "en": "Content repurposing pipeline for course creators & coaches — long video into shorts, notes and newsletter",
+   "vi": "Tái chế nội dung cho người dạy online & coach — video dài thành shorts, ghi chú và bản tin",
+   "market": "US + VN",
+   "score": null
+  },
+  {
+   "en": "Bilingual listing-content service for Vietnamese-American realtors — copy, flyers and social packs per property",
+   "vi": "Dịch vụ nội dung song ngữ cho môi giới BĐS người Việt tại Mỹ — mô tả, tờ rơi và gói mạng xã hội theo từng căn",
+   "market": "US",
+   "score": null
+  },
+  {
+   "en": "Bilingual careers media — EN–VI jobs newsletter & board for bilingual professionals in the US",
+   "vi": "Truyền thông nghề nghiệp song ngữ — bản tin & bảng việc làm EN–VI cho chuyên gia song ngữ tại Mỹ",
+   "market": "US",
+   "score": null
+  },
+  {
+   "en": "Podcast production service for professional associations & community organizations — editing, notes, clips",
+   "vi": "Dịch vụ sản xuất podcast cho hiệp hội nghề nghiệp & tổ chức cộng đồng — dựng audio, ghi chú, clip",
+   "market": "US + VN",
+   "score": null
   }
  ],
  "poolNote": {
-  "en": "Provisional round-0 scores from full 6-step agent debate sheets; scores lock at a Friday checkpoint when new evidence lands. The legal gate is settled for all 15: lawful with conditions. Candidate M17 (reader suggestion, Oct 29) is unscored and enters the same gates → debate → rubric path at the next scoring checkpoint.",
-  "vi": "Điểm nháp vòng 0 từ phiếu tranh luận 6 bước đầy đủ của các agents; điểm chốt ở một checkpoint thứ Sáu khi có bằng chứng mới. Cổng pháp lý đã chốt cho cả 15: hợp lệ có điều kiện. Ứng viên M17 (đề xuất của người xem, 29/10) chưa có điểm và sẽ đi qua đúng quy trình cổng → tranh luận → rubric ở checkpoint chấm điểm kế tiếp."
+  "en": "Provisional round-0 scores from full 6-step agent debate sheets; scores lock at a Friday checkpoint when new evidence lands. The legal gate is settled for all 15: lawful with conditions. Unscored intakes: M16 (expert AI-training work), M17 (reader suggestion — Google Business Profile service) and intake batch 1 (M18–M23, Oct 30) — each enters the same gates → debate → rubric path at upcoming checkpoints.",
+  "vi": "Điểm nháp vòng 0 từ phiếu tranh luận 6 bước đầy đủ của các agents; điểm chốt ở một checkpoint thứ Sáu khi có bằng chứng mới. Cổng pháp lý đã chốt cho cả 15: hợp lệ có điều kiện. Các lượt nạp chưa chấm: M16 (việc huấn luyện AI chuyên gia), M17 (đề xuất người xem — dịch vụ Google Business Profile) và đợt nạp 1 (M18–M23, 30/10) — mỗi ứng viên đi qua đúng quy trình cổng → tranh luận → rubric ở các checkpoint tới."
  },
  "discussion": [
   {
@@ -1075,6 +1116,26 @@
    "summary": {
     "en": "The internal dashboard's Gate 4 no longer frames methods as waiting for a work permit: it now classifies them by the corrected resident operator's residence, business-registration and tax conditions. The fix was verified in the dashboard before and after, and no candidate data or scores changed.",
     "vi": "Cổng 4 trên dashboard nội bộ không còn khung các cách phải chờ giấy phép làm việc: nay nó phân loại theo điều kiện cư trú, đăng ký kinh doanh và thuế của người vận hành cư dân dài hạn đã đính chính. Việc sửa đã được kiểm chứng trên dashboard trước và sau, và không dữ liệu ứng viên hay điểm số nào thay đổi."
+   },
+   "replies": []
+  },
+  {
+   "role": {
+    "en": "Lead",
+    "vi": "Lead"
+   },
+   "tag": {
+    "en": "INTAKE — BATCH 1",
+    "vi": "NẠP ỨNG VIÊN — ĐỢT 1"
+   },
+   "ts": "Fri Oct 30 · 1:45 PM PT",
+   "text": {
+    "en": "The pool is not a fixed list of 15, and as of today it no longer grows only when news or a reader happens to arrive. The research desks now run a standing generation loop — buyer with money × a job they already pay for × the AI leverage × a reachable channel — and every batch must name the real market signal behind each candidate. Batch 1 adds six, all unscored: M18, grant & proposal drafting for small US nonprofits and minority-owned businesses (funders' paperwork creates the demand; writers already charge per proposal). M19, listing-media packs for marketplace sellers — photos into short listing videos plus SEO copy, riding the platforms' public push to video-first listings. M20, a repurposing pipeline for course creators & coaches (one long video → shorts, notes, newsletter; recorded as adjacent to M02 — a checkpoint may attach it there instead). M21, bilingual listing content for Vietnamese-American realtors, where one closed deal pays a five-figure commission and bilingual buyer pools are underserved. M22, a bilingual careers newsletter & job board for EN–VI professionals in the US — the batch's only audience asset, and honestly its slowest first dollar. M23, podcast production for associations & community organizations that publish with volunteer labor today. Every market claim here is UNVERIFIED until its debate sheet checks it; the mini kill-shot for each is on file in INTAKE-BATCH-2026-10-30.md. Week's intake total for Checkpoint 1: 8 (M16, M17, and these six).",
+    "vi": "Pool không phải danh sách cố định 15 cách, và từ hôm nay nó không còn chỉ lớn lên khi tình cờ có tin tức hay một người xem góp ý. Các bàn nghiên cứu nay chạy một vòng sinh ứng viên thường trực — người mua có tiền × việc họ đã trả tiền thuê × đòn bẩy AI × kênh với tới được — và mỗi đợt nạp phải nêu đích danh tín hiệu thị trường thật đằng sau từng ứng viên. Đợt 1 thêm sáu ứng viên, tất cả chưa chấm: M18, soạn hồ sơ xin tài trợ & đề xuất dự án cho tổ chức phi lợi nhuận nhỏ và doanh nghiệp thiểu số tại Mỹ (nhu cầu do giấy tờ của nhà tài trợ tạo ra; người viết hồ sơ đã thu phí theo từng bộ). M19, gói media cho người bán sàn TMĐT — ảnh thành video listing ngắn cộng nội dung SEO, đi theo hướng đẩy video-first công khai của các sàn. M20, dây chuyền tái chế nội dung cho người dạy online & coach (một video dài → shorts, ghi chú, bản tin; ghi nhận là kề với M02 — một checkpoint có thể gắn nó vào M02 thay vì để riêng). M21, nội dung song ngữ cho môi giới bất động sản người Việt tại Mỹ, nơi một giao dịch chốt trả hoa hồng năm chữ số và nhóm người mua song ngữ đang thiếu dịch vụ. M22, bản tin & bảng việc làm song ngữ cho chuyên gia EN–VI tại Mỹ — tài sản khán giả duy nhất của đợt, và nói thẳng là đồng tiền đầu tiên chậm nhất. M23, sản xuất podcast cho hiệp hội nghề nghiệp & tổ chức cộng đồng đang xuất bản bằng lao động tình nguyện. Mọi khẳng định thị trường ở đây là UNVERIFIED cho tới khi phiếu tranh luận của từng ứng viên kiểm chứng; đòn kết liễu tối thiểu của từng ứng viên nằm trong hồ sơ INTAKE-BATCH-2026-10-30.md. Tổng nạp của tuần cho Checkpoint 1: 8 (M16, M17 và sáu ứng viên này)."
+   },
+   "summary": {
+    "en": "The pool starts growing on purpose: a standing candidate-generation loop launches today, and batch 1 adds six unscored candidates (M18–M23) — grant-proposal drafting, listing media, content repurposing, realtor content, a bilingual careers board, and podcast production. Each names its market signal and kill shot; none is scored until gates and a debate sheet at a checkpoint.",
+    "vi": "Pool bắt đầu lớn lên có chủ đích: vòng sinh ứng viên thường trực khởi động hôm nay, và đợt 1 thêm sáu ứng viên chưa chấm (M18–M23) — soạn hồ sơ tài trợ, media cho người bán sàn, tái chế nội dung, nội dung cho môi giới BĐS, bảng việc làm song ngữ và sản xuất podcast. Mỗi ứng viên nêu rõ tín hiệu thị trường và đòn kết liễu của nó; chưa ứng viên nào có điểm cho tới khi qua cổng và phiếu tranh luận ở một checkpoint."
    },
    "replies": []
   }
