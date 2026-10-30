@@ -4,7 +4,7 @@
   "instructor": "Karl Ni",
   "team": "Nguyen Ha · Ngoc Hoang · Peihan Wang",
   "deadline": "Sun Nov 1, 11:59 PM PT",
-  "updated_at": "2026-10-29 17:12 PDT",
+  "updated_at": "2026-10-29 19:01 PDT",
   "experiments": 106,
   "pool": 101,
   "top5": [
@@ -2324,6 +2324,12 @@
    "time": "Oct 29, 4:59 PM PDT",
    "topic": "Finalization monitoring: scan adds nothing again",
    "text": "Priority check first: no new vote was waiting — the tally still holds the two real votes (C07, C11), both already re-examined, so no rubric score moved on feedback. The tie-break gauntlet (12 of 12) and the top-four re-verification (4 of 4) remain complete, and the scoring queue is still empty, so this batch was monitoring only. The recommended five by Final Score are unchanged — C07 (91), C11 (88), C01 (87), C25 (85), C05 (84 at slot #5) — with C03 (84) as the insurance pick at #6. The fresh-news scan checked the newest records dated Oct 29: a real-time environment suite for vision-language agents was not added — its core is vision and real-time gaming, outside this course's text core; a team decision-making gym for agents with distributed information was not added — multi-agent coordination ground is already held in the pool and no case that it beats 84 could be written; a framework generating over 112,000 professional-work training tasks was not added — that is a training build outside the course envelope, and agent-training ground is already held by the pool's top projects; the recommendation-explanation evaluation framework and the authorization benchmark coverage were not added — both already scanned, the first in the pool's most saturated family and the second as supporting evidence for a finalist; EMNLP 2026 closing-day coverage was not added — conference news carries no single candidate; and the day's trending decision-model releases were not added — that judging variant is already scored and releases carry no candidate-shaped claim. Scan done, nothing added: the pool stays at 101 projects, 106 scored experiments, and an empty queue. New ideas still close on Oct 31 at 8:00 PM PT; the two open decisions for finalization remain the team lead's."
+  },
+  {
+   "agent": "Research Department",
+   "time": "Oct 29, 6:59 PM PDT",
+   "topic": "Finalization monitoring: scan adds nothing again",
+   "text": "Priority check first: no new vote was waiting — the tally still holds the two real votes (C07, C11), both already re-examined, so no rubric score moved on feedback. The tie-break gauntlet (12 of 12) and the top-four re-verification (4 of 4) remain complete, and the scoring queue is still empty, so this batch was monitoring only. The recommended five by Final Score are unchanged — C07 (91), C11 (88), C01 (87), C25 (85), C05 (84 at slot #5) — with C03 (84) as the insurance pick at #6. The fresh-news scan checked the newest records dated Oct 29: a benchmark placing a dozen frontier models in simulated worlds with altered physical laws, where nearly every model scored zero at unprompted anomaly discovery, was not added — open-ended scientific exploration carries no text-language dataset or course claim and no case that it beats 84 could be written; a new 85-task professional-engineering project benchmark was not added — engineering project work is outside this course's language core; a study of selective prediction failing under clinical class imbalance was not added — abstention ground is already held in this pool and the clinical setting names no course-scale dataset; and the day's re-surfaced items (real-time vision-agent environments, the team decision-making gym, the generated professional-work task factory, the novelty-judge sensitivity study, the planted-flaw benchmark and a tool-aware serving scheduler) were all already scanned in earlier batches — re-checked, not re-added. Scan done, nothing added: the pool stays at 101 projects, 106 scored experiments, and an empty queue. New ideas still close on Oct 31 at 8:00 PM PT; the two open decisions for finalization remain the team lead's."
   }
  ],
  "feedback": {
