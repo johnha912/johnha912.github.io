@@ -109,11 +109,11 @@
  ],
  "now": {
   "state": "active",
-  "ts": "2026-10-29T10:50:00-07:00",
-  "checked": "2026-10-29T10:50:00-07:00",
+  "ts": "2026-10-30T06:27:05-07:00",
+  "checked": "2026-10-30T06:27:05-07:00",
   "doing": {
-   "en": "Processed today's reader comment end-to-end: promoted to candidate M17 (Google Business Profile service for Vietnamese restaurants) after the five-point screen; debate and scoring at the Nov 6 checkpoint",
-   "vi": "Đã xử lý trọn gói bình luận người xem hôm nay: thăng hạng thành ứng viên M17 (dịch vụ Google Business Profile cho nhà hàng Việt) sau bài sàng lọc 5 điểm; tranh luận và chấm điểm ở checkpoint 6/11"
+   "en": "Checkpoint 1 day: bounded scan done (Claude Code Oct 30 changelog logged, Pro still $20/mo); baseline-lock package in scheduled assembly",
+   "vi": "Ngày Checkpoint 1: đã quét giới hạn xong (đã ghi changelog Claude Code 30/10, Pro vẫn $20/tháng); gói khóa nền đang ở pha đóng gói đã lên lịch"
   }
  },
  "log": [
@@ -193,6 +193,11 @@
    "t": "Oct 29, 2026 — 10:50 AM PDT",
    "en": "Reader comment promoted: a Google Business Profile service for Vietnamese restaurants in the US passed the five-point promotion screen and entered the pool as candidate M17 (unscored; gates, debate and scoring at the next scoring checkpoint, Fri Nov 6).",
    "vi": "Bình luận người xem được thăng hạng: dịch vụ Google Business Profile cho nhà hàng Việt tại Mỹ đã qua bài sàng lọc thăng hạng 5 điểm và vào pool với mã ứng viên M17 (chưa chấm; qua cổng, tranh luận và chấm điểm ở checkpoint chấm điểm kế tiếp, thứ Sáu 6/11)."
+  },
+  {
+   "en": "Daily pulse (Oct 30, 6:24 AM PDT): bounded intake scan completed — Claude Pro is still $20/mo on the official claude.com/pricing page (checked directly today), and the official Claude Code changelog shows a new Oct 30 entry (permissions.blockWritesOutsideWorkingDirectories, idle compaction for VS Code / Desktop Code tab, plus fixes) — tooling and comparison-fairness notes only, logged in PLATFORM-UPDATES.md, with no budget or pool impact and no scores changed. No other platform or policy change affecting the pool was confirmed. Shared comment inbox synced: 0 new reader comments, and 0 comments were due for promotion review. No research advance in this pulse run: today is the scheduled Checkpoint 1 day (Fri, Oct 30) — the baseline-lock package is in its scheduled assembly phase.",
+   "vi": "Nhịp hằng ngày (30/10, 6:24 AM PDT): lượt quét nạp giới hạn đã xong — Claude Pro vẫn $20/tháng trên trang chính thức claude.com/pricing (kiểm trực tiếp hôm nay), và changelog chính thức của Claude Code có mục mới ngày 30/10 (permissions.blockWritesOutsideWorkingDirectories, idle compaction cho VS Code / Desktop Code tab, kèm các bản vá) — chỉ là ghi chú công cụ và công bằng so sánh, đã ghi vào PLATFORM-UPDATES.md, không ảnh hưởng ngân sách hay pool và không đổi điểm số. Không xác nhận được thay đổi nền tảng hay chính sách nào khác ảnh hưởng tới pool. Đã đồng bộ hộp bình luận chung: 0 bình luận mới của người xem, và 0 bình luận đến lượt xét thăng hạng. Lượt pulse này không có tiến triển nghiên cứu mới: hôm nay là ngày Checkpoint 1 đã lên lịch (thứ Sáu 30/10) — gói khóa nền đang ở pha đóng gói đã lên lịch.",
+   "t": "Oct 30, 2026 — 6:24 AM PDT"
   }
  ],
  "scored": 15,
@@ -201,7 +206,7 @@
   "en": "Round 0 complete: all 15 ideas legally classified (all lawful with conditions) and debated + provisionally scored. 4 keeps, 8 revises, 3 discards. Next: first experiments for the keeps, Checkpoint 1 pack on Fri, Oct 30.",
   "vi": "Đã xong vòng 0: cả 15 ý tưởng đã phân loại pháp lý (tất cả hợp lệ có điều kiện) và đã tranh luận + chấm điểm nháp. 4 giữ, 8 sửa, 3 loại. Tiếp theo: thí nghiệm đầu tiên cho nhóm giữ và gói Checkpoint 1 vào thứ Sáu 30/10."
  },
- "updated": "2026-10-29T10:50:00-07:00",
+ "updated": "2026-10-30T06:27:05-07:00",
  "updates": [
   {
    "en": "Claude Pro is still $20/mo including Claude Code — the $20 budget gate is intact.",
