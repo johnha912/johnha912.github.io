@@ -4,7 +4,7 @@
   "instructor": "Karl Ni",
   "team": "Nguyen Ha · Ngoc Hoang · Peihan Wang",
   "deadline": "Sun Nov 1, 11:59 PM PT",
-  "updated_at": "2026-10-31 03:00 PDT",
+  "updated_at": "2026-10-31 03:01 PDT",
   "experiments": 106,
   "pool": 101,
   "top5": [
@@ -2420,6 +2420,12 @@
    "time": "Oct 31, 12:59 AM PDT",
    "topic": "Finalization monitoring: research-arena record and EMNLP proceedings, nothing added",
    "text": "Priority check first: no new vote was waiting — the tally still holds the two real votes (C07, C11), both already re-examined with their evidence standing, so no rubric score moved on feedback. The tie-break gauntlet (12 of 12) and the top-four re-verification (4 of 4) remain complete, the 84-point cluster re-counted from the score log is exactly the twelve recorded projects, and the scoring queue is still empty, so this batch was monitoring only. The recommended five by Final Score are unchanged — C07 (91), C11 (88), C01 (87), C25 (85), C05 (84 at slot #5) — with C03 (84) as the insurance pick at #6. The fresh-news scan checked the records surfacing around Oct 31: a benchmark of AI research agents on the small-pretraining testbed this team's own reading presented was not added — it is supporting evidence for the research-loop project already ranked #2, and the autoresearch family is held; the disclosure-review and ontology-checker studies surfacing again in the Oct 30 roundups were re-checked only — both were scanned earlier and the reasons stand; the EMNLP 2026 proceedings are now live (5,252 papers, Budapest, Oct 24–29) — conference news only in this scan, and a population-representative resume-screening fairness dataset surfacing in the proceedings carries no verified case that it beats 84, on bias ground the pool already holds; and the Hugging Face trending list is model releases only, with no candidate-shaped claim. Scan done, nothing added: the pool stays at 101 projects, 106 scored experiments, and an empty queue. New ideas close today, Oct 31, at 8:00 PM PT; after that the remaining batches only prepare finalization. The two open decisions for finalization remain the team lead's."
+  },
+  {
+   "agent": "Research Department",
+   "time": "Oct 31, 2:59 AM PDT",
+   "topic": "Finalization monitoring: RL-training, peer-review and multilingual records, nothing added",
+   "text": "Priority check first: no new vote was waiting — the tally still holds the two real votes (C07, C11), both already re-examined with their evidence standing, so no rubric score moved on feedback. The tie-break gauntlet (12 of 12) and the top-four re-verification (4 of 4) remain complete, the 84-point cluster re-counted from the score log is exactly the twelve recorded projects, and the scoring queue is still empty, so this batch was monitoring only. The recommended five by Final Score are unchanged — C07 (91), C11 (88), C01 (87), C25 (85), C05 (84 at slot #5) — with C03 (84) as the insurance pick at #6. The fresh-news scan checked the records surfacing on Oct 31: a score-centering method that stabilizes reinforcement-learning training was not added — a training method outside the course envelope, with no course dataset or endpoint case; a study of language models reviewing already-published journal papers (harsh on sound papers, catching a planted serious flaw in only a minority to three-fifths of cases) was not added — that peer-review ground is already held here and the evaluation family is this pool's most saturated; a new multilingual benchmark in twelve Southeast Asian languages was not added — its reasoning-through-English ground neighbors the budget-forcing pick already at #5, and no distinct course project beating 84 was established; a large robotics dataset release was not added — outside this course's text core; and the day's trending releases carry no candidate-shaped claim. Scan done, nothing added: the pool stays at 101 projects, 106 scored experiments, and an empty queue. New ideas close today, Oct 31, at 8:00 PM PT; after that the remaining batches only prepare finalization. The two open decisions for finalization remain the team lead's."
   }
  ],
  "feedback": {
