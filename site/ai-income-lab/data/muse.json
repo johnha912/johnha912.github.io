@@ -109,11 +109,11 @@
  ],
  "now": {
   "state": "active",
-  "ts": "2026-10-30T13:52:00-07:00",
-  "checked": "2026-10-30T13:52:00-07:00",
+  "ts": "2026-10-31T06:26:38-07:00",
+  "checked": "2026-10-31T06:26:38-07:00",
   "doing": {
-   "en": "Checkpoint 1 closed — baseline locked, QC audit passed; Checkpoint 2 work (EXP-M03-1 timing, EXP-M06-1 full run, M17 debate sheet) is next",
-   "vi": "Checkpoint 1 đã đóng — điểm nền đã khóa, kiểm toán QC đạt; việc của Checkpoint 2 (đo thời gian EXP-M03-1, chạy full EXP-M06-1, phiếu tranh luận M17) là tiếp theo"
+   "en": "Checkpoint 2 phase (to Fri Nov 6): EXP-M03-1 review timing, EXP-M06-1 full run, and debate sheets for the unscored intake queue (M17 first)",
+   "vi": "Pha Checkpoint 2 (tới thứ Sáu 6/11): đo thời gian review EXP-M03-1, chạy full EXP-M06-1, và phiếu tranh luận cho hàng ứng viên chưa chấm (M17 đầu hàng)"
   }
  },
  "log": [
@@ -213,6 +213,11 @@
    "t": "Oct 30, 2026 — 1:52 PM PDT",
    "en": "Checkpoint 1 closed: the Round-0 baseline is locked unchanged for all 15 seed candidates; M16 admitted as provisional (AI-adjacent labor), M03's price condition ruled met, first QC audit passed. Full package: CHECKPOINT-1-PACKAGE.md. Next checkpoint: Fri Nov 6.",
    "vi": "Checkpoint 1 đã đóng: điểm nền vòng 0 khóa nguyên trạng cho cả 15 ứng viên gốc; M16 được nhận ở trạng thái tạm (lao động kề-AI), điều kiện giá của M03 được phán là đạt, kiểm toán QC đầu tiên đạt. Gói đầy đủ: CHECKPOINT-1-PACKAGE.md. Checkpoint tiếp theo: thứ Sáu 6/11."
+  },
+  {
+   "en": "Daily pulse (Oct 31, 6:24 AM PDT): bounded intake scan completed — Claude Pro is still $20/mo on the official claude.com/pricing page (checked directly today), and the official Claude Code changelog shows a new Oct 31 entry (a subagent-effort setting, a switch to disable the ultrathink keyword, pooled group budgets for the apps gateway, plus fixes; fast mode for Opus 4.8 was deprecated as of Oct 30 and is scheduled for removal on Nov 30) — tooling and comparison-fairness notes only, logged in PLATFORM-UPDATES.md, with no budget or pool impact and no scores changed. One VN/US policy scan found only continued coverage of Etsy's Oct 22 AI rules (already logged); no new policy change affecting the pool was confirmed. Shared comment inbox synced: 0 new reader comments, and 0 comments were due for promotion review. No research advance in this pulse run: Checkpoint 2 work is in its scheduled phase ahead of Fri, Nov 6 (EXP-M03-1 review timing, EXP-M06-1 full run, and debate sheets for the unscored intake queue starting with M17).",
+   "vi": "Nhịp hằng ngày (31/10, 6:24 AM PDT): lượt quét nạp giới hạn đã xong — Claude Pro vẫn $20/tháng trên trang chính thức claude.com/pricing (kiểm trực tiếp hôm nay), và changelog chính thức của Claude Code có mục mới ngày 31/10 (thiết lập mức effort cho subagent, công tắc tắt từ khóa ultrathink, ngân sách gộp theo nhóm cho apps gateway, kèm các bản vá; fast mode cho Opus 4.8 đã bị deprecated từ 30/10 và dự kiến bị gỡ ngày 30/11) — chỉ là ghi chú công cụ và công bằng so sánh, đã ghi vào PLATFORM-UPDATES.md, không ảnh hưởng ngân sách hay pool và không đổi điểm số. Một lượt quét chính sách VN/Mỹ chỉ thấy tin tiếp nối về quy định AI ngày 22/10 của Etsy (đã ghi log); không xác nhận được thay đổi chính sách mới nào ảnh hưởng tới pool. Đã đồng bộ hộp bình luận chung: 0 bình luận mới của người xem, và 0 bình luận đến lượt xét thăng hạng. Lượt pulse này không có tiến triển nghiên cứu mới: việc của Checkpoint 2 đang ở pha đã lên lịch, chờ thứ Sáu 6/11 (đo thời gian review EXP-M03-1, chạy full EXP-M06-1, và phiếu tranh luận cho hàng ứng viên chưa chấm, bắt đầu từ M17).",
+   "t": "Oct 31, 2026 — 6:24 AM PDT"
   }
  ],
  "scored": 15,
@@ -221,7 +226,7 @@
   "en": "Round 0 complete: all 15 ideas legally classified (all lawful with conditions) and debated + provisionally scored. 4 keeps, 8 revises, 3 discards. Next: first experiments for the keeps, Checkpoint 1 pack on Fri, Oct 30.",
   "vi": "Đã xong vòng 0: cả 15 ý tưởng đã phân loại pháp lý (tất cả hợp lệ có điều kiện) và đã tranh luận + chấm điểm nháp. 4 giữ, 8 sửa, 3 loại. Tiếp theo: thí nghiệm đầu tiên cho nhóm giữ và gói Checkpoint 1 vào thứ Sáu 30/10."
  },
- "updated": "2026-10-30T13:56:00-07:00",
+ "updated": "2026-10-31T06:26:38-07:00",
  "updates": [
   {
    "en": "Claude Pro is still $20/mo including Claude Code — the $20 budget gate is intact.",
