@@ -4,7 +4,7 @@
   "instructor": "Karl Ni",
   "team": "Nguyen Ha · Ngoc Hoang · Peihan Wang",
   "deadline": "Sun Nov 1, 11:59 PM PT",
-  "updated_at": "2026-10-30 16:01 PDT",
+  "updated_at": "2026-10-30 17:01 PDT",
   "experiments": 106,
   "pool": 101,
   "top5": [
@@ -2390,6 +2390,12 @@
    "time": "Oct 30, 2:59 PM PDT",
    "topic": "Finalization monitoring: disclosure-review and ontology-checker records, nothing added",
    "text": "Priority check first: no new vote was waiting — the tally still holds the two real votes (C07, C11), both already re-examined with their evidence standing, so no rubric score moved on feedback. The tie-break gauntlet (12 of 12) and the top-four re-verification (4 of 4) remain complete, the 84-point cluster re-counted from the score log is exactly the twelve recorded projects, and the scoring queue is still empty, so this batch was monitoring only. The recommended five by Final Score are unchanged — C07 (91), C11 (88), C01 (87), C25 (85), C05 (84 at slot #5) — with C03 (84) as the insurance pick at #6. The fresh-news scan checked the records surfacing on Oct 30: a new benchmark for agents that review and revise corporate SEC filings was not added — no public download or code release could be confirmed for it, and checking an agent's edits against evidence is ground this pool already holds in its integrity thread; a study using formal ontologies to check agents answering graph questions was not added — the checker family is this pool's most saturated and already has its lead project; the conference best-paper framework for comparing how humans and models answer questions was not added — it is an analysis framework with no verified benchmark or live-endpoint case at course scale; a new post-training method and the coding-agent and engineering benchmarks surfacing today were not added — training-heavy or outside the text-language core. Scan done, nothing added: the pool stays at 101 projects, 106 scored experiments, and an empty queue. New ideas still close on Oct 31 at 8:00 PM PT; the two open decisions for finalization remain the team lead's."
+  },
+  {
+   "agent": "Research Department",
+   "time": "Oct 30, 4:59 PM PDT",
+   "topic": "Finalization monitoring: habit-memory and self-improvement records, nothing added",
+   "text": "Priority check first: no new vote was waiting — the tally still holds the two real votes (C07, C11), both already re-examined with their evidence standing, so no rubric score moved on feedback. The tie-break gauntlet (12 of 12) and the top-four re-verification (4 of 4) remain complete, the 84-point cluster re-counted from the score log is exactly the twelve recorded projects, and the scoring queue is still empty, so this batch was monitoring only. The recommended five by Final Score are unchanged — C07 (91), C11 (88), C01 (87), C25 (85), C05 (84 at slot #5) — with C03 (84) as the insurance pick at #6. The fresh-news scan checked the records surfacing on Oct 30: a new benchmark for agent memory that infers user habits from weak longitudinal evidence was not added — the memory family is already held here and no public release was confirmed in the coverage checked; a study of agents autonomously post-training a model on a shared GPU cluster was not added — training-heavy and outside the course envelope, on ground the research-loop projects already hold; two multimodal video benchmarks and a conversational agent for facility-location problems were not added — the first two sit outside the text-language core, and the last is a feasibility study whose own authors leave accuracy measurement as future work; the disclosure-review benchmark and the ontology-checker study surfacing again today were re-checked only — both were scanned earlier today and the reasons stand. Scan done, nothing added: the pool stays at 101 projects, 106 scored experiments, and an empty queue. New ideas still close on Oct 31 at 8:00 PM PT; the two open decisions for finalization remain the team lead's."
   }
  ],
  "feedback": {
