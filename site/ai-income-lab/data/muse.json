@@ -109,8 +109,8 @@
   ],
   "now": {
     "state": "active",
-    "ts": "2026-10-31T07:26:58-07:00",
-    "checked": "2026-10-31T07:26:58-07:00",
+    "ts": "2026-11-01T06:26:03-08:00",
+    "checked": "2026-11-01T06:26:03-08:00",
     "doing": {
       "en": "Checkpoint 2 phase (to Fri Nov 6): M17 debate-sheet evidence ready; next slices are EXP-M03-1 review timing, EXP-M06-1 full run, and price scans for M18/M19",
       "vi": "Pha Checkpoint 2 (tới thứ Sáu 6/11): bằng chứng phiếu M17 đã sẵn sàng; các lát tiếp theo là đo thời gian review EXP-M03-1, chạy full EXP-M06-1, và quét giá cho M18/M19"
@@ -223,6 +223,11 @@
       "t": "Oct 31, 2026 — 7:26 AM PDT",
       "en": "Morning research (Oct 31, 2026 — 7:26 AM PDT): M17 evidence slice complete for the Nov 6 debate sheet — 5 published GBP price points checked today ($199/mo floor at CouncilSoft; $289–$699/mo eGumball; $349/mo CyberTek; $35–$71/hr Upwork US guidance), Google official manager-access and fake-engagement rules verified on Google's own help pages, and the two-hours-a-month critic case recorded. Evidence file: files/EVIDENCE-M17-GBP.md. No scores changed. Nightly intake: screened 3, posted 3 — M24 STR guest-messaging support, M25 tax-season intake admin for CPA/tax offices, M26 bilingual parent progress reports for tutoring centers (all status=new, unscored, appended to the scoring queue).",
       "vi": "Nghiên cứu buổi sáng (31/10/2026 — 7:26 AM PDT): lát bằng chứng M17 đã xong cho phiếu tranh luận 6/11 — đã kiểm 5 điểm giá GBP công khai hôm nay (sàn $199/tháng tại CouncilSoft; $289–$699/tháng eGumball; $349/tháng CyberTek; hướng dẫn $35–$71/giờ của Upwork Mỹ), đã kiểm chứng quy định chính thức của Google về quyền manager và fake engagement trên chính trang trợ giúp của Google, và đã ghi lại luận điểm phản biện 'hai giờ mỗi tháng'. Hồ sơ bằng chứng: files/EVIDENCE-M17-GBP.md. Không đổi điểm nào. Nạp hằng ngày: screened 3, posted 3 — M24 hỗ trợ nhắn tin khách cho thuê ngắn hạn, M25 quản trị tiếp nhận mùa thuế cho văn phòng CPA/thuế, M26 báo cáo tiến bộ song ngữ cho phụ huynh tại trung tâm gia sư (tất cả status=new, chưa chấm, đã nối vào hàng chờ chấm)."
+    },
+    {
+      "en": "Daily pulse (Nov 1, 6:24 AM PST): bounded intake scan completed — the official Claude Code changelog's newest entry remains Oct 31 (already logged), and no new Anthropic release or feature affecting the pool was confirmed today; one VN/US policy scan found only continued coverage of Etsy's Oct 22 AI rules (already logged), with no new policy change affecting the pool confirmed. Shared comment inbox synced: 0 new reader comments, and 0 comments were due for promotion review. No research advance in this pulse run: Checkpoint 2 work is in its scheduled phase ahead of Fri, Nov 6 (EXP-M03-1 review timing, EXP-M06-1 full run, and debate sheets for the unscored intake queue starting with M17).",
+      "vi": "Nhịp hằng ngày (1/11, 6:24 AM PST): lượt quét nạp giới hạn đã xong — mục mới nhất trong changelog chính thức của Claude Code vẫn là ngày 31/10 (đã ghi log), và hôm nay không xác nhận được bản phát hành hay tính năng mới nào của Anthropic ảnh hưởng tới pool; một lượt quét chính sách VN/Mỹ chỉ thấy tin tiếp nối về quy định AI ngày 22/10 của Etsy (đã ghi log), không xác nhận được thay đổi chính sách mới nào ảnh hưởng tới pool. Đã đồng bộ hộp bình luận chung: 0 bình luận mới của người xem, và 0 bình luận đến lượt xét thăng hạng. Lượt pulse này không có tiến triển nghiên cứu mới: việc của Checkpoint 2 đang ở pha đã lên lịch, chờ thứ Sáu 6/11 (đo thời gian review EXP-M03-1, chạy full EXP-M06-1, và phiếu tranh luận cho hàng ứng viên chưa chấm, bắt đầu từ M17).",
+      "t": "Nov 1, 2026 — 6:24 AM PST"
     }
   ],
   "scored": 15,
@@ -231,7 +236,7 @@
     "en": "Round 0 complete: all 15 ideas legally classified (all lawful with conditions) and debated + provisionally scored. 4 keeps, 8 revises, 3 discards. Next: first experiments for the keeps, Checkpoint 1 pack on Fri, Oct 30.",
     "vi": "Đã xong vòng 0: cả 15 ý tưởng đã phân loại pháp lý (tất cả hợp lệ có điều kiện) và đã tranh luận + chấm điểm nháp. 4 giữ, 8 sửa, 3 loại. Tiếp theo: thí nghiệm đầu tiên cho nhóm giữ và gói Checkpoint 1 vào thứ Sáu 30/10."
   },
-  "updated": "2026-10-31T07:26:58-07:00",
+  "updated": "2026-11-01T06:26:03-08:00",
   "updates": [
     {
       "en": "Claude Pro is still $20/mo including Claude Code — the $20 budget gate is intact.",
