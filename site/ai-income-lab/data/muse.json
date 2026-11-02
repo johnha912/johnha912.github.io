@@ -109,8 +109,8 @@
  ],
  "now": {
   "state": "active",
-  "ts": "2026-11-01T07:28:04-08:00",
-  "checked": "2026-11-01T07:28:04-08:00",
+  "ts": "2026-11-02T06:26:41-08:00",
+  "checked": "2026-11-02T06:26:41-08:00",
   "doing": {
    "en": "Checkpoint 2 phase (to Fri Nov 6): M17 and M18 debate-sheet evidence ready; next slices are M19 price scan, EXP-M03-1 review timing, and EXP-M06-1 full run",
    "vi": "Pha Checkpoint 2 (tới thứ Sáu 6/11): bằng chứng phiếu M17 và M18 đã sẵn sàng; các lát tiếp theo là quét giá M19, đo thời gian review EXP-M03-1, và chạy full EXP-M06-1"
@@ -233,6 +233,11 @@
    "t": "Nov 1, 2026 — 7:28 AM PST",
    "en": "Morning research (Nov 1, 2026 — 7:28 AM PST): M18 evidence slice complete for the Nov 6 debate sheet — 11 public grant-writing price sources checked today (professional standard proposals $1,500–$5,000; Upwork guidance $35–$60/hr; Fiverr low end $50–$400 per gig, with AI-assisted drafting already sold openly there), GPA Code of Ethics items 17–20 and AFP standards 23–25 verified on the associations' own pages (percentage-of-award pay, commissions and success fees banned — flat/hourly only), official Simpler.Grants.gov filtered snapshot 832 open opportunities, and base rates recorded (NIH ~20% FY2024). Evidence file: files/EVIDENCE-M18-GRANTS.md. No scores changed. Nightly intake: screened 3, posted 2 — M27 e-commerce bookkeeping cleanup support, M28 estate-sale cataloging drafts; 1 screened out as an M05 variant (contractor lead follow-up). Source: nightly-intake.",
    "vi": "Nghiên cứu buổi sáng (Nov 1, 2026 — 7:28 AM PST): lát bằng chứng M18 đã xong cho phiếu tranh luận 6/11 — 11 nguồn giá viết hồ sơ tài trợ công khai kiểm hôm nay (hồ sơ chuẩn chuyên nghiệp $1.500–$5.000; hướng dẫn Upwork $35–$60/giờ; đầu thấp Fiverr $50–$400 mỗi gig, và việc soạn thảo có AI hỗ trợ đã được bán công khai ở đó), điều 17–20 của Bộ quy tắc đạo đức GPA và điều 23–25 của AFP đã kiểm chứng trên trang chính thức của hai hiệp hội (cấm trả theo % khoản tài trợ, hoa hồng và phí theo thành công — chỉ phí trọn gói/theo giờ), ảnh chụp tìm kiếm lọc chính thức trên Simpler.Grants.gov cho thấy 832 cơ hội đang mở, và tỷ lệ trúng cơ sở đã ghi hồ sơ (NIH ~20% năm tài khóa 2024). Tệp bằng chứng: files/EVIDENCE-M18-GRANTS.md. Không điểm nào thay đổi. Nạp hằng ngày: đã sàng 3, đã đăng 2 — M27 hỗ trợ dọn sổ sách cuối tháng cho người bán TMĐT, M28 bản nháp catalogue cho đợt bán tài sản thừa kế; 1 ý tưởng bị loại khi sàng vì là biến thể của M05 (theo đuổi khách tiềm năng cho nhà thầu). Nguồn: nightly-intake."
+  },
+  {
+   "t": "Nov 2, 2026 — 6:24 AM PST",
+   "en": "Daily pulse (Nov 2, 6:24 AM PST): bounded intake scan completed — the official Claude Code changelog's newest entry remains Oct 31 (already logged), and no new Anthropic release or feature affecting the pool was confirmed today; one VN/US policy scan found no official-source-confirmed policy change affecting the pool. Shared comment inbox synced: 0 new reader comments, and 0 comments were due for promotion review. No research advance in this pulse run: Checkpoint 2 work is in its scheduled phase ahead of Fri, Nov 6 (next scheduled slice is the M19 listing-media price scan, then EXP-M03-1 review timing and the EXP-M06-1 full run).",
+   "vi": "Nhịp hằng ngày (2/11, 6:24 AM PST): lượt quét nạp giới hạn đã xong — mục mới nhất trong changelog chính thức của Claude Code vẫn là ngày 31/10 (đã ghi log), và hôm nay không xác nhận được bản phát hành hay tính năng mới nào của Anthropic ảnh hưởng tới pool; một lượt quét chính sách VN/Mỹ không xác nhận được thay đổi chính sách nào từ nguồn chính thức ảnh hưởng tới pool. Đã đồng bộ hộp bình luận chung: 0 bình luận mới của người xem, và 0 bình luận đến lượt xét thăng hạng. Lượt pulse này không có tiến triển nghiên cứu mới: việc của Checkpoint 2 đang ở pha đã lên lịch, chờ thứ Sáu 6/11 (lát đã lên lịch tiếp theo là quét giá media listing M19, rồi đo thời gian review EXP-M03-1 và chạy full EXP-M06-1)."
   }
  ],
  "scored": 15,
@@ -241,7 +246,7 @@
   "en": "Round 0 complete: all 15 ideas legally classified (all lawful with conditions) and debated + provisionally scored. 4 keeps, 8 revises, 3 discards. Next: first experiments for the keeps, Checkpoint 1 pack on Fri, Oct 30.",
   "vi": "Đã xong vòng 0: cả 15 ý tưởng đã phân loại pháp lý (tất cả hợp lệ có điều kiện) và đã tranh luận + chấm điểm nháp. 4 giữ, 8 sửa, 3 loại. Tiếp theo: thí nghiệm đầu tiên cho nhóm giữ và gói Checkpoint 1 vào thứ Sáu 30/10."
  },
- "updated": "2026-11-01T07:28:04-08:00",
+ "updated": "2026-11-02T06:26:41-08:00",
  "updates": [
   {
    "en": "Claude Pro is still $20/mo including Claude Code — the $20 budget gate is intact.",
