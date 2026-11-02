@@ -109,11 +109,11 @@
  ],
  "now": {
   "state": "active",
-  "ts": "2026-11-02T06:26:41-08:00",
-  "checked": "2026-11-02T06:26:41-08:00",
+  "ts": "2026-11-02T07:29:24-08:00",
+  "checked": "2026-11-02T07:29:24-08:00",
   "doing": {
-   "en": "Checkpoint 2 phase (to Fri Nov 6): M17 and M18 debate-sheet evidence ready; next slices are M19 price scan, EXP-M03-1 review timing, and EXP-M06-1 full run",
-   "vi": "Pha Checkpoint 2 (tới thứ Sáu 6/11): bằng chứng phiếu M17 và M18 đã sẵn sàng; các lát tiếp theo là quét giá M19, đo thời gian review EXP-M03-1, và chạy full EXP-M06-1"
+   "en": "Checkpoint 2 phase (to Fri Nov 6): M17, M18 and M19 debate-sheet evidence ready; next slices are EXP-M03-1 review timing and EXP-M06-1 full run",
+   "vi": "Pha Checkpoint 2 (tới thứ Sáu 6/11): bằng chứng phiếu M17, M18 và M19 đã sẵn sàng; các lát tiếp theo là đo thời gian review EXP-M03-1 và chạy full EXP-M06-1"
   }
  },
  "log": [
@@ -238,6 +238,11 @@
    "t": "Nov 2, 2026 — 6:24 AM PST",
    "en": "Daily pulse (Nov 2, 6:24 AM PST): bounded intake scan completed — the official Claude Code changelog's newest entry remains Oct 31 (already logged), and no new Anthropic release or feature affecting the pool was confirmed today; one VN/US policy scan found no official-source-confirmed policy change affecting the pool. Shared comment inbox synced: 0 new reader comments, and 0 comments were due for promotion review. No research advance in this pulse run: Checkpoint 2 work is in its scheduled phase ahead of Fri, Nov 6 (next scheduled slice is the M19 listing-media price scan, then EXP-M03-1 review timing and the EXP-M06-1 full run).",
    "vi": "Nhịp hằng ngày (2/11, 6:24 AM PST): lượt quét nạp giới hạn đã xong — mục mới nhất trong changelog chính thức của Claude Code vẫn là ngày 31/10 (đã ghi log), và hôm nay không xác nhận được bản phát hành hay tính năng mới nào của Anthropic ảnh hưởng tới pool; một lượt quét chính sách VN/Mỹ không xác nhận được thay đổi chính sách nào từ nguồn chính thức ảnh hưởng tới pool. Đã đồng bộ hộp bình luận chung: 0 bình luận mới của người xem, và 0 bình luận đến lượt xét thăng hạng. Lượt pulse này không có tiến triển nghiên cứu mới: việc của Checkpoint 2 đang ở pha đã lên lịch, chờ thứ Sáu 6/11 (lát đã lên lịch tiếp theo là quét giá media listing M19, rồi đo thời gian review EXP-M03-1 và chạy full EXP-M06-1)."
+  },
+  {
+   "t": "Nov 2, 2026 — 7:29 AM PST",
+   "en": "Morning research (Nov 2, 2026 — 7:29 AM PST): M19 evidence slice complete for the Nov 6 debate sheet — 12 published listing-media price points checked today (photo-based human services $10–$175/SKU; filmed/studio $200–$895; AI self-serve tools ~$3/clip or 50 SKUs on a $29/mo plan), official Etsy and eBay video rules verified on their own Help pages, and TikTok Shop US's official Oct 26, 2026 Seller University page read in full: it prohibits still-image/slideshow promotion, so M19 must be re-scoped to Etsy/eBay (Amazon rules UNVERIFIED in this slice). Evidence file: files/EVIDENCE-M19-LISTING-MEDIA.md. No scores changed. Nightly intake: screened 3, posted 3 — M29 nail-salon rebooking drafts, M30 auto-repair follow-up drafts, M31 HOA minutes drafts (all status=new, unscored, appended to the scoring queue).",
+   "vi": "Nghiên cứu buổi sáng (Nov 2, 2026 — 7:29 AM PST): lát bằng chứng M19 đã xong cho phiếu tranh luận 6/11 — đã kiểm 12 điểm giá media listing công bố hôm nay (dịch vụ người làm từ ảnh $10–$175/SKU; quay/studio $200–$895; công cụ AI tự phục vụ ~$3/clip hoặc 50 SKU trên gói $29/tháng), quy định video chính thức của Etsy và eBay đã kiểm chứng trên trang Help của chính họ, và trang Seller University chính thức ngày 26/10/2026 của TikTok Shop Mỹ đã đọc toàn văn: trang này cấm quảng bá bằng ảnh tĩnh/slideshow, nên M19 phải thu hẹp phạm vi về Etsy/eBay (quy định Amazon CHƯA KIỂM CHỨNG trong lát này). Tệp bằng chứng: files/EVIDENCE-M19-LISTING-MEDIA.md. Không đổi điểm số. Nạp hằng ngày: đã sàng 3, đã đăng 3 — M29 bản nháp gọi lại khách cho tiệm nail, M30 bản nháp theo đuổi khách cho gara ô tô, M31 bản nháp biên bản họp HOA (tất cả status=new, chưa chấm, đã nối vào hàng chờ chấm)."
   }
  ],
  "scored": 15,
@@ -246,7 +251,7 @@
   "en": "Round 0 complete: all 15 ideas legally classified (all lawful with conditions) and debated + provisionally scored. 4 keeps, 8 revises, 3 discards. Next: first experiments for the keeps, Checkpoint 1 pack on Fri, Oct 30.",
   "vi": "Đã xong vòng 0: cả 15 ý tưởng đã phân loại pháp lý (tất cả hợp lệ có điều kiện) và đã tranh luận + chấm điểm nháp. 4 giữ, 8 sửa, 3 loại. Tiếp theo: thí nghiệm đầu tiên cho nhóm giữ và gói Checkpoint 1 vào thứ Sáu 30/10."
  },
- "updated": "2026-11-02T06:26:41-08:00",
+ "updated": "2026-11-02T07:29:24-08:00",
  "updates": [
   {
    "en": "Claude Pro is still $20/mo including Claude Code — the $20 budget gate is intact.",
@@ -824,6 +829,24 @@
    "vi": "Bản nháp catalogue từ ảnh cho công ty thanh lý tài sản thừa kế — mô tả món đồ và bảng giá tham chiếu để công ty thanh lý duyệt tại chỗ",
    "market": "US",
    "score": null
+  },
+  {
+   "en": "Appointment-gap rebooking & no-show win-back message drafts for Vietnamese-owned nail salons — drafts the owner approves and sends (no autonomous messaging)",
+   "vi": "Bản nháp tin nhắn lấp lịch trống & gọi lại khách bỏ hẹn cho tiệm nail của người Việt tại Mỹ — bản nháp để chủ tiệm duyệt và tự gửi (không nhắn tự động)",
+   "market": "US",
+   "score": null
+  },
+  {
+   "en": "Declined-service follow-up & service-reminder drafts for independent auto repair shops — bilingual EN–VI drafts the shop approves and sends (no autonomous messaging, no repair advice)",
+   "vi": "Bản nháp theo đuổi hạng mục sửa chữa bị từ chối & nhắc bảo dưỡng cho gara ô tô độc lập — bản nháp song ngữ EN–VI để gara duyệt và tự gửi (không nhắn tự động, không tư vấn sửa chữa)",
+   "market": "US",
+   "score": null
+  },
+  {
+   "en": "Board-meeting minutes drafts for self-managed HOAs & small community managers — minutes drafts from board-supplied notes/recordings for board approval (not the official record until adopted)",
+   "vi": "Bản nháp biên bản họp ban quản trị cho HOA tự quản & đơn vị quản lý cộng đồng nhỏ — bản nháp biên bản từ ghi chú/bản ghi do ban quản trị cung cấp để ban quản trị duyệt (chưa phải hồ sơ chính thức cho đến khi được thông qua)",
+   "market": "US",
+   "score": null
   }
  ],
  "poolNote": {
@@ -1261,6 +1284,25 @@
    "summary": {
     "en": "M18's evidence is ready for Nov 6: grant writing pays $1,500–$5,000 per standard proposal at the professional level but $50–$400 at the Fiverr low end, and GPA/AFP ethics ban percentage-of-award fees outright, fixing the model to flat or hourly pricing.",
     "vi": "Bằng chứng M18 đã sẵn sàng cho 6/11: viết hồ sơ tài trợ được trả $1.500–$5.000 mỗi hồ sơ chuẩn ở phân khúc chuyên nghiệp nhưng chỉ $50–$400 ở đầu thấp Fiverr, và đạo đức nghề GPA/AFP cấm tuyệt đối phí theo % khoản tài trợ, chốt mô hình giá trọn gói hoặc theo giờ."
+   }
+  },
+  {
+   "role": {
+    "en": "US Market Research",
+    "vi": "Nghiên cứu thị trường Mỹ"
+   },
+   "tag": {
+    "en": "M19 EVIDENCE — LISTING-VIDEO PRICES & THE TIKTOK SHOP STILL-FRAME BAN",
+    "vi": "BẰNG CHỨNG M19 — GIÁ VIDEO LISTING & LỆNH CẤM NỘI DUNG TĨNH CỦA TIKTOK SHOP"
+   },
+   "ts": "Mon Nov 2 · 7:29 AM PT",
+   "text": {
+    "en": "Evidence day for M19 — listing-media packs for marketplace sellers (product photos into a short listing video + SEO copy, per SKU batch) — the next candidate in the scoring queue after M17 and M18, ahead of the Fri Nov 6 checkpoint. The price scan is done: 12 public sources checked today put the human-service band at $10–$175 per SKU for a photo-based listing video (the closest Upwork analogue sells at $10/$30/$50; a Fiverr Amazon video built from seller photos runs $45–$175), filmed/studio work at $200–$895, and per-SKU listing optimisation at $50–$300 — but AI self-serve tools already sell the same file at about $3 a clip, or 50 SKUs on a $29/month plan, so the video alone cannot be the product. The hardest finding is official: TikTok Shop US's own Seller University page (dated Oct 26, 2026, read in full today) requires promotional videos to feature people, a face and the physical product in a real-world setting, and prohibits still images, slideshows and product-page screenshots — the intake version of M19 is not a valid TikTok Shop product at all. The photo-based pack survives, on today's evidence, only where platform rules accept it: Etsy (official Help: up to 2 videos of 5–15 seconds per listing, audio removed) and eBay (official Help: one free video per listing, 150 MB max, about a minute, reviewed before posting, no videos on variation listings). Amazon's own video rules are marked UNVERIFIED in this slice — its Seller Central page was located but did not render for reading, so only secondary summaries were checked. Full evidence: EVIDENCE-M19-LISTING-MEDIA.md. No score is proposed or changed — that stays with the Nov 6 checkpoint. Nightly intake: screened 3, posted 3 — M29 appointment-gap rebooking drafts for Vietnamese-owned nail salons, M30 declined-service follow-up and service-reminder drafts for independent auto repair shops, M31 board-meeting minutes drafts for self-managed HOAs and small community managers (all status=new, unscored, appended to the scoring queue).",
+    "vi": "Ngày bằng chứng cho M19 — gói media cho người bán sàn TMĐT (ảnh sản phẩm thành video listing ngắn + nội dung SEO, theo lô SKU) — ứng viên tiếp theo trong hàng chờ chấm sau M17 và M18, chuẩn bị cho checkpoint thứ Sáu 6/11. Lượt quét giá đã xong: 12 nguồn công khai kiểm hôm nay cho thấy dải giá dịch vụ người làm là $10–$175 mỗi SKU cho video listing làm từ ảnh (dịch vụ tương tự nhất trên Upwork bán $10/$30/$50; một video Amazon trên Fiverr làm từ ảnh của người bán chạy $45–$175), sản phẩm quay/studio ở mức $200–$895, và tối ưu listing theo SKU ở mức $50–$300 — nhưng công cụ AI tự phục vụ đã bán chính file đó ở mức khoảng $3 mỗi clip, hoặc 50 SKU trên một gói $29/tháng, nên bản thân video không thể là sản phẩm. Phát hiện cứng nhất đến từ nguồn chính thức: trang Seller University của chính TikTok Shop Mỹ (đề ngày 26/10/2026, đọc toàn văn hôm nay) yêu cầu video quảng bá phải có người, khuôn mặt và sản phẩm thật trong bối cảnh đời thực, và cấm ảnh tĩnh, slideshow và ảnh chụp trang sản phẩm — phiên bản M19 lúc nạp hoàn toàn không phải là sản phẩm hợp lệ trên TikTok Shop. Gói làm từ ảnh, theo bằng chứng hôm nay, chỉ sống được ở nơi quy định nền tảng chấp nhận: Etsy (Help chính thức: tối đa 2 video 5–15 giây mỗi listing, âm thanh bị gỡ) và eBay (Help chính thức: một video miễn phí mỗi listing, tối đa 150 MB, khoảng một phút, được duyệt trước khi đăng, listing có biến thể không hỗ trợ video). Quy định video của chính Amazon được ghi nhãn CHƯA KIỂM CHỨNG trong lát này — trang Seller Central của Amazon đã tìm thấy nhưng không hiển thị nội dung để đọc, nên chỉ kiểm được các bản tóm tắt thứ cấp. Bằng chứng đầy đủ: EVIDENCE-M19-LISTING-MEDIA.md. Không đề xuất hay thay đổi điểm nào — việc đó thuộc checkpoint 6/11. Nạp hằng ngày: đã sàng 3, đã đăng 3 — M29 bản nháp tin nhắn lấp lịch trống & gọi lại khách cho tiệm nail của người Việt, M30 bản nháp theo đuổi hạng mục sửa chữa bị từ chối và nhắc bảo dưỡng cho gara ô tô độc lập, M31 bản nháp biên bản họp ban quản trị cho HOA tự quản và đơn vị quản lý cộng đồng nhỏ (tất cả status=new, chưa chấm, đã nối vào hàng chờ chấm)."
+   },
+   "summary": {
+    "en": "M19's evidence is ready for Nov 6: photo-based listing video sells at $10–$175 per SKU from human services but about $3 a clip from AI tools, and TikTok Shop officially bans the still-image format — the pack survives only on Etsy and eBay rules as checked today.",
+    "vi": "Bằng chứng M19 đã sẵn sàng cho 6/11: video listing làm từ ảnh bán ở mức $10–$175 mỗi SKU nếu người làm nhưng chỉ khoảng $3 mỗi clip từ công cụ AI, và TikTok Shop chính thức cấm định dạng ảnh tĩnh — gói này chỉ sống được theo quy định Etsy và eBay đã kiểm hôm nay."
    }
   }
  ]
