@@ -738,15 +738,20 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;
   const answerText = (q) => q.t === "mc" ? q.c[q.a] : q.t === "coef" ? q.a.join(", ") : q.t === "num" ? `${fmt(q.a)} ${q.unit || ""}` : q.a[0];
   const fmt = (x) => (Math.abs(x) >= 1e5 || (Math.abs(x) < 1e-3 && x !== 0)) ? x.toExponential(2).replace(/e\+?(-?)(\d+)/, " &times; 10<sup>$1$2</sup>") : String(x);
 
-  let run = null; // {quiz, order, i, answers: [{ok, given}], checked}
-  const startQuiz = (id, onlyMissed) => {
+  let run = null; // {quiz, order, i, answers: [{ok, given}], checked, partial, shuffle}
+  const shuffled = (a) => { a = [...a]; for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+  // mode: "first" keeps the authored order; "all" (Requiz) and "missed" shuffle questions and choices
+  const startQuiz = (id, mode = "first") => {
     const quiz = Q.find((q) => q.id === id);
     if (!quiz) { location.hash = "#/quiz"; return; }
     let order = quiz.qs.map((_, i) => i);
-    if (onlyMissed && run && run.quiz.id === id) order = run.order.filter((_, k) => !run.answers[k].ok);
-    run = { quiz, order, i: 0, answers: [], checked: false, partial: !!onlyMissed };
+    if (mode === "missed" && run && run.quiz.id === id) order = run.order.filter((_, k) => !run.answers[k].ok);
+    const shuffle = mode !== "first";
+    run = { quiz, order: shuffle ? shuffled(order) : order, i: 0, answers: [], checked: false, partial: mode === "missed", shuffle };
     renderQ();
   };
+  // True/False and "All three" / "Both" / "None" options keep their positions
+  const choiceOrder = (q) => run.shuffle && q.c.length > 2 && !q.c.some((c) => /^(all|both|none)\b/i.test(c)) ? shuffled(q.c.map((_, k) => k)) : q.c.map((_, k) => k);
   const R = () => $("[data-runner]");
   const renderQ = () => {
     const { quiz, order, i } = run;
@@ -754,7 +759,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;
     run.checked = false;
     const id = "qa";
     let input = "";
-    if (q.t === "mc") input = `<fieldset class="choices"><legend class="skip">Choose one</legend>${q.c.map((c, k) => `<label class="choice"><input type="radio" name="${id}" value="${k}"><span>${c}</span></label>`).join("")}</fieldset>`;
+    if (q.t === "mc") input = `<fieldset class="choices"><legend class="skip">Choose one</legend>${choiceOrder(q).map((k) => `<label class="choice"><input type="radio" name="${id}" value="${k}"><span>${q.c[k]}</span></label>`).join("")}</fieldset>`;
     else {
       const hint = q.t === "num" ? `Number only${q.unit ? ` (in ${q.unit})` : ""}. Scientific notation: 1.20e24 or 1.20 x 10^24.` : q.t === "coef" ? "Type the coefficients in order, separated by commas. Write 1 where there is no number." : q.norm === "cfg" ? "Example format: 1s2 2s2 2p6. Spaces are fine." : q.norm === "formula" ? "Plain numbers for subscripts, e.g. Fe2(SO4)3. Capital letters matter." : "Spelling counts; spaces and capitals do not.";
       input = `<div class="field"><label for="${id}">Your answer</label><input id="${id}" autocomplete="off" autocapitalize="off" spellcheck="false" ${q.t === "num" ? 'inputmode="decimal"' : ""} aria-describedby="${id}-hint"><p class="hint" id="${id}-hint">${hint}</p></div>`;
@@ -765,7 +770,8 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;
       <p class="muted small">Question ${i + 1} of ${order.length}</p>
       <p class="qtext" style="margin-top:.4rem">${q.q}</p>
       <form data-qform novalidate>${input}<div data-fb aria-live="polite"></div>
-      <div class="actions"><button class="btn primary" type="submit" data-act>Check</button></div></form>`;
+      <div class="actions"><button class="btn primary" type="submit" data-act>Check</button><button class="btn" type="button" data-restart>Start over</button></div></form>`;
+    $("[data-restart]").addEventListener("click", () => { if (run.i === 0 || confirm("Start this quiz over? Your answers so far will be cleared.")) startQuiz(quiz.id, "all"); });
     const form = $("[data-qform]");
     form.addEventListener("submit", (e) => { e.preventDefault(); run.checked ? nextQ() : check(); });
     const first = $("input", form); if (first && q.t !== "mc") first.focus({ preventScroll: true });
@@ -780,7 +786,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;
     if (g.invalid) { fb("no", g.invalid, ""); $("#qa").focus(); return; }
     run.answers[run.i] = { ok: g.ok, given: q.t === "mc" ? q.c[raw] : raw.replace(/[<>&]/g, "") };
     run.checked = true;
-    if (q.t === "mc") $$(".choice").forEach((el, k) => { el.querySelector("input").disabled = true; if (k === q.a) el.classList.add("right"); else if (k === raw) el.classList.add("wrong"); });
+    if (q.t === "mc") $$(".choice").forEach((el) => { const inp = el.querySelector("input"), k = Number(inp.value); inp.disabled = true; if (k === q.a) el.classList.add("right"); else if (k === raw) el.classList.add("wrong"); });
     else $("#qa").readOnly = true;
     fb(g.ok ? "ok" : "no", g.ok ? "Correct" : (g.note || "Not quite"), `${g.ok ? "" : `Answer: <b>${answerText(q)}</b><br>`}${q.e}`);
     const act = $("[data-act]"); act.textContent = run.i + 1 < run.order.length ? "Next question" : "See my score"; act.focus();
@@ -797,11 +803,12 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;
       <h1 style="margin-top:.3rem">${quiz.title}: your score</h1>
       <p class="score" style="margin-top:1rem">${right} / ${order.length}</p>
       <p class="lede">${pct}%${run.partial ? " on the questions you missed" : ""}. ${pct >= 90 ? "Exam ready on this topic." : pct >= 70 ? "Close. Redo the misses below." : "Reread the matching Learn block, then retry."}</p>
-      <div class="actions">${missed ? '<button class="btn primary" type="button" data-again="missed">Retry the ' + missed + " missed</button>" : ""}<button class="btn ${missed ? "" : "primary"}" type="button" data-again="all">Retake all</button><a class="btn" href="#/quiz">All quizzes</a><a class="btn" href="#/learn">Back to the plan</a></div>
+      <div class="actions"><button class="btn primary" type="button" data-again="all">Requiz</button>${missed ? '<button class="btn" type="button" data-again="missed">Retry the ' + missed + " missed</button>" : ""}<a class="btn" href="#/quiz">All quizzes</a><a class="btn" href="#/learn">Back to the plan</a></div>
+      <p class="small muted" style="margin-top:.6rem">Requiz asks every question again in a new order, with the choices shuffled.</p>
       <h2 style="margin-top:2.5rem">Answer key</h2>
       <ol class="review">${order.map((qi, k) => { const q = quiz.qs[qi]; const a = answers[k]; return `<li class="${a.ok ? "" : "miss"}"><b>${k + 1}.</b> ${q.q}<p class="ans">${a.ok ? "Correct" : "You answered: " + a.given} &middot; Answer: <b>${answerText(q)}</b></p><p class="ans muted">${q.e}</p></li>`; }).join("")}</ol>
       <p class="src">Built from: ${quiz.src.join("; ")}.</p>`;
-    $$("[data-again]").forEach((b) => b.addEventListener("click", () => startQuiz(quiz.id, b.dataset.again === "missed")));
+    $$("[data-again]").forEach((b) => b.addEventListener("click", () => startQuiz(quiz.id, b.dataset.again)));
     scrollTo({ top: 0 });
   };
 
@@ -819,7 +826,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;
       markCurrent();
       document.title = "Learn: 4-hour plan | CHEM 030A Exam 2";
     } else if (sect === "quiz" && arg) {
-      show("run"); startQuiz(arg, false);
+      show("run"); startQuiz(arg);
       document.title = (run ? run.quiz.title : "Quiz") + " | CHEM 030A Exam 2";
     } else if (sect === "quiz") {
       show("quiz"); renderQuizList(); scrollTo({ top: 0 });
