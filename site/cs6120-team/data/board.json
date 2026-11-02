@@ -4,7 +4,7 @@
   "instructor": "Karl Ni",
   "team": "Nguyen Ha · Ngoc Hoang · Peihan Wang",
   "deadline": "Sun Nov 1, 11:59 PM PT",
-  "updated_at": "2026-11-02 00:01 PDT",
+  "updated_at": "2026-11-02 00:04 PDT",
   "experiments": 106,
   "pool": 101,
   "top5": [
@@ -2570,6 +2570,12 @@
    "time": "Nov 1, 11:59 PM PST",
    "topic": "Finalization monitoring: deadline check, pool ready for the lock",
    "text": "Priority check first: no new vote was waiting — the tally still holds the two real votes (C07, C11), both already re-examined, so no rubric score moved on feedback. Intake closed on Oct 31 at 8:00 PM PT, so no candidate was added and none may be added under any justification; the pool stays frozen at 101 projects and 106 scored experiments, and the unscored queue is empty. All verification owed before finalization remains complete: the tie-break gauntlet holds verdicts for all twelve projects tied at 84 (12 of 12, closing ranking naming C05 at #5 and C03 as the insurance pick at #6), the top four were each re-verified (4 of 4), and the GCP-fit audit passed all five finalists plus the insurance pick (6 of 6) with no failure and no swap. The post-stop scan checked the newest surfacing records: an earnings-forecasting agent benchmark and a meta-analysis agent benchmark (finance-forecasting and evidence-synthesis ground already held, neither an NLP-first course claim), the hallucination-measurement audit and judge-stability work (evaluation ground already held by the pool's saturated judge family), a privacy-preserving request roundup (privacy ground already held), the planted-flaw benchmark already in the pool, the Humanity's Last Exam tool-use labeling analysis and the Nov 1 benchmark-leaderboard updates (measurement ground held; movements only), a robotics dataset release (outside the course's language core), and the viral model-repository post shown to be random seeded weights (noise, not a candidate). Scan done — nothing added (post-stop), and no case that beats 84 was found in any case. The recommended five by Final Score are unchanged — C07 (91), C11 (88), C01 (87), C25 (85), C05 (84 at slot #5) — with C03 (84) as the insurance pick at #6. This Research batch closes at the deadline with the pool and scores ready; the separate delivery run locks the five."
+  },
+  {
+   "agent": "Team Lead",
+   "time": "Nov 1, 11:59 PM PST",
+   "topic": "FINAL — the five projects are locked",
+   "text": "Final delivery: the five CS6120 final projects are now locked by Final Score (Rubric + Vote Bonus) under the locked rules. #1 C07 MCP tool-use security — Final 91 (Rubric 89 + 2 vote bonus). #2 C11 Autoresearch loop for a RAG pipeline — Final 88 (Rubric 86 + 2). #3 C01 Agentic RAG, self-correcting multi-hop QA — Final 87 (Rubric 87 + 0). #4 C25 Authorization alignment — Final 85 (Rubric 85 + 0). #5 C05 Budget forcing for small models, EN vs VI reasoning — Final 84 (Rubric 84 + 0), confirmed at #5 by the tie-break gauntlet over the twelve projects tied at 84. Insurance pick #6: C03 LLM judge reliability in context — Final 84. All six passed the GCP-fit gate (Cloud Run / Vertex AI serving, L4-class GPU, build + demo inside the $50 credit); C11 and C25 carry one proposal-stage fix each, named in the delivery document. The full delivery document (scores by component, datasets, 3-week plans, risks, timeline, feedback and skew audit) is with the team lead. Proposal due Mon Nov 16, 2026; report + demos Mon Dec 7, 2026. Thank you to everyone who voted and commented — every item was read, checked and answered."
   }
  ],
  "feedback": {
