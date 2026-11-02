@@ -6,8 +6,8 @@
 <meta name="robots" content="noindex">
 <title>CHEM 030A Exam 2 Prep</title>
 <meta name="description" content="Private 4-hour study plan and 15 practice quizzes for CHEM 030A Exam 2 (Chapters 4, 5, 7, 8, 9).">
-<meta name="theme-color" content="#0a0a0b">
-<script>(function(){var t="dark";try{if(localStorage.getItem("theme")==="light")t="light"}catch(e){}document.documentElement.dataset.theme=t})()</script>
+<meta name="theme-color" content="#f6f5f3">
+<script>(function(){var t="light";try{if(localStorage.getItem("theme")==="dark")t="dark"}catch(e){}document.documentElement.dataset.theme=t})()</script>
 <link rel="icon" href="/favicon.ico">
 <style>
 @font-face{font-family:"Inter";src:url("/assets/fonts/inter-latin.woff2") format("woff2");font-weight:100 900;font-display:swap}
@@ -101,6 +101,8 @@ ul,ol{padding-left:1.25rem}li+li{margin-top:.3rem}
 .pace .t{font-variant-numeric:tabular-nums;font-weight:700;font-size:1.1rem;min-width:5.5rem}
 .pace .status{font-size:.92rem;color:var(--text-muted);flex:1 1 14rem}
 .pace .btn{min-height:44px;padding:0 1rem;font-size:.95rem}
+.jump{order:2;min-height:44px;max-width:19rem;padding:0 .9rem;border-radius:var(--pill);border:1px solid var(--border-strong);background:var(--surface);color:var(--text);font:600 .95rem var(--font);cursor:pointer}
+.pace .status{order:1}.pace .btn{order:3}
 .plan{width:100%;border-collapse:collapse;margin-top:1rem;font-size:.95rem}
 .plan th,.plan td{text-align:left;padding:.6rem .5rem;border-bottom:1px solid var(--border);vertical-align:top}
 .plan th{font-weight:600;color:var(--text-muted);font-size:.85rem}
@@ -182,7 +184,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;
 .to-top.show{opacity:1;pointer-events:auto;transform:none}
 .to-top:hover{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
 .to-top svg{width:16px;height:16px}
-@media (max-width:40rem){.pace .wrap{flex-wrap:nowrap;gap:.6rem}.pace .status{flex:1 1 auto;font-size:.8rem;line-height:1.35}.pace .t{min-width:0}.pace .btn{padding:0 .85rem}}
+@media (max-width:40rem){.pace .wrap{gap:.4rem .5rem}.pace .t{min-width:0}.jump{flex:1 1 0;min-width:0;max-width:none;font-size:.9rem}.pace .btn{padding:0 .85rem}.pace .status{order:4;flex-basis:100%;font-size:.8rem;line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.block{scroll-margin-top:165px}}
 @media (max-width:30rem){.bar .wrap{gap:.5rem}.brand span.long{display:none}.plan td:nth-child(3),.plan th:nth-child(3){display:none}.nav{gap:0}.nav a{padding:.5rem .6rem}.theme-switch{--thumb:28px}}
 [hidden]{display:none!important}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
@@ -198,7 +200,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;
       <a href="#/learn" data-nav="learn">Learn</a>
       <a href="#/quiz" data-nav="quiz">Quiz</a>
     </nav>
-    <button class="theme-switch" type="button" role="switch" aria-checked="true" aria-label="Dark mode" data-theme-toggle><span class="theme-switch__thumb" aria-hidden="true"></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="icon-sun"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="icon-moon"><path d="M20.5 13.2A8.5 8.5 0 1 1 10.8 3.5a6.6 6.6 0 0 0 9.7 9.7z"/></svg></button>
+    <button class="theme-switch" type="button" role="switch" aria-checked="false" aria-label="Dark mode" data-theme-toggle><span class="theme-switch__thumb" aria-hidden="true"></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="icon-sun"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="icon-moon"><path d="M20.5 13.2A8.5 8.5 0 1 1 10.8 3.5a6.6 6.6 0 0 0 9.7 9.7z"/></svg></button>
   </div>
 </header>
 
@@ -229,10 +231,11 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;
 
 <!-- ======================= LEARN ======================= -->
 <div class="view" data-view="learn" hidden>
-  <div class="pace" aria-live="polite">
+  <div class="pace">
     <div class="wrap">
       <span class="t" data-elapsed>0:00</span>
-      <span class="status" data-pace>Start the clock when you begin; it tells you which block you should be in.</span>
+      <select class="jump" data-jump aria-label="Jump to a section"></select>
+      <span class="status" data-pace aria-live="polite">Start the clock when you begin; it tells you which block you should be in.</span>
       <button class="btn primary" type="button" data-timer="start">Start</button>
       <button class="btn" type="button" data-timer="pause" hidden>Pause</button>
       <button class="btn" type="button" data-timer="reset" hidden>Reset</button>
@@ -564,7 +567,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;
   /* Theme: same switch and storage key as the rest of johnha.info */
   const themeBtn = $("[data-theme-toggle]");
   const applyTheme = (t) => { root.dataset.theme = t; themeBtn.setAttribute("aria-checked", String(t === "dark")); };
-  applyTheme(root.dataset.theme === "light" ? "light" : "dark");
+  applyTheme(root.dataset.theme === "dark" ? "dark" : "light");
   themeBtn.addEventListener("click", () => {
     const next = root.dataset.theme === "dark" ? "light" : "dark";
     applyTheme(next); try { localStorage.setItem("theme", next); } catch {}
@@ -613,9 +616,24 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;
     link.href = nb ? `#/learn/${nb.id}` : "#/quiz/mock-2";
     link.textContent = nb ? (n ? "Continue" : "Start") : "Mock Exam 2";
   };
+  /* Jump menu: every block grouped by chapter, self-tests last */
+  const CH = { "Ch 4": "Ch 4 · Atoms", "Ch 5": "Ch 5 · Naming compounds", "Ch 7": "Ch 7 · Equations", "Ch 8": "Ch 8 · Stoichiometry", "Ch 9": "Ch 9 · Electrons" };
+  const jump = $("[data-jump]");
+  const renderJump = () => {
+    const v = jump.value;
+    const groups = [...Object.keys(CH).map((k) => [CH[k], PLAN.filter((b) => !b.quiz && b.ch === k)]), ["Self-tests and break", PLAN.filter((b) => b.quiz)]];
+    jump.innerHTML = '<option value="">Jump to a section</option>' + groups.map(([g, bs]) => `<optgroup label="${g}">${bs.map((b) => `<option value="${b.id}">${b.t}${done[b.id] ? " (done)" : ""}</option>`).join("")}</optgroup>`).join("");
+    jump.value = v;
+  };
+  jump.addEventListener("change", () => { if (jump.value) location.hash = "#/learn/" + jump.value; });
+  // Keep the menu showing the block being read
+  const blocks = PLAN.map((b) => document.getElementById(b.id));
+  const markCurrent = () => { const cur = blocks.filter((el) => el.getBoundingClientRect().top < 200).pop(); jump.value = cur ? cur.id : ""; };
+  addEventListener("scroll", markCurrent, { passive: true });
+  renderJump();
   $$("[data-done]").forEach((cb) => {
     cb.checked = !!done[cb.dataset.done];
-    cb.addEventListener("change", () => { done[cb.dataset.done] = cb.checked; store.set("done", done); renderPlan(); renderHome(); tick(); });
+    cb.addEventListener("change", () => { done[cb.dataset.done] = cb.checked; store.set("done", done); renderPlan(); renderHome(); renderJump(); tick(); });
   });
 
   /* Practice exam points (counted from the practice exam's stated point values) */
@@ -797,7 +815,8 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;
     if (sect === "learn") {
       show("learn"); renderPlan(); tick();
       const el = arg && document.getElementById(arg);
-      el ? el.scrollIntoView() : scrollTo({ top: 0 });
+      el ? el.scrollIntoView({ behavior: "instant" }) : scrollTo({ top: 0, behavior: "instant" }); // a long smooth jump feels slow
+      markCurrent();
       document.title = "Learn: 4-hour plan | CHEM 030A Exam 2";
     } else if (sect === "quiz" && arg) {
       show("run"); startQuiz(arg, false);
