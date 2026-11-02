@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>CHEM 030A Exam 2 Prep</title>
+<meta name="description" content="Private 4-hour study plan and 15 practice quizzes for CHEM 030A Exam 2 (Chapters 4, 5, 7, 8, 9).">
+<meta name="theme-color" content="#0a0a0b">
+<script>(function(){var t="dark";try{if(localStorage.getItem("theme")==="light")t="light"}catch(e){}document.documentElement.dataset.theme=t})()</script>
+<link rel="icon" href="/favicon.ico">
+<style>
+@font-face{font-family:"Inter";src:url("/assets/fonts/inter-latin.woff2") format("woff2");font-weight:100 900;font-display:swap}
+:root{color-scheme:dark;
+  --bg:#0a0a0b;--bg-elev:#121215;--surface:#141417;--surface-2:#1c1c20;--surface-hover:#24242a;
+  --border:#26262b;--border-strong:#3a3a42;--text:#f4f4f5;--text-muted:#b4b4bc;--text-faint:#94949c;
+  --accent:#34d399;--accent-ink:#0a0a0b;--accent-tint:#10291f;--bad:#f87171;--bad-tint:#2c1414;--warn:#fbbf24;
+  --font:"Inter",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --r:16px;--r-sm:10px;--pill:999px;--wrap:60rem;--gut:clamp(1rem,.6rem + 2vw,2rem)}
+:root[data-theme="light"]{color-scheme:light;
+  --bg:#f6f5f3;--bg-elev:#fff;--surface:#ffffff;--surface-2:#efeeeb;--surface-hover:#e7e6e2;
+  --border:#e3e2de;--border-strong:#cfcec9;--text:#111113;--text-muted:#4f4f57;--text-faint:#66666e;
+  --accent:#047857;--accent-ink:#fff;--accent-tint:#e3f3ec;--bad:#b91c1c;--bad-tint:#fbeaea;--warn:#92400e}
+*,*::before,*::after{box-sizing:border-box}*{margin:0}
+html{-webkit-text-size-adjust:100%;overflow-x:clip}
+body{background:var(--bg);color:var(--text);font:400 1.0625rem/1.6 var(--font);font-feature-settings:"tnum" 0}
+a{color:var(--accent)}
+sub,sup{font-size:.72em;line-height:0}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--gut)}
+.skip{position:absolute;left:-999px}.skip:focus{left:1rem;top:1rem;background:var(--surface);padding:.5rem 1rem;z-index:50}
+/* Header */
+.bar{position:sticky;top:0;z-index:20;background:var(--bg);border-bottom:1px solid var(--border)}
+.bar .wrap{display:flex;align-items:center;gap:1rem;min-height:60px}
+.brand{display:flex;align-items:center;gap:.6rem;color:var(--text);text-decoration:none;font-weight:700;letter-spacing:-.01em}
+.mark{width:32px;height:32px;border-radius:9px;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;font-weight:800;font-size:.8rem}
+.nav{display:flex;gap:.25rem;margin-left:auto}
+.nav a{color:var(--text-muted);text-decoration:none;font-weight:600;padding:.55rem .9rem;border-radius:var(--pill);min-height:44px;display:inline-flex;align-items:center}
+.nav a:hover{color:var(--text);background:var(--surface-2)}
+.nav a[aria-current="page"]{color:var(--text);background:var(--surface-2)}
+.theme-switch{position:relative;display:inline-flex;align-items:center;--thumb:34px;width:calc(var(--thumb)*2 + 8px);height:44px;padding:0 4px;border:0;background:none;cursor:pointer;color:inherit;flex:none}
+.theme-switch::before{content:"";position:absolute;inset:4px 0;border-radius:var(--pill);background:var(--surface-2);box-shadow:inset 0 0 0 1px var(--border)}
+.theme-switch__thumb{position:absolute;top:8px;left:4px;width:var(--thumb);height:28px;border-radius:var(--pill);background:var(--accent)}
+:root[data-theme="dark"] .theme-switch__thumb{transform:translateX(var(--thumb))}
+.theme-switch svg{position:relative;flex:1;width:18px;height:18px;color:var(--text-faint)}
+:root[data-theme="light"] .theme-switch .icon-sun,:root[data-theme="dark"] .theme-switch .icon-moon{color:var(--accent-ink)}
+.brand{white-space:nowrap}
+/* Type */
+h1{font-size:clamp(1.75rem,1.3rem + 2vw,2.5rem);line-height:1.1;letter-spacing:-.025em;font-weight:750}
+h2{font-size:clamp(1.3rem,1.1rem + .8vw,1.6rem);line-height:1.2;letter-spacing:-.015em;font-weight:700}
+h3{font-size:1.125rem;line-height:1.3;font-weight:700;margin-top:1.4rem}
+.lede{color:var(--text-muted);font-size:1.0625rem;margin-top:.6rem;max-width:44rem}
+main{padding:2rem 0 6rem}
+section+section{margin-top:3rem}
+p+p,ul+p,p+ul,p+ol,ol+p,table+p,p+table,.ex+p,p+.ex{margin-top:.75rem}
+ul,ol{padding-left:1.25rem}li+li{margin-top:.3rem}
+.muted{color:var(--text-muted)}.small{font-size:.9rem}
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:48px;padding:0 1.35rem;border-radius:var(--pill);border:1px solid var(--border-strong);background:var(--surface);color:var(--text);font:600 1rem var(--font);text-decoration:none;cursor:pointer;transition:background-color .16s,border-color .16s,transform .16s}
+.btn:hover{background:var(--surface-hover)}.btn:active{transform:scale(.98)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn.primary:hover{filter:brightness(1.06)}
+.btn[disabled]{opacity:.45;cursor:not-allowed}
+.row{display:flex;flex-wrap:wrap;gap:.75rem;align-items:center}
+/* Home */
+.home-head{margin-bottom:2rem}
+.branches{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.branch{display:flex;flex-direction:column;gap:.5rem;padding:1.5rem;border-radius:var(--r);background:var(--surface);border:1px solid var(--border);color:var(--text);text-decoration:none;min-height:200px;transition:border-color .16s,background-color .16s,transform .2s}
+.branch:hover{border-color:var(--accent);background:var(--surface-2)}
+.branch:active{transform:scale(.99)}
+.branch b{font-size:clamp(1.6rem,1.2rem + 1.6vw,2.25rem);letter-spacing:-.02em;line-height:1.1}
+.branch .go{margin-top:auto;font-weight:700;color:var(--accent)}
+@media (max-width:40rem){.branches{grid-template-columns:1fr}.branch{min-height:150px}}
+/* Clock strip: the 4-hour plan drawn to scale */
+.clock{margin-top:2rem;padding:1.25rem;border-radius:var(--r);background:var(--surface);border:1px solid var(--border)}
+.clock-head{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;align-items:baseline}
+.strip{display:flex;gap:3px;margin-top:1rem;height:40px}
+.strip a{flex:var(--m) 1 0;background:var(--surface-2);border-radius:5px;position:relative;min-width:6px}
+.strip a.done{background:var(--accent)}
+.strip a.now{box-shadow:inset 0 0 0 2px var(--accent)}
+.strip a.quiz{background-image:repeating-linear-gradient(135deg,transparent 0 5px,var(--border-strong) 5px 6px)}
+.strip a.done.quiz{background-image:none}
+.ticks{display:flex;justify-content:space-between;font-size:.8rem;color:var(--text-faint);margin-top:.4rem;font-variant-numeric:tabular-nums}
+.next{margin-top:1rem;display:flex;flex-wrap:wrap;gap:.75rem 1.25rem;align-items:center;justify-content:space-between}
+.next p{font-weight:600}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2rem}
+.fact{padding:1rem 1.1rem;border-radius:var(--r);background:var(--surface);border:1px solid var(--border)}
+.fact h2{font-size:1rem;margin-bottom:.35rem}
+.fact p,.fact li{font-size:.95rem}
+@media (max-width:48rem){.facts{grid-template-columns:1fr}}
+/* Bars (practice exam points) */
+.bars{display:grid;gap:.55rem;margin-top:.75rem}
+.bars div{display:grid;grid-template-columns:9.5rem 1fr 3rem;gap:.6rem;align-items:center;font-size:.92rem}
+.bars i{display:block;height:14px;border-radius:4px;background:var(--accent)}
+.bars i.n{background:var(--border-strong)}
+.bars span:last-child{text-align:right;font-variant-numeric:tabular-nums}
+@media (max-width:30rem){.bars div{grid-template-columns:7rem 1fr 2.6rem}}
+/* Learn */
+.pace{position:sticky;top:61px;z-index:10;background:var(--bg);padding:.6rem 0;border-bottom:1px solid var(--border)}
+.pace .wrap{display:flex;flex-wrap:wrap;gap:.5rem 1rem;align-items:center}
+.pace .t{font-variant-numeric:tabular-nums;font-weight:700;font-size:1.1rem;min-width:5.5rem}
+.pace .status{font-size:.92rem;color:var(--text-muted);flex:1 1 14rem}
+.pace .btn{min-height:44px;padding:0 1rem;font-size:.95rem}
+.plan{width:100%;border-collapse:collapse;margin-top:1rem;font-size:.95rem}
+.plan th,.plan td{text-align:left;padding:.6rem .5rem;border-bottom:1px solid var(--border);vertical-align:top}
+.plan th{font-weight:600;color:var(--text-muted);font-size:.85rem}
+.plan td.num,.plan th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.plan a{color:var(--text);text-decoration-color:var(--border-strong)}
+.plan tr.done td{color:var(--text-faint)}
+.plan tfoot td{font-weight:700;border-bottom:0}
+.block{margin-top:3rem;padding-top:1.5rem;border-top:1px solid var(--border);scroll-margin-top:145px}
+.bhead{display:flex;flex-wrap:wrap;gap:.5rem 1rem;align-items:baseline;justify-content:space-between}
+.when{font-variant-numeric:tabular-nums;font-weight:700;color:var(--accent);font-size:.95rem}
+.why{margin-top:.5rem;color:var(--text-muted)}
+.ex{margin-top:1rem;padding:1rem 1.1rem;border-radius:var(--r-sm);background:var(--surface);border:1px solid var(--border)}
+.ex>b:first-child{display:block;margin-bottom:.3rem}
+.ex ol,.ex ul{margin-top:.3rem}
+.trap{margin-top:1rem;padding:1rem 1.1rem;border-radius:var(--r-sm);background:var(--bad-tint)}
+.trap b:first-child{color:var(--bad)}
+.opt{margin-top:1rem;padding:1rem 1.1rem;border-radius:var(--r-sm);background:var(--surface-2)}
+.src{margin-top:1rem;font-size:.88rem;color:var(--text-faint)}
+.do{margin-top:1rem;display:flex;flex-wrap:wrap;gap:.75rem;align-items:center}
+.check{display:inline-flex;gap:.6rem;align-items:center;min-height:44px;cursor:pointer;font-weight:600}
+.check input{width:22px;height:22px;accent-color:var(--accent)}
+.tbl{width:100%;border-collapse:collapse;margin-top:.75rem;font-size:.95rem}
+.tbl th,.tbl td{text-align:left;padding:.5rem .55rem;border-bottom:1px solid var(--border);vertical-align:top}
+.tbl th{color:var(--text-muted);font-weight:600;font-size:.85rem}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.flow{display:flex;flex-wrap:wrap;align-items:center;gap:.4rem;margin-top:.75rem}
+.flow span{padding:.55rem .8rem;border-radius:var(--r-sm);background:var(--surface-2);font-weight:600;font-size:.95rem}
+.flow span.k{background:var(--accent-tint);color:var(--text)}
+.flow em{font-style:normal;color:var(--text-muted);font-size:.85rem}
+.ions{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:.75rem}
+@media (max-width:40rem){.ions{grid-template-columns:1fr}}
+.ions table{width:100%;border-collapse:collapse;font-size:.93rem}
+.ions td{padding:.32rem .4rem;border-bottom:1px solid var(--border)}
+.ions td:last-child{text-align:right;font-weight:600;white-space:nowrap}
+.ions.hide td:last-child{color:transparent;background:var(--surface-2);border-radius:4px;cursor:pointer}
+.ions.hide td.shown:last-child{color:inherit;background:none}
+.hl{background:var(--accent-tint)}
+/* Quiz list */
+.qgroup{margin-top:2rem}
+.qgroup h2{font-size:1.15rem}
+.qlist{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;margin-top:.75rem}
+@media (max-width:52rem){.qlist{grid-template-columns:1fr 1fr}}
+@media (max-width:34rem){.qlist{grid-template-columns:1fr}}
+.qcard{display:flex;flex-direction:column;gap:.25rem;padding:1rem 1.1rem;border-radius:var(--r);background:var(--surface);border:1px solid var(--border);color:var(--text);text-decoration:none;min-height:120px;transition:border-color .16s,background-color .16s}
+.qcard:hover{border-color:var(--accent);background:var(--surface-2)}
+.qcard b{font-size:1.02rem;line-height:1.3}
+.qcard .meta{font-size:.88rem;color:var(--text-muted)}
+.qcard .best{margin-top:auto;font-size:.9rem;font-weight:600;font-variant-numeric:tabular-nums}
+.tag{display:inline-block;font-size:.78rem;font-weight:600;padding:.1rem .55rem;border-radius:var(--pill);background:var(--accent-tint);color:var(--text)}
+/* Quiz runner */
+.runner{max-width:44rem}
+.prog{height:6px;border-radius:3px;background:var(--surface-2);margin:1rem 0 1.5rem;overflow:hidden}
+.prog i{display:block;height:100%;background:var(--accent);transition:width .3s}
+.qtext{font-size:1.2rem;line-height:1.5;font-weight:600}
+.choices{display:grid;gap:.6rem;margin-top:1.25rem;border:0;padding:0}
+.choice{display:flex;gap:.8rem;align-items:center;min-height:52px;padding:.7rem 1rem;border-radius:var(--r-sm);background:var(--surface);border:1px solid var(--border-strong);cursor:pointer;font-size:1.02rem;transition:border-color .16s,background-color .16s}
+.choice:hover{background:var(--surface-2)}
+.choice input{width:20px;height:20px;accent-color:var(--accent);flex:none}
+.choice.right{border-color:var(--accent);background:var(--accent-tint)}
+.choice.wrong{border-color:var(--bad);background:var(--bad-tint)}
+.field{margin-top:1.25rem}
+.field label{display:block;font-weight:600;margin-bottom:.4rem}
+.field input{width:100%;min-height:52px;padding:.6rem 1rem;border-radius:var(--r-sm);border:1px solid var(--border-strong);background:var(--surface);color:var(--text);font:500 1.1rem var(--font)}
+.field .hint{font-size:.88rem;color:var(--text-muted);margin-top:.35rem}
+.fb{margin-top:1.25rem;padding:1rem 1.1rem;border-radius:var(--r-sm)}
+.fb.ok{background:var(--accent-tint)}.fb.no{background:var(--bad-tint)}
+.fb b{display:block;margin-bottom:.2rem}
+.fb.ok b{color:var(--accent)}.fb.no b{color:var(--bad)}
+.actions{margin-top:1.5rem;display:flex;gap:.75rem;flex-wrap:wrap}
+.score{font-size:clamp(2.5rem,2rem + 3vw,3.5rem);font-weight:800;letter-spacing:-.03em;font-variant-numeric:tabular-nums;line-height:1}
+.review{margin-top:2rem;display:grid;gap:.75rem;padding:0;list-style:none}
+.review li{padding:1rem 1.1rem;border-radius:var(--r-sm);background:var(--surface);border-left:4px solid var(--accent)}
+.review li.miss{border-left-color:var(--bad)}
+.review .ans{font-size:.93rem;margin-top:.35rem}
+/* Footer + back to top */
+footer{border-top:1px solid var(--border);padding:2rem 0 3rem;color:var(--text-faint);font-size:.88rem}
+footer .wrap{display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;align-items:center}
+.to-top{position:fixed;right:max(1rem,env(safe-area-inset-right));bottom:max(1rem,env(safe-area-inset-bottom));z-index:30;display:inline-flex;align-items:center;gap:.45rem;min-height:48px;padding:0 1.1rem;border-radius:var(--pill);border:1px solid var(--border-strong);background:var(--bg-elev);color:var(--text);font:600 .95rem var(--font);cursor:pointer;box-shadow:0 8px 24px rgb(0 0 0 / .22);opacity:0;pointer-events:none;transform:translateY(10px);transition:opacity .25s,transform .25s,background-color .16s,color .16s}
+.to-top.show{opacity:1;pointer-events:auto;transform:none}
+.to-top:hover{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.to-top svg{width:16px;height:16px}
+@media (max-width:40rem){.pace .wrap{flex-wrap:nowrap;gap:.6rem}.pace .status{flex:1 1 auto;font-size:.8rem;line-height:1.35}.pace .t{min-width:0}.pace .btn{padding:0 .85rem}}
+@media (max-width:30rem){.bar .wrap{gap:.5rem}.brand span.long{display:none}.plan td:nth-child(3),.plan th:nth-child(3){display:none}.nav{gap:0}.nav a{padding:.5rem .6rem}.theme-switch{--thumb:28px}}
+[hidden]{display:none!important}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}.theme-switch__thumb{transition:transform .28s cubic-bezier(.34,1.56,.64,1)}.view{animation:rise .35s cubic-bezier(.22,1,.36,1)}@keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="#/"><span class="mark" aria-hidden="true">Cl</span><span>CHEM 030A <span class="long">Exam 2</span></span></a>
+    <nav class="nav" aria-label="Main">
+      <a href="#/learn" data-nav="learn">Learn</a>
+      <a href="#/quiz" data-nav="quiz">Quiz</a>
+    </nav>
+    <button class="theme-switch" type="button" role="switch" aria-checked="true" aria-label="Dark mode" data-theme-toggle><span class="theme-switch__thumb" aria-hidden="true"></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="icon-sun"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="icon-moon"><path d="M20.5 13.2A8.5 8.5 0 1 1 10.8 3.5a6.6 6.6 0 0 0 9.7 9.7z"/></svg></button>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ======================= HOME ======================= -->
+<div class="view wrap" data-view="home" hidden>
+  <div class="home-head">
+    <h1>Exam 2 in four hours</h1>
+    <p class="lede">CHEM 030A, Monday, Nov 2. Chapters 4, 5, 7, 8 and 9, built only from the course's own lectures, homework, worksheet and the instructor's practice exam. Study in Learn, test yourself in Quiz.</p>
+  </div>
+  <div class="branches">
+    <a class="branch" href="#/learn"><b>Learn</b><span class="muted">13 timed blocks that add up to exactly 4:00. Rules, worked examples, traps.</span><span class="go">Open the 4-hour plan &rarr;</span></a>
+    <a class="branch" href="#/quiz"><b>Quiz</b><span class="muted">15 quizzes, 190 questions, instant feedback and a score at the end.</span><span class="go">Pick a quiz &rarr;</span></a>
+  </div>
+  <div class="clock">
+    <div class="clock-head"><h2>Your 4 hours</h2><span class="muted small" data-done-count></span></div>
+    <div class="strip" data-strip aria-label="The 4-hour plan drawn to scale"></div>
+    <div class="ticks"><span>0:00</span><span>1:00</span><span>2:00</span><span>3:00</span><span>4:00</span></div>
+    <div class="next"><p data-next-text></p><a class="btn primary" data-next-link href="#/learn">Start</a></div>
+  </div>
+  <div class="facts">
+    <div class="fact"><h2>Where the practice exam's points go</h2><div class="bars" data-bars></div><p class="small muted" style="margin-top:.6rem">Counted from "Practice Problem for Midterm 2" (135 points). Stoichiometry is on the study guide even though this practice set has none.</p></div>
+    <div class="fact"><h2>No need to memorize</h2><ul><li>Any constant (Avogadro's number, speed of light)</li><li>Conversion factors</li><li>The activity series</li></ul><p class="small muted" style="margin-top:.6rem">A periodic table and an ion table are provided. Bring a pencil, eraser and scientific calculator.</p></div>
+    <div class="fact"><h2>Not on this exam</h2><ul><li>Net ionic equations</li><li>Oxidation&ndash;reduction (7-9)</li><li>Section 8-8, enthalpy</li></ul><p class="small muted" style="margin-top:.6rem">Per the Module 7 and 8 overviews.</p></div>
+  </div>
+</div>
+
+<!-- ======================= LEARN ======================= -->
+<div class="view" data-view="learn" hidden>
+  <div class="pace" aria-live="polite">
+    <div class="wrap">
+      <span class="t" data-elapsed>0:00</span>
+      <span class="status" data-pace>Start the clock when you begin; it tells you which block you should be in.</span>
+      <button class="btn primary" type="button" data-timer="start">Start</button>
+      <button class="btn" type="button" data-timer="pause" hidden>Pause</button>
+      <button class="btn" type="button" data-timer="reset" hidden>Reset</button>
+    </div>
+  </div>
+  <div class="wrap">
+  <section style="margin-top:2rem">
+    <h1>The 4-hour plan</h1>
+    <p class="lede">Ordered by what the exam tests most and what everything else depends on: atoms and ions first, then naming (the biggest point block), then reactions, stoichiometry and electrons. Self-tests sit inside the clock. Tick each block when it is done.</p>
+    <div class="scroll"><table class="plan" data-plan></table></div>
+  </section>
+
+  <!-- B1 -->
+  <article class="block" id="b1">
+    <div class="bhead"><h2>Atoms, isotopes and ions</h2><span class="when">0:00 &rarr; 0:15 &middot; 15 min</span></div>
+    <p class="why">About 21 of the practice exam's points; the base for naming ions in the next block.</p>
+    <h3>The three particles</h3>
+    <div class="scroll"><table class="tbl"><thead><tr><th>Particle</th><th>Charge</th><th>Mass (amu)</th><th>Where</th></tr></thead><tbody>
+      <tr><td>Proton</td><td>+1</td><td>1.0073</td><td>Nucleus</td></tr>
+      <tr><td>Neutron</td><td>0</td><td>1.0087</td><td>Nucleus</td></tr>
+      <tr><td>Electron</td><td>&minus;1</td><td>0.0005</td><td>Outside the nucleus</td></tr></tbody></table></div>
+    <p>Protons and neutrons carry almost all the mass; the electrons take up almost all the space. An atom is the smallest piece of an element that keeps its properties.</p>
+    <h3>Read the symbol <sup>A</sup><sub>Z</sub>X<sup>charge</sup></h3>
+    <ul>
+      <li><b>Z, atomic number</b> = protons. It decides the element.</li>
+      <li><b>A, mass number</b> = protons + neutrons.</li>
+      <li><b>Neutrons</b> = A &minus; Z.</li>
+      <li><b>Electrons</b> = Z &minus; charge. A neutral atom has electrons = protons.</li>
+    </ul>
+    <div class="ex"><b>Worked: count everything (instructor notes)</b>
+      <ul><li><sup>127</sup><sub>53</sub>I: p 53, n 127 &minus; 53 = 74, e 53. As I<sup>&minus;</sup> it gains one electron: e 54.</li>
+      <li><sup>88</sup><sub>38</sub>Sr: p 38, n 50, e 38. As Sr<sup>2+</sup> it loses two: e 36.</li>
+      <li>Al<sup>3+</sup>: p 13, n 14, e 10. N<sup>3&minus;</sup>: p 7, n 7, e 10. O<sup>2&minus;</sup>: p 8, n 8, e 10.</li></ul></div>
+    <h3>Ions</h3>
+    <p>An ion is a charged atom. <b>Cation</b> (+): lost electrons; metals do this (Na<sup>+</sup>, Sr<sup>2+</sup>). <b>Anion</b> (&minus;): gained electrons; nonmetals do this (Cl<sup>&minus;</sup>, O<sup>2&minus;</sup>). Neutrons never change the charge. Opposite charges attract, and the attraction weakens as they move apart.</p>
+    <h3>Isotopes and average atomic mass</h3>
+    <p>Isotopes: same element (same protons), different numbers of neutrons, so different mass numbers. Carbon-12, -13 and -14 have 6, 7 and 8 neutrons. The mass on the periodic table is a weighted average of the isotopes:</p>
+    <p><b>average mass = (fraction<sub>1</sub> &times; mass<sub>1</sub>) + (fraction<sub>2</sub> &times; mass<sub>2</sub>) + &hellip;</b></p>
+    <div class="ex"><b>Worked: copper (instructor notes)</b>
+      Cu-63 is 69.09% at 62.9298 amu; Cu-65 is 30.91% at 64.9278 amu.<br>
+      (0.6909 &times; 62.9298) + (0.3091 &times; 64.9278) = 43.48 + 20.07 = <b>63.55 amu</b>.</div>
+    <h3>Periodic table groups you must name</h3>
+    <div class="scroll"><table class="tbl"><thead><tr><th>Group</th><th>Name</th><th>Examples</th></tr></thead><tbody>
+      <tr><td>1A</td><td>Alkali metals</td><td>Li, Na, K</td></tr>
+      <tr><td>2A</td><td>Alkaline earth metals</td><td>Mg, Ca, Sr, Ba</td></tr>
+      <tr><td>B groups (middle)</td><td>Transition metals</td><td>Cr, Mn, Fe, Co, Ni, Cu, Zn, Ag, Au, Hg</td></tr>
+      <tr><td>7A</td><td>Halogens</td><td>F, Cl, Br, I</td></tr>
+      <tr><td>8A</td><td>Noble gases: unreactive, rarely combine</td><td>He, Ne, Ar, Kr, Xe</td></tr></tbody></table></div>
+    <p>Metals are on the left, nonmetals on the right (Na is a metal, Cl a nonmetal). Know the names, symbols and spelling of the Exam 1 list: Groups 1A, 2A, B, Al, Ga, In, 4A, N, P, O, S, Se, 7A, 8A and Cr, Mn, Fe, Co, Ni, Cu, Zn, Ag, Au, Hg. Watch Au = gold, Ag = silver.</p>
+    <div class="trap"><b>Traps.</b> Turn percents into decimals before multiplying. The mass number (a whole number) is not the average atomic mass on the table. A cation has <i>fewer</i> electrons than protons. Dalton's theory did not include isotopes.</div>
+    <p class="src">Sources: Atoms and Ions (instructor notes); Activity 02-1 + solutions; Module 3 Overview; Exam 1 Study Guide; HW + Quiz Chapter 4. Extra practice: Activity 02-1 Exercise 1 table, Isotope discussion, HW Ch4 Q10.</p>
+    <div class="do"><label class="check"><input type="checkbox" data-done="b1"> Done</label><a class="btn" href="#/quiz/ch4-a">Optional: Ch 4 Quiz A</a></div>
+  </article>
+
+  <!-- B2 -->
+  <article class="block" id="b2">
+    <div class="bhead"><h2>Ion charges and the Table of Ions</h2><span class="when">0:15 &rarr; 0:35 &middot; 20 min</span></div>
+    <p class="why">Every naming question starts here. The study guide asks for names, symbols and charges of cations, anions and transition metals.</p>
+    <h3>Charges from the periodic table</h3>
+    <div class="scroll"><table class="tbl"><thead><tr><th>Group</th><th>Ion charge</th><th>Rule</th></tr></thead><tbody>
+      <tr><td>1A and H</td><td>+1</td><td rowspan="3">Metals form cations: charge = group number</td></tr>
+      <tr><td>2A</td><td>+2</td></tr><tr><td>3A (Al)</td><td>+3</td></tr>
+      <tr><td>5A</td><td>&minus;3</td><td rowspan="3">Nonmetals form anions: charge = 8 &minus; group number</td></tr>
+      <tr><td>6A</td><td>&minus;2</td></tr><tr><td>7A</td><td>&minus;1</td></tr></tbody></table></div>
+    <p>Monatomic anions end in <b>-ide</b>: fluoride F<sup>&minus;</sup>, chloride Cl<sup>&minus;</sup>, bromide Br<sup>&minus;</sup>, iodide I<sup>&minus;</sup>, oxide O<sup>2&minus;</sup>, sulfide S<sup>2&minus;</sup>, selenide Se<sup>2&minus;</sup>, nitride N<sup>3&minus;</sup>, phosphide P<sup>3&minus;</sup>, hydride H<sup>&minus;</sup>.</p>
+    <p>Transition metals can have more than one charge: Cu<sup>+</sup>/Cu<sup>2+</sup>, Fe<sup>2+</sup>/Fe<sup>3+</sup>, Cr<sup>2+</sup>/Cr<sup>3+</sup>, Sn<sup>2+</sup>/Sn<sup>4+</sup>, Pb<sup>2+</sup>/Pb<sup>4+</sup>, Hg<sub>2</sub><sup>2+</sup>/Hg<sup>2+</sup>. Ag<sup>+</sup> and Zn<sup>2+</sup> have one charge only.</p>
+    <h3>The Table of Ions (from the Chapter 5 homework)</h3>
+    <p class="muted small">Highlighted rows are the polyatomic ions you will meet most. Tap "Hide symbols" to drill: tap a hidden cell to reveal it.</p>
+    <div class="row" style="margin-top:.6rem"><button class="btn" type="button" data-ion-toggle aria-pressed="false">Hide symbols</button></div>
+    <div class="ions" data-ions>
+      <table aria-label="Cations"><tbody>
+        <tr><td>Aluminum</td><td>Al<sup>3+</sup></td></tr><tr class="hl"><td>Ammonium</td><td>NH<sub>4</sub><sup>+</sup></td></tr><tr><td>Barium</td><td>Ba<sup>2+</sup></td></tr><tr><td>Calcium</td><td>Ca<sup>2+</sup></td></tr><tr><td>Cesium</td><td>Cs<sup>+</sup></td></tr><tr><td>Chromium(II)</td><td>Cr<sup>2+</sup></td></tr><tr><td>Chromium(III)</td><td>Cr<sup>3+</sup></td></tr><tr><td>Copper(I), cuprous</td><td>Cu<sup>+</sup></td></tr><tr><td>Copper(II), cupric</td><td>Cu<sup>2+</sup></td></tr><tr><td>Hydrogen, hydronium</td><td>H<sup>+</sup>, H<sub>3</sub>O<sup>+</sup></td></tr><tr><td>Iron(II), ferrous</td><td>Fe<sup>2+</sup></td></tr><tr><td>Iron(III), ferric</td><td>Fe<sup>3+</sup></td></tr><tr><td>Lead(II)</td><td>Pb<sup>2+</sup></td></tr><tr><td>Lithium</td><td>Li<sup>+</sup></td></tr><tr><td>Magnesium</td><td>Mg<sup>2+</sup></td></tr><tr><td>Manganese(II)</td><td>Mn<sup>2+</sup></td></tr><tr><td>Mercury(I), mercurous</td><td>Hg<sub>2</sub><sup>2+</sup></td></tr><tr><td>Mercury(II), mercuric</td><td>Hg<sup>2+</sup></td></tr><tr><td>Nickel(II)</td><td>Ni<sup>2+</sup></td></tr><tr><td>Potassium</td><td>K<sup>+</sup></td></tr><tr><td>Silver</td><td>Ag<sup>+</sup></td></tr><tr><td>Sodium</td><td>Na<sup>+</sup></td></tr><tr><td>Strontium</td><td>Sr<sup>2+</sup></td></tr><tr><td>Tin(II), stannous</td><td>Sn<sup>2+</sup></td></tr><tr><td>Tin(IV), stannic</td><td>Sn<sup>4+</sup></td></tr><tr><td>Zinc</td><td>Zn<sup>2+</sup></td></tr>
+      </tbody></table>
+      <table aria-label="Anions"><tbody>
+        <tr class="hl"><td>Acetate</td><td>C<sub>2</sub>H<sub>3</sub>O<sub>2</sub><sup>&minus;</sup></td></tr><tr><td>Bromate</td><td>BrO<sub>3</sub><sup>&minus;</sup></td></tr><tr><td>Bromide</td><td>Br<sup>&minus;</sup></td></tr><tr class="hl"><td>Carbonate</td><td>CO<sub>3</sub><sup>2&minus;</sup></td></tr><tr class="hl"><td>Bicarbonate (hydrogen carbonate)</td><td>HCO<sub>3</sub><sup>&minus;</sup></td></tr><tr class="hl"><td>Chlorate</td><td>ClO<sub>3</sub><sup>&minus;</sup></td></tr><tr><td>Chloride</td><td>Cl<sup>&minus;</sup></td></tr><tr class="hl"><td>Chlorite</td><td>ClO<sub>2</sub><sup>&minus;</sup></td></tr><tr><td>Chromate</td><td>CrO<sub>4</sub><sup>2&minus;</sup></td></tr><tr><td>Dichromate</td><td>Cr<sub>2</sub>O<sub>7</sub><sup>2&minus;</sup></td></tr><tr><td>Fluoride</td><td>F<sup>&minus;</sup></td></tr><tr class="hl"><td>Hydroxide</td><td>OH<sup>&minus;</sup></td></tr><tr class="hl"><td>Hypochlorite</td><td>ClO<sup>&minus;</sup></td></tr><tr><td>Iodate</td><td>IO<sub>3</sub><sup>&minus;</sup></td></tr><tr><td>Iodide</td><td>I<sup>&minus;</sup></td></tr><tr class="hl"><td>Nitrate</td><td>NO<sub>3</sub><sup>&minus;</sup></td></tr><tr class="hl"><td>Nitrite</td><td>NO<sub>2</sub><sup>&minus;</sup></td></tr><tr><td>Oxalate</td><td>C<sub>2</sub>O<sub>4</sub><sup>2&minus;</sup></td></tr><tr><td>Oxide</td><td>O<sup>2&minus;</sup></td></tr><tr class="hl"><td>Perchlorate</td><td>ClO<sub>4</sub><sup>&minus;</sup></td></tr><tr><td>Permanganate</td><td>MnO<sub>4</sub><sup>&minus;</sup></td></tr><tr class="hl"><td>Phosphate</td><td>PO<sub>4</sub><sup>3&minus;</sup></td></tr><tr><td>Biphosphate (hydrogen phosphate)</td><td>HPO<sub>4</sub><sup>2&minus;</sup></td></tr><tr><td>Dihydrogen phosphate</td><td>H<sub>2</sub>PO<sub>4</sub><sup>&minus;</sup></td></tr><tr class="hl"><td>Sulfate</td><td>SO<sub>4</sub><sup>2&minus;</sup></td></tr><tr><td>Bisulfate (hydrogen sulfate)</td><td>HSO<sub>4</sub><sup>&minus;</sup></td></tr><tr><td>Sulfide</td><td>S<sup>2&minus;</sup></td></tr><tr class="hl"><td>Sulfite</td><td>SO<sub>3</sub><sup>2&minus;</sup></td></tr><tr><td>Thiocyanate</td><td>SCN<sup>&minus;</sup></td></tr><tr><td>Thiosulfate</td><td>S<sub>2</sub>O<sub>3</sub><sup>2&minus;</sup></td></tr><tr><td>Cyanide</td><td>CN<sup>&minus;</sup></td></tr><tr><td>Hydride</td><td>H<sup>&minus;</sup></td></tr>
+      </tbody></table>
+    </div>
+    <h3>Patterns that shrink the list</h3>
+    <ul>
+      <li><b>-ate has one more O than -ite</b>, same charge: nitrate NO<sub>3</sub><sup>&minus;</sup> / nitrite NO<sub>2</sub><sup>&minus;</sup>; sulfate SO<sub>4</sub><sup>2&minus;</sup> / sulfite SO<sub>3</sub><sup>2&minus;</sup>.</li>
+      <li><b>per-</b> adds one O to -ate; <b>hypo-</b> removes one O from -ite: ClO<sub>4</sub><sup>&minus;</sup> perchlorate, ClO<sub>3</sub><sup>&minus;</sup> chlorate, ClO<sub>2</sub><sup>&minus;</sup> chlorite, ClO<sup>&minus;</sup> hypochlorite.</li>
+      <li><b>Adding H<sup>+</sup> raises the charge by one</b> and adds "hydrogen" (or "bi-"): CO<sub>3</sub><sup>2&minus;</sup> &rarr; HCO<sub>3</sub><sup>&minus;</sup>; PO<sub>4</sub><sup>3&minus;</sup> &rarr; HPO<sub>4</sub><sup>2&minus;</sup> &rarr; H<sub>2</sub>PO<sub>4</sub><sup>&minus;</sup>.</li>
+    </ul>
+    <div class="trap"><b>Traps.</b> Sulfide S<sup>2&minus;</sup>, sulfite SO<sub>3</sub><sup>2&minus;</sup> and sulfate SO<sub>4</sub><sup>2&minus;</sup> are three different ions; the same goes for nitride, nitrite and nitrate. Ammonium NH<sub>4</sub><sup>+</sup> is the one common polyatomic cation. Mercury(I) is the pair Hg<sub>2</sub><sup>2+</sup>.</div>
+    <p class="src">Sources: Table of Ions (HW/Quiz Ch5 Molecular instruction pages); Nomenclature of Inorganic Compounds (textbook) 6.2, 6.5; Study guide for Exam II. Extra practice: HW Ch5 Ionic Q1&ndash;3.</p>
+    <div class="do"><label class="check"><input type="checkbox" data-done="b2"> Done</label></div>
+  </article>
+
+  <!-- B3 -->
+  <article class="block" id="b3">
+    <div class="bhead"><h2>Naming ionic compounds</h2><span class="when">0:35 &rarr; 1:05 &middot; 30 min</span></div>
+    <p class="why">The largest block on the practice exam: name 6 compounds, write 8 formulas, plus MC items. Get this perfect.</p>
+    <p><b>Ionic = metal + nonmetal</b>, or any compound with a polyatomic ion (NH<sub>4</sub>Cl). Name the cation first, then the anion. <b>No prefixes, ever.</b></p>
+    <h3>Formula from a name: make the charges add to zero</h3>
+    <ol><li>Write each ion with its charge.</li><li>Take the smallest whole numbers that make the total charge zero (cross the charges over).</li><li>Put parentheses around a polyatomic ion when you need more than one.</li></ol>
+    <div class="ex"><b>Worked</b>
+      <ul><li>Magnesium phosphate: Mg<sup>2+</sup>, PO<sub>4</sub><sup>3&minus;</sup> &rarr; 3(+2) + 2(&minus;3) = 0 &rarr; <b>Mg<sub>3</sub>(PO<sub>4</sub>)<sub>2</sub></b> (instructor note)</li>
+      <li>Copper(II) phosphate: Cu<sup>2+</sup>, PO<sub>4</sub><sup>3&minus;</sup> &rarr; <b>Cu<sub>3</sub>(PO<sub>4</sub>)<sub>2</sub></b></li>
+      <li>Aluminum chromate: Al<sup>3+</sup>, CrO<sub>4</sub><sup>2&minus;</sup> &rarr; 2(+3) + 3(&minus;2) = 0 &rarr; <b>Al<sub>2</sub>(CrO<sub>4</sub>)<sub>3</sub></b></li>
+      <li>Ammonium phosphate &rarr; <b>(NH<sub>4</sub>)<sub>3</sub>PO<sub>4</sub></b>; zinc sulfate &rarr; <b>ZnSO<sub>4</sub></b>; potassium sulfide &rarr; <b>K<sub>2</sub>S</b></li>
+      <li>Copper(I) oxide: two Cu<sup>+</sup> balance one O<sup>2&minus;</sup> &rarr; <b>Cu<sub>2</sub>O</b>; tin(IV) fluoride &rarr; <b>SnF<sub>4</sub></b></li></ul></div>
+    <h3>Name from a formula</h3>
+    <div class="scroll"><table class="tbl"><thead><tr><th>Case</th><th>How to name</th><th>Example</th></tr></thead><tbody>
+      <tr><td>Metal with one charge (1A, 2A, Al, Zn, Ag)</td><td>Metal + anion</td><td>MgBr<sub>2</sub> magnesium bromide; Al<sub>2</sub>O<sub>3</sub> aluminum oxide</td></tr>
+      <tr><td>Metal with more than one charge</td><td>Metal (Roman numeral = its charge) + anion</td><td>CuBr<sub>2</sub> copper(II) bromide; FeS iron(II) sulfide</td></tr>
+      <tr><td>Polyatomic ion</td><td>Name the ion as it is in the table</td><td>NH<sub>4</sub>NO<sub>3</sub> ammonium nitrate; Fe(NO<sub>3</sub>)<sub>2</sub> iron(II) nitrate</td></tr></tbody></table></div>
+    <div class="ex"><b>Worked: find the hidden charge (instructor note, Sep 13)</b>
+      <ul><li>Pb(SO<sub>4</sub>)<sub>2</sub>: 2 &times; (&minus;2) = &minus;4, so Pb is +4 &rarr; <b>lead(IV) sulfate</b></li>
+      <li>Pb(C<sub>2</sub>H<sub>3</sub>O<sub>2</sub>)<sub>4</sub>: 4 &times; (&minus;1) = &minus;4 &rarr; <b>lead(IV) acetate</b></li>
+      <li>CrCl<sub>3</sub>: 3 &times; (&minus;1) &rarr; Cr<sup>3+</sup> &rarr; <b>chromium(III) chloride</b></li>
+      <li>Cu(ClO<sub>3</sub>)<sub>2</sub> &rarr; <b>copper(II) chlorate</b>; FePO<sub>4</sub> &rarr; PO<sub>4</sub><sup>3&minus;</sup> so Fe<sup>3+</sup> &rarr; <b>iron(III) phosphate</b> (practice key)</li></ul></div>
+    <p>Older "classical" names: the lower charge ends in <b>-ous</b>, the higher in <b>-ic</b>: cuprous/cupric, ferrous/ferric, stannous/stannic, plumbous/plumbic.</p>
+    <div class="trap"><b>Traps.</b> The Roman numeral is the metal's charge, not its subscript: Fe<sub>2</sub>O<sub>3</sub> is iron(III) oxide. No Roman numeral for fixed-charge metals: K<sub>2</sub>S is potassium sulfide, not potassium(II) sulfide. No prefixes in ionic names: Al<sub>2</sub>O<sub>3</sub> is not dialuminum trioxide. KC<sub>2</sub>H<sub>3</sub>O<sub>2</sub> is potassium acetate, not calcium (K is potassium). Sodium bicarbonate is NaHCO<sub>3</sub>, not Na<sub>2</sub>CO<sub>3</sub>.</div>
+    <p class="src">Sources: Instructor Note - Nomenclature of Ionic Compounds (Sep 13); textbook 6.3&ndash;6.5; Nomenclature Summary flowchart; Practice Problem for Midterm 2. Extra practice: the Exam 1 ionic handout (all 13 items), HW Ch5 Ionic Q4&ndash;10, Quiz Ch5 Ionic Q1&ndash;12.</p>
+    <div class="do"><label class="check"><input type="checkbox" data-done="b3"> Done</label></div>
+  </article>
+
+  <!-- B4 -->
+  <article class="block" id="b4">
+    <div class="bhead"><h2>Molecular compounds and acids</h2><span class="when">1:05 &rarr; 1:25 &middot; 20 min</span></div>
+    <p class="why">Same naming block on the exam; the study guide says "acids of all kinds".</p>
+    <h3>Molecular (covalent) = two nonmetals: use prefixes</h3>
+    <div class="scroll"><table class="tbl"><tbody><tr><td>1 mono</td><td>2 di</td><td>3 tri</td><td>4 tetra</td><td>5 penta</td></tr><tr><td>6 hexa</td><td>7 hepta</td><td>8 octa</td><td>9 nona</td><td>10 deca</td></tr></tbody></table></div>
+    <ol><li>First element: prefix for its count, but skip mono.</li><li>Second element: prefix + root + -ide (mono is used here).</li><li>Drop the a or o of the prefix before "oxide": pentoxide, monoxide.</li></ol>
+    <div class="ex"><b>Worked (instructor notes, Sep 17; textbook)</b>
+      <ul><li>CO<sub>2</sub> carbon dioxide; CO carbon monoxide; P<sub>4</sub>O<sub>6</sub> tetraphosphorus hexoxide</li>
+      <li>N<sub>2</sub>O<sub>5</sub> dinitrogen pentoxide; P<sub>2</sub>O<sub>5</sub> diphosphorus pentoxide; C<sub>3</sub>N<sub>2</sub> tricarbon dinitride</li>
+      <li>CCl<sub>4</sub> carbon tetrachloride; ICl<sub>3</sub> iodine trichloride; NBr<sub>3</sub> nitrogen tribromide; N<sub>2</sub>O dinitrogen monoxide</li></ul></div>
+    <p>The seven diatomic elements: <b>H<sub>2</sub>, N<sub>2</sub>, O<sub>2</sub>, F<sub>2</sub>, Cl<sub>2</sub>, Br<sub>2</sub>(l), I<sub>2</sub>(s)</b>. Always write them with the 2.</p>
+    <h3>Acids: the formula starts with H</h3>
+    <div class="scroll"><table class="tbl"><thead><tr><th>Anion in the acid</th><th>Acid name</th><th>Examples</th></tr></thead><tbody>
+      <tr><td>No oxygen (-ide)</td><td><b>hydro</b> + root + <b>-ic acid</b></td><td>HCl(aq) hydrochloric; HF hydrofluoric; HBr hydrobromic; HI hydroiodic; H<sub>2</sub>S hydrosulfuric</td></tr>
+      <tr><td>-ate</td><td>root + <b>-ic acid</b></td><td>H<sub>2</sub>SO<sub>4</sub> sulfuric; HNO<sub>3</sub> nitric; HClO<sub>3</sub> chloric; HClO<sub>4</sub> perchloric; H<sub>3</sub>PO<sub>4</sub> phosphoric</td></tr>
+      <tr><td>-ite</td><td>root + <b>-ous acid</b></td><td>H<sub>2</sub>SO<sub>3</sub> sulfurous; HNO<sub>2</sub> nitrous; HClO<sub>2</sub> chlorous; HClO hypochlorous</td></tr></tbody></table></div>
+    <p>Writing an acid formula: add enough H<sup>+</sup> to cancel the anion's charge. Sulfate SO<sub>4</sub><sup>2&minus;</sup> needs 2 H: H<sub>2</sub>SO<sub>4</sub>.</p>
+    <h3>Which rule do I use?</h3>
+    <div class="flow"><span class="k">Starts with H (acid)?</span><em>&rarr; acid rules</em><span class="k">Metal or NH<sub>4</sub><sup>+</sup>?</span><em>&rarr; ionic, no prefixes</em><span class="k">Two nonmetals?</span><em>&rarr; prefixes</em></div>
+    <div class="trap"><b>Traps.</b> No Roman numerals in molecular names: SO<sub>2</sub> is sulfur dioxide, not sulfur(IV) oxide. "Hydro-" only for acids without oxygen: H<sub>2</sub>SO<sub>4</sub> is not hydrosulfuric. P<sub>2</sub>O<sub>3</sub> has no metal, so it is not ionic.</div>
+    <p class="src">Sources: Ch5 Molecular Compounds Nomenclature (page); Instructor Notes on Molecular Compounds (Sep 17); textbook 6.4, 6.6; Nomenclature Summary flowchart; Module 5 Overview. Extra practice: textbook deck practice slides, Molecular Compounds and Acids discussion.</p>
+    <div class="do"><label class="check"><input type="checkbox" data-done="b4"> Done</label><a class="btn" href="#/quiz/ch5-b">Optional: Ch 5 Quiz B</a></div>
+  </article>
+
+  <!-- Q1 -->
+  <article class="block" id="q1">
+    <div class="bhead"><h2>Self-test: Ch 5 Quiz A</h2><span class="when">1:25 &rarr; 1:40 &middot; 15 min</span></div>
+    <p class="why">13 questions on ions and ionic naming. Under 10 right? Reread the Traps in blocks 2 and 3 before moving on.</p>
+    <div class="do"><label class="check"><input type="checkbox" data-done="q1"> Done</label><a class="btn primary" href="#/quiz/ch5-a">Start Ch 5 Quiz A</a></div>
+  </article>
+
+  <!-- Break -->
+  <article class="block" id="br">
+    <div class="bhead"><h2>Break</h2><span class="when">1:40 &rarr; 1:45 &middot; 5 min</span></div>
+    <p class="why">Stand up, drink water. Pause the clock only if you go longer than 5 minutes.</p>
+    <div class="do"><label class="check"><input type="checkbox" data-done="br"> Done</label></div>
+  </article>
+
+  <!-- B5 -->
+  <article class="block" id="b5">
+    <div class="bhead"><h2>Writing and balancing equations</h2><span class="when">1:45 &rarr; 2:10 &middot; 25 min</span></div>
+    <p class="why">Three balancing problems at 7 points each on the practice exam, plus an MC item. Also the first step of every stoichiometry problem.</p>
+    <p>Reactants &rarr; products. State symbols: <b>(s)</b> solid, <b>(l)</b> liquid, <b>(g)</b> gas, <b>(aq)</b> dissolved in water.</p>
+    <h3>Rules (Balancing page)</h3>
+    <ol><li>Write the correct formulas first.</li><li>Never change subscripts; they set what the substance is.</li><li>Change only coefficients.</li><li>Balance one element at a time: metals first, nonmetals next, H and O last.</li><li>A polyatomic ion that appears unchanged on both sides is balanced as one unit.</li><li>If needed, use a fraction, then multiply everything to clear it.</li><li>Count every atom on both sides to check.</li></ol>
+    <div class="ex"><b>Worked: propane (Balancing page)</b>
+      <ol><li>C<sub>3</sub>H<sub>8</sub> + O<sub>2</sub> &rarr; CO<sub>2</sub> + H<sub>2</sub>O</li>
+      <li>C: 3 on the left &rarr; <b>3</b> CO<sub>2</sub></li>
+      <li>H: 8 on the left &rarr; <b>4</b> H<sub>2</sub>O</li>
+      <li>O on the right: 3(2) + 4(1) = 10 &rarr; <b>5</b> O<sub>2</sub></li>
+      <li><b>C<sub>3</sub>H<sub>8</sub> + 5 O<sub>2</sub> &rarr; 3 CO<sub>2</sub> + 4 H<sub>2</sub>O</b></li></ol></div>
+    <div class="ex"><b>Worked: polyatomic ion as a unit (practice key)</b>
+      K<sub>3</sub>PO<sub>4</sub> + Ca(NO<sub>3</sub>)<sub>2</sub> &rarr; KNO<sub>3</sub> + Ca<sub>3</sub>(PO<sub>4</sub>)<sub>2</sub>. Two PO<sub>4</sub> on the right &rarr; 2 K<sub>3</sub>PO<sub>4</sub> &rarr; 6 K &rarr; 6 KNO<sub>3</sub> &rarr; 6 NO<sub>3</sub> &rarr; 3 Ca(NO<sub>3</sub>)<sub>2</sub>.<br>
+      <b>2 K<sub>3</sub>PO<sub>4</sub> + 3 Ca(NO<sub>3</sub>)<sub>2</sub> &rarr; 6 KNO<sub>3</sub> + Ca<sub>3</sub>(PO<sub>4</sub>)<sub>2</sub></b></div>
+    <div class="ex"><b>Worked: clear a fraction (HW Ch7 Q3)</b>
+      C<sub>2</sub>H<sub>6</sub> + O<sub>2</sub> &rarr; 2 CO<sub>2</sub> + 3 H<sub>2</sub>O needs 7 O on the left = 7/2 O<sub>2</sub>. Multiply all by 2: <b>2 C<sub>2</sub>H<sub>6</sub> + 7 O<sub>2</sub> &rarr; 4 CO<sub>2</sub> + 6 H<sub>2</sub>O</b>.</div>
+    <p>More answers from the kit: 2 H<sub>2</sub> + O<sub>2</sub> &rarr; 2 H<sub>2</sub>O; 2 Hg + O<sub>2</sub> &rarr; 2 HgO; 4 Al + 3 O<sub>2</sub> &rarr; 2 Al<sub>2</sub>O<sub>3</sub>; CH<sub>4</sub> + 2 O<sub>2</sub> &rarr; CO<sub>2</sub> + 2 H<sub>2</sub>O; 2 Al + 3 H<sub>2</sub>SO<sub>4</sub> &rarr; Al<sub>2</sub>(SO<sub>4</sub>)<sub>3</sub> + 3 H<sub>2</sub>; C<sub>5</sub>H<sub>12</sub> + 8 O<sub>2</sub> &rarr; 5 CO<sub>2</sub> + 6 H<sub>2</sub>O; P<sub>4</sub> + 5 O<sub>2</sub> &rarr; P<sub>4</sub>O<sub>10</sub> (sum 7); 4 Fe + 3 O<sub>2</sub> &rarr; 2 Fe<sub>2</sub>O<sub>3</sub> (sum 9).</p>
+    <div class="trap"><b>Traps.</b> Reduce to the lowest whole numbers: 2, 4, 2, 8 balances N<sub>2</sub>H<sub>4</sub> + H<sub>2</sub>O<sub>2</sub> &rarr; N<sub>2</sub> + H<sub>2</sub>O, but the best answer is 1, 2, 1, 4. A "sum of coefficients" counts every 1. Hydrogen gas is H<sub>2</sub>, never H<sub>3</sub>. Fix wrong formulas before balancing.</div>
+    <p class="src">Sources: Ch7 Balancing (page); Ch7 Discussion - Balancing; HW + Quiz Chapter 7; Chapter 7 video "Chemical Equation Writing" (LibreTexts 7.3 state symbols); Practice Problem for Midterm 2. Extra practice: worksheet Q16 (four equations).</p>
+    <div class="do"><label class="check"><input type="checkbox" data-done="b5"> Done</label></div>
+  </article>
+
+  <!-- B6 -->
+  <article class="block" id="b6">
+    <div class="bhead"><h2>Classifying reactions</h2><span class="when">2:10 &rarr; 2:25 &middot; 15 min</span></div>
+    <p class="why">The study guide names four categories to classify; the practice exam has three MC items on them.</p>
+    <div class="scroll"><table class="tbl"><thead><tr><th>Type</th><th>Pattern</th><th>Kit example</th></tr></thead><tbody>
+      <tr><td><b>Combination</b></td><td>A + B &rarr; AB</td><td>Mg + Cl<sub>2</sub> &rarr; MgCl<sub>2</sub>; 2 Al + 3 Br<sub>2</sub> &rarr; 2 AlBr<sub>3</sub>; N<sub>2</sub> + O<sub>2</sub> &rarr; 2 NO</td></tr>
+      <tr><td><b>Decomposition</b></td><td>AB &rarr; A + B</td><td>2 H<sub>2</sub>O &rarr; 2 H<sub>2</sub> + O<sub>2</sub> (electric current); KClO<sub>4</sub> &rarr; KCl + 2 O<sub>2</sub></td></tr>
+      <tr><td><b>Single replacement</b></td><td>A + BC &rarr; AC + B</td><td>Zn + 2 HCl &rarr; ZnCl<sub>2</sub> + H<sub>2</sub>; 2 Na + 2 HCl &rarr; 2 NaCl + H<sub>2</sub></td></tr>
+      <tr><td><b>Double replacement</b></td><td>AB + CD &rarr; AD + CB</td><td>See the three kinds below</td></tr>
+      <tr><td>&nbsp;&nbsp;Precipitation</td><td>Forms a solid (s)</td><td>AgNO<sub>3</sub> + NaCl &rarr; AgCl(s) + NaNO<sub>3</sub>; 2 KI + Pb(NO<sub>3</sub>)<sub>2</sub> &rarr; PbI<sub>2</sub>(s) + 2 KNO<sub>3</sub></td></tr>
+      <tr><td>&nbsp;&nbsp;Acid&ndash;base neutralization</td><td>Acid + base &rarr; salt + water</td><td>HCl + NaOH &rarr; NaCl + H<sub>2</sub>O; 3 KOH + H<sub>3</sub>PO<sub>4</sub> &rarr; K<sub>3</sub>PO<sub>4</sub> + 3 H<sub>2</sub>O</td></tr>
+      <tr><td>&nbsp;&nbsp;Gas-evolving</td><td>A gas bubbles out</td><td>CaCO<sub>3</sub> + 2 HCl &rarr; CaCl<sub>2</sub> + CO<sub>2</sub>(g) + H<sub>2</sub>O; HC<sub>2</sub>H<sub>3</sub>O<sub>2</sub> + NaHCO<sub>3</sub> &rarr; NaC<sub>2</sub>H<sub>3</sub>O<sub>2</sub> + CO<sub>2</sub> + H<sub>2</sub>O</td></tr>
+      <tr><td><b>Combustion</b></td><td>Fuel + O<sub>2</sub> &rarr; CO<sub>2</sub> + H<sub>2</sub>O</td><td>CH<sub>4</sub> + 2 O<sub>2</sub> &rarr; CO<sub>2</sub> + 2 H<sub>2</sub>O; C<sub>2</sub>H<sub>6</sub>, CH<sub>3</sub>OH</td></tr></tbody></table></div>
+    <h3>Precipitates in the kit</h3>
+    <p>A precipitate forms when two aqueous ionic compounds make a new compound that does not dissolve. The kit's insoluble solids: <b>AgCl, PbI<sub>2</sub>, PbCO<sub>3</sub>, CaCO<sub>3</sub></b>. If every product is (aq), there is no precipitate (2 K<sub>2</sub>S<sub>2</sub>O<sub>3</sub> + I<sub>2</sub> &rarr; K<sub>2</sub>S<sub>4</sub>O<sub>6</sub> + 2 KI is not precipitation).</p>
+    <p>Physical change is not a reaction: H<sub>2</sub>O(s) &rarr; H<sub>2</sub>O(l) is melting. Products of a metal plus acid: Al + H<sub>2</sub>SO<sub>4</sub> gives aluminum sulfate and hydrogen gas. Copper placed in aluminum bromide does not react.</p>
+    <div class="trap"><b>Traps.</b> Fuel + O<sub>2</sub> making CO<sub>2</sub> and H<sub>2</sub>O is combustion, not combination. Neutralization and precipitation are both double replacements. One reactant splitting = decomposition, even when O<sub>2</sub> is a product.</div>
+    <p class="src">Sources: Ch7 Classifying Chemical Reactions (page); HW + Quiz Chapter 7; worksheet Q3, Q9; Practice Problem for Midterm 2; Module 7 Overview (net ionic and redox are skipped).</p>
+    <div class="do"><label class="check"><input type="checkbox" data-done="b6"> Done</label><a class="btn" href="#/quiz/ch7-b">Optional: Ch 7 Quiz B</a></div>
+  </article>
+
+  <!-- Q2 -->
+  <article class="block" id="q2">
+    <div class="bhead"><h2>Self-test: Ch 7 Quiz A</h2><span class="when">2:25 &rarr; 2:35 &middot; 10 min</span></div>
+    <p class="why">12 balancing questions. Type coefficients like <b>2, 1, 2</b>.</p>
+    <div class="do"><label class="check"><input type="checkbox" data-done="q2"> Done</label><a class="btn primary" href="#/quiz/ch7-a">Start Ch 7 Quiz A</a></div>
+  </article>
+
+  <!-- B7 -->
+  <article class="block" id="b7">
+    <div class="bhead"><h2>Stoichiometry</h2><span class="when">2:35 &rarr; 3:05 &middot; 30 min</span></div>
+    <p class="why">On the study guide: moles, grams, number of particles (Avogadro's number), plus limiting reactant and percent yield from the Chapter 8 worksheet.</p>
+    <h3>The one road</h3>
+    <div class="flow"><span>grams A</span><em>&divide; molar mass A</em><span class="k">moles A</span><em>&times; mole ratio</em><span class="k">moles B</span><em>&times; molar mass B</em><span>grams B</span></div>
+    <p>Particles: moles &times; 6.022 &times; 10<sup>23</sup> (Avogadro's number, given on the exam). The mole ratio comes from the balanced equation's coefficients and only works on moles.</p>
+    <h3>Molar mass = add the atomic masses</h3>
+    <p>H<sub>2</sub>O: 2(1.008) + 16.00 = 18.02 g/mol. CaCO<sub>3</sub>: 40.08 + 12.01 + 3(16.00) = 100.09 g/mol. Read atomic masses off the periodic table you are given. Values used in this app:</p>
+    <div class="scroll"><table class="tbl"><tbody><tr><td>H 1.008</td><td>C 12.01</td><td>N 14.01</td><td>O 16.00</td><td>Na 22.99</td><td>Mg 24.31</td><td>Al 26.98</td></tr><tr><td>P 30.97</td><td>S 32.06</td><td>Cl 35.45</td><td>K 39.10</td><td>Ca 40.08</td><td>Fe 55.85</td><td>Cu 63.55</td></tr><tr><td>Zn 65.38</td><td>Br 79.90</td><td>Ag 107.87</td><td>Sb 121.76</td><td>I 126.90</td><td>Ba 137.33</td><td>Pb 207.2</td></tr></tbody></table></div>
+    <div class="ex"><b>Worked: moles to grams (worksheet Q1)</b>
+      CH<sub>4</sub> + 2 O<sub>2</sub> &rarr; CO<sub>2</sub> + 2 H<sub>2</sub>O. Grams of water from 0.264 mol CH<sub>4</sub>?<br>
+      0.264 mol CH<sub>4</sub> &times; (2 mol H<sub>2</sub>O / 1 mol CH<sub>4</sub>) &times; 18.02 g/mol = <b>9.51 g H<sub>2</sub>O</b></div>
+    <div class="ex"><b>Worked: mass to mass (worksheet Q2)</b>
+      CaCN<sub>2</sub> + 3 H<sub>2</sub>O &rarr; CaCO<sub>3</sub> + 2 NH<sub>3</sub>. Kilograms of NH<sub>3</sub> from 25.0 kg CaCN<sub>2</sub>?<br>
+      25.0 kg &divide; 80.11 = 0.312 kmol &times; 2 = 0.624 kmol NH<sub>3</sub> &times; 17.03 = <b>10.6 kg NH<sub>3</sub></b>. Kilograms in, kilograms out: kmol works like mol.</div>
+    <div class="ex"><b>Worked: particles (worksheet Q7)</b>
+      4 NH<sub>3</sub> + 7 O<sub>2</sub> &rarr; 4 NO<sub>2</sub> + 6 H<sub>2</sub>O. 5.38 mol NH<sub>3</sub> &rarr; 5.38 mol NO<sub>2</sub> &times; 6.022 &times; 10<sup>23</sup> = <b>3.24 &times; 10<sup>24</sup> molecules</b></div>
+    <h3>Limiting reactant</h3>
+    <p>The limiting reactant runs out first; when it is gone the reaction stops, so it sets how much product forms. The other reactant is in excess and some is left over. Method: turn each reactant into moles, then ask how much of the other one it needs.</p>
+    <div class="ex"><b>Worked: worksheet Q9 (key: 20.2 g CO<sub>2</sub>)</b>
+      CaCO<sub>3</sub> + 2 HCl &rarr; CaCl<sub>2</sub> + CO<sub>2</sub> + H<sub>2</sub>O with 45.9 g CaCO<sub>3</sub> and 51.6 g HCl.<br>
+      CaCO<sub>3</sub>: 45.9 &divide; 100.09 = 0.459 mol, needs 0.917 mol HCl. HCl present: 51.6 &divide; 36.46 = 1.42 mol, plenty. CaCO<sub>3</sub> limits.<br>
+      0.459 mol CO<sub>2</sub> &times; 44.01 = <b>20.2 g CO<sub>2</sub></b></div>
+    <div class="ex"><b>Worked: excess left over (worksheet Q10)</b>
+      N<sub>2</sub> + 3 H<sub>2</sub> &rarr; 2 NH<sub>3</sub> with 1.40 g N<sub>2</sub> (0.0500 mol) and 0.400 g H<sub>2</sub> (0.198 mol). N<sub>2</sub> needs 0.150 mol H<sub>2</sub>, so N<sub>2</sub> limits and 0.048 mol H<sub>2</sub> is left = <b>about 0.10 g H<sub>2</sub></b> (the key's 0.100 g uses rounded masses; exact table values give 0.098 g).</div>
+    <h3>Percent yield</h3>
+    <p><b>percent yield = actual yield &divide; theoretical yield &times; 100</b>. Theoretical yield is what the stoichiometry predicts from the limiting reactant.</p>
+    <div class="ex"><b>Worked: worksheet Q4 and Q5</b>
+      <ul><li>1.376 g is a 78.5% yield: theoretical = 1.376 &divide; 0.785 = <b>1.753 g</b>.</li>
+      <li>2 Sb + 3 Cl<sub>2</sub> &rarr; 2 SbCl<sub>3</sub> at 88.3%; you want 4.07 g SbCl<sub>3</sub>. Plan for 4.07 &divide; 0.883 = 4.61 g &divide; 228.11 = 0.0202 mol SbCl<sub>3</sub> &times; 3/2 = 0.0303 mol Cl<sub>2</sub> &times; 70.90 = <b>2.15 g Cl<sub>2</sub></b>.</li></ul></div>
+    <div class="trap"><b>Traps.</b> Never put grams into a mole ratio. Diatomic gases use the doubled mass: O<sub>2</sub> 32.00, H<sub>2</sub> 2.016, Cl<sub>2</sub> 70.90, I<sub>2</sub> 253.80. The limiting reactant is not always the one with the smaller mass. Percent yield cannot be above 100%.</div>
+    <div class="opt"><b>Optional, skip if short on time: empirical formula.</b> It is on the study guide, but the kit has only worksheet Q15 (nicotine: 74.1% C, 8.64% H, 17.3% N) and no lecture on the method, which is taught in Chapter 6. Check your Chapter 6 notes tonight if you have time.</div>
+    <p class="src">Sources: Ch8 Module 8 Overview; Mole-to-Mole, Mole-to-Mass, Limiting and Excess, Theoretical and Percent Yield pages; Chapter 8 Stoichiometry worksheet (Q1&ndash;10); Stoichiometry discussion; Study guide for Exam II. Worksheet Q11 (8-8) and Q13&ndash;14 (net ionic) are out of scope.</p>
+    <div class="do"><label class="check"><input type="checkbox" data-done="b7"> Done</label><a class="btn" href="#/quiz/ch8-c">Optional: Ch 8 Quiz C</a></div>
+  </article>
+
+  <!-- Q3 -->
+  <article class="block" id="q3">
+    <div class="bhead"><h2>Self-test: Ch 8 Quiz A</h2><span class="when">3:05 &rarr; 3:15 &middot; 10 min</span></div>
+    <p class="why">12 questions on mole ratios and mole-to-mass. Keep a calculator ready. Type numbers like <b>18.0</b> or <b>1.20e24</b>.</p>
+    <div class="do"><label class="check"><input type="checkbox" data-done="q3"> Done</label><a class="btn primary" href="#/quiz/ch8-a">Start Ch 8 Quiz A</a></div>
+  </article>
+
+  <!-- B8 -->
+  <article class="block" id="b8">
+    <div class="bhead"><h2>Light and electron configurations</h2><span class="when">3:15 &rarr; 3:35 &middot; 20 min</span></div>
+    <p class="why">Three configurations at 5 points each, plus MC items. "Be able to write the electron configuration of any given atom."</p>
+    <h3>Light in one line</h3>
+    <p>Wavelength &lambda; = peak-to-peak distance; frequency &nu; = waves per second. <b>c = &lambda;&nu;</b>, c = 3.00 &times; 10<sup>8</sup> m/s (given). Longer wavelength means lower frequency.</p>
+    <div class="ex"><b>Worked (Quiz Ch9 Q15)</b> Orange light, 620 nm = 620 &times; 10<sup>&minus;9</sup> m. &nu; = 3.00 &times; 10<sup>8</sup> &divide; 6.20 &times; 10<sup>&minus;7</sup> = <b>4.8 &times; 10<sup>14</sup> s<sup>&minus;1</sup></b>. Convert nm to m first.</div>
+    <p>The lowest energy state of an electron is the <b>ground state</b>; higher ones are excited states.</p>
+    <h3>Orbitals and capacity</h3>
+    <div class="scroll"><table class="tbl"><thead><tr><th>Sublevel</th><th>Orbitals</th><th>Max electrons</th></tr></thead><tbody>
+      <tr><td>s</td><td>1</td><td>2</td></tr><tr><td>p</td><td>3</td><td>6</td></tr><tr><td>d</td><td>5</td><td>10</td></tr><tr><td>f</td><td>7</td><td>14</td></tr></tbody></table></div>
+    <p>Each orbital holds 2 electrons with opposite spins. Energy level n = 2 holds 8 (2s + 2p); n = 3 holds 18 (3s + 3p + 3d).</p>
+    <h3>Filling order</h3>
+    <div class="flow"><span>1s</span><em>&rarr;</em><span>2s</span><em>&rarr;</em><span>2p</span><em>&rarr;</em><span>3s</span><em>&rarr;</em><span>3p</span><em>&rarr;</em><span class="k">4s</span><em>&rarr;</em><span class="k">3d</span><em>&rarr;</em><span>4p</span></div>
+    <p>Fill each sublevel before the next. The superscripts must add up to the number of electrons.</p>
+    <div class="ex"><b>Worked</b>
+      <ul><li>Na (11): 1s<sup>2</sup> 2s<sup>2</sup> 2p<sup>6</sup> 3s<sup>1</sup>. N (7): 1s<sup>2</sup> 2s<sup>2</sup> 2p<sup>3</sup>.</li>
+      <li>Cl (17): 1s<sup>2</sup> 2s<sup>2</sup> 2p<sup>6</sup> 3s<sup>2</sup> 3p<sup>5</sup></li>
+      <li>Fe (26): 1s<sup>2</sup> 2s<sup>2</sup> 2p<sup>6</sup> 3s<sup>2</sup> 3p<sup>6</sup> 4s<sup>2</sup> 3d<sup>6</sup></li>
+      <li>Br atom (35): 1s<sup>2</sup> 2s<sup>2</sup> 2p<sup>6</sup> 3s<sup>2</sup> 3p<sup>6</sup> 4s<sup>2</sup> 3d<sup>10</sup> 4p<sup>5</sup>. Bromide ion Br<sup>&minus;</sup> (36): ends 4p<sup>6</sup>.</li>
+      <li>Abbreviated Kr (36): <b>[Ar] 4s<sup>2</sup> 3d<sup>10</sup> 4p<sup>6</sup></b>. The bracket replaces the core; do not write 1s&hellip;3p again (the practice key does, and that is an error).</li></ul></div>
+    <p><b>Ions:</b> anions add electrons, cations remove them. Ca<sup>2+</sup>, K<sup>+</sup> and Cl<sup>&minus;</sup> all have 18 electrons: 1s<sup>2</sup> 2s<sup>2</sup> 2p<sup>6</sup> 3s<sup>2</sup> 3p<sup>6</sup>.</p>
+    <h3>Valence electrons and blocks</h3>
+    <p>Valence electrons are in the outermost level; for main-group elements they equal the A-group number: alkali metals 1, alkaline earth 2, Al 3, N and P 5, O and S 6, halogens 7, noble gases 8. Same group = same valence electrons; same period = same number of energy levels. The block is the sublevel filled last: [Ar] 4s<sup>2</sup> 3d<sup>8</sup> is d block; &hellip;3p<sup>2</sup> is p block.</p>
+    <div class="trap"><b>Traps.</b> 4s fills before 3d. Sulfur has 6 valence electrons, not 16. In the third level of Cl there are 7 electrons (3s<sup>2</sup> 3p<sup>5</sup>). Check that your superscripts add to the electron count.</div>
+    <p class="src">Sources: Module 9 Overview; HW + Quiz Chapter 9; Ch9 Discussion - Electron Configurations; Practice Problem for Midterm 2 (Q12). The Bohr and orbital lecture pages are video-only in the kit.</p>
+    <div class="do"><label class="check"><input type="checkbox" data-done="b8"> Done</label><a class="btn" href="#/quiz/ch9-b">Optional: Ch 9 Quiz B</a></div>
+  </article>
+
+  <!-- Q4 -->
+  <article class="block" id="q4">
+    <div class="bhead"><h2>Mock Exam 1</h2><span class="when">3:35 &rarr; 4:00 &middot; 25 min</span></div>
+    <p class="why">15 questions weighted like the instructor's practice exam: naming first, then balancing and stoichiometry, configurations, atoms and reaction types. Finish by 4:00.</p>
+    <div class="do"><label class="check"><input type="checkbox" data-done="q4"> Done</label><a class="btn primary" href="#/quiz/mock-1">Start Mock Exam 1</a></div>
+  </article>
+
+  <section class="block" id="after">
+    <h2>After the 4 hours (optional)</h2>
+    <p>Mock Exam 2, then every quiz you scored under 80% on. The <a href="#/quiz">Quiz</a> page shows your best score on each.</p>
+  </section>
+  </div>
+</div>
+
+<!-- ======================= QUIZ LIST ======================= -->
+<div class="view wrap" data-view="quiz" hidden>
+  <h1>Quizzes</h1>
+  <p class="lede">15 quizzes: two each for Chapters 4 and 5, three each for 7, 8 and 9, and two mock exams. Each question gives instant feedback; your score shows at the end. Quizzes tagged "In the plan" are the timed self-tests.</p>
+  <div data-qgroups></div>
+</div>
+
+<!-- ======================= QUIZ RUNNER ======================= -->
+<div class="view wrap" data-view="run" hidden>
+  <div class="runner" data-runner></div>
+</div>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>CHEM 030A Exam 2 prep. Built from the course's Canvas files only. Private page.</span>
+    <a href="/">johnha.info</a>
+  </div>
+</footer>
+<button class="to-top" type="button" data-to-top aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg>Top</button>
+
+<script src="quizzes.js"></script>
+<script>
+(() => {
+  const $ = (s, el = document) => el.querySelector(s);
+  const $$ = (s, el = document) => [...el.querySelectorAll(s)];
+  const store = {
+    get(k, d) { try { const v = localStorage.getItem("chem030a:" + k); return v === null ? d : JSON.parse(v); } catch { return d; } },
+    set(k, v) { try { localStorage.setItem("chem030a:" + k, JSON.stringify(v)); } catch {} }
+  };
+  const root = document.documentElement;
+
+  /* Theme: same switch and storage key as the rest of johnha.info */
+  const themeBtn = $("[data-theme-toggle]");
+  const applyTheme = (t) => { root.dataset.theme = t; themeBtn.setAttribute("aria-checked", String(t === "dark")); };
+  applyTheme(root.dataset.theme === "light" ? "light" : "dark");
+  themeBtn.addEventListener("click", () => {
+    const next = root.dataset.theme === "dark" ? "light" : "dark";
+    applyTheme(next); try { localStorage.setItem("theme", next); } catch {}
+  });
+
+  /* Back to top */
+  const top = $("[data-to-top]");
+  addEventListener("scroll", () => top.classList.toggle("show", scrollY > 600), { passive: true });
+  top.addEventListener("click", () => { scrollTo({ top: 0 }); $("#main").focus({ preventScroll: true }); });
+
+  /* ---------- The plan: minutes per block, must sum to 240 ---------- */
+  const PLAN = [
+    { id: "b1", t: "Atoms, isotopes and ions", ch: "Ch 4", m: 15 },
+    { id: "b2", t: "Ion charges and the Table of Ions", ch: "Ch 5", m: 20 },
+    { id: "b3", t: "Naming ionic compounds", ch: "Ch 5", m: 30 },
+    { id: "b4", t: "Molecular compounds and acids", ch: "Ch 5", m: 20 },
+    { id: "q1", t: "Self-test: Ch 5 Quiz A", ch: "Quiz", m: 15, quiz: true },
+    { id: "br", t: "Break", ch: "", m: 5, quiz: true },
+    { id: "b5", t: "Writing and balancing equations", ch: "Ch 7", m: 25 },
+    { id: "b6", t: "Classifying reactions", ch: "Ch 7", m: 15 },
+    { id: "q2", t: "Self-test: Ch 7 Quiz A", ch: "Quiz", m: 10, quiz: true },
+    { id: "b7", t: "Stoichiometry", ch: "Ch 8", m: 30 },
+    { id: "q3", t: "Self-test: Ch 8 Quiz A", ch: "Quiz", m: 10, quiz: true },
+    { id: "b8", t: "Light and electron configurations", ch: "Ch 9", m: 20 },
+    { id: "q4", t: "Mock Exam 1", ch: "Mock", m: 25, quiz: true }
+  ];
+  const TOTAL = PLAN.reduce((s, b) => s + b.m, 0);
+  console.assert(TOTAL === 240, "plan must sum to 240 minutes, got " + TOTAL);
+  let acc = 0; PLAN.forEach((b) => { b.start = acc; acc += b.m; b.end = acc; });
+  const hm = (min) => `${Math.floor(min / 60)}:${String(Math.floor(min % 60)).padStart(2, "0")}`;
+  const done = store.get("done", {});
+
+  const renderPlan = () => {
+    $("[data-plan]").innerHTML = `<thead><tr><th class="num">Clock</th><th>Block</th><th>Chapter</th><th class="num">Min</th></tr></thead><tbody>${
+      PLAN.map((b) => `<tr class="${done[b.id] ? "done" : ""}"><td class="num">${hm(b.start)} &rarr; ${hm(b.end)}</td><td><a href="#/learn/${b.id}">${b.t}</a>${done[b.id] ? " (done)" : ""}</td><td>${b.ch}</td><td class="num">${b.m}</td></tr>`).join("")
+    }</tbody><tfoot><tr><td class="num">Total</td><td></td><td></td><td class="num">${TOTAL}</td></tr></tfoot>`;
+  };
+  const nextBlock = () => PLAN.find((b) => !done[b.id]);
+  const renderHome = () => {
+    const nb = nextBlock();
+    $("[data-strip]").innerHTML = PLAN.map((b) => `<a href="#/learn/${b.id}" style="--m:${b.m}" class="${done[b.id] ? "done" : ""} ${nb && nb.id === b.id ? "now" : ""} ${b.quiz ? "quiz" : ""}" aria-label="${hm(b.start)} to ${hm(b.end)}: ${b.t}${done[b.id] ? ", done" : ""}" title="${hm(b.start)}&ndash;${hm(b.end)} ${b.t}"></a>`).join("");
+    const n = PLAN.filter((b) => done[b.id]).length;
+    $("[data-done-count]").textContent = `${n} of ${PLAN.length} blocks done`;
+    $("[data-next-text]").textContent = nb ? `Next: ${nb.t} (${hm(nb.start)} to ${hm(nb.end)})` : "All 13 blocks done. Take Mock Exam 2 next.";
+    const link = $("[data-next-link]");
+    link.href = nb ? `#/learn/${nb.id}` : "#/quiz/mock-2";
+    link.textContent = nb ? (n ? "Continue" : "Start") : "Mock Exam 2";
+  };
+  $$("[data-done]").forEach((cb) => {
+    cb.checked = !!done[cb.dataset.done];
+    cb.addEventListener("change", () => { done[cb.dataset.done] = cb.checked; store.set("done", done); renderPlan(); renderHome(); tick(); });
+  });
+
+  /* Practice exam points (counted from the practice exam's stated point values) */
+  const BARS = [["Nomenclature", 57], ["Balancing + reactions", 33], ["Electron configs", 24], ["Atoms + periodic table", 21]];
+  console.assert(BARS.reduce((s, b) => s + b[1], 0) === 135, "practice exam is 135 points");
+  $("[data-bars]").innerHTML = BARS.map(([k, v], i) => `<div><span>${k}</span><i class="${i ? "n" : ""}" style="width:${(v / 57) * 100}%"></i><span>${v}</span></div>`).join("");
+
+  /* Pace clock */
+  let timer = store.get("timer", null); // {start, paused, pausedAt, pausedTotal}
+  const elapsedMin = () => {
+    if (!timer) return 0;
+    const now = timer.paused ? timer.pausedAt : Date.now();
+    return (now - timer.start - timer.pausedTotal) / 60000;
+  };
+  const tick = () => {
+    const e = elapsedMin();
+    $("[data-elapsed]").textContent = hm(e);
+    const startB = $('[data-timer="start"]'), pauseB = $('[data-timer="pause"]'), resetB = $('[data-timer="reset"]');
+    startB.hidden = !!timer; pauseB.hidden = !timer; resetB.hidden = !timer;
+    if (!timer) return;
+    pauseB.textContent = timer.paused ? "Resume" : "Pause";
+    const should = PLAN.find((b) => e < b.end) || PLAN[PLAN.length - 1];
+    const nb = nextBlock();
+    let msg = e >= 240 ? "4:00 reached. " : `Now: ${should.t}, until ${hm(should.end)}. `;
+    if (nb) {
+      const behind = Math.round(e - nb.start);
+      msg += behind > 2 ? `${behind} min behind: skip the Optional items.` : "On pace.";
+    } else msg += "Every block is done.";
+    if (timer.paused) msg = "Paused. " + msg;
+    $("[data-pace]").textContent = msg;
+  };
+  $$("[data-timer]").forEach((b) => b.addEventListener("click", () => {
+    const a = b.dataset.timer;
+    if (a === "start") timer = { start: Date.now(), paused: false, pausedAt: 0, pausedTotal: 0 };
+    if (a === "pause") {
+      if (timer.paused) { timer.pausedTotal += Date.now() - timer.pausedAt; timer.paused = false; }
+      else { timer.paused = true; timer.pausedAt = Date.now(); }
+    }
+    if (a === "reset" && confirm("Reset the clock to 0:00?")) timer = null;
+    store.set("timer", timer); tick();
+  }));
+  setInterval(tick, 15000);
+
+  /* Ion drill */
+  const ions = $("[data-ions]");
+  $("[data-ion-toggle]").addEventListener("click", (e) => {
+    const on = !ions.classList.contains("hide");
+    ions.classList.toggle("hide", on);
+    e.currentTarget.setAttribute("aria-pressed", String(on));
+    e.currentTarget.textContent = on ? "Show symbols" : "Hide symbols";
+    $$("td.shown", ions).forEach((td) => td.classList.remove("shown"));
+  });
+  ions.addEventListener("click", (e) => { const td = e.target.closest("td:last-child"); if (td && ions.classList.contains("hide")) td.classList.add("shown"); });
+
+  /* ---------- Quizzes ---------- */
+  const Q = window.QUIZZES;
+  const IN_PLAN = { "ch5-a": 1, "ch7-a": 1, "ch8-a": 1, "mock-1": 1 };
+  const best = store.get("best", {});
+  const renderQuizList = () => {
+    const groups = [...new Set(Q.map((q) => q.chapter))];
+    $("[data-qgroups]").innerHTML = groups.map((g) => `<section class="qgroup"><h2>${g}</h2><div class="qlist">${
+      Q.filter((q) => q.chapter === g).map((q) => `<a class="qcard" href="#/quiz/${q.id}"><b>${q.title}</b><span class="meta">${q.qs.length} questions &middot; about ${q.minutes} min</span>${IN_PLAN[q.id] ? '<span><span class="tag">In the plan</span></span>' : ""}<span class="best">${best[q.id] != null ? `Best: ${best[q.id]}%` : "Not taken yet"}</span></a>`).join("")
+    }</div></section>`).join("");
+  };
+
+  // Answer normalizing and grading
+  const SUP = { "⁰": "0", "¹": "1", "²": "2", "³": "3", "⁴": "4", "⁵": "5", "⁶": "6", "⁷": "7", "⁸": "8", "⁹": "9", "₀": "0", "₁": "1", "₂": "2", "₃": "3", "₄": "4", "₅": "5", "₆": "6", "₇": "7", "₈": "8", "₉": "9" };
+  const digits = (s) => s.replace(/[⁰¹²³⁴⁵⁶⁷⁸⁹₀₁₂₃₄₅₆₇₈₉]/g, (c) => SUP[c]);
+  const norm = {
+    name: (s) => s.toLowerCase().replace(/\s+/g, ""),
+    formula: (s) => digits(s).replace(/\s+/g, "").replace(/\(aq\)$/i, ""),
+    cfg: (s) => digits(s).toLowerCase().replace(/[\s^,]+/g, "")
+  };
+  const parseNum = (s) => {
+    s = s.trim().replace(/,/g, "").replace(/−/g, "-").replace(/\s*[x×*]\s*10\s*\^?\s*/i, "e").replace(/\s+/g, "");
+    const m = s.match(/^[-+]?(\d+\.?\d*|\.\d+)(e[-+]?\d+)?/i); // leading number; ignores a trailing unit
+    return m ? Number(m[0]) : NaN;
+  };
+  const gcd = (a, b) => (b ? gcd(b, a % b) : a);
+  const grade = (q, raw) => {
+    if (q.t === "mc") return { ok: raw === q.a };
+    if (q.t === "num") {
+      const v = parseNum(raw);
+      if (Number.isNaN(v)) return { ok: false, invalid: "Enter a number, like 18.0 or 1.20e24." };
+      const tol = q.tol || 0;
+      const ok = tol === 0 ? Math.abs(v - q.a) < 1e-9 : Math.abs(v - q.a) <= Math.abs(q.a) * Math.max(tol, 0.01);
+      return { ok };
+    }
+    if (q.t === "coef") {
+      const n = (raw.match(/\d+/g) || []).map(Number);
+      if (n.length !== q.a.length) return { ok: false, invalid: `Enter ${q.a.length} coefficients, like ${q.a.map(() => "1").join(", ")}. Write 1 where there is no number.` };
+      const ok = n.every((x, i) => x === q.a[i]);
+      if (!ok && n.every((x) => x > 0)) {
+        const g = n.reduce(gcd); const k = n[0] / g / q.a[0];
+        if (n.every((x, i) => x / g === q.a[i] * k) && g > 1 && k === 1) return { ok: false, note: "Balanced, but not in lowest whole numbers. Divide by " + g + "." };
+      }
+      return { ok };
+    }
+    const f = norm[q.norm];
+    return { ok: q.a.some((a) => f(a) === f(raw)) };
+  };
+  const answerText = (q) => q.t === "mc" ? q.c[q.a] : q.t === "coef" ? q.a.join(", ") : q.t === "num" ? `${fmt(q.a)} ${q.unit || ""}` : q.a[0];
+  const fmt = (x) => (Math.abs(x) >= 1e5 || (Math.abs(x) < 1e-3 && x !== 0)) ? x.toExponential(2).replace(/e\+?(-?)(\d+)/, " &times; 10<sup>$1$2</sup>") : String(x);
+
+  let run = null; // {quiz, order, i, answers: [{ok, given}], checked}
+  const startQuiz = (id, onlyMissed) => {
+    const quiz = Q.find((q) => q.id === id);
+    if (!quiz) { location.hash = "#/quiz"; return; }
+    let order = quiz.qs.map((_, i) => i);
+    if (onlyMissed && run && run.quiz.id === id) order = run.order.filter((_, k) => !run.answers[k].ok);
+    run = { quiz, order, i: 0, answers: [], checked: false, partial: !!onlyMissed };
+    renderQ();
+  };
+  const R = () => $("[data-runner]");
+  const renderQ = () => {
+    const { quiz, order, i } = run;
+    const q = quiz.qs[order[i]];
+    run.checked = false;
+    const id = "qa";
+    let input = "";
+    if (q.t === "mc") input = `<fieldset class="choices"><legend class="skip">Choose one</legend>${q.c.map((c, k) => `<label class="choice"><input type="radio" name="${id}" value="${k}"><span>${c}</span></label>`).join("")}</fieldset>`;
+    else {
+      const hint = q.t === "num" ? `Number only${q.unit ? ` (in ${q.unit})` : ""}. Scientific notation: 1.20e24 or 1.20 x 10^24.` : q.t === "coef" ? "Type the coefficients in order, separated by commas. Write 1 where there is no number." : q.norm === "cfg" ? "Example format: 1s2 2s2 2p6. Spaces are fine." : q.norm === "formula" ? "Plain numbers for subscripts, e.g. Fe2(SO4)3. Capital letters matter." : "Spelling counts; spaces and capitals do not.";
+      input = `<div class="field"><label for="${id}">Your answer</label><input id="${id}" autocomplete="off" autocapitalize="off" spellcheck="false" ${q.t === "num" ? 'inputmode="decimal"' : ""} aria-describedby="${id}-hint"><p class="hint" id="${id}-hint">${hint}</p></div>`;
+    }
+    R().innerHTML = `<p class="muted small"><a href="#/quiz">Quizzes</a> &middot; ${quiz.chapter}</p>
+      <h1 style="margin-top:.3rem">${quiz.title}${run.partial ? " (missed only)" : ""}</h1>
+      <div class="prog" role="progressbar" aria-valuemin="0" aria-valuemax="${order.length}" aria-valuenow="${i}" aria-label="Progress"><i style="width:${(i / order.length) * 100}%"></i></div>
+      <p class="muted small">Question ${i + 1} of ${order.length}</p>
+      <p class="qtext" style="margin-top:.4rem">${q.q}</p>
+      <form data-qform novalidate>${input}<div data-fb aria-live="polite"></div>
+      <div class="actions"><button class="btn primary" type="submit" data-act>Check</button></div></form>`;
+    const form = $("[data-qform]");
+    form.addEventListener("submit", (e) => { e.preventDefault(); run.checked ? nextQ() : check(); });
+    const first = $("input", form); if (first && q.t !== "mc") first.focus({ preventScroll: true });
+    scrollTo({ top: 0 });
+  };
+  const check = () => {
+    const q = run.quiz.qs[run.order[run.i]];
+    let raw;
+    if (q.t === "mc") { const sel = $('input[name="qa"]:checked'); if (!sel) { fb("no", "Pick an answer first.", ""); return; } raw = Number(sel.value); }
+    else { raw = $("#qa").value; if (!raw.trim()) { fb("no", "Type an answer first.", ""); $("#qa").focus(); return; } }
+    const g = grade(q, raw);
+    if (g.invalid) { fb("no", g.invalid, ""); $("#qa").focus(); return; }
+    run.answers[run.i] = { ok: g.ok, given: q.t === "mc" ? q.c[raw] : raw.replace(/[<>&]/g, "") };
+    run.checked = true;
+    if (q.t === "mc") $$(".choice").forEach((el, k) => { el.querySelector("input").disabled = true; if (k === q.a) el.classList.add("right"); else if (k === raw) el.classList.add("wrong"); });
+    else $("#qa").readOnly = true;
+    fb(g.ok ? "ok" : "no", g.ok ? "Correct" : (g.note || "Not quite"), `${g.ok ? "" : `Answer: <b>${answerText(q)}</b><br>`}${q.e}`);
+    const act = $("[data-act]"); act.textContent = run.i + 1 < run.order.length ? "Next question" : "See my score"; act.focus();
+  };
+  const fb = (kind, head, body) => { $("[data-fb]").innerHTML = `<div class="fb ${kind}"><b>${head}</b>${body}</div>`; };
+  const nextQ = () => { run.i++; run.i < run.order.length ? renderQ() : finish(); };
+  const finish = () => {
+    const { quiz, order, answers } = run;
+    const right = answers.filter((a) => a.ok).length;
+    const pct = Math.round((right / order.length) * 100);
+    if (!run.partial) { best[quiz.id] = Math.max(best[quiz.id] ?? 0, pct); store.set("best", best); }
+    const missed = order.length - right;
+    R().innerHTML = `<p class="muted small"><a href="#/quiz">Quizzes</a> &middot; ${quiz.chapter}</p>
+      <h1 style="margin-top:.3rem">${quiz.title}: your score</h1>
+      <p class="score" style="margin-top:1rem">${right} / ${order.length}</p>
+      <p class="lede">${pct}%${run.partial ? " on the questions you missed" : ""}. ${pct >= 90 ? "Exam ready on this topic." : pct >= 70 ? "Close. Redo the misses below." : "Reread the matching Learn block, then retry."}</p>
+      <div class="actions">${missed ? '<button class="btn primary" type="button" data-again="missed">Retry the ' + missed + " missed</button>" : ""}<button class="btn ${missed ? "" : "primary"}" type="button" data-again="all">Retake all</button><a class="btn" href="#/quiz">All quizzes</a><a class="btn" href="#/learn">Back to the plan</a></div>
+      <h2 style="margin-top:2.5rem">Answer key</h2>
+      <ol class="review">${order.map((qi, k) => { const q = quiz.qs[qi]; const a = answers[k]; return `<li class="${a.ok ? "" : "miss"}"><b>${k + 1}.</b> ${q.q}<p class="ans">${a.ok ? "Correct" : "You answered: " + a.given} &middot; Answer: <b>${answerText(q)}</b></p><p class="ans muted">${q.e}</p></li>`; }).join("")}</ol>
+      <p class="src">Built from: ${quiz.src.join("; ")}.</p>`;
+    $$("[data-again]").forEach((b) => b.addEventListener("click", () => startQuiz(quiz.id, b.dataset.again === "missed")));
+    scrollTo({ top: 0 });
+  };
+
+  /* ---------- Router ---------- */
+  const show = (name) => {
+    $$("[data-view]").forEach((v) => (v.hidden = v.dataset.view !== name));
+    $$("[data-nav]").forEach((a) => (a.dataset.nav === name || (name === "run" && a.dataset.nav === "quiz")) ? a.setAttribute("aria-current", "page") : a.removeAttribute("aria-current"));
+  };
+  const route = () => {
+    const [, sect, arg] = (location.hash || "#/").split("/");
+    if (sect === "learn") {
+      show("learn"); renderPlan(); tick();
+      const el = arg && document.getElementById(arg);
+      el ? el.scrollIntoView() : scrollTo({ top: 0 });
+      document.title = "Learn: 4-hour plan | CHEM 030A Exam 2";
+    } else if (sect === "quiz" && arg) {
+      show("run"); startQuiz(arg, false);
+      document.title = (run ? run.quiz.title : "Quiz") + " | CHEM 030A Exam 2";
+    } else if (sect === "quiz") {
+      show("quiz"); renderQuizList(); scrollTo({ top: 0 });
+      document.title = "Quizzes | CHEM 030A Exam 2";
+    } else {
+      show("home"); renderHome(); scrollTo({ top: 0 });
+      document.title = "CHEM 030A Exam 2 Prep";
+    }
+  };
+  history.scrollRestoration = "manual"; // the router decides where each view starts
+  addEventListener("hashchange", route);
+  $("#main").tabIndex = -1;
+  $(".skip").addEventListener("click", (e) => { e.preventDefault(); $("#main").focus(); }); // keep the hash route intact
+  route();
+})();
+</script>
+</body>
+</html>
