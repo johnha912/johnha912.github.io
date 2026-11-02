@@ -73,6 +73,9 @@
   .chev{display:inline-block;color:var(--acc);font-weight:700;margin-left:8px;transition:transform .2s ease}
   .cand.open .chev{transform:rotate(90deg)}
   .cand-details{display:none;margin-top:8px} .cand.open .cand-details{display:block}
+  .t10 .proj{padding:13px 0;border-top:1px solid var(--line)} .t10 .proj:first-child{border-top:none;padding-top:2px}
+  .t10 h3{margin:0 0 3px;font-size:1.05rem} .t10 .sc{font-size:.9rem;color:var(--mut);margin:2px 0 6px} .t10 .sc b{color:var(--acc)}
+  .t10 p{margin:3px 0;font-size:.95rem} .t10 .lbl{font-weight:700;color:var(--acc)}
   .cand-actions{margin-top:10px}
   .cand-extra{display:none} #board.expanded .cand-extra{display:block}
   .more-wrap{text-align:center;margin:14px 0 4px} #candMore{min-width:280px}
@@ -128,8 +131,83 @@
   <h2>💬 What the agents are saying</h2>
   <div class="card chatbox" id="discussion"></div>
 
+  <h2>🔬 Top 10 — project analysis &amp; scorecard</h2>
+  <p class="sub">A separate breakdown of the ten leading projects: what each one analyzes, what the team would actually do, and how it would be built — with the full scoring line for each. Scores match the candidate board below, which keeps the complete pool.</p>
+  <div class="card t10" id="top10">
+    <div class="proj">
+      <h3>#1 — C07 MCP tool-use security <span class="badge">91</span> <span class="st st-keep">keep</span></h3>
+      <div class="sc">Rubric <b>89</b>/100 · Elite <b>8</b>/10 · Future <b>9</b>/10 · Vote bonus +2 (1 team vote) · Final <b>91</b></div>
+      <p><span class="lbl">What it analyzes:</span> How often MCP tool-use agents fall for attacks across the tool pipeline — prompt injection in tool descriptions, name collisions, out-of-scope parameters — and whether a guardrail layer cuts the attack success rate (the source benchmark peaks at 75.8%) without hurting normal task performance (the NRP trade-off).</p>
+      <p><span class="lbl">What the team does:</span> Build an agent wired to 5–8 self-written tool stubs (search, calculator, files, fake calendar — no real data), implement the guardrails, and run the attack matrix with and without them.</p>
+      <p><span class="lbl">How it is built:</span> Option B agent on Cloud Run (L4 when the model is called), self-hosted Qwen ≤4B, all tools local stubs; live red-team demo. GCP cost ≈ $3–13 of the $50 credit. Canon anchor: W4 MCP security.</p>
+    </div>
+    <div class="proj">
+      <h3>#2 — C11 Autoresearch loop for RAG pipeline <span class="badge">88</span> <span class="st st-keep">keep</span></h3>
+      <div class="sc">Rubric <b>86</b>/100 · Elite <b>7.5</b>/10 · Future <b>8.5</b>/10 · Vote bonus +2 (1 team vote) · Final <b>88</b></div>
+      <p><span class="lbl">What it analyzes:</span> Whether an autonomous propose → test → keep/discard loop genuinely improves a RAG pipeline on a fixed eval set — and whether the gains survive a sealed held-out set (the generalization gap), with an audit of the loop's own kept edits for reward hacking.</p>
+      <p><span class="lbl">What the team does:</span> Run the loop over pipeline variants (chunking, retrieval, prompting), keep only eval-passing edits, then audit every kept edit against the held-out set.</p>
+      <p><span class="lbl">How it is built:</span> The served artifact is the winning pipeline (Option A) on Cloud Run L4 — Qwen2.5-1.5B-class generator + small embedders; HotpotQA eval 500 + sealed 500 from the 7,405-question validation split; the loop itself runs offline on Explorer HPC. GCP ≈ $5–13. Canon: W3 Autoresearch (this team's own presentation) + W10 RAG.</p>
+    </div>
+    <div class="proj">
+      <h3>#3 — C01 Agentic RAG self-correcting multi-hop QA <span class="badge">87</span> <span class="st st-keep">keep</span></h3>
+      <div class="sc">Rubric <b>87</b>/100 · Elite <b>7.5</b>/10 · Future <b>8</b>/10 · no team votes yet · Final <b>87</b></div>
+      <p><span class="lbl">What it analyzes:</span> The accuracy–latency–cost trade-off between naive RAG and self-correcting variants (reflection, corrective retrieval) on multi-hop questions, compared at matched token budgets so the comparison is fair.</p>
+      <p><span class="lbl">What the team does:</span> Build the retriever and three pipeline variants, run matched-budget ablations, and score answer EM/F1, supporting-fact F1 and joint F1 — all deterministic metrics, no judge needed.</p>
+      <p><span class="lbl">How it is built:</span> Option A on Cloud Run L4, one container: Qwen2.5-1.5B-Instruct + bge-small / MiniLM embedders over HotpotQA (90,447 train / 7,405 validation, CC BY-SA 4.0); the live endpoint lets visitors switch variants. GCP ≈ $5–13. Canon: W10 RAG (Lewis).</p>
+    </div>
+    <div class="proj">
+      <h3>#4 — C25 Authorization alignment <span class="badge">85</span> <span class="st st-keep">keep</span></h3>
+      <div class="sc">Rubric <b>85</b>/100 · Elite <b>8</b>/10 · Future <b>9</b>/10 · no team votes yet · Final <b>85</b></div>
+      <p><span class="lbl">What it analyzes:</span> How often agents exceed the authorization they were given — 19.2% of trajectories in the source benchmark, with benign pressure causing more overreach than malicious injection (23.5% vs 17.6%) — and whether a contract check at action time, plus a consult-the-principal step, brings the rate down (14.0% vs 21.6% in the source).</p>
+      <p><span class="lbl">What the team does:</span> Build an authorization-aware sandbox and contract parser over a capped slice of the 286 tasks, then run the benign vs malicious pressure arms and the consult arm.</p>
+      <p><span class="lbl">How it is built:</span> Option B agent on Cloud Run L4 with a deterministic effect-boundary check inside the request path; the proposal pins the served model (self-hosted Qwen3-4B/8B) per the GCP-fit fix. Dataset CC BY 4.0, co-authored at Northeastern. GCP ≈ $5–13.</p>
+    </div>
+    <div class="proj">
+      <h3>#5 — B2 RAG QA over course documents <span class="badge">84</span> <span class="st st-keep">keep</span></h3>
+      <div class="sc">Rubric <b>84</b>/100 · Elite <b>—</b>/10 · Future <b>—</b>/10 · no team votes yet · Final <b>84</b></div>
+      <p><span class="lbl">What it analyzes:</span> Which retrieval configuration (chunking, embedding model) answers questions over course documents best — with a recorded caveat: its ~40 self-written questions over a self-chosen corpus may saturate retrieval, so the comparison can lose signal.</p>
+      <p><span class="lbl">What the team does:</span> Collect the course / university document corpus, ingest it, build the retriever + generator, and run the configuration comparison with an evaluation harness.</p>
+      <p><span class="lbl">How it is built:</span> The textbook Option A: Cloud Run L4, MiniLM / bge embedder + Qwen2.5-1.5B in one container, live Q&A showing retrieved passages as evidence. GCP ≈ $5–13. Gauntlet verdict: CUT from the #5 race on measurement validity — it remains the pool's safest delivery hedge. Elite / Future: not scored.</p>
+    </div>
+    <div class="proj">
+      <h3>#6 — C03 LLM judge reliability in context <span class="badge">84</span> <span class="st st-keep">keep</span></h3>
+      <div class="sc">Rubric <b>84</b>/100 · Elite <b>8</b>/10 · Future <b>8</b>/10 · no team votes yet · Final <b>84</b></div>
+      <p><span class="lbl">What it analyzes:</span> Whether LLM judges give consistent verdicts when the context and the order of the two answers change — consistent accuracy under position swap — and whether three fixes (priority-ordered rubric, pairwise swap, self-consistency voting) actually help.</p>
+      <p><span class="lbl">What the team does:</span> Replicate the benchmark (2,000 pairs × 2 orders = 4,000 judge calls), implement and evaluate the three fixes, and hand-label 200 samples for a human-agreement check.</p>
+      <p><span class="lbl">How it is built:</span> The product is a judge wrapper on Cloud Run L4: Qwen3-8B judges both orders inside the request and returns the verdict plus a live consistency flag on the visitor's own example. Data: ContextualJudgeBench, 2,000 pairs, CC-BY-4.0. GCP ≈ $5–13. Gauntlet verdict: ADVANCE — the insurance pick (#6).</p>
+    </div>
+    <div class="proj">
+      <h3>#7 — C05 Budget forcing for small models <span class="badge">84</span> <span class="st st-keep">keep</span></h3>
+      <div class="sc">Rubric <b>84</b>/100 · Elite <b>8</b>/10 · Future <b>8.5</b>/10 · no team votes yet · Final <b>84</b></div>
+      <p><span class="lbl">What it analyzes:</span> The dose–response curve of test-time compute: how a small model's accuracy changes as its thinking-token budget grows (512 → 4k), in English vs Vietnamese, with Thai as a no-translation control — the s1 budget-forcing question, transferred to off-the-shelf models.</p>
+      <p><span class="lbl">What the team does:</span> Build the budget-forcing harness, run the English arm on GSM8K, self-translate 250 items into Vietnamese in MGSM style with a human check (a Week-1 kill-gate), then sweep budgets × models.</p>
+      <p><span class="lbl">How it is built:</span> vLLM serving Qwen3-4B (the 8B arm also fits) on Cloud Run L4; the demo is a live budget slider that streams the reasoning trace while the accuracy-vs-budget curve updates. Data: GSM8K (MIT); MGSM has no Vietnamese config, hence the team-built arm. GCP ≈ $13. Gauntlet verdict: ADVANCE — recommended #5.</p>
+    </div>
+    <div class="proj">
+      <h3>#8 — C19 Epistemic humility under knowledge conflict <span class="badge">84</span> <span class="st st-keep">keep</span></h3>
+      <div class="sc">Rubric <b>84</b>/100 · Elite <b>7.5</b>/10 · Future <b>8</b>/10 · no team votes yet · Final <b>84</b></div>
+      <p><span class="lbl">What it analyzes:</span> Epistemic humility under knowledge conflict: when retrieved passages disagree, does the agent identify the conflict, still solve correctly, and escalate when it should (the Identify / Solve / Escalate rates) — and do humility interventions cost accuracy?</p>
+      <p><span class="lbl">What the team does:</span> Construct controlled conflicts by documented passage substitution over HotpotQA, code agent trajectories with two coders plus an agreement statistic, and compare a baseline against a conflict-flag + escalation arm.</p>
+      <p><span class="lbl">How it is built:</span> Option A RAG endpoint on Cloud Run L4 that exposes the agent's conflict flag and escalation state live on the visitor's question. GCP ≈ $5–13. Gauntlet verdict: HOLD — in contention behind C05 / C03 / C44.</p>
+    </div>
+    <div class="proj">
+      <h3>#9 — C23 Scoped constraints <span class="badge">84</span> <span class="st st-keep">keep</span></h3>
+      <div class="sc">Rubric <b>84</b>/100 · Elite <b>7.5</b>/10 · Future <b>7.5</b>/10 · no team votes yet · Final <b>84</b></div>
+      <p><span class="lbl">What it analyzes:</span> The false-pass gap between checking a whole response and checking constraints where they were scoped: models pass global checks while violating the one section a constraint belonged to.</p>
+      <p><span class="lbl">What the team does:</span> Replicate the whole-vs-scoped gap on the verifiable-constraint subset (the headline), run judged constraints as a calibrated secondary arm, and optionally test constraints as a reward signal.</p>
+      <p><span class="lbl">How it is built:</span> A live console on Cloud Run L4: a small model drafts from a topic + outline, and the page shows both verdicts side by side with the violating span highlighted. Data: LIFT-Bench, 784 tasks (LIFT-Train 34,258), public code. GCP ≈ $5–13. Gauntlet verdict: HOLD — checker-family backup behind C03.</p>
+    </div>
+    <div class="proj">
+      <h3>#10 — C37 Right Outcome Wrong Process <span class="badge">84</span> <span class="st st-keep">keep</span></h3>
+      <div class="sc">Rubric <b>84</b>/100 · Elite <b>7.5</b>/10 · Future <b>8.5</b>/10 · no team votes yet · Final <b>84</b></div>
+      <p><span class="lbl">What it analyzes:</span> Process compliance: agents that reach the right outcome while skipping required steps — 55.5% of executions in the source benchmark are false-passes (outcome-pass, process-fail) across six regulated domains.</p>
+      <p><span class="lbl">What the team does:</span> Stand up one simulated regulated workflow end-to-end (runtime, customer simulator, both graders), run the model sweep, and build a taxonomy of skipped obligations.</p>
+      <p><span class="lbl">How it is built:</span> Option B agent on Cloud Run with a dual-verdict panel — a final-state checker plus a hybrid grader (deterministic ordering/authority checks + an LLM judge) — rendering the trace with the skipped obligation highlighted against its rule card. Data: CXBench, 120 tasks / 53 rule cards, public code. GCP ≈ $5–13. Gauntlet verdict: CUT from the #5 race (panel composition; its headline also needs a judge-calibration arm).</p>
+    </div>
+  </div>
+
   <h2>🗂️ Candidate board <span class="sub" id="tally-line" style="font-size:.95rem"></span></h2>
-  <p class="sub">Showing the top 20 by Final Score — the top 10 are expanded with full details (what the project does, its scores and criteria) so the team can judge them at a glance. The button below the board reveals the full pool. Click a card's title to expand or collapse its details; voting works without expanding.</p>
+  <p class="sub">Showing the top 20 by Final Score — the button below the board reveals the full pool. Click a card's title to expand its full details; voting works without expanding.</p>
   <div class="grid" id="board"></div>
   <div class="more-wrap"><button class="btn-acc" id="candMore" style="display:none" aria-expanded="false">Show all projects ▾</button></div>
 
@@ -247,8 +325,8 @@ async function init(){
   const tally = (BOARD.feedback && BOARD.feedback.vote_tally) || {};
   $("board").innerHTML = BOARD.candidates.map((c, i) => {
     const votes = tally[c.id] || 0;
-    return `<div class="card cand${i >= 20 ? " cand-extra" : ""}${i < 10 ? " open" : ""}">
-      <div class="cand-head" data-toggle="${c.id}" role="button" tabindex="0" aria-expanded="${i < 10 ? "true" : "false"}" title="Click to expand details">
+    return `<div class="card cand${i >= 20 ? " cand-extra" : ""}">
+      <div class="cand-head" data-toggle="${c.id}" role="button" tabindex="0" aria-expanded="false" title="Click to expand details">
         <h3>${c.id} — ${c.name}</h3>
         <span class="badge">${c.final_score === null || c.final_score === undefined ? (c.score === null ? "—" : c.score) : c.final_score}</span><span class="st st-${c.status}">${c.status}</span>${c.vote_bonus ? `<span class="tag">+${c.vote_bonus} 🗳</span>` : ""}<span class="chev">▸</span>
       </div>
