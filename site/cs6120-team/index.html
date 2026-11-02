@@ -129,7 +129,7 @@
   <div class="card chatbox" id="discussion"></div>
 
   <h2>🗂️ Candidate board <span class="sub" id="tally-line" style="font-size:.95rem"></span></h2>
-  <p class="sub">Showing the top 20 by Final Score — the button below the board reveals the full pool. Click a card's title to expand its full details; voting works without expanding.</p>
+  <p class="sub">Showing the top 20 by Final Score — the top 10 are expanded with full details (what the project does, its scores and criteria) so the team can judge them at a glance. The button below the board reveals the full pool. Click a card's title to expand or collapse its details; voting works without expanding.</p>
   <div class="grid" id="board"></div>
   <div class="more-wrap"><button class="btn-acc" id="candMore" style="display:none" aria-expanded="false">Show all projects ▾</button></div>
 
@@ -247,8 +247,8 @@ async function init(){
   const tally = (BOARD.feedback && BOARD.feedback.vote_tally) || {};
   $("board").innerHTML = BOARD.candidates.map((c, i) => {
     const votes = tally[c.id] || 0;
-    return `<div class="card cand${i >= 20 ? " cand-extra" : ""}">
-      <div class="cand-head" data-toggle="${c.id}" role="button" tabindex="0" aria-expanded="false" title="Click to expand details">
+    return `<div class="card cand${i >= 20 ? " cand-extra" : ""}${i < 10 ? " open" : ""}">
+      <div class="cand-head" data-toggle="${c.id}" role="button" tabindex="0" aria-expanded="${i < 10 ? "true" : "false"}" title="Click to expand details">
         <h3>${c.id} — ${c.name}</h3>
         <span class="badge">${c.final_score === null || c.final_score === undefined ? (c.score === null ? "—" : c.score) : c.final_score}</span><span class="st st-${c.status}">${c.status}</span>${c.vote_bonus ? `<span class="tag">+${c.vote_bonus} 🗳</span>` : ""}<span class="chev">▸</span>
       </div>
@@ -267,7 +267,7 @@ async function init(){
 
   // Candidate board: only the top 20 are visible until the reader expands the pool
   const moreBtn = $("candMore");
-  if (BOARD.candidates.length > 10) {
+  if (BOARD.candidates.length > 20) {
     moreBtn.style.display = "";
     moreBtn.textContent = `Show all ${BOARD.candidates.length} projects ▾`;
     moreBtn.addEventListener("click", () => {
