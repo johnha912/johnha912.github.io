@@ -109,8 +109,8 @@
  ],
  "now": {
   "state": "active",
-  "ts": "2026-11-02T07:29:24-08:00",
-  "checked": "2026-11-02T07:29:24-08:00",
+  "ts": "2026-11-03T06:26:13-08:00",
+  "checked": "2026-11-03T06:26:13-08:00",
   "doing": {
    "en": "Checkpoint 2 phase (to Fri Nov 6): M17, M18 and M19 debate-sheet evidence ready; next slices are EXP-M03-1 review timing and EXP-M06-1 full run",
    "vi": "Pha Checkpoint 2 (tới thứ Sáu 6/11): bằng chứng phiếu M17, M18 và M19 đã sẵn sàng; các lát tiếp theo là đo thời gian review EXP-M03-1 và chạy full EXP-M06-1"
@@ -243,6 +243,11 @@
    "t": "Nov 2, 2026 — 7:29 AM PST",
    "en": "Morning research (Nov 2, 2026 — 7:29 AM PST): M19 evidence slice complete for the Nov 6 debate sheet — 12 published listing-media price points checked today (photo-based human services $10–$175/SKU; filmed/studio $200–$895; AI self-serve tools ~$3/clip or 50 SKUs on a $29/mo plan), official Etsy and eBay video rules verified on their own Help pages, and TikTok Shop US's official Oct 26, 2026 Seller University page read in full: it prohibits still-image/slideshow promotion, so M19 must be re-scoped to Etsy/eBay (Amazon rules UNVERIFIED in this slice). Evidence file: files/EVIDENCE-M19-LISTING-MEDIA.md. No scores changed. Nightly intake: screened 3, posted 3 — M29 nail-salon rebooking drafts, M30 auto-repair follow-up drafts, M31 HOA minutes drafts (all status=new, unscored, appended to the scoring queue).",
    "vi": "Nghiên cứu buổi sáng (Nov 2, 2026 — 7:29 AM PST): lát bằng chứng M19 đã xong cho phiếu tranh luận 6/11 — đã kiểm 12 điểm giá media listing công bố hôm nay (dịch vụ người làm từ ảnh $10–$175/SKU; quay/studio $200–$895; công cụ AI tự phục vụ ~$3/clip hoặc 50 SKU trên gói $29/tháng), quy định video chính thức của Etsy và eBay đã kiểm chứng trên trang Help của chính họ, và trang Seller University chính thức ngày 26/10/2026 của TikTok Shop Mỹ đã đọc toàn văn: trang này cấm quảng bá bằng ảnh tĩnh/slideshow, nên M19 phải thu hẹp phạm vi về Etsy/eBay (quy định Amazon CHƯA KIỂM CHỨNG trong lát này). Tệp bằng chứng: files/EVIDENCE-M19-LISTING-MEDIA.md. Không đổi điểm số. Nạp hằng ngày: đã sàng 3, đã đăng 3 — M29 bản nháp gọi lại khách cho tiệm nail, M30 bản nháp theo đuổi khách cho gara ô tô, M31 bản nháp biên bản họp HOA (tất cả status=new, chưa chấm, đã nối vào hàng chờ chấm)."
+  },
+  {
+   "t": "Nov 3, 2026 — 6:24 AM PST",
+   "en": "Daily pulse (Nov 3, 6:24 AM PST): bounded intake scan completed — the official Claude Code changelog has a new Nov 3, 2026 entry (a warning on /schedule for unexpected connectors, a check before a web or shell tool call sends the account email address, onFailure: \"block\" for Agent SDK hook callbacks, new OTel plan/seat fields and a gateway cost report, plus many fixes; logged in PLATFORM-UPDATES.md), with no effect on the $20 budget gate or any pool candidate and no scores changed; one VN/US policy scan found no official-source-confirmed policy change affecting the pool. Shared comment inbox synced: 0 new reader comments, and 0 comments were due for promotion review. No research advance in this pulse run: Checkpoint 2 work is in its scheduled phase ahead of Fri, Nov 6 (next scheduled slice is EXP-M03-1 review timing, then the EXP-M06-1 full run and debate sheets for the unscored queue starting with M17).",
+   "vi": "Nhịp hằng ngày (3/11, 6:24 AM PST): lượt quét nạp giới hạn đã xong — changelog chính thức của Claude Code có mục mới ngày 3/11/2026 (cảnh báo ở /schedule khi có connector ngoài yêu cầu, kiểm tra trước khi một lượt gọi công cụ web hoặc shell gửi địa chỉ email tài khoản ra mạng, onFailure: \"block\" cho hook callback của Agent SDK, các trường OTel mới về gói/ghế và báo cáo chi phí gateway, cùng nhiều bản vá; đã ghi vào PLATFORM-UPDATES.md), không ảnh hưởng cổng ngân sách $20 hay ứng viên nào trong pool và không đổi điểm số; một lượt quét chính sách VN/Mỹ không xác nhận được thay đổi chính sách nào từ nguồn chính thức ảnh hưởng tới pool. Đã đồng bộ hộp bình luận chung: 0 bình luận mới của người xem, và 0 bình luận đến lượt xét thăng hạng. Lượt pulse này không có tiến triển nghiên cứu mới: việc của Checkpoint 2 đang ở pha đã lên lịch, chờ thứ Sáu 6/11 (lát đã lên lịch tiếp theo là đo thời gian review EXP-M03-1, rồi chạy full EXP-M06-1 và phiếu tranh luận cho hàng ứng viên chưa chấm, bắt đầu từ M17)."
   }
  ],
  "scored": 15,
@@ -251,7 +256,7 @@
   "en": "Round 0 complete: all 15 ideas legally classified (all lawful with conditions) and debated + provisionally scored. 4 keeps, 8 revises, 3 discards. Next: first experiments for the keeps, Checkpoint 1 pack on Fri, Oct 30.",
   "vi": "Đã xong vòng 0: cả 15 ý tưởng đã phân loại pháp lý (tất cả hợp lệ có điều kiện) và đã tranh luận + chấm điểm nháp. 4 giữ, 8 sửa, 3 loại. Tiếp theo: thí nghiệm đầu tiên cho nhóm giữ và gói Checkpoint 1 vào thứ Sáu 30/10."
  },
- "updated": "2026-11-02T07:29:24-08:00",
+ "updated": "2026-11-03T06:26:13-08:00",
  "updates": [
   {
    "en": "Claude Pro is still $20/mo including Claude Code — the $20 budget gate is intact.",
