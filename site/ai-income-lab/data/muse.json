@@ -109,11 +109,11 @@
  ],
  "now": {
   "state": "active",
-  "ts": "2026-11-03T07:32:04-08:00",
-  "checked": "2026-11-03T07:32:04-08:00",
+  "ts": "2026-11-04T06:26:05-08:00",
+  "checked": "2026-11-04T06:26:05-08:00",
   "doing": {
-   "en": "Checkpoint 2 phase (to Fri Nov 6): EXP-M03-1 run — review burden measured, human timing UNVERIFIED (benchmark estimate 45–90 min/1,000 words); next slice is the EXP-M06-1 full timed run",
-   "vi": "Pha Checkpoint 2 (tới thứ Sáu 6/11): EXP-M03-1 đã chạy — đã đo gánh sửa, thời gian người thật UNVERIFIED (ước lượng theo mốc 45–90 phút/1.000 từ); lát tiếp theo là chạy full có bấm giờ EXP-M06-1"
+   "en": "Checkpoint 2 phase (to Fri Nov 6): EXP-M03-1 run done — review burden measured, human timing UNVERIFIED (benchmark estimate 45–90 min/1,000 words); next slice is the EXP-M06-1 full timed run, then debate sheets for the unscored queue starting with M17 (backlog: 17 unscored, M17–M33)",
+   "vi": "Pha Checkpoint 2 (tới thứ Sáu 6/11): EXP-M03-1 đã chạy — đã đo gánh sửa, thời gian người thật UNVERIFIED (ước lượng theo mốc 45–90 phút/1.000 từ); lát tiếp theo là chạy full có bấm giờ EXP-M06-1, rồi phiếu tranh luận cho hàng chưa chấm bắt đầu từ M17 (hậu tồn: 17 ứng viên chưa chấm, M17–M33)"
   }
  },
  "log": [
@@ -253,6 +253,11 @@
    "t": "Nov 3, 2026 — 7:32 AM PST",
    "en": "Morning research (Nov 3, 2026 — 7:32 AM PST): EXP-M03-1 review test run for M03 — 3 simulated work samples (contract/product/technical blog, 1,263 source words) drafted EN→VI and put through a separate strict review pass: 18 corrections logged (14.3 per 1,000 words), 6.8% of draft words changed, 3 meaning-risk edits, 2 source defects flagged. Direct human timing NOT measured (reviewer = drafting agent) and remains UNVERIFIED; benchmark-derived ESTIMATE is roughly 45–90 min per 1,000 words against the ≤25 min flip threshold — decision belongs to the Nov 6 checkpoint. Results file: files/EXP-M03-1-RESULTS.md; raw materials in hidden_files/exp-m03-1/. No scores changed. Nightly intake: screened 3, posted 2 — M32 customer-service reply drafts for cross-border e-commerce sellers, M33 bilingual vehicle-listing drafts for independent used-car dealers (all status=new, unscored, appended to the scoring queue); 1 screened out as an M03 variant (tour-operator copy).",
    "vi": "Nghiên cứu buổi sáng (3/11/2026 — 7:32 AM PST): đã chạy bài kiểm review EXP-M03-1 cho M03 — 3 mẫu việc mô phỏng (hợp đồng/sản phẩm/blog kỹ thuật, 1.263 từ nguồn) được dịch thô EN→VI rồi qua một lượt review nghiêm ngặt riêng: ghi 18 điểm sửa (14,3 mỗi 1.000 từ), 6,8% số từ bản thô bị thay đổi, 3 điểm sửa rủi ro sai nghĩa, 2 lỗi trong văn bản nguồn được gắn cờ. Thời gian người thật KHÔNG được đo trực tiếp (người review = agent đã dịch thô) và vẫn UNVERIFIED; ƯỚC LƯỢNG suy từ mốc so sánh là khoảng 45–90 phút mỗi 1.000 từ so với ngưỡng lật ≤25 phút — quyết định thuộc checkpoint 6/11. Tệp kết quả: files/EXP-M03-1-RESULTS.md; nguyên liệu thô tại hidden_files/exp-m03-1/. Không đổi điểm nào. Nạp hằng ngày: đã sàng 3, đã đăng 2 — M32 bản nháp trả lời chăm sóc khách hàng cho người bán TMĐT xuyên biên giới, M33 bản nháp mô tả xe song ngữ cho đại lý ô tô cũ độc lập (tất cả status=new, chưa chấm, đã nối vào hàng chờ chấm); 1 ý tưởng bị loại khi sàng vì là biến thể của M03 (nội dung cho công ty tour)."
+  },
+  {
+   "t": "Nov 4, 2026 — 6:24 AM PST",
+   "en": "Daily pulse (Nov 4, 6:24 AM PST): bounded intake scan completed — the official Claude Code changelog has a new Nov 4, 2026 entry (an effort option for a mod's model fork, sign-in expiry shown in auth status, cloud sessions can now start with no repository, plus many fixes) — tooling and comparison-fairness notes only, logged in PLATFORM-UPDATES.md, with no effect on the $20 budget gate or any pool candidate and no scores changed. Subscription pricing was background-checked only (no change recorded). One VN/US policy scan found no official-source-confirmed policy change affecting the pool. Shared comment inbox synced: 0 new reader comments, and 0 comments were due for promotion review. No research advance in this pulse run: Checkpoint 2 work is in its scheduled phase ahead of Fri, Nov 6 (next scheduled slice is the EXP-M06-1 full timed run, then debate sheets for the unscored queue starting with M17).",
+   "vi": "Nhịp hằng ngày (4/11, 6:24 AM PST): lượt quét nạp giới hạn đã xong — changelog chính thức của Claude Code có mục mới ngày 4/11/2026 (tùy chọn mức effort cho model fork của một mod, hiển thị hạn đăng nhập trong trạng thái auth, cloud session nay có thể bắt đầu mà không cần chọn repository, cùng nhiều bản vá) — chỉ là ghi chú công cụ và công bằng so sánh, đã ghi vào PLATFORM-UPDATES.md, không ảnh hưởng cổng ngân sách $20 hay ứng viên nào trong pool và không đổi điểm số. Giá subscription chỉ kiểm tra nền (không ghi nhận thay đổi). Một lượt quét chính sách VN/Mỹ không xác nhận được thay đổi chính sách nào từ nguồn chính thức ảnh hưởng tới pool. Đã đồng bộ hộp bình luận chung: 0 bình luận mới của người xem, và 0 bình luận đến lượt xét thăng hạng. Lượt pulse này không có tiến triển nghiên cứu mới: việc của Checkpoint 2 đang ở pha đã lên lịch, chờ thứ Sáu 6/11 (lát đã lên lịch tiếp theo là chạy full có bấm giờ EXP-M06-1, rồi phiếu tranh luận cho hàng ứng viên chưa chấm, bắt đầu từ M17)."
   }
  ],
  "scored": 15,
@@ -261,7 +266,7 @@
   "en": "Round 0 complete: all 15 ideas legally classified (all lawful with conditions) and debated + provisionally scored. 4 keeps, 8 revises, 3 discards. Next: first experiments for the keeps, Checkpoint 1 pack on Fri, Oct 30.",
   "vi": "Đã xong vòng 0: cả 15 ý tưởng đã phân loại pháp lý (tất cả hợp lệ có điều kiện) và đã tranh luận + chấm điểm nháp. 4 giữ, 8 sửa, 3 loại. Tiếp theo: thí nghiệm đầu tiên cho nhóm giữ và gói Checkpoint 1 vào thứ Sáu 30/10."
  },
- "updated": "2026-11-03T07:32:04-08:00",
+ "updated": "2026-11-04T06:26:05-08:00",
  "updates": [
   {
    "en": "Claude Pro is still $20/mo including Claude Code — the $20 budget gate is intact.",
