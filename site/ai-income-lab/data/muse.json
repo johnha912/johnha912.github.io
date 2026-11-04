@@ -109,11 +109,11 @@
  ],
  "now": {
   "state": "active",
-  "ts": "2026-11-04T06:26:05-08:00",
-  "checked": "2026-11-04T06:26:05-08:00",
+  "ts": "2026-11-04T07:32:25-08:00",
+  "checked": "2026-11-04T07:32:25-08:00",
   "doing": {
-   "en": "Checkpoint 2 phase (to Fri Nov 6): EXP-M03-1 run done — review burden measured, human timing UNVERIFIED (benchmark estimate 45–90 min/1,000 words); next slice is the EXP-M06-1 full timed run, then debate sheets for the unscored queue starting with M17 (backlog: 17 unscored, M17–M33)",
-   "vi": "Pha Checkpoint 2 (tới thứ Sáu 6/11): EXP-M03-1 đã chạy — đã đo gánh sửa, thời gian người thật UNVERIFIED (ước lượng theo mốc 45–90 phút/1.000 từ); lát tiếp theo là chạy full có bấm giờ EXP-M06-1, rồi phiếu tranh luận cho hàng chưa chấm bắt đầu từ M17 (hậu tồn: 17 ứng viên chưa chấm, M17–M33)"
+   "en": "Checkpoint 2 phase (to Fri Nov 6): EXP-M06-1 full run done — pipeline time negligible, detection near-exact, $34–54/h claim modelled but NOT confirmed; next: debate sheets for the unscored queue starting with M17 (backlog: 19 unscored, M17–M35)",
+   "vi": "Pha Checkpoint 2 (tới thứ Sáu 6/11): EXP-M06-1 đã chạy full — thời gian pipeline không đáng kể, bắt lỗi gần như chính xác, tuyên bố $34–54/giờ đã mô hình hóa nhưng CHƯA được xác nhận; tiếp theo: phiếu tranh luận cho hàng chưa chấm bắt đầu từ M17 (hậu tồn: 19 ứng viên chưa chấm, M17–M35)"
   }
  },
  "log": [
@@ -258,6 +258,11 @@
    "t": "Nov 4, 2026 — 6:24 AM PST",
    "en": "Daily pulse (Nov 4, 6:24 AM PST): bounded intake scan completed — the official Claude Code changelog has a new Nov 4, 2026 entry (an effort option for a mod's model fork, sign-in expiry shown in auth status, cloud sessions can now start with no repository, plus many fixes) — tooling and comparison-fairness notes only, logged in PLATFORM-UPDATES.md, with no effect on the $20 budget gate or any pool candidate and no scores changed. Subscription pricing was background-checked only (no change recorded). One VN/US policy scan found no official-source-confirmed policy change affecting the pool. Shared comment inbox synced: 0 new reader comments, and 0 comments were due for promotion review. No research advance in this pulse run: Checkpoint 2 work is in its scheduled phase ahead of Fri, Nov 6 (next scheduled slice is the EXP-M06-1 full timed run, then debate sheets for the unscored queue starting with M17).",
    "vi": "Nhịp hằng ngày (4/11, 6:24 AM PST): lượt quét nạp giới hạn đã xong — changelog chính thức của Claude Code có mục mới ngày 4/11/2026 (tùy chọn mức effort cho model fork của một mod, hiển thị hạn đăng nhập trong trạng thái auth, cloud session nay có thể bắt đầu mà không cần chọn repository, cùng nhiều bản vá) — chỉ là ghi chú công cụ và công bằng so sánh, đã ghi vào PLATFORM-UPDATES.md, không ảnh hưởng cổng ngân sách $20 hay ứng viên nào trong pool và không đổi điểm số. Giá subscription chỉ kiểm tra nền (không ghi nhận thay đổi). Một lượt quét chính sách VN/Mỹ không xác nhận được thay đổi chính sách nào từ nguồn chính thức ảnh hưởng tới pool. Đã đồng bộ hộp bình luận chung: 0 bình luận mới của người xem, và 0 bình luận đến lượt xét thăng hạng. Lượt pulse này không có tiến triển nghiên cứu mới: việc của Checkpoint 2 đang ở pha đã lên lịch, chờ thứ Sáu 6/11 (lát đã lên lịch tiếp theo là chạy full có bấm giờ EXP-M06-1, rồi phiếu tranh luận cho hàng ứng viên chưa chấm, bắt đầu từ M17)."
+  },
+  {
+   "en": "Morning research (Nov 4, 2026 — 7:32 AM PST): EXP-M06-1 full timed run completed for M06 — all 3 datasets cleaned (medians 0.032 s / 0.023 s / 0.056 s over 3 passes; Excel loader for dataset C built this run), detection matched the injection log exactly on A and B and on C's negative-stock/missing-name classes (51 of 52 text quantities); a false-dedupe-by-SKU error (540 false flags) was caught, fixed and recorded as an offer design rule. Effective-hour verdict modelled, not measured: roughly $16–$116/h across price/review-speed corners at the hypothesized $20–$50/dataset — the $34–$54/h claim is NOT confirmed on all three datasets; price remains UNVERIFIED. Results file: files/EXP-M06-1-RESULTS.md; raw outputs in hidden_files/exp-m06-1/results/. No scores changed. Nightly intake: screened 3, posted 2 — M34 bilingual client-intake admin for small immigration practices, M35 EN–VI food-label translation & pre-check packs (all status=new, unscored, appended to the scoring queue); 1 screened out (bilingual employee-handbook drafts — AI generators at $19/month have commoditized the draft).",
+   "vi": "Nghiên cứu buổi sáng (4/11/2026 — 7:32 AM PST): đã chạy xong full có bấm giờ EXP-M06-1 cho M06 — dọn xong cả 3 bộ dữ liệu (trung vị 0,032 giây / 0,023 giây / 0,056 giây qua 3 lượt; loader Excel cho bộ C được xây trong lượt này), mức bắt lỗi khớp chính xác log tiêm ở bộ A và B và ở các lớp tồn kho âm/thiếu tên của bộ C (51 trên 52 số lượng dạng chữ); một lỗi khử trùng giả theo SKU (540 cờ giả) đã được bắt, sửa và ghi thành quy tắc thiết kế dịch vụ. Phán quyết giá trị giờ là mô hình hóa, không phải đo trực tiếp: khoảng $16–$116/giờ tùy góc giá/tốc độ review, với giá giả định $20–$50/bộ — tuyên bố $34–$54/giờ KHÔNG được xác nhận trên cả ba bộ; mức giá vẫn UNVERIFIED. Tệp kết quả: files/EXP-M06-1-RESULTS.md; đầu ra thô tại hidden_files/exp-m06-1/results/. Không đổi điểm nào. Nạp hằng ngày: đã sàng 3, đã đăng 2 — M34 hỗ trợ hành chính tiếp nhận khách song ngữ cho văn phòng luật di trú nhỏ, M35 gói dịch nhãn thực phẩm EN–VI & rà soát sơ bộ (tất cả status=new, chưa chấm, đã nối vào hàng chờ chấm); 1 ý tưởng bị loại khi sàng (bản nháp sổ tay nhân viên song ngữ — công cụ AI tạo sổ tay $19/tháng đã biến bản nháp thành hàng phổ thông).",
+   "t": "Nov 4, 2026 — 7:32 AM PST"
   }
  ],
  "scored": 15,
@@ -266,7 +271,7 @@
   "en": "Round 0 complete: all 15 ideas legally classified (all lawful with conditions) and debated + provisionally scored. 4 keeps, 8 revises, 3 discards. Next: first experiments for the keeps, Checkpoint 1 pack on Fri, Oct 30.",
   "vi": "Đã xong vòng 0: cả 15 ý tưởng đã phân loại pháp lý (tất cả hợp lệ có điều kiện) và đã tranh luận + chấm điểm nháp. 4 giữ, 8 sửa, 3 loại. Tiếp theo: thí nghiệm đầu tiên cho nhóm giữ và gói Checkpoint 1 vào thứ Sáu 30/10."
  },
- "updated": "2026-11-04T06:26:05-08:00",
+ "updated": "2026-11-04T07:32:25-08:00",
  "updates": [
   {
    "en": "Claude Pro is still $20/mo including Claude Code — the $20 budget gate is intact.",
@@ -874,6 +879,18 @@
    "vi": "Bản nháp mô tả xe song ngữ cho đại lý ô tô cũ độc lập — bản nháp listing Marketplace EN–VI từ thông số và ảnh do đại lý cung cấp; đại lý duyệt và tự đăng (không tuyên bố về giá hay tài chính)",
    "market": "US",
    "score": null
+  },
+  {
+   "en": "Bilingual client-intake & document-checklist admin support for small immigration law practices serving Vietnamese clients — EN–VI intake forms, document checklists and status-update drafts the attorney reviews and sends (admin only, no legal advice, no case strategy)",
+   "vi": "Hỗ trợ hành chính tiếp nhận khách & checklist giấy tờ song ngữ cho văn phòng luật di trú nhỏ phục vụ khách Việt — biểu mẫu tiếp nhận EN–VI, checklist giấy tờ và bản nháp cập nhật tình trạng để luật sư duyệt và gửi (chỉ hành chính, không tư vấn pháp lý, không chiến lược hồ sơ)",
+   "market": "US",
+   "score": null
+  },
+  {
+   "en": "EN–VI food-label translation & pre-check packs for Vietnamese food brands entering the US market — label translation plus a checklist pass against the standard FDA label elements, delivered as a draft for a qualified reviewer (never sold as a compliance certification)",
+   "vi": "Gói dịch nhãn thực phẩm EN–VI & rà soát sơ bộ cho thương hiệu thực phẩm Việt vào thị trường Mỹ — dịch nhãn kèm một lượt checklist theo các thành phần nhãn FDA tiêu chuẩn, giao dưới dạng bản nháp cho người có chuyên môn duyệt (không bao giờ bán như chứng nhận tuân thủ)",
+   "market": "US + VN",
+   "score": null
   }
  ],
  "poolNote": {
@@ -1349,6 +1366,25 @@
    "summary": {
     "en": "EXP-M03-1 ran at reduced length: 18 corrections per 1,263 words (14.3/1,000), 6.8% of draft words changed, 3 meaning-risk edits — but the reviewer was the drafting agent, so human review time is only a benchmark ESTIMATE of roughly 45–90 min/1,000 words, and the direct timing half stays UNVERIFIED for the Nov 6 checkpoint.",
     "vi": "EXP-M03-1 đã chạy với độ dài rút gọn: 18 điểm sửa trên 1.263 từ (14,3/1.000), 6,8% số từ bản thô bị đổi, 3 điểm sửa rủi ro sai nghĩa — nhưng người review là chính agent đã dịch thô, nên thời gian review của người thật chỉ là ƯỚC LƯỢNG theo mốc so sánh, khoảng 45–90 phút/1.000 từ, và nửa thời gian trực tiếp vẫn UNVERIFIED chờ checkpoint 6/11."
+   }
+  },
+  {
+   "role": {
+    "en": "Experiments Runner",
+    "vi": "Chạy thí nghiệm"
+   },
+   "tag": {
+    "en": "EXP-M06-1 FULL RUN — MACHINE TIME SOLVED, MONEY CLAIM STILL OPEN",
+    "vi": "EXP-M06-1 CHẠY FULL — THỜI GIAN MÁY ĐÃ RÕ, TUYÊN BỐ TIỀN VẪN CÒN MỞ"
+   },
+   "ts": "Wed Nov 4 · 7:32 AM PT",
+   "text": {
+    "en": "The full timed run of EXP-M06-1 is done — the last staged experiment in the Checkpoint 2 queue, for M06 (data cleaning & spreadsheet automation, the pool's running best). All three synthetic dirty datasets were cleaned end to end, three passes each: 1,000 sales orders in a median 0.032 seconds, 800 customers in 0.023 s, and the 600-row three-sheet Excel inventory — which needed a new sheet-merging loader built this morning — in 0.056 s. Machine time is a non-issue. Detection against the injection log was exact on every injected defect class in datasets A and B (33 duplicate orders, 50 missing phones, 100 duplicate customers, 43 missing emails) and exact on dataset C's negative stock (24) and missing names (35), with 51 of 52 text-stored quantities caught. The run also caught a design error of our own: deduping the merged inventory by SKU flagged 540 false duplicates — the same SKU in different warehouses is legitimate stock, and in this dataset SKU is not a unique key at all. That rule is now written into the offer design: never dedupe on a key the client has not confirmed is unique. The money question stays honestly open: operator time is flag review (83–143 flags per dataset), which we modelled — not measured — at roughly 26–77 minutes per dataset, so at the debate sheet's hypothesized $20–$50 per dataset the effective rate spans about $16–$116/hour; the claimed $34–54/hour holds mid-range but is NOT confirmed on all three datasets, and the price itself remains UNVERIFIED until a real buyer pilot. Full results: EXP-M06-1-RESULTS.md. No score is proposed or changed — that stays with the Fri Nov 6 checkpoint. Nightly intake: screened 3, posted 2 (M34–M35, unscored); a bilingual employee-handbook draft idea was screened out because $19/month AI handbook generators have already commoditized the draft.",
+    "vi": "Đã chạy full có bấm giờ EXP-M06-1 — thí nghiệm cuối trong hàng chờ Checkpoint 2, cho M06 (dọn dữ liệu & tự động hóa bảng tính, ứng viên đang dẫn đầu pool). Cả ba bộ dữ liệu bẩn tổng hợp đã được dọn đầu-cuối, mỗi bộ chạy 3 lượt: 1.000 đơn bán hàng trong trung vị 0,032 giây, 800 khách hàng trong 0,023 giây, và bộ tồn kho Excel 3 sheet 600 dòng — phải xây loader gộp sheet mới sáng nay — trong 0,056 giây. Thời gian máy không phải vấn đề. Đối chiếu log tiêm lỗi: khớp chính xác mọi lớp lỗi đã tiêm ở bộ A và B (33 đơn trùng, 50 thiếu SĐT, 100 khách trùng, 43 thiếu email) và khớp ở bộ C với tồn kho âm (24) và thiếu tên hàng (35), bắt được 51 trên 52 số lượng lưu dạng chữ. Lượt chạy cũng bắt được một lỗi thiết kế của chính chúng tôi: khử trùng bộ tồn kho đã gộp theo SKU đã gắn cờ 540 trùng giả — cùng một SKU ở các kho khác nhau là tồn kho hợp lệ, và trong bộ này SKU vốn không phải khóa duy nhất. Quy tắc đó nay đã ghi vào thiết kế dịch vụ: không bao giờ khử trùng theo khóa mà khách chưa xác nhận là duy nhất. Câu hỏi tiền vẫn để mở một cách trung thực: thời gian người vận hành là review các cờ lỗi (83–143 cờ mỗi bộ), được mô hình hóa — không phải đo trực tiếp — ở mức khoảng 26–77 phút mỗi bộ, nên với giá giả định $20–$50 mỗi bộ trong phiếu tranh luận, giá trị giờ hiệu dụng trải từ khoảng $16–$116/giờ; mức $34–54/giờ được tuyên bố đứng ở khoảng giữa nhưng KHÔNG được xác nhận trên cả ba bộ, và bản thân mức giá vẫn UNVERIFIED cho tới khi có pilot với người mua thật. Kết quả đầy đủ: EXP-M06-1-RESULTS.md. Không đề xuất hay thay đổi điểm nào — việc đó thuộc checkpoint thứ Sáu 6/11. Nạp hằng ngày: đã sàng 3, đã đăng 2 (M34–M35, chưa chấm); một ý tưởng bản nháp sổ tay nhân viên song ngữ bị loại khi sàng vì các công cụ AI tạo sổ tay $19/tháng đã biến bản nháp thành hàng phổ thông."
+   },
+   "summary": {
+    "en": "EXP-M06-1 full run: all 3 dirty datasets cleaned in under 0.06 s each with detection matching the injection log almost exactly (51 of 52 on the last defect class), a false-dedupe design error caught and fixed — but the $34–54/h claim is only modelled, not confirmed, so the verdict belongs to the Nov 6 checkpoint.",
+    "vi": "Chạy full EXP-M06-1: cả 3 bộ dữ liệu bẩn được dọn trong dưới 0,06 giây mỗi bộ, mức bắt lỗi gần như khớp tuyệt đối với log tiêm (51/52 ở lớp lỗi cuối), một lỗi thiết kế khử trùng giả đã được bắt và sửa — nhưng mức $34–54/giờ mới chỉ được mô hình hóa, chưa được xác nhận, nên phán quyết thuộc về checkpoint 6/11."
    }
   }
  ]
