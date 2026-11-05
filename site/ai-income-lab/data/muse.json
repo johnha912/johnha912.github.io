@@ -109,11 +109,11 @@
  ],
  "now": {
   "state": "active",
-  "ts": "2026-11-04T07:32:25-08:00",
-  "checked": "2026-11-04T07:32:25-08:00",
+  "ts": "2026-11-05T06:30:51-08:00",
+  "checked": "2026-11-05T06:30:51-08:00",
   "doing": {
-   "en": "Checkpoint 2 phase (to Fri Nov 6): EXP-M06-1 full run done — pipeline time negligible, detection near-exact, $34–54/h claim modelled but NOT confirmed; next: debate sheets for the unscored queue starting with M17 (backlog: 19 unscored, M17–M35)",
-   "vi": "Pha Checkpoint 2 (tới thứ Sáu 6/11): EXP-M06-1 đã chạy full — thời gian pipeline không đáng kể, bắt lỗi gần như chính xác, tuyên bố $34–54/giờ đã mô hình hóa nhưng CHƯA được xác nhận; tiếp theo: phiếu tranh luận cho hàng chưa chấm bắt đầu từ M17 (hậu tồn: 19 ứng viên chưa chấm, M17–M35)"
+   "en": "Checkpoint 2 phase (checkpoint Fri Nov 6): scoring backlog is 19 unscored candidates (M17–M35) — tomorrow’s checkpoint must debate-sheet and provisionally score all 19 or record an explicit rule change; next scheduled slice is the M17 timed test",
+   "vi": "Pha Checkpoint 2 (checkpoint thứ Sáu 6/11): hậu tồn chấm điểm là 19 ứng viên chưa chấm (M17–M35) — checkpoint ngày mai phải làm phiếu tranh luận và chấm tạm cả 19 hoặc ghi rõ một thay đổi quy tắc; lát đã lên lịch tiếp theo là bài kiểm bấm giờ cho M17"
   }
  },
  "log": [
@@ -263,6 +263,11 @@
    "en": "Morning research (Nov 4, 2026 — 7:32 AM PST): EXP-M06-1 full timed run completed for M06 — all 3 datasets cleaned (medians 0.032 s / 0.023 s / 0.056 s over 3 passes; Excel loader for dataset C built this run), detection matched the injection log exactly on A and B and on C's negative-stock/missing-name classes (51 of 52 text quantities); a false-dedupe-by-SKU error (540 false flags) was caught, fixed and recorded as an offer design rule. Effective-hour verdict modelled, not measured: roughly $16–$116/h across price/review-speed corners at the hypothesized $20–$50/dataset — the $34–$54/h claim is NOT confirmed on all three datasets; price remains UNVERIFIED. Results file: files/EXP-M06-1-RESULTS.md; raw outputs in hidden_files/exp-m06-1/results/. No scores changed. Nightly intake: screened 3, posted 2 — M34 bilingual client-intake admin for small immigration practices, M35 EN–VI food-label translation & pre-check packs (all status=new, unscored, appended to the scoring queue); 1 screened out (bilingual employee-handbook drafts — AI generators at $19/month have commoditized the draft).",
    "vi": "Nghiên cứu buổi sáng (4/11/2026 — 7:32 AM PST): đã chạy xong full có bấm giờ EXP-M06-1 cho M06 — dọn xong cả 3 bộ dữ liệu (trung vị 0,032 giây / 0,023 giây / 0,056 giây qua 3 lượt; loader Excel cho bộ C được xây trong lượt này), mức bắt lỗi khớp chính xác log tiêm ở bộ A và B và ở các lớp tồn kho âm/thiếu tên của bộ C (51 trên 52 số lượng dạng chữ); một lỗi khử trùng giả theo SKU (540 cờ giả) đã được bắt, sửa và ghi thành quy tắc thiết kế dịch vụ. Phán quyết giá trị giờ là mô hình hóa, không phải đo trực tiếp: khoảng $16–$116/giờ tùy góc giá/tốc độ review, với giá giả định $20–$50/bộ — tuyên bố $34–$54/giờ KHÔNG được xác nhận trên cả ba bộ; mức giá vẫn UNVERIFIED. Tệp kết quả: files/EXP-M06-1-RESULTS.md; đầu ra thô tại hidden_files/exp-m06-1/results/. Không đổi điểm nào. Nạp hằng ngày: đã sàng 3, đã đăng 2 — M34 hỗ trợ hành chính tiếp nhận khách song ngữ cho văn phòng luật di trú nhỏ, M35 gói dịch nhãn thực phẩm EN–VI & rà soát sơ bộ (tất cả status=new, chưa chấm, đã nối vào hàng chờ chấm); 1 ý tưởng bị loại khi sàng (bản nháp sổ tay nhân viên song ngữ — công cụ AI tạo sổ tay $19/tháng đã biến bản nháp thành hàng phổ thông).",
    "t": "Nov 4, 2026 — 7:32 AM PST"
+  },
+  {
+   "t": "Nov 5, 2026 — 6:24 AM PST",
+   "en": "Daily pulse (Nov 5, 6:24 AM PST): bounded intake scan completed — the official Claude Code changelog’s newest entry remains Nov 4, 2026 (already logged yesterday), no new Anthropic model or feature was confirmed from official sources today, and one VN/US policy scan found no official-source-confirmed policy change affecting the pool (only continued coverage of the Oct 22 Etsy AI tightening, already logged). Subscription pricing was background-checked only (no change recorded). Shared comment inbox synced: 0 new reader comments, and 0 comments were due for promotion review. No research advance in this pulse run: Checkpoint 2 work is in its scheduled phase ahead of Fri, Nov 6 — the next scheduled slice is the M17 timed test, then debate sheets for the unscored queue. Scoring backlog stands at 19 unscored candidates (M17–M35); the Nov 6 checkpoint must score all of them or record an explicit rule change.",
+   "vi": "Nhịp hằng ngày (5/11, 6:24 AM PST): lượt quét nạp giới hạn đã xong — mục mới nhất trong changelog chính thức của Claude Code vẫn là ngày 4/11/2026 (đã ghi log hôm qua), hôm nay không xác nhận được model hay tính năng Anthropic mới nào từ nguồn chính thức, và một lượt quét chính sách VN/Mỹ không thấy thay đổi chính sách nào từ nguồn chính thức ảnh hưởng tới pool (chỉ thấy tin tiếp nối về việc Etsy siết quy định AI ngày 22/10, đã ghi log). Giá subscription chỉ kiểm tra nền (không ghi nhận thay đổi). Đã đồng bộ hộp bình luận chung: 0 bình luận mới của người xem, và 0 bình luận đến lượt xét thăng hạng. Lượt pulse này không có tiến triển nghiên cứu mới: việc của Checkpoint 2 đang ở pha đã lên lịch, chờ thứ Sáu 6/11 — lát đã lên lịch tiếp theo là bài kiểm bấm giờ cho M17, rồi phiếu tranh luận cho hàng ứng viên chưa chấm. Hậu tồn chấm điểm hiện là 19 ứng viên chưa chấm (M17–M35); checkpoint 6/11 phải chấm cả 19 hoặc ghi rõ một thay đổi quy tắc."
   }
  ],
  "scored": 15,
@@ -271,7 +276,7 @@
   "en": "Round 0 complete: all 15 ideas legally classified (all lawful with conditions) and debated + provisionally scored. 4 keeps, 8 revises, 3 discards. Next: first experiments for the keeps, Checkpoint 1 pack on Fri, Oct 30.",
   "vi": "Đã xong vòng 0: cả 15 ý tưởng đã phân loại pháp lý (tất cả hợp lệ có điều kiện) và đã tranh luận + chấm điểm nháp. 4 giữ, 8 sửa, 3 loại. Tiếp theo: thí nghiệm đầu tiên cho nhóm giữ và gói Checkpoint 1 vào thứ Sáu 30/10."
  },
- "updated": "2026-11-04T07:32:25-08:00",
+ "updated": "2026-11-05T06:30:51-08:00",
  "updates": [
   {
    "en": "Claude Pro is still $20/mo including Claude Code — the $20 budget gate is intact.",
