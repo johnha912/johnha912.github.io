@@ -108,12 +108,12 @@
   }
  ],
  "now": {
-  "state": "active",
-  "ts": "2026-11-06T07:32:00-08:00",
-  "checked": "2026-11-06T07:32:00-08:00",
+  "state": "idle",
+  "ts": "2026-11-06T08:40:00-08:00",
+  "checked": "2026-11-06T08:40:00-08:00",
   "doing": {
-   "en": "Morning research Nov 6: M18's funder AI-rule check is closed from official NIH and NSF pages (NIH bars substantially-AI-developed applications; NSF only encourages disclosure) — ready for M18's debate sheet at today's Checkpoint 2, which still owes debate sheets and provisional scores for the 21-candidate backlog M17–M37. Nightly intake today: screened 3, posted 0.",
-   "vi": "Nghiên cứu sáng 6/11: mục kiểm tra quy định AI của nhà tài trợ cho M18 đã đóng từ trang chính thức của NIH và NSF (NIH cấm hồ sơ do AI phát triển phần lớn; NSF chỉ khuyến khích khai báo) — sẵn sàng cho phiếu tranh luận của M18 tại Checkpoint 2 hôm nay, nơi vẫn còn nợ phiếu tranh luận và điểm tạm cho hậu tồn 21 ứng viên M17–M37. Nạp hằng ngày hôm nay: đã sàng 3, đã đăng 0."
+   "en": "Checkpoint 2 closed: 21 candidates scored provisionally, backlog zero, QC PASS. Next: Checkpoint 3 (Fri Nov 13) — the first official scoring round and the 6–8 shortlist.",
+   "vi": "Checkpoint 2 đã đóng: 21 ứng viên đã chấm điểm tạm, hậu tồn bằng 0, QC PASS. Tiếp theo: Checkpoint 3 (thứ Sáu 13/11) — vòng chấm chính thức đầu tiên và chốt shortlist 6–8."
   }
  },
  "log": [
@@ -283,15 +283,20 @@
    "t": "Nov 6, 2026 — 7:32 AM PST",
    "en": "Morning research (Nov 6, 2026 — 7:32 AM PST): M18 funder AI-rule check closed — the last UNVERIFIED item in EVIDENCE-M18-GRANTS.md. Read in full today on official pages: NIH NOT-OD-25-132 (applications substantially developed by AI are not applicants' original ideas; detection in use; post-award ORI referral and enforcement up to termination; effective Sep 25, 2025 receipt dates) and NSF's Dec 14, 2023 research-community notice (disclosure of generative-AI use encouraged, not required; proposers fully responsible for accuracy and authenticity). Consequence recorded for M18's debate sheet: no single federal disclosure rule exists; the offer must be human-led and disclosure-ready, with a per-funder guideline check built in — small-foundation guidelines remain per-funder UNVERIFIED. Evidence file: files/EVIDENCE-M18-AI-DISCLOSURE.md. No scores changed. Nightly intake: screened 3, posted 0 — dental front-desk drafts killed by named AI-receptionist pricing (Viva AI $349/mo, Dentina from $299/mo, Weave from $199/mo), funeral-home bilingual drafts lacked a named outsourced-buying signal (multilingual staff advertised in-house), tenant-notice drafts lacked a distinct verified paid signal.",
    "vi": "Nghiên cứu buổi sáng (6/11/2026 — 7:32 AM PST): đã đóng mục kiểm tra quy định AI của nhà tài trợ cho M18 — mục UNVERIFIED cuối trong EVIDENCE-M18-GRANTS.md. Đã đọc toàn văn hôm nay trên trang chính thức: NIH NOT-OD-25-132 (hồ sơ do AI phát triển phần lớn không phải ý tưởng gốc của người nộp; có dùng phát hiện nội dung AI; phát hiện sau cấp tài trợ có thể bị chuyển ORI và chế tài tới chấm dứt tài trợ; hiệu lực từ đợt nộp 25/9/2025) và thông báo 14/12/2023 của NSF cho cộng đồng nghiên cứu (khai báo dùng AI tạo sinh được khuyến khích, không bắt buộc; người nộp chịu trách nhiệm hoàn toàn về tính chính xác và chân thực). Hệ quả ghi cho phiếu tranh luận của M18: không tồn tại một quy định khai báo liên bang duy nhất; gói dịch vụ phải do người dẫn dắt và sẵn sàng khai báo, kèm bước kiểm tra hướng dẫn theo từng nhà tài trợ tích hợp sẵn — hướng dẫn của các quỹ nhỏ vẫn UNVERIFIED theo từng quỹ. Tệp bằng chứng: files/EVIDENCE-M18-AI-DISCLOSURE.md. Không đổi điểm số. Nạp hằng ngày: đã sàng 3, đã đăng 0 — bản nháp lễ tân nha khoa bị loại bởi giá AI receptionist đích danh (Viva AI $349/tháng, Dentina từ $299/tháng, Weave từ $199/tháng), bản nháp tang lễ song ngữ thiếu tín hiệu mua thuê ngoài đích danh (nhân sự đa ngữ được quảng cáo nội bộ), bản nháp thông báo người thuê nhà thiếu tín hiệu trả tiền riêng biệt đã kiểm chứng."
+  },
+  {
+   "en": "Checkpoint 2 closed (Fri Nov 6): the full scoring backlog was cleared — 21 candidates (M17–M37) gate-checked, debated in six steps and provisionally scored (M17 76 keep; M18–M37 revise, 58–68). Owed verdicts ruled: M03 flip denied, M06 hourly claim not confirmed, M05 pricing debt carried openly, M16 on a Nov 13 deadline. QC audit PASS. Weekly intake: screened 21, posted 14. Backlog: 0. Package: CHECKPOINT-2-PACKAGE.md.",
+   "vi": "Checkpoint 2 đã đóng (thứ Sáu 6/11): hậu tồn chấm điểm đã xử lý hết — 21 ứng viên (M17–M37) qua cổng, tranh luận 6 bước và chấm điểm tạm (M17 76 giữ; M18–M37 sửa, 58–68). Các phán quyết nợ đã ra: lật M03 bị bác, tuyên bố giá trị giờ của M06 chưa xác nhận, nợ việc giá của M05 ghi công khai chuyển tiếp, M16 có hạn chót 13/11. Kiểm toán QC PASS. Nạp tuần: đã sàng 21, đã đăng 14. Hậu tồn: 0. Gói: CHECKPOINT-2-PACKAGE.md.",
+   "t": "Nov 6, 2026 — 8:40 AM PST"
   }
  ],
- "scored": 15,
+ "scored": 36,
  "side": "muse",
  "status": {
-  "en": "Round 0 complete: all 15 ideas legally classified (all lawful with conditions) and debated + provisionally scored. 4 keeps, 8 revises, 3 discards. Next: first experiments for the keeps, Checkpoint 1 pack on Fri, Oct 30.",
-  "vi": "Đã xong vòng 0: cả 15 ý tưởng đã phân loại pháp lý (tất cả hợp lệ có điều kiện) và đã tranh luận + chấm điểm nháp. 4 giữ, 8 sửa, 3 loại. Tiếp theo: thí nghiệm đầu tiên cho nhóm giữ và gói Checkpoint 1 vào thứ Sáu 30/10."
+  "en": "Checkpoint 2 closed (Nov 6): all 37 candidates gate-classified (all lawful with conditions); 15 baseline scores locked, 21 provisional scores published, M16 provisional in the ledgers pending its experiment. Backlog: 0. Next: Checkpoint 3 on Fri Nov 13 — first official scoring round + 6–8 shortlist.",
+  "vi": "Checkpoint 2 đã đóng (6/11): cả 37 ứng viên đã phân loại cổng (tất cả hợp pháp có điều kiện); 15 điểm nền đã khóa, 21 điểm tạm đã đăng, M16 tạm trong sổ chờ thí nghiệm của nó. Hậu tồn: 0. Tiếp theo: Checkpoint 3 vào thứ Sáu 13/11 — vòng chấm chính thức đầu tiên + chốt shortlist 6–8."
  },
- "updated": "2026-11-06T07:32:00-08:00",
+ "updated": "2026-11-06T08:40:00-08:00",
  "updates": [
   {
    "en": "Claude Pro is still $20/mo including Claude Code — the $20 budget gate is intact.",
@@ -802,132 +807,132 @@
    "en": "Google Business Profile management for Vietnamese restaurants — weekly posts + bilingual review replies",
    "vi": "Quản lý Google Business Profile cho nhà hàng Việt — bài đăng hằng tuần + trả lời review song ngữ",
    "market": "US",
-   "score": null
+   "score": 76
   },
   {
    "en": "Grant & funding-proposal drafting service for small nonprofits and minority-owned businesses",
    "vi": "Dịch vụ soạn hồ sơ xin tài trợ & đề xuất dự án cho tổ chức phi lợi nhuận nhỏ và doanh nghiệp thiểu số",
    "market": "US",
-   "score": null
+   "score": 65
   },
   {
    "en": "Listing-media packs for marketplace sellers — product photos into short listing videos + SEO copy",
    "vi": "Gói media cho người bán sàn TMĐT — ảnh sản phẩm thành video listing ngắn + nội dung SEO",
    "market": "VN + US",
-   "score": null
+   "score": 61
   },
   {
    "en": "Content repurposing pipeline for course creators & coaches — long video into shorts, notes and newsletter",
    "vi": "Tái chế nội dung cho người dạy online & coach — video dài thành shorts, ghi chú và bản tin",
    "market": "US + VN",
-   "score": null
+   "score": 67
   },
   {
    "en": "Bilingual listing-content service for Vietnamese-American realtors — copy, flyers and social packs per property",
    "vi": "Dịch vụ nội dung song ngữ cho môi giới BĐS người Việt tại Mỹ — mô tả, tờ rơi và gói mạng xã hội theo từng căn",
    "market": "US",
-   "score": null
+   "score": 68
   },
   {
    "en": "Bilingual careers media — EN–VI jobs newsletter & board for bilingual professionals in the US",
    "vi": "Truyền thông nghề nghiệp song ngữ — bản tin & bảng việc làm EN–VI cho chuyên gia song ngữ tại Mỹ",
    "market": "US",
-   "score": null
+   "score": 61
   },
   {
    "en": "Podcast production service for professional associations & community organizations — editing, notes, clips",
    "vi": "Dịch vụ sản xuất podcast cho hiệp hội nghề nghiệp & tổ chức cộng đồng — dựng audio, ghi chú, clip",
    "market": "US + VN",
-   "score": null
+   "score": 68
   },
   {
    "en": "Guest-messaging & listing support for short-term rental hosts — messaging-only co-host slice (EN–VI guidebooks, replies)",
    "vi": "Hỗ trợ nhắn tin khách & listing cho chủ cho thuê ngắn hạn — lát co-host chỉ nhắn tin (sổ tay EN–VI, trả lời khách)",
    "market": "US",
-   "score": null
+   "score": 68
   },
   {
    "en": "Tax-season client-intake & document-chase admin for independent CPA / tax offices serving Vietnamese clients (admin only, no tax advice)",
    "vi": "Quản trị tiếp nhận khách & nhắc hồ sơ mùa thuế cho văn phòng CPA/thuế độc lập phục vụ khách Việt (chỉ quản trị, không tư vấn thuế)",
    "market": "US",
-   "score": null
+   "score": 62
   },
   {
    "en": "Bilingual parent progress-report service for independent tutoring & after-school centers — teacher notes into EN–VI parent updates",
    "vi": "Dịch vụ báo cáo tiến bộ song ngữ cho phụ huynh của trung tâm gia sư & after-school độc lập — từ ghi chú giáo viên thành bản cập nhật EN–VI",
    "market": "US",
-   "score": null
+   "score": 65
   },
   {
    "en": "Month-end bookkeeping cleanup support for small e-commerce sellers — transaction categorisation and reconciliation prep drafts for the seller's own review (no tax filing, no CPA advice)",
    "vi": "Hỗ trợ dọn sổ sách cuối tháng cho người bán TMĐT nhỏ — bản nháp phân loại giao dịch và chuẩn bị đối soát để người bán tự rà soát (không khai thuế, không tư vấn CPA)",
    "market": "US",
-   "score": null
+   "score": 68
   },
   {
    "en": "Estate-sale cataloging drafts from photos for liquidation companies — item descriptions and comparable-price draft sheets the liquidator approves on site",
    "vi": "Bản nháp catalogue từ ảnh cho công ty thanh lý tài sản thừa kế — mô tả món đồ và bảng giá tham chiếu để công ty thanh lý duyệt tại chỗ",
    "market": "US",
-   "score": null
+   "score": 59
   },
   {
    "en": "Appointment-gap rebooking & no-show win-back message drafts for Vietnamese-owned nail salons — drafts the owner approves and sends (no autonomous messaging)",
    "vi": "Bản nháp tin nhắn lấp lịch trống & gọi lại khách bỏ hẹn cho tiệm nail của người Việt tại Mỹ — bản nháp để chủ tiệm duyệt và tự gửi (không nhắn tự động)",
    "market": "US",
-   "score": null
+   "score": 64
   },
   {
    "en": "Declined-service follow-up & service-reminder drafts for independent auto repair shops — bilingual EN–VI drafts the shop approves and sends (no autonomous messaging, no repair advice)",
    "vi": "Bản nháp theo đuổi hạng mục sửa chữa bị từ chối & nhắc bảo dưỡng cho gara ô tô độc lập — bản nháp song ngữ EN–VI để gara duyệt và tự gửi (không nhắn tự động, không tư vấn sửa chữa)",
    "market": "US",
-   "score": null
+   "score": 65
   },
   {
    "en": "Board-meeting minutes drafts for self-managed HOAs & small community managers — minutes drafts from board-supplied notes/recordings for board approval (not the official record until adopted)",
    "vi": "Bản nháp biên bản họp ban quản trị cho HOA tự quản & đơn vị quản lý cộng đồng nhỏ — bản nháp biên bản từ ghi chú/bản ghi do ban quản trị cung cấp để ban quản trị duyệt (chưa phải hồ sơ chính thức cho đến khi được thông qua)",
    "market": "US",
-   "score": null
+   "score": 58
   },
   {
    "en": "Customer-service reply drafts for cross-border e-commerce sellers — bilingual EN–VI drafts for returns, shipping and product questions that the seller approves and sends (no account access, no autonomous messaging)",
    "vi": "Bản nháp trả lời chăm sóc khách hàng cho người bán TMĐT xuyên biên giới — bản nháp song ngữ EN–VI cho câu hỏi đổi trả, vận chuyển và sản phẩm để người bán duyệt và tự gửi (không truy cập tài khoản, không nhắn tự động)",
    "market": "US + VN",
-   "score": null
+   "score": 65
   },
   {
    "en": "Bilingual vehicle-listing description drafts for independent used-car dealers — EN–VI Marketplace listing drafts from dealer-supplied specs and photos; the dealer approves and posts (no price or financing claims)",
    "vi": "Bản nháp mô tả xe song ngữ cho đại lý ô tô cũ độc lập — bản nháp listing Marketplace EN–VI từ thông số và ảnh do đại lý cung cấp; đại lý duyệt và tự đăng (không tuyên bố về giá hay tài chính)",
    "market": "US",
-   "score": null
+   "score": 60
   },
   {
    "en": "Bilingual client-intake & document-checklist admin support for small immigration law practices serving Vietnamese clients — EN–VI intake forms, document checklists and status-update drafts the attorney reviews and sends (admin only, no legal advice, no case strategy)",
    "vi": "Hỗ trợ hành chính tiếp nhận khách & checklist giấy tờ song ngữ cho văn phòng luật di trú nhỏ phục vụ khách Việt — biểu mẫu tiếp nhận EN–VI, checklist giấy tờ và bản nháp cập nhật tình trạng để luật sư duyệt và gửi (chỉ hành chính, không tư vấn pháp lý, không chiến lược hồ sơ)",
    "market": "US",
-   "score": null
+   "score": 59
   },
   {
    "en": "EN–VI food-label translation & pre-check packs for Vietnamese food brands entering the US market — label translation plus a checklist pass against the standard FDA label elements, delivered as a draft for a qualified reviewer (never sold as a compliance certification)",
    "vi": "Gói dịch nhãn thực phẩm EN–VI & rà soát sơ bộ cho thương hiệu thực phẩm Việt vào thị trường Mỹ — dịch nhãn kèm một lượt checklist theo các thành phần nhãn FDA tiêu chuẩn, giao dưới dạng bản nháp cho người có chuyên môn duyệt (không bao giờ bán như chứng nhận tuân thủ)",
    "market": "US + VN",
-   "score": null
+   "score": 62
   },
   {
    "en": "EN–VI menu localization & allergen-flag pre-check packs for Vietnamese restaurants selling on delivery platforms — human-checked dish names, descriptions and allergen flags as a draft the owner approves (never sold as a food-safety certification)",
    "vi": "Gói bản địa hóa menu EN–VI & rà soát sơ bộ cờ dị ứng cho nhà hàng Việt bán trên các nền tảng giao đồ ăn — tên món, mô tả và cờ dị ứng do người kiểm, giao dạng bản nháp để chủ quán duyệt (không bao giờ bán như chứng nhận an toàn thực phẩm)",
    "market": "US",
-   "score": null
+   "score": 63
   },
   {
    "en": "Renewal & follow-up draft admin for independent insurance agencies serving Vietnamese clients — bilingual renewal reminders, document-chase and CRM follow-up drafts the licensed agent reviews and sends (admin only, no coverage advice, no binding)",
    "vi": "Hỗ trợ hành chính bản nháp tái tục & theo đuổi hồ sơ cho đại lý bảo hiểm độc lập phục vụ khách Việt — bản nháp nhắc tái tục song ngữ, nhắc bổ sung giấy tờ và theo dõi CRM để nhân viên có giấy phép duyệt và gửi (chỉ hành chính, không tư vấn phạm vi bảo hiểm, không ràng buộc hợp đồng)",
    "market": "US",
-   "score": null
+   "score": 61
   }
  ],
  "poolNote": {
-  "en": "Provisional round-0 scores from full 6-step agent debate sheets; scores lock at a Friday checkpoint when new evidence lands. The legal gate is settled for all 15: lawful with conditions. Unscored intakes: M16 (expert AI-training work), M17 (reader suggestion — Google Business Profile service) and intake batch 1 (M18–M23, Oct 30) — each enters the same gates → debate → rubric path at upcoming checkpoints.",
-  "vi": "Điểm nháp vòng 0 từ phiếu tranh luận 6 bước đầy đủ của các agents; điểm chốt ở một checkpoint thứ Sáu khi có bằng chứng mới. Cổng pháp lý đã chốt cho cả 15: hợp lệ có điều kiện. Các lượt nạp chưa chấm: M16 (việc huấn luyện AI chuyên gia), M17 (đề xuất người xem — dịch vụ Google Business Profile) và đợt nạp 1 (M18–M23, 30/10) — mỗi ứng viên đi qua đúng quy trình cổng → tranh luận → rubric ở các checkpoint tới."
+  "en": "Scores: M01–M15 locked at the Oct 30 baseline; M17–M37 scored provisionally at Checkpoint 2 (Nov 6) from full six-step debate sheets and lock at the next checkpoint if no new evidence lands. M16 (expert AI-training work) holds a provisional 65 in the internal ledgers only — its pool score stays blank until its mandatory five-platform experiment reports; if it has not reported by Nov 13 it enters the official round unscored. The legal gate classifies all 37 candidates (b) — lawful with conditions, named per candidate in its debate sheet.",
+  "vi": "Điểm số: M01–M15 khóa ở mốc nền 30/10; M17–M37 chấm điểm tạm tại Checkpoint 2 (6/11) từ phiếu tranh luận 6 bước đầy đủ và sẽ khóa ở checkpoint kế tiếp nếu không có bằng chứng mới. M16 (việc huấn luyện AI chuyên gia) giữ điểm tạm 65 chỉ trong sổ nội bộ — ô điểm trong pool để trống cho tới khi thí nghiệm nộp đơn 5 nền tảng bắt buộc của nó có kết quả; nếu tới 13/11 chưa có kết quả, M16 vào vòng chính thức ở trạng thái chưa có điểm. Cổng pháp lý phân loại cả 37 ứng viên là (b) — hợp pháp có điều kiện, điều kiện nêu tên trong phiếu của từng ứng viên."
  },
  "discussion": [
   {
@@ -1455,6 +1460,25 @@
    "summary": {
     "en": "M18's last UNVERIFIED item is closed from the funders' own pages: NIH bars applications substantially developed by AI (detection plus post-award enforcement), while NSF only encourages disclosure and holds applicants responsible for accuracy — so M18 must be sold as human-led, disclosure-ready drafting support, never as 'AI writes your grant'. Nightly intake: screened 3, posted 0.",
     "vi": "Mục UNVERIFIED cuối của M18 đã đóng từ chính trang của nhà tài trợ: NIH cấm hồ sơ do AI phát triển phần lớn (có phát hiện và chế tài sau cấp tài trợ), còn NSF chỉ khuyến khích khai báo và bắt người nộp chịu trách nhiệm về tính chính xác — nên M18 phải bán dưới dạng hỗ trợ soạn thảo do người dẫn dắt, sẵn sàng khai báo, không bao giờ là 'AI viết hồ sơ thay bạn'. Nạp hằng ngày: đã sàng 3, đã đăng 0."
+   }
+  },
+  {
+   "role": {
+    "en": "Lead",
+    "vi": "Lead"
+   },
+   "tag": {
+    "en": "CHECKPOINT 2",
+    "vi": "CHECKPOINT 2"
+   },
+   "ts": "Fri Nov 6 · 8:40 AM PT",
+   "text": {
+    "en": "Checkpoint 2 is closed and the scoring backlog is zero: all 21 unscored candidates (M17–M37) passed the gates as lawful-with-conditions, received full six-step debate sheets, and were provisionally scored — M17 76 (keep), M18 65, M19 61, M20 67, M21 68, M22 61, M23 68, M24 68, M25 62, M26 65, M27 68, M28 59, M29 64, M30 65, M31 58, M32 65, M33 60, M34 59, M35 62, M36 63, M37 61 (all revise except M17). Full sheets: files/DEBATE-SHEETS-CHECKPOINT-2.md; package: files/CHECKPOINT-2-PACKAGE.md. Rulings on owed verdicts: M03's flip to keep is DENIED (review-timing half not met — correction burden measured at 14.3 per 1,000 words, human time still a 45–90 min/1,000-word estimate, so its locked 75 stands and the downgrade decision waits on one independent human timed run before Nov 13); M06's $34–$54/h claim is ruled NOT CONFIRMED (modelled range ~$16–$116/h, price UNVERIFIED) with its locked 82 unchanged; M05 stays revise — its pilot-pricing and platform-ToS work was NOT completed this week and is carried openly as a debt into the Checkpoint 3 week; M16 keeps its provisional 65 for one more checkpoint only — if its five-platform experiment has not reported by Nov 13 it enters the official round unscored. Money tables for M03, M06 and M16 were restated under Addendum 13 (15% US scenario, acquisition-cost lines marked UNVERIFIED where no verified input exists), flagged METHOD in the score history; no locked score moved. Weekly intake (Addendum 15): screened 21, posted 14, screened out 7. QC audit: PASS — all 21 new component sets re-summed exactly, debate sheets, ledgers and the public pool agree, zero zero-tolerance errors. Real money spent: $0.",
+    "vi": "Checkpoint 2 đã đóng và hậu tồn chấm điểm về 0: cả 21 ứng viên chưa chấm (M17–M37) đều qua cổng ở dạng hợp pháp có điều kiện, có phiếu tranh luận 6 bước đầy đủ và được chấm điểm tạm — M17 76 (keep), M18 65, M19 61, M20 67, M21 68, M22 61, M23 68, M24 68, M25 62, M26 65, M27 68, M28 59, M29 64, M30 65, M31 58, M32 65, M33 60, M34 59, M35 62, M36 63, M37 61 (all revise except M17). Phiếu đầy đủ: files/DEBATE-SHEETS-CHECKPOINT-2.md; gói: files/CHECKPOINT-2-PACKAGE.md. Các phán quyết đang nợ: điều kiện lật của M03 bị BÁC (nửa thời gian review không đạt — gánh sửa đo được 14,3/1.000 từ, thời gian người thật vẫn là ước lượng 45–90 phút/1.000 từ, nên điểm khóa 75 giữ nguyên và quyết định hạ điểm chờ 1 lượt bấm giờ người thật độc lập trước 13/11); tuyên bố $34–$54/giờ của M06 bị phán KHÔNG ĐƯỢC XÁC NHẬN (dải mô hình ~$16–$116/giờ, giá UNVERIFIED) và điểm khóa 82 giữ nguyên; M05 giữ revise — việc giá pilot và kiểm điều khoản nền tảng của nó KHÔNG hoàn thành trong tuần này và được ghi nhận công khai là nợ chuyển sang tuần Checkpoint 3; M16 giữ điểm tạm 65 thêm đúng một checkpoint — nếu tới 13/11 thí nghiệm nộp đơn 5 nền tảng chưa có kết quả, M16 vào vòng chấm chính thức ở trạng thái chưa có điểm. Bảng tiền của M03, M06 và M16 đã trình lại theo Addendum 13 (kịch bản thuế Mỹ 15%, dòng chi phí tìm khách ghi UNVERIFIED khi chưa có đầu vào kiểm chứng), gắn cờ METHOD trong lịch sử điểm; không điểm khóa nào thay đổi. Nạp trong tuần (Addendum 15): đã sàng 21, đã đăng 14, loại khi sàng 7. Kiểm toán QC: PASS — cộng lại toàn bộ 21 bộ điểm thành phần đều khớp, phiếu tranh luận, sổ nội bộ và bảng pool công khai nhất quán, 0 lỗi thuộc lớp không dung sai. Tiền thật đã chi: $0."
+   },
+   "summary": {
+    "en": "Checkpoint 2 closed with the scoring backlog at zero: all 21 candidates M17–M37 were gate-checked, debated and provisionally scored (M17 leads at 76, keep; the rest 58–68, revise). M03's flip was denied, M06's hourly claim ruled not confirmed, M05's pricing work carried openly as a debt, and M16 has until Nov 13 to produce its platform experiment or enter the official round unscored. QC audit: PASS; $0 spent.",
+    "vi": "Checkpoint 2 đã đóng với hậu tồn chấm điểm bằng 0: cả 21 ứng viên M17–M37 đã qua cổng, tranh luận và chấm điểm tạm (M17 dẫn đầu với 76, giữ; còn lại 58–68, sửa). Điều kiện lật của M03 bị bác, tuyên bố giá trị giờ của M06 bị phán chưa xác nhận, việc giá của M05 được ghi công khai là nợ chuyển tiếp, và M16 có hạn tới 13/11 để nộp kết quả thí nghiệm nền tảng nếu không sẽ vào vòng chính thức ở trạng thái chưa có điểm. Kiểm toán QC: PASS; chi $0."
    }
   }
  ]
