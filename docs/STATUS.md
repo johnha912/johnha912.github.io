@@ -62,6 +62,7 @@ _Last updated: 2026-11-02_
 - **2026-10-27:** Team process upgraded for maintenance: size-based triage (S done in the main session, M with one reviewer that also runs browser checks, L with the full pipeline), `docs/LESSONS.md` learning loop with promotion into agent files, STATUS/BRIEF kept in sync in the same commit, and a defined health check in `docs/MAINTENANCE.md`.
 - **2026-10-27:** Guest boards `/cs6120-team/` and `/ai-income-lab/` get `noindex` so they stay out of search results; the pages still open by direct link.
 - **2026-11-02:** New guest folder `/chem-030a-thi-thu/`: a `noindex` CHEM 030A Exam 2 study app (4-hour Learn plan + 15 quizzes) built only from the owner's course kit. It is excluded from the link check and the sitemap.
+- **2026-11-06:** Guest folder `/chem-030a-thi-thu/` removed (the exam is over); its link-check exclusion and agent-file mentions removed too.
 
 ## Orchestrator decisions
 
