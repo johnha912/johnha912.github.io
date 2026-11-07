@@ -374,6 +374,45 @@ export const tests = [
     }
   },
   {
+    name: "one chat only: agent topics show as tags, filter works, replies inherit the topic, legacy threads stay out",
+    async run(ctx) {
+      await fresh(ctx);
+      const t0 = Date.now() - 600000;
+      const agentMsg = (id, role, category, text, i) => admin.setDoc(`threads/general/messages/${id}`, { id, threadId: "general", authorKind: "agent", role, category, text, replyTo: null, createdAt: new Date(t0 + i * 1000), clientCreatedAt: t0 + i * 1000, deleted: false });
+      await agentMsg("agent-flights-0001", "Flights & Travel", "flights", "Đã kiểm tra lại giá vé chặng 1.", 1);
+      await agentMsg("agent-budget-0001", "Budget", "budget", "Đã cập nhật bảng ngân sách.", 2);
+      await agentMsg("agent-flights-0002", "Flights & Travel", "flights", "Giữ chỗ tạm được 24 giờ.", 3);
+      // A message filed in a legacy thread must not appear: the chat reads threads/general only.
+      await admin.setDoc("threads/budget/messages/legacy-msg-0001", { id: "legacy-msg-0001", threadId: "budget", authorKind: "agent", role: "Budget", text: "Tin ở luồng cũ", replyTo: null, createdAt: new Date(), clientCreatedAt: Date.now(), deleted: false });
+      const john = await newSession(ctx.browser, { member: "john" });
+      await eventually(async () => (await msgCount(john.page, "Giữ chỗ tạm được 24 giờ.")) === 1);
+      assert(await msgCount(john.page, "Tin ở luồng cũ") === 0, "legacy-thread message shown");
+      assert(await john.page.locator("[role=tab]").count() === 0, "topic tabs rendered");
+      const tag = await john.page.locator("#m-agent-flights-0001 .msg-cat").textContent();
+      assert(tag === "Vé máy bay", `tag ${tag}`);
+      const chips = await john.page.$$eval("#cat-filter .cat-chip", (n) => n.map((x) => x.textContent));
+      assert(JSON.stringify(chips) === JSON.stringify(["Tất cả", "Vé máy bay (2)", "Ngân sách (1)"]), `chips ${chips}`);
+      // Reply to a flights message: it takes the flights topic.
+      await john.page.locator("#m-agent-flights-0002 [data-action=reply]").click();
+      await john.page.fill("#composer", "Nhờ giữ chỗ giúp nhé");
+      await john.page.click("#composer-form .send");
+      await eventually(async () => (await john.page.$$eval("#cat-filter .cat-chip", (n) => n.map((x) => x.textContent))).includes("Vé máy bay (3)"));
+      await john.page.click('#cat-filter [data-cat="flights"]');
+      await eventually(async () => (await john.page.$$eval("#messages .msg", (n) => n.length)) === 3);
+      assert(await msgCount(john.page, "Đã cập nhật bảng ngân sách.") === 0, "filter kept another topic");
+      assert(await msgCount(john.page, "Nhờ giữ chỗ giúp nhé") === 1, "reply not under its parent's topic");
+      // Writing a new message while filtered shows the whole chat again, and it still goes to general.
+      await john.page.fill("#composer", "Tin mới cho cả nhà");
+      await john.page.click("#composer-form .send");
+      await eventually(async () => (await john.page.getAttribute('#cat-filter [data-cat="all"]', "aria-pressed")) === "true" && (await msgCount(john.page, "Tin mới cho cả nhà")) === 1);
+      const humans = await eventually(async () => { const hs = (await admin.listDocs("threads/general/messages")).filter((m) => m.authorKind === "human"); return hs.length === 2 ? hs : null; });
+      assert(humans.every((m) => m.threadId === "general"), "posts not in general");
+      await john.page.screenshot({ path: `${ctx.qcDir}/v3-chat-topics-1280.png` });
+      await close(john);
+      return "Legacy-thread message not shown, no tabs; tags render (\"Vé máy bay\"); filter chips Tất cả / Vé máy bay (2) / Ngân sách (1); a reply inherited the flights topic; filtering showed only that topic; posting while filtered reset the filter; every post stored in threads/general.";
+    }
+  },
+  {
     name: "sign out works offline and leaves no plan or chat content behind",
     async run(ctx) {
       await fresh(ctx);

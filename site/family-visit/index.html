@@ -8,7 +8,7 @@
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#eef1f4" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#151b22" media="(prefers-color-scheme: dark)">
-<title>Chuyến thăm của bố mẹ</title>
+<title>Chuyến thăm của ba mẹ</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <!-- Google Sans (owner's choice, 2026-11-07): Google Fonts ships it with a full Vietnamese subset. -->
@@ -43,14 +43,14 @@
 
 <section id="screen-loading" data-screen class="gate-screen" aria-live="polite">
   <div class="gate-card glass">
-    <p class="gate-brand">Chuyến thăm của bố mẹ</p>
+    <p class="gate-brand">Chuyến thăm của ba mẹ</p>
     <p>Đang mở bảng kế hoạch của gia đình…</p>
   </div>
 </section>
 
 <section id="screen-signin" data-screen class="gate-screen" hidden>
   <div class="gate-card glass">
-  <h1 class="gate-brand">Chuyến thăm của bố mẹ</h1>
+  <h1 class="gate-brand">Chuyến thăm của ba mẹ</h1>
   <p>Bảng này chỉ dành cho gia đình. Hãy đăng nhập bằng tài khoản Google bạn dùng cho bảng này.</p>
   <button id="signin-btn" type="button" class="btn btn--primary btn--big">Đăng nhập bằng Google</button>
   <p id="signin-error" class="gate-error" role="alert"></p>
@@ -60,7 +60,7 @@
 
 <section id="screen-denied" data-screen class="gate-screen" hidden>
   <div class="gate-card glass">
-  <h1 class="gate-brand">Chuyến thăm của bố mẹ</h1>
+  <h1 class="gate-brand">Chuyến thăm của ba mẹ</h1>
   <p>Tài khoản Google này không có trong danh sách gia đình của bảng. Hãy đăng xuất, rồi đăng nhập bằng tài khoản đã chia sẻ với gia đình.</p>
   <button id="signout-denied" type="button" class="btn btn--primary btn--big">Đăng xuất</button>
   </div>
@@ -70,7 +70,7 @@
   <!-- 1. Title -->
   <header class="title glass" id="top">
     <div class="title-row">
-      <h1 id="trip-title">Chuyến thăm của bố mẹ, tháng 12/2026</h1>
+      <h1 id="trip-title">Chuyến thăm của ba mẹ, tháng 12/2026</h1>
       <div class="account">
         <span class="account-name">Đã đăng nhập: <strong id="who"></strong></span>
         <button id="signout" type="button" class="btn btn--quiet">Đăng xuất</button>
@@ -117,6 +117,7 @@
     <p class="section-lead">Nơi cả nhà và nhóm trợ lý trao đổi. Tin nhắn hiện ngay cho mọi người.</p>
     <div class="chat-frame glass">
       <div id="summary" class="summary"></div>
+      <div id="cat-filter" class="cat-filter" role="group" aria-label="Lọc tin nhắn theo chủ đề" hidden></div>
       <ul id="messages" class="messages" aria-label="Tin nhắn" aria-live="polite">
         <li id="load-older-wrap" class="load-older" hidden><button id="load-older" type="button" class="btn btn--quiet">Xem tin nhắn cũ hơn</button></li>
       </ul>
@@ -146,9 +147,8 @@
 </main>
 
 <!-- 5. Back to top -->
-<button id="to-top" type="button" class="to-top glass" aria-label="Lên đầu trang" hidden>
-  <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-  <span>Lên đầu trang</span>
+<button id="to-top" type="button" class="to-top glass" aria-label="Lên đầu trang" title="Lên đầu trang" hidden>
+  <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
 </button>
 </body>
 </html>
