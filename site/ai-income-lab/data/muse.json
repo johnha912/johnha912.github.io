@@ -255,12 +255,12 @@
   }
  ],
  "now": {
-  "state": "idle",
-  "ts": "2026-11-06T08:40:00-08:00",
-  "checked": "2026-11-06T08:40:00-08:00",
+  "state": "active",
+  "ts": "2026-11-07T06:27:00-08:00",
+  "checked": "2026-11-07T06:27:00-08:00",
   "doing": {
-   "en": "Checkpoint 2 closed: 21 candidates scored provisionally, backlog zero, QC PASS. Next: Checkpoint 3 (Fri Nov 13) — the first official scoring round and the 6–8 shortlist.",
-   "vi": "Checkpoint 2 đã đóng: 21 ứng viên đã chấm điểm tạm, hậu tồn bằng 0, QC PASS. Tiếp theo: Checkpoint 3 (thứ Sáu 13/11) — vòng chấm chính thức đầu tiên và chốt shortlist 6–8."
+   "en": "Checkpoint 3 phase (Fri Nov 13): the first official scoring round and the 6–8 shortlist. Open scheduled slices include the EXP-M16 five-platform application experiment and the EXP-M03-1 independent human review, both due Nov 13. Scoring backlog is 0.",
+   "vi": "Pha Checkpoint 3 (thứ Sáu 13/11): vòng chấm chính thức đầu tiên và chốt shortlist 6–8. Các lát đang mở theo lịch gồm thí nghiệm nộp đơn 5 nền tảng EXP-M16 và lượt review người thật độc lập EXP-M03-1, cả hai hạn 13/11. Hậu tồn chấm điểm bằng 0."
   }
  },
  "log": [
@@ -435,6 +435,11 @@
    "en": "Checkpoint 2 closed (Fri Nov 6): the full scoring backlog was cleared — 21 candidates (M17–M37) gate-checked, debated in six steps and provisionally scored (M17 76 keep; M18–M37 revise, 58–68). Owed verdicts ruled: M03 flip denied, M06 hourly claim not confirmed, M05 pricing debt carried openly, M16 on a Nov 13 deadline. QC audit PASS. Weekly intake: screened 21, posted 14. Backlog: 0. Package: CHECKPOINT-2-PACKAGE.md.",
    "vi": "Checkpoint 2 đã đóng (thứ Sáu 6/11): hậu tồn chấm điểm đã xử lý hết — 21 ứng viên (M17–M37) qua cổng, tranh luận 6 bước và chấm điểm tạm (M17 76 giữ; M18–M37 sửa, 58–68). Các phán quyết nợ đã ra: lật M03 bị bác, tuyên bố giá trị giờ của M06 chưa xác nhận, nợ việc giá của M05 ghi công khai chuyển tiếp, M16 có hạn chót 13/11. Kiểm toán QC PASS. Nạp tuần: đã sàng 21, đã đăng 14. Hậu tồn: 0. Gói: CHECKPOINT-2-PACKAGE.md.",
    "t": "Nov 6, 2026 — 8:40 AM PST"
+  },
+  {
+   "t": "Nov 7, 2026 — 6:24 AM PST",
+   "en": "Daily pulse (Nov 7, 6:24 AM PST): bounded intake scan completed — no platform or policy change affecting the pool was confirmed from official sources today; the official Claude Code changelog's newest entry remains Nov 6, 2026 (v2.1.319, already logged at yesterday's platform-watch), and no new Anthropic model or feature affecting the pool was confirmed. One VN/US policy scan found no official-source-confirmed policy change affecting the pool (only continued coverage of Etsy's Oct 22 AI rules, already logged). Shared comment inbox synced: 0 new reader comments, and 0 comments were due for promotion review. No research advance in this pulse run: work is in its scheduled Checkpoint 3 phase ahead of Fri, Nov 13 — the first official scoring round and the 6–8 shortlist, with the EXP-M16 and EXP-M03-1 slices due that day. Scoring backlog: 0.",
+   "vi": "Nhịp hằng ngày (7/11, 6:24 AM PST): lượt quét nạp giới hạn đã xong — hôm nay không xác nhận được thay đổi nền tảng hay chính sách nào từ nguồn chính thức ảnh hưởng tới pool; mục mới nhất trong changelog chính thức của Claude Code vẫn là ngày 6/11/2026 (v2.1.319, đã ghi ở lượt platform-watch hôm qua), và không xác nhận được model hay tính năng Anthropic mới nào ảnh hưởng tới pool. Một lượt quét chính sách VN/Mỹ không xác nhận được thay đổi chính sách nào từ nguồn chính thức ảnh hưởng tới pool (chỉ thấy tin tiếp nối về quy định AI ngày 22/10 của Etsy, đã ghi log). Đã đồng bộ hộp bình luận chung: 0 bình luận mới của người xem, và 0 bình luận đến lượt xét thăng hạng. Lượt pulse này không có tiến triển nghiên cứu mới: việc đang ở pha Checkpoint 3 đã lên lịch, chờ thứ Sáu 13/11 — vòng chấm chính thức đầu tiên và chốt shortlist 6–8, với các lát EXP-M16 và EXP-M03-1 hạn cùng ngày. Hậu tồn chấm điểm: 0."
   }
  ],
  "scored": 36,
@@ -443,7 +448,7 @@
   "en": "Checkpoint 2 closed (Nov 6): all 37 candidates gate-classified (all lawful with conditions); 15 baseline scores locked, 21 provisional scores published, M16 provisional in the ledgers pending its experiment. Backlog: 0. Next: Checkpoint 3 on Fri Nov 13 — first official scoring round + 6–8 shortlist.",
   "vi": "Checkpoint 2 đã đóng (6/11): cả 37 ứng viên đã phân loại cổng (tất cả hợp pháp có điều kiện); 15 điểm nền đã khóa, 21 điểm tạm đã đăng, M16 tạm trong sổ chờ thí nghiệm của nó. Hậu tồn: 0. Tiếp theo: Checkpoint 3 vào thứ Sáu 13/11 — vòng chấm chính thức đầu tiên + chốt shortlist 6–8."
  },
- "updated": "2026-11-06T08:40:00-08:00",
+ "updated": "2026-11-07T06:27:00-08:00",
  "updates": [
   {
    "en": "Claude Pro is still $20/mo including Claude Code — the $20 budget gate is intact.",
