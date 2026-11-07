@@ -589,6 +589,21 @@ body[data-conn="offline"] .conn-dot { background: var(--cranberry); box-shadow: 
   color: var(--ink);
   font: inherit; font-weight: 600; letter-spacing: .03em;
   cursor: pointer;
+  /* Truly transparent liquid glass (owner fix): the shared .glass gradient tops out
+     at 72% white, which read as a solid tab over the table. The tab keeps only a
+     light frost — content behind it stays visible through the blur. */
+  background: linear-gradient(165deg, rgba(255, 255, 255, 0.32), rgba(255, 255, 255, 0.15) 55%, rgba(255, 255, 255, 0.09));
+  -webkit-backdrop-filter: blur(16px) saturate(170%);
+  backdrop-filter: blur(16px) saturate(170%);
+  border-color: rgba(255, 255, 255, 0.45);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), inset 0 -1px 0 rgba(255, 255, 255, 0.12), 0 6px 18px var(--glass-shade);
+}
+@media (prefers-color-scheme: dark) {
+  .report-tab {
+    background: linear-gradient(165deg, rgba(26, 33, 44, 0.40), rgba(26, 33, 44, 0.22) 55%, rgba(26, 33, 44, 0.14));
+    border-color: rgba(255, 255, 255, 0.16);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14), inset 0 -1px 0 rgba(255, 255, 255, 0.05), 0 6px 18px var(--glass-shade);
+  }
 }
 .report-tab svg { color: var(--pine); transform: rotate(90deg); }
 .report-tab[hidden] { display: none; }
