@@ -93,6 +93,7 @@ const S = {
   oldestDoc: null, moreOlder: false, olderLoaded: false, loadingOlder: false,
   replyTo: null, editing: null, confirmDelete: null,
   voteBusy: new Set(), voteMsg: new Map(),
+  dOpen: new Set(),
   remindersTried: new Set(),
   snapshotMode: false, booted: false,
   presenceTimer: null, clockTimer: null
@@ -101,6 +102,11 @@ const S = {
 /* ---------------- screens ---------------- */
 function show(id) {
   for (const s of document.querySelectorAll("[data-screen]")) s.hidden = s.id !== id;
+  motion.startBackdrop();
+  if (id !== "screen-board") {
+    $("#dock").hidden = true;
+    motion.gateIntro(document.querySelector(`#${id} .gate-card`));
+  }
 }
 
 /* ---------------- boot ---------------- */
@@ -175,11 +181,14 @@ async function handleUser(user) {
   startLive();
   // The page opens on the plan, never scrolled down into the chat.
   if (!location.hash) scrollTo(0, 0);
+  motion.boardIntro();
+  motion.railDraw($(".timeline"));
 }
 
 async function signIn() {
   const err = $("#signin-error");
   err.textContent = "";
+  if (S.needsReload) { location.reload(); return; }
   if (!S.fb) { err.textContent = NO_SIGNIN; return; }
   const { auth: A } = S.fb;
   const provider = new A.GoogleAuthProvider();
@@ -205,15 +214,25 @@ async function signOut() {
   clearRendered();
   store.clearAll();
   S.member = null;
+  // The sign-in screen appears only once Firebase has dropped the saved session on this device;
+  // showing it earlier let a quick reload (or closing the tab) come back still signed in.
+  $("#screen-loading p:last-child").textContent = "Đang đăng xuất…";
+  show("screen-loading");
+  try { if (S.auth) await withTimeout(S.fb.auth.signOut(S.auth), 3000); } catch { /* fall back to the reload below */ }
   show("screen-signin");
-  try { if (S.auth) await withTimeout(S.fb.auth.signOut(S.auth), 3000); } catch { /* local sign-out still happens below */ }
   try {
     if (S.db) {
       await withTimeout(S.fb.fs.terminate(S.db), 3000);
       await withTimeout(S.fb.fs.clearIndexedDbPersistence(S.db), 3000);
     }
   } catch { /* the cache is cleared on the next load at the latest */ }
-  location.reload();
+  // A fresh page resets Firebase. Offline, a reload would show the browser's "no internet" page,
+  // so stay on the sign-in screen and reload once the connection is back (or on "Đăng nhập").
+  if (navigator.onLine) location.reload();
+  else {
+    S.needsReload = true;
+    addEventListener("online", () => location.reload(), { once: true });
+  }
 }
 
 function clearRendered() {
@@ -296,6 +315,7 @@ function startLive() {
     S.rowsFromServer = S.rowsFromServer || !info.fromCache;
     if (snap.docs.length) leaveSnapshotIfData();
     renderTable(); renderStrip();
+    if (S.flashNext?.length) { motion.flashRows(S.flashNext.map((id) => document.querySelector(`#timeline-body tr[data-row="${id}"]`))); S.flashNext = []; }
     savePlanCache();
   });
 
@@ -315,6 +335,10 @@ function startLive() {
     renderStrip(before);
     renderMessages();
     maybeSendReminders();
+    // Rows a proposal just changed glow once when the table catches up.
+    for (const p of S.proposals.values()) {
+      if (p.status === "applied" && before.get(p.id)?.status === "pending") S.flashNext = [...(S.flashNext || []), ...(p.rowIds || [])];
+    }
   });
 
   c.watch("decisions", fs.collection(db, "decisions"), (snap, info) => {
@@ -620,9 +644,11 @@ function withDLinks(text) {
 const dcLinked = (tag, attrs, text) => h(tag, { ...attrs, "data-c": "" }, ...withDLinks(text));
 
 function goToDecision(id) {
-  const card = document.getElementById(`decision-${id}`);
+  let card = document.getElementById(`decision-${id}`);
   if (!card) return;
-  card.scrollIntoView({ behavior: reducedMotion.matches ? "auto" : "smooth", block: "start" });
+  // Arriving from a link opens the card's full details.
+  if (!S.dOpen.has(id)) { S.dOpen.add(id); renderDecisions(); card = document.getElementById(`decision-${id}`); }
+  motion.scrollTo(card, topOffset());
   card.focus({ preventScroll: true });
   card.classList.remove("decision--flash");
   void card.offsetWidth; // restart the highlight if tapped twice
@@ -788,25 +814,66 @@ function renderStrip(prevProposals) {
   }
 }
 
-function renderDecisions() {
+// Decision cards, built for a first read: code + short topic, the question, a plain-language intro,
+// a clear "decided / still open" pill, the conclusion when there is one, and the long option list
+// folded behind one button. Every database string is rendered unchanged.
+function renderDecisions(animate = false) {
   const list = $("#decisions");
+  const nav = $("#d-nav");
   const decisions = S.decisions || [];
   if (!decisions.length) {
+    nav.replaceChildren();
     list.replaceChildren(h("li", { class: "decisions-empty", text: S.snapshotMode ? "Máy này chưa lưu chi tiết quyết định nào." : "Chưa có quyết định nào được ghi lại." }));
     return;
   }
-  list.replaceChildren(...decisions.map((d) => {
-    const resolved = d.resolved === true || d.status === "resolved";
+  const isResolved = (d) => d.resolved === true || d.status === "resolved";
+  nav.replaceChildren(...decisions.map((d) => h("a", { class: `d-chip sheen${isResolved(d) ? " d-chip--done" : ""}`, href: `#decision-${d.id}`, "data-dref": d.id },
+    h("span", { class: "d-chip-code", text: d.id }),
+    dc("span", { class: "d-chip-topic" }, d.topic),
+    isResolved(d) ? h("span", { class: "d-chip-mark", "aria-label": "đã chốt", text: "✓" }) : null)));
+
+  const build = () => list.replaceChildren(...decisions.map((d) => {
+    const resolved = isResolved(d);
+    const open = S.dOpen.has(d.id);
+    const options = d.options || [];
     const voteNames = Object.keys(d.votes || {});
     const voted = voteNames.filter((k) => d.votes[k] !== null && d.votes[k] !== undefined);
-    return h("li", { class: `decision${resolved ? " decision--resolved" : ""}`, id: `decision-${d.id}`, tabindex: "-1" },
-      h("h3", { class: "d-title" }, h("span", { class: "d-id", text: d.id }), dc("span", {}, ` ${d.topic}: ${d.question}`)),
+    return h("li", { class: `decision glass${resolved ? " decision--resolved" : ""}${open ? " decision--open" : ""}`, id: `decision-${d.id}`, tabindex: "-1" },
+      h("div", { class: "d-head" },
+        h("span", { class: "d-id d-code", text: d.id }),
+        h("div", { class: "d-heading" },
+          dc("h3", { class: "d-title" }, d.topic),
+          dc("p", { class: "d-question" }, d.question)),
+        h("span", { class: `d-pill ${resolved ? "d-pill--done" : "d-pill--open"}`, text: resolved ? "Đã chốt" : "Chưa chốt" })),
       d.intro ? dc("p", { class: "d-intro" }, d.intro) : null,
-      h("p", { class: "d-status" }, resolved ? h("span", { class: "d-badge", text: "Đã chốt" }) : null, dc("span", {}, d.status)),
-      d.resolution ? dc("p", { class: "d-resolution" }, d.resolution) : null,
-      d.options?.length ? h("ul", { class: "d-options" }, d.options.map((o) => dc("li", {}, o))) : null,
+      d.resolution ? h("div", { class: "d-conclusion" }, h("span", { class: "d-label", text: "Kết luận" }), dc("p", {}, d.resolution)) : null,
+      h("p", { class: "d-status" }, h("span", { class: "d-label", text: "Tình trạng" }), dc("span", { class: "d-status-text" }, d.status)),
+      options.length ? h("button", {
+        type: "button", class: "d-toggle sheen", "data-dtoggle": d.id, "aria-expanded": String(open), "aria-controls": `opts-${d.id}`
+      }, open ? "Thu gọn" : `Xem chi tiết (${options.length} mục)`) : null,
+      options.length ? h("ul", { class: "d-options", id: `opts-${d.id}`, hidden: !open }, options.map((o) => h("li", { "data-c": "" }, ...optionParts(o)))) : null,
       voteNames.length ? h("p", { class: "d-votes" }, voted.length ? dc("span", {}, voted.map((k) => `${k}: ${d.votes[k]}`).join(", ")) : "Chưa có ai bỏ phiếu.") : null);
   }));
+  if (animate) motion.flipLayout("#decisions > li, #decisions .d-options li", build);
+  else build();
+  motion.reveal([...list.children]);
+}
+
+// Long options that list alternatives as "A | B | C" show one alternative per line. The separators
+// stay in the text (hidden), so the content is character-for-character the database string.
+function optionParts(text) {
+  const parts = String(text).split(" | ");
+  const out = [];
+  parts.forEach((part, i) => {
+    if (i) out.push(h("span", { class: "d-sep", "aria-hidden": "true", text: " | " }));
+    out.push(h("span", { class: "d-seg" }, ...withDLinks(part)));
+  });
+  return out;
+}
+
+function toggleDecision(id) {
+  if (S.dOpen.has(id)) S.dOpen.delete(id); else S.dOpen.add(id);
+  renderDecisions(true);
 }
 
 /* ---------------- rendering: chat ---------------- */
@@ -961,7 +1028,27 @@ function wireStaticUi() {
   $("#signout").addEventListener("click", signOut);
   $("#retry-btn").addEventListener("click", () => location.reload());
 
+  // Touch feedback: controls give under the finger and spring back (GSAP; no-op without it).
+  const pressable = ".btn, .vote, .dock-link, .d-chip, .d-toggle, .to-top, .link-btn";
+  document.addEventListener("pointerdown", (e) => { const b = e.target.closest(pressable); if (b && !b.disabled) motion.press(b); }, { passive: true });
+  for (const type of ["pointerup", "pointercancel", "pointerleave"]) {
+    document.addEventListener(type, (e) => { const b = e.target.closest?.(pressable); if (b) motion.release(b); }, { passive: true, capture: type === "pointerleave" });
+  }
+  // Glass highlight follows the pointer on mouse/trackpad devices.
+  if (matchMedia("(hover: hover) and (pointer: fine)").matches) {
+    document.addEventListener("pointermove", (e) => {
+      const el = e.target.closest(".sheen, .glass");
+      if (!el) return;
+      const r = el.getBoundingClientRect();
+      motion.sheen(el, ((e.clientX - r.left) / r.width) * 100, ((e.clientY - r.top) / r.height) * 100);
+    }, { passive: true });
+  }
+
   document.addEventListener("click", (e) => {
+    const toggle = e.target.closest("button[data-dtoggle]");
+    if (toggle) { toggleDecision(toggle.dataset.dtoggle); return; }
+    const dockLink = e.target.closest("a[data-dock]");
+    if (dockLink) { e.preventDefault(); motion.scrollTo(document.getElementById(dockLink.dataset.dock), topOffset()); return; }
     // Votes (strip and chat cards share the same markup).
     const vote = e.target.closest("button[data-vote]");
     if (vote && !vote.disabled) { castVote(vote.dataset.pid, vote.dataset.vote); return; }
@@ -1037,6 +1124,37 @@ function wireStaticUi() {
   addEventListener("resize", () => requestAnimationFrame(place));
 
   S.clockTimer = setInterval(() => { renderStatus(); maybeSendReminders(); }, 30000);
+  wireDock();
+}
+
+// Space the floating section bar takes at the top, so scrolled-to content lands below it.
+function topOffset() {
+  // The bar is about 52 px tall at 10 px from the top, and it appears as soon as the title scrolls away.
+  return 76;
+}
+
+// Floating section bar: shown once the title has scrolled away; the pill follows the section in view.
+function wireDock() {
+  const dock = $("#dock");
+  const header = $("header.title");
+  const indicator = $(".dock-indicator");
+  if (!("IntersectionObserver" in window)) return;
+  new IntersectionObserver(([entry]) => {
+    const want = !entry.isIntersecting && !$("#screen-board").hidden;
+    if (want && dock.hidden) { motion.showDock(dock); requestAnimationFrame(() => setActive(S.activeSection || "plan")); }
+    else if (!want && !dock.hidden) motion.hideDock(dock);
+  }, { threshold: 0 }).observe(header);
+  const setActive = (id) => {
+    S.activeSection = id;
+    for (const a of dock.querySelectorAll("[data-dock]")) a.toggleAttribute("aria-current", a.dataset.dock === id);
+    if (!dock.hidden) motion.moveIndicator(indicator, dock.querySelector(`[data-dock="${id}"]`));
+  };
+  // The section crossing a band just above the middle of the screen is the active one.
+  const io = new IntersectionObserver((entries) => {
+    const hit = entries.filter((en) => en.isIntersecting).pop();
+    if (hit) setActive(hit.target.id);
+  }, { rootMargin: "-35% 0px -55% 0px" });
+  for (const id of ["plan", "chat", "details"]) io.observe(document.getElementById(id));
 }
 
 // Where the back-to-top button can sit without covering the composer or any vote buttons:

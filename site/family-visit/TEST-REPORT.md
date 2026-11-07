@@ -1,5 +1,9 @@
 # Family Visit: emulator test report
 
+## v3 re-run (branch `family-visit-v2`, 2026-11-07)
+
+**12 of 12 end-to-end tests and 13 of 13 QC checks pass**, with Vietnamese fixtures and test strings. The offline sign-out test now also checks that the page stays on the sign-in screen while offline, reloads itself on reconnect, and comes back signed out. The new QC check covers the GSAP plugins, the glass, the font, the floating section bar, and the D details toggle.
+
 ## v2 re-run (branch `family-visit-v2`, 2026-11-07)
 
 **Result: 12 of 12 end-to-end tests pass, plus 12 of 12 QC checks** (see `QC-REPORT.md`).

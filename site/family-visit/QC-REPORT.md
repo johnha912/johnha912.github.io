@@ -1,5 +1,24 @@
 # Family Visit: QC report
 
+## v3: liquid glass, GSAP, readable D section, Google Sans (branch `family-visit-v2`, 2026-11-07)
+
+`node site/family-visit/tests/run.mjs --qc` passed 25 of 25 against the emulator, with Vietnamese fixtures (screenshots in `FV_QC_DIR`, outside the repo).
+
+| Check | Result | Evidence |
+|---|---|---|
+| GSAP core + ScrollTrigger + Flip + SplitText + ScrollToPlugin + CustomEase load and run | PASS | QC "liquid glass + GSAP": all six present, 8 ScrollTriggers live. |
+| Glass surfaces render | PASS | The plan card computes `backdrop-filter: blur(22px) saturate(1.8)`. `v3-dock-390.png`, `v3-details-open-390.png`. |
+| Google Sans renders Vietnamese | PASS | `document.fonts.check('16px "Google Sans"', "ấ ở ữ")` is true. |
+| Floating section bar | PASS | Hidden at the top, shown after scrolling. Tapping "Chi tiết D" scrolled to the section and moved the active pill (`aria-current`). |
+| D section: chips, badge + topic, pill, intro, conclusion, folded details | PASS | Details open and close (Flip). A table D-link opens the card it lands on (phone pass, 360 and 390 px). The fidelity check still matches every topic, question, intro, status, resolution, and option to the data, character for character. |
+| Same page with GSAP blocked, and with reduced motion | PASS | "Full flow with the GSAP CDN blocked" (the route blocks core and every plugin). Full-page screenshots run with reduced motion. |
+| Vietnamese audit, touch targets, no horizontal scroll, layout order | PASS | 2,754 interface words with 0 English; every control ≥ 44 px measured at rest; scrollWidth 360 / 390; opens at scrollY 0. |
+| Offline sign-out | PASS (fixed bug) | Previously a quick reload could come back signed in, and an offline reload hit the browser's error page. Now it stays signed out, waits on the sign-in screen offline, and reloads itself when back online (5 of 5 repeated runs green). |
+| Console clean | PASS | The GSAP unit warning from the glass highlight is fixed; 0 errors in the sign-in, post, reload cycle and in the GSAP feature test. |
+| Real-phone feel of blur and motion (frame rate, battery) | BLOCKED-LIVE | A headless browser cannot judge smoothness on a real iPhone or Android. Muse should check on a phone. |
+
+---
+
 ## v2: Vietnamese UI, one chat, Plan, then Chat, then Details (branch `family-visit-v2`, 2026-11-07)
 
 Evidence: `node site/family-visit/tests/run.mjs --qc` passed 24 of 24 (12 end-to-end, 12 QC), run against the Firebase Local Emulator Suite. Per-test detail is in `tests/last-run.json`.
