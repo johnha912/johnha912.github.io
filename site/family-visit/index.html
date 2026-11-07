@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#eef1f4" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#151b22" media="(prefers-color-scheme: dark)">
+<title>Family Visit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="app.css">
+<!-- GSAP 3.13.0 core, pinned. Enhancement only: everything works the same if this never loads. -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
+<script type="module" src="app.js"></script>
+</head>
+<body data-conn="connecting">
+<noscript><p class="noscript">This family planning board needs JavaScript turned on.</p></noscript>
+
+<section id="screen-loading" data-screen class="gate-screen" aria-live="polite">
+  <p class="gate-brand">Family Visit</p>
+  <p>Opening the family board…</p>
+</section>
+
+<section id="screen-signin" data-screen class="gate-screen" hidden>
+  <h1 class="gate-brand">Family Visit</h1>
+  <p>This board is private to the family. Sign in with the Google account you use for it.</p>
+  <button id="signin-btn" type="button" class="btn btn--primary btn--big">Sign in with Google</button>
+  <p id="signin-error" class="gate-error" role="alert"></p>
+  <button id="retry-btn" type="button" class="btn">Reload the page</button>
+</section>
+
+<section id="screen-denied" data-screen class="gate-screen" hidden>
+  <h1 class="gate-brand">Family Visit</h1>
+  <p>This Google account isn't on the family list for this board. Sign out, then sign in with the account you shared with the family.</p>
+  <button id="signout-denied" type="button" class="btn btn--primary btn--big">Sign out</button>
+</section>
+
+<main id="screen-board" data-screen hidden>
+  <header class="title" id="top">
+    <div class="title-row">
+      <h1 id="trip-title">Family Visit</h1>
+      <div class="account">
+        <span class="account-name">Signed in as <strong id="who"></strong></span>
+        <button id="signout" type="button" class="btn btn--quiet">Sign out</button>
+      </div>
+    </div>
+    <p id="trip-window" class="trip-window"></p>
+    <div class="status-line">
+      <p class="status"><span class="conn-dot" aria-hidden="true"></span><span id="conn">Connecting</span></p>
+      <p class="status" id="agents-active"></p>
+      <ul id="presence" class="presence" aria-label="Who is online"></ul>
+    </div>
+  </header>
+
+  <div id="banner" class="banner" role="status" hidden></div>
+
+  <section id="plan" class="plan" aria-labelledby="plan-heading">
+    <h2 id="plan-heading">Travel plan</h2>
+    <p id="snapshot-notice" class="snapshot-notice" role="status" hidden></p>
+    <div id="pending-strip" class="pending-strip" aria-live="polite" hidden></div>
+    <div class="table-wrap" role="region" aria-label="Trip timeline (scrolls sideways on small screens)" tabindex="0">
+      <table class="timeline">
+        <caption class="sr-only">Confirmed trip timeline, one row per day or leg</caption>
+        <thead>
+          <tr>
+            <th scope="col" class="c-date">Date</th>
+            <th scope="col">City / leg</th>
+            <th scope="col">Transport</th>
+            <th scope="col">Stay</th>
+            <th scope="col">Main activities</th>
+            <th scope="col">Est. cost</th>
+            <th scope="col">Status</th>
+          </tr>
+        </thead>
+        <tbody id="timeline-body"></tbody>
+      </table>
+    </div>
+    <p id="table-meta" class="table-meta"></p>
+
+    <details class="decisions-box" open>
+      <summary><h3>Open decisions</h3></summary>
+      <p class="decisions-note">Prices are quotes as checked on the date shown, copied exactly from the agents' research.</p>
+      <ul id="decisions" class="decisions"></ul>
+    </details>
+  </section>
+
+  <section id="chat" class="chat" aria-labelledby="chat-heading">
+    <h2 id="chat-heading">Discussion</h2>
+    <div class="chat-frame">
+      <div id="threads" class="tabs" role="tablist" aria-label="Topics"></div>
+      <div class="thread-head">
+        <h3 id="thread-name" class="thread-name">General</h3>
+        <div id="summary" class="summary"></div>
+      </div>
+      <ul id="messages" class="messages" aria-label="Messages" aria-live="polite">
+        <li id="load-older-wrap" class="load-older" hidden><button id="load-older" type="button" class="btn btn--quiet">Load earlier messages</button></li>
+      </ul>
+      <form id="composer-form" class="composer" autocomplete="off">
+        <div id="replying" class="replying" hidden>
+          <span id="replying-text"></span>
+          <button id="cancel-reply" type="button" class="link-btn">Cancel reply</button>
+        </div>
+        <div class="composer-row">
+          <label for="composer" class="sr-only">Message</label>
+          <textarea id="composer" rows="1" maxlength="2000" placeholder="Write to the family and agents" enterkeyhint="enter"></textarea>
+          <button type="submit" class="btn btn--primary send">Send</button>
+        </div>
+        <p class="privacy-note">Never post home addresses, ID or passport numbers, or booking codes here.</p>
+        <p id="composer-error" class="composer-error" role="alert"></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<button id="to-top" type="button" class="to-top" hidden>
+  <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  <span>Back to top</span>
+</button>
+</body>
+</html>
