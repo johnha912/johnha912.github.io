@@ -166,3 +166,10 @@ A separate reviewer read the rules and client code. It found no rules hole (forg
 
 - **The brief puts `board.json` (and the reports) in `site/family-visit/`, which GitHub Pages serves to anyone who knows the URL.** noindex keeps the files out of search results but does not hide them. Exposed: route, dates, quoted prices, and the open B1/B2 visa question. Not exposed: addresses, documents, and booking codes.
 - **Unsalted hashes can be guessed.** Someone who guesses a candidate address can confirm it against the published hash. Allow-listing by Firebase UID would avoid this, but the UIDs only exist after each person's first sign-in.
+
+## v5 (branch `family-visit-v5`, 2026-11-07): member name chips in the header
+
+| Check | Result | Evidence |
+|---|---|---|
+| Name chips render | CODE-REVIEWED, live E2E pending | `renderPresence()` emits dot + visible name + visible status word per member; `.pres--me` + "Bạn" badge for the signed-in member. Emulator suite not run on the build machine (no Java/firebase-tools/Playwright); suite assertions were extended for the chips and `node --check` passes. |
+| Everything else unchanged | PASS by diff scope | v5 diff touches only `app.js` (renderPresence), `app.css` (.pres block), `tests/e2e.mjs`, and these reports. |
