@@ -173,3 +173,10 @@ A separate reviewer read the rules and client code. It found no rules hole (forg
 |---|---|---|
 | Name chips render | CODE-REVIEWED, live E2E pending | `renderPresence()` emits dot + visible name + visible status word per member; `.pres--me` + "Bạn" badge for the signed-in member. Emulator suite not run on the build machine (no Java/firebase-tools/Playwright); suite assertions were extended for the chips and `node --check` passes. |
 | Everything else unchanged | PASS by diff scope | v5 diff touches only `app.js` (renderPresence), `app.css` (.pres block), `tests/e2e.mjs`, and these reports. |
+
+## v6 (branch `family-visit-v6`, 2026-11-07): sign-out becomes a real button; "Bạn" badge removed
+
+| Check | Result | Evidence |
+|---|---|---|
+| Sign-out reads as a button | CODE-REVIEWED, live E2E pending | `#signout` switched from `.btn--quiet` (transparent) to `.btn--signout` (solid glass bg, strong border, 44px). |
+| No "Bạn" badge | CODE-REVIEWED, live E2E pending | `.pres-you` removed from render + CSS; e2e asserts its absence. Self chip keeps the pine highlight only. |

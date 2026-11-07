@@ -711,8 +711,7 @@ function renderPresence() {
       h("span", { class: "dot", "aria-hidden": "true" }),
       h("span", { class: "pres-text" },
         h("span", { class: "pres-name", text: gate.NAMES[m] }),
-        h("span", { class: "pres-state", text: PRESENCE_VI[st] || st })),
-      mine ? h("span", { class: "pres-you", text: "Bạn" }) : null);
+        h("span", { class: "pres-state", text: PRESENCE_VI[st] || st })));
   }));
 }
 
