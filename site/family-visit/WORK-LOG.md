@@ -232,3 +232,8 @@ Final run: 25 of 25 (12 end-to-end, 13 QC).
 - **Reply quotes:** "Trả lời X: …" lost the space after the colon (separate flex items), fixed with one inner span.
 - **QC fidelity check:** now waits for the seeded discussion posts, not just the decisions and rows. It had read the page while only the cached newest message was loaded.
 - Final run: 26 of 26 (13 end-to-end, 13 QC).
+
+## v5 addendum (built by Muse, 2026-11-07 — owner authorized Muse to build directly; Claude Code was out of tokens)
+
+- **Name chips in the header** (owner feedback: "Chỗ đăng xuất để thẻ như tên John Nickie Johnny để hiện rõ hơn"): `renderPresence()` now emits readable chips — status dot + name (15px semibold) + the status word visible (`Trực tuyến / Tạm vắng / Ngoại tuyến`, previously sr-only/title only) — and the signed-in member's chip gets `.pres--me` (pine highlight) plus a "Bạn" badge. CSS `.pres` enlarged to chip padding 8px 14px within the existing liquid-glass tokens; no data path, rules, or other section touched. Spec: `UI-V5-BRIEF.md` + `UI-V5-HANDOVER.md` in the goal workspace.
+- **Tests:** the e2e presence test gained three assertions (exactly 3 chips; own chip carries the "Bạn" marker; the status word is visible text on a chip). The emulator suite was NOT run for v5 on Muse's VM (no Java / firebase-tools / Playwright there); `node --check` passes on `app.js` and `tests/e2e.mjs`. Verification gate for v5 is Muse's independent live E2E after merge, per the owner's standing protocol; the extended suite should be re-run on the dev machine at the next opportunity.
