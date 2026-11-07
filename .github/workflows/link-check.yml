@@ -20,8 +20,12 @@ jobs:
         uses: lycheeverse/lychee-action@v2
         with:
           # LinkedIn and Instagram block bots (999/429), so those codes count as reachable.
+          # A slow reference site once timed out for one run (issue #1), so wait longer and retry before reporting.
           args: >-
             --no-progress
+            --timeout 45
+            --max-retries 5
+            --retry-wait-time 10
             --root-dir ${{ github.workspace }}/site
             --accept 200..=299,403,429,999
             --exclude-path site/home
