@@ -1,5 +1,20 @@
 # Family Visit: QC report
 
+## v4 (branch `family-visit-v2`, 2026-11-07): "ba mẹ", round back-to-top, one chat with agent topics
+
+| Check | Result | Evidence |
+|---|---|---|
+| One chat only | PASS | New test: a message in a legacy thread is never shown; no tabs; every post is stored in `threads/general`. |
+| Agent topics | PASS | Tags render ("Vé máy bay"); filter chips "Tất cả / Vé máy bay (2) / Ngân sách (1)"; a reply inherits its parent's topic; filtering shows one topic; posting while filtered resets to "Tất cả". `v3-chat-topics-1280.png` |
+| Back-to-top: round glass arrow, ≥ 44 px, avoids the composer and vote buttons | PASS | 52 × 52 px; back-to-top QC (0 overlaps in 4 positions). `back-to-top-360.png` |
+| "Ba mẹ" everywhere | PASS | `grep` finds no "bố mẹ" in the page, the scripts, the tests, or the fixtures. |
+| Vietnamese audit with topic chips on screen | PASS | 2,850 interface words, 0 English (place names in topic labels allowed: San Jose, New York, Niagara, Pennsylvania). |
+| Full suite | PASS | 26 of 26. |
+
+Handoff notes for Muse: `MUSE-HANDOFF.md`.
+
+---
+
 ## v3: liquid glass, GSAP, readable D section, Google Sans (branch `family-visit-v2`, 2026-11-07)
 
 `node site/family-visit/tests/run.mjs --qc` passed 25 of 25 against the emulator, with Vietnamese fixtures (screenshots in `FV_QC_DIR`, outside the repo).

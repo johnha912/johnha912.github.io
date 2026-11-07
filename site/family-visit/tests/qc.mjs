@@ -13,6 +13,8 @@ const close = async (...s) => { for (const x of s) await x?.context?.close().cat
 async function baseline(ctx, { proposal = true, votes } = {}) {
   await admin.clearAll();
   await admin.seedBaseline(ctx.seed, ctx.board);
+  // One agent message with a topic, so the topic tag and filter chips are part of every QC screen.
+  await admin.setDoc("threads/general/messages/qc-agent-topic-1", { id: "qc-agent-topic-1", threadId: "general", authorKind: "agent", role: "Itinerary & Food", category: "nyc", text: "Gợi ý vài quán ăn gần khách sạn ở New York.", replyTo: null, createdAt: new Date(), clientCreatedAt: Date.now(), deleted: false });
   if (proposal) {
     const sj = admin.cells(ctx.seed.rows.find((r) => r.id === "san-jose"));
     await admin.seedProposal("qc-proposal-1", {
@@ -36,7 +38,7 @@ const ENGLISH = new Set(("the and you your to of is are on in with for this that
   "cancel edit edited delete deleted keep save send sending write never post home addresses passport numbers booking codes back top open " +
   "decisions decision prices quotes copied research needs network minutes min ago just now hours characters couldn't didn't isn't can't " +
   "chat flights budget documents general san jose nyc niagara falls pennsylvania").split(/\s+/));
-const ALLOWED = new Set(["john", "nickie", "johnny", "google", "visa", "cccd", "d1", "d2", "d3", "d4"]);
+const ALLOWED = new Set(["john", "nickie", "johnny", "google", "visa", "cccd", "d1", "d2", "d3", "d4", "san", "jose", "new", "york", "niagara", "pennsylvania"]); // + place names used as topic labels
 const pos = (page, sel) => page.$eval(sel, (n) => { const r = n.getBoundingClientRect(); return { top: r.top + scrollY, bottom: r.bottom + scrollY, left: r.left, right: r.right, height: r.height }; });
 
 export const tests = [
@@ -194,7 +196,8 @@ export const tests = [
     async run(ctx) {
       await baseline(ctx, { proposal: false });
       const s = await newSession(ctx.browser, { member: "john" });
-      await eventually(async () => (await s.page.$$eval(".decision", (n) => n.length)) === ctx.board.decisions.length && (await s.page.$$eval("#timeline-body tr[data-row]", (n) => n.length)) === ctx.seed.rows.length);
+      await eventually(async () => (await s.page.$$eval(".decision", (n) => n.length)) === ctx.board.decisions.length && (await s.page.$$eval("#timeline-body tr[data-row]", (n) => n.length)) === ctx.seed.rows.length
+        && (await s.page.$$eval("#messages .msg--agent", (n) => n.length)) === ctx.board.discussion.length + 1); // + the QC topic message
       const dom = await s.page.evaluate(() => ({
         title: document.querySelector("#trip-title").textContent,
         decisions: [...document.querySelectorAll(".decision")].map((li) => ({
@@ -214,7 +217,7 @@ export const tests = [
         rows: [...document.querySelectorAll("#timeline-body tr")].map((tr) => [...tr.children].map((c) => c.textContent))
       }));
       const b = ctx.board;
-      assert(dom.title === "Chuyến thăm của bố mẹ, tháng 12/2026", "title differs"); // Static page title (trip meta no longer ships with the page).
+      assert(dom.title === "Chuyến thăm của ba mẹ, tháng 12/2026", "title differs"); // Static page title (trip meta no longer ships with the page).
       assert(dom.decisions.length === b.decisions.length, "decision count differs");
       let prices = 0;
       b.decisions.forEach((d, i) => {
@@ -229,7 +232,7 @@ export const tests = [
       });
       b.discussion.forEach((d, i) => {
         const r = dom.discussion[i];
-        assert(r && r.role === ROLE_VI[d.agent] && r.topic === d.topic && r.text === d.text, `discussion ${i + 1} differs`); // role shown through the Vietnamese display map // Time not compared: seeded posts now carry a real Firestore timestamp instead of the fixture display string.
+        assert(r && r.role === ROLE_VI[d.agent] && r.topic === d.topic && r.text === d.text, `discussion ${i + 1} differs: ${JSON.stringify(r)}`); // role shown through the Vietnamese display map // Time not compared: seeded posts now carry a real Firestore timestamp instead of the fixture display string.
       });
       ctx.seed.rows.forEach((row, i) => {
         assert(JSON.stringify(dom.rows[i]) === JSON.stringify([row.date, row.leg, row.transport, row.stay, row.activities, row.cost, row.status]), `timeline row ${row.id} differs`);
@@ -251,7 +254,7 @@ export const tests = [
         const placeholders = text.match(/lorem|ipsum|\bTODO\b|\bTBD\b|\bFIXME\b|xxx|placeholder/gi) || [];
         const known = new Set(["signin-btn", "retry-btn", "signout-denied", "signout", "cancel-reply", "load-older", "to-top"]);
         const dead = [...document.querySelectorAll("button")].filter((b) =>
-          !known.has(b.id) && !b.dataset.vote && !b.dataset.action && !b.dataset.dtoggle && b.type !== "submit").map((b) => b.outerHTML.slice(0, 80));
+          !known.has(b.id) && !b.dataset.vote && !b.dataset.action && !b.dataset.dtoggle && !b.dataset.cat && b.type !== "submit").map((b) => b.outerHTML.slice(0, 80));
         return { emails, placeholders, dead, buttons: document.querySelectorAll("button").length };
       });
       assert(r.emails.length === 0, `email in UI: ${r.emails.length}`);

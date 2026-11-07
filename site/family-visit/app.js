@@ -18,6 +18,12 @@ const AGENTS = {
   "Scout — Research & Verification": { key: "scout", vi: "Kiểm chứng thông tin" },
   "Visa & Documents": { key: "visa", vi: "Visa & Giấy tờ" }
 };
+// One chat, but agents tag each of their messages with a topic (field `category`, one of these ids).
+// The chat shows the tag and offers a filter; a reply takes the topic of the message it answers.
+const CATEGORIES = {
+  "flights": "Vé máy bay", "san-jose": "San Jose", "nyc": "New York", "niagara-falls": "Thác Niagara",
+  "pennsylvania": "Pennsylvania", "budget": "Ngân sách", "documents-visa": "Giấy tờ & Visa", "general": "Chung"
+};
 const roleName = (role) => AGENTS[role]?.vi || role || "Nhóm trợ lý";
 const PAGE_SIZE = 50;
 const fast = usingEmulator() && new URLSearchParams(location.search).get("timing") === "fast";
@@ -94,6 +100,7 @@ const S = {
   replyTo: null, editing: null, confirmDelete: null,
   voteBusy: new Set(), voteMsg: new Map(),
   dOpen: new Set(),
+  catFilter: null,
   remindersTried: new Set(),
   snapshotMode: false, booted: false,
   presenceTimer: null, clockTimer: null
@@ -890,6 +897,30 @@ function renderSummary() {
   }
 }
 
+function msgCategory(m, depth = 0) {
+  if (m && CATEGORIES[m.category]) return m.category;
+  if (m?.kind === "reminder") return proposalCategory(S.proposals.get(m.proposalId));
+  if (m?.replyTo && depth < 5) return msgCategory(S.msgs.get(m.replyTo), depth + 1);
+  return null;
+}
+function proposalCategory(p) {
+  if (!p) return null;
+  if (CATEGORIES[p.category]) return p.category;
+  return p.threadId && p.threadId !== "general" && CATEGORIES[p.threadId] ? p.threadId : null;
+}
+
+function renderCatFilter() {
+  const box = $("#cat-filter");
+  const counts = {};
+  for (const m of S.msgs.values()) { const c = msgCategory(m); if (c) counts[c] = (counts[c] || 0) + 1; }
+  for (const p of S.proposals.values()) { const c = proposalCategory(p); if (c) counts[c] = (counts[c] || 0) + 1; }
+  const cats = Object.keys(CATEGORIES).filter((c) => counts[c]);
+  if (S.catFilter && !counts[S.catFilter]) S.catFilter = null;
+  box.hidden = cats.length === 0;
+  const chip = (id, label) => h("button", { type: "button", class: "cat-chip", "data-cat": id, "aria-pressed": String((S.catFilter || "all") === id) }, label);
+  box.replaceChildren(chip("all", "Tất cả"), ...cats.map((c) => chip(c, `${CATEGORIES[c]} (${counts[c]})`)));
+}
+
 function msgSortKey(m) {
   return tsMs(m.createdAt) ?? m.clientCreatedAt ?? 0;
 }
@@ -898,9 +929,11 @@ function renderMessages(reset = false) {
   const list = $("#messages");
   const nearBottom = list.scrollHeight - list.scrollTop - list.clientHeight < 80;
   const items = [];
-  for (const m of S.msgs.values()) items.push({ kind: "msg", key: m.id, sort: msgSortKey(m), m });
+  const f = S.catFilter;
+  for (const m of S.msgs.values()) if (!f || msgCategory(m) === f) items.push({ kind: "msg", key: m.id, sort: msgSortKey(m), m });
   // One chat: every proposal appears in it, whichever legacy thread it was filed under.
-  for (const p of S.proposals.values()) items.push({ kind: "proposal", key: `p-${p.id}`, sort: p.createdAtMs ?? 0, p });
+  for (const p of S.proposals.values()) if (!f || proposalCategory(p) === f) items.push({ kind: "proposal", key: `p-${p.id}`, sort: p.createdAtMs ?? 0, p });
+  renderCatFilter();
   items.sort((a, b) => a.sort - b.sort || String(a.key).localeCompare(String(b.key)));
 
   const existing = new Map([...list.querySelectorAll(":scope > li[data-key]")].map((n) => [n.dataset.key, n]));
@@ -909,7 +942,7 @@ function renderMessages(reset = false) {
   const nodes = items.map((it) => {
     const sig = it.kind === "proposal"
       ? JSON.stringify([it.p.status, it.p.votes, S.voteBusy.has(it.p.id), S.voteMsg.get(it.p.id), it.p.summary, decisionKey])
-      : JSON.stringify([it.m.text, it.m.deleted, it.m.editedAt ? 1 : 0, S.pending.has(it.key), S.editing === it.key, S.confirmDelete === it.key, it.m.replyTo]);
+      : JSON.stringify([it.m.text, it.m.deleted, it.m.editedAt ? 1 : 0, S.pending.has(it.key), S.editing === it.key, S.confirmDelete === it.key, it.m.replyTo, msgCategory(it.m)]);
     let node = existing.get(it.key);
     if (node && node.dataset.sig === sig) return node;
     if (node && S.editing === it.key && node.querySelector("textarea")) return node;
@@ -922,7 +955,8 @@ function renderMessages(reset = false) {
   });
   const sentinel = $("#load-older-wrap");
   list.replaceChildren(sentinel, ...nodes);
-  if (!items.length) list.append(h("li", { class: "empty", text: S.snapshotMode ? "Cần có mạng để xem và gửi tin nhắn. Tin nhắn sẽ hiện ở đây khi có mạng lại." : "Chưa có tin nhắn nào. Hãy bắt đầu trò chuyện ở ô bên dưới." }));
+  if (!items.length && f) list.append(h("li", { class: "empty", text: "Chưa có tin nhắn nào trong chủ đề này." }));
+  else if (!items.length) list.append(h("li", { class: "empty", text: S.snapshotMode ? "Cần có mạng để xem và gửi tin nhắn. Tin nhắn sẽ hiện ở đây khi có mạng lại." : "Chưa có tin nhắn nào. Hãy bắt đầu trò chuyện ở ô bên dưới." }));
   renderLoadOlder();
   fresh.forEach((n) => (n.classList.contains("msg--proposal") ? motion.stateChanged(n) : motion.settleIn(n)));
   // Keeps the newest message in view inside the chat box (the page itself does not scroll).
@@ -931,7 +965,8 @@ function renderMessages(reset = false) {
 
 function proposalItem(p) {
   return h("li", { class: "msg msg--agent msg--proposal", "data-status": p.status },
-    h("div", { class: "msg-head" }, roleLabel(p.createdBy || "Coordinator"), h("span", { class: "msg-time", text: p.createdAtMs ? fmtTime(p.createdAtMs) : "" })),
+    h("div", { class: "msg-head" }, roleLabel(p.createdBy || "Coordinator"), h("span", { class: "msg-time", text: p.createdAtMs ? fmtTime(p.createdAtMs) : "" }),
+      proposalCategory(p) ? h("span", { class: "msg-cat", text: CATEGORIES[proposalCategory(p)] }) : null),
     proposalCard(p, "chat"));
 }
 
@@ -951,6 +986,7 @@ function messageItem(m) {
   const head = h("div", { class: "msg-head" },
     agent ? roleLabel(m.role) : h("span", { class: `author author--human member--${m.authorId}`, text: authorName(m) }),
     h("span", { class: "msg-time", text: ms ? fmtTime(ms) : "" }),
+    msgCategory(m) ? h("span", { class: "msg-cat", text: CATEGORIES[msgCategory(m)] }) : null,
     m.editedAt && !m.deleted ? h("span", { class: "msg-flag", text: "đã sửa" }) : null,
     S.pending.has(m.id) ? h("span", { class: "msg-flag msg-flag--sending", text: "đang gửi…" }) : null);
 
@@ -958,8 +994,9 @@ function messageItem(m) {
   if (m.replyTo) {
     const parent = S.msgs.get(m.replyTo);
     const snippet = parent ? (parent.deleted ? "tin nhắn đã xoá" : String(parent.text).slice(0, 90)) : "một tin nhắn trước đó";
+    // One inner span: the quote is a flex box, and separate flex items would drop the space after the colon.
     quote = h("a", { class: "quote", href: `#m-${m.replyTo}`, "data-jump": m.replyTo },
-      `Trả lời ${parent ? authorName(parent) : "một tin nhắn"}: `, dc("span", {}, snippet));
+      h("span", {}, `Trả lời ${parent ? authorName(parent) : "một tin nhắn"}: `, dc("span", {}, snippet)));
   }
 
   let body;
@@ -1045,6 +1082,8 @@ function wireStaticUi() {
   }
 
   document.addEventListener("click", (e) => {
+    const cat = e.target.closest("button[data-cat]");
+    if (cat) { S.catFilter = cat.dataset.cat === "all" ? null : cat.dataset.cat; renderMessages(true); return; }
     const toggle = e.target.closest("button[data-dtoggle]");
     if (toggle) { toggleDecision(toggle.dataset.dtoggle); return; }
     const dockLink = e.target.closest("a[data-dock]");
@@ -1102,6 +1141,8 @@ function wireStaticUi() {
     if (!text) return;
     if (S.snapshotMode || !S.fb || !S.member) { flash("Cần kết nối tới bảng gia đình để trò chuyện. Bản nháp đã được lưu trên máy này."); return; }
     if (text.length > 2000) { flash("Tin nhắn dài tối đa 2.000 ký tự."); return; }
+    // A new message has no topic of its own, so show the whole chat again or it would vanish from view.
+    if (S.catFilter && !S.replyTo) { S.catFilter = null; renderMessages(true); }
     sendMessage(text);
     ta.value = ""; autoGrow(ta); store.del(LS.draft);
   });
@@ -1160,7 +1201,7 @@ function wireDock() {
 // Where the back-to-top button can sit without covering the composer or any vote buttons:
 // start at its normal bottom-right spot and move up past whatever is underneath. If that would
 // take it more than halfway up the screen, it stays hidden until the obstacle scrolls away.
-let btnSize = { w: 150, h: 48 };
+let btnSize = { w: 52, h: 52 };
 function findSpot(btn) {
   if (!btn.hidden && btn.offsetWidth) btnSize = { w: btn.offsetWidth, h: btn.offsetHeight };
   const cs = getComputedStyle(btn);

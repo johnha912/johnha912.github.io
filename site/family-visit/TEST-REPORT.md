@@ -1,5 +1,9 @@
 # Family Visit: emulator test report
 
+## v4 re-run (branch `family-visit-v2`, 2026-11-07)
+
+**13 of 13 end-to-end tests and 13 of 13 QC checks pass.** The new end-to-end test, "one chat only", covers legacy-thread exclusion, topic tags, the topic filter, topic inheritance on replies, and that posting while filtered still goes to `general`.
+
 ## v3 re-run (branch `family-visit-v2`, 2026-11-07)
 
 **12 of 12 end-to-end tests and 13 of 13 QC checks pass**, with Vietnamese fixtures and test strings. The offline sign-out test now also checks that the page stays on the sign-in screen while offline, reloads itself on reconnect, and comes back signed out. The new QC check covers the GSAP plugins, the glass, the font, the floating section bar, and the D details toggle.

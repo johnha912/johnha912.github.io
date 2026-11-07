@@ -217,3 +217,18 @@ Owner feedback: fully Vietnamese, simpler, in the order Plan, then Bình luận 
 - English in old screenshots was test data, never interface text.
 
 Final run: 25 of 25 (12 end-to-end, 13 QC).
+
+## 8. v4 on the same branch (owner request, 2026-11-07)
+- **"Ba mẹ", not "bố mẹ":** every interface string, plus the test fixtures and test strings.
+- **Back-to-top:** now a 52 px round glass button with the arrow only. `aria-label` and `title` are "Lên đầu trang"; the overlap-avoidance logic is unchanged.
+- **One chat, checked:**
+  - The page reads and writes only `threads/general`. A new test seeds a message in a legacy thread and confirms it never shows. There are no tabs.
+- **Agents sort their own replies into topics:**
+  - Agent messages carry `category` (8 fixed ids). The chat shows a topic tag on each tagged message.
+  - A filter row ("Tất cả / Vé máy bay (3) / …") appears only when tagged messages exist.
+  - A reply inherits the topic of the message it answers, and a proposal's topic comes from `category`, or else its legacy `threadId`.
+  - Posting while a filter is on switches back to "Tất cả", so the new message never vanishes from view.
+  - The data contract for Muse is in `MUSE-HANDOFF.md`.
+- **Reply quotes:** "Trả lời X: …" lost the space after the colon (separate flex items), fixed with one inner span.
+- **QC fidelity check:** now waits for the seeded discussion posts, not just the decisions and rows. It had read the page while only the cached newest message was loaded.
+- Final run: 26 of 26 (13 end-to-end, 13 QC).
