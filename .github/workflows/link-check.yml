@@ -20,8 +20,11 @@ jobs:
         uses: lycheeverse/lychee-action@v2
         with:
           # LinkedIn and Instagram block bots (999/429), so those codes count as reachable.
+          # baristamagazine.com times out from GitHub's runners on every run (issue #1) but loads fine
+          # elsewhere, so it is skipped here; check it by hand in the monthly health check (docs/MAINTENANCE.md).
           args: >-
             --no-progress
+            --exclude 'baristamagazine\.com'
             --root-dir ${{ github.workspace }}/site
             --accept 200..=299,403,429,999
             --exclude-path site/home
