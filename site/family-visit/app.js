@@ -706,12 +706,8 @@ function renderPresence() {
   const wrap = $("#presence");
   wrap.replaceChildren(...gate.MEMBERS.map((m) => {
     const st = m === S.member && !S.snapshotMode ? "online" : presenceOf(m);
-    const mine = m === S.member;
-    return h("li", { class: `pres pres--${st}${mine ? " pres--me" : ""}`, title: `${gate.NAMES[m]}: ${PRESENCE_VI[st] || st}` },
-      h("span", { class: "dot", "aria-hidden": "true" }),
-      h("span", { class: "pres-text" },
-        h("span", { class: "pres-name", text: gate.NAMES[m] }),
-        h("span", { class: "pres-state", text: PRESENCE_VI[st] || st })));
+    return h("li", { class: `pres pres--${st}`, title: `${gate.NAMES[m]}: ${PRESENCE_VI[st] || st}` },
+      h("span", { class: "dot", "aria-hidden": "true" }), h("span", { text: gate.NAMES[m] }), h("span", { class: "sr-only", text: `: ${PRESENCE_VI[st] || st}` }));
   }));
 }
 
