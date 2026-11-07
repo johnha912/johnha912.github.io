@@ -203,3 +203,15 @@ A separate reviewer read the rules and client code. It found no rules hole (forg
 | Watcher detects issues | PASS (dry run) | Hook dry run on the new script returns the combined silent decision with an empty queue; live wake proven in the post-merge E2E below. |
 | Emulator suite | NOT RUN on this VM (no Java/firebase-tools/Playwright) | New e2e test (n) added for the report flow; suite run still owed on the dev PC, same standing note as v5–v8. |
 | Live E2E (tab → sheet → submit → team wake → resolve → regression) | See post-merge verification in WORK-LOG/QC addenda of the merge commit | Performed on the live page after merge, per the feature-change protocol. |
+
+## v9 live verification (2026-11-07, after merge — feature-change protocol)
+
+| Check | Result | Evidence |
+|---|---|---|
+| Tab hidden when signed out | PASS | Browser E2E: sign-in screen shows no Báo lỗi control. |
+| Tab on the board | PASS | Verbatim: "Vertical, translucent/glass tab reading 'Báo lỗi' at the right edge, vertically in the middle." |
+| Sheet + categories | PASS | Heading "Báo lỗi"; chips exactly "Hiển thị sai / Không bấm được / Nội dung sai / Khác". |
+| Offline guard | PASS | First submit while reconnecting was refused with "Cần có mạng để gửi báo lỗi…" and nothing was written; after reload (Trực tuyến) the submit succeeded. |
+| Submit → Firestore | PASS | Confirmation quoted exactly: "Đã gửi. Nhóm trợ lý sẽ kiểm tra và trả lời ngay trên bảng này." Issue doc landed once: reporter john, category display, status open, appVersion v9. |
+| Team pipeline | PASS | Watcher woke with the issue in its payload; the sweep posted a Coordinator acknowledgement on the board (Vietnamese), triaged it as John's labelled test, closed it `wontfix` with a note, queues clear. Test artifacts deleted afterwards. |
+| Regression | PASS | First plan row verbatim "Khoảng Chủ nhật 20/12/2026"; planMeta version still 1; sign-out clears content and hides the tab. |
