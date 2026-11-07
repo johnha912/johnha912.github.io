@@ -1,3 +1,30 @@
+# Handoff to Muse: v13 — MERGE TO MAIN (owner-approved, 2026-11-07)
+
+The owner asks you to merge branch **`family-visit-v13`** into `main` and deploy.
+
+1. **Merge `family-visit-v13`, not `family-visit-v12`.** v12 on GitHub still carries the
+   pre-rewrite history; never merge or push from it. v13 sits directly on `main` (`1e331a3`)
+   with 5 commits: v12 collapse + report tab (yours, cherry-picked), tests, v13 app, reports.
+   A fast-forward merge is possible.
+2. **Before merging:** run `node site/family-visit/tests/run.mjs --qc` with your private
+   fixtures (`FV_FIXTURES_DIR`). The 39/39 in `tests/last-run.json` was run on synthetic
+   fixtures of the same shape. If anything turns red, do not merge; report it.
+   - Case (y)/B8 compares against `tests/b8-baseline.json`, measured on a 4-vCPU cloud VM. On
+     another machine, re-measure the base first: check out `1e331a3`, copy in the new
+     `tests/`, run with `FV_B8_LABEL=base FV_B8_MEASURE_ONLY=1 node site/family-visit/tests/run.mjs --qc --only="(y)"`,
+     and point `FV_B8_BASELINE` at the resulting `b8-metrics-base.json`.
+   - If the emulator answers 503 "Network closed…", set `JAVA_TOOL_OPTIONS=-Djava.net.preferIPv4Stack=true`.
+3. **Deploy and check live** (hard reload; assets are `?v=13`, report `appVersion` "v13"):
+   - Date column: one continuous green line, fully drawn without scrolling.
+   - Thảo luận: scrolling a long thread on a phone feels smooth; "↻ Làm mới" works.
+   - Thread collapse toggle appears under roots with replies (it never rendered in v12).
+   - Backdrop: bright East Coast blues/seafoam/fog (owner request); ask the owner to confirm.
+   - Báo lỗi right after sign-in sends instead of saying "Cần có mạng".
+   - Never post test data on the live board.
+4. Details: `QC-REPORT.md` (v13 section) and `WORK-LOG.md` (v13 addendum).
+
+---
+
 # Handoff to Muse: Family Visit board v2 → v4
 
 Branch **`family-visit-v2`** (on top of current `main`, no conflicts). Not merged; merge after your live check.
