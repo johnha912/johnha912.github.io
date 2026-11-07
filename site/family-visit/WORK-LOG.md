@@ -132,3 +132,103 @@ Deploy notes:
 
 ## 5. Post-delivery change — Muse, Nov 7, 2026 (owner decision: plan data only in Firestore)
 The owner decided the trip plan must not be downloadable by link. `board.json` and `timeline-seed.json` were removed from `site/family-visit/` (the repo is public and the deploy publishes all of `site/`), and `loadSeedFiles()` in `app.js` is now a no-op: decisions, seeded discussion posts, and timeline rows come only from Firestore, seeded by the agents; the offline snapshot is the signed-in device's own cache. Test fixtures moved OUT of the repo: `tests/run.mjs` reads them from `FV_FIXTURES_DIR` (default: a `family-visit-fixtures/` folder next to the repo clone) and fails with a clear message if absent. `seedBaseline` now also seeds decisions + the two discussion posts from the board fixture, so the QC byte-identical check verifies the production Firestore path instead of the removed file fallback; its title assert now checks the static page title, and discussion timestamps are no longer compared (seeded posts carry real timestamps). The branch history was rewritten into a single commit so the removed files are not in the branch's history either; the original commit `60e1a25` may still exist in local clones — treat its two JSON files as already-seen and do not re-add them. Not re-run here: the emulator suite (needs the fixtures folder + Playwright/emulator on the dev machine) — Muse's live E2E covers the deployed build.
+
+## 6. v2: Vietnamese UI, one chat, Plan, then Chat, then Details (branch `family-visit-v2`, 2026-11-07)
+
+Owner feedback: fully Vietnamese, simpler, in the order Plan, then Bình luận (chat), then Chi tiết D1–D4, understandable by a first-time reader on a phone. Same v1 design language (frontend-design direction): same tokens, colors, route rail, and voting cards.
+
+**What changed**
+- **Vietnamese everywhere in the interface.**
+  - Screens: sign-in, denied, loading, and the header ("Đăng nhập bằng Google", "Đăng xuất", "Đã đăng nhập: <tên>").
+  - Status: connection and presence (Đang kết nối, Trực tuyến, Tạm vắng, Ngoại tuyến).
+  - Plan: table headers per the brief, table-meta line, proposal cards and votes (Đồng ý / Không, Đang chờ), with the brief's gate sentence.
+  - Chat: composer, reply, edit and delete, flags (đã sửa, đang gửi…).
+  - Notices: offline banners and snapshot notices, every error message, and the back-to-top label.
+  - Format: `<html lang="vi">`, dates as "7/11 lúc 09:14", relative times "vừa xong" / "N phút trước" / "N giờ trước".
+  - Agent roles go through the brief's display map; the data keeps the English ids.
+- **Order:** title, then Kế hoạch chuyến đi (pending strip and table), then Thảo luận, then Chi tiết các quyết định (D1–D4), then back-to-top. The page opens at scrollY 0. The chat keeps its newest message in view inside its own box, never by scrolling the page.
+- **One chat:**
+  - Removed: tabs, per-thread unread badges, per-thread "here" dots, and the eight `latest-*` listeners.
+  - The chat always reads and writes `threads/general`, and presence always writes `thread: "general"`. Rules and data are unchanged.
+- **D-links:**
+  - Whole tokens matching `\bD\d{1,2}\b` become links, but only when that decision exists in the data. This covers table cells, proposal summaries, and before/after values.
+  - A tap scrolls to `#decision-Dn` (smooth unless reduced motion is set), focuses it, and highlights it for 2 s.
+  - Each link has a 44 px tap area via padding cancelled by negative margins, so the line layout does not move.
+- **Decision cards:** the `intro` shows as a lead paragraph under the title. Resolved styling uses `resolved === true`, with `status === "resolved"` as a fallback, and adds a "Đã chốt" badge.
+- **Short orientation lines** under each section heading, so nobody needs a second explanation: what the table is, what the chat is for, what D1–D4 are.
+
+**Problems found and solved (gap-filling mandate)**
+1. **The v1 typeface had no Vietnamese glyphs.** Atkinson Hyperlegible Next ships only latin and latin-ext on Google Fonts; letters like ạ, ấ, and ở would fall back to a system font mid-word. It was switched to Be Vietnam Pro, drawn for Vietnamese and on Google Fonts with a `vietnamese` subset. Line-height went up slightly for stacked diacritics.
+2. **The 72-hour reminder text is pinned in English by `firestore.rules`.**
+   - Rather than change and redeploy the rules, the stored text stays as the rules require, and the chat renders `kind: "reminder"` messages from a Vietnamese template.
+   - The proposal summary comes from the proposal doc, or is parsed back out of the stored text.
+3. **Proposals filed under legacy threads.** Proposals now show in the one chat whatever their `threadId`, and the pending strip shows them all. A reminder is written to the proposal's own thread, so it is only visible when `threadId` is `general`. **Note for Muse:** file new proposals with `threadId: "general"`.
+4. **QC screenshots leaked the plan.** The v1 `site/family-visit/qc/*.png` showed the real plan with prices, still downloadable after `board.json` was removed. They were deleted on this branch. `tests/run.mjs` now writes screenshots to `FV_QC_DIR` (default `../family-visit-qc/`, outside the repo). They remain in `main`'s git history: flagged to the owner.
+5. **Accessibility labels must not carry data.** The proposal card's `aria-label` embedded the summary; it now uses `aria-labelledby` pointing at the summary heading. That lets the language audit treat attributes as interface text.
+6. **The decisions section was a collapsible `<details>`.** It is now a plain section, so a D-link can never land on a hidden card.
+7. **Loanword.** "chat" in an error message became "trò chuyện".
+
+**Could not verify here**
+- That the live Firestore content is all Vietnamese: this session has no access to the live project. If an English string shows up in live data, Muse should fix the data, not the UI.
+- Live Google sign-in, real phones, and the on-screen keyboard: same as v1, BLOCKED-LIVE.
+
+**Run log**
+- The first v2 run had 21 of 24 passing:
+  - D-link tap area measured 43 × 42 px; padding raised to 14/15 px.
+  - The seed-fidelity check read the page before the decisions arrived; it now waits for them.
+  - The reminder's proposal summary was not marked as data; it now is.
+- Final run: 24 of 24.
+
+## 7. v3 on the same branch: liquid-glass look, all fitting GSAP features, readable D section, Google Sans (owner request, 2026-11-07)
+
+**Look: iPhone-style liquid glass.** The page sits on four soft color fields (pine, sky, lantern, rose) that drift slowly. Every main surface is frosted glass:
+- Glass surfaces: title card, plan card, chat frame, decision cards, floating section bar, back-to-top, buttons, and vote buttons.
+- Recipe: translucent gradient, `backdrop-filter: blur(22px) saturate(180%)`, a bright inner top edge, a soft drop shadow, and a specular highlight. The highlight sits behind the content and follows the pointer on desktop.
+- The meaning colors are unchanged (evergreen = confirmed / OK, lantern = waiting, cranberry = No), and dark mode has its own glass set.
+- Without `backdrop-filter`, panels fall back to near-opaque.
+
+**Font: Google Sans.** Google Fonts now ships Google's own face with a `vietnamese` subset. Montserrat was the alternative; Google Sans reads better at small sizes and in the table.
+
+**GSAP 3.13 (all plugins free since 3.13), every effect enhancement-only:** reduced motion and a blocked CDN both give the same working page. Reveals use opacity, never visibility, so nothing becomes unclickable.
+- **Core + CustomEase:** a "liquid" settle curve; touch feedback (buttons give under the finger, then spring back with `elastic`); springy entrances for new messages and proposal cards; `quickTo` for the pointer-following glass highlight.
+- **SplitText:** the title words rise on first load (sign-in card and board). The split is reverted afterwards, so the text and accessibility are unchanged.
+- **ScrollTrigger:** sections below the fold rise in when reached; the backdrop drifts with scroll (parallax); a thin reading-progress line at the top; the table's route rail draws itself as the plan scrolls in (`--rail` feeds a `scaleY`); 8 triggers live.
+- **ScrollToPlugin:** the D-links, the section bar, and back-to-top glide to their target and stop below the floating bar.
+- **Flip:** opening or closing a decision card's details animates the card and slides every card below into place.
+- **Floating section bar** ("Kế hoạch / Thảo luận / Chi tiết D"): appears once the title scrolls away, and a glass pill slides under the section in view.
+- **Row glow:** rows a proposal just changed glow once when the table updates.
+
+**D section, rebuilt for a first read (owner said it looked cluttered):**
+1. **Chip row at the top:** one chip per decision ("D1 Lộ trình ✓", "D2 Visa"…) that jumps to the card.
+2. **Card header:** a large D badge, filled green when decided. The short topic is the title and the full question sits under it in muted text, replacing the one long "D3 Flights: Multi-city flights for 2 adults (…)" line.
+3. **Clear pill:** "Đã chốt" or "Chưa chốt", keyed on `resolved`.
+4. **The `intro` as the lead sentence;** the conclusion in its own green "Kết luận" box; the status under a small "Tình trạng" label.
+5. **Long option lists folded** behind "Xem chi tiết (N mục)" and expanded with Flip. A D-link from the table opens the card it lands on.
+6. **Options that pack alternatives as "A | B | C"** show one alternative per line. The separators stay in the DOM (hidden), so every option is still the database string character for character, which the QC fidelity check verifies.
+
+**Bugs found while testing (fixed):**
+- **Offline sign-out could leave the user signed in.** Firebase's `signOut` ran after the sign-in screen was already showing, so a quick reload or tab close came back signed in (5 of 6 tries). This existed since v1; the old test passed on timing luck. Now a "Đang đăng xuất…" screen shows until Firebase has dropped the saved session.
+- **Offline sign-out then reloaded into the browser's "no internet" page.** Now it stays on the sign-in screen and reloads itself when the connection returns. The test runs offline sign-out 5 of 5 times green and checks the user comes back signed out.
+- **The glass highlight used `%` units in `quickTo` on a custom property,** which made GSAP print a warning. It now uses unitless numbers multiplied in CSS.
+
+**Test data now Vietnamese** (owner saw English in screenshots):
+- The private fixtures (`FV_FIXTURES_DIR`) were translated with every price and time unchanged; a script asserted the dollar amounts match the originals.
+- Every test-authored string (proposal summaries, chat messages, harness probes) is Vietnamese too.
+- English in old screenshots was test data, never interface text.
+
+Final run: 25 of 25 (12 end-to-end, 13 QC).
+
+## 8. v4 on the same branch (owner request, 2026-11-07)
+- **"Ba mẹ", not "bố mẹ":** every interface string, plus the test fixtures and test strings.
+- **Back-to-top:** now a 52 px round glass button with the arrow only. `aria-label` and `title` are "Lên đầu trang"; the overlap-avoidance logic is unchanged.
+- **One chat, checked:**
+  - The page reads and writes only `threads/general`. A new test seeds a message in a legacy thread and confirms it never shows. There are no tabs.
+- **Agents sort their own replies into topics:**
+  - Agent messages carry `category` (8 fixed ids). The chat shows a topic tag on each tagged message.
+  - A filter row ("Tất cả / Vé máy bay (3) / …") appears only when tagged messages exist.
+  - A reply inherits the topic of the message it answers, and a proposal's topic comes from `category`, or else its legacy `threadId`.
+  - Posting while a filter is on switches back to "Tất cả", so the new message never vanishes from view.
+  - The data contract for Muse is in `MUSE-HANDOFF.md`.
+- **Reply quotes:** "Trả lời X: …" lost the space after the colon (separate flex items), fixed with one inner span.
+- **QC fidelity check:** now waits for the seeded discussion posts, not just the decisions and rows. It had read the page while only the cached newest message was loaded.
+- Final run: 26 of 26 (13 end-to-end, 13 QC).

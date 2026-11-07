@@ -1,5 +1,84 @@
 # Family Visit: QC report
 
+## v4 (branch `family-visit-v2`, 2026-11-07): "ba mẹ", round back-to-top, one chat with agent topics
+
+| Check | Result | Evidence |
+|---|---|---|
+| One chat only | PASS | New test: a message in a legacy thread is never shown; no tabs; every post is stored in `threads/general`. |
+| Agent topics | PASS | Tags render ("Vé máy bay"); filter chips "Tất cả / Vé máy bay (2) / Ngân sách (1)"; a reply inherits its parent's topic; filtering shows one topic; posting while filtered resets to "Tất cả". `v3-chat-topics-1280.png` |
+| Back-to-top: round glass arrow, ≥ 44 px, avoids the composer and vote buttons | PASS | 52 × 52 px; back-to-top QC (0 overlaps in 4 positions). `back-to-top-360.png` |
+| "Ba mẹ" everywhere | PASS | `grep` finds no "bố mẹ" in the page, the scripts, the tests, or the fixtures. |
+| Vietnamese audit with topic chips on screen | PASS | 2,850 interface words, 0 English (place names in topic labels allowed: San Jose, New York, Niagara, Pennsylvania). |
+| Full suite | PASS | 26 of 26. |
+
+Handoff notes for Muse: `MUSE-HANDOFF.md`.
+
+---
+
+## v3: liquid glass, GSAP, readable D section, Google Sans (branch `family-visit-v2`, 2026-11-07)
+
+`node site/family-visit/tests/run.mjs --qc` passed 25 of 25 against the emulator, with Vietnamese fixtures (screenshots in `FV_QC_DIR`, outside the repo).
+
+| Check | Result | Evidence |
+|---|---|---|
+| GSAP core + ScrollTrigger + Flip + SplitText + ScrollToPlugin + CustomEase load and run | PASS | QC "liquid glass + GSAP": all six present, 8 ScrollTriggers live. |
+| Glass surfaces render | PASS | The plan card computes `backdrop-filter: blur(22px) saturate(1.8)`. `v3-dock-390.png`, `v3-details-open-390.png`. |
+| Google Sans renders Vietnamese | PASS | `document.fonts.check('16px "Google Sans"', "ấ ở ữ")` is true. |
+| Floating section bar | PASS | Hidden at the top, shown after scrolling. Tapping "Chi tiết D" scrolled to the section and moved the active pill (`aria-current`). |
+| D section: chips, badge + topic, pill, intro, conclusion, folded details | PASS | Details open and close (Flip). A table D-link opens the card it lands on (phone pass, 360 and 390 px). The fidelity check still matches every topic, question, intro, status, resolution, and option to the data, character for character. |
+| Same page with GSAP blocked, and with reduced motion | PASS | "Full flow with the GSAP CDN blocked" (the route blocks core and every plugin). Full-page screenshots run with reduced motion. |
+| Vietnamese audit, touch targets, no horizontal scroll, layout order | PASS | 2,754 interface words with 0 English; every control ≥ 44 px measured at rest; scrollWidth 360 / 390; opens at scrollY 0. |
+| Offline sign-out | PASS (fixed bug) | Previously a quick reload could come back signed in, and an offline reload hit the browser's error page. Now it stays signed out, waits on the sign-in screen offline, and reloads itself when back online (5 of 5 repeated runs green). |
+| Console clean | PASS | The GSAP unit warning from the glass highlight is fixed; 0 errors in the sign-in, post, reload cycle and in the GSAP feature test. |
+| Real-phone feel of blur and motion (frame rate, battery) | BLOCKED-LIVE | A headless browser cannot judge smoothness on a real iPhone or Android. Muse should check on a phone. |
+
+---
+
+## v2: Vietnamese UI, one chat, Plan, then Chat, then Details (branch `family-visit-v2`, 2026-11-07)
+
+Evidence: `node site/family-visit/tests/run.mjs --qc` passed 24 of 24 (12 end-to-end, 12 QC), run against the Firebase Local Emulator Suite. Per-test detail is in `tests/last-run.json`.
+- **Fixtures:** read from `FV_FIXTURES_DIR`, outside the repo. They are the v1 seed files plus test-only `intro` text for D1–D4 and `resolved: true` on D1.
+- **Screenshots:** now written outside the repo (`FV_QC_DIR`, default `../family-visit-qc/`), because they show the seeded plan and `site/` is published. The eight v1 screenshots in `site/family-visit/qc/` showed the real plan, including prices, so they were deleted on this branch. They remain in `main`'s git history (see the open risk below).
+
+| Check | Result | Evidence |
+|---|---|---|
+| (a) No user-visible English left in the interface, runtime audit | PASS | QC "Vietnamese UI audit". Every visible text node plus every `aria-label`, `title`, and `placeholder` on 6 screens: sign-in, denied, board, reply + delete confirm, edit, and offline. That is 2,460 words with 0 English hits. Database content (marked `data-c`) is excluded. |
+| (a) Same check on the source, static grep | PASS | Every string literal in `app.js`, `gate.js`, `live.js`, `motion.js`, and `index.html` was scanned with the same word list. Of 24 hits, none is visible text; each is an intentional exception listed below. |
+| (a) `<html lang="vi">`, vi-VN dates, Vietnamese relative times | PASS | The audit asserts `lang="vi"`. Dates render as "7/11 lúc 09:14"; relative times as "vừa xong", "N phút trước", and "N giờ trước". |
+| (a) Agent role names through the display map | PASS | Seeded agent posts render "Điều phối" and "Vé & Di chuyển" (the QC seed check compares them against the map). The data still holds the English role ids. |
+| (b) Emulator suite re-run green | PASS | 12 of 12 end-to-end tests, including (a) live two-session sync, (b) whitelist, (c) offline exactly once, (d) malformed writes, (e) reconnect and polling, (e2) offline snapshot, and (f) the 3-of-3 gate. |
+| (b) Vote gate after the decisions section moved | PASS | Test (f): no change at 2 OK (rows JSON and table HTML byte-identical), applied at the 3rd OK with version bumps, and one No froze the proposal with the table byte-identical. Forged applies were refused. |
+| (c) 360 px: plan first, chat by scrolling, D-link to the card | PASS | Opened at scrollY 0 with "Kế hoạch chuyến đi" at 244 px. The composer is reachable by scrolling. Tapping D3 in the table (tap area 53 × 48 px) brought `#decision-D3` into the top half of the screen and highlighted it. Evidence: `v2-first-screen-360.png`, `v2-dlink-target-360.png`. |
+| (c) 390 px: same | PASS | Same results, scrollWidth 390. |
+| (c) Layout order at 360 and 1440 px | PASS | At 360 px: title 0, plan table 1040, chat 1682, details 2526. At 1440 px: 0, 699, 1199, 2069. Both opened at scrollY 0. Evidence: `layout-360.png`, `layout-1440.png`. |
+| (c) No horizontal page scroll, targets ≥ 44 px | PASS | scrollWidth 360 / 390. Every visible control, the D-links included, is ≥ 44 × 44 px. |
+| (d) Sign-in gate | PASS | Test (b): non-member refused, plus unverified-email and non-Google sign-ins. |
+| (d) Realtime two-session sync | PASS | Test (a): seen 524 ms after send, no reload. |
+| (d) Sign-out purge | PASS | Offline sign-out reached the sign-in screen in 189 ms. After reload: 0 `fv-*` keys, 0 rendered rows or messages. |
+| One chat, no tabs | PASS | The presence/reply test asserts no tab elements, and every post lands in `threads/general`. |
+| Decision cards render `intro`; resolved styling keyed on `resolved === true` | PASS | The QC seed check compares each card's intro to the data and the resolved class to `resolved === true \|\| status === "resolved"`. D1 shows the "Đã chốt" badge. |
+| GSAP blocked, console clean, noindex, isolation, back-to-top | PASS | Same v1 QC tests re-run: all pass. |
+| Live data is fully Vietnamese | BLOCKED-LIVE | This session cannot read the live project. Tests use the English v1 fixtures, which is why English shows inside data cells in the screenshots. Muse should eyeball the live page. |
+
+**Intentional English exceptions (not visible as interface text):**
+- Proper nouns: John, Nickie, Johnny, Google, Visa (part of the owner-specified role name "Visa & Giấy tờ"). Also CCCD (a Vietnamese abbreviation) and the codes D1–D4.
+- Code only: CSS class names (`vote-row`, `msg--agent`…), template expressions, and the English agent role ids used as data keys (`Flights & Travel` → "Vé & Di chuyển").
+- The stored 72-hour reminder text is English because `firestore.rules` pins that exact template. It is never shown: the chat renders it as "Nhắc nhở: đề xuất “…” đã chờ bỏ phiếu hơn 72 giờ…". Changing the rules was avoided, as the brief asked.
+
+**Decisions to re-verify live:** see `WORK-LOG.md` section 6.
+- The typeface changed to Be Vietnam Pro, because the v1 face has no Vietnamese subset.
+- Proposals show in the one chat whatever thread they were filed under, and the pending strip shows all of them.
+- 72-hour reminders are only visible if the proposal's `threadId` is `general`.
+- The decisions section is a plain section, not a collapsible `<details>`, so D-links always land on a visible card.
+
+**Open risk for the owner:** the deleted v1 screenshots (plan with prices) and the v1 `board.json` remain readable in the repo's git history on GitHub. Removing them needs a history rewrite of `main`, which is the owner's or Muse's call.
+
+---
+
+## v1 (branch `family-visit-app`)
+
+Note added in v2: the `qc/*.png` files referenced below were removed from the repo (they showed the real plan). Later screenshots are written outside the repo.
+
 Self-QC of `site/family-visit/` on branch `family-visit-app`, 2026-11-07. Evidence comes from `node site/family-visit/tests/run.mjs --qc` (22 of 22 passing; per-test detail in `tests/last-run.json`). Screenshots are in `qc/`. Everything ran against the Firebase Local Emulator Suite. Anything that needs the live project or a real phone is marked BLOCKED-LIVE, not PASS.
 
 ## Checks
