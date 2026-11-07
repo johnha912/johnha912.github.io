@@ -100,9 +100,9 @@ export async function launch() {
   return chromium.launch(proxy ? { proxy: { server: proxy, bypass: "127.0.0.1,localhost" } } : {});
 }
 
-export async function newSession(browser, { member = null, email = null, viewport = { width: 1280, height: 900 }, path = "", blockGsap = false, isMobile = false, consoleLog = null } = {}) {
-  const context = await browser.newContext({ viewport, ignoreHTTPSErrors: true, isMobile, hasTouch: isMobile, deviceScaleFactor: 1 });
-  if (blockGsap) await context.route(/cdn\.jsdelivr\.net\/npm\/gsap/, (r) => r.abort());
+export async function newSession(browser, { member = null, email = null, viewport = { width: 1280, height: 900 }, path = "", blockGsap = false, isMobile = false, consoleLog = null, reducedMotion = "no-preference" } = {}) {
+  const context = await browser.newContext({ viewport, ignoreHTTPSErrors: true, isMobile, hasTouch: isMobile, deviceScaleFactor: 1, reducedMotion });
+  if (blockGsap) await context.route(/cdn\.jsdelivr\.net\/npm\/gsap/, (r) => r.abort()); // core and every plugin
   const page = await context.newPage();
   const errors = [];
   page.on("pageerror", (e) => errors.push(`pageerror: ${e.message}`));
@@ -170,7 +170,9 @@ async function main() {
     browser = await launch();
     const seed = loadFixture("timeline-seed.json");
     const board = loadFixture("board.json");
-    const ctx = { browser, seed, board, results, qcDir: join(SITE, "family-visit/qc") };
+    // Screenshots show the seeded plan, so they are written OUTSIDE the repo (site/ is published).
+    const qcDir = process.env.FV_QC_DIR || join(REPO, "..", "family-visit-qc");
+    const ctx = { browser, seed, board, results, qcDir };
     mkdirSync(ctx.qcDir, { recursive: true });
     const suites = [await import("./e2e.mjs")];
     if (qc) suites.push(await import("./qc.mjs"));

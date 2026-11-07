@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="vi">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content">
@@ -8,117 +8,147 @@
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#eef1f4" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#151b22" media="(prefers-color-scheme: dark)">
-<title>Family Visit</title>
+<title>Chuyến thăm của ba mẹ</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;600;700&display=swap">
+<!-- Google Sans (owner's choice, 2026-11-07): Google Fonts ships it with a full Vietnamese subset. -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap">
 <link rel="stylesheet" href="app.css">
-<!-- GSAP 3.13.0 core, pinned. Enhancement only: everything works the same if this never loads. -->
+<!-- GSAP 3.13.0 (core + ScrollTrigger, Flip, SplitText, ScrollToPlugin, CustomEase), pinned.
+     Enhancement only: every feature works the same if none of these load. -->
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/Flip.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollToPlugin.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/CustomEase.min.js" defer></script>
 <script type="module" src="app.js"></script>
 </head>
 <body data-conn="connecting">
-<noscript><p class="noscript">This family planning board needs JavaScript turned on.</p></noscript>
+<noscript><p class="noscript">Bảng kế hoạch gia đình cần bật JavaScript.</p></noscript>
+
+<!-- Liquid-glass backdrop: soft color fields the glass panels refract. Decorative only. -->
+<div class="backdrop" aria-hidden="true">
+  <span class="orb orb--pine"></span><span class="orb orb--sky"></span><span class="orb orb--lantern"></span><span class="orb orb--rose"></span>
+</div>
+<div class="progress" aria-hidden="true"><span class="progress-bar"></span></div>
+
+<!-- Floating section bar (appears after scrolling past the title). -->
+<nav id="dock" class="dock glass" aria-label="Chuyển nhanh giữa các phần" hidden>
+  <span class="dock-indicator" aria-hidden="true"></span>
+  <a class="dock-link" href="#plan" data-dock="plan">Kế hoạch</a>
+  <a class="dock-link" href="#chat" data-dock="chat">Thảo luận</a>
+  <a class="dock-link" href="#details" data-dock="details">Chi tiết D</a>
+</nav>
 
 <section id="screen-loading" data-screen class="gate-screen" aria-live="polite">
-  <p class="gate-brand">Family Visit</p>
-  <p>Opening the family board…</p>
+  <div class="gate-card glass">
+    <p class="gate-brand">Chuyến thăm của ba mẹ</p>
+    <p>Đang mở bảng kế hoạch của gia đình…</p>
+  </div>
 </section>
 
 <section id="screen-signin" data-screen class="gate-screen" hidden>
-  <h1 class="gate-brand">Family Visit</h1>
-  <p>This board is private to the family. Sign in with the Google account you use for it.</p>
-  <button id="signin-btn" type="button" class="btn btn--primary btn--big">Sign in with Google</button>
+  <div class="gate-card glass">
+  <h1 class="gate-brand">Chuyến thăm của ba mẹ</h1>
+  <p>Bảng này chỉ dành cho gia đình. Hãy đăng nhập bằng tài khoản Google bạn dùng cho bảng này.</p>
+  <button id="signin-btn" type="button" class="btn btn--primary btn--big">Đăng nhập bằng Google</button>
   <p id="signin-error" class="gate-error" role="alert"></p>
-  <button id="retry-btn" type="button" class="btn">Reload the page</button>
+  <button id="retry-btn" type="button" class="btn">Tải lại trang</button>
+  </div>
 </section>
 
 <section id="screen-denied" data-screen class="gate-screen" hidden>
-  <h1 class="gate-brand">Family Visit</h1>
-  <p>This Google account isn't on the family list for this board. Sign out, then sign in with the account you shared with the family.</p>
-  <button id="signout-denied" type="button" class="btn btn--primary btn--big">Sign out</button>
+  <div class="gate-card glass">
+  <h1 class="gate-brand">Chuyến thăm của ba mẹ</h1>
+  <p>Tài khoản Google này không có trong danh sách gia đình của bảng. Hãy đăng xuất, rồi đăng nhập bằng tài khoản đã chia sẻ với gia đình.</p>
+  <button id="signout-denied" type="button" class="btn btn--primary btn--big">Đăng xuất</button>
+  </div>
 </section>
 
 <main id="screen-board" data-screen hidden>
-  <header class="title" id="top">
+  <!-- 1. Title -->
+  <header class="title glass" id="top">
     <div class="title-row">
-      <h1 id="trip-title">Family Visit</h1>
+      <h1 id="trip-title">Chuyến thăm của ba mẹ, tháng 12/2026</h1>
       <div class="account">
-        <span class="account-name">Signed in as <strong id="who"></strong></span>
-        <button id="signout" type="button" class="btn btn--quiet">Sign out</button>
+        <span class="account-name">Đã đăng nhập: <strong id="who"></strong></span>
+        <button id="signout" type="button" class="btn btn--quiet">Đăng xuất</button>
       </div>
     </div>
-    <p id="trip-window" class="trip-window"></p>
     <div class="status-line">
-      <p class="status"><span class="conn-dot" aria-hidden="true"></span><span id="conn">Connecting</span></p>
+      <p class="status"><span class="conn-dot" aria-hidden="true"></span><span id="conn">Đang kết nối</span></p>
       <p class="status" id="agents-active"></p>
-      <ul id="presence" class="presence" aria-label="Who is online"></ul>
+      <ul id="presence" class="presence" aria-label="Ai đang trực tuyến"></ul>
     </div>
   </header>
 
   <div id="banner" class="banner" role="status" hidden></div>
 
-  <section id="plan" class="plan" aria-labelledby="plan-heading">
-    <h2 id="plan-heading">Travel plan</h2>
+  <!-- 2. Plan -->
+  <section id="plan" class="plan glass section-card" aria-labelledby="plan-heading">
+    <h2 id="plan-heading">Kế hoạch chuyến đi</h2>
+    <p class="section-lead">Bảng dưới đây là kế hoạch đã được cả nhà chốt. Mỗi dòng là một ngày hoặc một chặng. Chạm vào D1–D4 để xem giải thích của quyết định đó.</p>
     <p id="snapshot-notice" class="snapshot-notice" role="status" hidden></p>
     <div id="pending-strip" class="pending-strip" aria-live="polite" hidden></div>
-    <div class="table-wrap" role="region" aria-label="Trip timeline (scrolls sideways on small screens)" tabindex="0">
+    <div class="table-wrap" role="region" aria-label="Lịch trình chuyến đi (vuốt ngang trên màn hình nhỏ)" tabindex="0">
       <table class="timeline">
-        <caption class="sr-only">Confirmed trip timeline, one row per day or leg</caption>
+        <caption class="sr-only">Lịch trình đã chốt, mỗi dòng là một ngày hoặc một chặng</caption>
         <thead>
           <tr>
-            <th scope="col" class="c-date">Date</th>
-            <th scope="col">City / leg</th>
-            <th scope="col">Transport</th>
-            <th scope="col">Stay</th>
-            <th scope="col">Main activities</th>
-            <th scope="col">Est. cost</th>
-            <th scope="col">Status</th>
+            <th scope="col" class="c-date">Ngày</th>
+            <th scope="col">Chặng</th>
+            <th scope="col">Di chuyển</th>
+            <th scope="col">Chỗ ở</th>
+            <th scope="col">Hoạt động chính</th>
+            <th scope="col">Chi phí ước tính</th>
+            <th scope="col">Trạng thái</th>
           </tr>
         </thead>
         <tbody id="timeline-body"></tbody>
       </table>
     </div>
     <p id="table-meta" class="table-meta"></p>
-
-    <details class="decisions-box" open>
-      <summary><h3>Open decisions</h3></summary>
-      <p class="decisions-note">Prices are quotes as checked on the date shown, copied exactly from the agents' research.</p>
-      <ul id="decisions" class="decisions"></ul>
-    </details>
   </section>
 
+  <!-- 3. Chat -->
   <section id="chat" class="chat" aria-labelledby="chat-heading">
-    <h2 id="chat-heading">Discussion</h2>
-    <div class="chat-frame">
-      <div id="threads" class="tabs" role="tablist" aria-label="Topics"></div>
-      <div class="thread-head">
-        <h3 id="thread-name" class="thread-name">General</h3>
-        <div id="summary" class="summary"></div>
-      </div>
-      <ul id="messages" class="messages" aria-label="Messages" aria-live="polite">
-        <li id="load-older-wrap" class="load-older" hidden><button id="load-older" type="button" class="btn btn--quiet">Load earlier messages</button></li>
+    <h2 id="chat-heading">Thảo luận</h2>
+    <p class="section-lead">Nơi cả nhà và nhóm trợ lý trao đổi. Tin nhắn hiện ngay cho mọi người.</p>
+    <div class="chat-frame glass">
+      <div id="summary" class="summary"></div>
+      <div id="cat-filter" class="cat-filter" role="group" aria-label="Lọc tin nhắn theo chủ đề" hidden></div>
+      <ul id="messages" class="messages" aria-label="Tin nhắn" aria-live="polite">
+        <li id="load-older-wrap" class="load-older" hidden><button id="load-older" type="button" class="btn btn--quiet">Xem tin nhắn cũ hơn</button></li>
       </ul>
       <form id="composer-form" class="composer" autocomplete="off">
         <div id="replying" class="replying" hidden>
           <span id="replying-text"></span>
-          <button id="cancel-reply" type="button" class="link-btn">Cancel reply</button>
+          <button id="cancel-reply" type="button" class="link-btn">Huỷ trả lời</button>
         </div>
         <div class="composer-row">
-          <label for="composer" class="sr-only">Message</label>
-          <textarea id="composer" rows="1" maxlength="2000" placeholder="Write to the family and agents" enterkeyhint="enter"></textarea>
-          <button type="submit" class="btn btn--primary send">Send</button>
+          <label for="composer" class="sr-only">Tin nhắn</label>
+          <textarea id="composer" rows="1" maxlength="2000" placeholder="Nhắn cho cả nhà và nhóm trợ lý" enterkeyhint="enter"></textarea>
+          <button type="submit" class="btn btn--primary send">Gửi</button>
         </div>
-        <p class="privacy-note">Never post home addresses, ID or passport numbers, or booking codes here.</p>
+        <p class="privacy-note">Đừng bao giờ đăng địa chỉ nhà, số CCCD hay hộ chiếu, hoặc mã đặt chỗ ở đây.</p>
         <p id="composer-error" class="composer-error" role="alert"></p>
       </form>
     </div>
   </section>
+
+  <!-- 4. Decision details -->
+  <section id="details" class="details" aria-labelledby="details-heading">
+    <h2 id="details-heading">Chi tiết các quyết định (D1–D4)</h2>
+    <p class="section-lead">Mỗi quyết định có một mã (D1, D2…) để bảng và tin nhắn nhắc tới cho gọn. Chạm vào một mã bên dưới để tới đúng quyết định; bấm “Xem chi tiết” để mở đầy đủ. Giá là báo giá đã kiểm tra vào ngày ghi kèm, chép nguyên văn từ phần tìm hiểu của nhóm trợ lý.</p>
+    <nav id="d-nav" class="d-nav" aria-label="Các quyết định"></nav>
+    <ul id="decisions" class="decisions"></ul>
+  </section>
 </main>
 
-<button id="to-top" type="button" class="to-top" hidden>
-  <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-  <span>Back to top</span>
+<!-- 5. Back to top -->
+<button id="to-top" type="button" class="to-top glass" aria-label="Lên đầu trang" title="Lên đầu trang" hidden>
+  <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
 </button>
 </body>
 </html>

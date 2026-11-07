@@ -5,8 +5,8 @@ export const MEMBERS = ["john", "nickie", "johnny"];
 export const NAMES = { john: "John", nickie: "Nickie", johnny: "Johnny" };
 export const CELL_FIELDS = ["order", "date", "leg", "transport", "stay", "activities", "cost", "status"];
 export const FIELD_LABELS = {
-  order: "Order", date: "Date", leg: "City / leg", transport: "Transport", stay: "Stay",
-  activities: "Main activities", cost: "Est. cost", status: "Status"
+  order: "Thứ tự", date: "Ngày", leg: "Chặng", transport: "Di chuyển", stay: "Chỗ ở",
+  activities: "Hoạt động chính", cost: "Chi phí ước tính", status: "Trạng thái"
 };
 export const REMINDER_AFTER_MS = 72 * 60 * 60 * 1000;
 

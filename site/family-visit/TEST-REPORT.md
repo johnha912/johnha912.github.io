@@ -1,5 +1,40 @@
 # Family Visit: emulator test report
 
+## v4 re-run (branch `family-visit-v2`, 2026-11-07)
+
+**13 of 13 end-to-end tests and 13 of 13 QC checks pass.** The new end-to-end test, "one chat only", covers legacy-thread exclusion, topic tags, the topic filter, topic inheritance on replies, and that posting while filtered still goes to `general`.
+
+## v3 re-run (branch `family-visit-v2`, 2026-11-07)
+
+**12 of 12 end-to-end tests and 13 of 13 QC checks pass**, with Vietnamese fixtures and test strings. The offline sign-out test now also checks that the page stays on the sign-in screen while offline, reloads itself on reconnect, and comes back signed out. The new QC check covers the GSAP plugins, the glass, the font, the floating section bar, and the D details toggle.
+
+## v2 re-run (branch `family-visit-v2`, 2026-11-07)
+
+**Result: 12 of 12 end-to-end tests pass, plus 12 of 12 QC checks** (see `QC-REPORT.md`).
+
+How to run v2. Fixtures and screenshots both live outside the repo:
+```bash
+export FV_FIXTURES_DIR=/path/to/family-visit-fixtures   # board.json + timeline-seed.json (private)
+export FV_QC_DIR=/path/to/family-visit-qc               # screenshots (default ../family-visit-qc)
+node site/family-visit/tests/run.mjs --qc
+```
+
+What changed in the suite for v2:
+- Assertions read the Vietnamese interface ("Đang kết nối lại…", "mỗi 30 giây", "Bản lưu ngoại tuyến", "đã sửa", "Tin nhắn đã bị xoá", "Trả lời Nickie").
+- Pagination and the reminder test use the single chat (`threads/general`). The reminder test also checks the Vietnamese rendering of the stored, rules-pinned reminder text.
+- The per-thread unread test was replaced by a check that no topic tabs exist and that every post lands in `general`.
+- New QC checks: the Vietnamese UI audit, and the phone pass for the new order with a D-link tap.
+
+All results from the v1 table below still hold. In the final v2 run:
+- (a) sync took 524 ms.
+- (c) the offline message was delivered exactly once.
+- (f) the gate was byte-identical at 2 OK, applied at the 3rd OK, and frozen by one No.
+- Offline sign-out took 189 ms.
+
+---
+
+## v1
+
 **Result: 12 of 12 end-to-end tests pass** (plus 10 of 10 QC checks, see `QC-REPORT.md`), run on 2026-11-07 against the Firebase Local Emulator Suite (Auth + Firestore). No live data was read or written.
 
 ## Setup
