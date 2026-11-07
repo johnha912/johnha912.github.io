@@ -122,8 +122,9 @@
     }
   });
 
-  /* ---------- Scroll reveal ---------- */
-  const reveals = document.querySelectorAll("[data-reveal]");
+  /* ---------- Scroll reveal (fallback; motion.js handles it when GSAP loaded) ---------- */
+  const gsapOn = root.classList.contains("gsap");
+  const reveals = gsapOn ? [] : document.querySelectorAll("[data-reveal]");
   if ("IntersectionObserver" in window && reveals.length) {
     const io = new IntersectionObserver((entries) => {
       entries.forEach((en) => {
@@ -136,7 +137,9 @@
   }
 
   /* ---------- Spotlight that follows the pointer on the home button stack ---------- */
-  document.querySelectorAll(".stack__btn").forEach((btn) => {
+  // With GSAP and motion allowed, motion.js eases the spotlight instead.
+  const easedSpotlight = gsapOn && matchMedia("(prefers-reduced-motion: no-preference)").matches;
+  if (!easedSpotlight) document.querySelectorAll(".stack__btn").forEach((btn) => {
     btn.addEventListener("pointermove", (e) => {
       const r = btn.getBoundingClientRect();
       btn.style.setProperty("--mx", `${e.clientX - r.left}px`);

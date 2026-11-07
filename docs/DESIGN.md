@@ -76,12 +76,16 @@ Display tracking `-0.035em`, display line-height `1.04`, body line-height `1.65`
 
 ## 6. Motion
 
-Every animation is gated on `prefers-reduced-motion: no-preference`; under `reduce`, all transitions and animations collapse to instant.
+Every animation is gated on `prefers-reduced-motion: no-preference`; under `reduce`, all transitions and animations collapse to instant, and GSAP (via `gsap.matchMedia`) adds no smoothing or reveal.
+
+GSAP 3.15.1 is self-hosted in `site/assets/js/vendor/gsap-3.15.1/` (core, ScrollTrigger, ScrollSmoother; ≈ 52 KB gzipped together; free under the GSAP Standard License). Page code lives in `site/assets/js/motion.js`, loaded with `defer` before `site.js`. ScrollSmoother wraps `main` and the footer in `#smooth-wrapper` / `#smooth-content` at runtime; the fixed header, ambient glow, cookie banner, and search dialog stay outside it, so never put `position: fixed` or `sticky` elements inside `main`. Native `element.scrollIntoView()` does not move the smoothed layer: scroll programmatically with `ScrollSmoother.get()?.scrollTo(el, true, "top 80px")` (fall back to native when it returns null). The smoother pauses while the search palette or the mobile menu is open, and focused elements glide into view with about 1 s of smoothing lag.
 
 | Motion | Purpose |
 |---|---|
 | Hero rise-in (blur + translate, staggered) | Establishes reading order on first load |
-| Scroll reveal (IntersectionObserver, 70ms stagger) | Paces long pages; content is visible without JS |
+| Smooth scrolling (GSAP ScrollSmoother, `smooth: 1.1`) | Inertial, glide-to-stop wheel/trackpad scrolling. Desktop pointers only (`hover: hover` and `pointer: fine`); phones and tablets keep native scrolling. Same-page anchors glide and land under the header; deep links (`/tech/#…`) land under the header too |
+| Scroll reveal (GSAP ScrollTrigger batch: 0.9s, `power4.out`, 80ms stagger) | Paces long pages; content is visible without JS. If GSAP fails to load, `site.js` falls back to IntersectionObserver + CSS (70ms stagger) |
+| Eased spotlight (GSAP `quickTo`, 0.45s) | The home button-stack glow trails the pointer instead of snapping |
 | Portrait halo (slow conic rotation) | Draws the eye to the one hero visual |
 | Hover lift / arrow nudge / spotlight | Feedback that a row or card is interactive |
 | Cross-document View Transitions | Smooth page-to-page navigation where supported |

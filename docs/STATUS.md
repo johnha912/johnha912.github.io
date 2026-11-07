@@ -1,6 +1,6 @@
 # STATUS.md
 
-_Last updated: 2026-11-02_
+_Last updated: 2026-11-07_
 
 ## Where the build stands
 
@@ -63,6 +63,7 @@ _Last updated: 2026-11-02_
 - **2026-10-27:** Guest boards `/cs6120-team/` and `/ai-income-lab/` get `noindex` so they stay out of search results; the pages still open by direct link.
 - **2026-11-02:** New guest folder `/chem-030a-thi-thu/`: a `noindex` CHEM 030A Exam 2 study app (4-hour Learn plan + 15 quizzes) built only from the owner's course kit. It is excluded from the link check and the sitemap.
 - **2026-11-06:** Guest folder `/chem-030a-thi-thu/` removed (the exam is over); its link-check exclusion and agent-file mentions removed too.
+- **2026-11-07:** GSAP added for smoother motion (self-hosted 3.15.1: core, ScrollTrigger, ScrollSmoother; new `site/assets/js/motion.js`). Inertial smooth scrolling on mouse/trackpad devices only (phones keep native scrolling), batched GSAP scroll reveals, and an eased spotlight on the home button stack. Reduced motion turns all of it off; if GSAP fails to load, the old reveal still runs. Mobile Lighthouse with compression: Home 97-98, Tech 97, About 94-95 (About was 89 without GSAP in the same run).
 
 ## Orchestrator decisions
 
