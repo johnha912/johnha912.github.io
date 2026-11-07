@@ -247,3 +247,8 @@ Final run: 25 of 25 (12 end-to-end, 13 QC).
 
 - The owner reviewed v5/v6 from screenshots and directed: the v5 name-chip redesign was unnecessary — **revert the member name cards to the previous (v4) version**. `renderPresence()` and the `.pres` CSS block are restored byte-for-byte from the v4 code (small dot + name pills, status in title/sr-only), the v5/v6 chip assertions in `tests/e2e.mjs` are removed (file back to its v4 state), and the `.pres--me` / `.pres-text` styles are gone.
 - **Kept from v6:** the sign-out card button (`.btn--signout`) — that was the owner's circled request ("chỗ khoanh đỏ là cần card"): the sign-out is now a real bordered button instead of bare text.
+
+## v8 addendum (built by Muse, 2026-11-07 — cache-busting, post-incident adjustment)
+
+- Root cause found during v6/v7 verification: browsers (the owner's phone, the test browser) kept executing a **stale cached `app.js`** after deploys — the owner's screenshot showed v5 while v6 was live, and the v7 browser check first read the old build. The served files were correct; the clients were not fetching them.
+- Adjustment: `index.html` now loads `app.css?v=8` and `app.js?v=8`. **Standing rule for every future release: bump the `?v=` number in both tags**, so each deploy forces a fresh download on every device. (Reminder lives here and in QC-REPORT v8.)
