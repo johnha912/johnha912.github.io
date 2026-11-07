@@ -298,3 +298,18 @@ Final run: 25 of 25 (12 end-to-end, 13 QC).
 - Also fixed in passing: the D2 decision doc still read open after the family's visa news (the
   sweep's apply tool has no decision write path) — set to Đã chốt / resolved with the resolution
   text, matching D1's shape.
+
+## v11 addendum (built by Muse, 2026-11-07 — Slack-style thread stacking)
+
+- Owner's request: replies must stack under the message they answer ("như slack") so a
+  conversation is easy to track and re-read, instead of replies drifting to their own
+  timestamp position while other messages land in between.
+- Display-side only — no data or contract change. `renderMessages()` now computes each
+  message's thread root (following `replyTo` to the top of the chain, ≤10 hops, within
+  the loaded/filtered set) and sorts by (root time, root-first, own time). A reply whose
+  root is not loaded renders as a root and regroups when the root loads.
+- Reply nodes get `.msg--thread`: indented (`clamp(14px, 5vw, 40px)`) with a pine left
+  rail. Reception acks join their message's thread position but keep their flat receipt
+  style (no indent). Proposals stay top-level cards at their own time. The grouping is
+  part of the node signature, so a message re-renders when its grouping changes.
+- Assets ?v=11; report appVersion "v11".

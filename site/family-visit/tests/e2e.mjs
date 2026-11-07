@@ -482,5 +482,24 @@ export const tests = [
       await close(john);
       return "The acknowledgement rendered as one compact receipt line (not a bubble), and the typing bar followed meta/typing on and off.";
     }
+  },
+  {
+    name: "(p) thread stacking: a reply renders directly under its root, not at its own timestamp",
+    async run(ctx) {
+      await fresh(ctx);
+      const t = Date.now();
+      const msg = (id, extra) => ({ id, threadId: "general", replyTo: null, deleted: false, ...extra });
+      await admin.setDoc("threads/general/messages/root-a", msg("root-a", { authorKind: "human", authorId: "john", text: "Tin gốc A", createdAt: new Date(t - 9000), clientCreatedAt: t - 9000 }));
+      await admin.setDoc("threads/general/messages/root-b", msg("root-b", { authorKind: "human", authorId: "nickie", text: "Tin gốc B chen giữa", createdAt: new Date(t - 6000), clientCreatedAt: t - 6000 }));
+      await admin.setDoc("threads/general/messages/reply-c", msg("reply-c", { authorKind: "agent", role: "Coordinator", text: "Trả lời cho A, tới sau B", replyTo: "root-a", createdAt: new Date(t - 3000), clientCreatedAt: t - 3000 }));
+      const john = await newSession(ctx.browser, { member: "john" });
+      await eventually(async () => (await john.page.locator("#messages > li[data-key]").count()) === 3, 15000);
+      const keys = await john.page.evaluate(() => [...document.querySelectorAll("#messages > li[data-key]")].map((n) => n.dataset.key));
+      assert(JSON.stringify(keys) === JSON.stringify(["root-a", "reply-c", "root-b"]), `expected thread order root-a, reply-c, root-b; got ${JSON.stringify(keys)}`);
+      assert(await john.page.locator('li[data-key="reply-c"]').evaluate((n) => n.classList.contains("msg--thread")), "reply is missing the thread indent class");
+      assert(!(await john.page.locator('li[data-key="root-b"]').evaluate((n) => n.classList.contains("msg--thread"))), "an unrelated root message was indented as a reply");
+      await close(john);
+      return "The reply to A rendered immediately under A (indented), ahead of the unrelated message B that arrived before it.";
+    }
   }
 ];

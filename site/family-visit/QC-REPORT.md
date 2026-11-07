@@ -224,3 +224,11 @@ A separate reviewer read the rules and client code. It found no rules hole (forg
 | Acks don't satisfy the sweep | PASS by code | `pending()` excludes kind "ack" from its replied set; AGENT-LOOP.md updated to match. |
 | Emulator suite | NOT RUN on this VM (standing limitation) | New e2e test (o) seeds an ack + typing doc and asserts the receipt pill and typing bar render and follow state. |
 | Live E2E (post → ack ≤ ~30 s → typing bar → substantive replies → signals clear) | See the post-merge verification note appended after the live run | Performed on the live page after merge, per the feature-change protocol. |
+
+## v11 (branch `family-visit-v11`, 2026-11-07): thread stacking
+
+| Check | Result | Evidence |
+|---|---|---|
+| Grouping logic | PASS by code review | Root-following sort in `renderMessages()`; orphans fall back to root position; category-filtered parents fall back the same way. |
+| Emulator suite | NOT RUN on this VM (standing limitation) | New e2e test (p) seeds root A, unrelated root B, then a later reply to A, and asserts DOM order A, reply, B plus the indent class on the reply only. |
+| Live E2E | See the post-merge verification note appended after the live run | Thread position checked on the live page with verbatim quotes + Firestore cross-check, per the feature-change protocol. |
