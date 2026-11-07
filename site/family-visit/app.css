@@ -318,7 +318,10 @@ body[data-conn="offline"] .conn-dot { background: var(--cranberry); box-shadow: 
 .timeline tbody tr:first-child .rail::before { top: calc(var(--s3) + 11px); }
 .timeline tbody tr:last-child .rail::before { bottom: auto; height: calc(var(--s3) + 11px); }
 .c-leg { font-weight: 500; }
-.row-status { display: inline-block; padding: 2px 10px; border-radius: 999px; background: var(--pine-wash); color: var(--pine); font-size: var(--fs-sm); font-weight: 500; }
+/* Status reads as a tidy rounded tag filling its cell, never a balloon: multi-line
+   statuses wrap with balanced lines and no text is ever clipped. */
+.row-status { display: block; padding: var(--s2) var(--s3); border-radius: var(--r-sm); background: var(--pine-wash); color: var(--pine); font-size: var(--fs-sm); font-weight: 500; line-height: 1.45; text-wrap: balance; }
+.timeline td:last-child { min-width: 11rem; }
 .table-meta { font-size: var(--fs-sm); color: var(--muted); }
 .table-empty { color: var(--muted); }
 
