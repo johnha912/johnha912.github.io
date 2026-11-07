@@ -1,0 +1,50 @@
+{
+ "note": "Initial confirmed timeline. Every cell comes from the brief's DATA section or decision D1 in board.json; anything not yet decided says so. Later changes arrive only through 3-of-3 approved proposals.",
+ "version": 1,
+ "rows": [
+  {
+   "id": "arrive-sjc",
+   "order": 1,
+   "date": "Around Sun Dec 20, 2026",
+   "leg": "Ho Chi Minh City (SGN) to San Jose",
+   "transport": "Flight, not chosen yet (options in D3)",
+   "stay": "To be decided",
+   "activities": "Arrival",
+   "cost": "Not set",
+   "status": "Route confirmed (D1)"
+  },
+  {
+   "id": "san-jose",
+   "order": 2,
+   "date": "3-4 days from arrival",
+   "leg": "San Jose",
+   "transport": "To be decided",
+   "stay": "To be decided",
+   "activities": "To be decided",
+   "cost": "Not set",
+   "status": "Route confirmed (D1)"
+  },
+  {
+   "id": "east-coast",
+   "order": 3,
+   "date": "After San Jose, dates to confirm",
+   "leg": "NYC, Niagara Falls (US side), Pennsylvania",
+   "transport": "To be decided",
+   "stay": "To be decided",
+   "activities": "To be decided (draft split in D4)",
+   "cost": "Not set",
+   "status": "Route confirmed (D1), order and dates open"
+  },
+  {
+   "id": "return-sgn",
+   "order": 4,
+   "date": "Around Sun Jan 3, 2027",
+   "leg": "Return to Ho Chi Minh City (SGN), likely from NYC",
+   "transport": "Flight, not chosen yet (options in D3)",
+   "stay": "To be decided",
+   "activities": "Departure",
+   "cost": "Not set",
+   "status": "Window confirmed, flight open"
+  }
+ ]
+}

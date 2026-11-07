@@ -1,0 +1,240 @@
+rules_version = '2';
+
+// Family Visit forum (johnha.info/family-visit/). Deploy target: Firebase project family-visit-81a60.
+//
+// Access: only the three family Google accounts. The allow-list stores the SHA-256 (hex) of each
+// lower-cased email address, never the address itself, so no address is published in this file.
+// Agents (Muse) write through the Admin SDK, which bypasses these rules; signed-in people can only
+// do what is granted below.
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ---------- identity ----------
+    function memberMap() {
+      return {
+        '00bf810ca0ed05688d618c2f2c3573d2a487887e22cee01a2caf6dfde925c9cd': 'john',
+        '5af8fd04c96a50555c327d02126e91e52a59cd61f25a455d892a1b45f3c3b654': 'nickie',
+        'f304080787bd9b5e0ae99b33853c52c2a952924a14d2e521ab765aaa9a54bcdb': 'johnny'
+      };
+    }
+    function signedIn() {
+      return request.auth != null
+        && request.auth.token.email is string
+        && request.auth.token.email_verified == true
+        && request.auth.token.firebase.sign_in_provider == 'google.com';
+    }
+    function emailHash() {
+      return hashing.sha256(request.auth.token.email.lower()).toHexString().lower();
+    }
+    function isMember() { return signedIn() && emailHash() in memberMap(); }
+    function me() { return memberMap()[emailHash()]; }
+
+    function threadIds() {
+      return ['flights', 'san-jose', 'nyc', 'niagara-falls', 'pennsylvania', 'budget', 'documents-visa', 'general'];
+    }
+    function proposalPath(pid) { return /databases/$(database)/documents/proposals/$(pid); }
+    function tablePath() { return /databases/$(database)/documents/planMeta/table; }
+    function rowPath(rowId) { return /databases/$(database)/documents/planRows/$(rowId); }
+
+    // ---------- read-only content maintained by agents ----------
+    match /threads/{tid} {
+      // Readable as a collection (the page lists every topic's pinned summary at once).
+      allow read: if isMember();
+      allow write: if false;
+    }
+    match /decisions/{id} {
+      allow read: if isMember();
+      allow write: if false;
+    }
+    match /meta/{id} {
+      allow read: if isMember();
+      allow write: if false;
+    }
+
+    // ---------- chat ----------
+    function validId(id) {
+      return id is string && id.size() >= 8 && id.size() <= 64 && id.matches('^[A-Za-z0-9_-]+$');
+    }
+    function validText(t, maxLen) { return t is string && t.size() >= 1 && t.size() <= maxLen; }
+
+    function validHumanMessage(tid, mid) {
+      let d = request.resource.data;
+      let fields = ['id', 'threadId', 'authorKind', 'authorId', 'text', 'replyTo', 'createdAt', 'clientCreatedAt', 'deleted'];
+      return d.keys().hasOnly(fields) && d.keys().hasAll(fields)
+        && validId(mid) && d.id == mid
+        && d.threadId == tid
+        && d.authorKind == 'human' && d.authorId == me()
+        && validText(d.text, 2000)
+        && (d.replyTo == null || validId(d.replyTo))
+        && d.createdAt == request.time
+        && d.clientCreatedAt is int
+        && d.deleted == false;
+    }
+
+    function reminderText(summary) {
+      return 'Reminder: "' + summary + '" is still waiting for votes after 72 hours. Vote OK or No above the plan table.';
+    }
+
+    // One reminder per proposal left pending for 72 hours. The document id is fixed
+    // ("reminder-<proposalId>"), so a second attempt is an update and is refused: exactly once.
+    function validReminder(tid, mid) {
+      let d = request.resource.data;
+      let fields = ['id', 'threadId', 'authorKind', 'role', 'kind', 'proposalId', 'text', 'replyTo', 'createdAt', 'clientCreatedAt', 'deleted'];
+      let p = get(proposalPath(d.proposalId)).data;
+      return d.keys().hasOnly(fields) && d.keys().hasAll(fields)
+        && d.proposalId is string && validId(d.proposalId)
+        && mid == 'reminder-' + d.proposalId && d.id == mid
+        && d.threadId == tid && p.threadId == tid
+        && d.authorKind == 'agent' && d.role == 'Coordinator' && d.kind == 'reminder'
+        // The text is fixed, built from the agent-written summary, so nobody can post free text under the agent label.
+        && d.text == reminderText(p.summary)
+        && d.replyTo == null && d.createdAt == request.time && d.clientCreatedAt is int && d.deleted == false
+        && p.status == 'pending'
+        && p.reminderSent == false
+        && request.time > p.createdAt + duration.value(72, 'h')
+        && getAfter(proposalPath(d.proposalId)).data.reminderSent == true;
+    }
+
+    function validEdit() {
+      let d = request.resource.data;
+      return d.diff(resource.data).affectedKeys().hasOnly(['text', 'editedAt'])
+        && validText(d.text, 2000)
+        && d.editedAt == request.time;
+    }
+    function validSoftDelete() {
+      let d = request.resource.data;
+      return d.diff(resource.data).affectedKeys().hasOnly(['deleted', 'text', 'deletedAt'])
+        && d.deleted == true && d.text == '' && d.deletedAt == request.time;
+    }
+
+    match /threads/{tid}/messages/{mid} {
+      allow read: if isMember() && tid in threadIds();
+      allow create: if isMember() && tid in threadIds()
+        && (validHumanMessage(tid, mid) || validReminder(tid, mid));
+      allow update: if isMember()
+        && resource.data.authorKind == 'human' && resource.data.authorId == me()
+        && resource.data.deleted == false
+        && (validEdit() || validSoftDelete());
+      allow delete: if false;
+    }
+
+    // ---------- plan board: confirmed timeline + 3-of-3 proposals ----------
+    function cells(d) {
+      return {
+        'order': d.order, 'date': d.date, 'leg': d.leg, 'transport': d.transport,
+        'stay': d.stay, 'activities': d.activities, 'cost': d.cost, 'status': d.status
+      };
+    }
+
+    // A timeline row changes only inside the transaction that applies a pending proposal,
+    // only to the proposal's "after" values, and only if the row still matches its "before" values.
+    function validRowWrite(rowId) {
+      let d = request.resource.data;
+      let pid = d.appliedProposal;
+      let pBefore = get(proposalPath(pid)).data;
+      let pAfter = getAfter(proposalPath(pid)).data;
+      let fields = ['order', 'date', 'leg', 'transport', 'stay', 'activities', 'cost', 'status', 'version', 'updatedBy', 'updatedAt', 'appliedProposal'];
+      return d.keys().hasOnly(fields) && d.keys().hasAll(fields)
+        && pid is string && validId(pid)
+        && pBefore.status == 'pending' && pAfter.status == 'applied'
+        && rowId in pBefore.changes
+        && cells(d) == pBefore.changes[rowId].after
+        && d.updatedBy == me() && d.updatedAt == request.time
+        && (resource == null
+              ? (pBefore.changes[rowId].before == null && d.version == 1)
+              : (cells(resource.data) == pBefore.changes[rowId].before && d.version == resource.data.version + 1));
+    }
+
+    match /planRows/{rowId} {
+      allow read: if isMember();
+      allow create, update: if isMember() && validRowWrite(rowId);
+      allow delete: if false;
+    }
+
+    match /planMeta/{docId} {
+      allow read: if isMember();
+      allow update: if isMember() && docId == 'table'
+        && request.resource.data.keys().hasOnly(['version', 'updatedAt', 'updatedBy', 'lastProposal'])
+        && request.resource.data.version == resource.data.version + 1
+        && request.resource.data.updatedAt == request.time
+        && request.resource.data.updatedBy == me()
+        && get(proposalPath(request.resource.data.lastProposal)).data.status == 'pending'
+        && getAfter(proposalPath(request.resource.data.lastProposal)).data.status == 'applied';
+      allow create, delete: if false;
+    }
+
+    function rowApplied(p, pid, i) {
+      return p.rowIds.size() <= i || getAfter(rowPath(p.rowIds[i])).data.appliedProposal == pid;
+    }
+
+    function validVote(pid) {
+      let before = resource.data;
+      let after = request.resource.data;
+      let m = me();
+      let v = after.votes;
+      let prev = before.votes[m];
+      let mine = v[m];
+      let changed = after.diff(before).affectedKeys();
+      let allOk = v.john == 'ok' && v.nickie == 'ok' && v.johnny == 'ok';
+      let anyNo = v.john == 'no' || v.nickie == 'no' || v.johnny == 'no';
+      return v.keys().hasOnly(['john', 'nickie', 'johnny']) && v.keys().hasAll(['john', 'nickie', 'johnny'])
+        && v.diff(before.votes).affectedKeys().hasOnly([m])
+        && ((prev == 'pending' && (mine == 'ok' || mine == 'no')) || (prev == 'ok' && mine == 'no'))
+        && after.updatedBy == m
+        && (
+          // A single No freezes the proposal; nothing else may change.
+          (anyNo && changed.hasOnly(['votes', 'status', 'rejectedAt', 'updatedBy'])
+             && after.status == 'rejected' && after.rejectedAt == request.time)
+          ||
+          // The third OK applies it: table version bumped and every listed row written in the same transaction.
+          (allOk && changed.hasOnly(['votes', 'status', 'appliedAt', 'appliedVersion', 'updatedBy'])
+             && after.status == 'applied' && after.appliedAt == request.time
+             && before.rowIds.size() >= 1 && before.rowIds.size() <= 4
+             && before.changes.keys().hasOnly(before.rowIds) && before.changes.keys().hasAll(before.rowIds)
+             && getAfter(tablePath()).data.version == get(tablePath()).data.version + 1
+             && after.appliedVersion == getAfter(tablePath()).data.version
+             && getAfter(tablePath()).data.lastProposal == pid
+             && rowApplied(before, pid, 0) && rowApplied(before, pid, 1)
+             && rowApplied(before, pid, 2) && rowApplied(before, pid, 3))
+          ||
+          // Otherwise the vote is recorded and the proposal stays pending.
+          (!anyNo && !allOk && changed.hasOnly(['votes', 'updatedBy']) && after.status == 'pending')
+        );
+    }
+
+    function validReminderFlag(pid) {
+      let before = resource.data;
+      let after = request.resource.data;
+      return after.diff(before).affectedKeys().hasOnly(['reminderSent'])
+        && before.reminderSent == false && after.reminderSent == true
+        && request.time > before.createdAt + duration.value(72, 'h')
+        && existsAfter(/databases/$(database)/documents/threads/$(before.threadId)/messages/$('reminder-' + pid));
+    }
+
+    match /proposals/{pid} {
+      allow read: if isMember();
+      // Frozen once applied or rejected: no further writes of any kind.
+      allow update: if isMember() && resource.data.status == 'pending'
+        && (validVote(pid) || validReminderFlag(pid));
+      allow create, delete: if false;
+    }
+
+    // ---------- presence (heartbeat; readers treat a stale lastSeen as offline) ----------
+    match /presence/{member} {
+      allow read: if isMember();
+      allow create, update: if isMember() && member == me()
+        && request.resource.data.keys().hasOnly(['member', 'state', 'lastSeen', 'thread'])
+        && request.resource.data.keys().hasAll(['member', 'state', 'lastSeen', 'thread'])
+        && request.resource.data.member == me()
+        && request.resource.data.state in ['online', 'away', 'offline']
+        && request.resource.data.lastSeen == request.time
+        && request.resource.data.thread is string && request.resource.data.thread.size() <= 32;
+      allow delete: if false;
+    }
+
+    // Everything else is closed.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

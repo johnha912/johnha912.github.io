@@ -1,0 +1,94 @@
+{
+ "decisions": [
+  {
+   "id": "D1",
+   "question": "Trip route",
+   "resolution": "Arrive San Jose, stay 3-4 days, then NYC, Niagara Falls (US side) and Pennsylvania (John, Nov 7, 2026). All three hosts are based in San Jose for the start of the trip.",
+   "status": "resolved",
+   "topic": "Route",
+   "votes": {},
+   "options": []
+  },
+  {
+   "id": "D2",
+   "options": [
+    "Approved",
+    "Interview scheduled",
+    "Still in preparation"
+   ],
+   "question": "B1/B2 status for both parents?",
+   "status": "open — blocks ticket purchase, not flight scouting",
+   "topic": "Visa",
+   "votes": {}
+  },
+  {
+   "id": "D3",
+   "options": [
+    "Leg 1 SGN-SFO Dec 20: Vietnam Airlines nonstop 18:30-17:00, $1,311.98 total for 2 (checked Nov 7) | budget alt: Korean Air 1 stop via ICN 16h40m, $936.38 (1 bag) / $1,036.38 (2 bags)",
+    "Leg 2 SFO-JFK Dec 24: JetBlue nonstop 15:33-23:59 from $706.80 total for 2 | Delta nonstop 14:30-23:00 $676.82 | Alaska red-eye 23:12-07:59+1 $436.80 Saver (no changes)",
+    "Leg 3 JFK-SGN Jan 3: Asiana 1 stop 00:30-11:00+1 22h30m, $2,035.40 total for 2 | Asiana morning option 24h20m $1,747.40 | Cathay Pacific 21h35m $2,173.60 (1 checked bag on Light fare)",
+    "Separate-ticket totals for 2: comfort picks ~$4,054 | budget picks ~$3,121 - vs $2,632.98 for the old SGN-SFO round trip that no longer fits the route"
+   ],
+   "question": "Multi-city flights for 2 adults (separate tickets per leg are fine - legs are days apart)",
+   "status": "Checked Nov 7, 2026 (Duffel). Single-ticket multi-city quotes were worse: cheapest $3,679.78 total had a 42h45m first leg - not recommended.",
+   "topic": "Flights",
+   "votes": {
+    "John": null,
+    "Johnny": null,
+    "Nickie": null
+   }
+  },
+  {
+   "id": "D4",
+   "topic": "East Coast skeleton",
+   "status": "draft - agents to refine on the board",
+   "question": "Draft split of Dec 24 - Jan 3 (10 nights)",
+   "options": [
+    "Dec 24: fly SFO-JFK (Christmas Eve - busy airports, book early)",
+    "Dec 25-28: NYC (4 nights, incl. Christmas Day)",
+    "Dec 29-30: Pennsylvania - city/purpose to confirm (Philadelphia is ~1h15 by Amtrak from NYC)",
+    "Dec 31: fly to Buffalo, Niagara Falls US side for New Year's Eve (falls illumination)",
+    "Jan 1: Niagara Falls US side, Jan 2: back to NYC, Jan 3: fly JFK-SGN",
+    "Open checks: who travels east with the parents (ticket count 2 vs 5), Canada visa (without one, Niagara is US side only), winter gear + storm buffer days"
+   ],
+   "votes": {
+    "John": null,
+    "Nickie": null,
+    "Johnny": null
+   }
+  }
+ ],
+ "discussion": [
+  {
+   "agent": "Coordinator",
+   "text": "Welcome — this board is where John, Nickie, and Johnny plan Mom & Dad's visit together with the agent team. Core window if they arrive on Sunday, Dec 20, 2026: departure Sunday, Jan 3, 2027 (14 nights), with Christmas Day (Fri Dec 25) and New Year's Day (Fri Jan 1) inside the trip. Route is now resolved: San Jose only, all three hosts are in San Jose. Parents fly from SGN (Ho Chi Minh City); flight times are not yet chosen — see D3 for checked options. No price appears on this board without a source and a check date.",
+   "time": "Nov 7, 2026, 12:20 AM PT",
+   "topic": "Board updated — route resolved"
+  },
+  {
+   "agent": "Flights & Travel",
+   "time": "Nov 7, 2026, 12:25 AM PT",
+   "topic": "Route changed - multi-city pricing checked",
+   "text": "Route update from John: San Jose 3-4 days, then NYC, Niagara Falls and Pennsylvania. Re-priced for 2 adults as separate tickets per leg (legs are days apart, so separate tickets carry no missed-connection risk between them). Best comfort set is about $4,054 total; budget set about $3,121. The single-ticket multi-city quotes were worse and the cheapest forced a 42h45m first leg, so we do not recommend them. Full options are on D3; the East Coast skeleton is on D4."
+  }
+ ],
+ "feedback": [],
+ "meta": {
+  "core_window": {
+   "arrive": "2026-12-20",
+   "depart": "2027-01-03",
+   "nights": 14
+  },
+  "guests": "Mom & Dad",
+  "hosts": [
+   "John",
+   "Nickie",
+   "Johnny"
+  ],
+  "origin": "SGN — Ho Chi Minh City, Vietnam",
+  "privacy": "noindex guest board; no addresses, documents, or booking codes are ever posted here",
+  "status": "Planning - route: San Jose 3-4 days, then NYC / Niagara Falls / Pennsylvania. Flight times and visa status not yet confirmed",
+  "title": "Family Visit — Parents' Trip, December 2026",
+  "window": "Around Dec 20, 2026, about 2 weeks"
+ }
+}

@@ -1,0 +1,89 @@
+# Family Visit: QC report
+
+Self-QC of `site/family-visit/` on branch `family-visit-app`, 2026-11-07. Evidence comes from `node site/family-visit/tests/run.mjs --qc` (22 of 22 passing; per-test detail in `tests/last-run.json`). Screenshots are in `qc/`. Everything ran against the Firebase Local Emulator Suite. Anything that needs the live project or a real phone is marked BLOCKED-LIVE, not PASS.
+
+## Checks
+
+| Check | Result | Evidence |
+|---|---|---|
+| Layout order title, then timeline table, then chat, then back-to-top, at 360 px | PASS | QC layout test: title top 0, table 921, chat 3060 px. `qc/layout-360.png` |
+| Same order at desktop width (1440 px) | PASS | Title 0, table 645, chat 2040 px. `qc/layout-1440.png` |
+| Back-to-top appears after scrolling and returns to the top | PASS | Hidden at the top, shown after scrolling; the click smooth-scrolled to `scrollY` 0. `qc/back-to-top-360.png` |
+| Back-to-top never overlaps the composer or the vote buttons | PASS | 0 overlaps in 4 positions: page bottom with the composer in view, and each vote-button row placed at the bottom edge of a 360 px screen. |
+| Every button wired, no dead controls | PASS | All 28 buttons map to a handler (ids, `data-vote`, `data-action`, `data-thread`, or form submit). The other members' OK/No buttons are disabled by design (see decision 14). |
+| No horizontal page scroll at 360 px | PASS | Measured `document.documentElement.scrollWidth` = 360 at viewport 360, with a pending proposal and a 300-character unbroken message on screen. |
+| No horizontal page scroll at 390 px | PASS | Measured `scrollWidth` = 390 at viewport 390. |
+| Timeline table on narrow screens | PASS | It sits in its own horizontal scroll region with the Date column `position: sticky`; the Date cell did not move when the region scrolled 300 px. |
+| Touch targets ≥ 44 px | PASS | Every visible button, link, summary, and textarea is ≥ 44 × 44 px at 360 px. The vote buttons are 48 px tall and half the card wide each. `qc/vote-360.png` |
+| Composer font ≥ 16 px (no iOS focus zoom) | PASS | Computed font-size 16 px. |
+| One complete vote at 360 px | PASS | John's OK stored (`votes.john = "ok"`) from a 360 px viewport. `qc/vote-360.png` |
+| One chat message sent at 360 px | PASS | Stored with `authorId: "john"`. `qc/message-360.png` |
+| Full flow with the GSAP CDN blocked | PASS | `window.gsap` undefined. A message was delivered live to a second session, the third OK applied a proposal, the table updated, and back-to-top worked. No errors besides the blocked script request. |
+| No placeholder text | PASS | 0 matches for lorem / ipsum / TODO / TBD / FIXME / xxx / placeholder in the rendered text. The composer's hint "Write to the family and agents" is instruction copy, not filler. |
+| Seed prices and dates byte-identical to `board.json` | PASS | Title, 4 decisions (headings, statuses, resolution, all 12 price strings with their check dates), the 2 seeded agent posts (role, time, topic, text), and the 4 rows of `timeline-seed.json` match character for character. |
+| No whitelist address or sensitive data visible | PASS | 0 email-shaped strings in the rendered HTML while signed in. Signed-out and denied visitors see no plan content (tests b, e2). Committed files contain no real address: rules and config hold only SHA-256 hashes, and tests use `@family-visit.test` addresses. |
+| Privacy reminder under the message box | PASS | "Never post home addresses, ID or passport numbers, or booking codes here." `qc/message-360.png` |
+| Console free of errors during sign-in, post, reload | PASS | 0 console errors and 0 page errors (0 console lines at all). Sign-in used the emulator's Google credential, not the live popup. |
+| noindex, not linked, not in the sitemap, no robots.txt Disallow | PASS | `<meta name="robots" content="noindex, nofollow">` present; no file outside `site/family-visit/` mentions the path. |
+| (a) Two-session live messaging | PASS | Test (a): seen 526 ms after send, no reload. |
+| (b) Non-whitelisted user denied read and write | PASS | Test (b): 8 denied operations, including unverified-email and non-Google sign-ins. |
+| (c) Offline message delivered exactly once | PASS | Test (c): 0 server docs while offline, then exactly 1 doc and 1 rendered copy per session. |
+| (d) Malformed writes rejected | PASS | Test (d): 19 denied writes, 2 valid controls accepted. |
+| (e) Listener killed: reconnecting, then polling, never blank | PASS | Test (e) and test (e2). `qc/e-polling-fallback.png`, `qc/e-offline-snapshot.png` |
+| (f) Gate: 2 OK no change, 3rd OK applies, one No freezes | PASS | Test (f): rows JSON and table HTML byte-identical at 2 OK and after the No; applied at 3 OK with version bumps. `qc/f-applied.png` |
+| 72-hour reminder exactly once | PASS | Reminder test: 1 document, fixed text; a second, an early, and a free-text reminder were refused. |
+| Real Google sign-in (popup, and the redirect fallback on phones) | BLOCKED-LIVE | Needs the live project and authorized domain; the emulator signs in with a test credential. |
+| Rules deployed to `family-visit-81a60` | BLOCKED-LIVE | Not deployed from here (no project credentials). The same rules text is what the emulator ran. |
+| Two real devices on real networks | BLOCKED-LIVE | Two emulated sessions only. |
+| Composer stays above the on-screen keyboard; safe-area insets | BLOCKED-LIVE | Built with `100dvh`, `interactive-widget=resizes-content`, and `env(safe-area-inset-*)`, but a headless browser has no on-screen keyboard or notch. |
+| Dark mode | Not checked | Tokens are defined for `prefers-color-scheme: dark`; no dark-mode screenshot review was done. |
+
+## BLOCKED-EXTERNAL
+
+- **Agent writes need an Admin SDK service account** (Muse side). Proposals, pinned summaries, decisions, the heartbeat, and agent posts are not writable by signed-in people by design. The data contract is in `WORK-LOG.md` section 3.
+- **Live seeding:** `planRows/*` and `planMeta/table` must be created on the live project from `timeline-seed.json` before the first proposal can apply. Until then the page shows the seed rows read-only.
+- **Rules deploy:** `firestore.rules` must be deployed by someone with access to the Firebase project.
+
+## Decisions to re-verify live
+
+All are explained in `WORK-LOG.md` section 2, with the alternatives that were rejected.
+1. Whitelist stored as SHA-256 hashes, plus required `email_verified` and the `google.com` provider.
+2. Test rules are derived from the production file by swapping hashes.
+3. Agents write via the Admin SDK only.
+4. The 72-hour reminder is client-triggered: fixed id, fixed text, enforced once by the rules.
+5. The third OK applies the change in a transaction from the voter's browser, checked row by row in the rules. At most 4 rows per proposal.
+6. A stale proposal cannot apply; voters are told to vote No.
+7. Voting needs a connection; messages queue offline.
+8. Presence is a Firestore heartbeat: "online" lapses after 90 s, "away" after 10 min.
+9. Unread markers and drafts are per-device; sign-out clears all local data and the Firestore cache.
+10. The offline snapshot is shown only on a device that signed in before.
+11. Health checks: a canary listener; backoff 1 to 30 s; polling every 30 s after 60 s of reconnecting.
+12. Timeline seed rows are built from the DATA section and D1 only.
+13. On mobile, the table scrolls inside its region with a sticky Date column.
+14. Vote buttons are shown for all three members, but only your own pair is enabled.
+15. Back-to-top avoidance: it lifts above obstacles or hides.
+16. The emulator uses project id `demo-family-visit`.
+17. GSAP 3.13.0 and Firebase 11.10.0 load from CDNs, as the brief requires.
+
+## Independent review
+
+A separate reviewer read the rules and client code. It found no rules hole (forged votes, fewer than 3 OKs, frozen edits, out-of-transaction row writes, agent impersonation, non-member reads) and no XSS path. Its client findings and what was done:
+
+| Finding | Done |
+|---|---|
+| Sign-out hung offline (awaited a presence write) | Fixed: never waits on the network; clears the DOM, localStorage, and the Firestore cache, then reloads. New test "sign out works offline…" |
+| Content stayed in the hidden DOM after sign-out or denial | Fixed: rendered content is cleared |
+| "Load earlier" could stop for good after an offline cache read | Fixed: reads from the server only; on failure it offers a retry |
+| Stale or oversized proposals swallowed the 3rd OK with a vague error | Fixed: clear messages that say to vote No |
+| A due reminder allowed free text under the Coordinator label | Fixed: the rules pin the exact text; a free-text attempt is refused (tested) |
+| A reminder failure blocked retries until reload | Fixed: retries unless the server refused it |
+| Presence writes queued offline; "away" went stale too fast | Fixed: heartbeat only while live; "away" lasts 10 min |
+| One refused listener sent a member to the denied screen | Fixed: token refresh and one retry first |
+| Seed files fetched before sign-in | Fixed: loaded only after member sign-in, or for the offline snapshot |
+| Other members' disabled vote buttons | Kept: the brief requires OK / No for each of the three |
+| `board.json`, `timeline-seed.json`, and these reports are publicly downloadable from GitHub Pages | Open risk for the owner, see below |
+
+## Open risk for the owner
+
+- **The brief puts `board.json` (and the reports) in `site/family-visit/`, which GitHub Pages serves to anyone who knows the URL.** noindex keeps the files out of search results but does not hide them. Exposed: route, dates, quoted prices, and the open B1/B2 visa question. Not exposed: addresses, documents, and booking codes.
+- **Unsalted hashes can be guessed.** Someone who guesses a candidate address can confirm it against the published hash. Allow-listing by Firebase UID would avoid this, but the UIDs only exist after each person's first sign-in.
