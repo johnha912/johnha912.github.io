@@ -1631,10 +1631,17 @@ main { flex: 1; padding-top: var(--nav-h); }
   .js [data-reveal] {
     opacity: 0;
     transform: translateY(24px);
+  }
+  /* CSS fallback reveal; with GSAP (motion.js) the tween drives it, so no competing transition. */
+  .js:not(.gsap) [data-reveal] {
     transition: opacity var(--dur-slow) var(--ease-out), transform var(--dur-slow) var(--ease-out);
     transition-delay: calc(var(--i, 0) * 70ms);
   }
   .js [data-reveal].is-in { opacity: 1; transform: none; }
+
+  /* GSAP ScrollSmoother (desktop pointers): main + footer move inside a fixed wrapper. */
+  .is-smooth { scroll-behavior: auto; }
+  #smooth-content { display: flex; flex-direction: column; min-height: 100dvh; }
 
   .hero__portrait { animation: rise 900ms var(--ease-out) both; }
   .hero__title span { animation: rise 900ms var(--ease-out) both; }

@@ -22,6 +22,8 @@ Sonnet, effort **medium**.
 - Check the console on every page; any error is a finding.
 - Emulate `prefers-reduced-motion: reduce` and confirm nothing animates.
 - Take full-page screenshots with `reducedMotion: 'reduce'`; otherwise scroll-reveal cards below the fold render blank.
+- At 1440 (mouse), confirm GSAP smooth scrolling: `<html>` has `is-smooth`, wheel scrolling reaches the footer, "Back to top" and same-page anchors land under the header, and `/tech/#elt-pipeline` opens with the card just below the header. On phone viewports and under reduced motion, `is-smooth` must be absent.
+- Run Lighthouse against a server that compresses like GitHub Pages (`npx serve site`), not `python -m http.server`, which sends uncompressed JS and understates Performance.
 - If a script needs `playwright-core`, require the copy bundled with Playwright CLI by absolute path (`%APPDATA%/npm/node_modules/@playwright/cli/node_modules/playwright-core`); `npm root -g` fails in the sandbox.
 - Save screenshots to `test-reports/screenshots/<page>-<w>x<h>-<theme>.png`.
 
