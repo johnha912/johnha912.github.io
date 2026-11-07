@@ -331,3 +331,11 @@ Final run: 25 of 25 (12 end-to-end, 13 QC).
   a thread that gains a new reply while collapsed stays collapsed with a fresh count.
 - The toggle is managed after the node-diff pass in `renderMessages()`, so reused
   nodes, editing state and signatures are untouched. Assets ?v=12; appVersion "v12".
+- Same build, folded in before merge (owner, 2026-11-07 12:24 PT): "Nút báo lỗi chưa
+  transparent" — the Báo lỗi tab used the shared `.glass` gradient whose top stop is
+  72% white, so over the plan table it read as a solid white tab hiding the text
+  beneath (visible in the owner's 12:18 screenshot). The tab now overrides with a
+  genuinely transparent frost: white 32%→15%→9% gradient, blur 16px + saturate kept
+  (the liquid-glass refraction), lighter border/inner highlight, plus a dark-scheme
+  variant (dark glass 40%→14%). Only the tab changed; the sheet/panel keep full glass
+  for readability. Touch target and behaviour unchanged.

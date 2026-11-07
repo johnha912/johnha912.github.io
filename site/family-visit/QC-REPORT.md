@@ -241,3 +241,4 @@ A separate reviewer read the rules and client code. It found no rules hole (forg
 | Toggle logic | PASS by code | Post-diff management in `renderMessages()`: counts real replies per thread root; hides replies of collapsed roots; root itself never hidden. |
 | Emulator suite | NOT RUN on this VM (standing limitation) | New e2e test (q): root + 2 replies (one nested) — toggle collapses both, expands both, root stays visible throughout. |
 | Live E2E | See the post-merge verification note appended after the live run | Collapse/expand exercised on the live page against a real test thread, per the feature-change protocol. |
+| Report-tab transparency (owner report) | PASS by code | Tab gradient alpha cut from 72%→32% max with blur retained; verified visually in the post-merge live E2E (tab over table content, text beneath visible through it). |
