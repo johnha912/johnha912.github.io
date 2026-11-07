@@ -102,6 +102,7 @@ const S = {
   replyTo: null, editing: null, confirmDelete: null,
   voteBusy: new Set(), voteMsg: new Map(),
   dOpen: new Set(),
+  collapsedThreads: new Set(),
   catFilter: null,
   remindersTried: new Set(),
   snapshotMode: false, booted: false,
@@ -259,7 +260,7 @@ function teardown() {
   S.conn?.stop(); S.conn = null;
   clearInterval(S.presenceTimer); S.presenceTimer = null;
   S.msgs.clear(); S.pending.clear(); S.proposals.clear(); S.rows.clear(); S.presence.clear();
-  S.decisions = []; S.summaryDoc = null; S.typingDoc = null;
+  S.decisions = []; S.summaryDoc = null; S.typingDoc = null; S.collapsedThreads.clear();
   S.rowsFromServer = false; S.tableMeta = null; S.oldestDoc = null; S.moreOlder = false; S.olderLoaded = false;
 }
 
@@ -645,7 +646,7 @@ async function submitReport(text) {
   const data = {
     id, reporter: S.member, category: reportCategory, text, status: "open",
     createdAt: fs.serverTimestamp(), clientCreatedAt: Date.now(),
-    userAgent: String(navigator.userAgent || "").slice(0, 300), appVersion: "v11"
+    userAgent: String(navigator.userAgent || "").slice(0, 300), appVersion: "v12"
   };
   await fs.setDoc(fs.doc(S.db, "issues", id), data);
 }
@@ -1005,6 +1006,22 @@ function renderMessages(reset = false) {
     if (isNew || statusChanged) fresh.push(node);
     return node;
   });
+  // Thread collapse (Slack-style): a root with replies carries a toggle that folds
+  // its whole reply stack away; the count covers real replies, not reception acks.
+  const replyCounts = new Map();
+  for (const it of items) if (it.kind === "msg" && it.isReply && it.m.kind !== "ack") replyCounts.set(it.threadKey, (replyCounts.get(it.threadKey) || 0) + 1);
+  nodes.forEach((node, i) => {
+    const it = items[i];
+    if (it.kind !== "msg") return;
+    if (it.isReply) { node.hidden = S.collapsedThreads.has(it.threadKey); return; }
+    const count = replyCounts.get(it.key) || 0;
+    let tg = node.querySelector(":scope > .thread-toggle");
+    if (!count) { tg?.remove(); return; }
+    const collapsed = S.collapsedThreads.has(it.key);
+    if (!tg) { tg = h("button", { type: "button", class: "thread-toggle", "data-thread": it.key }); node.append(tg); }
+    tg.setAttribute("aria-expanded", String(!collapsed));
+    tg.textContent = collapsed ? `Xem ${count} trả lời` : `Thu gọn ${count} trả lời`;
+  });
   const sentinel = $("#load-older-wrap");
   list.replaceChildren(sentinel, ...nodes);
   if (!items.length && f) list.append(h("li", { class: "empty", text: "Chưa có tin nhắn nào trong chủ đề này." }));
@@ -1168,6 +1185,13 @@ function wireStaticUi() {
   });
 
   $("#messages").addEventListener("click", (e) => {
+    const tbtn = e.target.closest(".thread-toggle");
+    if (tbtn) {
+      const id = tbtn.dataset.thread;
+      if (S.collapsedThreads.has(id)) S.collapsedThreads.delete(id); else S.collapsedThreads.add(id);
+      renderMessages();
+      return;
+    }
     const jump = e.target.closest("[data-jump]");
     if (jump) {
       e.preventDefault();

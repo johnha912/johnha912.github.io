@@ -501,5 +501,30 @@ export const tests = [
       await close(john);
       return "The reply to A rendered immediately under A (indented), ahead of the unrelated message B that arrived before it.";
     }
+  },
+  {
+    name: "(q) thread collapse: the toggle on a root folds and unfolds its reply stack",
+    async run(ctx) {
+      await fresh(ctx);
+      const t = Date.now();
+      const msg = (id, extra) => ({ id, threadId: "general", replyTo: null, deleted: false, ...extra });
+      await admin.setDoc("threads/general/messages/root-a", msg("root-a", { authorKind: "human", authorId: "john", text: "Tin gốc A", createdAt: new Date(t - 9000), clientCreatedAt: t - 9000 }));
+      await admin.setDoc("threads/general/messages/reply-1", msg("reply-1", { authorKind: "agent", role: "Coordinator", text: "Trả lời 1", replyTo: "root-a", createdAt: new Date(t - 6000), clientCreatedAt: t - 6000 }));
+      await admin.setDoc("threads/general/messages/reply-2", msg("reply-2", { authorKind: "agent", role: "Budget", text: "Trả lời 2", replyTo: "reply-1", createdAt: new Date(t - 3000), clientCreatedAt: t - 3000 }));
+      const john = await newSession(ctx.browser, { member: "john" });
+      const toggle = john.page.locator('li[data-key="root-a"] .thread-toggle');
+      await eventually(async () => (await toggle.count()) === 1, 15000);
+      assert((await toggle.textContent()).includes("Thu gọn 2 trả lời"), "toggle should offer to collapse 2 replies (the nested reply counts too)");
+      await toggle.click();
+      await eventually(async () => (await toggle.textContent()).includes("Xem 2 trả lời"), 15000);
+      assert(!(await john.page.locator('li[data-key="reply-1"]').isVisible()), "reply-1 should be hidden while collapsed");
+      assert(!(await john.page.locator('li[data-key="reply-2"]').isVisible()), "reply-2 should be hidden while collapsed");
+      assert(await john.page.locator('li[data-key="root-a"]').isVisible(), "the root stays visible while collapsed");
+      await toggle.click();
+      await eventually(async () => (await toggle.textContent()).includes("Thu gọn 2 trả lời"), 15000);
+      assert(await john.page.locator('li[data-key="reply-1"]').isVisible(), "reply-1 should be back after expanding");
+      await close(john);
+      return "The root's toggle collapsed both replies (including the nested one) and expanded them again; the root never hid.";
+    }
   }
 ];

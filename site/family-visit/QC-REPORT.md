@@ -233,3 +233,11 @@ A separate reviewer read the rules and client code. It found no rules hole (forg
 | Emulator suite | NOT RUN on this VM (standing limitation) | New e2e test (p) seeds root A, unrelated root B, then a later reply to A, and asserts DOM order A, reply, B plus the indent class on the reply only. |
 | Live E2E | See the post-merge verification note appended after the live run | Thread position checked on the live page with verbatim quotes + Firestore cross-check, per the feature-change protocol. |
 | Status-cell wrap fix (owner screenshot) | PASS by code | Pill → block tag with balanced wrap + 11rem column minimum; verified visually in the post-merge live E2E (status texts quoted verbatim, fully visible). |
+
+## v12 (branch `family-visit-v12`, 2026-11-07): thread collapse toggle
+
+| Check | Result | Evidence |
+|---|---|---|
+| Toggle logic | PASS by code | Post-diff management in `renderMessages()`: counts real replies per thread root; hides replies of collapsed roots; root itself never hidden. |
+| Emulator suite | NOT RUN on this VM (standing limitation) | New e2e test (q): root + 2 replies (one nested) — toggle collapses both, expands both, root stays visible throughout. |
+| Live E2E | See the post-merge verification note appended after the live run | Collapse/expand exercised on the live page against a real test thread, per the feature-change protocol. |

@@ -319,3 +319,15 @@ Final run: 25 of 25 (12 end-to-end, 13 QC).
   block-level rounded tag filling its cell (`border-radius: var(--r-sm)`, comfortable
   padding/line-height, `text-wrap: balance` so wrapped lines come out even) and the
   status column gets an 11rem minimum width. No text is clipped or truncated anywhere.
+
+## v12 addendum (built by Muse, 2026-11-07 — thread collapse toggle)
+
+- Owner's follow-up to v11: stacking is "gần giống Slack chứ chưa giống" — Slack also
+  lets you fold a thread away. v12 adds the missing piece: a root message with ≥1 real
+  reply gets a pill toggle under it — "Thu gọn N trả lời" / "Xem N trả lời" (chevron,
+  ≥44px, `aria-expanded`). Collapsing hides the whole stack (nested replies and the
+  reception ack ride along); the root never hides. The count excludes acks (receipts
+  are not replies). State is per-session (`S.collapsedThreads`), cleared on sign-out;
+  a thread that gains a new reply while collapsed stays collapsed with a fresh count.
+- The toggle is managed after the node-diff pass in `renderMessages()`, so reused
+  nodes, editing state and signatures are untouched. Assets ?v=12; appVersion "v12".
