@@ -645,7 +645,7 @@ async function submitReport(text) {
   const data = {
     id, reporter: S.member, category: reportCategory, text, status: "open",
     createdAt: fs.serverTimestamp(), clientCreatedAt: Date.now(),
-    userAgent: String(navigator.userAgent || "").slice(0, 300), appVersion: "v10"
+    userAgent: String(navigator.userAgent || "").slice(0, 300), appVersion: "v11"
   };
   await fs.setDoc(fs.doc(S.db, "issues", id), data);
 }
@@ -975,7 +975,17 @@ function renderMessages(reset = false) {
   // One chat: every proposal appears in it, whichever legacy thread it was filed under.
   for (const p of S.proposals.values()) if (!f || proposalCategory(p) === f) items.push({ kind: "proposal", key: `p-${p.id}`, sort: p.createdAtMs ?? 0, p });
   renderCatFilter();
-  items.sort((a, b) => a.sort - b.sort || String(a.key).localeCompare(String(b.key)));
+  // Thread stacking (Slack-style): a reply is placed directly under the root of its
+  // thread instead of at its own timestamp, so a conversation never drifts apart
+  // when other messages land in between. Threads are ordered by their root message.
+  const msgItems = new Map(items.filter((i) => i.kind === "msg").map((i) => [i.key, i]));
+  for (const it of items) {
+    let root = it, hops = 0;
+    while (root.kind === "msg" && root.m.replyTo && msgItems.has(root.m.replyTo) && hops++ < 10) root = msgItems.get(root.m.replyTo);
+    it.threadSort = root.sort;
+    it.isReply = root !== it;
+  }
+  items.sort((a, b) => (a.threadSort - b.threadSort) || ((a.isReply ? 1 : 0) - (b.isReply ? 1 : 0)) || (a.sort - b.sort) || String(a.key).localeCompare(String(b.key)));
 
   const existing = new Map([...list.querySelectorAll(":scope > li[data-key]")].map((n) => [n.dataset.key, n]));
   const fresh = [];
@@ -983,13 +993,14 @@ function renderMessages(reset = false) {
   const nodes = items.map((it) => {
     const sig = it.kind === "proposal"
       ? JSON.stringify([it.p.status, it.p.votes, S.voteBusy.has(it.p.id), S.voteMsg.get(it.p.id), it.p.summary, decisionKey])
-      : JSON.stringify([it.m.text, it.m.deleted, it.m.editedAt ? 1 : 0, S.pending.has(it.key), S.editing === it.key, S.confirmDelete === it.key, it.m.replyTo, msgCategory(it.m)]);
+      : JSON.stringify([it.m.text, it.m.deleted, it.m.editedAt ? 1 : 0, S.pending.has(it.key), S.editing === it.key, S.confirmDelete === it.key, it.m.replyTo, msgCategory(it.m), it.isReply ? 1 : 0]);
     let node = existing.get(it.key);
     if (node && node.dataset.sig === sig) return node;
     if (node && S.editing === it.key && node.querySelector("textarea")) return node;
     const isNew = !node && !reset;
     const statusChanged = node && it.kind === "proposal" && node.dataset.status !== it.p.status;
     node = it.kind === "proposal" ? proposalItem(it.p) : messageItem(it.m);
+    if (it.kind === "msg") node.classList.toggle("msg--thread", !!it.isReply && it.m.kind !== "ack");
     node.dataset.key = it.key; node.dataset.sig = sig;
     if (isNew || statusChanged) fresh.push(node);
     return node;

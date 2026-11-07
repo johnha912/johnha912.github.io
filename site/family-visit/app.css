@@ -445,6 +445,9 @@ body[data-conn="offline"] .conn-dot { background: var(--cranberry); box-shadow: 
 .msg-text--deleted { color: var(--muted); font-style: italic; }
 .msg-topic { display: block; }
 .msg--reminder .msg-text { font-weight: 500; }
+/* Thread stacking: a reply sits under its thread root — indented, with a pine rail —
+   instead of floating at its own timestamp position (Slack-style). */
+.msg--thread { margin-left: clamp(14px, 5vw, 40px); border-left: 3px solid color-mix(in srgb, var(--pine) 45%, var(--glass-border)); }
 /* Reception acknowledgement: a quiet centred receipt line, not a bubble. */
 .msg--ack { display: flex; justify-content: center; padding: var(--s1) var(--s2); background: transparent; border: 0; }
 .ack-pill { display: inline-flex; align-items: baseline; gap: var(--s2); max-width: 72ch; padding: 3px var(--s3); border-radius: 999px; background: var(--glass-lo); border: 1px dashed var(--line-strong); color: var(--muted); font-size: var(--fs-sm); }
