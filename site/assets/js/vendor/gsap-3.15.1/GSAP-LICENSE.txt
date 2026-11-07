@@ -1,0 +1,6 @@
+GSAP 3.15.1 (gsap.min.js, ScrollTrigger.min.js, ScrollSmoother.min.js)
+Copyright 2026, GreenSock. All rights reserved.
+
+Source: npm package gsap@3.15.1, files copied unchanged from its dist/ folder.
+License: GSAP Standard "no charge" license, https://gsap.com/standard-license
+(each file carries the same notice in its header comment).
