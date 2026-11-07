@@ -354,11 +354,6 @@ export const tests = [
       const john = await newSession(ctx.browser, { member: "john" });
       const nickie = await newSession(ctx.browser, { member: "nickie" });
       await eventually(async () => (await john.page.$$eval(".pres--online", (n) => n.map((x) => x.textContent))).some((t) => t.includes("Nickie")), 15000);
-      assert(await john.page.locator(".pres").count() === 3, "expected three member name chips");
-      const meChip = await john.page.locator(".pres--me").textContent();
-      assert(meChip.includes("John"), "own chip not highlighted");
-      assert(await john.page.locator(".pres-you").count() === 0, "Bạn badge should not be rendered (removed in v6 at the owner's request)");
-      assert((await john.page.locator(".pres", { hasText: "Nickie" }).textContent()).includes("Trực tuyến"), "status word not visible on the chip");
       assert(await john.page.locator("#threads, [role=tab]").count() === 0, "topic tabs still rendered");
       await nickie.page.fill("#composer", "Câu hỏi ngân sách cho cả nhà");
       await nickie.page.click("#composer-form .send");

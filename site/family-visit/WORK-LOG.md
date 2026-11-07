@@ -242,3 +242,8 @@ Final run: 25 of 25 (12 end-to-end, 13 QC).
 
 - Owner clarified the v5 ask: the name chips themselves were fine, but (1) the "Bạn" badge added in v5 reads like a stray button — removed (`renderPresence` no longer emits `.pres-you`; the self chip keeps only the `.pres--me` highlight), and (2) the real target all along was the **sign-out control**: it used `.btn--quiet` (transparent background + border), so it looked like bare text and was easy to tap by mistake. `#signout` now uses a dedicated `.btn--signout` style — solid glass background, strong border, semibold label, full 44px button height — and the account row gap widened (s2 → s3) so it sits clearly apart from the account name.
 - Tests: the v5 chip assertions updated (own chip highlighted; no `.pres-you` element exists). Emulator suite still not run on Muse's VM (no Java/firebase-tools/Playwright); live E2E after merge is the gate, as for v5.
+
+## v7 addendum (built by Muse, 2026-11-07 — owner: "card tên cũ ok rồi, quay lại version trước")
+
+- The owner reviewed v5/v6 from screenshots and directed: the v5 name-chip redesign was unnecessary — **revert the member name cards to the previous (v4) version**. `renderPresence()` and the `.pres` CSS block are restored byte-for-byte from the v4 code (small dot + name pills, status in title/sr-only), the v5/v6 chip assertions in `tests/e2e.mjs` are removed (file back to its v4 state), and the `.pres--me` / `.pres-text` styles are gone.
+- **Kept from v6:** the sign-out card button (`.btn--signout`) — that was the owner's circled request ("chỗ khoanh đỏ là cần card"): the sign-out is now a real bordered button instead of bare text.

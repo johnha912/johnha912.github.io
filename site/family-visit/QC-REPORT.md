@@ -180,3 +180,10 @@ A separate reviewer read the rules and client code. It found no rules hole (forg
 |---|---|---|
 | Sign-out reads as a button | CODE-REVIEWED, live E2E pending | `#signout` switched from `.btn--quiet` (transparent) to `.btn--signout` (solid glass bg, strong border, 44px). |
 | No "Bạn" badge | CODE-REVIEWED, live E2E pending | `.pres-you` removed from render + CSS; e2e asserts its absence. Self chip keeps the pine highlight only. |
+
+## v7 (branch `family-visit-v7`, 2026-11-07): name cards reverted to v4; sign-out card button kept
+
+| Check | Result | Evidence |
+|---|---|---|
+| Presence back to v4 rendering | PASS by construction | `renderPresence()` + `.pres` CSS restored byte-for-byte from the v4 commit (9792d43); live E2E after merge confirms visually. |
+| Sign-out card button retained | PASS by diff scope | v7 diff touches only the presence code/CSS and the test file; `.btn--signout` untouched. |
