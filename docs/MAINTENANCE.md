@@ -17,7 +17,7 @@ How to keep johnha.info healthy after launch.
 ## Automated checks
 
 - **Deploy** (`.github/workflows/deploy.yml`): runs on every push to `main`; check the Actions tab if the site does not update. It stamps every `/assets/css/*.css` and `/assets/js/*.js` URL with `?v=<commit>` so browsers fetch fresh files after each deploy instead of serving a cached copy for up to 10 minutes. Keep those links as plain root-relative paths in the source; the stamp is added at deploy time.
-- **Monthly link check** (`.github/workflows/link-check.yml`): runs on the 1st of each month and opens a GitHub issue listing broken links. Fix or unlink them, then close the issue. LinkedIn/Instagram/news sites that block bots (403/429/999) are treated as reachable. Each link gets a 45-second timeout and up to 3 retries, so one slow response doesn't raise an issue; if a link is reported as a timeout, open it by hand before changing anything.
+- **Monthly link check** (`.github/workflows/link-check.yml`): runs on the 1st of each month and opens a GitHub issue listing broken links. Fix or unlink them, then close the issue. LinkedIn/Instagram/news sites that block bots (403/429/999) are treated as reachable. If a link is reported as a timeout, open it by hand before changing anything. `baristamagazine.com` (a phin article reference) times out from GitHub's runners every run but loads fine in a browser, so the workflow skips it (`--exclude`); the health check below covers it.
 
 ## Health check (monthly, or when the owner asks "is the site OK?")
 
@@ -25,7 +25,7 @@ Owned by devops; results go to the owner in one short report (problems first, th
 
 1. Deploys: the last runs of "Deploy site to GitHub Pages" succeeded (GitHub REST API via `curl`; `gh` is not installed).
 2. Live: `https://johnha.info/` returns 200, `johnha912.github.io` and `http://` redirect to it, every URL in `site/sitemap.xml` returns 200.
-3. Links: no broken internal links in `site/` (guest folders excluded); external links return 200, or a known bot-block code (403/429/999) that opens fine in a browser.
+3. Links: no broken internal links in `site/` (guest folders excluded); external links return 200, or a known bot-block code (403/429/999) that opens fine in a browser. Open the links the workflow skips by hand (currently the Barista Magazine reference on the phin article).
 4. Pages: the S-size browser self-check (`.claude/agents/orchestrator.md`) on Home, About, and Tech.
 5. Budgets: Lighthouse mobile on Home (Performance ≥ 90, Accessibility ≥ 95) once a semester or after a design change.
 6. Guest folders: each `site/<guest>/index.html` still has `<meta name="robots" content="noindex">`, so the boards stay out of search results.
