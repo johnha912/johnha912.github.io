@@ -132,3 +132,49 @@ Deploy notes:
 
 ## 5. Post-delivery change — Muse, Nov 7, 2026 (owner decision: plan data only in Firestore)
 The owner decided the trip plan must not be downloadable by link. `board.json` and `timeline-seed.json` were removed from `site/family-visit/` (the repo is public and the deploy publishes all of `site/`), and `loadSeedFiles()` in `app.js` is now a no-op: decisions, seeded discussion posts, and timeline rows come only from Firestore, seeded by the agents; the offline snapshot is the signed-in device's own cache. Test fixtures moved OUT of the repo: `tests/run.mjs` reads them from `FV_FIXTURES_DIR` (default: a `family-visit-fixtures/` folder next to the repo clone) and fails with a clear message if absent. `seedBaseline` now also seeds decisions + the two discussion posts from the board fixture, so the QC byte-identical check verifies the production Firestore path instead of the removed file fallback; its title assert now checks the static page title, and discussion timestamps are no longer compared (seeded posts carry real timestamps). The branch history was rewritten into a single commit so the removed files are not in the branch's history either; the original commit `60e1a25` may still exist in local clones — treat its two JSON files as already-seen and do not re-add them. Not re-run here: the emulator suite (needs the fixtures folder + Playwright/emulator on the dev machine) — Muse's live E2E covers the deployed build.
+
+## 6. v2: Vietnamese UI, one chat, Plan, then Chat, then Details (branch `family-visit-v2`, 2026-11-07)
+
+Owner feedback: fully Vietnamese, simpler, in the order Plan, then Bình luận (chat), then Chi tiết D1–D4, understandable by a first-time reader on a phone. Same v1 design language (frontend-design direction): same tokens, colors, route rail, and voting cards.
+
+**What changed**
+- **Vietnamese everywhere in the interface.**
+  - Screens: sign-in, denied, loading, and the header ("Đăng nhập bằng Google", "Đăng xuất", "Đã đăng nhập: <tên>").
+  - Status: connection and presence (Đang kết nối, Trực tuyến, Tạm vắng, Ngoại tuyến).
+  - Plan: table headers per the brief, table-meta line, proposal cards and votes (Đồng ý / Không, Đang chờ), with the brief's gate sentence.
+  - Chat: composer, reply, edit and delete, flags (đã sửa, đang gửi…).
+  - Notices: offline banners and snapshot notices, every error message, and the back-to-top label.
+  - Format: `<html lang="vi">`, dates as "7/11 lúc 09:14", relative times "vừa xong" / "N phút trước" / "N giờ trước".
+  - Agent roles go through the brief's display map; the data keeps the English ids.
+- **Order:** title, then Kế hoạch chuyến đi (pending strip and table), then Thảo luận, then Chi tiết các quyết định (D1–D4), then back-to-top. The page opens at scrollY 0. The chat keeps its newest message in view inside its own box, never by scrolling the page.
+- **One chat:**
+  - Removed: tabs, per-thread unread badges, per-thread "here" dots, and the eight `latest-*` listeners.
+  - The chat always reads and writes `threads/general`, and presence always writes `thread: "general"`. Rules and data are unchanged.
+- **D-links:**
+  - Whole tokens matching `\bD\d{1,2}\b` become links, but only when that decision exists in the data. This covers table cells, proposal summaries, and before/after values.
+  - A tap scrolls to `#decision-Dn` (smooth unless reduced motion is set), focuses it, and highlights it for 2 s.
+  - Each link has a 44 px tap area via padding cancelled by negative margins, so the line layout does not move.
+- **Decision cards:** the `intro` shows as a lead paragraph under the title. Resolved styling uses `resolved === true`, with `status === "resolved"` as a fallback, and adds a "Đã chốt" badge.
+- **Short orientation lines** under each section heading, so nobody needs a second explanation: what the table is, what the chat is for, what D1–D4 are.
+
+**Problems found and solved (gap-filling mandate)**
+1. **The v1 typeface had no Vietnamese glyphs.** Atkinson Hyperlegible Next ships only latin and latin-ext on Google Fonts; letters like ạ, ấ, and ở would fall back to a system font mid-word. It was switched to Be Vietnam Pro, drawn for Vietnamese and on Google Fonts with a `vietnamese` subset. Line-height went up slightly for stacked diacritics.
+2. **The 72-hour reminder text is pinned in English by `firestore.rules`.**
+   - Rather than change and redeploy the rules, the stored text stays as the rules require, and the chat renders `kind: "reminder"` messages from a Vietnamese template.
+   - The proposal summary comes from the proposal doc, or is parsed back out of the stored text.
+3. **Proposals filed under legacy threads.** Proposals now show in the one chat whatever their `threadId`, and the pending strip shows them all. A reminder is written to the proposal's own thread, so it is only visible when `threadId` is `general`. **Note for Muse:** file new proposals with `threadId: "general"`.
+4. **QC screenshots leaked the plan.** The v1 `site/family-visit/qc/*.png` showed the real plan with prices, still downloadable after `board.json` was removed. They were deleted on this branch. `tests/run.mjs` now writes screenshots to `FV_QC_DIR` (default `../family-visit-qc/`, outside the repo). They remain in `main`'s git history: flagged to the owner.
+5. **Accessibility labels must not carry data.** The proposal card's `aria-label` embedded the summary; it now uses `aria-labelledby` pointing at the summary heading. That lets the language audit treat attributes as interface text.
+6. **The decisions section was a collapsible `<details>`.** It is now a plain section, so a D-link can never land on a hidden card.
+7. **Loanword.** "chat" in an error message became "trò chuyện".
+
+**Could not verify here**
+- That the live Firestore content is all Vietnamese: this session has no access to the live project. If an English string shows up in live data, Muse should fix the data, not the UI.
+- Live Google sign-in, real phones, and the on-screen keyboard: same as v1, BLOCKED-LIVE.
+
+**Run log**
+- The first v2 run had 21 of 24 passing:
+  - D-link tap area measured 43 × 42 px; padding raised to 14/15 px.
+  - The seed-fidelity check read the page before the decisions arrived; it now waits for them.
+  - The reminder's proposal summary was not marked as data; it now is.
+- Final run: 24 of 24.

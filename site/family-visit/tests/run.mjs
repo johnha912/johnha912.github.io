@@ -170,7 +170,9 @@ async function main() {
     browser = await launch();
     const seed = loadFixture("timeline-seed.json");
     const board = loadFixture("board.json");
-    const ctx = { browser, seed, board, results, qcDir: join(SITE, "family-visit/qc") };
+    // Screenshots show the seeded plan, so they are written OUTSIDE the repo (site/ is published).
+    const qcDir = process.env.FV_QC_DIR || join(REPO, "..", "family-visit-qc");
+    const ctx = { browser, seed, board, results, qcDir };
     mkdirSync(ctx.qcDir, { recursive: true });
     const suites = [await import("./e2e.mjs")];
     if (qc) suites.push(await import("./qc.mjs"));
