@@ -1641,6 +1641,7 @@ main { flex: 1; padding-top: var(--nav-h); }
 
   /* GSAP ScrollSmoother (desktop pointers): main + footer move inside a fixed wrapper. */
   .is-smooth { scroll-behavior: auto; }
+  .is-smooth body { overscroll-behavior: none; } /* no rubber-band bounce past the ends */
   #smooth-content { display: flex; flex-direction: column; min-height: 100dvh; }
 
   .hero__portrait { animation: rise 900ms var(--ease-out) both; }

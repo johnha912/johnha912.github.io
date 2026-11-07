@@ -30,14 +30,27 @@
     const smoother = ScrollSmoother.create({ wrapper, content, smooth: 1.1, effects: false });
     root.classList.add("is-smooth");
     const offset = () => `top ${parseFloat(getComputedStyle(root).scrollPaddingTop) || 0}px`;
-    const targetOf = (hash) => {
-      const el = hash && document.getElementById(decodeURIComponent(hash.slice(1)));
-      return el && content.contains(el) ? el : el ? 0 : null; // #top (the body) scrolls to 0
+    // Scroll position for a target; ignores the 24px a not-yet-revealed card is still shifted down.
+    const glideTo = (target, smooth) => {
+      if (target === 0) return smoother.scrollTo(0, smooth);
+      const shifted = target.closest("[data-reveal]");
+      smoother.scrollTo(smoother.offset(target, offset()) - (shifted ? gsap.getProperty(shifted, "y") : 0), smooth);
     };
+    const targetOf = (hash) => {
+      const el = hash.length > 1 ? document.getElementById(decodeURIComponent(hash.slice(1))) : null;
+      if (!el) return null; // "#" or an unknown id: leave the click to the browser
+      return content.contains(el) ? el : 0; // #top (the body) scrolls to 0
+    };
+
+    // The page behind the search palette or the open mobile menu stays still (GSAP docs: pause for modals).
+    const overlays = [document.querySelector("[data-search]"), document.querySelector("[data-nav]")].filter(Boolean);
+    const syncPause = () => smoother.paused(overlays.some((el) => el.open || el.hasAttribute("data-open")));
+    const watcher = new MutationObserver(syncPause);
+    overlays.forEach((el) => watcher.observe(el, { attributes: true, attributeFilter: ["open", "data-open"] }));
 
     // Deep links (e.g. /tech/#elt-pipeline) land under the header, not behind it.
     const initial = targetOf(location.hash);
-    if (initial) smoother.scrollTo(initial, false, offset());
+    if (initial) glideTo(initial, false);
 
     // Same-page anchors glide instead of jumping. The skip link keeps its native focus behavior.
     const onClick = (e) => {
@@ -49,13 +62,15 @@
       if (target === null) return;
       e.preventDefault();
       a.closest("dialog[open]")?.close();
-      smoother.scrollTo(target, true, offset());
+      syncPause(); // unpause now, not on the observer's next tick, so the glide isn't cut short
+      glideTo(target, true);
       history.pushState(null, "", url.hash);
     };
     document.addEventListener("click", onClick);
 
     return () => {
       document.removeEventListener("click", onClick);
+      watcher.disconnect();
       smoother.kill();
       root.classList.remove("is-smooth");
       wrapper.before(...content.children);

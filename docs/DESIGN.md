@@ -78,7 +78,7 @@ Display tracking `-0.035em`, display line-height `1.04`, body line-height `1.65`
 
 Every animation is gated on `prefers-reduced-motion: no-preference`; under `reduce`, all transitions and animations collapse to instant, and GSAP (via `gsap.matchMedia`) adds no smoothing or reveal.
 
-GSAP 3.15.1 is self-hosted in `site/assets/js/vendor/gsap-3.15.1/` (core, ScrollTrigger, ScrollSmoother; ≈ 52 KB gzipped together; free under the GSAP Standard License). Page code lives in `site/assets/js/motion.js`, loaded with `defer` before `site.js`. ScrollSmoother wraps `main` and the footer in `#smooth-wrapper` / `#smooth-content` at runtime; the fixed header, ambient glow, cookie banner, and search dialog stay outside it, so never put `position: fixed` or `sticky` elements inside `main`.
+GSAP 3.15.1 is self-hosted in `site/assets/js/vendor/gsap-3.15.1/` (core, ScrollTrigger, ScrollSmoother; ≈ 52 KB gzipped together; free under the GSAP Standard License). Page code lives in `site/assets/js/motion.js`, loaded with `defer` before `site.js`. ScrollSmoother wraps `main` and the footer in `#smooth-wrapper` / `#smooth-content` at runtime; the fixed header, ambient glow, cookie banner, and search dialog stay outside it, so never put `position: fixed` or `sticky` elements inside `main`. Native `element.scrollIntoView()` does not move the smoothed layer: scroll programmatically with `ScrollSmoother.get()?.scrollTo(el, true, "top 80px")` (fall back to native when it returns null). The smoother pauses while the search palette or the mobile menu is open, and focused elements glide into view with about 1 s of smoothing lag.
 
 | Motion | Purpose |
 |---|---|
