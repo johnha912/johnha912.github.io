@@ -42,6 +42,7 @@
   --role-budget: #3c6e1f;
   --role-scout: #5e4fa2;
   --role-visa: #6b6312;
+  --role-reception: #0f766e;
   --member-john: #1d6a52;
   --member-nickie: #8c3f6b;
   --member-johnny: #2f5d8f;
@@ -99,6 +100,7 @@
     --role-budget: #9fd27e;
     --role-scout: #b9aef0;
     --role-visa: #d6cd6e;
+    --role-reception: #5fd3c6;
     --member-john: #74d0ac;
     --member-nickie: #e7a1c8;
     --member-johnny: #94bdf0;
@@ -436,12 +438,25 @@ body[data-conn="offline"] .conn-dot { background: var(--cranberry); box-shadow: 
 .role--budget { --role-c: var(--role-budget); }
 .role--scout { --role-c: var(--role-scout); }
 .role--visa { --role-c: var(--role-visa); }
+.role--reception { --role-c: var(--role-reception); }
 .msg-time, .msg-flag { font-size: var(--fs-sm); color: var(--muted); }
 .msg-flag--sending { color: var(--lantern); font-weight: 500; }
 .msg-text { white-space: pre-wrap; max-width: 72ch; }
 .msg-text--deleted { color: var(--muted); font-style: italic; }
 .msg-topic { display: block; }
 .msg--reminder .msg-text { font-weight: 500; }
+/* Reception acknowledgement: a quiet centred receipt line, not a bubble. */
+.msg--ack { display: flex; justify-content: center; padding: var(--s1) var(--s2); background: transparent; border: 0; }
+.ack-pill { display: inline-flex; align-items: baseline; gap: var(--s2); max-width: 72ch; padding: 3px var(--s3); border-radius: 999px; background: var(--glass-lo); border: 1px dashed var(--line-strong); color: var(--muted); font-size: var(--fs-sm); }
+.ack-check { color: var(--pine); font-weight: 700; }
+/* Typing signal above the composer while the team has unprocessed messages. */
+.typing { flex: none; display: flex; align-items: center; gap: var(--s2); padding: var(--s2) var(--s4); border-top: 1px solid var(--line); color: var(--muted); font-size: var(--fs-sm); background: var(--glass-lo); }
+.typing-dots { display: inline-flex; gap: 4px; }
+.typing-dots i { width: 6px; height: 6px; border-radius: 50%; background: var(--pine); opacity: .35; animation: typing-blink 1.2s infinite; }
+.typing-dots i:nth-child(2) { animation-delay: .2s; }
+.typing-dots i:nth-child(3) { animation-delay: .4s; }
+@keyframes typing-blink { 0%, 60%, 100% { opacity: .35; transform: translateY(0); } 30% { opacity: 1; transform: translateY(-2px); } }
+@media (prefers-reduced-motion: reduce) { .typing-dots i { animation: none; opacity: .7; } }
 .quote { display: flex; align-items: center; min-height: 44px; font-size: var(--fs-sm); color: var(--muted); padding-left: var(--s3); border-left: 2px solid var(--line-strong); text-decoration: none; max-width: 72ch; }
 .quote:hover { color: var(--ink); }
 .msg-actions { display: flex; gap: var(--s1); margin-left: calc(-1 * var(--s2)); }

@@ -16,7 +16,8 @@ const AGENTS = {
   "Itinerary & Food": { key: "itinerary", vi: "Lịch trình & Ăn uống" },
   "Budget": { key: "budget", vi: "Ngân sách" },
   "Scout — Research & Verification": { key: "scout", vi: "Kiểm chứng thông tin" },
-  "Visa & Documents": { key: "visa", vi: "Visa & Giấy tờ" }
+  "Visa & Documents": { key: "visa", vi: "Visa & Giấy tờ" },
+  "Reception": { key: "reception", vi: "Tiếp nhận" }
 };
 // One chat, but agents tag each of their messages with a topic (field `category`, one of these ids).
 // The chat shows the tag and offers a filter; a reply takes the topic of the message it answers.
@@ -93,6 +94,7 @@ const S = {
   proposals: new Map(),
   decisions: [],
   summaryDoc: null,
+  typingDoc: null,
   heartbeat: null,
   presence: new Map(),
   msgs: new Map(), pending: new Set(),
@@ -257,7 +259,7 @@ function teardown() {
   S.conn?.stop(); S.conn = null;
   clearInterval(S.presenceTimer); S.presenceTimer = null;
   S.msgs.clear(); S.pending.clear(); S.proposals.clear(); S.rows.clear(); S.presence.clear();
-  S.decisions = []; S.summaryDoc = null;
+  S.decisions = []; S.summaryDoc = null; S.typingDoc = null;
   S.rowsFromServer = false; S.tableMeta = null; S.oldestDoc = null; S.moreOlder = false; S.olderLoaded = false;
 }
 
@@ -364,6 +366,11 @@ function startLive() {
   c.watch("summary", fs.doc(db, "threads", THREAD), (snap) => {
     S.summaryDoc = snap.exists() ? snap.data({ serverTimestamps: "estimate" }) : null;
     renderSummary();
+  }, { isDoc: true });
+
+  c.watch("typing", fs.doc(db, "meta", "typing"), (snap) => {
+    S.typingDoc = snap.exists() ? snap.data({ serverTimestamps: "estimate" }) : null;
+    renderTyping();
   }, { isDoc: true });
 
   c.watch("presence", fs.collection(db, "presence"), (snap) => {
@@ -638,7 +645,7 @@ async function submitReport(text) {
   const data = {
     id, reporter: S.member, category: reportCategory, text, status: "open",
     createdAt: fs.serverTimestamp(), clientCreatedAt: Date.now(),
-    userAgent: String(navigator.userAgent || "").slice(0, 300), appVersion: "v9"
+    userAgent: String(navigator.userAgent || "").slice(0, 300), appVersion: "v10"
   };
   await fs.setDoc(fs.doc(S.db, "issues", id), data);
 }
@@ -931,6 +938,7 @@ function renderSummary() {
 }
 
 function msgCategory(m, depth = 0) {
+  if (m?.kind === "ack") return null;
   if (m && CATEGORIES[m.category]) return m.category;
   if (m?.kind === "reminder") return proposalCategory(S.proposals.get(m.proposalId));
   if (m?.replyTo && depth < 5) return msgCategory(S.msgs.get(m.replyTo), depth + 1);
@@ -1016,6 +1024,15 @@ function messageItem(m) {
   const mine = m.authorKind === "human" && m.authorId === S.member;
   const agent = m.authorKind === "agent";
   const ms = tsMs(m.createdAt) ?? m.clientCreatedAt;
+  // Reception acknowledgement: a compact system line, not a chat bubble — it is the
+  // "seen" receipt for a host message, written within seconds by the reception desk.
+  if (m.kind === "ack" && !m.deleted) {
+    return h("li", { class: "msg msg--ack", id: `m-${m.id}` },
+      h("span", { class: "ack-pill" },
+        h("span", { class: "ack-check", "aria-hidden": "true", text: "✓" }),
+        dc("span", {}, m.text),
+        h("span", { class: "msg-time", text: ms ? fmtTime(ms) : "" })));
+  }
   const head = h("div", { class: "msg-head" },
     agent ? roleLabel(m.role) : h("span", { class: `author author--human member--${m.authorId}`, text: authorName(m) }),
     h("span", { class: "msg-time", text: ms ? fmtTime(ms) : "" }),
@@ -1067,6 +1084,16 @@ function messageItem(m) {
 
   return h("li", { class: `msg ${agent ? "msg--agent" : "msg--human"}${mine ? " msg--mine" : ""}${m.kind === "reminder" ? " msg--reminder" : ""}`, id: `m-${m.id}` },
     head, quote, body, actions);
+}
+
+// The typing signal (meta/typing, kept fresh by the reception desk) shows only while
+// it is active AND recent — a stale "active" from a dead process must not linger.
+function renderTyping() {
+  const bar = $("#typing");
+  if (!bar) return;
+  const t = S.typingDoc;
+  const ms = t ? tsMs(t.updatedAt) : null;
+  bar.hidden = !(t && t.active === true && ms && Date.now() - ms < 120000);
 }
 
 function renderLoadOlder() {
@@ -1228,7 +1255,7 @@ function wireStaticUi() {
   addEventListener("scroll", () => { if (!ticking) { ticking = true; requestAnimationFrame(place); } }, { passive: true });
   addEventListener("resize", () => requestAnimationFrame(place));
 
-  S.clockTimer = setInterval(() => { renderStatus(); maybeSendReminders(); }, 30000);
+  S.clockTimer = setInterval(() => { renderStatus(); renderTyping(); maybeSendReminders(); }, 30000);
   wireDock();
 }
 
