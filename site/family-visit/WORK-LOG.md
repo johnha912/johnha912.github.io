@@ -178,3 +178,42 @@ Owner feedback: fully Vietnamese, simpler, in the order Plan, then Bình luận 
   - The seed-fidelity check read the page before the decisions arrived; it now waits for them.
   - The reminder's proposal summary was not marked as data; it now is.
 - Final run: 24 of 24.
+
+## 7. v3 on the same branch: liquid-glass look, all fitting GSAP features, readable D section, Google Sans (owner request, 2026-11-07)
+
+**Look: iPhone-style liquid glass.** The page sits on four soft color fields (pine, sky, lantern, rose) that drift slowly. Every main surface is frosted glass:
+- Glass surfaces: title card, plan card, chat frame, decision cards, floating section bar, back-to-top, buttons, and vote buttons.
+- Recipe: translucent gradient, `backdrop-filter: blur(22px) saturate(180%)`, a bright inner top edge, a soft drop shadow, and a specular highlight. The highlight sits behind the content and follows the pointer on desktop.
+- The meaning colors are unchanged (evergreen = confirmed / OK, lantern = waiting, cranberry = No), and dark mode has its own glass set.
+- Without `backdrop-filter`, panels fall back to near-opaque.
+
+**Font: Google Sans.** Google Fonts now ships Google's own face with a `vietnamese` subset. Montserrat was the alternative; Google Sans reads better at small sizes and in the table.
+
+**GSAP 3.13 (all plugins free since 3.13), every effect enhancement-only:** reduced motion and a blocked CDN both give the same working page. Reveals use opacity, never visibility, so nothing becomes unclickable.
+- **Core + CustomEase:** a "liquid" settle curve; touch feedback (buttons give under the finger, then spring back with `elastic`); springy entrances for new messages and proposal cards; `quickTo` for the pointer-following glass highlight.
+- **SplitText:** the title words rise on first load (sign-in card and board). The split is reverted afterwards, so the text and accessibility are unchanged.
+- **ScrollTrigger:** sections below the fold rise in when reached; the backdrop drifts with scroll (parallax); a thin reading-progress line at the top; the table's route rail draws itself as the plan scrolls in (`--rail` feeds a `scaleY`); 8 triggers live.
+- **ScrollToPlugin:** the D-links, the section bar, and back-to-top glide to their target and stop below the floating bar.
+- **Flip:** opening or closing a decision card's details animates the card and slides every card below into place.
+- **Floating section bar** ("Kế hoạch / Thảo luận / Chi tiết D"): appears once the title scrolls away, and a glass pill slides under the section in view.
+- **Row glow:** rows a proposal just changed glow once when the table updates.
+
+**D section, rebuilt for a first read (owner said it looked cluttered):**
+1. **Chip row at the top:** one chip per decision ("D1 Lộ trình ✓", "D2 Visa"…) that jumps to the card.
+2. **Card header:** a large D badge, filled green when decided. The short topic is the title and the full question sits under it in muted text, replacing the one long "D3 Flights: Multi-city flights for 2 adults (…)" line.
+3. **Clear pill:** "Đã chốt" or "Chưa chốt", keyed on `resolved`.
+4. **The `intro` as the lead sentence;** the conclusion in its own green "Kết luận" box; the status under a small "Tình trạng" label.
+5. **Long option lists folded** behind "Xem chi tiết (N mục)" and expanded with Flip. A D-link from the table opens the card it lands on.
+6. **Options that pack alternatives as "A | B | C"** show one alternative per line. The separators stay in the DOM (hidden), so every option is still the database string character for character, which the QC fidelity check verifies.
+
+**Bugs found while testing (fixed):**
+- **Offline sign-out could leave the user signed in.** Firebase's `signOut` ran after the sign-in screen was already showing, so a quick reload or tab close came back signed in (5 of 6 tries). This existed since v1; the old test passed on timing luck. Now a "Đang đăng xuất…" screen shows until Firebase has dropped the saved session.
+- **Offline sign-out then reloaded into the browser's "no internet" page.** Now it stays on the sign-in screen and reloads itself when the connection returns. The test runs offline sign-out 5 of 5 times green and checks the user comes back signed out.
+- **The glass highlight used `%` units in `quickTo` on a custom property,** which made GSAP print a warning. It now uses unitless numbers multiplied in CSS.
+
+**Test data now Vietnamese** (owner saw English in screenshots):
+- The private fixtures (`FV_FIXTURES_DIR`) were translated with every price and time unchanged; a script asserted the dollar amounts match the originals.
+- Every test-authored string (proposal summaries, chat messages, harness probes) is Vietnamese too.
+- English in old screenshots was test data, never interface text.
+
+Final run: 25 of 25 (12 end-to-end, 13 QC).

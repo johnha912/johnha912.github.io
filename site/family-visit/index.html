@@ -11,38 +11,64 @@
 <title>Chuyến thăm của bố mẹ</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<!-- Be Vietnam Pro: drawn for Vietnamese diacritics (the v1 face had no Vietnamese subset). -->
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&display=swap">
+<!-- Google Sans (owner's choice, 2026-11-07): Google Fonts ships it with a full Vietnamese subset. -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap">
 <link rel="stylesheet" href="app.css">
-<!-- GSAP 3.13.0 core, pinned. Enhancement only: everything works the same if this never loads. -->
+<!-- GSAP 3.13.0 (core + ScrollTrigger, Flip, SplitText, ScrollToPlugin, CustomEase), pinned.
+     Enhancement only: every feature works the same if none of these load. -->
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/Flip.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollToPlugin.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/CustomEase.min.js" defer></script>
 <script type="module" src="app.js"></script>
 </head>
 <body data-conn="connecting">
 <noscript><p class="noscript">Bảng kế hoạch gia đình cần bật JavaScript.</p></noscript>
 
+<!-- Liquid-glass backdrop: soft color fields the glass panels refract. Decorative only. -->
+<div class="backdrop" aria-hidden="true">
+  <span class="orb orb--pine"></span><span class="orb orb--sky"></span><span class="orb orb--lantern"></span><span class="orb orb--rose"></span>
+</div>
+<div class="progress" aria-hidden="true"><span class="progress-bar"></span></div>
+
+<!-- Floating section bar (appears after scrolling past the title). -->
+<nav id="dock" class="dock glass" aria-label="Chuyển nhanh giữa các phần" hidden>
+  <span class="dock-indicator" aria-hidden="true"></span>
+  <a class="dock-link" href="#plan" data-dock="plan">Kế hoạch</a>
+  <a class="dock-link" href="#chat" data-dock="chat">Thảo luận</a>
+  <a class="dock-link" href="#details" data-dock="details">Chi tiết D</a>
+</nav>
+
 <section id="screen-loading" data-screen class="gate-screen" aria-live="polite">
-  <p class="gate-brand">Chuyến thăm của bố mẹ</p>
-  <p>Đang mở bảng kế hoạch của gia đình…</p>
+  <div class="gate-card glass">
+    <p class="gate-brand">Chuyến thăm của bố mẹ</p>
+    <p>Đang mở bảng kế hoạch của gia đình…</p>
+  </div>
 </section>
 
 <section id="screen-signin" data-screen class="gate-screen" hidden>
+  <div class="gate-card glass">
   <h1 class="gate-brand">Chuyến thăm của bố mẹ</h1>
   <p>Bảng này chỉ dành cho gia đình. Hãy đăng nhập bằng tài khoản Google bạn dùng cho bảng này.</p>
   <button id="signin-btn" type="button" class="btn btn--primary btn--big">Đăng nhập bằng Google</button>
   <p id="signin-error" class="gate-error" role="alert"></p>
   <button id="retry-btn" type="button" class="btn">Tải lại trang</button>
+  </div>
 </section>
 
 <section id="screen-denied" data-screen class="gate-screen" hidden>
+  <div class="gate-card glass">
   <h1 class="gate-brand">Chuyến thăm của bố mẹ</h1>
   <p>Tài khoản Google này không có trong danh sách gia đình của bảng. Hãy đăng xuất, rồi đăng nhập bằng tài khoản đã chia sẻ với gia đình.</p>
   <button id="signout-denied" type="button" class="btn btn--primary btn--big">Đăng xuất</button>
+  </div>
 </section>
 
 <main id="screen-board" data-screen hidden>
   <!-- 1. Title -->
-  <header class="title" id="top">
+  <header class="title glass" id="top">
     <div class="title-row">
       <h1 id="trip-title">Chuyến thăm của bố mẹ, tháng 12/2026</h1>
       <div class="account">
@@ -60,7 +86,7 @@
   <div id="banner" class="banner" role="status" hidden></div>
 
   <!-- 2. Plan -->
-  <section id="plan" class="plan" aria-labelledby="plan-heading">
+  <section id="plan" class="plan glass section-card" aria-labelledby="plan-heading">
     <h2 id="plan-heading">Kế hoạch chuyến đi</h2>
     <p class="section-lead">Bảng dưới đây là kế hoạch đã được cả nhà chốt. Mỗi dòng là một ngày hoặc một chặng. Chạm vào D1–D4 để xem giải thích của quyết định đó.</p>
     <p id="snapshot-notice" class="snapshot-notice" role="status" hidden></p>
@@ -89,7 +115,7 @@
   <section id="chat" class="chat" aria-labelledby="chat-heading">
     <h2 id="chat-heading">Thảo luận</h2>
     <p class="section-lead">Nơi cả nhà và nhóm trợ lý trao đổi. Tin nhắn hiện ngay cho mọi người.</p>
-    <div class="chat-frame">
+    <div class="chat-frame glass">
       <div id="summary" class="summary"></div>
       <ul id="messages" class="messages" aria-label="Tin nhắn" aria-live="polite">
         <li id="load-older-wrap" class="load-older" hidden><button id="load-older" type="button" class="btn btn--quiet">Xem tin nhắn cũ hơn</button></li>
@@ -113,13 +139,14 @@
   <!-- 4. Decision details -->
   <section id="details" class="details" aria-labelledby="details-heading">
     <h2 id="details-heading">Chi tiết các quyết định (D1–D4)</h2>
-    <p class="section-lead">Mỗi quyết định có một mã (D1, D2…) để bảng và tin nhắn nhắc tới cho gọn. Giá là báo giá đã kiểm tra vào ngày ghi kèm, chép nguyên văn từ phần tìm hiểu của nhóm trợ lý.</p>
+    <p class="section-lead">Mỗi quyết định có một mã (D1, D2…) để bảng và tin nhắn nhắc tới cho gọn. Chạm vào một mã bên dưới để tới đúng quyết định; bấm “Xem chi tiết” để mở đầy đủ. Giá là báo giá đã kiểm tra vào ngày ghi kèm, chép nguyên văn từ phần tìm hiểu của nhóm trợ lý.</p>
+    <nav id="d-nav" class="d-nav" aria-label="Các quyết định"></nav>
     <ul id="decisions" class="decisions"></ul>
   </section>
 </main>
 
 <!-- 5. Back to top -->
-<button id="to-top" type="button" class="to-top" aria-label="Lên đầu trang" hidden>
+<button id="to-top" type="button" class="to-top glass" aria-label="Lên đầu trang" hidden>
   <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
   <span>Lên đầu trang</span>
 </button>
