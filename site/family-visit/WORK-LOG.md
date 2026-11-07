@@ -276,3 +276,25 @@ Final run: 25 of 25 (12 end-to-end, 13 QC).
   code defects stay open for a build from the owner's chat, ALWAYS surface reports in the chat.
 - Assets bumped to ?v=9 per the standing cache rule. One emulator test added (14th e2e): the tab
   files exactly one open issue under the reporter's name.
+
+## v10 addendum (built by Muse, 2026-11-07 — Reception: instant acknowledgement + typing signal)
+
+- Owner's complaint, verbatim in substance: he posted at 12:07 and saw silence — "không ổn".
+  Root cause was latency, not loss: the sweep polls every ~3 min and a substantive answer takes
+  minutes more. The fix is a **reception layer**, split from the sweep:
+- `hidden_files/reception.py` (run every ~20 s by the new `family-visit-reception` hook, which
+  never wakes an agent): for each unacknowledged human message it writes ONE agent message
+  (role **Reception / Tiếp nhận**, `kind: "ack"`, replyTo = the message) — "Đã nhận tin của
+  <Name>. Tiếp nhận đã chuyển cho team — team đang xem và sẽ trả lời ngay tại đây." — and records
+  the id in `meta/agentState.acked`. It also maintains `meta/typing` (active while any human
+  message is unprocessed; refreshed ≤50 s so the page's 120 s staleness window holds).
+- Contract change in `agent_loop.py pending()`: acks are receipts, NOT replies — the sweep still
+  owes every acked message a substantive answer. Reception skips messages that already have a
+  real agent reply, so a late ack never lands after the answer.
+- Page: AGENTS gains Reception ("Tiếp nhận", teal); ack messages render as a compact centred
+  receipt pill (✓ + text + time), never a bubble, excluded from topic filters/counts; a typing
+  bar above the composer ("Nhóm trợ lý đang soạn trả lời…" with animated dots, reduced-motion
+  safe) follows `meta/typing` (active + fresher than 120 s). Assets ?v=10; report appVersion "v10".
+- Also fixed in passing: the D2 decision doc still read open after the family's visa news (the
+  sweep's apply tool has no decision write path) — set to Đã chốt / resolved with the resolution
+  text, matching D1's shape.

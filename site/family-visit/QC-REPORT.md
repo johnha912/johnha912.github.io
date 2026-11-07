@@ -215,3 +215,12 @@ A separate reviewer read the rules and client code. It found no rules hole (forg
 | Submit → Firestore | PASS | Confirmation quoted exactly: "Đã gửi. Nhóm trợ lý sẽ kiểm tra và trả lời ngay trên bảng này." Issue doc landed once: reporter john, category display, status open, appVersion v9. |
 | Team pipeline | PASS | Watcher woke with the issue in its payload; the sweep posted a Coordinator acknowledgement on the board (Vietnamese), triaged it as John's labelled test, closed it `wontfix` with a note, queues clear. Test artifacts deleted afterwards. |
 | Regression | PASS | First plan row verbatim "Khoảng Chủ nhật 20/12/2026"; planMeta version still 1; sign-out clears content and hides the tab. |
+
+## v10 (branch `family-visit-v10`, 2026-11-07): reception acknowledgements + typing signal
+
+| Check | Result | Evidence |
+|---|---|---|
+| Reception pass runs clean on the live DB | PASS | Direct run + hook dry run: `{"acked": [], "typing": false, "unprocessed": 0}` on the (genuinely empty) queue. |
+| Acks don't satisfy the sweep | PASS by code | `pending()` excludes kind "ack" from its replied set; AGENT-LOOP.md updated to match. |
+| Emulator suite | NOT RUN on this VM (standing limitation) | New e2e test (o) seeds an ack + typing doc and asserts the receipt pill and typing bar render and follow state. |
+| Live E2E (post → ack ≤ ~30 s → typing bar → substantive replies → signals clear) | See the post-merge verification note appended after the live run | Performed on the live page after merge, per the feature-change protocol. |

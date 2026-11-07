@@ -464,5 +464,23 @@ export const tests = [
       await close(nickie);
       return "Nickie's report landed once in issues/ as an open 'stuck' report under her name, and the sheet confirmed it on screen.";
     }
+  },
+  {
+    name: "(o) reception: an ack renders as a receipt line and the typing bar shows while the team is working",
+    async run(ctx) {
+      await fresh(ctx);
+      await admin.setDoc("threads/general/messages/host-msg-0001", { id: "host-msg-0001", threadId: "general", authorKind: "human", authorId: "john", text: "Cả nhà ơi, xem giúp", replyTo: null, createdAt: new Date(), clientCreatedAt: Date.now() - 5000, deleted: false });
+      await admin.setDoc("threads/general/messages/ack-0001", { id: "ack-0001", threadId: "general", authorKind: "agent", role: "Reception", kind: "ack", text: "Đã nhận tin của John. Tiếp nhận đã chuyển cho team — team đang xem và sẽ trả lời ngay tại đây.", replyTo: "host-msg-0001", createdAt: new Date(), clientCreatedAt: Date.now() - 4000, deleted: false });
+      await admin.setDoc("meta/typing", { active: true, updatedAt: new Date() });
+      const john = await newSession(ctx.browser, { member: "john" });
+      await eventually(async () => (await john.page.locator(".msg--ack").count()) === 1, 15000);
+      assert((await john.page.locator(".msg--ack").textContent()).includes("Đã nhận tin của John"), "ack receipt line missing its text");
+      assert(await john.page.locator(".msg--ack .ack-pill").count() === 1, "ack is not rendered as the compact receipt pill");
+      assert(await john.page.isVisible("#typing"), "typing bar not visible while meta/typing is active");
+      await admin.setDoc("meta/typing", { active: false, updatedAt: new Date() });
+      await eventually(async () => !(await john.page.isVisible("#typing")), 15000);
+      await close(john);
+      return "The acknowledgement rendered as one compact receipt line (not a bubble), and the typing bar followed meta/typing on and off.";
+    }
   }
 ];
