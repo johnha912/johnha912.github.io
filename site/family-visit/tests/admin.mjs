@@ -35,6 +35,20 @@ export async function setDoc(path, data) {
   if (!res.ok) throw new Error(`admin set ${path}: ${res.status} ${await res.text()}`);
 }
 
+// Partial update (dotted field paths allowed), like the Admin SDK's update().
+export async function updateDoc(path, data) {
+  const fields = {};
+  for (const [k, v] of Object.entries(data)) {
+    const parts = k.split(".");
+    let cur = fields;
+    parts.slice(0, -1).forEach((part) => { cur[part] = cur[part] || { mapValue: { fields: {} } }; cur = cur[part].mapValue.fields; });
+    cur[parts[parts.length - 1]] = enc(v);
+  }
+  const mask = Object.keys(data).map((k) => `updateMask.fieldPaths=${encodeURIComponent(k)}`).join("&");
+  const res = await fetch(`${DOCS}/${path}?${mask}&currentDocument.exists=true`, { method: "PATCH", headers: OWNER, body: JSON.stringify({ fields }) });
+  if (!res.ok) throw new Error(`admin update ${path}: ${res.status} ${await res.text()}`);
+}
+
 export async function getDoc(path) {
   const res = await fetch(`${DOCS}/${path}`, { headers: OWNER });
   if (res.status === 404) return null;

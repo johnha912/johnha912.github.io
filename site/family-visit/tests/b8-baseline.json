@@ -1,0 +1,56 @@
+{
+ "label": "base-1e331a3",
+ "at": "2026-11-07T21:27:39.549Z",
+ "reps": 3,
+ "cpuThrottle": 4,
+ "viewport": "390x844",
+ "longTaskTotalMs": 2039,
+ "longTaskMaxMs": 710,
+ "longTaskCount": 12,
+ "framesOver50ms": 8,
+ "worstFrameMs": 800,
+ "scriptMs": 601,
+ "layoutMs": 1557,
+ "styleMs": 266,
+ "messagesRendered": 110,
+ "runs": [
+  {
+   "ltCount": 12,
+   "ltTotal": 1941,
+   "ltMax": 569,
+   "slowFrames": 9,
+   "worstFrame": 650,
+   "frames": 439,
+   "script": 577,
+   "layout": 1540,
+   "style": 246,
+   "rendered": 110
+  },
+  {
+   "ltCount": 13,
+   "ltTotal": 2202,
+   "ltMax": 710,
+   "slowFrames": 8,
+   "worstFrame": 800,
+   "frames": 414,
+   "script": 601,
+   "layout": 1688,
+   "style": 266,
+   "rendered": 110
+  },
+  {
+   "ltCount": 12,
+   "ltTotal": 2039,
+   "ltMax": 620,
+   "slowFrames": 8,
+   "worstFrame": 717,
+   "frames": 444,
+   "script": 643,
+   "layout": 1557,
+   "style": 273,
+   "rendered": 110
+  }
+ ],
+ "commit": "1e331a3",
+ "note": "B8 (y) measured at base commit 1e331a3 before any v13 change: emulator, headless Chromium 1.63 Playwright build, 4 vCPU cloud VM, CPU throttle 4x, 390x844 isMobile, same scenario as tests/qc.mjs (y). Machine-dependent: re-measure on a different machine before comparing."
+}

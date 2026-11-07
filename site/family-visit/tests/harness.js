@@ -48,6 +48,7 @@ if (!usingEmulator()) {
     list: (path) => wrap(async () => (await F.getDocs(F.collection(db, ...path.split("/")))).docs.map((d) => d.id)),
     set: (path, data) => wrap(() => F.setDoc(ref(path), revive(data))),
     update: (path, data) => wrap(() => F.updateDoc(ref(path), revive(data))),
+    del: (path) => wrap(() => F.deleteDoc(ref(path))),
     batch: (ops) => wrap(async () => {
       const b = F.writeBatch(db);
       for (const op of ops) {

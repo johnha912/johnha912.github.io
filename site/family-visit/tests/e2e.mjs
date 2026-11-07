@@ -456,7 +456,10 @@ export const tests = [
       const text = `Nút này không bấm được ${Date.now()}`;
       await nickie.page.fill("#report-text", text);
       await nickie.page.click("#report-send");
-      await nickie.page.waitForSelector("#report-done:not([hidden])", { timeout: 10000 });
+      // On failure, say what the sheet itself showed (its error line), not just "timeout".
+      await nickie.page.waitForSelector("#report-done:not([hidden])", { timeout: 10000 }).catch(async (e) => {
+        throw new Error(`report not confirmed; sheet says: "${await nickie.page.$eval("#report-error", (n) => n.textContent)}"; conn ${JSON.stringify(await nickie.page.evaluate(() => window.fvTest.state()))} (${e.message.split("\n")[0]})`);
+      });
       const issues = await admin.listDocs("issues");
       assert(issues.length === 1, `expected exactly 1 issue, got ${issues.length}`);
       const it = issues[0];
@@ -493,8 +496,10 @@ export const tests = [
       await admin.setDoc("threads/general/messages/root-b", msg("root-b", { authorKind: "human", authorId: "nickie", text: "Tin gốc B chen giữa", createdAt: new Date(t - 6000), clientCreatedAt: t - 6000 }));
       await admin.setDoc("threads/general/messages/reply-c", msg("reply-c", { authorKind: "agent", role: "Coordinator", text: "Trả lời cho A, tới sau B", replyTo: "root-a", createdAt: new Date(t - 3000), clientCreatedAt: t - 3000 }));
       const john = await newSession(ctx.browser, { member: "john" });
-      await eventually(async () => (await john.page.locator("#messages > li[data-key]").count()) === 3, 15000);
-      const keys = await john.page.evaluate(() => [...document.querySelectorAll("#messages > li[data-key]")].map((n) => n.dataset.key));
+      // Only this test's messages: the baseline also seeds the board's agent posts (older, so they sit above).
+      const ownKeys = () => john.page.evaluate(() => [...document.querySelectorAll("#messages > li[data-key]")].map((n) => n.dataset.key).filter((k) => !k.startsWith("seed-discussion-")));
+      await eventually(async () => (await ownKeys()).length === 3, 15000);
+      const keys = await ownKeys();
       assert(JSON.stringify(keys) === JSON.stringify(["root-a", "reply-c", "root-b"]), `expected thread order root-a, reply-c, root-b; got ${JSON.stringify(keys)}`);
       assert(await john.page.locator('li[data-key="reply-c"]').evaluate((n) => n.classList.contains("msg--thread")), "reply is missing the thread indent class");
       assert(!(await john.page.locator('li[data-key="root-b"]').evaluate((n) => n.classList.contains("msg--thread"))), "an unrelated root message was indented as a reply");
@@ -525,6 +530,218 @@ export const tests = [
       assert(await john.page.locator('li[data-key="reply-1"]').isVisible(), "reply-1 should be back after expanding");
       await close(john);
       return "The root's toggle collapsed both replies (including the nested one) and expanded them again; the root never hid.";
+    }
+  },
+  {
+    name: "(r) agents answer like a chatbot inside one thread: root, ack, two role replies stay one block",
+    async run(ctx) {
+      // Production: the reception desk and the agent team (a background loop that only watches the
+      // live project) write these documents. Here they are written with the emulator's admin access
+      // in the same document shape, because tests never touch the live app. This checks rendering
+      // and data, not the real agents' latency.
+      await fresh(ctx);
+      const john = await newSession(ctx.browser, { member: "john" });
+      const post = async (text) => {
+        await john.page.fill("#composer", text);
+        await john.page.click("#composer-form .send");
+        const doc = await eventually(async () => (await admin.listDocs("threads/general/messages")).find((m) => m.text === text && m.createdAt), 15000);
+        return doc.id;
+      };
+      const agentDoc = (id, role, text, replyTo, extra = {}) => ({ id, threadId: "general", authorKind: "agent", role, category: "general", text, replyTo, createdAt: new Date(), clientCreatedAt: Date.now(), deleted: false, ...extra });
+      const root1 = await post(`Cả nhà ơi, ba mẹ nên bay ngày nào? ${Date.now()}`);
+      await admin.setDoc("threads/general/messages/r-ack-1", agentDoc("r-ack-1", "Reception", "Đã nhận tin của John. Tiếp nhận đã chuyển cho team — team đang xem và sẽ trả lời ngay tại đây.", root1, { kind: "ack", category: null }));
+      await new Promise((r) => setTimeout(r, 50));
+      await admin.setDoc("threads/general/messages/r-reply-coord", agentDoc("r-reply-coord", "Coordinator", "Điều phối: đang so hai phương án ngày bay, sẽ báo lại ngay trong thread này.", root1));
+      const root2 = await post(`Tin gốc thứ hai chen giữa ${Date.now()}`);
+      await admin.setDoc("threads/general/messages/r-reply-scout", agentDoc("r-reply-scout", "Scout — Research & Verification", "Kiểm chứng: đã đối chiếu lịch bay, hai phương án đều còn chỗ.", root1));
+      const want = [root1, "r-ack-1", "r-reply-coord", "r-reply-scout", root2];
+      const ownOrder = (page) => page.evaluate((ids) => [...document.querySelectorAll("#messages > li[data-key]")].map((n) => n.dataset.key).filter((k) => ids.includes(k)), want);
+      await eventually(async () => JSON.stringify(await ownOrder(john.page)) === JSON.stringify(want), 15000);
+      const dom = await john.page.evaluate((ids) => ids.map((id) => {
+        const n = document.querySelector(`#messages > li[data-key="${id}"]`);
+        return { id, thread: n.classList.contains("msg--thread"), ack: n.classList.contains("msg--ack"), indent: parseFloat(getComputedStyle(n).marginLeft) };
+      }), want);
+      const by = Object.fromEntries(dom.map((d) => [d.id, d]));
+      assert(by["r-ack-1"].ack, "ack is not rendered as the receipt line");
+      for (const id of ["r-reply-coord", "r-reply-scout"]) assert(by[id].thread && by[id].indent > 0, `${id} is not an indented thread reply: ${JSON.stringify(by[id])}`);
+      assert(!by[root1].thread && !by[root2].thread && by[root2].indent === 0, "a root message was indented");
+      await john.page.screenshot({ path: `${ctx.qcDir}/r-thread-block.png` });
+      await john.page.reload();
+      await john.page.waitForSelector("#screen-board:not([hidden])", { timeout: 30000 });
+      await eventually(async () => JSON.stringify(await ownOrder(john.page)) === JSON.stringify(want), 15000);
+      await close(john);
+      return `DOM order ${JSON.stringify(want.map((k) => (k === root1 ? "root1" : k === root2 ? "root2" : k)))} before and after reload; replies indented ${by["r-reply-coord"].indent}px / ${by["r-reply-scout"].indent}px with msg--thread; the second root (posted between the two replies) sits after the whole block. Agent writes simulated via emulator admin in the production document shape.`;
+    }
+  },
+  {
+    name: "(s) an applied proposal updates the plan live in another member's open session (no reload)",
+    async run(ctx) {
+      await fresh(ctx);
+      const sj = ctx.seed.rows.find((r) => r.id === "san-jose");
+      const after = { ...CELLS(sj), stay: "Chỗ ở cập nhật trực tiếp" };
+      await admin.seedProposal("live-proposal-1", { summary: "Thử nghiệm: cập nhật trực tiếp", rowIds: ["san-jose"], changes: { "san-jose": { before: CELLS(sj), after } } });
+      const v0 = (await admin.getDoc("planMeta/table")).version;
+      const john = await newSession(ctx.browser, { member: "john" });
+      const nickie = await newSession(ctx.browser, { member: "nickie" });
+      const johnny = await newSession(ctx.browser, { member: "johnny" });
+      const navs = await nickie.page.evaluate(() => performance.getEntriesByType("navigation").length);
+      const ok = (s) => s.page.locator('#pending-strip [data-pid="live-proposal-1"] button[data-vote="ok"]:not([disabled])');
+      await ok(nickie).waitFor({ timeout: 20000 }); await ok(nickie).click();
+      await eventually(async () => (await admin.getDoc("proposals/live-proposal-1")).votes.nickie === "ok");
+      await ok(johnny).waitFor(); await ok(johnny).click();
+      await eventually(async () => (await admin.getDoc("proposals/live-proposal-1")).votes.johnny === "ok");
+      assert(!(await nickie.page.$eval("#timeline-body", (n) => n.textContent)).includes(after.stay), "plan changed before the third OK");
+      await ok(john).waitFor(); await ok(john).click();
+      const t0 = Date.now();
+      await eventually(async () => (await nickie.page.$eval("#timeline-body", (n) => n.textContent)).includes(after.stay), 5000, 50);
+      const ms = Date.now() - t0;
+      const p = await admin.getDoc("proposals/live-proposal-1");
+      const meta = await admin.getDoc("planMeta/table");
+      assert(p.status === "applied", `proposal ${p.status}`);
+      assert(meta.version === v0 + 1 && meta.lastProposal === "live-proposal-1", `planMeta version ${v0} -> ${meta.version}`);
+      await eventually(async () => (await nickie.page.$eval("#table-meta", (n) => n.textContent)).includes(`phiên bản ${v0 + 1}`), 5000);
+      assert(await nickie.page.evaluate(() => performance.getEntriesByType("navigation").length) === navs, "Nickie's page reloaded");
+      await nickie.page.locator(".table-wrap").screenshot({ path: `${ctx.qcDir}/s-nickie-live-plan.png` });
+      await close(john, nickie, johnny);
+      return `Nickie (open session, no reload) showed "${after.stay}" ${ms} ms after John's third OK; planMeta.version ${v0} -> ${meta.version} (exactly +1), table meta reads "phiên bản ${v0 + 1}".`;
+    }
+  },
+  {
+    name: "(t) a collapsed thread stays collapsed when a new reply or an ack arrives; the count follows",
+    async run(ctx) {
+      await fresh(ctx);
+      const t = Date.now();
+      const msg = (id, extra) => ({ id, threadId: "general", authorKind: "agent", role: "Coordinator", replyTo: null, deleted: false, ...extra });
+      await admin.setDoc("threads/general/messages/t-root", msg("t-root", { authorKind: "human", authorId: "john", role: null, text: "Tin gốc T", createdAt: new Date(t - 9000), clientCreatedAt: t - 9000 }));
+      await admin.setDoc("threads/general/messages/t-reply-1", msg("t-reply-1", { text: "Trả lời T1", replyTo: "t-root", createdAt: new Date(t - 6000), clientCreatedAt: t - 6000 }));
+      await admin.setDoc("threads/general/messages/t-reply-2", msg("t-reply-2", { role: "Budget", text: "Trả lời T2", replyTo: "t-reply-1", createdAt: new Date(t - 3000), clientCreatedAt: t - 3000 }));
+      const john = await newSession(ctx.browser, { member: "john" });
+      const toggle = john.page.locator('li[data-key="t-root"] .thread-toggle');
+      const state = async () => ({ text: (await toggle.textContent()).trim(), expanded: await toggle.getAttribute("aria-expanded") });
+      await eventually(async () => (await toggle.count()) === 1 && (await state()).text === "Thu gọn 2 trả lời", 15000);
+      await toggle.click();
+      await eventually(async () => (await state()).text === "Xem 2 trả lời", 5000);
+      await admin.setDoc("threads/general/messages/t-reply-3", msg("t-reply-3", { role: "Flights & Travel", text: "Trả lời T3 tới sau", replyTo: "t-root", createdAt: new Date(), clientCreatedAt: Date.now() }));
+      await eventually(async () => (await john.page.locator('li[data-key="t-reply-3"]').count()) === 1, 15000);
+      const s1 = await state();
+      assert(s1.text === "Xem 3 trả lời" && s1.expanded === "false", `after a new reply: ${JSON.stringify(s1)}`);
+      assert(!(await john.page.locator('li[data-key="t-reply-3"]').isVisible()), "the new reply popped the collapsed thread open");
+      await admin.setDoc("threads/general/messages/t-ack", msg("t-ack", { role: "Reception", kind: "ack", text: "Đã nhận tin của John.", replyTo: "t-root", createdAt: new Date(), clientCreatedAt: Date.now() }));
+      await eventually(async () => (await john.page.locator('li[data-key="t-ack"]').count()) === 1, 15000);
+      const s2 = await state();
+      assert(s2.text === "Xem 3 trả lời" && s2.expanded === "false", `after an ack: ${JSON.stringify(s2)}`);
+      for (const k of ["t-reply-1", "t-reply-2", "t-reply-3", "t-ack"]) assert(!(await john.page.locator(`li[data-key="${k}"]`).isVisible()), `${k} visible while collapsed`);
+      assert(await john.page.locator('li[data-key="t-root"]').isVisible(), "root hidden");
+      await toggle.click();
+      await eventually(async () => (await state()).text === "Thu gọn 3 trả lời", 5000);
+      for (const k of ["t-reply-1", "t-reply-2", "t-reply-3"]) assert(await john.page.locator(`li[data-key="${k}"]`).isVisible(), `${k} not visible after expanding`);
+      await close(john);
+      return `Collapsed at "Xem 2 trả lời"; a new reply arrived -> still collapsed, "Xem 3 trả lời" (aria-expanded=false); a later ack -> still collapsed, count still 3 (acks not counted); expanding showed all three replies including the new one.`;
+    }
+  },
+  {
+    name: "(w) changing a vote while pending: OK -> No is allowed and freezes the proposal; No can never be undone",
+    async run(ctx) {
+      await fresh(ctx);
+      const sj = ctx.seed.rows.find((r) => r.id === "san-jose");
+      await admin.seedProposal("change-vote-1", { summary: "Thử nghiệm: đổi phiếu", rowIds: ["san-jose"], changes: { "san-jose": { before: CELLS(sj), after: { ...CELLS(sj), stay: "Đổi phiếu" } } } });
+      const rows0 = await rowsJson();
+      const john = await newSession(ctx.browser, { member: "john" });
+      // John's own row in the pending strip (the other rows' buttons are always disabled for him).
+      const btn = (v) => john.page.locator(`#pending-strip .vote-row--me button[data-pid="change-vote-1"][data-vote="${v}"]`);
+      await john.page.locator('#pending-strip .vote-row--me button[data-pid="change-vote-1"][data-vote="ok"]:not([disabled])').waitFor({ timeout: 20000 });
+      await btn("ok").click();
+      await eventually(async () => (await admin.getDoc("proposals/change-vote-1")).votes.john === "ok");
+      await eventually(async () => !(await btn("no").isDisabled()) && (await btn("ok").isDisabled()), 5000);
+      await btn("no").click();
+      await eventually(async () => (await admin.getDoc("proposals/change-vote-1")).status === "rejected", 15000);
+      const p = await admin.getDoc("proposals/change-vote-1");
+      assert(p.votes.john === "no", "vote not changed to no");
+      assert(await rowsJson() === rows0, "rows changed");
+      await eventually(async () => (await john.page.locator('[data-pid="change-vote-1"] button[data-vote]:not([disabled])').count()) === 0, 5000);
+      const h = await harness(ctx.browser, TEST_EMAILS.john);
+      const backToOk = await h.call("update", "proposals/change-vote-1", { votes: { john: "ok", nickie: "pending", johnny: "pending" }, updatedBy: "john" });
+      // A No on a still-pending proposal is impossible by construction (one No freezes it), so No -> OK cannot happen either.
+      await admin.seedProposal("change-vote-2", { summary: "Thử nghiệm: đổi phiếu 2", rowIds: ["san-jose"], changes: { "san-jose": { before: CELLS(sj), after: { ...CELLS(sj), stay: "Đổi phiếu 2" } } } });
+      const okVote = await h.call("update", "proposals/change-vote-2", { votes: { john: "ok", nickie: "pending", johnny: "pending" }, updatedBy: "john" });
+      const okToPending = await h.call("update", "proposals/change-vote-2", { votes: { john: "pending", nickie: "pending", johnny: "pending" }, updatedBy: "john" });
+      await h.close();
+      assert(!backToOk.ok, "No -> OK accepted on a frozen proposal");
+      assert(okVote.ok && !okToPending.ok, `OK -> pending (withdraw) should be refused: ${JSON.stringify([okVote, okToPending])}`);
+      await close(john);
+      return "Current behavior: a host can change their own OK to No while pending (UI keeps the No button enabled, rules allow prev ok -> no); that No freezes the proposal exactly like A2 (status rejected, rows unchanged, all vote buttons disabled). No -> OK and withdrawing an OK (ok -> pending) are refused by the rules.";
+    }
+  },
+  {
+    name: "(x) a signed-in host cannot write planRows or planMeta directly (no proposal flow)",
+    async run(ctx) {
+      await fresh(ctx);
+      const sj = ctx.seed.rows.find((r) => r.id === "san-jose");
+      await admin.seedProposal("direct-pending-1", { summary: "Thử nghiệm: ghi thẳng", rowIds: ["san-jose"], changes: { "san-jose": { before: CELLS(sj), after: { ...CELLS(sj), stay: "Ghi thẳng" } } } });
+      const rows0 = await rowsJson();
+      const meta0 = JSON.stringify(await admin.getDoc("planMeta/table"));
+      const h = await harness(ctx.browser, TEST_EMAILS.john);
+      const rowAs = (stay, pid) => ({ ...CELLS(sj), stay, version: 2, updatedBy: "john", updatedAt: { $st: 1 }, appliedProposal: pid });
+      const attempts = {
+        rowNoProposal: await h.call("set", "planRows/san-jose", rowAs("Ghi thẳng", "none-0000")),
+        rowCitingPending: await h.call("set", "planRows/san-jose", rowAs("Ghi thẳng", "direct-pending-1")),
+        rowUpdateOneField: await h.call("update", "planRows/san-jose", { stay: "Ghi thẳng" }),
+        newRow: await h.call("set", "planRows/extra-row", { ...CELLS(sj), order: 99, version: 1, updatedBy: "john", updatedAt: { $st: 1 }, appliedProposal: "direct-pending-1" }),
+        deleteRow: await h.call("del", "planRows/san-jose"),
+        metaBump: await h.call("update", "planMeta/table", { version: 2, updatedAt: { $st: 1 }, updatedBy: "john", lastProposal: "direct-pending-1" }),
+        metaOverwrite: await h.call("set", "planMeta/table", { version: 9, updatedAt: { $st: 1 }, updatedBy: "john", lastProposal: "direct-pending-1" }),
+        rowPlusMetaBatch: await h.call("batch", [
+          { type: "update", path: "planMeta/table", data: { version: 2, updatedAt: { $st: 1 }, updatedBy: "john", lastProposal: "direct-pending-1" } },
+          { type: "set", path: "planRows/san-jose", data: rowAs("Ghi thẳng", "direct-pending-1") }
+        ])
+      };
+      await h.close();
+      const accepted = Object.entries(attempts).filter(([, r]) => r.ok).map(([k]) => k);
+      assert(accepted.length === 0, `accepted direct writes: ${accepted}`);
+      assert(await rowsJson() === rows0, "planRows changed");
+      assert(JSON.stringify(await admin.getDoc("planMeta/table")) === meta0, "planMeta changed");
+      assert((await admin.getDoc("proposals/direct-pending-1")).status === "pending", "proposal state changed");
+      return `${Object.keys(attempts).length} direct writes refused (${Object.entries(attempts).map(([k, r]) => `${k}: ${r.code}`).join(", ")}); planRows and planMeta byte-identical afterwards.`;
+    }
+  },
+  {
+    name: "(z) chat refresh button: fetches the newest messages from the server and jumps to them",
+    async run(ctx) {
+      await fresh(ctx);
+      const t = Date.now();
+      for (let i = 0; i < 30; i++) {
+        await admin.setDoc(`threads/general/messages/z-${String(i).padStart(2, "0")}`, { id: `z-${String(i).padStart(2, "0")}`, threadId: "general", authorKind: "human", authorId: "nickie", text: `Tin cũ số ${i}`, replyTo: null, createdAt: new Date(t - 60000 + i * 1000), clientCreatedAt: t - 60000 + i * 1000, deleted: false });
+      }
+      const john = await newSession(ctx.browser, { member: "john", viewport: { width: 390, height: 844 }, isMobile: true });
+      const btn = john.page.locator("#refresh-chat");
+      await btn.waitFor({ state: "visible", timeout: 15000 });
+      const box = await btn.boundingBox();
+      assert(box.width >= 44 && box.height >= 44, `refresh button ${box.width}x${box.height}`);
+      assert((await btn.textContent()).includes("Làm mới"), "refresh button label is not Vietnamese");
+      await eventually(async () => (await john.page.locator('li[data-key="z-29"]').count()) === 1, 15000);
+      // Reader scrolled up into older messages; a new agent reply lands meanwhile (no auto-jump while reading).
+      await john.page.$eval("#messages", (n) => { n.scrollTop = 0; });
+      await admin.setDoc("threads/general/messages/z-new", { id: "z-new", threadId: "general", authorKind: "agent", role: "Coordinator", category: "general", text: "Tin mới nhất của nhóm trợ lý", replyTo: null, createdAt: new Date(), clientCreatedAt: Date.now(), deleted: false });
+      await btn.click();
+      const r = await eventually(() => john.page.evaluate(() => window.fvTest.lastRefresh?.()), 10000);
+      assert(r.ok && r.fromServer, `refresh did not read from the server: ${JSON.stringify(r)}`);
+      const inView = await eventually(() => john.page.evaluate(() => {
+        const list = document.querySelector("#messages");
+        const n = document.querySelector('li[data-key="z-new"]');
+        if (!n) return false;
+        const a = list.getBoundingClientRect(), b = n.getBoundingClientRect();
+        return b.top >= a.top - 1 && b.bottom <= a.bottom + 1;
+      }), 5000);
+      const status = await john.page.$eval("#refresh-status", (n) => n.textContent);
+      assert(/Đã cập nhật lúc/.test(status), `status: ${status}`);
+      await john.page.screenshot({ path: `${ctx.qcDir}/z-refresh-390.png` });
+      await john.context.setOffline(true);
+      await btn.click();
+      await eventually(async () => /cần có mạng/i.test(await john.page.$eval("#refresh-status", (n) => n.textContent)), 15000);
+      await john.context.setOffline(false);
+      assert(await btn.isEnabled(), "refresh button stuck disabled after a failed refresh");
+      await close(john);
+      return `Button "Làm mới" ${Math.round(box.width)}x${Math.round(box.height)} px; read ${r.fetched} messages from the server (fromServer=${r.fromServer}); scrolled the newest agent message into view (${inView}); status "${status}"; offline tap showed the "cần có mạng" note and the button stayed usable.`;
     }
   }
 ];
