@@ -2,8 +2,9 @@
 // one family chat (threads/general), decision details D1–D4.
 import { firebaseConfig, FIREBASE_CDN, EMULATOR, usingEmulator, memberTable } from "./config.js";
 import * as gate from "./gate.js";
-import * as motion from "./motion.js";
-import { createConnection } from "./live.js";
+// Modules changed in a release carry the same ?v= as app.js, so a cached older copy is never mixed in.
+import * as motion from "./motion.js?v=13";
+import { createConnection } from "./live.js?v=13";
 
 /* ---------------- constants ---------------- */
 // One chat. Other thread collections are legacy and are not shown (the rules still allow them).
@@ -103,6 +104,7 @@ const S = {
   voteBusy: new Set(), voteMsg: new Map(),
   dOpen: new Set(),
   collapsedThreads: new Set(),
+  refreshing: false, lastRefresh: null,
   catFilter: null,
   remindersTried: new Set(),
   snapshotMode: false, booted: false,
@@ -154,7 +156,9 @@ async function boot() {
       signIn: (email) => fb.auth.signInWithCredential(S.auth, fb.auth.GoogleAuthProvider.credential(JSON.stringify({ sub: `test-${email}`, email, email_verified: true }))),
       state: () => ({ conn: S.conn?.state() || null, member: S.member, snapshot: S.snapshotMode }),
       // Drops the current server connection (the SDK reconnects on its own), like a network blip.
-      dropConnection: async () => { await fb.fs.disableNetwork(db); await fb.fs.enableNetwork(db); }
+      dropConnection: async () => { await fb.fs.disableNetwork(db); await fb.fs.enableNetwork(db); },
+      // Result of the last tap on "Làm mới" ({ ok, fromServer, fetched, added }).
+      lastRefresh: () => S.lastRefresh
     };
   }
 
@@ -196,7 +200,6 @@ async function handleUser(user) {
   // The page opens on the plan, never scrolled down into the chat.
   if (!location.hash) scrollTo(0, 0);
   motion.boardIntro();
-  motion.railDraw($(".timeline"));
 }
 
 async function signIn() {
@@ -251,6 +254,7 @@ async function signOut() {
 
 function clearRendered() {
   for (const sel of ["#timeline-body", "#pending-strip", "#decisions", "#summary", "#presence"]) $(sel)?.replaceChildren();
+  $("#refresh-status").textContent = "";
   $("#messages").replaceChildren($("#load-older-wrap"));
   $("#who").textContent = "";
   $("#table-meta").textContent = "";
@@ -440,10 +444,12 @@ function watchMessages() {
 async function loadOlder() {
   if (S.loadingOlder || !S.moreOlder || !S.oldestDoc || !S.fb) return;
   const { fs } = S.fb;
+  const list = $("#messages");
+  // Read the scroll geometry before any DOM write, so it costs no forced layout.
+  const prevHeight = list.scrollHeight;
+  const prevTop = list.scrollTop;
   S.loadingOlder = true;
   renderLoadOlder();
-  const list = $("#messages");
-  const prevHeight = list.scrollHeight;
   try {
     // From the server only: a cache read can be partial and would hide older history for good.
     const snap = await fs.getDocsFromServer(fs.query(fs.collection(S.db, "threads", THREAD, "messages"), fs.orderBy("createdAt", "desc"), fs.startAfter(S.oldestDoc), fs.limit(PAGE_SIZE)));
@@ -451,8 +457,9 @@ async function loadOlder() {
     if (snap.docs.length) S.oldestDoc = snap.docs[snap.docs.length - 1];
     S.olderLoaded = true;
     S.moreOlder = snap.docs.length === PAGE_SIZE;
-    renderMessages();
-    list.scrollTop += list.scrollHeight - prevHeight;
+    renderMessages(false, { history: true });
+    // Keep the message that was on screen in place: one layout read, then one write.
+    list.scrollTop = prevTop + (list.scrollHeight - prevHeight);
   } catch {
     S.loadingOlder = false;
     renderLoadOlder();
@@ -461,6 +468,38 @@ async function loadOlder() {
   }
   S.loadingOlder = false;
   renderLoadOlder();
+}
+
+/* ---------------- chat refresh button ---------------- */
+// "Làm mới": reads the newest chat page, the pinned summary, the typing signal and the
+// proposals straight from the server (not the cache), then jumps to the newest message.
+// Useful when a phone was asleep or the live connection is stuck; harmless otherwise.
+async function refreshChat() {
+  const btn = $("#refresh-chat");
+  const status = $("#refresh-status");
+  if (S.refreshing) return;
+  if (!S.conn || !S.fb || S.snapshotMode || !navigator.onLine) {
+    status.textContent = "Chưa làm mới được: cần có mạng. Hãy thử lại khi có mạng.";
+    S.lastRefresh = { ok: false, fromServer: false, reason: "offline" };
+    return;
+  }
+  S.refreshing = true;
+  btn.disabled = true; btn.setAttribute("aria-busy", "true");
+  status.textContent = "Đang tải tin mới nhất…";
+  const before = new Set(S.msgs.keys());
+  try {
+    const fetched = await withTimeout(S.conn.refresh(["messages", "summary", "typing", "proposals"]), 10000);
+    const added = [...S.msgs.keys()].filter((id) => !before.has(id)).length;
+    scrollToBottom(true);
+    status.textContent = `Đã cập nhật lúc ${fmtClock.format(new Date())}${added ? `, có ${added} tin mới` : ""}.`;
+    S.lastRefresh = { ok: true, fromServer: true, fetched: fetched.messages ?? 0, added };
+  } catch {
+    status.textContent = "Chưa làm mới được: cần có mạng. Hãy thử lại khi có mạng.";
+    S.lastRefresh = { ok: false, fromServer: false, reason: "error" };
+  } finally {
+    S.refreshing = false;
+    btn.disabled = false; btn.removeAttribute("aria-busy");
+  }
 }
 
 /* ---------------- presence ---------------- */
@@ -640,13 +679,19 @@ function closeReportSheet() {
 }
 function reportError(text) { $("#report-error").textContent = text; }
 
+// Resolves once the live connection is up, or after `ms` (whichever comes first).
+async function waitForLive(ms) {
+  const end = Date.now() + ms;
+  while (Date.now() < end && S.conn && !S.conn.isLive() && navigator.onLine) await new Promise((r) => setTimeout(r, 200));
+}
+
 async function submitReport(text) {
   const { fs } = S.fb;
   const id = newId();
   const data = {
     id, reporter: S.member, category: reportCategory, text, status: "open",
     createdAt: fs.serverTimestamp(), clientCreatedAt: Date.now(),
-    userAgent: String(navigator.userAgent || "").slice(0, 300), appVersion: "v12"
+    userAgent: String(navigator.userAgent || "").slice(0, 300), appVersion: "v13"
   };
   await fs.setDoc(fs.doc(S.db, "issues", id), data);
 }
@@ -951,13 +996,14 @@ function proposalCategory(p) {
   return p.threadId && p.threadId !== "general" && CATEGORIES[p.threadId] ? p.threadId : null;
 }
 
-function renderCatFilter() {
+function renderCatFilter(counts) {
   const box = $("#cat-filter");
-  const counts = {};
-  for (const m of S.msgs.values()) { const c = msgCategory(m); if (c) counts[c] = (counts[c] || 0) + 1; }
-  for (const p of S.proposals.values()) { const c = proposalCategory(p); if (c) counts[c] = (counts[c] || 0) + 1; }
   const cats = Object.keys(CATEGORIES).filter((c) => counts[c]);
   if (S.catFilter && !counts[S.catFilter]) S.catFilter = null;
+  // Rebuilt only when a count or the active chip changed: an unchanged chip row is not touched.
+  const sig = JSON.stringify([S.catFilter, cats.map((c) => counts[c])]) + cats.join();
+  if (box.dataset.sig === sig) return;
+  box.dataset.sig = sig;
   box.hidden = cats.length === 0;
   const chip = (id, label) => h("button", { type: "button", class: "cat-chip", "data-cat": id, "aria-pressed": String((S.catFilter || "all") === id) }, label);
   box.replaceChildren(chip("all", "Tất cả"), ...cats.map((c) => chip(c, `${CATEGORIES[c]} (${counts[c]})`)));
@@ -967,34 +1013,70 @@ function msgSortKey(m) {
   return tsMs(m.createdAt) ?? m.clientCreatedAt ?? 0;
 }
 
-function renderMessages(reset = false) {
+// A reply's thread root never changes (replyTo is immutable), so the walk up the reply chain is
+// cached per message id once it reaches a root. A chain cut by a not-yet-loaded parent is not
+// cached; the cache is dropped when the topic filter changes or the chat is reset.
+const threadRoots = { filter: null, map: new Map() };
+// Same order as String#localeCompare, without its per-call setup cost.
+const keyOrder = new Intl.Collator();
+// The reader's distance from the bottom of the chat, kept by the scroll listener, so a render
+// never has to read layout before it writes (no forced reflow on every snapshot).
+let chatNearBottom = true;
+const MAX_ENTRANCES = 4;
+
+// history: the render that follows "load earlier messages" (those land above the screen).
+function renderMessages(reset = false, { history = false } = {}) {
   const list = $("#messages");
-  const nearBottom = list.scrollHeight - list.scrollTop - list.clientHeight < 80;
+  if (reset) chatNearBottom = true;
+  const nearBottom = chatNearBottom;
   const items = [];
   const f = S.catFilter;
-  for (const m of S.msgs.values()) if (!f || msgCategory(m) === f) items.push({ kind: "msg", key: m.id, sort: msgSortKey(m), m });
+  const counts = {};
+  const cats = new Map();
+  for (const m of S.msgs.values()) {
+    const c = msgCategory(m);
+    cats.set(m.id, c);
+    if (c) counts[c] = (counts[c] || 0) + 1;
+    if (!f || c === f) items.push({ kind: "msg", key: m.id, sort: msgSortKey(m), m });
+  }
   // One chat: every proposal appears in it, whichever legacy thread it was filed under.
-  for (const p of S.proposals.values()) if (!f || proposalCategory(p) === f) items.push({ kind: "proposal", key: `p-${p.id}`, sort: p.createdAtMs ?? 0, p });
-  renderCatFilter();
+  for (const p of S.proposals.values()) {
+    const c = proposalCategory(p);
+    if (c) counts[c] = (counts[c] || 0) + 1;
+    if (!f || c === f) items.push({ kind: "proposal", key: `p-${p.id}`, sort: p.createdAtMs ?? 0, p });
+  }
+  renderCatFilter(counts);
   // Thread stacking (Slack-style): a reply is placed directly under the root of its
   // thread instead of at its own timestamp, so a conversation never drifts apart
   // when other messages land in between. Threads are ordered by their root message.
-  const msgItems = new Map(items.filter((i) => i.kind === "msg").map((i) => [i.key, i]));
+  if (reset || threadRoots.filter !== f) { threadRoots.filter = f; threadRoots.map.clear(); }
+  const msgItems = new Map();
+  for (const it of items) if (it.kind === "msg") msgItems.set(it.key, it);
   for (const it of items) {
-    let root = it, hops = 0;
-    while (root.kind === "msg" && root.m.replyTo && msgItems.has(root.m.replyTo) && hops++ < 10) root = msgItems.get(root.m.replyTo);
+    let root = it;
+    if (it.kind === "msg") {
+      const cached = threadRoots.map.get(it.key);
+      if (cached !== undefined && msgItems.has(cached)) root = msgItems.get(cached);
+      else {
+        let hops = 0;
+        while (root.m.replyTo && msgItems.has(root.m.replyTo) && hops++ < 10) root = msgItems.get(root.m.replyTo);
+        if (!root.m.replyTo || hops > 10) threadRoots.map.set(it.key, root.key);
+      }
+    }
     it.threadSort = root.sort;
+    it.threadKey = root.key;
     it.isReply = root !== it;
   }
-  items.sort((a, b) => (a.threadSort - b.threadSort) || ((a.isReply ? 1 : 0) - (b.isReply ? 1 : 0)) || (a.sort - b.sort) || String(a.key).localeCompare(String(b.key)));
+  items.sort((a, b) => (a.threadSort - b.threadSort) || ((a.isReply ? 1 : 0) - (b.isReply ? 1 : 0)) || (a.sort - b.sort) || keyOrder.compare(String(a.key), String(b.key)));
 
-  const existing = new Map([...list.querySelectorAll(":scope > li[data-key]")].map((n) => [n.dataset.key, n]));
+  const existing = new Map();
+  for (const n of list.children) if (n.dataset.key) existing.set(n.dataset.key, n);
   const fresh = [];
   const decisionKey = S.decisions.map((d) => d.id).join(",");
   const nodes = items.map((it) => {
     const sig = it.kind === "proposal"
       ? JSON.stringify([it.p.status, it.p.votes, S.voteBusy.has(it.p.id), S.voteMsg.get(it.p.id), it.p.summary, decisionKey])
-      : JSON.stringify([it.m.text, it.m.deleted, it.m.editedAt ? 1 : 0, S.pending.has(it.key), S.editing === it.key, S.confirmDelete === it.key, it.m.replyTo, msgCategory(it.m), it.isReply ? 1 : 0]);
+      : JSON.stringify([it.m.text, it.m.deleted, it.m.editedAt ? 1 : 0, S.pending.has(it.key), S.editing === it.key, S.confirmDelete === it.key, it.m.replyTo, cats.get(it.key), it.isReply ? 1 : 0]);
     let node = existing.get(it.key);
     if (node && node.dataset.sig === sig) return node;
     if (node && S.editing === it.key && node.querySelector("textarea")) return node;
@@ -1008,28 +1090,44 @@ function renderMessages(reset = false) {
   });
   // Thread collapse (Slack-style): a root with replies carries a toggle that folds
   // its whole reply stack away; the count covers real replies, not reception acks.
+  // Only what changed is written, so an unchanged thread costs no DOM work.
   const replyCounts = new Map();
   for (const it of items) if (it.kind === "msg" && it.isReply && it.m.kind !== "ack") replyCounts.set(it.threadKey, (replyCounts.get(it.threadKey) || 0) + 1);
   nodes.forEach((node, i) => {
     const it = items[i];
     if (it.kind !== "msg") return;
-    if (it.isReply) { node.hidden = S.collapsedThreads.has(it.threadKey); return; }
+    if (it.isReply) { const hide = S.collapsedThreads.has(it.threadKey); if (node.hidden !== hide) node.hidden = hide; return; }
+    if (node.hidden) node.hidden = false;
     const count = replyCounts.get(it.key) || 0;
-    let tg = node.querySelector(":scope > .thread-toggle");
+    let tg = node.lastElementChild?.classList.contains("thread-toggle") ? node.lastElementChild : null;
     if (!count) { tg?.remove(); return; }
     const collapsed = S.collapsedThreads.has(it.key);
     if (!tg) { tg = h("button", { type: "button", class: "thread-toggle", "data-thread": it.key }); node.append(tg); }
-    tg.setAttribute("aria-expanded", String(!collapsed));
-    tg.textContent = collapsed ? `Xem ${count} trả lời` : `Thu gọn ${count} trả lời`;
+    const expanded = String(!collapsed);
+    if (tg.getAttribute("aria-expanded") !== expanded) tg.setAttribute("aria-expanded", expanded);
+    const label = collapsed ? `Xem ${count} trả lời` : `Thu gọn ${count} trả lời`;
+    if (tg.textContent !== label) tg.textContent = label;
   });
+  // Keyed update instead of re-inserting the whole list: drop what left, then insert or move
+  // only the nodes that are not already in place (a new message at the end is one insert).
   const sentinel = $("#load-older-wrap");
-  list.replaceChildren(sentinel, ...nodes);
+  if (list.firstElementChild !== sentinel) list.prepend(sentinel);
+  const wanted = new Set(nodes);
+  for (const n of [...list.children]) if (n !== sentinel && !wanted.has(n)) n.remove();
+  let ref = sentinel.nextElementSibling;
+  for (const node of nodes) {
+    if (node === ref) { ref = ref.nextElementSibling; continue; }
+    list.insertBefore(node, ref);
+  }
   if (!items.length && f) list.append(h("li", { class: "empty", text: "Chưa có tin nhắn nào trong chủ đề này." }));
   else if (!items.length) list.append(h("li", { class: "empty", text: S.snapshotMode ? "Cần có mạng để xem và gửi tin nhắn. Tin nhắn sẽ hiện ở đây khi có mạng lại." : "Chưa có tin nhắn nào. Hãy bắt đầu trò chuyện ở ô bên dưới." }));
   renderLoadOlder();
-  fresh.forEach((n) => (n.classList.contains("msg--proposal") ? motion.stateChanged(n) : motion.settleIn(n)));
+  // Entrance motion only for live arrivals, and only a few per render: GSAP reads each node's
+  // style when a tween starts, so animating a page of loaded history (50 nodes, off screen
+  // anyway) forced one layout per node — the 600 ms stalls measured in the B8 scroll test.
+  if (!history) fresh.slice(-MAX_ENTRANCES).forEach((n) => (n.classList.contains("msg--proposal") ? motion.stateChanged(n) : motion.settleIn(n)));
   // Keeps the newest message in view inside the chat box (the page itself does not scroll).
-  if (reset || nearBottom) scrollToBottom(true);
+  if (nearBottom) scrollToBottom(true);
 }
 
 function proposalItem(p) {
@@ -1222,7 +1320,12 @@ function wireStaticUi() {
   });
   $("#load-older").addEventListener("click", loadOlder);
   const list = $("#messages");
-  list.addEventListener("scroll", () => { if (list.scrollTop < 40 && S.moreOlder) loadOlder(); }, { passive: true });
+  list.addEventListener("scroll", () => {
+    chatNearBottom = list.scrollHeight - list.scrollTop - list.clientHeight < 80;
+    motion.holdBackdrop();
+    if (list.scrollTop < 40 && S.moreOlder) loadOlder();
+  }, { passive: true });
+  $("#refresh-chat").addEventListener("click", refreshChat);
 
   const ta = $("#composer");
   let draftTimer = null;
@@ -1258,10 +1361,17 @@ function wireStaticUi() {
     const text = $("#report-text").value.trim();
     if (!text) { reportError("Hãy viết vài dòng mô tả lỗi trước khi gửi."); return; }
     if (text.length > 2000) { reportError("Mô tả dài tối đa 2.000 ký tự."); return; }
-    if (S.snapshotMode || !S.fb || !S.member || !S.conn?.isLive()) { reportError("Cần có mạng để gửi báo lỗi. Hãy thử lại khi trang hiện “Trực tuyến”."); return; }
     const send = $("#report-send");
     send.disabled = true; send.textContent = "Đang gửi…";
     reportError("");
+    // Right after sign-in (or on a slow network) the device is online but the live connection is
+    // still opening: wait for it briefly instead of refusing a report that would go through.
+    if (!S.snapshotMode && S.fb && S.member && navigator.onLine && !S.conn?.isLive()) await waitForLive(8000);
+    if (S.snapshotMode || !S.fb || !S.member || !S.conn?.isLive()) {
+      send.disabled = false; send.textContent = "Gửi báo lỗi";
+      reportError("Cần có mạng để gửi báo lỗi. Hãy thử lại khi trang hiện “Trực tuyến”.");
+      return;
+    }
     try {
       await submitReport(text);
       $("#report-text").value = "";

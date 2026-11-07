@@ -26,22 +26,36 @@ const ease = () => (has("CustomEase") ? "liquid" : "power3.out");
 const safe = (fn) => (...a) => { try { return fn(...a); } catch (e) { console.warn("[family-visit] motion:", e); return undefined; } };
 
 /* ---------- backdrop: drifting color fields + scroll parallax + reading progress ---------- */
+// Every glass panel blurs whatever is behind it, so a moving backdrop makes the browser redo those
+// blurs on every frame. The drift therefore runs only on fine pointers (desktop), and it holds
+// still while the chat is being scrolled. Phones get the same color fields, standing still.
+const coarse = matchMedia("(pointer: coarse)");
 let backdropStarted = false;
+const drift = [];
 export const startBackdrop = safe(() => {
   const gs = on();
   if (!gs || backdropStarted) return;
   backdropStarted = true;
-  const orbs = gs.utils.toArray(".orb");
-  orbs.forEach((orb, i) => {
-    gs.to(orb, {
-      x: gs.utils.random(-60, 60), y: gs.utils.random(-50, 50), scale: gs.utils.random(0.9, 1.15),
-      duration: gs.utils.random(9, 14), ease: "sine.inOut", repeat: -1, yoyo: true, delay: i * 0.6
+  if (!coarse.matches) {
+    gs.utils.toArray(".orb").forEach((orb, i) => {
+      drift.push(gs.to(orb, {
+        x: gs.utils.random(-60, 60), y: gs.utils.random(-50, 50), scale: gs.utils.random(0.9, 1.15),
+        duration: gs.utils.random(9, 14), ease: "sine.inOut", repeat: -1, yoyo: true, delay: i * 0.6
+      }));
     });
-  });
+  }
   if (has("ScrollTrigger")) {
     gs.to(".backdrop", { yPercent: -12, ease: "none", scrollTrigger: { trigger: document.documentElement, start: "top top", end: "bottom bottom", scrub: 1.2 } });
     gs.fromTo(".progress-bar", { scaleX: 0 }, { scaleX: 1, ease: "none", scrollTrigger: { trigger: document.documentElement, start: "top top", end: "bottom bottom", scrub: 0.3 } });
   }
+});
+// Called on each chat scroll event: the drift pauses, and resumes a moment after scrolling stops.
+let driftTimer = null;
+export const holdBackdrop = safe(() => {
+  if (!drift.length) return;
+  if (!driftTimer) drift.forEach((t) => t.pause());
+  clearTimeout(driftTimer);
+  driftTimer = setTimeout(() => { driftTimer = null; drift.forEach((t) => t.resume()); }, 1200);
 });
 
 /* ---------- entrances ---------- */
@@ -92,17 +106,6 @@ export const reveal = safe((nodes) => {
     onEnter: (batch) => gs.to(batch, { opacity: 1, y: 0, duration: 0.85, stagger: 0.09, ease: ease(), clearProps: "opacity,transform" })
   });
   triggers.forEach((t) => revealTriggers.add(t));
-});
-
-// The table's route rail draws itself as the plan scrolls into view (feeds --rail into a scaleY).
-let railTrigger = null;
-export const railDraw = safe((table) => {
-  const gs = on();
-  if (!gs || !table || !has("ScrollTrigger") || railTrigger) return;
-  railTrigger = gs.fromTo(table, { "--rail": 0 }, {
-    "--rail": 1, ease: "none",
-    scrollTrigger: { trigger: table, start: "top 90%", end: "bottom 55%", scrub: 0.6 }
-  }).scrollTrigger;
 });
 
 /* ---------- reactions to what people do ---------- */

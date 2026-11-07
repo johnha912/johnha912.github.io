@@ -120,6 +120,21 @@ export function createConnection({ fs, db, timing, onState, onDenied }) {
       w?.unsub?.();
       watches.delete(name);
     },
+    // One-off server read of the named watches (the chat's "Làm mới" button). Each result goes
+    // through the watch's own handler, exactly like a polling round. Also nudges a stalled
+    // connection to reconnect now instead of waiting for the next backoff step.
+    async refresh(names) {
+      const out = {};
+      for (const name of names) {
+        const w = watches.get(name);
+        if (!w) continue;
+        const snap = w.isDoc ? await fs.getDocFromServer(w.target) : await fs.getDocsFromServer(w.target);
+        w.onData(snap, { fromCache: false, polled: true });
+        out[name] = w.isDoc ? (snap.exists() ? 1 : 0) : snap.docs.length;
+      }
+      if (state !== "live" && !stopped) { attempts = 0; scheduleReconnect(); }
+      return out;
+    },
     state: () => state,
     isLive: () => state === "live",
     stop() {

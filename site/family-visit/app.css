@@ -4,7 +4,7 @@
    lantern amber = waiting, cranberry = No. */
 
 :root {
-  --bg: #e8edf3;
+  --bg: #edf2f8;
   --ink: #15202b;
   --muted: #4c5866;
   --line: rgba(21, 32, 43, 0.1);
@@ -29,11 +29,12 @@
   --glass-sheen: rgba(255, 255, 255, 0.55);
   --blur: 22px;
 
-  /* Backdrop color fields */
-  --orb-1: rgba(64, 170, 138, 0.55);
-  --orb-2: rgba(110, 160, 235, 0.5);
-  --orb-3: rgba(240, 180, 90, 0.45);
-  --orb-4: rgba(230, 120, 160, 0.38);
+  /* Backdrop color fields: a bright East Coast morning (owner request, v13) —
+     Atlantic sky, harbor blue, seafoam, and sea fog; no warm orange or pink. */
+  --orb-1: rgba(92, 160, 220, 0.5);
+  --orb-2: rgba(58, 104, 178, 0.36);
+  --orb-3: rgba(120, 200, 205, 0.42);
+  --orb-4: rgba(176, 196, 222, 0.55);
 
   --role-coordinator: #34528a;
   --role-flights: #136f7e;
@@ -89,10 +90,10 @@
     --glass-edge: rgba(255, 255, 255, 0.24);
     --glass-shade: rgba(0, 0, 0, 0.35);
     --glass-sheen: rgba(255, 255, 255, 0.12);
-    --orb-1: rgba(40, 150, 115, 0.38);
-    --orb-2: rgba(70, 110, 200, 0.36);
-    --orb-3: rgba(200, 140, 50, 0.26);
-    --orb-4: rgba(190, 80, 130, 0.26);
+    --orb-1: rgba(50, 110, 180, 0.38);
+    --orb-2: rgba(40, 70, 150, 0.36);
+    --orb-3: rgba(60, 150, 160, 0.26);
+    --orb-4: rgba(110, 130, 170, 0.26);
     --role-coordinator: #9fb7ea;
     --role-flights: #6ccad8;
     --role-stay: #d9b07a;
@@ -132,12 +133,12 @@ button, textarea { font: inherit; color: inherit; }
 /* ---------- backdrop the glass refracts ---------- */
 .backdrop { position: fixed; inset: -10vh -10vw; z-index: -1; pointer-events: none; overflow: hidden; }
 .orb { position: absolute; width: 70vmax; height: 70vmax; border-radius: 50%; will-change: transform; }
-.orb--pine { left: -25vmax; top: -20vmax; background: radial-gradient(circle, var(--orb-1) 0%, transparent 65%); }
-.orb--sky { right: -30vmax; top: -10vmax; background: radial-gradient(circle, var(--orb-2) 0%, transparent 65%); }
-.orb--lantern { left: -20vmax; top: 45vh; background: radial-gradient(circle, var(--orb-3) 0%, transparent 65%); }
-.orb--rose { right: -25vmax; bottom: -30vmax; background: radial-gradient(circle, var(--orb-4) 0%, transparent 65%); }
+.orb--atlantic { left: -25vmax; top: -20vmax; background: radial-gradient(circle, var(--orb-1) 0%, transparent 65%); }
+.orb--harbor { right: -30vmax; top: -10vmax; background: radial-gradient(circle, var(--orb-2) 0%, transparent 65%); }
+.orb--seafoam { left: -20vmax; top: 45vh; background: radial-gradient(circle, var(--orb-3) 0%, transparent 65%); }
+.orb--fog { right: -25vmax; bottom: -30vmax; background: radial-gradient(circle, var(--orb-4) 0%, transparent 65%); }
 .progress { position: fixed; inset: 0 0 auto; height: 3px; z-index: 60; pointer-events: none; }
-.progress-bar { display: block; height: 100%; background: linear-gradient(90deg, var(--pine), var(--pine-2), var(--lantern)); transform: scaleX(0); transform-origin: left center; }
+.progress-bar { display: block; height: 100%; background: linear-gradient(90deg, var(--pine), var(--pine-2), var(--orb-1)); transform: scaleX(0); transform-origin: left center; }
 
 /* ---------- glass ---------- */
 .glass {
@@ -311,12 +312,15 @@ body[data-conn="offline"] .conn-dot { background: var(--cranberry); box-shadow: 
 }
 .timeline thead .c-date { z-index: 2; }
 .timeline tbody .c-date { padding-left: calc(var(--s3) + 20px); }
-/* Route rail: one line through the Date column with a stop per row; --rail (0..1) draws it on scroll. */
-.rail { position: absolute; left: var(--s3); top: 0; bottom: 0; width: 12px; }
-.rail::before { content: ""; position: absolute; left: 5px; top: 0; bottom: 0; width: 2px; background: linear-gradient(var(--pine), var(--pine-2)); opacity: 0.55; transform: scaleY(var(--rail, 1)); transform-origin: top center; }
+/* Route rail: one continuous, static line down the Date column, with a stop (dot) per row.
+   Each row draws its segment over the whole cell, its 1 px row border included, and reaches
+   1 px up into the row above, so neighboring segments always overlap and never leave a seam.
+   The color is opaque (pine mixed into the page background) so the overlap is invisible.
+   No transform, no animation: it is fully drawn from the first paint, with or without GSAP. */
+.rail { position: absolute; left: var(--s3); top: 0; bottom: -1px; width: 12px; }
+.rail::before { content: ""; position: absolute; left: 5px; top: -1px; bottom: 0; width: 2px; background: color-mix(in srgb, var(--pine) 60%, var(--bg)); }
+.timeline tbody tr:first-child .rail::before { top: 0; }
 .rail::after { content: ""; position: absolute; left: 0; top: calc(var(--s3) + 5px); width: 12px; height: 12px; border-radius: 50%; background: var(--glass-solid); border: 2.5px solid var(--pine); box-shadow: 0 0 0 3px var(--pine-wash); }
-.timeline tbody tr:first-child .rail::before { top: calc(var(--s3) + 11px); }
-.timeline tbody tr:last-child .rail::before { bottom: auto; height: calc(var(--s3) + 11px); }
 .c-leg { font-weight: 500; }
 /* Status reads as a tidy rounded tag filling its cell, never a balloon: multi-line
    statuses wrap with balanced lines and no text is ever clipped. */
@@ -388,6 +392,9 @@ body[data-conn="offline"] .conn-dot { background: var(--cranberry); box-shadow: 
 }
 .vote--ok { color: var(--pine); border-color: color-mix(in srgb, var(--pine) 50%, var(--glass-border)); }
 .vote--no { color: var(--cranberry); border-color: color-mix(in srgb, var(--cranberry) 50%, var(--glass-border)); }
+/* Inside the chat the vote buttons sit on the proposal card's own gradient, where a backdrop
+   blur adds nothing visible but costs a blur pass per button on every scrolled frame. */
+.messages .vote { -webkit-backdrop-filter: none; backdrop-filter: none; }
 .vote--ok[aria-pressed="true"] { background: linear-gradient(180deg, var(--pine-2), var(--pine)); color: var(--pine-ink); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45), 0 6px 16px color-mix(in srgb, var(--pine) 35%, transparent); }
 .vote--no[aria-pressed="true"] { background: linear-gradient(180deg, color-mix(in srgb, var(--cranberry) 85%, white), var(--cranberry)); color: #fff; }
 .vote:disabled { cursor: default; opacity: 0.5; }
@@ -400,7 +407,25 @@ body[data-conn="offline"] .conn-dot { background: var(--cranberry); box-shadow: 
   height: clamp(30rem, calc(100dvh - 96px), 48rem);
   overflow: hidden;
 }
-.summary { flex: none; padding: var(--s3) var(--s4); border-bottom: 1px solid var(--line); font-size: var(--fs-sm); max-height: 9em; overflow-y: auto; }
+/* Chat bar: the "Làm mới" button (fetches the newest messages from the server) and its result line. */
+.chat-bar { flex: none; display: flex; align-items: center; justify-content: space-between; gap: var(--s3); padding: var(--s1) var(--s2) var(--s1) var(--s4); border-bottom: 1px solid var(--line); }
+.refresh-status { min-width: 0; font-size: var(--fs-sm); color: var(--muted); }
+.refresh-btn {
+  flex: none; display: inline-flex; align-items: center; gap: var(--s2);
+  min-height: 44px; padding: 0 var(--s4);
+  border-radius: 999px; border: 1px solid var(--glass-border);
+  background: linear-gradient(180deg, var(--glass-hi), var(--glass-lo));
+  box-shadow: inset 0 1px 0 var(--glass-edge), 0 4px 12px var(--glass-shade);
+  color: var(--pine); font-weight: 700; cursor: pointer;
+}
+.refresh-btn:disabled { opacity: 0.7; cursor: progress; }
+.refresh-icon::before { content: "↻"; display: inline-block; font-size: 1.15em; line-height: 1; }
+.refresh-btn[aria-busy="true"] .refresh-icon::before { animation: refresh-spin 0.9s linear infinite; }
+@keyframes refresh-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .refresh-btn[aria-busy="true"] .refresh-icon::before { animation: none; } }
+/* The pinned summary is at most 3 short sentences (owner rule) and is always shown in full,
+   never in a box of its own that has to be scrolled. */
+.summary { flex: none; padding: var(--s3) var(--s4); border-bottom: 1px solid var(--line); font-size: var(--fs-sm); }
 .summary-label { color: var(--muted); font-weight: 500; }
 .summary-empty { color: var(--muted); }
 
