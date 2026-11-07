@@ -187,3 +187,10 @@ A separate reviewer read the rules and client code. It found no rules hole (forg
 |---|---|---|
 | Presence back to v4 rendering | PASS by construction | `renderPresence()` + `.pres` CSS restored byte-for-byte from the v4 commit (9792d43); live E2E after merge confirms visually. |
 | Sign-out card button retained | PASS by diff scope | v7 diff touches only the presence code/CSS and the test file; `.btn--signout` untouched. |
+
+## v8 (branch `family-visit-v7`, 2026-11-07): cache-busted asset URLs
+
+| Check | Result | Evidence |
+|---|---|---|
+| Served app.js is the v4-presence build | PASS | Fresh fetch of the served `app.js` shows `renderPresence()` with name span + sr-only status; zero `pres-you` / `pres--me` in the file. |
+| Versioned asset tags | PASS by diff | `index.html` references `app.css?v=8` / `app.js?v=8`; future releases must bump the number (standing rule, WORK-LOG v8). |
