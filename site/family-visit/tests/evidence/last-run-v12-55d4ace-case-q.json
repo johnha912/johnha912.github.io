@@ -1,0 +1,14 @@
+{
+ "at": "2026-11-07T21:32:29.588Z",
+ "passed": 0,
+ "failed": 1,
+ "results": [
+  {
+   "suite": "emulator suite",
+   "name": "(q) thread collapse: the toggle on a root folds and unfolds its reply stack",
+   "pass": false,
+   "ms": 17521,
+   "detail": "Error: condition not met in time\n    at eventually (file:///tmp/claude-0/-home-user-johnha912-github-io/68ba0673-1c01-5890-87eb-d748d8f9c18e/scratchpad/wt-v12/site/family-visit/tests/run.mjs:141:17)\n    at async Object.run (file:///tmp/claude-0/-home-user-johnha912-github-io/68ba0673-1c01-5890-87eb-d748d8f9c18e/scratchpad/wt-v12/site/family-visit/tests/e2e.mjs:516:7)\n    at async main (file:///tmp/claude-0/-home-user-johnha912-github-io/68ba0673-1c01-5890-87eb-d748d8f9c18e/scratchpad/wt-v12/site/family-visit/tests/run.mjs:184:26)"
+  }
+ ]
+}

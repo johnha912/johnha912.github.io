@@ -1,0 +1,280 @@
+{
+ "at": "2026-11-07T21:26:06.542Z",
+ "passed": 31,
+ "failed": 8,
+ "results": [
+  {
+   "suite": "emulator suite",
+   "name": "(a) a whitelisted user posts and a second session sees it live",
+   "pass": true,
+   "ms": 3912,
+   "detail": "Nickie saw John's message 259 ms after send, without a reload; 1 document stored."
+  },
+  {
+   "suite": "emulator suite",
+   "name": "(b) a non-whitelisted user is denied read and write",
+   "pass": true,
+   "ms": 1721,
+   "detail": "Denied: readRows, readMessages, readProposal, readPresence, writeMessage, writePresence, unverifiedRead, passwordProviderRead. Stranger sees only the \"not on the family list\" screen."
+  },
+  {
+   "suite": "emulator suite",
+   "name": "(c) a message posted offline appears exactly once after reconnect",
+   "pass": true,
+   "ms": 8745,
+   "detail": "Showed \"sending…\" offline, 0 server docs while offline, then exactly 1 doc (id XjU3RUWb1XGC6AShxtt3) and 1 rendered copy in both sessions, also after reload."
+  },
+  {
+   "suite": "emulator suite",
+   "name": "(d) malformed writes are rejected by the rules",
+   "pass": true,
+   "ms": 1446,
+   "detail": "19 malformed writes denied (oversizedText, emptyText, missingCreatedAt, clientTimestamp, impersonation, postsAsAgent, extraField, idMismatch, unknownThread, stringClientTime, editOthers, hardDelete, presenceForOther, presenceBadState, directRowWrite, tableBump, writeThreadSummary, writeHeartbeat, createProposal); a valid message and an own edit were accepted."
+  },
+  {
+   "suite": "emulator suite",
+   "name": "(e) killing the listener connection shows reconnecting, then polling, never a blank page",
+   "pass": true,
+   "ms": 12591,
+   "detail": "Banner went \"Đang kết nối lại…\" (reconnecting) then \"…tự kiểm tra thay đổi mỗi 30 giây\" (polling every 30 s); 4 timeline rows stayed visible; recovered to Live after unblocking."
+  },
+  {
+   "suite": "emulator suite",
+   "name": "(e2) backend unreachable entirely: offline snapshot instead of a blank page",
+   "pass": true,
+   "ms": 2829,
+   "detail": "Signed-in device: \"Bản lưu ngoại tuyến: hiện không kết nối được máy chủ, nên đâ…\" with 4 rows. New device: sign-in screen with \"Hiện không kết nối được với Google…\" and no plan content."
+  },
+  {
+   "suite": "emulator suite",
+   "name": "(f) confirmation gate: no change at 2 OK, applied at the 3rd OK, a single No freezes",
+   "pass": true,
+   "ms": 11474,
+   "detail": "2 OK: proposal pending, planRows JSON and table HTML identical in all sessions. 3rd OK: row applied (version 2), table version 2. One No: status rejected, rows JSON + table HTML byte-identical, vote buttons gone, server refused votes/edits on the frozen proposal, forged applies refused."
+  },
+  {
+   "suite": "emulator suite",
+   "name": "72-hour reminder is posted exactly once",
+   "pass": true,
+   "ms": 6726,
+   "detail": "Two signed-in sessions, one 73-hour-old pending proposal: 1 reminder document, reminderSent=true; a second reminder, an early (2-hour) reminder, and a free-text Coordinator reminder were refused by the rules; the reminder text is the fixed template."
+  },
+  {
+   "suite": "emulator suite",
+   "name": "edit shows 'đã sửa', soft delete shows 'Tin nhắn đã bị xoá' in the other session",
+   "pass": true,
+   "ms": 3842,
+   "detail": "Edit flagged \"đã sửa\" live; delete kept the document (deleted=true, text cleared) and showed \"Tin nhắn đã bị xoá\"."
+  },
+  {
+   "suite": "emulator suite",
+   "name": "chat loads 50 at a time and loads earlier messages on scroll up",
+   "pass": true,
+   "ms": 3994,
+   "detail": "First render 50 messages; scrolling to the top loaded the rest (62 test messages + the seeded agent posts)."
+  },
+  {
+   "suite": "emulator suite",
+   "name": "presence, reply threading, and draft autosave in the single chat",
+   "pass": true,
+   "ms": 5744,
+   "detail": "No topic tabs; Nickie shown online to John; both posts stored in threads/general; reply quoted \"Trả lời Nickie\"; draft restored after reload."
+  },
+  {
+   "suite": "emulator suite",
+   "name": "one chat only: agent topics show as tags, filter works, replies inherit the topic, legacy threads stay out",
+   "pass": true,
+   "ms": 4068,
+   "detail": "Legacy-thread message not shown, no tabs; tags render (\"Vé máy bay\"); filter chips Tất cả / Vé máy bay (2) / Ngân sách (1); a reply inherited the flights topic; filtering showed only that topic; posting while filtered reset the filter; every post stored in threads/general."
+  },
+  {
+   "suite": "emulator suite",
+   "name": "sign out works offline and leaves no plan or chat content behind",
+   "pass": true,
+   "ms": 6638,
+   "detail": "Offline sign-out reached the sign-in screen in 5236 ms and stayed there while offline; it reloaded itself when back online and came back signed out, 0 fv-* storage keys, 0 rendered rows or messages."
+  },
+  {
+   "suite": "emulator suite",
+   "name": "(n) report issue: the side tab files one open issue under the reporter's name",
+   "pass": false,
+   "ms": 11230,
+   "detail": "page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#report-done:not([hidden])') to be visible\u001b[22m\n\n    at Object.run (/tmp/claude-0/-home-user-johnha912-github-io/68ba0673-1c01-5890-87eb-d748d8f9c18e/scratchpad/wt-base/site/family-visit/tests/e2e.mjs:459:25)\n    at async main (/tmp/claude-0/-home-user-johnha912-github-io/68ba0673-1c01-5890-87eb-d748d8f9c18e/scratchpad/wt-base/site/family-visit/tests/run.mjs:184:26)"
+  },
+  {
+   "suite": "emulator suite",
+   "name": "(o) reception: an ack renders as a receipt line and the typing bar shows while the team is working",
+   "pass": true,
+   "ms": 2348,
+   "detail": "The acknowledgement rendered as one compact receipt line (not a bubble), and the typing bar followed meta/typing on and off."
+  },
+  {
+   "suite": "emulator suite",
+   "name": "(p) thread stacking: a reply renders directly under its root, not at its own timestamp",
+   "pass": true,
+   "ms": 1491,
+   "detail": "The reply to A rendered immediately under A (indented), ahead of the unrelated message B that arrived before it."
+  },
+  {
+   "suite": "emulator suite",
+   "name": "(q) thread collapse: the toggle on a root folds and unfolds its reply stack",
+   "pass": false,
+   "ms": 16477,
+   "detail": "Error: condition not met in time\n    at eventually (file:///tmp/claude-0/-home-user-johnha912-github-io/68ba0673-1c01-5890-87eb-d748d8f9c18e/scratchpad/wt-base/site/family-visit/tests/run.mjs:141:17)\n    at async Object.run (file:///tmp/claude-0/-home-user-johnha912-github-io/68ba0673-1c01-5890-87eb-d748d8f9c18e/scratchpad/wt-base/site/family-visit/tests/e2e.mjs:518:7)\n    at async main (file:///tmp/claude-0/-home-user-johnha912-github-io/68ba0673-1c01-5890-87eb-d748d8f9c18e/scratchpad/wt-base/site/family-visit/tests/run.mjs:184:26)"
+  },
+  {
+   "suite": "emulator suite",
+   "name": "(r) agents answer like a chatbot inside one thread: root, ack, two role replies stay one block",
+   "pass": true,
+   "ms": 5406,
+   "detail": "DOM order [\"root1\",\"r-ack-1\",\"r-reply-coord\",\"r-reply-scout\",\"root2\"] before and after reload; replies indented 40px / 40px with msg--thread; the second root (posted between the two replies) sits after the whole block. Agent writes simulated via emulator admin in the production document shape."
+  },
+  {
+   "suite": "emulator suite",
+   "name": "(s) an applied proposal updates the plan live in another member's open session (no reload)",
+   "pass": true,
+   "ms": 7476,
+   "detail": "Nickie (open session, no reload) showed \"Chỗ ở cập nhật trực tiếp\" 230 ms after John's third OK; planMeta.version 1 -> 2 (exactly +1), table meta reads \"phiên bản 2\"."
+  },
+  {
+   "suite": "emulator suite",
+   "name": "(t) a collapsed thread stays collapsed when a new reply or an ack arrives; the count follows",
+   "pass": false,
+   "ms": 16768,
+   "detail": "Error: condition not met in time\n    at eventually (file:///tmp/claude-0/-home-user-johnha912-github-io/68ba0673-1c01-5890-87eb-d748d8f9c18e/scratchpad/wt-base/site/family-visit/tests/run.mjs:141:17)\n    at async Object.run (file:///tmp/claude-0/-home-user-johnha912-github-io/68ba0673-1c01-5890-87eb-d748d8f9c18e/scratchpad/wt-base/site/family-visit/tests/e2e.mjs:618:7)\n    at async main (file:///tmp/claude-0/-home-user-johnha912-github-io/68ba0673-1c01-5890-87eb-d748d8f9c18e/scratchpad/wt-base/site/family-visit/tests/run.mjs:184:26)"
+  },
+  {
+   "suite": "emulator suite",
+   "name": "(w) changing a vote while pending: OK -> No is allowed and freezes the proposal; No can never be undone",
+   "pass": false,
+   "ms": 2116,
+   "detail": "locator.click: Error: strict mode violation: locator('#pending-strip [data-pid=\"change-vote-1\"] button[data-vote=\"ok\"]') resolved to 3 elements:\n    1) <button type=\"button\" data-vote=\"ok\" aria-pressed=\"false\" class=\"vote vote--ok\" data-pid=\"change-vote-1\" aria-label=\"Đồng ý: John\">Đồng ý</button> aka getByRole('region', { name: 'Kế hoạch chuyến đi' }).getByLabel('Đồng ý: John', { exact: true })\n    2) <button disabled type=\"button\" data-vote=\"ok\" aria-pressed=\"false\" class=\"vote vote--ok\" data-pid=\"change-vote-1\" aria-label=\"Đồng ý: Nickie\" title=\"Chỉ Nickie mới bấm được ở đây\">Đồng ý</button> aka getByRole('region', { name: 'Kế hoạch chuyến đi' }).getByLabel('Đồng ý: Nickie')\n    3) <button disabled type=\"button\" data-vote=\"ok\" aria-pressed=\"false\" class=\"vote vote--ok\" data-pid=\"change-vote-1\" aria-label=\"Đồng ý: Johnny\" title=\"Chỉ Johnny mới bấm được ở đây\">Đồng ý</button> aka getByRole('region', { name: 'Kế hoạch chuyến đi' }).getByLabel('Đồng ý: Johnny')\n\nCall log:\n\u001b[2m  - waiting for locator('#pending-strip [data-pid=\"change-vote-1\"] button[data-vote=\"ok\"]')\u001b[22m\n\n    at Object.run (/tmp/claude-0/-home-user-johnha912-github-io/68ba0673-1c01-5890-87eb-d748d8f9c18e/scratchpad/wt-base/site/family-visit/tests/e2e.mjs:649:23)\n    at async main (/tmp/claude-0/-home-user-johnha912-github-io/68ba0673-1c01-5890-87eb-d748d8f9c18e/scratchpad/wt-base/site/family-visit/tests/run.mjs:184:26)"
+  },
+  {
+   "suite": "emulator suite",
+   "name": "(x) a signed-in host cannot write planRows or planMeta directly (no proposal flow)",
+   "pass": true,
+   "ms": 1881,
+   "detail": "8 direct writes refused (rowNoProposal: permission-denied, rowCitingPending: permission-denied, rowUpdateOneField: permission-denied, newRow: permission-denied, deleteRow: permission-denied, metaBump: permission-denied, metaOverwrite: permission-denied, rowPlusMetaBatch: permission-denied); planRows and planMeta byte-identical afterwards."
+  },
+  {
+   "suite": "emulator suite",
+   "name": "(z) chat refresh button: fetches the newest messages from the server and jumps to them",
+   "pass": false,
+   "ms": 18247,
+   "detail": "locator.waitFor: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#refresh-chat') to be visible\u001b[22m\n\n    at Object.run (/tmp/claude-0/-home-user-johnha912-github-io/68ba0673-1c01-5890-87eb-d748d8f9c18e/scratchpad/wt-base/site/family-visit/tests/e2e.mjs:713:17)\n    at async main (/tmp/claude-0/-home-user-johnha912-github-io/68ba0673-1c01-5890-87eb-d748d8f9c18e/scratchpad/wt-base/site/family-visit/tests/run.mjs:184:26)"
+  },
+  {
+   "suite": "QC",
+   "name": "QC layout order (title, plan, chat, decision details, back-to-top) at 360 px and 1440 px; page opens at the top",
+   "pass": true,
+   "ms": 9752,
+   "detail": "360px: opened at scrollY 0; title 16, plan table 1154, chat 1676, details 2456 (layout-360.png); 1440px: opened at scrollY 0; title 16, plan table 816, chat 1346, details 2224 (layout-1440.png)"
+  },
+  {
+   "suite": "QC",
+   "name": "QC no horizontal page scroll at 360 px and 390 px",
+   "pass": true,
+   "ms": 9327,
+   "detail": "360px: scrollWidth 360 <= 360; 390px: scrollWidth 390 <= 390"
+  },
+  {
+   "suite": "QC",
+   "name": "QC touch targets >= 44 px, composer font >= 16 px, table in its own scroll region with sticky Date at 360 px",
+   "pass": true,
+   "ms": 5119,
+   "detail": "Every visible control >= 44x44 px; composer font 16px; timeline scrolls inside its region and the Date column stays put (position: sticky)."
+  },
+  {
+   "suite": "QC",
+   "name": "QC back-to-top appears after scrolling, avoids the composer and vote buttons, and returns to the top",
+   "pass": false,
+   "ms": 4938,
+   "detail": "Error: overlaps: 0,1,0,0\n    at assert (file:///tmp/claude-0/-home-user-johnha912-github-io/68ba0673-1c01-5890-87eb-d748d8f9c18e/scratchpad/wt-base/site/family-visit/tests/run.mjs:133:54)\n    at Object.run (file:///tmp/claude-0/-home-user-johnha912-github-io/68ba0673-1c01-5890-87eb-d748d8f9c18e/scratchpad/wt-base/site/family-visit/tests/qc.mjs:207:7)\n    at async main (file:///tmp/claude-0/-home-user-johnha912-github-io/68ba0673-1c01-5890-87eb-d748d8f9c18e/scratchpad/wt-base/site/family-visit/tests/run.mjs:184:26)"
+  },
+  {
+   "suite": "QC",
+   "name": "QC one vote and one chat message at 360 px",
+   "pass": true,
+   "ms": 9129,
+   "detail": "John's OK stored (votes.john = ok) and the message stored under john, both from a 360 px viewport (vote-360.png, message-360.png)."
+  },
+  {
+   "suite": "QC",
+   "name": "QC full flow with the GSAP CDN blocked",
+   "pass": true,
+   "ms": 8866,
+   "detail": "window.gsap undefined; message delivered live to a second session, the third OK applied the proposal, table updated, back-to-top worked. No errors besides the blocked script request."
+  },
+  {
+   "suite": "QC",
+   "name": "QC seed data rendered byte-identical to board.json",
+   "pass": true,
+   "ms": 2939,
+   "detail": "Title, 4 decisions (headings, intros, resolved styling, statuses, resolution, 0 price strings with their check dates), 2 seeded agent posts and 4 timeline rows match the source files character for character."
+  },
+  {
+   "suite": "QC",
+   "name": "QC no email address, placeholder text, or dead control in the UI",
+   "pass": true,
+   "ms": 2992,
+   "detail": "0 email addresses in the rendered HTML (signed in as a test account); 0 placeholder strings; all 36 buttons map to a handler (ids, data-vote, data-action, data-dtoggle, or form submit)."
+  },
+  {
+   "suite": "QC",
+   "name": "QC console free of errors during sign-in, post, reload",
+   "pass": true,
+   "ms": 9350,
+   "detail": "0 console errors and 0 page errors across sign-in, post, reload (2 console lines total, 2 warnings)."
+  },
+  {
+   "suite": "QC",
+   "name": "QC portfolio isolation: noindex, not linked, not in the sitemap, no robots.txt Disallow",
+   "pass": true,
+   "ms": 17,
+   "detail": "noindex, nofollow meta present; no file outside site/family-visit/ mentions it (nav, sitemap.xml, robots.txt included)."
+  },
+  {
+   "suite": "QC",
+   "name": "QC Vietnamese UI audit: no English interface words on any screen (database content excluded)",
+   "pass": true,
+   "ms": 14733,
+   "detail": "6 screens (sign-in, denied, board, reply + delete confirm, edit, offline), 2774 interface words checked: 0 English. Allowed proper nouns: John, Nickie, Johnny, Google, Visa (in the role name \"Visa & Giấy tờ\"), CCCD, D1–D4. <html lang=\"vi\">."
+  },
+  {
+   "suite": "QC",
+   "name": "QC phone pass for the new order at 360 px and 390 px: plan first, chat by scrolling, D-link to decision card",
+   "pass": true,
+   "ms": 18975,
+   "detail": "360px: opened at scrollY 0 with the plan heading at 344px, scrollWidth 360; chat composer reachable; tapping D2 (tap area 51x48) brought decision-D2 to the top half, highlighted, intro \"Dữ liệu mẫu cho kiểm thử.…\"; 390px: opened at scrollY 0 with the plan heading at 365px, scrollWidth 390; chat composer reachable; tapping D2 (tap area 51x48) brought decision-D2 to the top half, highlighted, intro \"Dữ liệu mẫu cho kiểm thử.…\" (v2-first-screen-360.png, v2-dlink-target-360.png)"
+  },
+  {
+   "suite": "QC",
+   "name": "QC liquid glass + GSAP: plugins live, dock appears and navigates, details expand and collapse",
+   "pass": true,
+   "ms": 16691,
+   "detail": "gsap + ScrollTrigger + Flip + SplitText + ScrollToPlugin + CustomEase loaded, 8 scroll triggers live; plan card blur(22px) saturate(1.8); font \"Google Sans\" renders Vietnamese; dock hidden at top, shown after scrolling, tapping \"Chi tiết D\" scrolled to the section and moved the active pill; D1 details opened and closed; scrollWidth 390; no console errors (v3-dock-390.png, v3-details-open-390.png)."
+  },
+  {
+   "suite": "QC",
+   "name": "(u) the pinned summary (3 short sentences) shows in full without scrolling inside its box at 360 px and 390 px",
+   "pass": false,
+   "ms": 7984,
+   "detail": "Error: 360px: summary box scrolls (scrollHeight 128 > clientHeight 116)\n    at assert (file:///tmp/claude-0/-home-user-johnha912-github-io/68ba0673-1c01-5890-87eb-d748d8f9c18e/scratchpad/wt-base/site/family-visit/tests/run.mjs:133:54)\n    at Object.run (file:///tmp/claude-0/-home-user-johnha912-github-io/68ba0673-1c01-5890-87eb-d748d8f9c18e/scratchpad/wt-base/site/family-visit/tests/qc.mjs:539:9)\n    at async main (file:///tmp/claude-0/-home-user-johnha912-github-io/68ba0673-1c01-5890-87eb-d748d8f9c18e/scratchpad/wt-base/site/family-visit/tests/run.mjs:184:26)"
+  },
+  {
+   "suite": "QC",
+   "name": "(v) the Date-column rail is one continuous, static line (no transform, no --rail), also with GSAP blocked",
+   "pass": false,
+   "ms": 1,
+   "detail": "Error: rail scroll-draw references left in motion.js,app.js,app.css\n    at assert (file:///tmp/claude-0/-home-user-johnha912-github-io/68ba0673-1c01-5890-87eb-d748d8f9c18e/scratchpad/wt-base/site/family-visit/tests/run.mjs:133:54)\n    at Object.run (file:///tmp/claude-0/-home-user-johnha912-github-io/68ba0673-1c01-5890-87eb-d748d8f9c18e/scratchpad/wt-base/site/family-visit/tests/qc.mjs:551:7)\n    at main (file:///tmp/claude-0/-home-user-johnha912-github-io/68ba0673-1c01-5890-87eb-d748d8f9c18e/scratchpad/wt-base/site/family-visit/tests/run.mjs:184:34)"
+  },
+  {
+   "suite": "QC",
+   "name": "(y) long-thread chat scroll at 390 px with 4x CPU throttle: no long task > 200 ms, total long-task time at most half the base",
+   "pass": true,
+   "ms": 97430,
+   "detail": "base-1e331a3: long tasks median total 2748 ms (count 17), worst 1037 ms; frames > 50 ms: 30, worst frame 983 ms; script 771 ms, layout 1992 ms, style 201 ms (medians of 3; b8-metrics-base-1e331a3.json). Measure-only run (no pass criteria applied)."
+  }
+ ]
+}

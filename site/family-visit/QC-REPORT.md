@@ -242,3 +242,96 @@ A separate reviewer read the rules and client code. It found no rules hole (forg
 | Emulator suite | NOT RUN on this VM (standing limitation) | New e2e test (q): root + 2 replies (one nested) — toggle collapses both, expands both, root stays visible throughout. |
 | Live E2E | See the post-merge verification note appended after the live run | Collapse/expand exercised on the live page against a real test thread, per the feature-change protocol. |
 | Report-tab transparency (owner report) | PASS by code | Tab gradient alpha cut from 72%→32% max with blur retained; verified visually in the post-merge live E2E (tab over table content, text beneath visible through it). |
+
+## v13 (branch `family-visit-v12`, 2026-11-07): static route rail, smooth chat scroll, "Làm mới", East Coast backdrop, test pack A/B
+
+Everything below ran against the Local Emulator Suite (`demo-family-visit`, auth :9099,
+firestore :8080) through `tests/run.mjs`. Nothing touched the live project or the live board.
+Fixtures: `FV_FIXTURES_DIR` pointed at **synthetic** fixtures written for this run (same shape
+as the private `board.json` / `timeline-seed.json`: 4 rows incl. `san-jose`, D1–D4, 2 seeded
+agent posts; placeholder text, no real prices or dates), because the private fixtures are not
+on this VM. Screenshots are in `FV_QC_DIR`, outside the repo. JVM run with
+`-Djava.net.preferIPv4Stack=true`.
+
+### Keeploop gate (machine-readable)
+
+| Run | Code | Result | File |
+|---|---|---|---|
+| Base, suite as it stood | `1e331a3` | **27/29** | `tests/evidence/last-run-base-1e331a3.json` |
+| Base, with the new cases | `1e331a3` + new tests | 31/39 | `tests/evidence/last-run-base-1e331a3-with-new-tests.json` |
+| v12 as committed, case (q) | `55d4ace` | 0/1 | `tests/evidence/last-run-v12-55d4ace-case-q.json` |
+| **After (v13)** | this branch | **39/39** | `tests/last-run.json` |
+
+- Base reds, both test defects, not app defects: (p) waited for exactly 3 `li[data-key]` and the
+  baseline seeds the board's 2 agent posts (red with any fixture that has posts); "no dead
+  control" had a button inventory older than the Báo lỗi tab. Fixed in the tests, same assertions.
+  (A first base run gave 26/29: one extra red came from my fixture's `topic: null`; the fixture
+  was corrected and the base re-run. Log kept outside the repo.)
+- All 29 base cases are green after; no case that was green at base turned red. Final run 2026-11-07T21:50:57.229Z: 39 passed, 0 failed, in one run.
+- Intermittent: (n) Báo lỗi was red once at base and once in a v13 run. Root cause found and
+  fixed (an app bug, not the test): the sheet refused to send while the connection was still
+  "connecting" right after sign-in, even online. Repro with the emulator stream slowed by
+  400 ms: 4/4 refused before, 4/4 sent after. Back-to-top overlap (1 of 4 positions) was red
+  once in the base run with new tests and green in every other base and v13 run; not reproduced,
+  not changed.
+- Durations (ms per case) are in each `last-run.json`; the full `--qc` run takes about 5 min
+  on this 4-vCPU VM, (y) alone about 90 s. No case was cut.
+
+Also changed in v13 at the owner's request mid-task: the "Làm mới" button (case (z)) and the
+East Coast backdrop palette (visual; screenshots `layout-360.png` / `layout-1440.png` before and
+after in the QC kit). The full suite ran after the palette change.
+
+### Per case
+
+| ID | Case | Result | Evidence |
+|---|---|---|---|
+| A1 = (f) | 3rd OK applies at once; planRows new value, planMeta +1, proposal applied | PASS | `last-run.json` (f): "2 OK: … identical … 3rd OK: row applied (version 2), table version 2" |
+| A2 = (f) | One No freezes; no further votes, no forced apply (forged client writes) | PASS | (f): "status rejected … server refused votes/edits on the frozen proposal, forged applies refused" |
+| A3 = (o) | Reception ack line + typing bar | PASS | (o) |
+| A4 = (p) | Reply directly under its root, indented | PASS (test fixed, see above) | (p): order root-a, reply-c, root-b |
+| A5 = (q) | Collapse toggle "Thu gọn/Xem N trả lời", root never hidden, acks not counted | **FAIL on v12 → PASS on v13** | v12 `55d4ace`: toggle never appears (`threadKey` never set). v13: (q) and (t) green |
+| A6 = (n) | Báo lỗi files exactly 1 open issue under the reporter | PASS (after the connecting-race fix) | (n); repro above |
+| A7 = (a)(c)(e) | Live sync; offline post exactly once; reconnect/polling, never blank | PASS | (a), (c), (e), (e2) |
+| A8 = QC | No h-scroll 360/390; ≥ 44 px; order Plan → Thảo luận → Chi tiết D; Vietnamese UI; no email; noindex | PASS | QC rows; `layout-360.png`, `layout-1440.png` |
+| B1 = (r) | Root → ack → 2 role replies stay one block; a root posted in between sits after; same after reload | PASS | (r): DOM order root1, r-ack-1, r-reply-coord, r-reply-scout, root2; replies indented 40 px; `r-thread-block.png` |
+| B2 = (s) | Applied proposal shows in Nickie's open session without reload | PASS | (s): new value 253 ms after John's third OK; planMeta 1 → 2; navigation count unchanged; `s-nickie-live-plan.png` |
+| B3 = (t) | Collapsed thread stays collapsed on a new reply and on an ack; count follows | PASS (v13) | (t): "Xem 2" → new reply → "Xem 3", aria-expanded=false → ack → still 3 |
+| B4 = (u) | 3-sentence pinned summary never scrolls in its box, 360/390 | **FAIL at base → PASS** | base: scrollHeight 128 > clientHeight 116; v13: 128 ≤ 128 both widths; `u-summary-360/390.png` |
+| B5 = (v) | Rail continuous + static, no transform, no `--rail`, GSAP blocked too | **FAIL at base → PASS** | see Part 1 below; `v-rail-*.png` |
+| B6 = (w) | Change own vote while pending | PASS (behavior recorded) | Supported: OK → No (rules `prev == 'ok' && mine == 'no'`, UI keeps No enabled); that No freezes like A2. Not supported: No → OK, OK → pending. No behavior changed. |
+| B7 = (x) | Host writes planRows/planMeta directly | PASS | (x): 8 attempts, all `permission-denied`; rows and meta byte-identical |
+| B8 = (y) | Chat scroll, 390 px, 4× CPU, ~120 messages | **PASS** | see Part 1b below |
+| new = (z) | "Làm mới" button | PASS | (z): Button "Làm mới" 124x44 px; read 33 messages from the server (fromServer=true); scrolled the newest agent message into view (true); status "Đã cập nhật lúc 21:48."; offline tap showed the "cần có mạng" note and the button stayed usable.; `z-refresh-390.png` |
+
+B1 note (required): in production the reception desk and the agent loop write these documents
+and only watch the live project. In the emulator their writes are simulated with admin access
+in the same document shape (`authorKind: "agent"`, `role`, `category`, `replyTo`, `kind: "ack"`),
+because rule 1 forbids testing on the live app. (r) checks the display and data layer, not the
+real agents' latency.
+
+### Part 1 — route rail, before / after (B5)
+
+| | Base `1e331a3` | v13 |
+|---|---|---|
+| 360 px, page not scrolled | `transform: matrix(1, 0, 0, 0.586667, 0, 0)`; `--rail: 0.586667` inline on the table | `transform: none`; no `--rail` anywhere in the chain |
+| Body pixel rows on the line (dots hidden, line column vs. same cell +5 px) | 360: 277/379 · 1440: 277/380 · 390 GSAP-blocked dark: 277/379 | 360: **379/379** · 1440: **380/380** · 390 GSAP-blocked dark: **379/379** |
+| Code | `railDraw`, `railTrigger`, `--rail`, first/last-row clamps | none (checked by the test) |
+
+Screenshots: `v-rail-360.png`, `v-rail-1440.png`, `v-rail-390-gsap-blocked-dark.png` (base copies
+from the base run, v13 copies from the final run).
+
+### Part 1b — B8 numbers (medians of 3 runs, same VM, same scenario)
+
+| | Base `1e331a3` | v13 |
+|---|---|---|
+| Long-task total | **2039 ms** | **63 ms** |
+| Longest task | 710 ms | 80 ms (limit 200) |
+| Long tasks | 12 | 1 |
+| Frames > 50 ms | 8 | 3 |
+| Script / layout / style | 601 / 1557 / 266 ms | 408 / 320 / 58 ms |
+
+Criteria: no long task > 200 ms (met), total ≤ 50% of base (met: 97% less). Base file:
+`tests/b8-baseline.json`; v13 file: `b8-metrics-v13.json` in the QC folder. Screenshots
+`y-chat-390-base-1e331a3.png` / `y-chat-390-v13.png` show the same glass UI. Honest limits: the
+emulator VM with software rendering is a proxy; blur cost lives on the GPU/compositor and does
+not show up as main-thread long tasks. The owner's phone is the final judge after deploy.

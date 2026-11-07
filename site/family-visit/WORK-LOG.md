@@ -339,3 +339,111 @@ Final run: 25 of 25 (12 end-to-end, 13 QC).
   (the liquid-glass refraction), lighter border/inner highlight, plus a dark-scheme
   variant (dark glass 40%→14%). Only the tab changed; the sheet/panel keep full glass
   for readability. Touch target and behaviour unchanged.
+
+## v13 addendum (2026-11-07 — static route rail, smooth chat scroll, "Làm mới", test pack A/B)
+
+Branch `family-visit-v12`, rebuilt on the rewritten `main` (`1e331a3`): the two v12 commits
+were cherry-picked (authors kept), then v13 on top. Not merged; Muse merges, deploys and
+checks live.
+
+**Fix 1 — the Date-column rail is one continuous, static line (owner request).**
+- Cause (from the code and the B5 base measurement): one 2 px segment per row inside each
+  `th.c-date`, stopping at the cell's padding box, so every 1 px row border was a seam; the
+  first segment started at the first dot and the last stopped at the last dot; the color was
+  a per-row gradient at 55% opacity (so it restarted on every row); and `motion.railDraw`
+  scrubbed `--rail` into `transform: scaleY()` with GSAP ScrollTrigger, so the line was only
+  partly drawn until scrolled (base, 360 px, page not scrolled: `scaleY(0.587)`).
+- Now: `.rail` covers its cell including the row border (`bottom: -1px`), the line reaches
+  1 px into the row above (`top: -1px`), and it is an opaque solid color
+  (`color-mix(in srgb, var(--pine) 60%, var(--bg))`) so the 1 px overlap is invisible. No
+  transform, no animation, no custom property. `railDraw`, `railTrigger`, `--rail` and the
+  first/last-row clamps are deleted (motion.js, app.js, app.css). Dots unchanged.
+- Untouched: the sticky Date column, the table's own scroll region on phones, the
+  GSAP-blocked page, reduced motion.
+
+**Fix 2 — chat scrolling (owner: "chưa mượt, bị chậm/khựng").** Measured first (B8 below),
+then changed only what the numbers pointed at.
+- What the profile showed: the stalls were not the scroll handlers and not the blur. At
+  base the B8 run had long tasks of 600–1000 ms right after "load earlier messages": every
+  history node got a GSAP entrance tween, and GSAP reads computed style when a tween starts,
+  so 49 tweens = 49 forced layouts, twice (tween creation, then GSAP's lazy init on the next
+  frame). Chrome trace: one 726 ms task, 614 ms of it in small Layouts; one 671 ms
+  animation-frame task, 585 ms in Layouts, all under `gsap` `Al`.
+- Changes in `renderMessages()` (display order, collapse, acks and votes unchanged; cases
+  (p), (q), (r)/B1, (t)/B3 are the safety net and pass):
+  1. Thread root cached per message id (`replyTo` never changes); a chain cut by a parent
+     that is not loaded yet is not cached; the cache resets with the topic filter.
+  2. Sort tie-break uses one shared `Intl.Collator` (same order as `localeCompare`).
+  3. Keyed DOM update instead of `replaceChildren(all)`: remove what left, insert/move only
+     nodes that are out of place (a new message at the end is one insert).
+  4. The collapse pass writes `hidden`, `aria-expanded` and the label only when they change;
+     the topic chips are rebuilt only when a count or the active chip changes.
+  5. No layout read before writes: "near the bottom" is kept by the scroll listener instead
+     of being read at the start of each render; `loadOlder()` reads `scrollHeight`/
+     `scrollTop` before any write and restores the position with one read + one write.
+  6. Entrance motion only for live arrivals, at most 4 per render; a history page renders
+     without entrance tweens (those nodes land above the screen). This one removed the stalls.
+- Numbers (B8, medians of 3, 4x CPU, 390 px): base `1e331a3` long-task total 2039 ms, worst
+  710 ms; with changes 1–5 only: 1281 ms, worst 627 ms (−37%, layout 1557 → 1237 ms); with
+  change 6 as well: 63 ms, worst 80 ms. Details in QC-REPORT v13.
+- Glass kept. Two cheap render changes: vote buttons inside chat proposal cards drop their
+  own `backdrop-filter` (they sit on the card's gradient, where the blur is not visible, and
+  each card had six); the backdrop orbs drift only on fine pointers (desktop) and pause
+  while the chat is scrolled (`motion.holdBackdrop`). Not used: `content-visibility` on
+  messages — iOS Safari has no scroll anchoring, so estimated heights would make the list
+  jump while scrolling up through history.
+
+**Owner request (mid-task) — "Làm mới" in Thảo luận.** A bar at the top of the chat frame:
+"↻ Làm mới" (≥ 44 px) reads the newest chat page, the pinned summary, the typing signal and
+the proposals straight from the server (`connection.refresh()`, the same path as a polling
+round), jumps to the newest message, and says "Đã cập nhật lúc HH:MM[, có N tin mới]." If
+the connection was not live it also nudges a reconnect. Offline: "Chưa làm mới được: cần có
+mạng…", and the button stays usable. Case (z).
+
+**Owner request (mid-task) — background palette.** "Đổi hình nền màu gradient vibe bờ đông,
+sáng; nền hiện tại hơi cảm giác mexican." The warm fields (orange `--orb-3`, pink `--orb-4`
+next to green) are replaced by a bright East Coast morning: Atlantic sky blue, harbor blue,
+seafoam and sea fog, on a cooler page background (`--bg: #edf2f8`); the dark scheme gets the
+same hues, dimmed. Orb classes renamed to match (`orb--atlantic`, `--harbor`, `--seafoam`,
+`--fog`); the reading-progress bar ends in sky blue instead of lantern orange. Accent and
+status colors (pine, lantern, cranberry) are unchanged. Owner to confirm on a phone.
+
+**Other fixes found by the new tests.**
+- v12 thread collapse never showed its toggle: `renderMessages()` grouped replies under
+  `it.threadKey`, which was never assigned, so every count was 0. (q) fails on the v12 code
+  as committed (`55d4ace`, run log in the QC report) and passes in v13 (`it.threadKey =
+  root.key`). The v12 QC entry "PASS by code" did not hold.
+- Pinned summary box: `max-height: 9em; overflow-y: auto` made a 3-sentence summary scroll
+  inside its box at 360 px (B4 base: scrollHeight 128 > clientHeight 116). The cap is gone;
+  the summary always shows in full.
+
+- Báo lỗi refused reports right after sign-in: the sheet required the live connection to be
+  up, and for a few seconds after sign-in (longer on a slow network) it is still
+  "connecting" while the device is online. The user saw "Cần có mạng…" and nothing was sent.
+  This was the intermittent (n) failure (red once at base, once in a v13 run). Reproduced 4/4
+  with the emulator stream slowed by 400 ms. Now the sheet waits up to 8 s for the connection
+  when the device is online, then sends (4/4 sent in the same repro); offline it still refuses
+  at once. (n) now also reports the sheet's own error line when it fails.
+
+**Test changes (no test was weakened).**
+- (p): counted every `li[data-key]`, so it failed whenever the board seeds agent posts (the
+  fixtures do); it now ignores `seed-discussion-*`. Same assertions.
+- "No dead control": the known-handler list predated the Báo lỗi tab (v9) and the thread
+  toggle (v12); it now accepts `report-tab`, `refresh-chat`, `data-rcat`,
+  `data-report-close` and `data-thread`.
+- New: (r) B1, (s) B2, (t) B3, (u) B4, (v) B5, (w) B6, (x) B7, (y) B8, (z) refresh button.
+  `harness.js` gains `del`, `admin.mjs` gains `updateDoc` (dotted partial update).
+- B8 compares with `tests/b8-baseline.json` (measured at `1e331a3` on the same VM). The
+  numbers are machine-dependent: re-measure the base on another machine before comparing.
+
+Assets `?v=13` (both tags); `motion.js?v=13` and `live.js?v=13` in the imports too, so a
+cached v12 module is never mixed with the v13 app; report `appVersion: "v13"`.
+
+**Lessons (this round).**
+- v12's collapse shipped as "PASS by code" with its test never run, and the toggle never
+  rendered -> a change is PASS only with a `last-run.json` that shows its test green.
+- Two old tests were red at base for test reasons (a hard-coded message count; a button
+  inventory not updated when Báo lỗi was added) -> when adding seed data or a control, run the
+  whole suite and update inventory tests in the same commit.
+- GSAP entrance tweens on a page of history forced one layout per node -> never tween nodes
+  that render off screen; cap entrance motion per render.
