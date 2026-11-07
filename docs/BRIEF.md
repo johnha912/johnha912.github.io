@@ -91,7 +91,7 @@ Every page also needs: meta title, meta description, and Open Graph text (drafte
 ## 5. Tech constraints
 
 - **Fully static.** Deployable to **GitHub Pages via GitHub Actions**. Custom domain: `johnha.info` (via a `CNAME` file). **No server backend** of any kind.
-- **Default stack: semantic HTML / CSS / vanilla JS.** Astro is allowed *only if* it still builds to plain static output in CI. No heavy CSS/JS frameworks.
+- **Default stack: semantic HTML / CSS / vanilla JS.** Astro is allowed *only if* it still builds to plain static output in CI. No heavy CSS/JS frameworks. Exception: **GSAP** (core + ScrollTrigger + ScrollSmoother, self-hosted) drives smooth scrolling and scroll reveals (owner request 2026-11-07).
 - **Performance budget (hard limits):**
   - Lighthouse **Performance ≥ 90** and **Accessibility ≥ 95** on mobile.
   - Images optimized (WebP/AVIF), lazy-loaded below the fold.

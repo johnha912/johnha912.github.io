@@ -12,7 +12,8 @@ Claude Opus 5.5, effort **medium-high** (Sonnet is an acceptable budget fallback
 ## Codebase map
 - `site/` is the published root. GitHub Actions uploads only this folder.
 - `site/assets/css/site.css`: tokens and components.
-- `site/assets/js/site.js`: Dark / Light theme switch (default Dark), mobile menu, dropdown, search palette, scroll reveal, copy-email.
+- `site/assets/js/site.js`: Dark / Light theme switch (default Dark), mobile menu, dropdown, search palette, fallback scroll reveal, copy-email.
+- `site/assets/js/motion.js` + `site/assets/js/vendor/gsap-3.15.1/`: GSAP smooth scrolling (desktop pointers only), scroll reveals, eased spotlight; every effect sits inside `gsap.matchMedia` reduced-motion checks (DESIGN.md §6). ScrollSmoother moves `main` + footer into `#smooth-content`, so no `position: fixed`/`sticky` inside `main`. The script order on every page is gsap → ScrollTrigger → ScrollSmoother → motion.js → site.js.
 - The `<head>`, header, footer, and search dialog are repeated in every page. When you change one, change all of them the same way (grep the block across `site/**/*.html`).
 - Images live in `site/assets/img/` as WebP with `srcset`/`sizes`, explicit width/height, and `loading="lazy"` below the fold. Full-resolution originals stay outside the repo.
 - Fonts are self-hosted WOFF2 in `site/assets/fonts/`. Never link Google Fonts.
