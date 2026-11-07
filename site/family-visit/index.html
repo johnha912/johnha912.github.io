@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <!-- Google Sans (owner's choice, 2026-11-07): Google Fonts ships it with a full Vietnamese subset. -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap">
-<link rel="stylesheet" href="app.css?v=8">
+<link rel="stylesheet" href="app.css?v=9">
 <!-- GSAP 3.13.0 (core + ScrollTrigger, Flip, SplitText, ScrollToPlugin, CustomEase), pinned.
      Enhancement only: every feature works the same if none of these load. -->
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
@@ -22,7 +22,7 @@
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollToPlugin.min.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/CustomEase.min.js" defer></script>
-<script type="module" src="app.js?v=8"></script>
+<script type="module" src="app.js?v=9"></script>
 </head>
 <body data-conn="connecting">
 <noscript><p class="noscript">Bảng kế hoạch gia đình cần bật JavaScript.</p></noscript>
@@ -146,7 +146,36 @@
   </section>
 </main>
 
-<!-- 5. Back to top -->
+<!-- 5. Report issue: vertical liquid-glass tab on the right edge (owner's pick "kiểu C", 2026-11-07).
+     Translucent on purpose, so page text stays readable underneath instead of being covered. -->
+<button id="report-tab" type="button" class="report-tab glass" aria-haspopup="dialog" aria-controls="report-sheet" hidden>
+  <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M5 3v18H3V3h2zm2 1h11l-2.5 4L18 12H7V4z" fill="currentColor"/></svg>
+  <span class="report-tab-label">Báo lỗi</span>
+</button>
+
+<div id="report-sheet" class="report-sheet" role="dialog" aria-modal="true" aria-labelledby="report-title" hidden>
+  <div class="report-backdrop" data-report-close></div>
+  <form id="report-form" class="report-panel glass" autocomplete="off">
+    <h2 id="report-title">Báo lỗi</h2>
+    <p class="report-lead">Thấy trang có chỗ nào sai, khó đọc hoặc không bấm được? Viết vài dòng dưới đây — báo sẽ tới thẳng nhóm trợ lý để kiểm tra và sửa.</p>
+    <div class="report-cats" role="group" aria-label="Loại lỗi">
+      <button type="button" class="cat-chip" data-rcat="display" aria-pressed="false">Hiển thị sai</button>
+      <button type="button" class="cat-chip" data-rcat="stuck" aria-pressed="false">Không bấm được</button>
+      <button type="button" class="cat-chip" data-rcat="content" aria-pressed="false">Nội dung sai</button>
+      <button type="button" class="cat-chip" data-rcat="other" aria-pressed="true">Khác</button>
+    </div>
+    <label for="report-text" class="sr-only">Mô tả lỗi</label>
+    <textarea id="report-text" rows="4" maxlength="2000" placeholder="Chuyện gì đang xảy ra? Bạn đang xem phần nào của trang?"></textarea>
+    <p id="report-error" class="composer-error" role="alert"></p>
+    <p id="report-done" class="report-done" role="status" hidden>Đã gửi. Nhóm trợ lý sẽ kiểm tra và trả lời ngay trên bảng này.</p>
+    <div class="report-actions">
+      <button type="button" class="btn" data-report-close>Huỷ</button>
+      <button type="submit" class="btn btn--primary" id="report-send">Gửi báo lỗi</button>
+    </div>
+  </form>
+</div>
+
+<!-- 6. Back to top -->
 <button id="to-top" type="button" class="to-top glass" aria-label="Lên đầu trang" title="Lên đầu trang" hidden>
   <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
 </button>

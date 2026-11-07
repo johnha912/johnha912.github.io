@@ -542,6 +542,49 @@ body[data-conn="offline"] .conn-dot { background: var(--cranberry); box-shadow: 
 .decisions-empty { color: var(--muted); }
 
 /* 5. Back to top: a round glass button, arrow only (label kept for screen readers). */
+/* ---------- report issue: vertical liquid-glass tab + bottom sheet ---------- */
+.report-tab {
+  position: fixed; z-index: 30;
+  right: 0; top: 50%; transform: translateY(-50%);
+  display: inline-flex; align-items: center; gap: var(--s2);
+  writing-mode: vertical-rl;
+  padding: var(--s4) var(--s3);
+  min-width: 44px; min-height: 44px;
+  border-right: none;
+  border-radius: var(--r-sm) 0 0 var(--r-sm);
+  color: var(--ink);
+  font: inherit; font-weight: 600; letter-spacing: .03em;
+  cursor: pointer;
+}
+.report-tab svg { color: var(--pine); transform: rotate(90deg); }
+.report-tab[hidden] { display: none; }
+.report-sheet { position: fixed; inset: 0; z-index: 80; }
+.report-sheet[hidden] { display: none; }
+.report-backdrop { position: absolute; inset: 0; background: rgba(18, 28, 23, 0.38); }
+.report-panel {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  max-height: 88dvh; overflow-y: auto;
+  padding: var(--s5) var(--s4) calc(var(--s5) + env(safe-area-inset-bottom, 0px));
+  border-radius: var(--r-glass) var(--r-glass) 0 0;
+  border-bottom: none;
+  display: flex; flex-direction: column; gap: var(--s3);
+}
+.report-panel h2 { font-size: var(--fs-lg); }
+.report-lead { color: var(--muted); }
+.report-cats { display: flex; flex-wrap: wrap; gap: var(--s2); }
+.report-panel textarea {
+  width: 100%; font: inherit; color: var(--ink);
+  background: var(--glass-hi); border: 1px solid var(--glass-border);
+  border-radius: var(--r-sm); padding: var(--s3);
+  resize: vertical; min-height: 96px;
+}
+.report-actions { display: flex; justify-content: flex-end; gap: var(--s2); }
+.report-actions .btn { min-height: 44px; }
+.report-done { color: var(--pine); font-weight: 600; }
+@media (min-width: 48rem) {
+  .report-panel { left: 50%; right: auto; transform: translateX(-50%); width: min(560px, calc(100vw - 2 * var(--s4))); bottom: var(--s4); border-radius: var(--r-glass); border-bottom: 1px solid var(--glass-border); }
+}
+
 .to-top {
   position: fixed; z-index: 30;
   right: var(--gutter-r);

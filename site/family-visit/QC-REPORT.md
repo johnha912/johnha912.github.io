@@ -194,3 +194,12 @@ A separate reviewer read the rules and client code. It found no rules hole (forg
 |---|---|---|
 | Served app.js is the v4-presence build | PASS | Fresh fetch of the served `app.js` shows `renderPresence()` with name span + sr-only status; zero `pres-you` / `pres--me` in the file. |
 | Versioned asset tags | PASS by diff | `index.html` references `app.css?v=8` / `app.js?v=8`; future releases must bump the number (standing rule, WORK-LOG v8). |
+
+## v9 (branch `family-visit-v9`, 2026-11-07): Báo lỗi side tab (owner's kiểu C, liquid glass)
+
+| Check | Result | Evidence |
+|---|---|---|
+| Rules deployed with issues block | PASS | Firebase Rules API: ruleset c69774f8 content verified to contain `match /issues/{iid}` + validIssue; release cloud.firestore points at it. |
+| Watcher detects issues | PASS (dry run) | Hook dry run on the new script returns the combined silent decision with an empty queue; live wake proven in the post-merge E2E below. |
+| Emulator suite | NOT RUN on this VM (no Java/firebase-tools/Playwright) | New e2e test (n) added for the report flow; suite run still owed on the dev PC, same standing note as v5–v8. |
+| Live E2E (tab → sheet → submit → team wake → resolve → regression) | See post-merge verification in WORK-LOG/QC addenda of the merge commit | Performed on the live page after merge, per the feature-change protocol. |

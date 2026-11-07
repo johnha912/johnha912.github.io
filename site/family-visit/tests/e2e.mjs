@@ -443,5 +443,26 @@ export const tests = [
       await close(john);
       return `Offline sign-out reached the sign-in screen in ${Date.now() - t0} ms and stayed there while offline; it reloaded itself when back online and came back signed out, 0 fv-* storage keys, 0 rendered rows or messages.`;
     }
+  },
+  {
+    name: "(n) report issue: the side tab files one open issue under the reporter's name",
+    async run(ctx) {
+      await fresh(ctx);
+      const nickie = await newSession(ctx.browser, { member: "nickie" });
+      assert(await nickie.page.isVisible("#report-tab"), "report tab not visible on the board");
+      await nickie.page.click("#report-tab");
+      await nickie.page.waitForSelector("#report-sheet:not([hidden])", { timeout: 10000 });
+      await nickie.page.click('[data-rcat="stuck"]');
+      const text = `Nút này không bấm được ${Date.now()}`;
+      await nickie.page.fill("#report-text", text);
+      await nickie.page.click("#report-send");
+      await nickie.page.waitForSelector("#report-done:not([hidden])", { timeout: 10000 });
+      const issues = await admin.listDocs("issues");
+      assert(issues.length === 1, `expected exactly 1 issue, got ${issues.length}`);
+      const it = issues[0];
+      assert(it.reporter === "nickie" && it.category === "stuck" && it.status === "open" && it.text === text, `bad issue doc: ${JSON.stringify(it)}`);
+      await close(nickie);
+      return "Nickie's report landed once in issues/ as an open 'stuck' report under her name, and the sheet confirmed it on screen.";
+    }
   }
 ];
