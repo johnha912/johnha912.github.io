@@ -252,3 +252,27 @@ Final run: 25 of 25 (12 end-to-end, 13 QC).
 
 - Root cause found during v6/v7 verification: browsers (the owner's phone, the test browser) kept executing a **stale cached `app.js`** after deploys — the owner's screenshot showed v5 while v6 was live, and the v7 browser check first read the old build. The served files were correct; the clients were not fetching them.
 - Adjustment: `index.html` now loads `app.css?v=8` and `app.js?v=8`. **Standing rule for every future release: bump the `?v=` number in both tags**, so each deploy forces a fresh download on every device. (Reminder lives here and in QC-REPORT v8.)
+
+## v9 addendum (built by Muse, 2026-11-07 — Báo lỗi / Report Issue)
+
+- Owner's request: a Report Issue control any of the 3 hosts can use; the report must reach the
+  agent team's side chat so the team checks and fixes it. Owner surveyed placements with Muse
+  (floating bottom-right / next to sign-out / side tab) via 3 rendered previews and picked
+  **kiểu C: a vertical tab on the right edge**, in **liquid glass** so page text stays readable
+  underneath instead of being covered.
+- Build: `#report-tab` (fixed, right edge, vertically centred, .glass, vertical text + flag icon,
+  ≥44px) visible only on the board screen; opens `#report-sheet`, a glass bottom sheet with 4
+  category chips (display/stuck/content/other), one textarea, and auto context (reporter,
+  timestamps, user agent, appVersion "v9"). Submit writes ONE doc to the new `issues` collection
+  with `status: "open"`.
+- Rules: `issues` match added (member create with exact-shape validation, member read, no client
+  update/delete — status changes are Admin-SDK only) and DEPLOYED via the Firebase Rules API
+  (ruleset c69774f8…, release cloud.firestore now points at it; source of truth stays
+  `firestore.rules` in this repo).
+- Plumbing: `agent_loop.py issues` lists open reports, `issue-done <id> <resolved|wontfix> <note>`
+  closes them; the watcher hook now polls issues alongside unanswered messages (30-min local
+  suppression, key `issue:<id>`) and its prompt + AGENT-LOOP.md gained an "Issue reports" section:
+  acknowledge on the board, triage against live data, fix content/data issues via normal tools,
+  code defects stay open for a build from the owner's chat, ALWAYS surface reports in the chat.
+- Assets bumped to ?v=9 per the standing cache rule. One emulator test added (14th e2e): the tab
+  files exactly one open issue under the reporter's name.

@@ -219,6 +219,29 @@ service cloud.firestore {
       allow create, delete: if false;
     }
 
+    // ---------- issue reports (the Báo lỗi side tab) ----------
+    // A signed-in member files one report; only the agent team (Admin SDK) may change its status.
+    function validIssue(iid) {
+      let d = request.resource.data;
+      let fields = ['id', 'reporter', 'category', 'text', 'status', 'createdAt', 'clientCreatedAt', 'userAgent', 'appVersion'];
+      return d.keys().hasOnly(fields) && d.keys().hasAll(fields)
+        && validId(iid) && d.id == iid
+        && d.reporter == me()
+        && d.category in ['display', 'stuck', 'content', 'other']
+        && validText(d.text, 2000)
+        && d.status == 'open'
+        && d.createdAt == request.time
+        && d.clientCreatedAt is int
+        && d.userAgent is string && d.userAgent.size() <= 300
+        && d.appVersion is string && d.appVersion.size() <= 16;
+    }
+
+    match /issues/{iid} {
+      allow read: if isMember();
+      allow create: if isMember() && validIssue(iid);
+      allow update, delete: if false;
+    }
+
     // ---------- presence (heartbeat; readers treat a stale lastSeen as offline) ----------
     match /presence/{member} {
       allow read: if isMember();

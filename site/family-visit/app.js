@@ -109,6 +109,10 @@ const S = {
 /* ---------------- screens ---------------- */
 function show(id) {
   for (const s of document.querySelectorAll("[data-screen]")) s.hidden = s.id !== id;
+  // The report tab belongs to the board only: never on the sign-in / denied / loading screens.
+  const tab = $("#report-tab");
+  if (tab) tab.hidden = id !== "screen-board";
+  if (id !== "screen-board") closeReportSheet();
   motion.startBackdrop();
   if (id !== "screen-board") {
     $("#dock").hidden = true;
@@ -610,6 +614,35 @@ function deleteMessage(id) {
   renderMessages();
 }
 
+/* ---------------- report issue (Báo lỗi tab) ---------------- */
+// A report is a single Firestore doc in `issues`; the agent team's watcher picks it up
+// from there and replies on this board. Shape is fixed by the security rules.
+let reportCategory = "other";
+function openReportSheet() {
+  const sheet = $("#report-sheet");
+  if (!sheet.hidden) return;
+  sheet.hidden = false;
+  $("#report-error").textContent = "";
+  $("#report-done").hidden = true;
+  setTimeout(() => $("#report-text").focus(), 60);
+}
+function closeReportSheet() {
+  const sheet = $("#report-sheet");
+  if (sheet) sheet.hidden = true;
+}
+function reportError(text) { $("#report-error").textContent = text; }
+
+async function submitReport(text) {
+  const { fs } = S.fb;
+  const id = newId();
+  const data = {
+    id, reporter: S.member, category: reportCategory, text, status: "open",
+    createdAt: fs.serverTimestamp(), clientCreatedAt: Date.now(),
+    userAgent: String(navigator.userAgent || "").slice(0, 300), appVersion: "v9"
+  };
+  await fs.setDoc(fs.doc(S.db, "issues", id), data);
+}
+
 function flash(text) {
   const n = $("#composer-error");
   n.textContent = text;
@@ -1066,7 +1099,7 @@ function wireStaticUi() {
   $("#retry-btn").addEventListener("click", () => location.reload());
 
   // Touch feedback: controls give under the finger and spring back (GSAP; no-op without it).
-  const pressable = ".btn, .vote, .dock-link, .d-chip, .d-toggle, .to-top, .link-btn";
+  const pressable = ".btn, .vote, .dock-link, .d-chip, .d-toggle, .to-top, .link-btn, .report-tab";
   document.addEventListener("pointerdown", (e) => { const b = e.target.closest(pressable); if (b && !b.disabled) motion.press(b); }, { passive: true });
   for (const type of ["pointerup", "pointercancel", "pointerleave"]) {
     document.addEventListener(type, (e) => { const b = e.target.closest?.(pressable); if (b) motion.release(b); }, { passive: true, capture: type === "pointerleave" });
@@ -1147,6 +1180,37 @@ function wireStaticUi() {
     ta.value = ""; autoGrow(ta); store.del(LS.draft);
   });
   $("#cancel-reply").addEventListener("click", () => { S.replyTo = null; renderReply(); });
+
+  // Report issue: the side tab opens the sheet; one category at a time; submit writes one issue doc.
+  $("#report-tab").addEventListener("click", openReportSheet);
+  for (const el of document.querySelectorAll("[data-report-close]")) el.addEventListener("click", closeReportSheet);
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeReportSheet(); });
+  for (const chip of document.querySelectorAll("[data-rcat]")) {
+    chip.addEventListener("click", () => {
+      reportCategory = chip.dataset.rcat;
+      for (const c of document.querySelectorAll("[data-rcat]")) c.setAttribute("aria-pressed", String(c === chip));
+    });
+  }
+  $("#report-form").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const text = $("#report-text").value.trim();
+    if (!text) { reportError("Hãy viết vài dòng mô tả lỗi trước khi gửi."); return; }
+    if (text.length > 2000) { reportError("Mô tả dài tối đa 2.000 ký tự."); return; }
+    if (S.snapshotMode || !S.fb || !S.member || !S.conn?.isLive()) { reportError("Cần có mạng để gửi báo lỗi. Hãy thử lại khi trang hiện “Trực tuyến”."); return; }
+    const send = $("#report-send");
+    send.disabled = true; send.textContent = "Đang gửi…";
+    reportError("");
+    try {
+      await submitReport(text);
+      $("#report-text").value = "";
+      $("#report-done").hidden = false;
+      setTimeout(closeReportSheet, 1800);
+    } catch {
+      reportError("Chưa gửi được. Hãy kiểm tra mạng rồi thử lại.");
+    } finally {
+      send.disabled = false; send.textContent = "Gửi báo lỗi";
+    }
+  });
 
   // Back to top: appears after scrolling, never covers the composer or the vote buttons.
   const topBtn = $("#to-top");
