@@ -313,3 +313,9 @@ Final run: 25 of 25 (12 end-to-end, 13 QC).
   style (no indent). Proposals stay top-level cards at their own time. The grouping is
   part of the node signature, so a message re-renders when its grouping changes.
 - Assets ?v=11; report appVersion "v11".
+- Same build, folded in before merge (owner screenshot, 2026-11-07 12:18 PT): the plan
+  table's status cell rendered as a 999px-radius pill, so long statuses ("Đã chốt tuyến
+  (D1); thứ tự và ngày còn mở") wrapped into a lumpy balloon. `.row-status` is now a
+  block-level rounded tag filling its cell (`border-radius: var(--r-sm)`, comfortable
+  padding/line-height, `text-wrap: balance` so wrapped lines come out even) and the
+  status column gets an 11rem minimum width. No text is clipped or truncated anywhere.

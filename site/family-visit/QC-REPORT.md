@@ -232,3 +232,4 @@ A separate reviewer read the rules and client code. It found no rules hole (forg
 | Grouping logic | PASS by code review | Root-following sort in `renderMessages()`; orphans fall back to root position; category-filtered parents fall back the same way. |
 | Emulator suite | NOT RUN on this VM (standing limitation) | New e2e test (p) seeds root A, unrelated root B, then a later reply to A, and asserts DOM order A, reply, B plus the indent class on the reply only. |
 | Live E2E | See the post-merge verification note appended after the live run | Thread position checked on the live page with verbatim quotes + Firestore cross-check, per the feature-change protocol. |
+| Status-cell wrap fix (owner screenshot) | PASS by code | Pill → block tag with balanced wrap + 11rem column minimum; verified visually in the post-merge live E2E (status texts quoted verbatim, fully visible). |
