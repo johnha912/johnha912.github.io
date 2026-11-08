@@ -1,6 +1,6 @@
 # STATUS.md
 
-_Last updated: 2026-11-07_
+_Last updated: 2026-11-08_
 
 ## Where the build stands
 
@@ -64,6 +64,7 @@ _Last updated: 2026-11-07_
 - **2026-11-02:** New guest folder `/chem-030a-thi-thu/`: a `noindex` CHEM 030A Exam 2 study app (4-hour Learn plan + 15 quizzes) built only from the owner's course kit. It is excluded from the link check and the sitemap.
 - **2026-11-06:** Guest folder `/chem-030a-thi-thu/` removed (the exam is over); its link-check exclusion and agent-file mentions removed too.
 - **2026-11-07:** GSAP added for smoother motion (self-hosted 3.15.1: core, ScrollTrigger, ScrollSmoother; new `site/assets/js/motion.js`). Inertial smooth scrolling on mouse/trackpad devices only (phones keep native scrolling), batched GSAP scroll reveals, and an eased spotlight on the home button stack. Reduced motion turns all of it off; if GSAP fails to load, the old reveal still runs. Mobile Lighthouse with compression: Home 97-98, Tech 97, About 94-95 (About was 89 without GSAP in the same run).
+- **2026-11-08:** Guest folder `/lora-2dcd3d/` (the lora game) removed: the presentation is over (owner request). Its link-check exclusion and agent-file mentions removed too.
 
 ## Orchestrator decisions
 
@@ -83,7 +84,7 @@ _Last updated: 2026-11-07_
 5. ~~Other public repos~~ Resolved 2026-10-07: JOIN Order Optimization and jivec added under "Earlier work" (theta-coffee-lab and ptms not added).
 6. **Homepage availability pill:** BRIEF allows only the subtitle as a homepage addition. The "Open to Summer 2027 internships" pill appears on About, Tech, and Contact only. Approve it on Home too?
 7. **Your own photos:** coffee articles now use licensed Commons photos; your own shots could replace them and could power an internal Photography gallery.
-8. ~~Guest folders~~ Resolved 2026-10-27: the owner approved `noindex` on `/cs6120-team/` and `/ai-income-lab/` (`/lora-2dcd3d/` already had it); the health check verifies it stays.
+8. ~~Guest folders~~ Resolved 2026-10-27: the owner approved `noindex` on `/cs6120-team/` and `/ai-income-lab/` (`/lora-2dcd3d/` already had it; that folder was removed 2026-11-08); the health check verifies it stays.
 
 ## Toolchain
 
