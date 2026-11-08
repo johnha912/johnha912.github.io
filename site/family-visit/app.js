@@ -702,7 +702,7 @@ async function submitReport(text) {
   const data = {
     id, reporter: S.member, category: reportCategory, text, status: "open",
     createdAt: fs.serverTimestamp(), clientCreatedAt: Date.now(),
-    userAgent: String(navigator.userAgent || "").slice(0, 300), appVersion: "v14"
+    userAgent: String(navigator.userAgent || "").slice(0, 300), appVersion: "v15"
   };
   await fs.setDoc(fs.doc(S.db, "issues", id), data);
 }

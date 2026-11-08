@@ -1,5 +1,5 @@
 {
- "at": "2026-11-07T21:50:57.229Z",
+ "at": "2026-11-08T02:30:38.697Z",
  "passed": 39,
  "failed": 0,
  "results": [
@@ -7,274 +7,274 @@
    "suite": "emulator suite",
    "name": "(a) a whitelisted user posts and a second session sees it live",
    "pass": true,
-   "ms": 3920,
-   "detail": "Nickie saw John's message 272 ms after send, without a reload; 1 document stored."
+   "ms": 4245,
+   "detail": "Nickie saw John's message 265 ms after send, without a reload; 1 document stored."
   },
   {
    "suite": "emulator suite",
    "name": "(b) a non-whitelisted user is denied read and write",
    "pass": true,
-   "ms": 1776,
+   "ms": 1836,
    "detail": "Denied: readRows, readMessages, readProposal, readPresence, writeMessage, writePresence, unverifiedRead, passwordProviderRead. Stranger sees only the \"not on the family list\" screen."
   },
   {
    "suite": "emulator suite",
    "name": "(c) a message posted offline appears exactly once after reconnect",
    "pass": true,
-   "ms": 8956,
-   "detail": "Showed \"sending…\" offline, 0 server docs while offline, then exactly 1 doc (id b4bWMjsDAb9ngzjYosjB) and 1 rendered copy in both sessions, also after reload."
+   "ms": 8854,
+   "detail": "Showed \"sending…\" offline, 0 server docs while offline, then exactly 1 doc (id SFIwK23FCHMmD1yyKxNL) and 1 rendered copy in both sessions, also after reload."
   },
   {
    "suite": "emulator suite",
    "name": "(d) malformed writes are rejected by the rules",
    "pass": true,
-   "ms": 1499,
+   "ms": 1465,
    "detail": "19 malformed writes denied (oversizedText, emptyText, missingCreatedAt, clientTimestamp, impersonation, postsAsAgent, extraField, idMismatch, unknownThread, stringClientTime, editOthers, hardDelete, presenceForOther, presenceBadState, directRowWrite, tableBump, writeThreadSummary, writeHeartbeat, createProposal); a valid message and an own edit were accepted."
   },
   {
    "suite": "emulator suite",
    "name": "(e) killing the listener connection shows reconnecting, then polling, never a blank page",
    "pass": true,
-   "ms": 11779,
+   "ms": 14318,
    "detail": "Banner went \"Đang kết nối lại…\" (reconnecting) then \"…tự kiểm tra thay đổi mỗi 30 giây\" (polling every 30 s); 4 timeline rows stayed visible; recovered to Live after unblocking."
   },
   {
    "suite": "emulator suite",
    "name": "(e2) backend unreachable entirely: offline snapshot instead of a blank page",
    "pass": true,
-   "ms": 2868,
+   "ms": 2989,
    "detail": "Signed-in device: \"Bản lưu ngoại tuyến: hiện không kết nối được máy chủ, nên đâ…\" with 4 rows. New device: sign-in screen with \"Hiện không kết nối được với Google…\" and no plan content."
   },
   {
    "suite": "emulator suite",
    "name": "(f) confirmation gate: no change at 2 OK, applied at the 3rd OK, a single No freezes",
    "pass": true,
-   "ms": 12026,
+   "ms": 11745,
    "detail": "2 OK: proposal pending, planRows JSON and table HTML identical in all sessions. 3rd OK: row applied (version 2), table version 2. One No: status rejected, rows JSON + table HTML byte-identical, vote buttons gone, server refused votes/edits on the frozen proposal, forged applies refused."
   },
   {
    "suite": "emulator suite",
    "name": "72-hour reminder is posted exactly once",
    "pass": true,
-   "ms": 6741,
+   "ms": 6708,
    "detail": "Two signed-in sessions, one 73-hour-old pending proposal: 1 reminder document, reminderSent=true; a second reminder, an early (2-hour) reminder, and a free-text Coordinator reminder were refused by the rules; the reminder text is the fixed template."
   },
   {
    "suite": "emulator suite",
    "name": "edit shows 'đã sửa', soft delete shows 'Tin nhắn đã bị xoá' in the other session",
    "pass": true,
-   "ms": 4266,
+   "ms": 3873,
    "detail": "Edit flagged \"đã sửa\" live; delete kept the document (deleted=true, text cleared) and showed \"Tin nhắn đã bị xoá\"."
   },
   {
    "suite": "emulator suite",
    "name": "chat loads 50 at a time and loads earlier messages on scroll up",
    "pass": true,
-   "ms": 3892,
+   "ms": 4090,
    "detail": "First render 50 messages; scrolling to the top loaded the rest (62 test messages + the seeded agent posts)."
   },
   {
    "suite": "emulator suite",
    "name": "presence, reply threading, and draft autosave in the single chat",
    "pass": true,
-   "ms": 5655,
+   "ms": 5152,
    "detail": "No topic tabs; Nickie shown online to John; both posts stored in threads/general; reply quoted \"Trả lời Nickie\"; draft restored after reload."
   },
   {
    "suite": "emulator suite",
    "name": "one chat only: agent topics show as tags, filter works, replies inherit the topic, legacy threads stay out",
    "pass": true,
-   "ms": 4331,
+   "ms": 4256,
    "detail": "Legacy-thread message not shown, no tabs; tags render (\"Vé máy bay\"); filter chips Tất cả / Vé máy bay (2) / Ngân sách (1); a reply inherited the flights topic; filtering showed only that topic; posting while filtered reset the filter; every post stored in threads/general."
   },
   {
    "suite": "emulator suite",
    "name": "sign out works offline and leaves no plan or chat content behind",
    "pass": true,
-   "ms": 6825,
-   "detail": "Offline sign-out reached the sign-in screen in 5359 ms and stayed there while offline; it reloaded itself when back online and came back signed out, 0 fv-* storage keys, 0 rendered rows or messages."
+   "ms": 6603,
+   "detail": "Offline sign-out reached the sign-in screen in 5143 ms and stayed there while offline; it reloaded itself when back online and came back signed out, 0 fv-* storage keys, 0 rendered rows or messages."
   },
   {
    "suite": "emulator suite",
    "name": "(n) report issue: the side tab files one open issue under the reporter's name",
    "pass": true,
-   "ms": 1574,
+   "ms": 1561,
    "detail": "Nickie's report landed once in issues/ as an open 'stuck' report under her name, and the sheet confirmed it on screen."
   },
   {
    "suite": "emulator suite",
    "name": "(o) reception: an ack renders as a receipt line and the typing bar shows while the team is working",
    "pass": true,
-   "ms": 1692,
+   "ms": 1964,
    "detail": "The acknowledgement rendered as one compact receipt line (not a bubble), and the typing bar followed meta/typing on and off."
   },
   {
    "suite": "emulator suite",
    "name": "(p) thread stacking: a reply renders directly under its root, not at its own timestamp",
    "pass": true,
-   "ms": 1676,
+   "ms": 1638,
    "detail": "The reply to A rendered immediately under A (indented), ahead of the unrelated message B that arrived before it."
   },
   {
    "suite": "emulator suite",
-   "name": "(q) thread collapse: the toggle on a root folds and unfolds its reply stack",
+   "name": "(q) thread collapse: threads start collapsed; the toggle on a root unfolds and folds its reply stack",
    "pass": true,
-   "ms": 2798,
-   "detail": "The root's toggle collapsed both replies (including the nested one) and expanded them again; the root never hid."
+   "ms": 3042,
+   "detail": "The thread rendered collapsed by default (toggle 'Xem 2 trả lời', aria-expanded=false, both replies incl. the nested one hidden, root visible); one click unfolded the stack, a second folded it again."
   },
   {
    "suite": "emulator suite",
    "name": "(r) agents answer like a chatbot inside one thread: root, ack, two role replies stay one block",
    "pass": true,
-   "ms": 3969,
+   "ms": 3954,
    "detail": "DOM order [\"root1\",\"r-ack-1\",\"r-reply-coord\",\"r-reply-scout\",\"root2\"] before and after reload; replies indented 40px / 40px with msg--thread; the second root (posted between the two replies) sits after the whole block. Agent writes simulated via emulator admin in the production document shape."
   },
   {
    "suite": "emulator suite",
    "name": "(s) an applied proposal updates the plan live in another member's open session (no reload)",
    "pass": true,
-   "ms": 6507,
-   "detail": "Nickie (open session, no reload) showed \"Chỗ ở cập nhật trực tiếp\" 253 ms after John's third OK; planMeta.version 1 -> 2 (exactly +1), table meta reads \"phiên bản 2\"."
+   "ms": 5935,
+   "detail": "Nickie (open session, no reload) showed \"Chỗ ở cập nhật trực tiếp\" 201 ms after John's third OK; planMeta.version 1 -> 2 (exactly +1), table meta reads \"phiên bản 2\"."
   },
   {
    "suite": "emulator suite",
-   "name": "(t) a collapsed thread stays collapsed when a new reply or an ack arrives; the count follows",
+   "name": "(t) a collapsed-by-default thread stays collapsed when a new reply or an ack arrives; an opened thread stays open; the count follows",
    "pass": true,
-   "ms": 3499,
-   "detail": "Collapsed at \"Xem 2 trả lời\"; a new reply arrived -> still collapsed, \"Xem 3 trả lời\" (aria-expanded=false); a later ack -> still collapsed, count still 3 (acks not counted); expanding showed all three replies including the new one."
+   "ms": 2788,
+   "detail": "Collapsed by default at \"Xem 2 trả lời\"; a new reply arrived -> still collapsed, \"Xem 3 trả lời\" (aria-expanded=false); a later ack -> still collapsed, count still 3 (acks not counted); expanding showed all replies, and a further reply into the open thread kept it open (\"Thu gọn 4 trả lời\", visible)."
   },
   {
    "suite": "emulator suite",
    "name": "(w) changing a vote while pending: OK -> No is allowed and freezes the proposal; No can never be undone",
    "pass": true,
-   "ms": 3817,
+   "ms": 4204,
    "detail": "Current behavior: a host can change their own OK to No while pending (UI keeps the No button enabled, rules allow prev ok -> no); that No freezes the proposal exactly like A2 (status rejected, rows unchanged, all vote buttons disabled). No -> OK and withdrawing an OK (ok -> pending) are refused by the rules."
   },
   {
    "suite": "emulator suite",
    "name": "(x) a signed-in host cannot write planRows or planMeta directly (no proposal flow)",
    "pass": true,
-   "ms": 945,
+   "ms": 932,
    "detail": "8 direct writes refused (rowNoProposal: permission-denied, rowCitingPending: permission-denied, rowUpdateOneField: permission-denied, newRow: permission-denied, deleteRow: permission-denied, metaBump: permission-denied, metaOverwrite: permission-denied, rowPlusMetaBatch: permission-denied); planRows and planMeta byte-identical afterwards."
   },
   {
    "suite": "emulator suite",
    "name": "(z) chat refresh button: fetches the newest messages from the server and jumps to them",
    "pass": true,
-   "ms": 4033,
-   "detail": "Button \"Làm mới\" 124x44 px; read 33 messages from the server (fromServer=true); scrolled the newest agent message into view (true); status \"Đã cập nhật lúc 21:48.\"; offline tap showed the \"cần có mạng\" note and the button stayed usable."
+   "ms": 4248,
+   "detail": "Button \"Làm mới\" 124x44 px; read 33 messages from the server (fromServer=true); scrolled the newest agent message into view (true); status \"Đã cập nhật lúc 02:27.\"; offline tap showed the \"cần có mạng\" note and the button stayed usable."
   },
   {
    "suite": "QC",
    "name": "QC layout order (title, plan, chat, decision details, back-to-top) at 360 px and 1440 px; page opens at the top",
    "pass": true,
-   "ms": 6162,
-   "detail": "360px: opened at scrollY 0; title 16, plan table 1154, chat 1676, details 2456 (layout-360.png); 1440px: opened at scrollY 0; title 16, plan table 816, chat 1346, details 2224 (layout-1440.png)"
+   "ms": 6148,
+   "detail": "360px: opened at scrollY 0; title 16, plan table 980, chat 1442, details 2204 (layout-360.png); 1440px: opened at scrollY 0; title 16, plan table 816, chat 1346, details 2224 (layout-1440.png)"
   },
   {
    "suite": "QC",
    "name": "QC no horizontal page scroll at 360 px and 390 px",
    "pass": true,
-   "ms": 5322,
+   "ms": 6875,
    "detail": "360px: scrollWidth 360 <= 360; 390px: scrollWidth 390 <= 390"
   },
   {
    "suite": "QC",
    "name": "QC touch targets >= 44 px, composer font >= 16 px, table in its own scroll region with sticky Date at 360 px",
    "pass": true,
-   "ms": 2919,
+   "ms": 2874,
    "detail": "Every visible control >= 44x44 px; composer font 16px; timeline scrolls inside its region and the Date column stays put (position: sticky)."
   },
   {
    "suite": "QC",
    "name": "QC back-to-top appears after scrolling, avoids the composer and vote buttons, and returns to the top",
    "pass": true,
-   "ms": 5328,
+   "ms": 5534,
    "detail": "Hidden at top, shown after scrolling; 0 overlaps in 4 positions (page bottom + every vote row at the screen edge); click returned to scrollY 0 (back-to-top-360.png)."
   },
   {
    "suite": "QC",
    "name": "QC one vote and one chat message at 360 px",
    "pass": true,
-   "ms": 4253,
+   "ms": 4187,
    "detail": "John's OK stored (votes.john = ok) and the message stored under john, both from a 360 px viewport (vote-360.png, message-360.png)."
   },
   {
    "suite": "QC",
    "name": "QC full flow with the GSAP CDN blocked",
    "pass": true,
-   "ms": 4175,
+   "ms": 4298,
    "detail": "window.gsap undefined; message delivered live to a second session, the third OK applied the proposal, table updated, back-to-top worked. No errors besides the blocked script request."
   },
   {
    "suite": "QC",
    "name": "QC seed data rendered byte-identical to board.json",
    "pass": true,
-   "ms": 1747,
+   "ms": 1912,
    "detail": "Title, 4 decisions (headings, intros, resolved styling, statuses, resolution, 0 price strings with their check dates), 2 seeded agent posts and 4 timeline rows match the source files character for character."
   },
   {
    "suite": "QC",
    "name": "QC no email address, placeholder text, or dead control in the UI",
    "pass": true,
-   "ms": 1700,
-   "detail": "0 email addresses in the rendered HTML (signed in as a test account); 0 placeholder strings; all 33 buttons map to a handler (ids, data-vote, data-action, data-dtoggle, or form submit)."
+   "ms": 1584,
+   "detail": "0 email addresses in the rendered HTML (signed in as a test account); 0 placeholder strings; all 29 buttons map to a handler (ids, data-vote, data-action, data-dtoggle, or form submit)."
   },
   {
    "suite": "QC",
    "name": "QC console free of errors during sign-in, post, reload",
    "pass": true,
-   "ms": 5122,
+   "ms": 5035,
    "detail": "0 console errors and 0 page errors across sign-in, post, reload (2 console lines total, 2 warnings)."
   },
   {
    "suite": "QC",
    "name": "QC portfolio isolation: noindex, not linked, not in the sitemap, no robots.txt Disallow",
    "pass": true,
-   "ms": 14,
+   "ms": 382,
    "detail": "noindex, nofollow meta present; no file outside site/family-visit/ mentions it (nav, sitemap.xml, robots.txt included)."
   },
   {
    "suite": "QC",
    "name": "QC Vietnamese UI audit: no English interface words on any screen (database content excluded)",
    "pass": true,
-   "ms": 5253,
+   "ms": 5344,
    "detail": "6 screens (sign-in, denied, board, reply + delete confirm, edit, offline), 2782 interface words checked: 0 English. Allowed proper nouns: John, Nickie, Johnny, Google, Visa (in the role name \"Visa & Giấy tờ\"), CCCD, D1–D4. <html lang=\"vi\">."
   },
   {
    "suite": "QC",
    "name": "QC phone pass for the new order at 360 px and 390 px: plan first, chat by scrolling, D-link to decision card",
    "pass": true,
-   "ms": 7211,
-   "detail": "360px: opened at scrollY 0 with the plan heading at 329px, scrollWidth 360; chat composer reachable; tapping D2 (tap area 51x48) brought decision-D2 to the top half, highlighted, intro \"Dữ liệu mẫu cho kiểm thử.…\"; 390px: opened at scrollY 0 with the plan heading at 329px, scrollWidth 390; chat composer reachable; tapping D2 (tap area 51x48) brought decision-D2 to the top half, highlighted, intro \"Dữ liệu mẫu cho kiểm thử.…\" (v2-first-screen-360.png, v2-dlink-target-360.png)"
+   "ms": 7149,
+   "detail": "360px: opened at scrollY 0 with the plan heading at 282px, scrollWidth 360; chat composer reachable; tapping D2 (tap area 51x48) brought decision-D2 to the top half, highlighted, intro \"Dữ liệu mẫu cho kiểm thử.…\"; 390px: opened at scrollY 0 with the plan heading at 282px, scrollWidth 390; chat composer reachable; tapping D2 (tap area 51x48) brought decision-D2 to the top half, highlighted, intro \"Dữ liệu mẫu cho kiểm thử.…\" (v2-first-screen-360.png, v2-dlink-target-360.png)"
   },
   {
    "suite": "QC",
    "name": "QC liquid glass + GSAP: plugins live, dock appears and navigates, details expand and collapse",
    "pass": true,
-   "ms": 6684,
+   "ms": 6795,
    "detail": "gsap + ScrollTrigger + Flip + SplitText + ScrollToPlugin + CustomEase loaded, 7 scroll triggers live; plan card blur(22px) saturate(1.8); font \"Google Sans\" renders Vietnamese; dock hidden at top, shown after scrolling, tapping \"Chi tiết D\" scrolled to the section and moved the active pill; D1 details opened and closed; scrollWidth 390; no console errors (v3-dock-390.png, v3-details-open-390.png)."
   },
   {
    "suite": "QC",
    "name": "(u) the pinned summary (3 short sentences) shows in full without scrolling inside its box at 360 px and 390 px",
    "pass": true,
-   "ms": 4700,
-   "detail": "176-character, 3-sentence summary shown in full. 360px: scrollHeight 128 <= clientHeight 128 (u-summary-360.png); 390px: scrollHeight 128 <= clientHeight 128 (u-summary-390.png)."
+   "ms": 4835,
+   "detail": "176-character, 3-sentence summary shown in full. 360px: scrollHeight 114 <= clientHeight 114 (u-summary-360.png); 390px: scrollHeight 114 <= clientHeight 114 (u-summary-390.png)."
   },
   {
    "suite": "QC",
    "name": "(v) the Date-column rail is one continuous, static line (no transform, no --rail), also with GSAP blocked",
    "pass": true,
-   "ms": 11946,
-   "detail": "No --rail/railDraw in motion.js, app.js, app.css. 360: 4 rows, line transform none, --rail none, 379/379 body pixel rows on the line (v-rail-360.png); 1440: 4 rows, line transform none, --rail none, 380/380 body pixel rows on the line (v-rail-1440.png); 390-gsap-blocked-dark: 4 rows, line transform none, --rail none, 379/379 body pixel rows on the line (v-rail-390-gsap-blocked-dark.png)."
+   "ms": 12029,
+   "detail": "No --rail/railDraw in motion.js, app.js, app.css. 360: 4 rows, line transform none, --rail none, 347/347 body pixel rows on the line (v-rail-360.png); 1440: 4 rows, line transform none, --rail none, 380/380 body pixel rows on the line (v-rail-1440.png); 390-gsap-blocked-dark: 4 rows, line transform none, --rail none, 346/346 body pixel rows on the line (v-rail-390-gsap-blocked-dark.png)."
   },
   {
    "suite": "QC",
    "name": "(y) long-thread chat scroll at 390 px with 4x CPU throttle: no long task > 200 ms, total long-task time at most half the base",
    "pass": true,
-   "ms": 91242,
-   "detail": "v13: long tasks median total 63 ms (count 1), worst 80 ms; frames > 50 ms: 3, worst frame 150 ms; script 408 ms, layout 320 ms, style 58 ms (medians of 3; b8-metrics-v13.json). Base (base-1e331a3, 1e331a3): total 2039 ms, worst 710 ms -> 97% less long-task time."
+   "ms": 86892,
+   "detail": "v15: long tasks median total 0 ms (count 0), worst 0 ms; frames > 50 ms: 0, worst frame 67 ms; script 504 ms, layout 128 ms, style 83 ms (medians of 3; b8-metrics-v15.json). Base (base-1e331a3, 1e331a3): total 2039 ms, worst 710 ms -> 100% less long-task time."
   }
  ]
 }

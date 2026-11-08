@@ -450,3 +450,26 @@ cached v12 module is never mixed with the v13 app; report `appVersion: "v13"`.
 
 ## v14 — threads collapsed by default (owner request, 2026-11-07)
 Owner: "fix nút thu gọn chỗ chat với agents, mặc định là thu gọn sẵn, ai muốn xem mới bấm cho bung ra". Change (app.js only): the session set is inverted — `expandedThreads` now holds the threads the reader opened; every thread renders collapsed until its toggle is clicked. Replying into a thread (Trả lời button or sending the reply) opens that thread, so your own reply and the team's answers under it are never hidden from you. Choices are per-session only: a fresh page load starts all collapsed again. Tests (q) and (t) rewritten to the new spec: (q) asserts the collapsed default, (t) asserts arrivals keep a closed thread closed (count follows, acks uncounted) and an opened thread open. appVersion v14, assets ?v=14.
+
+## v15 addendum (2026-11-08 — phone density)
+
+- Owner: "kích cỡ hiện tại xem trên điện thoại hơi lớn quá". Researched platform sizes first,
+  then applied them to phones only (`@media (max-width: 47.99rem)`); desktop is unchanged.
+  - Apple HIG Typography (Dynamic Type, Large/default): Body 17 pt, Title 3 20 pt, Title 2
+    22 pt, Subhead 15, Footnote 13; iOS default 17 pt, minimum 11 pt.
+  - Material 3 type scale: Body Large 16, Body Medium 14, Title Large 22, Headline Small 24.
+  - Web mobile guidance: body 16 px with ~1.5 line height; inputs ≥ 16 px (iOS Safari zooms
+    smaller ones).
+  - Touch targets: 44 pt (Apple), 48 dp (Material), 44 × 44 CSS px (WCAG 2.5.5 AAA), 24 px AA floor.
+- What was too big (measured at 390 px): line height 1.6; 18 px for proposal titles, vote
+  buttons, D titles and D intros (above iOS's 17 pt body); 50 px vote buttons; 24 px card
+  padding on a 16 px page margin. The first screen held the title and one vote row.
+- Phone values now: line height 1.5 (headings 1.25); `--fs-md` 17 px, `--fs-lg` 20 px; body
+  and composer stay 16 px; section leads 15 px; vote buttons 44 px / 16 px text; title card
+  padding 16 px; plan, proposal, decision and message cards 12–16 px; table cells 10/12 px;
+  section gap 24 px. All touch targets still ≥ 44 px.
+- Measured (synthetic fixtures, emulator, reduced motion): page height 4160 → 3699 px at
+  390 px (−11%), 4145 → 3703 at 360, 4100 → 3691 at 412; proposal card 590 → 516 px; title
+  card 256 → 225 px; plan heading 329 → 282 px from the top; table width +8 px. The first
+  screen at 390 px now shows all three vote rows.
+- Assets `?v=15`; `appVersion: "v15"`. Suite 39/39.

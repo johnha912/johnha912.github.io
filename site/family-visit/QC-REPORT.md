@@ -335,3 +335,14 @@ Criteria: no long task > 200 ms (met), total ≤ 50% of base (met: 97% less). Ba
 `y-chat-390-base-1e331a3.png` / `y-chat-390-v13.png` show the same glass UI. Honest limits: the
 emulator VM with software rendering is a proxy; blur cost lives on the GPU/compositor and does
 not show up as main-thread long tasks. The owner's phone is the final judge after deploy.
+
+## v15 (branch `family-visit-v15`, 2026-11-08): phone density
+
+| Check | Result | Evidence |
+|---|---|---|
+| Full emulator suite (`--qc`) after the change | PASS, 39/39 | `tests/last-run.json` |
+| Touch targets ≥ 44 px, composer 16 px, no horizontal scroll at 360/390 | PASS | QC rows in the same run |
+| Sizes match the researched references (phones) | PASS | Computed: body 16/24, h1/h2 20/25, proposal summary and D titles 17, vote 16 px text in 44 px buttons, footnotes 13 |
+| Page shorter on phones | PASS | 390 px: 4160 → 3699 px; 360: 4145 → 3703; 412: 4100 → 3691 (measure script, reduced motion, synthetic fixtures) |
+| Desktop unchanged | PASS by code | All overrides sit in `@media (max-width: 47.99rem)`; QC layout check at 1440 px green |
+| Live check on the owner's phone | TO DO after deploy | Owner judges the final size |
