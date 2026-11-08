@@ -243,7 +243,7 @@ A separate reviewer read the rules and client code. It found no rules hole (forg
 | Live E2E | See the post-merge verification note appended after the live run | Collapse/expand exercised on the live page against a real test thread, per the feature-change protocol. |
 | Report-tab transparency (owner report) | PASS by code | Tab gradient alpha cut from 72%→32% max with blur retained; verified visually in the post-merge live E2E (tab over table content, text beneath visible through it). |
 
-## v13 (branch `family-visit-v12`, 2026-11-07): static route rail, smooth chat scroll, "Làm mới", East Coast backdrop, test pack A/B
+## v13 (branch `family-visit-v13`, merged to main 2026-11-07): static route rail, smooth chat scroll, "Làm mới", East Coast backdrop, test pack A/B
 
 Everything below ran against the Local Emulator Suite (`demo-family-visit`, auth :9099,
 firestore :8080) through `tests/run.mjs`. Nothing touched the live project or the live board.

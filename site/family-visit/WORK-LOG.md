@@ -342,9 +342,9 @@ Final run: 25 of 25 (12 end-to-end, 13 QC).
 
 ## v13 addendum (2026-11-07 — static route rail, smooth chat scroll, "Làm mới", test pack A/B)
 
-Branch `family-visit-v12`, rebuilt on the rewritten `main` (`1e331a3`): the two v12 commits
-were cherry-picked (authors kept), then v13 on top. Not merged; Muse merges, deploys and
-checks live.
+Branch `family-visit-v13` (merged to main), rebuilt on the rewritten `main` (`1e331a3`): the two v12 commits
+were cherry-picked (authors kept), then v13 on top. Muse merged it, deployed and
+checked it live.
 
 **Fix 1 — the Date-column rail is one continuous, static line (owner request).**
 - Cause (from the code and the B5 base measurement): one 2 px segment per row inside each
