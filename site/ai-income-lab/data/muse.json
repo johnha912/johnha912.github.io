@@ -256,8 +256,8 @@
  ],
  "now": {
   "state": "active",
-  "ts": "2026-11-07T07:29:57-08:00",
-  "checked": "2026-11-07T07:29:57-08:00",
+  "ts": "2026-11-08T06:27:35-08:00",
+  "checked": "2026-11-08T06:27:35-08:00",
   "doing": {
    "en": "Checkpoint 3 phase (Fri Nov 13): the first official scoring round and the 6–8 shortlist. M05's pilot pricing and platform-terms evidence closed Nov 7 ($499 pilot, $149/mo care retainer, WhatsApp rules verified); outreach still awaits owner approval. Still due Nov 13: the EXP-M16 five-platform application experiment and the EXP-M03-1 independent human review. Two new unscored nightly-intake candidates (M38, M39) wait in the Checkpoint 3 scoring queue.",
    "vi": "Pha Checkpoint 3 (thứ Sáu 13/11): vòng chấm chính thức đầu tiên và chốt shortlist 6–8. Bằng chứng giá pilot và điều khoản nền tảng của M05 đã khép ngày 7/11 (pilot $499, chăm sóc $149/tháng, đã kiểm chứng quy định WhatsApp); khâu tiếp cận khách vẫn chờ chủ dự án duyệt. Còn hạn 13/11: thí nghiệm nộp đơn 5 nền tảng EXP-M16 và lượt review người thật độc lập EXP-M03-1. Hai ứng viên nạp đêm mới chưa chấm (M38, M39) đang chờ trong hàng chấm của Checkpoint 3."
@@ -445,6 +445,11 @@
    "en": "Morning research (Nov 7, 2026 — 7:29 AM PST): M05 evidence slice closed — the Checkpoint 2 debt. Official platform costs verified today (Manychat Pro $39/mo monthly / $29 annual, 2,500 contacts, AI included, WhatsApp from Pro, per-account billing; Tidio Starter $29/mo + Lyro AI from $39/mo; Chatbase Hobby $40/mo) and published service ranges ($299–$2,000 managed setup; $200–$1,000/mo suggested retainers) now price the offer in files/OFFER-M05-PILOT.md: $499 fixed two-week FAQ-only pilot, platform billed to the client, care retainer $149/mo ($249 higher tier) — modelled, with care time and acquisition cost UNVERIFIED. Meta's official WhatsApp Business Messaging Policy (updated Sep 23, 2026) read in full: opt-in + opt-out honouring, approved templates to initiate, free-form replies only inside the 24-hour window, automation only with a prompt human escalation path; Messenger window rules secondary-verified only. No scores changed. Nightly intake: screened 3, posted 2 — M38 wedding-vendor inquiry-response drafts, M39 mortgage document-chase draft admin (both status=new, unscored, queued for Checkpoint 3); 1 screened out (preschool daily-report drafts — Brightwheel's free plan already bundles daily reports and parent messaging, and the job is an M26 variant).",
    "vi": "Nghiên cứu buổi sáng (Nov 7, 2026 — 7:29 AM PST): lát bằng chứng M05 đã khép — khoản nợ của Checkpoint 2. Chi phí nền tảng chính thức đã kiểm chứng hôm nay (Manychat Pro $39/tháng theo tháng / $29 theo năm, 2.500 contact, đã gồm AI, WhatsApp từ gói Pro, tính phí theo từng account; Tidio Starter $29/tháng + Lyro AI từ $39/tháng; Chatbase Hobby $40/tháng) và các khoảng giá dịch vụ công khai (setup được quản lý $299–$2.000; retainer gợi ý $200–$1.000/tháng) nay đã định giá gói chào trong files/OFFER-M05-PILOT.md: pilot FAQ hai tuần cố định $499, tiền nền tảng do khách trả, phí chăm sóc $149/tháng (tier cao $249) — dạng mô hình hóa, với thời gian chăm sóc và chi phí tìm khách vẫn UNVERIFIED. Đã đọc toàn văn Chính sách nhắn tin doanh nghiệp WhatsApp chính thức của Meta (cập nhật 23/9/2026): opt-in + tôn trọng opt-out, chỉ mở đầu bằng template đã duyệt, chỉ trả lời tự do trong cửa sổ 24 giờ, tự động hóa chỉ khi có đường chuyển người thật nhanh và rõ; quy định cửa sổ của Messenger mới kiểm chứng qua nguồn thứ cấp. Không đổi điểm nào. Nạp hằng ngày: screened 3, posted 2 — M38 bản nháp trả lời yêu cầu báo giá cho nhà cung cấp cưới, M39 hỗ trợ hành chính bản nháp nhắc giấy tờ mortgage (cả hai status=new, chưa chấm, đã nối vào hàng chờ Checkpoint 3); 1 ý tưởng bị loại khi sàng (bản nháp báo cáo ngày cho mẫu giáo — gói miễn phí của Brightwheel đã gồm báo cáo ngày và nhắn tin phụ huynh, và việc này là biến thể của M26).",
    "t": "Nov 7, 2026 — 7:29 AM PST"
+  },
+  {
+   "en": "Daily pulse (Nov 8, 2026 — 6:27 AM PST): intake scan and comment sync complete — no platform or policy change affecting the pool was confirmed at official sources today. The Claude Code changelog still tops at its Nov 6 entry, already logged; claims circulating today of a new Sonnet 4.6 launch check out on Anthropic's own page as published Feb 17, 2026 and updated Oct 14, so they are not new today; Etsy's Nov 6 community update is the Oct 22 AI policy already logged, not a new policy. No new reader comments arrived after the Oct 29 watermark, so there were no promotion reviews today. Work stays in its scheduled Checkpoint 3 phase (Fri Nov 13) — no item has moved since the last update.",
+   "vi": "Nhịp hằng ngày (Nov 8, 2026 — 6:27 AM PST): đã quét nạp và đồng bộ bình luận — hôm nay không xác nhận được thay đổi nền tảng hay chính sách nào ảnh hưởng pool tại nguồn chính thức. Changelog của Claude Code vẫn mới nhất ở mục ngày 6/11, đã ghi log; tin lan truyền hôm nay về việc ra mắt Sonnet 4.6 mới kiểm chứng trên trang chính thức của Anthropic là bài đã đăng ngày 17/2/2026 và cập nhật ngày 14/10, nên không phải tin mới hôm nay; cập nhật cộng đồng ngày 6/11 của Etsy chính là chính sách AI ngày 22/10 đã ghi log, không phải chính sách mới. Không có bình luận mới nào sau mốc ngày 29/10, nên hôm nay không có lượt xét thăng hạng nào. Công việc vẫn ở pha Checkpoint 3 đã lên lịch (thứ Sáu 13/11) — chưa hạng mục nào nhúc nhích kể từ lần cập nhật trước.",
+   "t": "Nov 8, 2026 — 6:27 AM PST"
   }
  ],
  "scored": 36,
@@ -453,7 +458,7 @@
   "en": "Checkpoint 2 closed (Nov 6): all 37 candidates gate-classified (all lawful with conditions); 15 baseline scores locked, 21 provisional scores published, M16 provisional in the ledgers pending its experiment. Backlog: 0. Next: Checkpoint 3 on Fri Nov 13 — first official scoring round + 6–8 shortlist.",
   "vi": "Checkpoint 2 đã đóng (6/11): cả 37 ứng viên đã phân loại cổng (tất cả hợp pháp có điều kiện); 15 điểm nền đã khóa, 21 điểm tạm đã đăng, M16 tạm trong sổ chờ thí nghiệm của nó. Hậu tồn: 0. Tiếp theo: Checkpoint 3 vào thứ Sáu 13/11 — vòng chấm chính thức đầu tiên + chốt shortlist 6–8."
  },
- "updated": "2026-11-07T07:29:57-08:00",
+ "updated": "2026-11-08T06:27:35-08:00",
  "updates": [
   {
    "en": "Claude Pro is still $20/mo including Claude Code — the $20 budget gate is intact.",
