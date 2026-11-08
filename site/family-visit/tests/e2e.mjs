@@ -508,7 +508,7 @@ export const tests = [
     }
   },
   {
-    name: "(q) thread collapse: the toggle on a root folds and unfolds its reply stack",
+    name: "(q) thread collapse: threads start collapsed; the toggle on a root unfolds and folds its reply stack",
     async run(ctx) {
       await fresh(ctx);
       const t = Date.now();
@@ -519,17 +519,22 @@ export const tests = [
       const john = await newSession(ctx.browser, { member: "john" });
       const toggle = john.page.locator('li[data-key="root-a"] .thread-toggle');
       await eventually(async () => (await toggle.count()) === 1, 15000);
-      assert((await toggle.textContent()).includes("Thu gọn 2 trả lời"), "toggle should offer to collapse 2 replies (the nested reply counts too)");
-      await toggle.click();
-      await eventually(async () => (await toggle.textContent()).includes("Xem 2 trả lời"), 15000);
-      assert(!(await john.page.locator('li[data-key="reply-1"]').isVisible()), "reply-1 should be hidden while collapsed");
-      assert(!(await john.page.locator('li[data-key="reply-2"]').isVisible()), "reply-2 should be hidden while collapsed");
+      // Owner rule (2026-11-07): threads start collapsed — nobody clicks anything first.
+      assert((await toggle.textContent()).includes("Xem 2 trả lời"), "a fresh thread should start collapsed, offering to show 2 replies (the nested reply counts too)");
+      assert((await toggle.getAttribute("aria-expanded")) === "false", "a fresh thread should render aria-expanded=false");
+      assert(!(await john.page.locator('li[data-key="reply-1"]').isVisible()), "reply-1 should start hidden (collapsed by default)");
+      assert(!(await john.page.locator('li[data-key="reply-2"]').isVisible()), "reply-2 should start hidden (collapsed by default)");
       assert(await john.page.locator('li[data-key="root-a"]').isVisible(), "the root stays visible while collapsed");
       await toggle.click();
       await eventually(async () => (await toggle.textContent()).includes("Thu gọn 2 trả lời"), 15000);
-      assert(await john.page.locator('li[data-key="reply-1"]').isVisible(), "reply-1 should be back after expanding");
+      assert((await toggle.getAttribute("aria-expanded")) === "true", "aria-expanded should be true once opened");
+      assert(await john.page.locator('li[data-key="reply-1"]').isVisible(), "reply-1 should show after expanding");
+      assert(await john.page.locator('li[data-key="reply-2"]').isVisible(), "reply-2 should show after expanding");
+      await toggle.click();
+      await eventually(async () => (await toggle.textContent()).includes("Xem 2 trả lời"), 15000);
+      assert(!(await john.page.locator('li[data-key="reply-1"]').isVisible()), "reply-1 should hide again after folding");
       await close(john);
-      return "The root's toggle collapsed both replies (including the nested one) and expanded them again; the root never hid.";
+      return "The thread rendered collapsed by default (toggle 'Xem 2 trả lời', aria-expanded=false, both replies incl. the nested one hidden, root visible); one click unfolded the stack, a second folded it again.";
     }
   },
   {
@@ -607,7 +612,7 @@ export const tests = [
     }
   },
   {
-    name: "(t) a collapsed thread stays collapsed when a new reply or an ack arrives; the count follows",
+    name: "(t) a collapsed-by-default thread stays collapsed when a new reply or an ack arrives; an opened thread stays open; the count follows",
     async run(ctx) {
       await fresh(ctx);
       const t = Date.now();
@@ -618,9 +623,8 @@ export const tests = [
       const john = await newSession(ctx.browser, { member: "john" });
       const toggle = john.page.locator('li[data-key="t-root"] .thread-toggle');
       const state = async () => ({ text: (await toggle.textContent()).trim(), expanded: await toggle.getAttribute("aria-expanded") });
-      await eventually(async () => (await toggle.count()) === 1 && (await state()).text === "Thu gọn 2 trả lời", 15000);
-      await toggle.click();
-      await eventually(async () => (await state()).text === "Xem 2 trả lời", 5000);
+      // No click: the thread must already be collapsed on first render.
+      await eventually(async () => (await toggle.count()) === 1 && (await state()).text === "Xem 2 trả lời" && (await state()).expanded === "false", 15000);
       await admin.setDoc("threads/general/messages/t-reply-3", msg("t-reply-3", { role: "Flights & Travel", text: "Trả lời T3 tới sau", replyTo: "t-root", createdAt: new Date(), clientCreatedAt: Date.now() }));
       await eventually(async () => (await john.page.locator('li[data-key="t-reply-3"]').count()) === 1, 15000);
       const s1 = await state();
@@ -635,8 +639,14 @@ export const tests = [
       await toggle.click();
       await eventually(async () => (await state()).text === "Thu gọn 3 trả lời", 5000);
       for (const k of ["t-reply-1", "t-reply-2", "t-reply-3"]) assert(await john.page.locator(`li[data-key="${k}"]`).isVisible(), `${k} not visible after expanding`);
+      // The reader's choice is sticky the other way too: a reply landing in an OPEN thread keeps it open.
+      await admin.setDoc("threads/general/messages/t-reply-4", msg("t-reply-4", { role: "Budget", text: "Trả lời T4 tới khi đang mở", replyTo: "t-root", createdAt: new Date(), clientCreatedAt: Date.now() }));
+      await eventually(async () => (await john.page.locator('li[data-key="t-reply-4"]').count()) === 1, 15000);
+      const s3 = await state();
+      assert(s3.text === "Thu gọn 4 trả lời" && s3.expanded === "true", `after a reply into the open thread: ${JSON.stringify(s3)}`);
+      assert(await john.page.locator('li[data-key="t-reply-4"]').isVisible(), "t-reply-4 hidden in an open thread");
       await close(john);
-      return `Collapsed at "Xem 2 trả lời"; a new reply arrived -> still collapsed, "Xem 3 trả lời" (aria-expanded=false); a later ack -> still collapsed, count still 3 (acks not counted); expanding showed all three replies including the new one.`;
+      return `Collapsed by default at "Xem 2 trả lời"; a new reply arrived -> still collapsed, "Xem 3 trả lời" (aria-expanded=false); a later ack -> still collapsed, count still 3 (acks not counted); expanding showed all replies, and a further reply into the open thread kept it open ("Thu gọn 4 trả lời", visible).`;
     }
   },
   {

@@ -447,3 +447,6 @@ cached v12 module is never mixed with the v13 app; report `appVersion: "v13"`.
   whole suite and update inventory tests in the same commit.
 - GSAP entrance tweens on a page of history forced one layout per node -> never tween nodes
   that render off screen; cap entrance motion per render.
+
+## v14 — threads collapsed by default (owner request, 2026-11-07)
+Owner: "fix nút thu gọn chỗ chat với agents, mặc định là thu gọn sẵn, ai muốn xem mới bấm cho bung ra". Change (app.js only): the session set is inverted — `expandedThreads` now holds the threads the reader opened; every thread renders collapsed until its toggle is clicked. Replying into a thread (Trả lời button or sending the reply) opens that thread, so your own reply and the team's answers under it are never hidden from you. Choices are per-session only: a fresh page load starts all collapsed again. Tests (q) and (t) rewritten to the new spec: (q) asserts the collapsed default, (t) asserts arrivals keep a closed thread closed (count follows, acks uncounted) and an opened thread open. appVersion v14, assets ?v=14.

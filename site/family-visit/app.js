@@ -103,7 +103,7 @@ const S = {
   replyTo: null, editing: null, confirmDelete: null,
   voteBusy: new Set(), voteMsg: new Map(),
   dOpen: new Set(),
-  collapsedThreads: new Set(),
+  expandedThreads: new Set(),
   refreshing: false, lastRefresh: null,
   catFilter: null,
   remindersTried: new Set(),
@@ -264,7 +264,7 @@ function teardown() {
   S.conn?.stop(); S.conn = null;
   clearInterval(S.presenceTimer); S.presenceTimer = null;
   S.msgs.clear(); S.pending.clear(); S.proposals.clear(); S.rows.clear(); S.presence.clear();
-  S.decisions = []; S.summaryDoc = null; S.typingDoc = null; S.collapsedThreads.clear();
+  S.decisions = []; S.summaryDoc = null; S.typingDoc = null; S.expandedThreads.clear();
   S.rowsFromServer = false; S.tableMeta = null; S.oldestDoc = null; S.moreOlder = false; S.olderLoaded = false;
 }
 
@@ -631,6 +631,16 @@ function reminderDisplay(m) {
 }
 
 /* ---------------- chat actions ---------------- */
+// Threads start collapsed; this set holds the ones the reader opened. Replying into
+// a thread opens it, so your own reply — and the team's answers landing under it —
+// are never hidden from you.
+function openThreadOf(messageId) {
+  let m = S.msgs.get(messageId);
+  let hops = 0;
+  while (m?.replyTo && S.msgs.has(m.replyTo) && hops++ < 10) m = S.msgs.get(m.replyTo);
+  if (m) S.expandedThreads.add(m.id);
+}
+
 function sendMessage(text) {
   const { fs } = S.fb;
   const id = newId();
@@ -642,6 +652,7 @@ function sendMessage(text) {
   fs.setDoc(fs.doc(S.db, "threads", THREAD, "messages", id), data).catch((e) => {
     if (e?.code === "permission-denied") flash("Một tin nhắn không lưu được: máy chủ đã từ chối.");
   });
+  if (S.replyTo) openThreadOf(S.replyTo);
   S.replyTo = null;
   renderReply();
   scrollToBottom(true);
@@ -691,7 +702,7 @@ async function submitReport(text) {
   const data = {
     id, reporter: S.member, category: reportCategory, text, status: "open",
     createdAt: fs.serverTimestamp(), clientCreatedAt: Date.now(),
-    userAgent: String(navigator.userAgent || "").slice(0, 300), appVersion: "v13"
+    userAgent: String(navigator.userAgent || "").slice(0, 300), appVersion: "v14"
   };
   await fs.setDoc(fs.doc(S.db, "issues", id), data);
 }
@@ -1088,20 +1099,21 @@ function renderMessages(reset = false, { history = false } = {}) {
     if (isNew || statusChanged) fresh.push(node);
     return node;
   });
-  // Thread collapse (Slack-style): a root with replies carries a toggle that folds
-  // its whole reply stack away; the count covers real replies, not reception acks.
+  // Thread collapse (Slack-style): threads start COLLAPSED (owner rule, 2026-11-07) —
+  // a root with replies carries a toggle that opens its reply stack on demand; the
+  // count covers real replies, not reception acks.
   // Only what changed is written, so an unchanged thread costs no DOM work.
   const replyCounts = new Map();
   for (const it of items) if (it.kind === "msg" && it.isReply && it.m.kind !== "ack") replyCounts.set(it.threadKey, (replyCounts.get(it.threadKey) || 0) + 1);
   nodes.forEach((node, i) => {
     const it = items[i];
     if (it.kind !== "msg") return;
-    if (it.isReply) { const hide = S.collapsedThreads.has(it.threadKey); if (node.hidden !== hide) node.hidden = hide; return; }
+    if (it.isReply) { const hide = !S.expandedThreads.has(it.threadKey); if (node.hidden !== hide) node.hidden = hide; return; }
     if (node.hidden) node.hidden = false;
     const count = replyCounts.get(it.key) || 0;
     let tg = node.lastElementChild?.classList.contains("thread-toggle") ? node.lastElementChild : null;
     if (!count) { tg?.remove(); return; }
-    const collapsed = S.collapsedThreads.has(it.key);
+    const collapsed = !S.expandedThreads.has(it.key);
     if (!tg) { tg = h("button", { type: "button", class: "thread-toggle", "data-thread": it.key }); node.append(tg); }
     const expanded = String(!collapsed);
     if (tg.getAttribute("aria-expanded") !== expanded) tg.setAttribute("aria-expanded", expanded);
@@ -1286,7 +1298,7 @@ function wireStaticUi() {
     const tbtn = e.target.closest(".thread-toggle");
     if (tbtn) {
       const id = tbtn.dataset.thread;
-      if (S.collapsedThreads.has(id)) S.collapsedThreads.delete(id); else S.collapsedThreads.add(id);
+      if (S.expandedThreads.has(id)) S.expandedThreads.delete(id); else S.expandedThreads.add(id);
       renderMessages();
       return;
     }
@@ -1303,7 +1315,7 @@ function wireStaticUi() {
     if (!b) return;
     const id = b.dataset.id;
     switch (b.dataset.action) {
-      case "reply": S.replyTo = id; renderReply(); $("#composer").focus(); break;
+      case "reply": S.replyTo = id; openThreadOf(id); renderMessages(); renderReply(); $("#composer").focus(); break;
       case "edit": S.editing = id; S.confirmDelete = null; renderMessages(); $(".edit-box")?.focus(); break;
       case "cancel-edit": S.editing = null; renderMessages(); break;
       case "ask-delete": S.confirmDelete = id; renderMessages(); break;
