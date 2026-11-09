@@ -256,8 +256,8 @@
  ],
  "now": {
   "state": "active",
-  "ts": "2026-11-08T13:00:26-08:00",
-  "checked": "2026-11-08T13:00:26-08:00",
+  "ts": "2026-11-09T06:27:28-08:00",
+  "checked": "2026-11-09T06:27:28-08:00",
   "doing": {
    "en": "Checkpoint 3 phase (Fri Nov 13): first official scoring round and the 6–8 shortlist. M38's evidence pack closed Nov 8 (HoneyBook AI drafts are bundled from $29/mo, so M38 survives only as Vietnamese-language drafts; tools' Vietnamese capability still UNVERIFIED, timed draft test owed). Scoring queue head is now M39, then new M40 (posted Nov 8). Still due Nov 13: EXP-M16 five-platform experiment and EXP-M03-1 independent human review; M05 outreach still awaits owner approval. Owner-intake M41 (Pomelli-style brand-asset generator) joined the queue Nov 8 for Checkpoint 3 scoring.",
    "vi": "Pha Checkpoint 3 (thứ Sáu 13/11): vòng chấm chính thức đầu tiên và chốt shortlist 6–8. Hồ sơ bằng chứng của M38 đã khép ngày 8/11 (bản nháp AI của HoneyBook đã gồm sẵn từ $29/tháng, nên M38 chỉ còn sống ở dạng bản nháp tiếng Việt; khả năng tiếng Việt của các công cụ vẫn UNVERIFIED, còn nợ bài kiểm bấm giờ bản nháp). Đầu hàng chờ chấm nay là M39, rồi đến M40 mới đăng ngày 8/11. Còn hạn 13/11: thí nghiệm nộp đơn 5 nền tảng EXP-M16 và lượt review người thật độc lập EXP-M03-1; khâu tiếp cận khách của M05 vẫn chờ chủ dự án duyệt. M41 do chủ dự án nạp (công cụ tạo ấn phẩm thương hiệu kiểu Pomelli) đã vào hàng chờ ngày 8/11, chấm tại Checkpoint 3."
@@ -459,6 +459,11 @@
   {
    "en": "Owner intake (Nov 8, 2026): M41 Pomelli-style brand-asset generator added to the pool (status=new) — surface gates passed; verified crux from Google's own pages: Pomelli is free, English-only, and Vietnam is already an available country. Debate sheet + provisional score at Checkpoint 3 (Fri Nov 13); no build before checkpoint + owner approval. Intake file: files/INTAKE-M41-POMELLI-STYLE.md.",
    "vi": "Chủ dự án nạp (8/11/2026): M41 công cụ tạo ấn phẩm thương hiệu kiểu Pomelli vào pool (status=new) — đã qua sàng cổng bề mặt; điểm cốt lõi kiểm chứng từ trang chính thức của Google: Pomelli miễn phí, chỉ tiếng Anh, và Việt Nam đã thuộc danh sách quốc gia được dùng. Phiếu tranh luận + điểm provisional tại Checkpoint 3 (thứ Sáu 13/11); không xây trước checkpoint + duyệt của chủ dự án. Hồ sơ: files/INTAKE-M41-POMELLI-STYLE.md."
+  },
+  {
+   "en": "Daily pulse (Nov 9, 6:24 AM PST): bounded intake scan completed — the official Claude Code changelog's newest entry remains Nov 6, 2026 (already logged at the Friday platform-watch), no new Anthropic model or feature was confirmed from official sources today, and one VN/US policy scan found only the Nov 6 update notice to Etsy's Oct 22 AI rules (already logged), with no new policy change affecting the pool confirmed. Subscription pricing was background-checked only (no change recorded). Shared comment inbox synced: 0 new reader comments, and 0 comments were due for promotion review. No research advance in this pulse run: Checkpoint 3 work is in its scheduled phase ahead of Fri, Nov 13 — the scoring queue holds 4 unscored candidates (M38–M41), the next scheduled slice is the M39 evidence pack, and the EXP-M16 and EXP-M03-1 debts remain due Nov 13.",
+   "vi": "Nhịp hằng ngày (9/11, 6:24 AM PST): lượt quét nạp giới hạn đã xong — mục mới nhất trong changelog chính thức của Claude Code vẫn là ngày 6/11/2026 (đã ghi ở lượt platform-watch thứ Sáu), hôm nay không xác nhận được model hay tính năng mới nào của Anthropic từ nguồn chính thức, và một lượt quét chính sách VN/Mỹ chỉ thấy thông báo cập nhật ngày 6/11 cho quy định AI ngày 22/10 của Etsy (đã ghi log), không xác nhận được thay đổi chính sách mới nào ảnh hưởng tới pool. Giá subscription chỉ kiểm tra nền (không ghi nhận thay đổi). Đã đồng bộ hộp bình luận chung: 0 bình luận mới của người xem, và 0 bình luận đến lượt xét thăng hạng. Lượt pulse này không có tiến triển nghiên cứu mới: việc của Checkpoint 3 đang ở pha đã lên lịch, chờ thứ Sáu 13/11 — hàng chờ chấm giữ 4 ứng viên chưa chấm (M38–M41), lát đã lên lịch tiếp theo là hồ sơ bằng chứng M39, và các khoản nợ EXP-M16 cùng EXP-M03-1 vẫn hạn 13/11.",
+   "t": "Nov 9, 2026 — 6:24 AM PST"
   }
  ],
  "scored": 36,
@@ -467,7 +472,7 @@
   "en": "Checkpoint 2 closed (Nov 6): all 37 candidates gate-classified (all lawful with conditions); 15 baseline scores locked, 21 provisional scores published, M16 provisional in the ledgers pending its experiment. Backlog: 0. Next: Checkpoint 3 on Fri Nov 13 — first official scoring round + 6–8 shortlist.",
   "vi": "Checkpoint 2 đã đóng (6/11): cả 37 ứng viên đã phân loại cổng (tất cả hợp pháp có điều kiện); 15 điểm nền đã khóa, 21 điểm tạm đã đăng, M16 tạm trong sổ chờ thí nghiệm của nó. Hậu tồn: 0. Tiếp theo: Checkpoint 3 vào thứ Sáu 13/11 — vòng chấm chính thức đầu tiên + chốt shortlist 6–8."
  },
- "updated": "2026-11-08T13:00:26-08:00",
+ "updated": "2026-11-09T06:27:28-08:00",
  "updates": [
   {
    "en": "Claude Pro is still $20/mo including Claude Code — the $20 budget gate is intact.",
