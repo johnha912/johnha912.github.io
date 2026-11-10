@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="googlebot" content="noindex, nofollow">
+<title>CS6140 Midterm Study Hub</title>
+<meta name="description" content="Private study hub: CS6140 midterm reference PDF and 10 practice quizzes.">
+<style>
+  :root{--ink:#16202b;--mut:#5a6672;--line:#dfe4ea;--bg:#f6f7f9;--card:#fff;--acc:#1f4e9c;--acc2:#e8eef8;
+        --ok:#1e7a3a;--okbg:#e6f4ea;--bad:#b3261e;--badbg:#fbe9e7;--warn:#8a5a00;--warnbg:#fff4e0}
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;font-family:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5;font-size:16px}
+  .wrap{max-width:860px;margin:0 auto;padding:16px 16px 72px}
+  h1{font-size:1.5rem;line-height:1.25;margin:.3em 0 .15em}
+  h2{font-size:1.2rem;margin:0 0 .2em}
+  .sub{color:var(--mut);font-size:.92rem;margin:0}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin:14px 0}
+  .btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 16px;border-radius:10px;
+       font:inherit;font-weight:600;font-size:.95rem;text-decoration:none;cursor:pointer;border:1.5px solid var(--acc)}
+  .btn-p{background:var(--acc);color:#fff}
+  .btn-s{background:#fff;color:var(--acc)}
+  .btn:focus-visible,button:focus-visible,a:focus-visible,textarea:focus-visible{outline:3px solid #f2b705;outline-offset:2px}
+  .chips{display:flex;gap:8px;overflow-x:auto;padding:4px 0 8px;scrollbar-width:thin}
+  .chip{flex:0 0 auto;min-height:44px;display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:#fff;border-radius:999px;
+        padding:6px 14px;font-size:.88rem;color:var(--ink);text-decoration:none;white-space:nowrap}
+  .chip .sc{font-weight:700;color:var(--acc)}
+  .nav{position:sticky;top:0;background:var(--bg);z-index:5;padding-top:6px;border-bottom:1px solid var(--line)}
+  .quiz h2 .n{color:var(--acc)}
+  .why{font-size:.84rem;color:var(--mut);margin:.1em 0 .6em}
+  .q{border-top:1px solid var(--line);padding:14px 0 6px}
+  .q:first-of-type{border-top:0}
+  .meta{font-size:.72rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--acc);margin-bottom:4px}
+  .prompt{margin:0 0 8px}
+  .q img{display:block;width:100%;max-width:520px;height:auto;margin:6px 0 10px;border:1px solid var(--line);border-radius:8px;background:#fff}
+  .opt{display:flex;gap:10px;align-items:flex-start;min-height:44px;padding:10px 12px;margin:6px 0;border:1px solid var(--line);
+       border-radius:10px;cursor:pointer;background:#fff}
+  .opt input{margin-top:4px;width:18px;height:18px;flex:0 0 auto}
+  .opt .L{font-weight:700;min-width:1.2em}
+  .opt.right{border-color:var(--ok);background:var(--okbg)}
+  .opt.wrongpick{border-color:var(--bad);background:var(--badbg)}
+  textarea{width:100%;min-height:88px;padding:10px;border:1px solid var(--line);border-radius:10px;font:inherit;font-size:.95rem;background:#fbfcfd}
+  .show{margin:8px 0 4px}
+  .ans{display:none;margin:8px 0 6px;padding:10px 12px;border-left:4px solid var(--acc);background:var(--acc2);border-radius:8px;font-size:.95rem}
+  .ans.open{display:block}
+  .ans .verdict{font-weight:700;margin-bottom:4px}
+  .ans .v-ok{color:var(--ok)} .ans .v-bad{color:var(--bad)}
+  .ans .wr{font-size:.88rem;color:#333;margin-top:6px}
+  .ans .ref{font-size:.86rem;margin-top:6px}
+  .ans .ref a{color:var(--acc);font-weight:600}
+  .self{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+  .self button{min-height:44px;padding:8px 14px;border-radius:10px;border:1.5px solid var(--line);background:#fff;font:inherit;font-size:.9rem;cursor:pointer}
+  .self button.on-ok{border-color:var(--ok);background:var(--okbg);color:var(--ok);font-weight:700}
+  .self button.on-bad{border-color:var(--bad);background:var(--badbg);color:var(--bad);font-weight:700}
+  .sum{margin-top:12px;padding:12px;border-radius:10px;background:var(--warnbg);border:1px solid #f1d9a8;font-size:.93rem}
+  .sum.done-good{background:var(--okbg);border-color:#bfe3c9}
+  .sum ul{margin:.4em 0 .2em 1.1em;padding:0}
+  .sum li{margin:.25em 0}
+  .sum a{color:var(--acc);font-weight:600}
+  .reset{background:none;border:0;color:var(--mut);text-decoration:underline;font:inherit;font-size:.85rem;cursor:pointer;min-height:44px}
+  .note{font-size:.85rem;color:var(--mut)}
+  footer{color:var(--mut);font-size:.8rem;text-align:center;margin-top:24px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="card" id="top">
+    <p class="sub">CS6140 Machine Learning · Nguyen Ha</p>
+    <h1>Midterm Study Hub</h1>
+    <p class="sub">Exam: Thursday, Nov 12, 2026 · 3:00 PM · Room 912 · pen and paper, open notes, no calculator</p>
+    <div class="btns">
+      <a class="btn btn-p" id="dl-ref" href="cs6140-midterm-reference.pdf" download>Download reference PDF</a>
+      <a class="btn btn-s" id="open-ref" href="cs6140-midterm-reference.pdf" target="_blank" rel="noopener">Open / print reference PDF</a>
+      <a class="btn btn-s" href="cs6140-practice-quizzes.pdf" download>Quizzes as PDF</a>
+    </div>
+    <p class="note" style="margin-top:10px">Reference PDF: 99 pages (Letter), concept index on p. 5, formula sheet on p. 94. Every answer below links to its page.</p>
+  </header>
+
+  <section class="card">
+    <h2>How to use the quizzes</h2>
+    <p class="sub">Answer first, then tap <b>Show answer</b>. Multiple-choice is graded automatically; for written answers, compare with the model answer and tap <b>I got it</b> or <b>I missed it</b>. When every question in a quiz is checked, a <b>weak-spot summary</b> appears with the pages to re-read. Quizzes are ordered by how likely the topic is on the exam. Progress is saved on this device.</p>
+  </section>
+
+  <nav class="nav" aria-label="Quizzes"><div class="chips" id="chips"></div></nav>
+  <main id="quizzes"></main>
+  <footer>Private study page · not indexed · built from the CS6140 lecture decks</footer>
+</div>
+<script src="quizzes.js"></script>
+<script>
+(function () {
+  "use strict";
+  var Q = window.QUIZZES || [];
+  var L = ["A", "B", "C", "D", "E"];
+  var KEY = "cs6140-midterm-v1";
+  var state = {};
+  try { state = JSON.parse(localStorage.getItem(KEY) || "{}") || {}; } catch (e) { state = {}; }
+  function save() { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} }
+  function el(tag, cls, text) { var n = document.createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = text; return n; }
+  function pdfLink(q) {
+    var a = el("a", null, "Reference PDF p. " + q.pdf_page);
+    a.href = "cs6140-midterm-reference.pdf#page=" + q.pdf_page; a.target = "_blank"; a.rel = "noopener";
+    return a;
+  }
+  var main = document.getElementById("quizzes"), chips = document.getElementById("chips");
+
+  Q.forEach(function (quiz, qi) {
+    var sec = el("section", "card quiz"); sec.id = "quiz-" + quiz.id;
+    var h = el("h2"); var n = el("span", "n", "Quiz " + (qi + 1) + ". "); h.appendChild(n); h.appendChild(document.createTextNode(quiz.title)); sec.appendChild(h);
+    sec.appendChild(el("p", "why", "Why here: " + quiz.why_first + " · " + quiz.qs.length + " questions"));
+    var chip = el("a", "chip"); chip.href = "#quiz-" + quiz.id;
+    chip.appendChild(document.createTextNode((qi + 1) + ". " + quiz.id.toUpperCase()));
+    var sc = el("span", "sc", ""); chip.appendChild(sc); chips.appendChild(chip);
+
+    var sum = el("div", "sum"); sum.setAttribute("aria-live", "polite");
+
+    quiz.qs.forEach(function (q) {
+      var key = quiz.id + "-" + q.n; var st = state[key] || {};
+      var box = el("div", "q");
+      box.appendChild(el("div", "meta", "Q" + q.n + " · Style " + q.style + ": " + q.style_name));
+      box.appendChild(el("p", "prompt", q.prompt));
+      if (q.fig) { var img = el("img"); img.src = "fig/" + q.fig + ".svg"; img.alt = "Figure for question " + q.n + " of quiz " + (qi + 1) + " (see question text)"; img.loading = "lazy"; img.width = 520; img.height = 290; box.appendChild(img); }
+      var ans = el("div", "ans"); var optEls = [];
+      if (q.type === "mcq") {
+        q.options.forEach(function (o, i) {
+          var lab = el("label", "opt"); var r = el("input"); r.type = "radio"; r.name = key; r.value = i;
+          if (st.pick === i) r.checked = true;
+          r.addEventListener("change", function () { st.pick = i; state[key] = st; save(); if (st.shown) reveal(); });
+          lab.appendChild(r); lab.appendChild(el("span", "L", L[i])); lab.appendChild(el("span", null, o));
+          box.appendChild(lab); optEls.push(lab);
+        });
+      } else {
+        var ta = el("textarea"); ta.placeholder = "Write your answer (optional), then tap Show answer"; ta.value = st.text || "";
+        ta.setAttribute("aria-label", "Your answer to question " + q.n);
+        ta.addEventListener("input", function () { st.text = ta.value; state[key] = st; save(); });
+        box.appendChild(ta);
+      }
+      var btn = el("button", "btn btn-s show", "Show answer"); btn.type = "button"; btn.setAttribute("aria-expanded", "false");
+      box.appendChild(btn); box.appendChild(ans);
+
+      function reveal() {
+        ans.innerHTML = ""; ans.classList.add("open"); btn.textContent = "Hide answer"; btn.setAttribute("aria-expanded", "true");
+        if (q.type === "mcq") {
+          optEls.forEach(function (o, i) { o.classList.toggle("right", i === q.answer); o.classList.toggle("wrongpick", st.pick === i && i !== q.answer); });
+          var v = el("div", "verdict");
+          if (st.pick == null) { v.textContent = "Answer: " + L[q.answer] + " (no option picked — counted as missed)"; v.className += " v-bad"; st.result = "miss"; }
+          else if (st.pick === q.answer) { v.textContent = "Correct — " + L[q.answer]; v.className += " v-ok"; st.result = "ok"; }
+          else { v.textContent = "Not quite — the answer is " + L[q.answer]; v.className += " v-bad"; st.result = "miss"; }
+          ans.appendChild(v); ans.appendChild(el("div", null, q.why));
+          var wr = el("div", "wr"); var parts = [];
+          Object.keys(q.wrong).sort().forEach(function (k) { parts.push(L[+k] + ": " + q.wrong[k]); });
+          wr.textContent = "Why the others are wrong — " + parts.join("  ·  "); ans.appendChild(wr);
+        } else {
+          ans.appendChild(el("div", "verdict", "Model answer")); ans.appendChild(el("div", null, q.model));
+          var self = el("div", "self");
+          var ok = el("button", null, "I got it"), bad = el("button", null, "I missed it"); ok.type = bad.type = "button";
+          function paint() { ok.className = st.result === "ok" ? "on-ok" : ""; bad.className = st.result === "miss" ? "on-bad" : ""; }
+          ok.addEventListener("click", function () { st.result = "ok"; state[key] = st; save(); paint(); update(); });
+          bad.addEventListener("click", function () { st.result = "miss"; state[key] = st; save(); paint(); update(); });
+          paint(); self.appendChild(ok); self.appendChild(bad); ans.appendChild(self);
+        }
+        var ref = el("div", "ref"); ref.appendChild(document.createTextNode("Look up: " + q.ref + " · ")); ref.appendChild(pdfLink(q)); ans.appendChild(ref);
+        st.shown = true; state[key] = st; save(); update();
+      }
+      function hide() { ans.classList.remove("open"); btn.textContent = "Show answer"; btn.setAttribute("aria-expanded", "false"); st.shown = false; state[key] = st; save(); }
+      btn.addEventListener("click", function () { if (ans.classList.contains("open")) hide(); else reveal(); });
+      if (st.shown) reveal();
+      sec.appendChild(box);
+    });
+
+    function update() {
+      var done = 0, okc = 0, missed = [];
+      quiz.qs.forEach(function (q) {
+        var s = state[quiz.id + "-" + q.n] || {};
+        if (s.result) { done++; if (s.result === "ok") okc++; else missed.push(q); }
+      });
+      sc.textContent = done ? (okc + "/" + quiz.qs.length) : "";
+      sum.innerHTML = ""; sum.className = "sum";
+      if (done < quiz.qs.length) {
+        sum.appendChild(el("div", null, "Progress: " + done + " / " + quiz.qs.length + " checked. The weak-spot summary appears when all are checked."));
+      } else {
+        var head = el("div"); var b = el("b", null, "Score " + okc + " / " + quiz.qs.length + ". "); head.appendChild(b);
+        if (!missed.length) { sum.className = "sum done-good"; head.appendChild(document.createTextNode("No weak spots in this quiz — move on to the next one.")); sum.appendChild(head); }
+        else {
+          head.appendChild(document.createTextNode("Weak spots to review:")); sum.appendChild(head);
+          var ul = el("ul");
+          missed.forEach(function (q) { var li = el("li"); li.appendChild(document.createTextNode("Q" + q.n + " — " + q.topic + " (" + q.ref + ") → ")); li.appendChild(pdfLink(q)); ul.appendChild(li); });
+          sum.appendChild(ul);
+          if (missed.length >= 3) sum.appendChild(el("div", null, "3 or more misses: re-read this week's Mechanisms and Comparisons blocks before the next quiz."));
+        }
+      }
+      var rs = el("button", "reset", "Reset this quiz"); rs.type = "button";
+      rs.addEventListener("click", function () { quiz.qs.forEach(function (q) { delete state[quiz.id + "-" + q.n]; }); save(); location.reload(); });
+      sum.appendChild(rs);
+    }
+    sec.appendChild(sum); update();
+    main.appendChild(sec);
+  });
+})();
+</script>
+</body>
+</html>

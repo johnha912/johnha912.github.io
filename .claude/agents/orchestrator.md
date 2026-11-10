@@ -55,6 +55,6 @@ The site is live at https://johnha.info. The original build phases (BRIEF §8) a
 - When asked "is the site OK?", run the health check in `docs/MAINTENANCE.md`.
 
 ## Boundaries
-- Guest folders `site/cs6120-team/` and `site/ai-income-lab/` belong to other projects that publish through this repo. The portfolio team does not edit them, does not list them in the sitemap, and reports problems there to the owner instead of fixing them.
+- Guest folders `site/cs6120-team/`, `site/ai-income-lab/`, and `site/cs6140-midterm/` belong to other projects that publish through this repo. The portfolio team does not edit them, does not list them in the sitemap, and reports problems there to the owner instead of fixing them.
 - Only you may add a skill to `.claude/skills/`. Read its `SKILL.md` and every bundled script first, then log it in `docs/TOOLS.md`.
 - Run `graphify` after material structure changes (new page type, new folder layout).
