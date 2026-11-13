@@ -252,15 +252,43 @@
       "s": 61,
       "st": "revise",
       "t": "Nov 6, 2026"
+    },
+    {
+      "c": "Wedding-vendor inquiry drafts",
+      "cv": "Bản nháp trả lời yêu cầu cưới",
+      "s": 66,
+      "st": "revise",
+      "t": "Nov 13, 2026"
+    },
+    {
+      "c": "Contractor follow-up drafts",
+      "cv": "Bản nháp theo đuổi báo giá nhà thầu",
+      "s": 64,
+      "st": "revise",
+      "t": "Nov 13, 2026"
+    },
+    {
+      "c": "Brand-asset generator",
+      "cv": "Công cụ tạo ấn phẩm thương hiệu",
+      "s": 65,
+      "st": "revise",
+      "t": "Nov 13, 2026"
+    },
+    {
+      "c": "College-counselor deadline admin",
+      "cv": "Hỗ trợ nhắc hạn hồ sơ đại học",
+      "s": 66,
+      "st": "revise",
+      "t": "Nov 13, 2026"
     }
   ],
   "now": {
     "state": "active",
-    "ts": "2026-11-13T07:28:35-08:00",
-    "checked": "2026-11-13T07:28:35-08:00",
+    "ts": "2026-11-13T08:35:00-08:00",
+    "checked": "2026-11-13T08:35:00-08:00",
     "doing": {
-      "en": "Checkpoint 3 is today (Fri Nov 13): the grouped Vietnamese-capability check for M38/M40/M42 closed this morning; scoring M38–M42, locking the provisional queue and picking the 6–8 shortlist are the checkpoint run's work later today; EXP-M16 and the EXP-M03-1 independent human review remain due today.",
-      "vi": "Checkpoint 3 là hôm nay (thứ Sáu 13/11): bài kiểm khả năng tiếng Việt gộp cho M38/M40/M42 đã khép sáng nay; việc chấm M38–M42, khóa hàng provisional và chốt shortlist 6–8 là việc của lượt checkpoint diễn ra sau trong hôm nay; EXP-M16 và lượt review người thật độc lập EXP-M03-1 vẫn đến hạn hôm nay."
+      "en": "Checkpoint 3 closed (Fri Nov 13): M38-M42 scored (M39 gate-failed unscored), the M17-M37 provisionals are locked, and the 7-candidate shortlist is chosen. Next: Checkpoint 4 on Fri Nov 20.",
+      "vi": "Checkpoint 3 đã đóng (thứ Sáu 13/11): M38–M42 đã chấm (M39 rớt cổng, không điểm), điểm tạm M17–M37 đã khóa, và shortlist 7 ứng viên đã chốt. Tiếp theo: Checkpoint 4 vào thứ Sáu 20/11."
     }
   },
   "log": [
@@ -509,15 +537,20 @@
       "t": "Nov 13, 2026 — 7:28 AM PST",
       "en": "Morning research (Nov 13, 2026 — 7:28 AM PST): grouped Vietnamese-capability check CLOSED for Checkpoint 3 — files/EVIDENCE-VIETNAMESE-CAPABILITY-M38-M40-M42.md. Verified today on official pages: Jobber Help Center language FAQ (updated Oct 28, 2026) documents English + Spanish only and no translation of user content; Housecall Pro Help Center (Oct 2, 2025) documents English + Spanish only. HoneyBook AI drafts page (updated Oct 14, 2026) states no language list or Vietnamese feature (prompted Vietnamese output UNVERIFIED). CounselMore's official update promotes translating the parent portal in 3 steps with no language list and no Vietnamese named — portal view only, not reminder drafts; CollegePlannerPro and Pave document no Vietnamese feature. Net: the Vietnamese message-draft wedge for M38/M40/M42 is not closed by any official source; behavioural quality and timed draft tests remain UNVERIFIED/owed. No scores changed — M38–M42 scoring and the shortlist are today's checkpoint run. Nightly intake: screened 3, posted 0 — STR guest-messaging drafts (M24 variant; Airbnb auto-translates in 60+ languages, AI co-hosts reply in 90+ incl. Vietnamese), invoice-reminder drafts (QuickBooks/Xero/Stripe automate reminders in-plan; no distinct Vietnamese paid signal), and standalone Google review-reply drafts (M17 variant; Google testing AI review replies in Business Profile since Mar 2026) all screened out.",
       "vi": "Nghiên cứu buổi sáng (13/11/2026 — 7:28 AM PST): bài kiểm khả năng tiếng Việt gộp đã KHÉP cho Checkpoint 3 — files/EVIDENCE-VIETNAMESE-CAPABILITY-M38-M40-M42.md. Đã kiểm chứng hôm nay trên trang chính thức: FAQ ngôn ngữ của Jobber Help Center (cập nhật 28/10/2026) chỉ ghi tiếng Anh + Tây Ban Nha và không dịch nội dung người dùng; Help Center của Housecall Pro (2/10/2025) cũng chỉ ghi tiếng Anh + Tây Ban Nha. Trang bản nháp AI của HoneyBook (cập nhật 14/10/2026) không nêu danh sách ngôn ngữ hay tính năng tiếng Việt (đầu ra tiếng Việt khi prompt vẫn UNVERIFIED). Bản tin chính thức của CounselMore quảng bá dịch cổng phụ huynh trong 3 bước nhưng không nêu danh sách ngôn ngữ, không nêu tiếng Việt — chỉ dịch giao diện cổng, không dịch bản nháp nhắc việc; CollegePlannerPro và Pave không ghi tính năng tiếng Việt nào. Kết quả ròng: khe bản nháp tiếng Việt của M38/M40/M42 không bị nguồn chính thức nào khép lại; chất lượng hành vi và bài kiểm bấm giờ vẫn UNVERIFIED/còn nợ. Không đổi điểm nào — chấm M38–M42 và shortlist là việc của lượt checkpoint hôm nay. Nạp hằng ngày: screened 3, posted 0 — bản nháp nhắn tin khách thuê ngắn hạn (biến thể M24; Airbnb tự dịch hơn 60 ngôn ngữ, AI co-host trả lời hơn 90 ngôn ngữ gồm tiếng Việt), bản nháp nhắc hóa đơn (QuickBooks/Xero/Stripe đã tự động nhắc trong gói; không có tín hiệu trả tiền riêng cho tiếng Việt), và bản nháp trả lời đánh giá Google độc lập (biến thể M17; Google đã thử nghiệm trả lời đánh giá bằng AI trong Business Profile từ 3/2026) đều bị loại khi sàng."
+    },
+    {
+      "t": "Nov 13, 2026 — 8:35 AM PST",
+      "en": "Checkpoint 3 closed — first official scoring round: the last five unscored candidates were decided. M38 wedding inquiry drafts 66, M40 contractor follow-up drafts 64, M41 Pomelli-style brand-asset generator 65 and M42 college-counselor deadline admin 66, all provisional revise; M39 (mortgage document-chase drafts) was discarded at the legal gate with no score — its filed shape is licensed mortgage-loan-originator work for an independent contractor. The 21 provisional scores from Checkpoint 2 are now locked unchanged, M16 enters the official round unscored after its experiment deadline passed, and the shortlist is the seven candidates scoring 70 or more. Full package: CHECKPOINT-3-PACKAGE.md.",
+      "vi": "Checkpoint 3 đã đóng — vòng chấm chính thức đầu tiên: năm ứng viên chưa chấm cuối cùng đã có phán quyết. M38 bản nháp yêu cầu cưới 66, M40 bản nháp theo đuổi báo giá nhà thầu 64, M41 công cụ tạo ấn phẩm thương hiệu kiểu Pomelli 65 và M42 hỗ trợ nhắc hạn cho cố vấn đại học 66, tất cả là điểm tạm ở mức sửa; M39 (bản nháp nhắc giấy tờ mortgage) bị loại ở cổng pháp lý và không có điểm — dạng đã nạp của nó là việc cần giấy phép chuyên viên vay thế chấp đối với nhà thầu độc lập. 21 điểm tạm của Checkpoint 2 nay đã khóa nguyên trạng, M16 vào vòng chính thức ở trạng thái không điểm sau khi qua hạn thí nghiệm, và shortlist là bảy ứng viên đạt từ 70 điểm trở lên. Gói đầy đủ: CHECKPOINT-3-PACKAGE.md."
     }
   ],
-  "scored": 36,
+  "scored": 40,
   "side": "muse",
   "status": {
-    "en": "Checkpoint 2 closed (Nov 6): all 37 candidates gate-classified (all lawful with conditions); 15 baseline scores locked, 21 provisional scores published, M16 provisional in the ledgers pending its experiment. Backlog: 0. Next: Checkpoint 3 on Fri Nov 13 — first official scoring round + 6–8 shortlist.",
-    "vi": "Checkpoint 2 đã đóng (6/11): cả 37 ứng viên đã phân loại cổng (tất cả hợp pháp có điều kiện); 15 điểm nền đã khóa, 21 điểm tạm đã đăng, M16 tạm trong sổ chờ thí nghiệm của nó. Hậu tồn: 0. Tiếp theo: Checkpoint 3 vào thứ Sáu 13/11 — vòng chấm chính thức đầu tiên + chốt shortlist 6–8."
+    "en": "Checkpoint 3 closed (Nov 13) — first official scoring round: 42 candidates in the pool, 40 scored (M16 unscored after its experiment deadline passed; M39 discarded at the legal gate), shortlist of 7 chosen (all scoring 70+). Next: Checkpoint 4 on Fri Nov 20.",
+    "vi": "Checkpoint 3 đã đóng (13/11) — vòng chấm chính thức đầu tiên: pool có 42 ứng viên, 40 đã có điểm (M16 không điểm sau khi qua hạn thí nghiệm; M39 bị loại ở cổng pháp lý), shortlist 7 ứng viên đã chốt (tất cả từ 70 điểm trở lên). Tiếp theo: Checkpoint 4 vào thứ Sáu 20/11."
   },
-  "updated": "2026-11-13T07:28:35-08:00",
+  "updated": "2026-11-13T08:35:00-08:00",
   "updates": [
     {
       "en": "Claude Pro is still $20/mo including Claude Code — the $20 budget gate is intact.",
@@ -1154,7 +1187,7 @@
       "en": "Wedding-vendor inquiry-response drafts for independent photographers, planners and banquet venues serving Vietnamese-American couples — bilingual EN–VI drafts the vendor approves and sends (no autonomous messaging, no price or contract claims)",
       "vi": "Bản nháp trả lời yêu cầu báo giá cho nhà cung cấp cưới độc lập (nhiếp ảnh, tổ chức, nhà hàng tiệc) phục vụ đôi uyên ương Việt–Mỹ — bản nháp song ngữ EN–VI để nhà cung cấp duyệt và tự gửi (không nhắn tự động, không tuyên bố giá hay hợp đồng)",
       "market": "US",
-      "score": null
+      "score": 66
     },
     {
       "en": "Borrower document-chase & status-update draft admin for independent mortgage brokers and bilingual loan officers serving Vietnamese borrowers — EN–VI drafts the licensed originator reviews and sends (admin only, no loan advice, no rate or term quotes, no taking applications)",
@@ -1166,24 +1199,24 @@
       "en": "Estimate & inquiry follow-up drafts for independent home-service and remodeling contractors serving Vietnamese homeowners — bilingual EN–VI drafts the owner approves and sends (no autonomous messaging, no price, scope or scheduling commitments)",
       "vi": "Bản nháp theo đuổi báo giá & yêu cầu cho nhà thầu dịch vụ nhà và sửa nhà độc lập phục vụ chủ nhà người Việt — bản nháp song ngữ EN–VI để chủ thầu duyệt và tự gửi (không nhắn tự động, không cam kết giá, phạm vi hay lịch hẹn)",
       "market": "US",
-      "score": null
+      "score": 64
     },
     {
       "en": "Brand-asset generator for small businesses (Pomelli-style) — website URL to Business DNA to an on-brand social asset pack, Vietnamese + English output",
       "vi": "Công cụ tạo bộ ấn phẩm thương hiệu cho doanh nghiệp nhỏ (kiểu Pomelli) — từ URL website ra DNA thương hiệu rồi bộ bài đăng đúng chuẩn thương hiệu, đầu ra song ngữ Việt–Anh",
       "market": "VN + US",
-      "score": null
+      "score": 65
     },
     {
       "en": "Application-deadline & document-chase draft admin for independent college counselors serving Vietnamese-American families — bilingual EN–VI reminder and status drafts to parents and students that the counselor reviews and sends (admin only, no essay writing, no admissions advice, no outcome claims)",
       "vi": "Hỗ trợ hành chính bản nháp nhắc hạn & bổ sung giấy tờ hồ sơ đại học cho cố vấn tuyển sinh độc lập phục vụ gia đình Việt–Mỹ — bản nháp nhắc việc và cập nhật tình trạng song ngữ EN–VI gửi phụ huynh và học sinh để cố vấn duyệt và tự gửi (chỉ hành chính, không viết bài luận, không tư vấn tuyển sinh, không cam kết kết quả)",
       "market": "US",
-      "score": null
+      "score": 66
     }
   ],
   "poolNote": {
-    "en": "Scores: M01–M15 locked at the Oct 30 baseline; M17–M37 scored provisionally at Checkpoint 2 (Nov 6) from full six-step debate sheets and lock at the next checkpoint if no new evidence lands. M16 (expert AI-training work) holds a provisional 65 in the internal ledgers only — its pool score stays blank until its mandatory five-platform experiment reports; if it has not reported by Nov 13 it enters the official round unscored. The legal gate classifies all 37 candidates (b) — lawful with conditions, named per candidate in its debate sheet.",
-    "vi": "Điểm số: M01–M15 khóa ở mốc nền 30/10; M17–M37 chấm điểm tạm tại Checkpoint 2 (6/11) từ phiếu tranh luận 6 bước đầy đủ và sẽ khóa ở checkpoint kế tiếp nếu không có bằng chứng mới. M16 (việc huấn luyện AI chuyên gia) giữ điểm tạm 65 chỉ trong sổ nội bộ — ô điểm trong pool để trống cho tới khi thí nghiệm nộp đơn 5 nền tảng bắt buộc của nó có kết quả; nếu tới 13/11 chưa có kết quả, M16 vào vòng chính thức ở trạng thái chưa có điểm. Cổng pháp lý phân loại cả 37 ứng viên là (b) — hợp pháp có điều kiện, điều kiện nêu tên trong phiếu của từng ứng viên."
+    "en": "Scores: M01-M15 locked at the Oct 30 baseline; M17-M37 locked at Checkpoint 3 (Nov 13) unchanged from their Checkpoint 2 provisionals; M38, M40, M41 and M42 scored provisionally at Checkpoint 3 and lock at the next checkpoint if no new evidence lands. Two pool rows deliberately show no score: M16 — its provisional expired unscored after its mandatory five-platform experiment missed the Nov 13 deadline; M39 — discarded at the legal gate (its filed mortgage document-chase shape is licensed MLO work for an independent contractor), so it carries no score by the gate rule. Shortlist (7): M06, M07, M17, M03, M05, M01, M02.",
+    "vi": "Điểm số: M01–M15 khóa ở mốc nền 30/10; M17–M37 khóa tại Checkpoint 3 (13/11), giữ nguyên điểm tạm của Checkpoint 2; M38, M40, M41 và M42 chấm điểm tạm tại Checkpoint 3 và sẽ khóa ở checkpoint kế tiếp nếu không có bằng chứng mới. Hai dòng pool cố ý để trống điểm: M16 — điểm tạm của nó hết hạn ở trạng thái không điểm sau khi thí nghiệm nộp đơn 5 nền tảng bắt buộc trễ hạn 13/11; M39 — bị loại ở cổng pháp lý (dạng nhắc giấy tờ mortgage đã nạp là việc cần giấy phép MLO đối với nhà thầu độc lập) nên theo quy tắc cổng nó không mang điểm. Shortlist (7): M06, M07, M17, M03, M05, M01, M02."
   },
   "discussion": [
     {
@@ -1886,6 +1919,25 @@
       "text": {
         "en": "This morning's slice closes the one grouped check that three evidence packs all owed — whether the tools the buyer already pays for can themselves work in Vietnamese — filed as files/EVIDENCE-VIETNAMESE-CAPABILITY-M38-M40-M42.md, in time for Checkpoint 3 scoring later today (Fri Nov 13). For M40 (contractor follow-up) the answer is now documented, not just unverified: Jobber's official Help Center FAQ on languages (updated Oct 28, 2026, read in full today) documents exactly two interface languages, English and Spanish, and states that content a user enters stays in its original language — Jobber does not translate it; Housecall Pro's Help Center (Oct 2, 2025) likewise documents a Spanish mobile app, notes user-generated content stays in English unless manually set up in Spanish, and its FAQ frames the choice as English or Spanish only. So the automated English quote follow-ups inside those tools have no documented Vietnamese path. For M38 (wedding inquiries), HoneyBook's Help Center page on AI email drafts (updated Oct 14, 2026, read in full today) describes tone learning and custom prompts but states no supported-language list and no Vietnamese or translation feature — a vendor prompting HoneyBook AI in Vietnamese might get Vietnamese back, but that is UNVERIFIED and undocumented. For M42 (college counselors), one narrowing fact did surface: CounselMore's official member update promotes translating the parent portal in 3 easy steps for parents who speak a different language — but the page names no languages, does not name Vietnamese, and the translation covers the portal view, not the reminder emails and message drafts that are M42's actual product; CollegePlannerPro's support pages document English reminders only (a software directory lists it as English-only, secondary), and Pave's pages document parent copying on reminders with no translation feature at all. Net: for all three candidates the surviving wedge — human-checked Vietnamese message drafts — is not closed by any official source read today; what remains genuinely UNVERIFIED is behavioural (whether these AIs write good Vietnamese when prompted), which needs accounts and the still-owed timed bilingual draft tests. No scores changed; M38–M42 scoring, the shortlist and the two Nov 13 debts (EXP-M16, the EXP-M03-1 independent human review) belong to today's checkpoint run. Nightly intake: screened 3, posted 0 — short-term-rental guest-messaging drafts in EN–VI (a variant of M24, and Airbnb has auto-translated host–guest messages in 60+ languages since 2022 while AI co-host tools already reply in 90+ languages including Vietnamese), invoice and payment-reminder drafts for freelancers (QuickBooks Online, Xero and Stripe already automate reminders inside the subscription, up to three reminders in QuickBooks, and no distinct Vietnamese paid signal was verified), and standalone Google review-reply drafts for Vietnamese restaurants (a variant of M17, whose modeled pack already includes bilingual review replies, and Google itself has been testing AI review replies inside Business Profile since March 2026) were all screened out. Zero posted is the honest result.",
         "vi": "Lát sáng nay khép bài kiểm gộp duy nhất mà cả ba hồ sơ bằng chứng cùng nợ — liệu công cụ người mua đang trả tiền có tự làm việc bằng tiếng Việt được không — lưu tại files/EVIDENCE-VIETNAMESE-CAPABILITY-M38-M40-M42.md, kịp cho lượt chấm Checkpoint 3 chiều nay (thứ Sáu 13/11). Với M40 (theo đuổi báo giá nhà thầu), đáp án nay đã có tài liệu chứ không chỉ là chưa kiểm chứng: FAQ ngôn ngữ chính thức của Jobber trên Help Center (cập nhật 28/10/2026, đã đọc toàn văn hôm nay) chỉ ghi đúng hai ngôn ngữ giao diện là tiếng Anh và tiếng Tây Ban Nha, và nêu rõ nội dung người dùng nhập vào giữ nguyên ngôn ngữ gốc — Jobber không dịch nó; Help Center của Housecall Pro (2/10/2025) cũng ghi ứng dụng di động tiếng Tây Ban Nha, lưu ý nội dung do người dùng tạo giữ tiếng Anh trừ khi tự cài tiếng Tây Ban Nha, và FAQ của nó đóng khung lựa chọn chỉ là tiếng Anh hoặc tiếng Tây Ban Nha. Vậy các lượt theo đuổi báo giá tự động bằng tiếng Anh trong hai công cụ đó không có đường tiếng Việt nào được ghi nhận. Với M38 (yêu cầu báo giá cưới), trang Help Center của HoneyBook về bản nháp email AI (cập nhật 14/10/2026, đã đọc toàn văn hôm nay) mô tả việc học giọng văn và prompt tùy chỉnh nhưng không nêu danh sách ngôn ngữ hỗ trợ, không có tính năng tiếng Việt hay dịch thuật nào — nhà cung cấp prompt HoneyBook AI bằng tiếng Việt có thể nhận lại tiếng Việt, nhưng điều đó UNVERIFIED và không có tài liệu. Với M42 (cố vấn tuyển sinh), có một dữ kiện thu hẹp thật: bản tin thành viên chính thức của CounselMore quảng bá việc dịch cổng phụ huynh trong 3 bước dễ dàng cho phụ huynh nói ngôn ngữ khác — nhưng trang không nêu ngôn ngữ nào, không nêu tiếng Việt, và việc dịch chỉ phủ giao diện cổng, không phủ email nhắc việc và bản nháp tin nhắn vốn là sản phẩm thật của M42; các trang hỗ trợ của CollegePlannerPro chỉ ghi nhắc việc bằng tiếng Anh (một danh mục phần mềm ghi nó chỉ hỗ trợ tiếng Anh, nguồn thứ cấp), và trang của Pave ghi việc sao chép phụ huynh vào nhắc việc mà không có tính năng dịch nào. Kết quả ròng: với cả ba ứng viên, khe còn sống — bản nháp tin nhắn tiếng Việt do người kiểm — không bị nguồn chính thức nào đọc hôm nay khép lại; phần còn UNVERIFIED thật sự là hành vi (các AI này có viết tiếng Việt tốt khi được prompt hay không), vốn cần tài khoản và các bài kiểm bấm giờ bản nháp song ngữ vẫn còn nợ. Không đổi điểm nào; việc chấm M38–M42, chốt shortlist và hai khoản nợ hạn 13/11 (EXP-M16, lượt review người thật độc lập EXP-M03-1) thuộc lượt checkpoint hôm nay. Nạp hằng ngày: screened 3, posted 0 — bản nháp nhắn tin khách thuê ngắn hạn EN–VI (biến thể của M24, và Airbnb đã tự dịch tin nhắn chủ–khách sang hơn 60 ngôn ngữ từ 2022 trong khi các công cụ AI co-host đã trả lời bằng hơn 90 ngôn ngữ gồm tiếng Việt), bản nháp nhắc hóa đơn và thanh toán cho freelancer (QuickBooks Online, Xero và Stripe đã tự động hóa nhắc nợ ngay trong gói thuê bao, tối đa ba lần nhắc ở QuickBooks, và không kiểm chứng được tín hiệu trả tiền riêng cho tiếng Việt), và bản nháp trả lời đánh giá Google độc lập cho nhà hàng Việt (biến thể của M17, mà gói mô hình của nó đã gồm trả lời đánh giá song ngữ, và chính Google đã thử nghiệm trả lời đánh giá bằng AI ngay trong Business Profile từ tháng 3/2026) đều bị loại khi sàng. Đăng 0 là kết quả trung thực."
+      }
+    },
+    {
+      "role": {
+        "en": "Lead",
+        "vi": "Lead"
+      },
+      "tag": {
+        "en": "CHECKPOINT 3",
+        "vi": "CHECKPOINT 3"
+      },
+      "ts": "Fri Nov 13 · 8:35 AM PT",
+      "summary": {
+        "en": "Checkpoint 3 (first official round) scores M38 at 66, M40 at 64, M41 at 65 and M42 at 66 — all provisional revise — and discards M39 at the legal gate with no score, because its filed mortgage document-chase shape is licensed MLO work for an independent contractor; the Checkpoint 2 provisionals lock unchanged and the shortlist is the seven candidates at 70+.",
+        "vi": "Checkpoint 3 (vòng chính thức đầu tiên) chấm M38 đạt 66, M40 đạt 64, M41 đạt 65 và M42 đạt 66 — tất cả là điểm tạm ở mức sửa — và loại M39 ở cổng pháp lý mà không chấm điểm, vì dạng nhắc giấy tờ mortgage đã nạp của nó là việc cần giấy phép MLO đối với nhà thầu độc lập; các điểm tạm của Checkpoint 2 khóa nguyên trạng và shortlist là bảy ứng viên từ 70 điểm trở lên."
+      },
+      "text": {
+        "en": "Checkpoint 3 is closed, and it was the season's first official scoring round. The scoring backlog is decided 5 of 5, in queue order. M38 (bilingual inquiry-response drafts for wedding vendors) scores 66 provisional revise: HoneyBook already bundles AI email drafts in every plan from $29 a month, so the only surviving slice is Vietnamese, culturally checked drafts — and whether HoneyBook's own AI already writes adequate Vietnamese when prompted is still UNVERIFIED, as is the timed draft test. M39 (mortgage borrower document-chase drafts) does not get a score at all: it fails the legal gate. The official text read in full on Nov 9 (CFPB, 12 CFR 1008 Appendix C, and California section 10166.03(c)) makes an independent contractor who collects borrower file information or contacts borrowers to obtain it a licensed mortgage loan originator — who reviews or sends the draft does not change that. The two shapes that survive (a supervised loan-processing company, or a template-only product that never touches a borrower file) are different businesses and were not scored in its place. M40 (contractor follow-up drafts) scores 64: Jobber already automates quote follow-ups in English from its $99 tier, but Jobber and Housecall Pro document only English and Spanish, so the Vietnamese wedge survives on paper. M41 (the Pomelli-style brand-asset generator) scores 65 on its narrowed premise only — Pomelli Agent killed the strong no-website hypothesis and Instagram posting narrowed the publishing gap, leaving Vietnamese output with VN-platform formats (H1) and bilingual packs for Vietnamese-American owners (H2); whether VN small businesses pay for asset packs today is still UNVERIFIED, and nothing gets built before a checkpoint score plus owner approval. M42 (college-counselor deadline admin) scores 66: CounselMore already ships deadline tracking and parent portals from $59 a month, so the surviving slice is again the Vietnamese message draft — with the profession's own ethics fence (no essay writing, no admissions advice, no outcome claims) as a hard scope condition. Rulings on old debts: the Checkpoint 2 provisionals for M17-M37 are now LOCKED unchanged — no new verified evidence moved any of them. M03 stays 75 revise: its independent human timed review was not run by today's deadline, and a modelled 45-90 minute estimate blocks the flip to keep but does not meet the verified-evidence standard for cutting a locked score. M05 stays 71: its pilot is now priced ($499 fixed, $149/mo care retainer, platform terms checked Nov 7), but the flip condition — one signed pilot — is still unmet and outreach still needs the owner's approved channel. M16's provisional 65 has expired: the mandatory five-platform application experiment was not run by Nov 13, so under the Checkpoint 1-2 rulings it enters the official round UNSCORED; its pool row stays blank on purpose and it is not in the progress chart. The shortlist for the experiment phase is seven — every candidate scoring 70 or more: M06 data cleaning 82, M07 digital products 78, M17 Google Business Profile 76, M03 translation QA 75, M05 chatbot setup 71, M01 AI writing 70, M02 social-media service 70. This week's intake: screened 21, posted 4 nightly candidates plus the owner's M41. Money spent remains $0. Full package with the QC audit: CHECKPOINT-3-PACKAGE.md.",
+        "vi": "Checkpoint 3 đã đóng, và đây là vòng chấm chính thức đầu tiên của mùa. Hậu tồn chấm điểm đã xử lý 5 trên 5, theo đúng thứ tự hàng chờ. M38 (bản nháp trả lời yêu cầu song ngữ cho nhà cung cấp cưới) đạt 66 điểm tạm ở mức sửa: HoneyBook đã gói sẵn bản nháp email AI trong mọi gói từ $29/tháng, nên lát còn sống duy nhất là bản nháp tiếng Việt có kiểm văn hóa — và việc AI của chính HoneyBook có viết được tiếng Việt đạt chuẩn khi được prompt hay không vẫn UNVERIFIED, bài kiểm bấm giờ cũng vậy. M39 (bản nháp nhắc giấy tờ mortgage cho người vay) không nhận điểm nào cả: nó rớt cổng pháp lý. Văn bản chính thức đọc toàn văn ngày 9/11 (CFPB, 12 CFR 1008 Phụ lục C, và điều 10166.03(c) của California) quy định nhà thầu độc lập thu thập thông tin hồ sơ của người vay hoặc liên lạc với người vay để lấy thông tin đó là chuyên viên vay thế chấp phải có giấy phép — ai duyệt hay ai gửi bản nháp không thay đổi điều đó. Hai dạng còn sống (một công ty xử lý hồ sơ có giám sát, hoặc một sản phẩm chỉ bán mẫu mà không bao giờ chạm hồ sơ người vay) là những doanh nghiệp khác hẳn và không được chấm thay cho nó. M40 (bản nháp theo đuổi báo giá cho nhà thầu) đạt 64: Jobber đã tự động hóa theo đuổi báo giá tiếng Anh từ gói $99, nhưng Jobber và Housecall Pro chỉ ghi tiếng Anh và tiếng Tây Ban Nha nên khe tiếng Việt còn đứng trên giấy. M41 (công cụ tạo ấn phẩm thương hiệu kiểu Pomelli) đạt 65 chỉ trên tiền đề đã thu hẹp — Pomelli Agent đã giết dạng mạnh của giả thuyết không-cần-website và tính năng đăng Instagram đã thu hẹp khe xuất bản, chỉ còn đầu ra tiếng Việt kèm định dạng nền tảng VN (H1) và gói song ngữ cho chủ doanh nghiệp gốc Việt tại Mỹ (H2); việc doanh nghiệp nhỏ VN có trả tiền cho bộ ấn phẩm ngay bây giờ hay không vẫn UNVERIFIED, và không thứ gì được xây trước điểm checkpoint kèm duyệt của chủ dự án. M42 (hỗ trợ nhắc hạn cho cố vấn tuyển sinh) đạt 66: CounselMore đã có sẵn theo dõi hạn và cổng phụ huynh từ $59/tháng, nên lát còn sống lại là bản nháp tin nhắn tiếng Việt — với hàng rào đạo đức của chính ngành (không viết luận, không tư vấn tuyển sinh, không cam kết kết quả) là điều kiện phạm vi cứng. Phán quyết các khoản nợ cũ: điểm tạm Checkpoint 2 của M17–M37 nay đã KHÓA nguyên trạng — không bằng chứng mới đã kiểm chứng nào làm đổi bất kỳ điểm nào. M03 giữ 75 ở mức sửa: lượt review người thật độc lập của nó không được chạy trước hạn hôm nay, và ước lượng mô hình hóa 45–90 phút chặn được việc lật lên keep nhưng không đạt chuẩn bằng chứng đã kiểm chứng để cắt một điểm đã khóa. M05 giữ 71: pilot của nó nay đã có giá ($499 cố định, phí chăm sóc $149/tháng, điều khoản nền tảng đã kiểm ngày 7/11), nhưng điều kiện lật — một pilot có chữ ký — vẫn chưa đạt và khâu tiếp cận khách vẫn cần kênh được chủ dự án duyệt. Điểm tạm 65 của M16 đã hết hạn: thí nghiệm nộp đơn 5 nền tảng bắt buộc không được chạy trước 13/11, nên theo phán quyết Checkpoint 1–2 nó vào vòng chính thức ở trạng thái KHÔNG ĐIỂM; dòng pool của nó cố ý để trống và nó không nằm trong biểu đồ tiến trình. Shortlist cho pha thí nghiệm gồm bảy ứng viên — mọi ứng viên đạt từ 70 điểm trở lên: M06 dọn dữ liệu 82, M07 sản phẩm số 78, M17 Google Business Profile 76, M03 dịch QA 75, M05 thiết lập chatbot 71, M01 viết AI 70, M02 dịch vụ mạng xã hội 70. Nạp tuần này: đã sàng 21, đăng 4 ứng viên hằng đêm cộng ứng viên M41 của chủ dự án. Tiền đã chi vẫn là $0. Gói đầy đủ kèm kiểm toán QC: CHECKPOINT-3-PACKAGE.md."
       }
     }
   ]
