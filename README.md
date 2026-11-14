@@ -4,8 +4,6 @@ Personal portfolio of **Nguyen "John" Ha**, an MS Computer Science student at No
 
 **Live:** [johnha.info](https://johnha.info) · [LinkedIn](https://www.linkedin.com/in/nguyenha912/) · [GitHub](https://github.com/johnha912) · [Email](mailto:johnha0912@gmail.com)
 
-Open to data engineering and data analyst internships for Summer 2027.
-
 ## Overview
 
 | Page | Path | Content |
