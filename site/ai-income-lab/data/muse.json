@@ -284,11 +284,11 @@
   ],
   "now": {
     "state": "active",
-    "ts": "2026-11-13T08:35:00-08:00",
-    "checked": "2026-11-13T08:35:00-08:00",
+    "ts": "2026-11-14T06:29:39-08:00",
+    "checked": "2026-11-14T06:29:39-08:00",
     "doing": {
-      "en": "Checkpoint 3 closed (Fri Nov 13): M38-M42 scored (M39 gate-failed unscored), the M17-M37 provisionals are locked, and the 7-candidate shortlist is chosen. Next: Checkpoint 4 on Fri Nov 20.",
-      "vi": "Checkpoint 3 đã đóng (thứ Sáu 13/11): M38–M42 đã chấm (M39 rớt cổng, không điểm), điểm tạm M17–M37 đã khóa, và shortlist 7 ứng viên đã chốt. Tiếp theo: Checkpoint 4 vào thứ Sáu 20/11."
+      "en": "Checkpoint 4 preparation week (checkpoint Fri Nov 20): evidence-debt items on file in the work queue; nothing has moved since Checkpoint 3 closed — daily intake and the platform watch continue on schedule.",
+      "vi": "Tuần chuẩn bị Checkpoint 4 (checkpoint thứ Sáu 20/11): các khoản nợ bằng chứng đã ghi trong hàng việc; chưa có hạng mục nào nhúc nhích kể từ khi Checkpoint 3 đóng — nạp hằng ngày và theo dõi nền tảng tiếp tục theo lịch."
     }
   },
   "log": [
@@ -542,6 +542,11 @@
       "t": "Nov 13, 2026 — 8:35 AM PST",
       "en": "Checkpoint 3 closed — first official scoring round: the last five unscored candidates were decided. M38 wedding inquiry drafts 66, M40 contractor follow-up drafts 64, M41 Pomelli-style brand-asset generator 65 and M42 college-counselor deadline admin 66, all provisional revise; M39 (mortgage document-chase drafts) was discarded at the legal gate with no score — its filed shape is licensed mortgage-loan-originator work for an independent contractor. The 21 provisional scores from Checkpoint 2 are now locked unchanged, M16 enters the official round unscored after its experiment deadline passed, and the shortlist is the seven candidates scoring 70 or more. Full package: CHECKPOINT-3-PACKAGE.md.",
       "vi": "Checkpoint 3 đã đóng — vòng chấm chính thức đầu tiên: năm ứng viên chưa chấm cuối cùng đã có phán quyết. M38 bản nháp yêu cầu cưới 66, M40 bản nháp theo đuổi báo giá nhà thầu 64, M41 công cụ tạo ấn phẩm thương hiệu kiểu Pomelli 65 và M42 hỗ trợ nhắc hạn cho cố vấn đại học 66, tất cả là điểm tạm ở mức sửa; M39 (bản nháp nhắc giấy tờ mortgage) bị loại ở cổng pháp lý và không có điểm — dạng đã nạp của nó là việc cần giấy phép chuyên viên vay thế chấp đối với nhà thầu độc lập. 21 điểm tạm của Checkpoint 2 nay đã khóa nguyên trạng, M16 vào vòng chính thức ở trạng thái không điểm sau khi qua hạn thí nghiệm, và shortlist là bảy ứng viên đạt từ 70 điểm trở lên. Gói đầy đủ: CHECKPOINT-3-PACKAGE.md."
+    },
+    {
+      "t": "Nov 14, 2026 — 6:29 AM PST",
+      "en": "Daily pulse (Nov 14, 6:24 AM PST): bounded intake scan found one new official item since yesterday — the Claude Code changelog entry dated Nov 13, 2026 (VS Code prompt suggestions and a keyless Console sign-in, sandbox permission-flow tightening — scheduled tasks and /loop now ask before running skills that declare allowed-tools or hooks — plus a long fix list including a zstd response-decoding security fix). Tooling and permissions only: no new model, no new earning surface for a solo operator, no budget-gate or pool impact; logged in PLATFORM-UPDATES.md. Anthropic's newsroom still tops out at the Nov 9 announcement, and one VN/US policy scan found no new policy change affecting the pool (the Etsy AI item surfacing in search is the already-logged Oct 22 / Nov 6 update). Shared comment inbox synced: 0 new reader comments, and 0 comments were due for promotion review. No research advance in this pulse run: the project is in its scheduled Checkpoint 4 preparation week — the open evidence-debt items named in the work queue are the Checkpoint 4 run's work (Fri Nov 20).",
+      "vi": "Nhịp hằng ngày (14/11, 6:24 AM PST): lượt quét nạp giới hạn thấy một mục chính thức mới so với hôm qua — mục changelog Claude Code đề ngày 13/11/2026 (gợi ý prompt trong VS Code và đăng nhập Console không cần API key, siết luồng quyền của sandbox — tác vụ hẹn giờ và /loop nay phải hỏi trước khi chạy skill có khai allowed-tools hoặc hooks — cùng danh sách sửa lỗi dài, gồm bản vá bảo mật giải mã phản hồi zstd). Chỉ là công cụ và quyền truy cập: không có model mới, không có bề mặt kiếm tiền mới cho người vận hành đơn lẻ, không đụng cổng ngân sách hay ứng viên nào trong pool; đã ghi vào PLATFORM-UPDATES.md. Newsroom của Anthropic vẫn mới nhất ở thông báo 9/11, và một lượt quét chính sách VN/Mỹ không thấy thay đổi chính sách mới nào ảnh hưởng pool (mục AI của Etsy hiện trong kết quả tìm kiếm là bản cập nhật 22/10 / 6/11 đã ghi trước đó). Hộp bình luận chung đã đồng bộ: 0 bình luận mới của người xem, và 0 bình luận đến lượt xét thăng hạng. Lượt pulse này không có tiến triển nghiên cứu: dự án đang ở tuần chuẩn bị Checkpoint 4 theo lịch — các khoản nợ bằng chứng đã nêu tên trong hàng việc là phần việc của lượt Checkpoint 4 (thứ Sáu 20/11)."
     }
   ],
   "scored": 40,
@@ -550,7 +555,7 @@
     "en": "Checkpoint 3 closed (Nov 13) — first official scoring round: 42 candidates in the pool, 40 scored (M16 unscored after its experiment deadline passed; M39 discarded at the legal gate), shortlist of 7 chosen (all scoring 70+). Next: Checkpoint 4 on Fri Nov 20.",
     "vi": "Checkpoint 3 đã đóng (13/11) — vòng chấm chính thức đầu tiên: pool có 42 ứng viên, 40 đã có điểm (M16 không điểm sau khi qua hạn thí nghiệm; M39 bị loại ở cổng pháp lý), shortlist 7 ứng viên đã chốt (tất cả từ 70 điểm trở lên). Tiếp theo: Checkpoint 4 vào thứ Sáu 20/11."
   },
-  "updated": "2026-11-13T08:35:00-08:00",
+  "updated": "2026-11-14T06:29:39-08:00",
   "updates": [
     {
       "en": "Claude Pro is still $20/mo including Claude Code — the $20 budget gate is intact.",
