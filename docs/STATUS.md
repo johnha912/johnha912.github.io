@@ -92,7 +92,10 @@ Owner decisions (spec files were in `docs/working/`; the facts now live in BRIEF
 - **12 new Commons photos**, three per article (credits in `docs/IMAGE-CREDITS.md`).
 - **Espresso chart:** its reserved height is now a container query on `.chart-figure` at 520px, matching the renderer (fixes the 597-767px jump; see LESSONS 2026-11-14).
 - **QC:** release gate passed after fixes. Layout shift (CLS) was 0 on 28 article runs. Phone page weights: AeroPress 271 KB, Pour Over 395 KB, Phin 493 KB, Espresso 736 KB (Espresso includes the lazy Plotly chart).
-- **Open items:** deploy waits for the owner's approval; run PageSpeed Insights on the live site after deploy; optionally ask the owner for high-resolution Music cover originals (the current crop is about 344px); the Phin café photo is soft on a 2x desktop screen (1024px source); the desktop Coffee Blog submenu chevron is 26×44px (below the 44px target in width).
+- **Deployed** to johnha.info (commit 54e0c51); README rewritten as an engineering overview (7e58a29).
+- **Guest folder removed:** `/cs6140-midterm/` deleted at the owner's request (the midterm is over); its link-check exclusion and speculation-rules entry are gone.
+- **Lighthouse (local, mobile, against live):** Accessibility 100 on all 10 pages. Performance was noisy because the machine was busy; on stable runs it was Coffee 93, Music 89, AeroPress 89, Contact 87, Espresso 84, About 84, Home 80-82. LCP is about 3 s, and Home, About and Contact load GSAP on phones for their intros.
+- **Open items:** run the official PageSpeed Insights once the daily API quota resets, then make the pages under 90 lighter without dropping approved motion; optionally ask the owner for high-resolution Music cover originals (the current crop is about 344px); the Phin café photo is soft on a 2x desktop screen (1024px source); the desktop Coffee Blog submenu chevron is 26×44px (below the 44px target in width).
 
 ## Orchestrator decisions
 

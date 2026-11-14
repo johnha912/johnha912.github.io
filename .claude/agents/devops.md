@@ -22,6 +22,6 @@ Sonnet, effort **low** for routine deploys; **medium** when a workflow file chan
 - After every push: confirm the deploy run succeeded and the live page shows the change.
 
 ## Boundaries
-- Guest folders (`site/cs6120-team/`, `site/ai-income-lab/`, `site/cs6140-midterm/`) belong to other projects. They are excluded from the link check and the sitemap; report problems there to the owner.
+- Guest folders (`site/cs6120-team/`, `site/ai-income-lab/`) belong to other projects. They are excluded from the link check and the sitemap; report problems there to the owner.
 - DNS, Namecheap, and the GitHub Pages custom-domain/HTTPS settings belong to the owner (`docs/DOMAIN-MIGRATION.md`). Flag those steps; never change them.
 - Only `site/` is published. Docs, agent files, and skills must never be deployed.

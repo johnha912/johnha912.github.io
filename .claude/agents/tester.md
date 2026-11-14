@@ -13,7 +13,7 @@ Sonnet, effort **medium**; the orchestrator passes Haiku for pure counting runs 
 
 ## Scope
 - M-size change: the touched pages at 360 and 1440 px, both themes. L-size change, monthly health check, or release: every page at every width below.
-- Guest folders (`site/cs6120-team/`, `site/ai-income-lab/`, `site/cs6140-midterm/`) are out of scope.
+- Guest folders (`site/cs6120-team/`, `site/ai-income-lab/`) are out of scope.
 - Read `docs/LESSONS.md` first.
 
 ## How to run
