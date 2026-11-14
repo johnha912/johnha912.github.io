@@ -39,20 +39,18 @@
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Nguyen “John” Ha, MSCS at Northeastern University with a data engineering focus">
 <meta name="twitter:card" content="summary_large_image">
-<script>(function(){var t="dark";try{if(localStorage.getItem("theme")==="light")t="light"}catch(e){}document.documentElement.dataset.theme=t})()</script>
-<link rel="preload" href="/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<script>(function(){var t="dark";try{if(localStorage.getItem("theme")==="light")t="light"}catch(e){}document.documentElement.dataset.theme=t;if(matchMedia("(prefers-reduced-motion: no-preference)").matches)document.documentElement.classList.add("motion-intro")})()</script>
+<script>(function(d){var q=function(m){return matchMedia(m).matches},l=q("(hover: hover) and (pointer: fine)")?["ScrollTrigger","ScrollSmoother"]:[];if(!q("(prefers-reduced-motion: no-preference)"))return;["gsap"].concat(l).map(function(n){return"/assets/js/vendor/gsap-3.15.1/"+n+".min.js"}).concat("/assets/js/motion.js").forEach(function(u){var s=d.createElement("script");s.src=u;s.async=false;d.head.appendChild(s)})})(document)</script>
+<script type="speculationrules">{"prefetch":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"/(ai-income-lab|cs6120-team|cs6140-midterm|family-visit)/*"}}]},"eagerness":"moderate"}]}</script>
+<link rel="preload" href="/assets/fonts/google-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/css/site.css">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
-<script src="/assets/js/vendor/gsap-3.15.1/gsap.min.js" defer></script>
-<script src="/assets/js/vendor/gsap-3.15.1/ScrollTrigger.min.js" defer></script>
-<script src="/assets/js/vendor/gsap-3.15.1/ScrollSmoother.min.js" defer></script>
-<script src="/assets/js/motion.js" defer></script>
 <script src="/assets/js/site.js" defer></script>
 </head>
-<body id="top">
+<body id="top" class="page-about">
 <a class="skip-link" href="#main">Skip to content</a>
 <div class="ambient" aria-hidden="true"></div>
 <header class="nav" data-nav>
@@ -96,59 +94,60 @@
 
 <section class="container" aria-label="Photos">
   <div class="collage">
-    <figure class="frame sq" data-reveal style="--i:0"><img src="/assets/img/about-collage-2-800.webp" srcset="/assets/img/about-collage-2-480.webp 480w, /assets/img/about-collage-2-800.webp 800w" sizes="(min-width: 48rem) 33vw, 100vw" width="800" height="800" alt="John presenting customer satisfaction survey findings to a lecture hall" loading="lazy" decoding="async"></figure>
-    <figure class="frame sq" data-reveal style="--i:1"><img src="/assets/img/about-collage-3-800.webp" srcset="/assets/img/about-collage-3-480.webp 480w, /assets/img/about-collage-3-800.webp 800w" sizes="(min-width: 48rem) 33vw, 50vw" width="800" height="600" alt="John presenting packaged food products to visitors at a trade showcase" loading="lazy" decoding="async"></figure>
-    <figure class="frame sq" data-reveal style="--i:2"><img src="/assets/img/about-collage-4-800.webp" srcset="/assets/img/about-collage-4-480.webp 480w, /assets/img/about-collage-4-800.webp 800w" sizes="(min-width: 48rem) 33vw, 50vw" width="800" height="600" alt="John volunteering at a food pantry, wearing a name tag and gloves beside a bin of dried beans" loading="lazy" decoding="async"></figure>
+    <figure class="frame sq"><img src="/assets/img/about-collage-2-800.webp" srcset="/assets/img/about-collage-2-480.webp 480w, /assets/img/about-collage-2-800.webp 800w" sizes="(min-width: 48rem) 33vw, 100vw" width="800" height="800" alt="John presenting customer satisfaction survey findings to a lecture hall" loading="lazy" decoding="async"></figure>
+    <figure class="frame sq"><img src="/assets/img/about-collage-3-800.webp" srcset="/assets/img/about-collage-3-480.webp 480w, /assets/img/about-collage-3-800.webp 800w" sizes="(min-width: 48rem) 33vw, 50vw" width="800" height="600" alt="John presenting packaged food products to visitors at a trade showcase" loading="lazy" decoding="async"></figure>
+    <figure class="frame sq"><img src="/assets/img/about-collage-4-800.webp" srcset="/assets/img/about-collage-4-480.webp 480w, /assets/img/about-collage-4-800.webp 800w" sizes="(min-width: 48rem) 33vw, 50vw" width="800" height="600" alt="John volunteering at a food pantry, wearing a name tag and gloves beside a bin of dried beans" loading="lazy" decoding="async"></figure>
   </div>
 </section>
 
-<section class="container container--narrow">
-  <p class="intro" data-reveal>Hi, I’m <strong>Nguyên, or you can just call me John!</strong> I started in business: international business in Ho Chi Minh City, a master’s in marketing in Boston, then years in <strong>market research</strong>. From there I moved into <strong>financial engineering</strong>, and now <strong>computer science at Northeastern University</strong>, where I’m focused on <strong>data engineering</strong>. I’m passionate about leveraging technology, finance, and data-driven insights to solve real-world challenges.</p>
-  <ol class="journey" aria-label="Career path" data-reveal>
-    <li>Marketing &amp; market research</li>
-    <li>Financial engineering</li>
-    <li>Computer science &amp; data</li>
+<section class="container">
+  <p class="intro">Hi, I’m <strong>Nguyên, or you can just call me John!</strong> I started in business: international business in Ho Chi Minh City, a master’s in marketing in Boston, then years in <strong>market research</strong>. From there I moved into <strong>financial engineering</strong>, and now <strong>computer science at Northeastern University</strong>, where I’m focused on <strong>data engineering</strong>. I’m passionate about leveraging technology, finance, and data-driven insights to solve real-world challenges.</p>
+</section>
+
+
+<section class="container section about-block">
+  <h2 class="about-block__title">Educational Background</h2>
+  <ol class="ledger">
+    <li class="is-current"><span class="ledger__date">2025 – 2028 (expected)</span><span class="ledger__mark ledger__mark--neu" aria-hidden="true"></span><span class="ledger__school">Northeastern University, Silicon Valley</span><span class="ledger__degree">MSc in Computer Science</span></li>
+    <li><span class="ledger__date">2023 – 2025</span><span class="ledger__mark ledger__mark--wqu" aria-hidden="true"></span><span class="ledger__school">WorldQuant University (Remote)</span><span class="ledger__degree">MSc in Financial Engineering</span></li>
+    <li><span class="ledger__date">2018 – 2020</span><span class="ledger__mark ledger__mark--suffolk" aria-hidden="true"></span><span class="ledger__school">Suffolk University, Boston</span><span class="ledger__degree">MSc in Marketing</span></li>
+    <li><span class="ledger__date">2013 – 2017</span><span class="ledger__mark ledger__mark--ueh" aria-hidden="true"></span><span class="ledger__school">University of Economics Ho Chi Minh City (UEH)</span><span class="ledger__degree">BS in International Business</span></li>
   </ol>
 </section>
 
-<section class="container section">
-  <div class="two-col">
-    <div data-reveal>
-      <h2 class="section-title">Educational Background</h2>
-      <ol class="timeline">
-        <li><span class="timeline__date">2025 – 2028 (expected)</span><span class="timeline__school">Northeastern University, Silicon Valley</span><span class="timeline__degree">MSc in Computer Science</span></li>
-        <li><span class="timeline__date">2023 – 2025</span><span class="timeline__school">WorldQuant University (Remote)</span><span class="timeline__degree">MSc in Financial Engineering</span></li>
-        <li><span class="timeline__date">2018 – 2020</span><span class="timeline__school">Suffolk University, Boston</span><span class="timeline__degree">MSc in Marketing</span></li>
-        <li><span class="timeline__date">2013 – 2017</span><span class="timeline__school">University of Economics Ho Chi Minh City (UEH)</span><span class="timeline__degree">BS in International Business</span></li>
-      </ol>
-    </div>
-    <div data-reveal style="--i:1">
-      <h2 class="section-title">Credentials</h2>
-      <h3 class="sub-title">Badge &amp; Profile</h3>
-      <ul class="link-list link-list--pair">
-        <li><a class="link-card sq" href="https://www.credly.com/users/johnha912" target="_blank" rel="noopener"><span><span class="link-card__meta">Credly</span><br><span class="link-card__title">Verified badges</span><span class="visually-hidden"> (opens in a new tab)</span></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 17.5 17.5 6.5M8.5 6.5h9v9"/></svg></a></li>
-        <li><a class="link-card sq" href="https://www.kaggle.com/johnha9" target="_blank" rel="noopener"><span><span class="link-card__meta">Kaggle</span><br><span class="link-card__title">Data science profile</span><span class="visually-hidden"> (opens in a new tab)</span></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 17.5 17.5 6.5M8.5 6.5h9v9"/></svg></a></li>
-      </ul>
-      <h3 class="sub-title">Certificate</h3>
-      <ul class="link-list">
-        <li><a class="link-card sq" href="https://www.coursera.org/account/accomplishments/professional-cert/FBMBYKNCN4NZ" target="_blank" rel="noopener"><span><span class="link-card__meta">Coursera · IBM</span><br><span class="link-card__title">IBM AI Engineering Professional Certificate</span><span class="visually-hidden"> (opens in a new tab)</span></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 17.5 17.5 6.5M8.5 6.5h9v9"/></svg></a></li>
-        <li><a class="link-card sq" href="https://credentials.edx.org/credentials/36993d02d5b44feaaf65469ed0a9534f/" target="_blank" rel="noopener"><span><span class="link-card__meta">edX · HarvardX</span><br><span class="link-card__title">CS50: Computer Science for Python Programming</span><span class="visually-hidden"> (opens in a new tab)</span></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 17.5 17.5 6.5M8.5 6.5h9v9"/></svg></a></li>
-      </ul>
-    </div>
-  </div>
+<section class="container section about-block">
+  <h2 class="about-block__title">Credentials</h2>
+  <h3 class="about-block__sub">Badge &amp; Profile</h3>
+  <ul class="stack stack--meta">
+    <li><a class="stack__btn" href="https://www.credly.com/users/johnha912" target="_blank" rel="noopener">
+      <span class="stack__label"><span class="stack__desc">Credly</span><span class="stack__title"><span>Verified badges</span></span></span><span class="visually-hidden"> (opens in a new tab)</span>
+      <span class="stack__arrow is-ext" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a></li>
+    <li><a class="stack__btn" href="https://www.kaggle.com/johnha9" target="_blank" rel="noopener">
+      <span class="stack__label"><span class="stack__desc">Kaggle</span><span class="stack__title"><span>Data science profile</span></span></span><span class="visually-hidden"> (opens in a new tab)</span>
+      <span class="stack__arrow is-ext" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a></li>
+  </ul>
+  <h3 class="about-block__sub">Certificate</h3>
+  <ul class="stack stack--meta">
+    <li><a class="stack__btn" href="https://www.coursera.org/account/accomplishments/professional-cert/FBMBYKNCN4NZ" target="_blank" rel="noopener">
+      <span class="stack__label"><span class="stack__desc">Coursera · IBM</span><span class="stack__title"><span>IBM AI Engineering Professional Certificate</span></span></span><span class="visually-hidden"> (opens in a new tab)</span>
+      <span class="stack__arrow is-ext" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a></li>
+    <li><a class="stack__btn" href="https://credentials.edx.org/credentials/36993d02d5b44feaaf65469ed0a9534f/" target="_blank" rel="noopener">
+      <span class="stack__label"><span class="stack__desc">edX · HarvardX</span><span class="stack__title"><span>CS50: Computer Science for Python Programming</span></span></span><span class="visually-hidden"> (opens in a new tab)</span>
+      <span class="stack__arrow is-ext" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a></li>
+  </ul>
 </section>
 
-<section class="container section--tight" style="padding-bottom: var(--space-9)">
-  <div class="callout sq" data-reveal>
-    <div>
-      <span class="pill pill--status pill--live">Open to Summer 2027 internships</span>
-      <h2 style="margin-top: var(--space-4)">Data engineering &amp; data analyst roles.</h2>
-      <p>See what I’m building right now, or reach out directly.</p>
-    </div>
-    <div class="btn-row">
-      <a class="btn btn--primary" href="/tech/">View projects <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      <a class="btn btn--ghost" href="/contact/">Contact</a>
-    </div>
+<section class="container section about-cta">
+  <p class="pill pill--status pill--live">Open to Summer 2027 internships</p>
+  <h2 class="about-cta__title">Data engineering &amp; data analyst roles.</h2>
+  <p>See what I’m building right now, or reach out directly.</p>
+  <div class="btn-row">
+    <a class="btn btn--primary" href="/tech/">View projects <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <a class="btn btn--ghost" href="/contact/">Contact</a>
   </div>
 </section>
 </main>

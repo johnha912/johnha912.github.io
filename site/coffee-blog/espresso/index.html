@@ -40,16 +40,14 @@
 <meta property="og:image:alt" content="Nguyen “John” Ha, MSCS at Northeastern University with a data engineering focus">
 <meta name="twitter:card" content="summary_large_image">
 <script>(function(){var t="dark";try{if(localStorage.getItem("theme")==="light")t="light"}catch(e){}document.documentElement.dataset.theme=t})()</script>
-<link rel="preload" href="/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<script>(function(d,x){var q=function(m){return matchMedia(m).matches},l=q("(hover: hover) and (pointer: fine)")?["ScrollTrigger","ScrollSmoother"]:[];if(!q("(prefers-reduced-motion: no-preference)")||!(l=l.concat(x)).length)return;["gsap"].concat(l).map(function(n){return"/assets/js/vendor/gsap-3.15.1/"+n+".min.js"}).concat("/assets/js/motion.js").forEach(function(u){var s=d.createElement("script");s.src=u;s.async=false;d.head.appendChild(s)})})(document,[])</script>
+<script type="speculationrules">{"prefetch":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"/(ai-income-lab|cs6120-team|cs6140-midterm|family-visit)/*"}}]},"eagerness":"moderate"}]}</script>
+<link rel="preload" href="/assets/fonts/google-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/css/site.css">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
-<script src="/assets/js/vendor/gsap-3.15.1/gsap.min.js" defer></script>
-<script src="/assets/js/vendor/gsap-3.15.1/ScrollTrigger.min.js" defer></script>
-<script src="/assets/js/vendor/gsap-3.15.1/ScrollSmoother.min.js" defer></script>
-<script src="/assets/js/motion.js" defer></script>
 <script src="/assets/js/site.js" defer></script>
 <script src="/assets/js/espresso-chart.js" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Espresso Explained: Brew Ratio, Extraction and TDS","description":"What makes a good espresso: dose, the 1:2 brew ratio, 25–30 second shots, 9 bars, and how TDS and extraction yield fit together, with an interactive chart.","image":["https://johnha.info/assets/img/coffee-espresso-1600.webp"],"author":{"@type":"Person","name":"Nguyen Ha","alternateName":"John Ha","url":"https://johnha.info/about/"},"dateModified":"2026-10-07","inLanguage":"en-US","mainEntityOfPage":"https://johnha.info/coffee-blog/espresso/"}</script>
@@ -93,18 +91,28 @@
 </header>
 <main id="main">
 
-<article>
-  <header class="container container--narrow article-head">
-    <nav aria-label="Breadcrumb"><ol class="breadcrumb"><li><a href="/coffee-blog/">Coffee Blog</a></li><li aria-current="page">Espresso</li></ol></nav>
-    <h1 class="page-head__title">Espresso Explained: Brew Ratio, Extraction and TDS</h1>
-    <p class="byline">By <a href="/about/">Nguyen “John” Ha</a> · Updated <time datetime="2026-10-07">October 7, 2026</time></p>
-    <div class="article-hero-art sq"><svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Line drawing of an espresso cup with steam"><path d="M30 58h50v8c0 16-11 26-25 26S30 82 30 66z"/><path d="M80 63h6a8 8 0 0 1 0 16h-7"/><ellipse cx="55" cy="58" rx="25" ry="4"/><path d="M20 98h72" /><path d="M28 104h56" opacity=".5"/><path d="M46 28c-4 5 4 8 0 14M58 24c-4 5 4 8 0 14M70 28c-4 5 4 8 0 14"/></svg></div>
+<article class="brew">
+  <header class="brew-head">
+    <div class="container">
+      <div class="brew-head__text">
+        <nav aria-label="Breadcrumb"><ol class="breadcrumb"><li><a href="/coffee-blog/">Coffee Blog</a></li><li aria-current="page">Espresso</li></ol></nav>
+        <h1 class="page-head__title">Espresso Explained: Brew Ratio, Extraction and TDS</h1>
+        <p class="byline">By <a href="/about/">Nguyen “John” Ha</a> · Updated <time datetime="2026-10-07">October 7, 2026</time></p>
+      </div>
+      <figure class="prose-figure brew-hero">
+        <div class="frame sq"><img src="/assets/img/coffee-espresso-1600.webp" srcset="/assets/img/coffee-espresso-640.webp 640w, /assets/img/coffee-espresso-1024.webp 1024w, /assets/img/coffee-espresso-1200.webp 1200w, /assets/img/coffee-espresso-1600.webp 1600w" sizes="(min-width: 76rem) 72rem, calc(100vw - 2rem)" width="1600" height="1000" alt="A double espresso in a white demitasse with a thick, tiger-striped golden crema" fetchpriority="high" decoding="async"></div>
+        <figcaption>A double espresso with a thick, tiger-striped crema, the sign of a fresh, well-extracted shot. <span class="credit">Photo: <a href="https://commons.wikimedia.org/wiki/File:Double_Espresso_Shot_in_a_Demitasse.jpg" target="_blank" rel="noopener">Double Espresso Shot in a Demitasse</a> by massage-techniques, <a href="https://creativecommons.org/licenses/by-sa/2.0/" target="_blank" rel="noopener license">CC BY-SA 2.0</a>, via Wikimedia Commons (cropped, resized, and color-graded; shared under CC BY-SA 2.0).</span></figcaption>
+      </figure>
+    </div>
   </header>
-  <div class="container container--narrow prose" style="padding-bottom: var(--space-9)">
 
-    <aside class="glance sq" aria-label="At a glance">
-      <p class="glance__title">At a glance</p>
-      <dl>
+  <section class="chapter chapter--band chapter--glance">
+    <div class="container chapter__inner">
+      <div class="article-hero sq">
+    <div class="article-hero-art sq"><svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Line drawing of an espresso cup with steam"><path d="M30 58h50v8c0 16-11 26-25 26S30 82 30 66z"/><path d="M80 63h6a8 8 0 0 1 0 16h-7"/><ellipse cx="55" cy="58" rx="25" ry="4"/><path d="M20 98h72" /><path d="M28 104h56" opacity=".5"/><path d="M46 28c-4 5 4 8 0 14M58 24c-4 5 4 8 0 14M70 28c-4 5 4 8 0 14"/></svg></div>
+    <aside class="glance" aria-labelledby="glance-title">
+      <h2 class="glance__title" id="glance-title">At a glance</h2>
+      <dl class="lines">
         <div><dt>Dose</dt><dd>18–20 g for a double shot</dd></div>
         <div><dt>Brew ratio</dt><dd>about 1:2 (around 36–40 g out)</dd></div>
         <div><dt>Time</dt><dd>25–30 seconds</dd></div>
@@ -113,46 +121,86 @@
         <div><dt>Target</dt><dd>18–22% extraction, 8–12% TDS</dd></div>
       </dl>
     </aside>
+    </div>
+    </div>
+  </section>
 
-    <h2>What is espresso?</h2>
-    <p>Do I really need to introduce this? Just kidding. Espresso is a small, concentrated coffee made by forcing hot water through finely ground, tightly packed coffee at high pressure. The Specialty Coffee Association’s classic definition is a 25–35 ml drink brewed from 7–9 g of coffee (14–18 g for a double) with water at 90.5–96.1 °C, at 9–10 atmospheres of pressure, in 20–30 seconds, topped with a thick, dark golden crema. Modern cafés have moved on a little: a 2016 survey of baristas found the typical shot uses an 18–20 g dose, yields about 36.5 g, and runs 25–30 seconds at 9 bars, close to a 1:2 brew ratio (Specialty Coffee Association, 2018). Espresso is also the base of lattes, cappuccinos, and Americanos.</p>
-    <figure class="prose-figure">
-      <div class="frame sq" style="aspect-ratio: 16 / 10"><img src="/assets/img/coffee-espresso-1600.webp" srcset="/assets/img/coffee-espresso-640.webp 640w, /assets/img/coffee-espresso-1024.webp 1024w, /assets/img/coffee-espresso-1600.webp 1600w" sizes="(min-width: 48rem) 42rem, 100vw" width="1600" height="1000" alt="A double espresso in a white demitasse with a thick, tiger-striped golden crema" loading="lazy" decoding="async"></div>
-      <figcaption>A double espresso with a thick, tiger-striped crema, the sign of a fresh, well-extracted shot. <span class="credit">Photo: <a href="https://commons.wikimedia.org/wiki/File:Double_Espresso_Shot_in_a_Demitasse.jpg" target="_blank" rel="noopener">Double Espresso Shot in a Demitasse</a> by massage-techniques, <a href="https://creativecommons.org/licenses/by-sa/2.0/" target="_blank" rel="noopener license">CC BY-SA 2.0</a>, via Wikimedia Commons (cropped, resized, and color-graded; shared under CC BY-SA 2.0).</span></figcaption>
-    </figure>
+  <section class="chapter" aria-labelledby="what">
+    <div class="container chapter__inner">
+      <h2 class="chapter__title" id="what">What is espresso?</h2>
+      <p class="chapter__lede">Do I really need to introduce this? Just kidding. Espresso is a small, concentrated coffee made by forcing hot water through finely ground, tightly packed coffee at high pressure.</p>
+      <div class="chapter__body prose">
+        <p>The Specialty Coffee Association’s classic definition is a 25–35 ml drink brewed from 7–9 g of coffee (14–18 g for a double) with water at 90.5–96.1 °C, at 9–10 atmospheres of pressure, in 20–30 seconds, topped with a thick, dark golden crema. Modern cafés have moved on a little: a 2016 survey of baristas found the typical shot uses an 18–20 g dose, yields about 36.5 g, and runs 25–30 seconds at 9 bars, close to a 1:2 brew ratio (Specialty Coffee Association, 2018). Espresso is also the base of lattes, cappuccinos, and Americanos.</p>
+      </div>
+      <figure class="prose-figure figure-wide">
+        <div class="frame sq"><img src="/assets/img/coffee-espresso-machine-1600.webp" srcset="/assets/img/coffee-espresso-machine-640.webp 640w, /assets/img/coffee-espresso-machine-1200.webp 1200w, /assets/img/coffee-espresso-machine-1600.webp 1600w" sizes="(min-width: 76rem) 72rem, calc(100vw - 2rem)" width="1600" height="1000" alt="A stainless steel espresso machine with a temperature display and a round pressure gauge, next to a burr grinder" loading="lazy" decoding="async"></div>
+        <figcaption>A semiautomatic espresso machine with a PID display and pressure gauge. <span class="credit">Photo: <a href="https://commons.wikimedia.org/wiki/File:Lelit_Semiautomatic_Espresso_Machine_with_PID_and_Pressure_Gauge.jpg" target="_blank" rel="noopener">Lelit Semiautomatic Espresso Machine with PID and Pressure Gauge</a> by massage-techniques, <a href="https://creativecommons.org/licenses/by-sa/2.0/" target="_blank" rel="noopener license">CC BY-SA 2.0</a>, via Wikimedia Commons (cropped and resized; shared under CC BY-SA 2.0).</span></figcaption>
+      </figure>
+    </div>
+  </section>
 
-    <h2>My usual espresso profile</h2>
-    <dl class="profile">
-      <div><dt>Coffee</dt><dd>18–20 g<small>8–10 g for a single shot</small></dd></div>
-      <div><dt>Grind size</dt><dd>Fine<small>Finer than for pour-over; dial in by time</small></dd></div>
-      <div><dt>Water temp.</dt><dd>88–96 °C<small>190–205 °F</small></dd></div>
-      <div><dt>Pressure</dt><dd>8–10 bars</dd></div>
-      <div><dt>Brew time</dt><dd>25–30 s</dd></div>
-      <div><dt>Yield</dt><dd>1 oz (30 ml)<small>Single shot; 2 oz for a double</small></dd></div>
-    </dl>
+  <section class="chapter chapter--band" aria-labelledby="profile">
+    <div class="container chapter__inner">
+      <h2 class="chapter__title" id="profile">My usual espresso profile</h2>
+      <dl class="lines chapter__body">
+        <div><dt>Coffee</dt><dd>18–20 g<small>8–10 g for a single shot</small></dd></div>
+        <div><dt>Grind size</dt><dd>Fine<small>Finer than for pour-over; dial in by time</small></dd></div>
+        <div><dt>Water temp.</dt><dd>88–96 °C<small>190–205 °F</small></dd></div>
+        <div><dt>Pressure</dt><dd>8–10 bars</dd></div>
+        <div><dt>Brew time</dt><dd>25–30 s</dd></div>
+        <div><dt>Yield</dt><dd>1 oz (30 ml)<small>Single shot; 2 oz for a double</small></dd></div>
+      </dl>
+    </div>
+  </section>
 
-    <h2>How to pull an espresso shot, step by step</h2>
-    <ol class="steps">
-      <li><strong>Dose and grind. </strong>Weigh 18–20 g of coffee for a double and grind it fine, just before brewing.</li>
-      <li><strong>Distribute and tamp. </strong>Level the grounds in the basket, then tamp firmly and evenly. A level, consistent tamp matters more than how hard you press (Jemison, 2022).</li>
-      <li><strong>Brew. </strong>Start the shot and a timer together. Aim for about twice the dose in the cup (around 36–40 g) in 25–30 seconds.</li>
-      <li><strong>Adjust. </strong>If the shot runs fast and tastes sour, grind finer. If it runs slow and tastes bitter, grind coarser. Change one variable at a time (Jemison, 2022).</li>
-      <li><strong>Taste. </strong>The numbers are a starting point; the cup decides.</li>
-    </ol>
+  <section class="chapter" aria-labelledby="steps">
+    <div class="container chapter__inner">
+      <h2 class="chapter__title" id="steps">How to pull an espresso shot, step by step</h2>
+      <ol class="steps steps--cards chapter__body">
+        <li><strong>Dose and grind. </strong>Weigh 18–20 g of coffee for a double and grind it fine, just before brewing.</li>
+        <li><strong>Distribute and tamp. </strong>Level the grounds in the basket, then tamp firmly and evenly. A level, consistent tamp matters more than how hard you press (Jemison, 2022).</li>
+        <li><strong>Brew. </strong>Start the shot and a timer together. Aim for about twice the dose in the cup (around 36–40 g) in 25–30 seconds.</li>
+        <li><strong>Adjust. </strong>If the shot runs fast and tastes sour, grind finer. If it runs slow and tastes bitter, grind coarser. Change one variable at a time (Jemison, 2022).</li>
+        <li><strong>Taste. </strong>The numbers are a starting point; the cup decides.</li>
+      </ol>
+      <div class="figure-pair">
+        <figure class="prose-figure">
+          <div class="frame sq"><img src="/assets/img/coffee-espresso-grinder-960.webp" srcset="/assets/img/coffee-espresso-grinder-560.webp 560w, /assets/img/coffee-espresso-grinder-960.webp 960w" sizes="(min-width: 60rem) 35rem, calc(50vw - 1.5rem)" width="960" height="1200" alt="A conical burr coffee grinder with beans in its hopper, beside a tin of coffee" loading="lazy" decoding="async"></div>
+          <figcaption>A Baratza Encore burr grinder and a jar of beans. <span class="credit">Photo: <a href="https://commons.wikimedia.org/wiki/File:Baratza_Encore_burr_coffee_grinder_and_coffee_beans.jpg" target="_blank" rel="noopener">Baratza Encore burr coffee grinder and coffee beans</a> by massage-techniques, <a href="https://creativecommons.org/licenses/by-sa/2.0/" target="_blank" rel="noopener license">CC BY-SA 2.0</a>, via Wikimedia Commons (cropped and resized; shared under CC BY-SA 2.0).</span></figcaption>
+        </figure>
+        <figure class="prose-figure">
+          <div class="frame sq"><img src="/assets/img/coffee-espresso-portafilter-960.webp" srcset="/assets/img/coffee-espresso-portafilter-560.webp 560w, /assets/img/coffee-espresso-portafilter-960.webp 960w" sizes="(min-width: 60rem) 35rem, calc(50vw - 1.5rem)" width="960" height="1200" alt="A filled portafilter, a wooden-handled tamper and a second portafilter on a tamping mat, an espresso machine behind" loading="lazy" decoding="async"></div>
+          <figcaption>A dosed portafilter, a tamper and the machine, just before pulling a shot. <span class="credit">Photo: <a href="https://commons.wikimedia.org/wiki/File:Just_before_pulling_an_espresso_shot.jpg" target="_blank" rel="noopener">Just before pulling an espresso shot</a> by massage-techniques, <a href="https://creativecommons.org/licenses/by-sa/2.0/" target="_blank" rel="noopener license">CC BY-SA 2.0</a>, via Wikimedia Commons (cropped and resized; shared under CC BY-SA 2.0).</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
 
-    <h2>Why is a great espresso so hard to pull?</h2>
-    <p>Small changes in grind size, dose, or tamp change how water moves through the coffee. Water takes the easiest path, so an unevenly packed bed extracts unevenly: some coffee is over-extracted and bitter while the rest is under-extracted and sour, even when the average looks fine (Moroney et al., 2019). The machine’s pump holds about 9 bars, but the pressure that actually builds in the basket depends on the resistance of the coffee puck itself (Teahan, 2019). That is why grind and puck preparation make or break the shot.</p>
-    <figure class="prose-figure">
-      <div class="frame sq" style="aspect-ratio: 4 / 3"><img src="/assets/img/coffee-espresso-pull-1200.webp" srcset="/assets/img/coffee-espresso-pull-720.webp 720w, /assets/img/coffee-espresso-pull-1200.webp 1200w" sizes="(min-width: 48rem) 42rem, 100vw" width="1200" height="900" alt="An espresso machine pulling a triple shot through a bottomless portafilter into a white cup" loading="lazy" decoding="async"></div>
-      <figcaption>A bottomless portafilter shows the whole extraction, so uneven flow is easy to spot. <span class="credit">Photo: <a href="https://commons.wikimedia.org/wiki/File:Pulling_a_triple_espresso_shot_with_a_naked_portafilter.jpg" target="_blank" rel="noopener">Pulling a triple espresso shot with a naked portafilter</a> by massage-techniques, <a href="https://creativecommons.org/licenses/by-sa/2.0/" target="_blank" rel="noopener license">CC BY-SA 2.0</a>, via Wikimedia Commons (cropped and resized).</span></figcaption>
-    </figure>
-    <p>The process is unforgiving: small mistakes amplify into real defects. Great espresso takes patience, attention to detail, and a willingness to keep adjusting.</p>
+  <section class="chapter chapter--warm" aria-labelledby="hard">
+    <div class="container chapter__inner">
+      <h2 class="chapter__title" id="hard">Why is a great espresso so hard to pull?</h2>
+      <p class="chapter__lede">Small changes in grind size, dose, or tamp change how water moves through the coffee.</p>
+      <div class="chapter__body prose">
+        <p>Water takes the easiest path, so an unevenly packed bed extracts unevenly: some coffee is over-extracted and bitter while the rest is under-extracted and sour, even when the average looks fine (Moroney et al., 2019). The machine’s pump holds about 9 bars, but the pressure that actually builds in the basket depends on the resistance of the coffee puck itself (Teahan, 2019). That is why grind and puck preparation make or break the shot.</p>
+      </div>
+      <figure class="prose-figure figure-wide">
+        <div class="frame sq"><img src="/assets/img/coffee-espresso-pull-1200.webp" srcset="/assets/img/coffee-espresso-pull-720.webp 720w, /assets/img/coffee-espresso-pull-1200.webp 1200w" sizes="(min-width: 76rem) 72rem, calc(100vw - 2rem)" width="1200" height="900" alt="An espresso machine pulling a triple shot through a bottomless portafilter into a white cup" loading="lazy" decoding="async"></div>
+        <figcaption>A bottomless portafilter shows the whole extraction, so uneven flow is easy to spot. <span class="credit">Photo: <a href="https://commons.wikimedia.org/wiki/File:Pulling_a_triple_espresso_shot_with_a_naked_portafilter.jpg" target="_blank" rel="noopener">Pulling a triple espresso shot with a naked portafilter</a> by massage-techniques, <a href="https://creativecommons.org/licenses/by-sa/2.0/" target="_blank" rel="noopener license">CC BY-SA 2.0</a>, via Wikimedia Commons (cropped and resized).</span></figcaption>
+      </figure>
+      <div class="chapter__body prose">
+        <p>The process is unforgiving: small mistakes amplify into real defects. Great espresso takes patience, attention to detail, and a willingness to keep adjusting.</p>
+      </div>
+    </div>
+  </section>
 
-    <h2>TDS, extraction yield, and brew ratio</h2>
-    <p><strong>Total Dissolved Solids (TDS)</strong> measures how concentrated the espresso is: the share of the drink that is dissolved coffee. It drives strength, intensity, and mouthfeel, and a typical espresso lands around 8–12% TDS (Winarso et al., 2024). <strong>Extraction yield</strong> is how much of the dry coffee ended up in the cup, and it is calculated from TDS: extraction yield = TDS × beverage weight ÷ dose. For example, 36 g of espresso at 10% TDS from an 18 g dose is a 20% extraction.</p>
-    <p>A brewing control chart plots the two together. Once you pick a brew ratio, every shot you pull lands on that ratio’s line: grinding finer or brewing longer moves you up the line, and only a new ratio moves you to another line (Barista Hustle, n.d.).</p>
-
-    <figure class="chart-figure sq" aria-labelledby="tds-chart-title">
+  <section class="chapter" aria-labelledby="tds">
+    <div class="container chapter__inner">
+      <h2 class="chapter__title" id="tds">TDS, extraction yield, and brew ratio</h2>
+      <div class="chapter__body prose">
+        <p><strong>Total Dissolved Solids (TDS)</strong> measures how concentrated the espresso is: the share of the drink that is dissolved coffee. It drives strength, intensity, and mouthfeel, and a typical espresso lands around 8–12% TDS (Winarso et al., 2024). <strong>Extraction yield</strong> is how much of the dry coffee ended up in the cup, and it is calculated from TDS: extraction yield = TDS × beverage weight ÷ dose. For example, 36 g of espresso at 10% TDS from an 18 g dose is a 20% extraction.</p>
+        <p>A brewing control chart plots the two together. Once you pick a brew ratio, every shot you pull lands on that ratio’s line: grinding finer or brewing longer moves you up the line, and only a new ratio moves you to another line (Barista Hustle, n.d.).</p>
+      </div>
+      <figure class="chart-figure sq" aria-labelledby="tds-chart-title">
       <figcaption>
         <p class="chart-figure__title" id="tds-chart-title">Espresso brewing control chart</p>
         <p class="chart-figure__sub">Strength (TDS) against extraction yield. Each line is a brew ratio (dose : beverage weight); the shaded box is the common espresso target of 18–22% extraction and 8–12% TDS.</p>
@@ -174,30 +222,34 @@
       </details>
       <p class="chart-figure__source">Redrawn from the brewing control chart described by Barista Hustle; target zone from Winarso et al. (2024). Lines use TDS = extraction yield ÷ (beverage weight ÷ dose). Target zones vary by source; treat the box as a starting point for tasting.</p>
     </figure>
+      <div class="chapter__body prose">
+        <h3>How to use the chart</h3>
+        <ul>
+          <li><strong>Sour, thin, or salty:</strong> you are probably left of the box. Grind finer to raise extraction.</li>
+          <li><strong>Bitter, dry, or harsh:</strong> you are probably right of the box. Grind coarser.</li>
+          <li><strong>Balanced but too intense:</strong> move to a longer ratio, such as 1:2.5.</li>
+          <li><strong>Balanced but too weak:</strong> move to a shorter ratio, such as 1:1.5.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-    <h3>How to use the chart</h3>
-    <ul>
-      <li><strong>Sour, thin, or salty:</strong> you are probably left of the box. Grind finer to raise extraction.</li>
-      <li><strong>Bitter, dry, or harsh:</strong> you are probably right of the box. Grind coarser.</li>
-      <li><strong>Balanced but too intense:</strong> move to a longer ratio, such as 1:2.5.</li>
-      <li><strong>Balanced but too weak:</strong> move to a shorter ratio, such as 1:1.5.</li>
-    </ul>
+  <section class="chapter chapter--band faq" aria-labelledby="faq-title">
+    <div class="container chapter__inner">
+      <h2 class="chapter__title" id="faq-title">FAQ</h2>
+      <div class="faq__grid chapter__body prose">
+        <div class="faq__item"><h3>What is a good TDS for espresso?</h3><p>Most espresso lands between 8% and 12% TDS. Where you land inside that range depends on your brew ratio and taste (Winarso et al., 2024).</p></div>
+        <div class="faq__item"><h3>What is the standard espresso brew ratio?</h3><p>About 1:2, for example 18 g of coffee to 36 g of espresso; that was the average in the SCA’s barista survey (Specialty Coffee Association, 2018). Shorter ratios like 1:1.5 taste richer and more intense.</p></div>
+        <div class="faq__item"><h3>How long should an espresso shot take?</h3><p>Usually 25–30 seconds from the start of the shot. Good shots can fall anywhere from about 25 to 35 seconds (Jemison, 2022).</p></div>
+        <div class="faq__item"><h3>What pressure is espresso brewed at?</h3><p>About 9 bars. The classic definition allows 9–10 atmospheres (Specialty Coffee Association, 2018).</p></div>
+      </div>
+      <p class="chapter__next">Prefer a gentler cup at home? Try <a href="/coffee-blog/pour-over-flash-brew/">pour-over</a> or the <a href="/coffee-blog/vietnamese-phin/">Vietnamese phin</a>.</p>
+    </div>
+  </section>
 
-    <section class="faq" aria-labelledby="faq-title">
-      <h2 id="faq-title">FAQ</h2>
-      <h3>What is a good TDS for espresso?</h3>
-      <p>Most espresso lands between 8% and 12% TDS. Where you land inside that range depends on your brew ratio and taste (Winarso et al., 2024).</p>
-      <h3>What is the standard espresso brew ratio?</h3>
-      <p>About 1:2, for example 18 g of coffee to 36 g of espresso; that was the average in the SCA’s barista survey (Specialty Coffee Association, 2018). Shorter ratios like 1:1.5 taste richer and more intense.</p>
-      <h3>How long should an espresso shot take?</h3>
-      <p>Usually 25–30 seconds from the start of the shot. Good shots can fall anywhere from about 25 to 35 seconds (Jemison, 2022).</p>
-      <h3>What pressure is espresso brewed at?</h3>
-      <p>About 9 bars. The classic definition allows 9–10 atmospheres (Specialty Coffee Association, 2018).</p>
-    </section>
-
-    <p>Prefer a gentler cup at home? Try <a href="/coffee-blog/pour-over-flash-brew/">pour-over</a> or the <a href="/coffee-blog/vietnamese-phin/">Vietnamese phin</a>.</p>
-
-    <section class="references" aria-labelledby="refs">
+  <section class="chapter chapter--end">
+    <div class="container chapter__inner">
+      <section class="references" aria-labelledby="refs">
       <h2 id="refs">References</h2>
       <ol>
         <li>Barista Hustle. (n.d.). The coffee control chart. <a href="https://www.baristahustle.com/?p=2173" target="_blank" rel="noopener">https://www.baristahustle.com/?p=2173</a></li>
@@ -208,11 +260,22 @@
         <li>Teahan, M. (2019, July 24). Pressure and flow: A guide for espresso technicians. Daily Coffee News. <a href="https://dailycoffeenews.com/2019/07/24/pressure-and-flow-a-guide-for-espresso-technicians/" target="_blank" rel="noopener">https://dailycoffeenews.com/2019/07/24/pressure-and-flow-a-guide-for-espresso-technicians/</a></li>
       </ol>
     </section>
-    <nav class="pager" aria-label="More brew guides">
-      <a class="link-card sq" href="/coffee-blog/aeropress/"><span><span class="link-card__meta">← Previous</span><br><span class="link-card__title">AeroPress</span></span></a>
-      <a class="link-card sq" href="/coffee-blog/vietnamese-phin/"><span><span class="link-card__meta">Next →</span><br><span class="link-card__title">Vietnamese Phin</span></span></a>
+      <nav class="pager" aria-label="More brew guides">
+      <div class="pager__grid">
+        <a class="pager-card sq" href="/coffee-blog/aeropress/">
+          <span class="pager-card__art sq"><svg aria-hidden="true" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="44" y="12" width="32" height="7" rx="3"/><path d="M49 19h22v22H49z"/><rect x="43" y="38" width="34" height="50" rx="4"/><path d="M50 50h8M50 60h8M50 70h8"/><path d="M40 88h40v6H40z"/><path d="M38 96h44v10a8 8 0 0 1-8 8H46a8 8 0 0 1-8-8z"/><path d="M82 99h4a5 5 0 0 1 0 10h-4"/></svg></span>
+          <span class="pager-card__text"><span class="pager-card__dir">Previous</span><span class="pager-card__title">AeroPress</span></span>
+          <span class="stack__arrow is-back" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+        <a class="pager-card sq" href="/coffee-blog/vietnamese-phin/">
+          <span class="pager-card__art sq"><svg aria-hidden="true" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M40 22h40v7H40z"/><path d="M58 22v-5h4v5"/><path d="M44 29h32l-3 24H47z"/><path d="M34 53h52"/><path d="M58 56v4M62 62v3" stroke-dasharray="2 3"/><path d="M40 66h40l-5 44H45z"/><path d="M44 96h32" opacity=".5"/><path d="M45 102h30" opacity=".5"/></svg></span>
+          <span class="pager-card__text"><span class="pager-card__dir">Next</span><span class="pager-card__title">Vietnamese Phin</span></span>
+          <span class="stack__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+      </div>
     </nav>
-  </div>
+    </div>
+  </section>
 </article>
 </main>
 

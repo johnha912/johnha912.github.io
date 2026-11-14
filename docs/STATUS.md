@@ -1,6 +1,6 @@
 # STATUS.md
 
-_Last updated: 2026-11-10_
+_Last updated: 2026-11-14_
 
 ## Where the build stands
 
@@ -21,12 +21,12 @@ _Last updated: 2026-11-10_
 ## Owner decisions (dated)
 
 - **2026-10-07:** Communication in Vietnamese; all site/repo content in American English.
-- **2026-10-07:** Font: a popular, Tesla-like sans that renders identically on phone and PC → **Inter** variable, self-hosted (plus JetBrains Mono for small labels).
+- **2026-10-07:** Font: a popular, Tesla-like sans that renders identically on phone and PC → **Inter** variable, self-hosted (plus JetBrains Mono for small labels). _Superseded 2026-11-13: Google Sans and Google Sans Code._
 - **2026-10-07:** Photos in modern rounded frames → squircle corners (`corner-shape: squircle`) with rounded fallback.
 - **2026-10-07:** Theme menu with **Light / Dark / System**; default System.
 - **2026-10-07:** Accent color changed from blue to emerald green (hero gradient text, hover effects, links); no blue anywhere.
-- **2026-10-07:** Add JoinOrderOptimizationDP and jivec to Tech under "Earlier work" (not featured). Arrows: keep the diagonal arrow on external links (Music, Photography).
-- **2026-10-07:** Coffee articles get real, freely licensed photos inside the article body (Wikimedia Commons; credited under each photo and in `docs/IMAGE-CREDITS.md`). The line-art icons stay on the Coffee Blog cards and at the top of each article.
+- **2026-10-07:** Add JoinOrderOptimizationDP and jivec to Tech under "Earlier work" (not featured). _Superseded 2026-11-13: jivec and the "Earlier work" heading left the Tech page._ Arrows: keep the diagonal arrow on external links (Music, Photography).
+- **2026-10-07:** Coffee articles get real, freely licensed photos inside the article body (Wikimedia Commons; credited under each photo and in `docs/IMAGE-CREDITS.md`). The line-art icons stay on the Coffee Blog cards and at the top of each article. _Updated 2026-11-14: a hero photo opens each article and the line art sits in the "At a glance" card._
 - **2026-10-07:** Espresso article gets an interactive TDS brewing control chart (Plotly, lazy-loaded, colors from the site's green palette, table view included).
 - **2026-10-07:** Header logo inverts (with a short blink) on hover, focus, and press instead of tilting.
 - **2026-10-07:** Footer gets a "Back to top" button on every page.
@@ -65,14 +65,40 @@ _Last updated: 2026-11-10_
 - **2026-11-10:** New guest folder `/cs6140-midterm/`: a `noindex, nofollow` CS6140 Machine Learning midterm study hub (printable 109-page reference PDF with an outside-reading appendix (IBM, DeepLearning.AI), a quiz PDF, and 10 interactive quizzes with 78 questions) built only from the owner's course kit. Not linked from any page, excluded from the link check and the sitemap; remove it after the Nov 12 exam.
 - **2026-11-10:** Owner request: `/cs6140-midterm/xem-them/` adds a Vietnamese "Xem thêm" page (an explicit owner exception to the English-only rule, inside this guest folder only) rewriting the intuition of two free DeepLearning.AI AI Notes (*Initializing neural networks*, *Parameter optimization in neural networks*, Katanforoosh & Kunin, 2019) on gradient descent, vanishing/exploding gradients, and Momentum/RMSprop/Adam, with sources cited in a separate box. Linked only from the study hub; `noindex, nofollow`.
 - **2026-11-06:** Guest folder `/chem-030a-thi-thu/` removed (the exam is over); its link-check exclusion and agent-file mentions removed too.
-- **2026-11-07:** GSAP added for smoother motion (self-hosted 3.15.1: core, ScrollTrigger, ScrollSmoother; new `site/assets/js/motion.js`). Inertial smooth scrolling on mouse/trackpad devices only (phones keep native scrolling), batched GSAP scroll reveals, and an eased spotlight on the home button stack. Reduced motion turns all of it off; if GSAP fails to load, the old reveal still runs. Mobile Lighthouse with compression: Home 97-98, Tech 97, About 94-95 (About was 89 without GSAP in the same run).
+- **2026-11-07:** GSAP added for smoother motion (self-hosted 3.15.1: core, ScrollTrigger, ScrollSmoother; new `site/assets/js/motion.js`). Inertial smooth scrolling on mouse/trackpad devices only (phones keep native scrolling), batched GSAP scroll reveals, and an eased spotlight on the home button stack. Reduced motion turns all of it off; if GSAP fails to load, the old reveal still runs. _Scroll reveals and the spotlight were retired 2026-11-13; smooth scrolling stays._ Mobile Lighthouse with compression: Home 97-98, Tech 97, About 94-95 (About was 89 without GSAP in the same run).
 - **2026-11-08:** Guest folder `/lora-2dcd3d/` (the lora game) removed: the presentation is over (owner request). Its link-check exclusion and agent-file mentions removed too.
+
+### 2026-11-13: experiment branch `experiment/home-about-motion`
+
+Owner decisions (spec files were in `docs/working/`; the facts now live in BRIEF and DESIGN):
+
+- **Home:** index rows visible on load with an emerald wipe on hover and focus; heading letters enter upright (SplitText), two "o" letters start as emerald shapes; emerald swash kept and slowed to 1.6s `power1.inOut`; plain subtitle with emerald dots and a ScrambleText decode; portrait pops in straight and tilts at most 4deg on desktop pointers; Tech row description is "Data engineering projects".
+- **About:** fully static and left-aligned in stacked sections; the journey list is removed; education as ledger rows with monochrome school logos (Northeastern University, WorldQuant University, Suffolk University, UEH); credentials as compact index rows; the intro paragraph gets a SplitText-based write-on once when it scrolls into view, on every device (about 35 KB accepted).
+- **Site-wide "Index & Object":** scroll reveals retired; brew-article stat tiles become a ledger; Coffee index stays 2x2 on phones.
+- **Contact:** "Let's talk." as SVG glyph outlines that morph in from emerald shapes (MorphSVGPlugin, Contact only), the lede removed, icon tiles (Option A) with a CSS spring hover. **Music:** one card per mix, outer box dropped. **Privacy:** theme copy says Dark / Light.
+- **Tech:** only public repos tied to a data engineering career, in this order: keeploop (no role label), JOIN Order Optimization (v2 and v1 buttons), Mini Wrangling for a School Decision (self-initiated personal project). Removed: Product Analytics ELT Pipeline and OmniRAG Data Platform Upgrade (no public repo), the original OmniRAG, jivec. theta-coffee-lab not shown.
+- **Coffee index (Concept 2):** from 40rem each card is one box (art, title, description, "N min read", arrow). Music cover originals in higher resolution requested if available.
+- **Type and spacing:** token revision from the audit: body 17px with line height 1.6, 12px minimum, caps tracking 0.1em, seven line-height tokens, `--space-section` 64 to 96px, `--measure` 50ch, `--prose` 36rem.
+- **Font:** Google Sans and Google Sans Code replace Inter and JetBrains Mono (self-hosted, latin and Vietnamese subsets).
+- **Search palette:** CSS spring open with staggered results and a fast close (reduced motion: opacity only).
+- **Speed:** Speculation Rules prefetch, font subsetting, GSAP only where a page uses it (smooth scrolling on fine pointers).
+- **Team staffing** (owner delegated to the orchestrator): model and effort pins in BRIEF §7 and each agent file.
+- **BRIEF §5 GSAP exception** extended to SplitText, ScrambleTextPlugin and MorphSVGPlugin (3.15.1).
+
+### 2026-11-14: brew articles "Chapters" (Concept 3), docs sync, branch accepted
+
+- **Owner accepted** the experiment branch and asked for the docs to be updated, then committed.
+- **Chapters template** live in all four brew articles: transparent head with a hero photo, then full-bleed chapters on alternating `--bg` / `--band` surfaces with one warm band; the line art moved into the "At a glance" card. Round 2: from 60rem the text column is 46rem and body copy is 19px (`--fs-article`), ledes are at most 40ch, references are a full-width grid of numbered cards. New tokens: `--fs-article`, `--fs-chapter`, `--space-chapter`, `--band`, `--band-warm`.
+- **12 new Commons photos**, three per article (credits in `docs/IMAGE-CREDITS.md`).
+- **Espresso chart:** its reserved height is now a container query on `.chart-figure` at 520px, matching the renderer (fixes the 597-767px jump; see LESSONS 2026-11-14).
+- **QC:** release gate passed after fixes. Layout shift (CLS) was 0 on 28 article runs. Phone page weights: AeroPress 271 KB, Pour Over 395 KB, Phin 493 KB, Espresso 736 KB (Espresso includes the lazy Plotly chart).
+- **Open items:** deploy waits for the owner's approval; run PageSpeed Insights on the live site after deploy; optionally ask the owner for high-resolution Music cover originals (the current crop is about 344px); the Phin café photo is soft on a 2x desktop screen (1024px source); the desktop Coffee Blog submenu chevron is 26×44px (below the 44px target in width).
 
 ## Orchestrator decisions
 
 - Repo layout: published site in `site/`, docs in `docs/`, agents and skills in `.claude/`. Only `site/` is deployed.
 - Image mapping: hiking portrait → home hero; Google campus, survey presentation, and trade showcase → About collage; illustrated avatar → logo mark, favicon, and app icons. Originals backed up to `C:\Users\hmn19\Pictures\portfolio-originals\` and removed from the repo folder.
-- Music → external SoundCloud link; Photography → external Instagram link (no gallery photos provided yet).
+- Music → internal `/music/` page since 2026-10-08 (SoundCloud players, click to load); Photography → external Instagram link (no gallery photos provided yet).
 - Coffee cards use original line-art illustrations because no coffee photos were provided. The old site's coffee images were third-party (NYT, Black Oak, AeroPress, etc.) and were not copied.
 - Two coffee references whose URLs are dead (coffee-brewing-essentials.com, the De'Longhi article) keep their citation text without a link.
 - Following taste-skill: no em-dashes in visible copy, no decorative section numbers, eyebrows only where they add information.
@@ -82,9 +108,9 @@ _Last updated: 2026-11-10_
 1. **CS50 certificate:** the old About page lists "edX: Computer Science for Python Programming by Harvard CS50". It is shown on the new About page; confirm it should stay.
 2. ~~Credly badge link~~ Resolved 2026-10-07: the owner supplied credly.com/users/johnha912 (verified live). Its public badges: MSc in Financial Engineering (WorldQuant University), IBM AI Engineering Professional Certificate (V2), Deep Neural Networks with PyTorch, Deep Learning with TensorFlow, Computer Vision and Image Processing Essentials, Deep Learning Essentials with Keras, and Machine Learning with Python (Coursera). Should these appear individually on About?
 3. **Resume PDF:** not provided. Add `site/assets/resume.pdf` to get a "Résumé" button on About/Tech.
-4. **Project links/screenshots:** the two featured projects have no public repo link or screenshots yet. Add them when ready (diagrams stand in until then).
-5. ~~Other public repos~~ Resolved 2026-10-07: JOIN Order Optimization and jivec added under "Earlier work" (theta-coffee-lab and ptms not added).
-6. **Homepage availability pill:** BRIEF allows only the subtitle as a homepage addition. The "Open to Summer 2027 internships" pill appears on About, Tech, and Contact only. Approve it on Home too?
+4. ~~Project links/screenshots~~ Resolved 2026-11-13: the two in-progress projects have no public repo, so they came off the Tech page. Publish a repo first if one should return.
+5. ~~Other public repos~~ Resolved 2026-11-13: the Tech page shows keeploop, JOIN Order Optimization and Mini Wrangling for a School Decision (see the 2026-11-13 entries).
+6. **Homepage availability pill:** BRIEF allows only the subtitle as a homepage addition. The "Open to Summer 2027 internships" pill appears on About and Tech only (Contact lost it on 2026-11-13 with its lede). Approve it on Home too?
 7. **Your own photos:** coffee articles now use licensed Commons photos; your own shots could replace them and could power an internal Photography gallery.
 8. ~~Guest folders~~ Resolved 2026-10-27: the owner approved `noindex` on `/cs6120-team/` and `/ai-income-lab/` (`/lora-2dcd3d/` already had it; that folder was removed 2026-11-08); the health check verifies it stays.
 

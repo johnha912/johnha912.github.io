@@ -18,6 +18,22 @@ Before the Phase 0 asset inventory, the orchestrator verifies the toolchain and 
 
 ---
 
+## Tool fallbacks (adopted 2026-11-13)
+
+Each check has a primary tool and an ordered fallback (the Agent-Reach pattern). When the primary is blocked or fails, switch to the next one and say so in the report; a check with no working tool is logged in `docs/LESSONS.md`.
+
+| Job | Primary | Fallback |
+|---|---|---|
+| Real-browser checks, screenshots, per-frame motion sampling, CLS | Node script on the `playwright-core` bundled with the global `@playwright/cli`, channel `chrome` | Playwright MCP (`playwright-mcp`, user scope) |
+| Lighthouse / performance score | Local Lighthouse against `npx serve site` (compressing, like Pages) | PageSpeed Insights on the live site after deploy (local runs on this PC are noisy, and `npx` can be blocked by the permission classifier) |
+| Page weight | `weight.js`-style script at the phone profile (390@3x, 150 ms RTT, 1.6 Mbps) on the compressing server | DevTools network totals in Playwright MCP |
+| Reading a web page | WebFetch | Playwright navigate + DOM read (sites that return 403, e.g. CodePen: read the `cdpn.io/pen/debug/` frame) |
+| GitHub content | `gh api` / `gh repo` | Raw URL via WebFetch |
+| Fonts (files, license, axes) | Google Fonts metadata / CSS2 API | `google/fonts` GitHub repo (OFL text + source files) |
+| Commons images | `Special:FilePath/<file>?width=N` | The file page's original upload URL |
+
+---
+
 ## 1. Playwright CLI
 
 **What it is.** Microsoft's `@playwright/cli` (github.com/microsoft/playwright-cli) — a token-efficient browser-automation CLI built for coding agents. Instead of loading full page data into the agent's context, the agent drives a real browser through compact shell commands and reads back small element references.
@@ -167,7 +183,8 @@ _(Orchestrator: append a row for every skill added after these two — name, sou
 
 ### Notes on the vendored skills
 
-- **BRIEF wins over the skills.** taste-skill defaults to React + Tailwind + Motion, picsum/Unsplash images, an off-center hero, and discourages Inter. This project is vanilla HTML/CSS/JS, uses local assets only, keeps the old centered homepage, and uses Inter by owner choice. Apply the skills' taste rules (copy self-audit, em-dash ban, one accent, motivated motion, contrast checks), not their stack defaults.
+- **BRIEF wins over the skills.** taste-skill defaults to React + Tailwind + Motion, picsum/Unsplash images, an off-center hero, and discourages Inter. This project is vanilla HTML/CSS/JS, uses local assets only, keeps the old centered homepage, and uses Google Sans and Google Sans Code by owner choice (2026-11-13; Inter was dropped as overused by AI-built sites). Apply the skills' taste rules (copy self-audit, em-dash ban, one accent, motivated motion, contrast checks), not their stack defaults.
 - **Running ui-ux-pro-max:** its SKILL.md shows `${CLAUDE_PLUGIN_ROOT}/.claude/skills/...`; as a project skill, run it from the repo root as `python .claude/skills/ui-ux-pro-max/scripts/search.py "<query>" --domain <domain>`. Do not pass `--persist` unless the orchestrator approves (it writes a `design-system/` folder).
-- **Vendored site libraries** (served from `site/`, not agent tools): Plotly basic 2.35.2 (`site/assets/vendor/`, MIT) for the espresso chart; GSAP 3.15.1 core + ScrollTrigger + ScrollSmoother (`site/assets/js/vendor/gsap-3.15.1/`, GSAP Standard "no charge" license, added 2026-11-07 on owner request) for smooth scrolling and reveals. Upgrade by copying the new `dist/*.min.js` into a new versioned folder and updating the script tags on every page.
+- **Vendored site libraries** (served from `site/`, not agent tools): Plotly basic 2.35.2 (`site/assets/vendor/`, MIT) for the espresso chart; GSAP 3.15.1 core + ScrollTrigger + ScrollSmoother (`site/assets/js/vendor/gsap-3.15.1/`, GSAP Standard "no charge" license, added 2026-11-07 on owner request) for desktop smooth scrolling, plus SplitText and ScrambleTextPlugin (Home, About) and MorphSVGPlugin (Contact only), added 2026-11-13 for the one-time intro animations. Upgrade by copying the new `dist/*.min.js` into a new versioned folder and updating the inline loader in the `<head>` of every page that uses GSAP.
+- **Project tools** (`docs/tools/`, not agent tools and not deployed): `contact-glyphs.py` regenerates the Contact heading's MorphSVG glyph outlines from `site/assets/fonts/google-sans-latin.woff2` (run `python docs/tools/contact-glyphs.py site/assets/fonts/google-sans-latin.woff2`, paste the SVG into the Contact h1; see `docs/MAINTENANCE.md` Fonts).
 - **Anthropic `frontend-design` plugin:** available in the official marketplace (`claude-plugins-official`). Plugins are installed by the owner inside Claude Code: `/plugin install frontend-design@claude-plugins-official`.

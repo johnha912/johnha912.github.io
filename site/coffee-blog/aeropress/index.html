@@ -40,16 +40,14 @@
 <meta property="og:image:alt" content="Nguyen “John” Ha, MSCS at Northeastern University with a data engineering focus">
 <meta name="twitter:card" content="summary_large_image">
 <script>(function(){var t="dark";try{if(localStorage.getItem("theme")==="light")t="light"}catch(e){}document.documentElement.dataset.theme=t})()</script>
-<link rel="preload" href="/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<script>(function(d,x){var q=function(m){return matchMedia(m).matches},l=q("(hover: hover) and (pointer: fine)")?["ScrollTrigger","ScrollSmoother"]:[];if(!q("(prefers-reduced-motion: no-preference)")||!(l=l.concat(x)).length)return;["gsap"].concat(l).map(function(n){return"/assets/js/vendor/gsap-3.15.1/"+n+".min.js"}).concat("/assets/js/motion.js").forEach(function(u){var s=d.createElement("script");s.src=u;s.async=false;d.head.appendChild(s)})})(document,[])</script>
+<script type="speculationrules">{"prefetch":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"/(ai-income-lab|cs6120-team|cs6140-midterm|family-visit)/*"}}]},"eagerness":"moderate"}]}</script>
+<link rel="preload" href="/assets/fonts/google-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/css/site.css">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
-<script src="/assets/js/vendor/gsap-3.15.1/gsap.min.js" defer></script>
-<script src="/assets/js/vendor/gsap-3.15.1/ScrollTrigger.min.js" defer></script>
-<script src="/assets/js/vendor/gsap-3.15.1/ScrollSmoother.min.js" defer></script>
-<script src="/assets/js/motion.js" defer></script>
 <script src="/assets/js/site.js" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"AeroPress Recipe: My Ratio, Grind Size and Steps","description":"A simple AeroPress recipe: 15–20 g of coffee, 200 g of water at 90–96 °C, a 30-second stir, then press. Plus the ratio, grind size, filters, and its history.","image":["https://johnha.info/assets/img/coffee-aeropress-1600.webp"],"author":{"@type":"Person","name":"Nguyen Ha","alternateName":"John Ha","url":"https://johnha.info/about/"},"dateModified":"2026-10-07","inLanguage":"en-US","mainEntityOfPage":"https://johnha.info/coffee-blog/aeropress/"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://johnha.info/"},{"@type":"ListItem","position":2,"name":"Coffee Blog","item":"https://johnha.info/coffee-blog/"},{"@type":"ListItem","position":3,"name":"AeroPress","item":"https://johnha.info/coffee-blog/aeropress/"}]}</script>
@@ -93,18 +91,28 @@
 </header>
 <main id="main">
 
-<article>
-  <header class="container container--narrow article-head">
-    <nav aria-label="Breadcrumb"><ol class="breadcrumb"><li><a href="/coffee-blog/">Coffee Blog</a></li><li aria-current="page">AeroPress</li></ol></nav>
-    <h1 class="page-head__title">AeroPress Recipe: My Ratio, Grind Size and Steps</h1>
-    <p class="byline">By <a href="/about/">Nguyen “John” Ha</a> · Updated <time datetime="2026-10-07">October 7, 2026</time></p>
-    <div class="article-hero-art sq"><svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Line drawing of an AeroPress on a mug"><rect x="44" y="12" width="32" height="7" rx="3"/><path d="M49 19h22v22H49z"/><rect x="43" y="38" width="34" height="50" rx="4"/><path d="M50 50h8M50 60h8M50 70h8"/><path d="M40 88h40v6H40z"/><path d="M38 96h44v10a8 8 0 0 1-8 8H46a8 8 0 0 1-8-8z"/><path d="M82 99h4a5 5 0 0 1 0 10h-4"/></svg></div>
+<article class="brew">
+  <header class="brew-head">
+    <div class="container">
+      <div class="brew-head__text">
+        <nav aria-label="Breadcrumb"><ol class="breadcrumb"><li><a href="/coffee-blog/">Coffee Blog</a></li><li aria-current="page">AeroPress</li></ol></nav>
+        <h1 class="page-head__title">AeroPress Recipe: My Ratio, Grind Size and Steps</h1>
+        <p class="byline">By <a href="/about/">Nguyen “John” Ha</a> · Updated <time datetime="2026-10-07">October 7, 2026</time></p>
+      </div>
+      <figure class="prose-figure brew-hero">
+        <div class="frame sq"><img src="/assets/img/coffee-aeropress-1600.webp" srcset="/assets/img/coffee-aeropress-640.webp 640w, /assets/img/coffee-aeropress-1024.webp 1024w, /assets/img/coffee-aeropress-1200.webp 1200w, /assets/img/coffee-aeropress-1600.webp 1600w" sizes="(min-width: 76rem) 72rem, calc(100vw - 2rem)" width="1600" height="1000" alt="A 2015 AeroPress next to a 2020 AeroPress Go on a stone ledge outdoors" fetchpriority="high" decoding="async"></div>
+        <figcaption>The original AeroPress (left) and the travel-size AeroPress Go (right). <span class="credit">Photo: <a href="https://commons.wikimedia.org/wiki/File:2015_AeroPress_and_2020_AeroPress_Go.jpg" target="_blank" rel="noopener">2015 AeroPress and 2020 AeroPress Go</a> by Bex Walton, <a href="https://creativecommons.org/licenses/by/2.0/" target="_blank" rel="noopener license">CC BY 2.0</a>, via Wikimedia Commons (cropped and resized).</span></figcaption>
+      </figure>
+    </div>
   </header>
-  <div class="container container--narrow prose" style="padding-bottom: var(--space-9)">
 
-    <aside class="glance sq" aria-label="At a glance">
-      <p class="glance__title">At a glance</p>
-      <dl>
+  <section class="chapter chapter--band chapter--glance">
+    <div class="container chapter__inner">
+      <div class="article-hero sq">
+    <div class="article-hero-art sq"><svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Line drawing of an AeroPress on a mug"><rect x="44" y="12" width="32" height="7" rx="3"/><path d="M49 19h22v22H49z"/><rect x="43" y="38" width="34" height="50" rx="4"/><path d="M50 50h8M50 60h8M50 70h8"/><path d="M40 88h40v6H40z"/><path d="M38 96h44v10a8 8 0 0 1-8 8H46a8 8 0 0 1-8-8z"/><path d="M82 99h4a5 5 0 0 1 0 10h-4"/></svg></div>
+    <aside class="glance" aria-labelledby="glance-title">
+      <h2 class="glance__title" id="glance-title">At a glance</h2>
+      <dl class="lines">
         <div><dt>Coffee</dt><dd>15–20 g, light to medium roast</dd></div>
         <div><dt>Water</dt><dd>200 g at 90–96 °C (195–205 °F)</dd></div>
         <div><dt>Ratio</dt><dd>about 1:10 to 1:13</dd></div>
@@ -113,60 +121,97 @@
         <div><dt>Filters</dt><dd>1, or 2 for a cleaner cup</dd></div>
       </dl>
     </aside>
-
-    <h2>What is an AeroPress?</h2>
-    <p>The AeroPress is a small manual coffee maker invented by engineer Alan Adler. He started experimenting in his Palo Alto garage in 2003 and launched it at Coffee Fest Seattle in November 2005 (AeroPress, Inc., n.d.). It combines immersion, where the coffee steeps in the water, with gentle air pressure from the plunger, which shortens the brew time and reduces bitterness. The result is a smooth, concentrated cup, and because you can change the grind, water temperature, and steep time, one brewer covers a wide range of styles. It is also light and nearly unbreakable, which makes it a favorite for travel.</p>
-    <figure class="prose-figure">
-      <div class="frame sq" style="aspect-ratio: 16 / 10"><img src="/assets/img/coffee-aeropress-1600.webp" srcset="/assets/img/coffee-aeropress-640.webp 640w, /assets/img/coffee-aeropress-1024.webp 1024w, /assets/img/coffee-aeropress-1600.webp 1600w" sizes="(min-width: 48rem) 42rem, 100vw" width="1600" height="1000" alt="A 2015 AeroPress next to a 2020 AeroPress Go on a stone ledge outdoors" loading="lazy" decoding="async"></div>
-      <figcaption>The original AeroPress (left) and the travel-size AeroPress Go (right). <span class="credit">Photo: <a href="https://commons.wikimedia.org/wiki/File:2015_AeroPress_and_2020_AeroPress_Go.jpg" target="_blank" rel="noopener">2015 AeroPress and 2020 AeroPress Go</a> by Bex Walton, <a href="https://creativecommons.org/licenses/by/2.0/" target="_blank" rel="noopener license">CC BY 2.0</a>, via Wikimedia Commons (cropped and resized).</span></figcaption>
-    </figure>
-
-    <h2>My usual AeroPress profile</h2>
-    <dl class="profile">
-      <div><dt>Coffee</dt><dd>15–20 g</dd></div>
-      <div><dt>Grind size</dt><dd>300–900 μm<small>The finer the grind, the shorter the steep</small></dd></div>
-      <div><dt>Roast level</dt><dd>Light to medium</dd></div>
-      <div><dt>Water</dt><dd>200 g<small>90–96 °C (195–205 °F)</small></dd></div>
-      <div><dt>Filter paper</dt><dd>1 or 2<small>Use 2 for a brighter aftertaste and a cleaner sip</small></dd></div>
-    </dl>
-
-    <figure class="prose-figure prose-figure--portrait">
-      <div class="frame sq" style="aspect-ratio: 4 / 5"><img src="/assets/img/coffee-aeropress-brewing-960.webp" srcset="/assets/img/coffee-aeropress-brewing-560.webp 560w, /assets/img/coffee-aeropress-brewing-960.webp 960w" sizes="(min-width: 48rem) 26rem, 80vw" width="960" height="1200" alt="Two hands pressing an AeroPress plunger down into a glass carafe" loading="lazy" decoding="async"></div>
-      <figcaption>The press: a slow, steady push. <span class="credit">Photo: <a href="https://commons.wikimedia.org/wiki/File:Brewing_Coffee_with_AeroPress.jpg" target="_blank" rel="noopener">Brewing Coffee with AeroPress</a> by Craft Coffee Spot, <a href="https://creativecommons.org/licenses/by/2.0/" target="_blank" rel="noopener license">CC BY 2.0</a>, via Wikimedia Commons (cropped and resized).</span></figcaption>
-    </figure>
-
-    <h2>How to make AeroPress coffee, step by step</h2>
-    <ol class="steps">
-      <li><strong>Preheat. </strong>Put the paper filter in the cap and rinse it with hot water.</li>
-      <li><strong>Load. </strong>Assemble the AeroPress on your mug and add the ground coffee to the chamber.</li>
-      <li><strong>Steep. </strong>Pour in 200 g of hot water and stir gently for 30 seconds.</li>
-      <li><strong>Press. </strong>Insert the plunger and press down firmly and steadily until all the water has passed through.</li>
-      <li><strong>Enjoy. </strong>Remove the AeroPress and taste. Add hot water or milk if you want a longer drink.</li>
-    </ol>
-
-    <div class="tip sq">
-      <p><strong>How to adjust the taste</strong></p>
-      <ul>
-        <li>For a stronger cup, use more coffee or less water; for a lighter one, use less coffee or more water.</li>
-        <li>If it tastes sour or thin, grind finer or steep a little longer. If it tastes bitter, grind coarser or press sooner.</li>
-        <li>Change one thing at a time, and try different beans to find your favorite.</li>
-        <li>Many people also brew upside down (the “inverted” method) so no coffee drips through before the press. For more ideas, see the official <a href="https://aeropress.com/blogs/aeropress-recipes" target="_blank" rel="noopener">AeroPress recipes</a>.</li>
-      </ul>
     </div>
+    </div>
+  </section>
 
-    <section class="faq" aria-labelledby="faq-title">
-      <h2 id="faq-title">FAQ</h2>
-      <h3>What is a good AeroPress ratio?</h3>
-      <p>My recipe uses 15–20 g of coffee to 200 g of water, roughly 1:10 to 1:13. That is stronger than pour-over, so many people top it up with hot water or milk.</p>
-      <h3>How fine should I grind for AeroPress?</h3>
-      <p>Anywhere from about 300 to 900 μm works. Finer grinds extract faster, so pair them with a shorter steep; coarser grinds need a longer one.</p>
-      <h3>Should I use one or two filters?</h3>
-      <p>One filter is standard. Two filters catch more fine particles and oils, which gives a brighter aftertaste and a cleaner sip.</p>
-      <h3>Can an AeroPress make espresso?</h3>
-      <p>It makes a strong, concentrated coffee, but the hand press creates far less pressure than the 9–10 atmospheres in the espresso definition (Specialty Coffee Association, 2018), so it is not true espresso. See my <a href="/coffee-blog/espresso/">espresso guide</a> for the real thing.</p>
-    </section>
+  <section class="chapter" aria-labelledby="what">
+    <div class="container chapter__inner">
+      <h2 class="chapter__title" id="what">What is an AeroPress?</h2>
+      <p class="chapter__lede">The AeroPress is a small manual coffee maker invented by engineer Alan Adler.</p>
+      <div class="chapter__body prose">
+        <p>He started experimenting in his Palo Alto garage in 2003 and launched it at Coffee Fest Seattle in November 2005 (AeroPress, Inc., n.d.). It combines immersion, where the coffee steeps in the water, with gentle air pressure from the plunger, which shortens the brew time and reduces bitterness. The result is a smooth, concentrated cup, and because you can change the grind, water temperature, and steep time, one brewer covers a wide range of styles. It is also light and nearly unbreakable, which makes it a favorite for travel.</p>
+      </div>
+      <figure class="prose-figure figure-wide">
+        <div class="frame sq"><img src="/assets/img/coffee-aeropress-parts-1600.webp" srcset="/assets/img/coffee-aeropress-parts-640.webp 640w, /assets/img/coffee-aeropress-parts-1200.webp 1200w, /assets/img/coffee-aeropress-parts-1600.webp 1600w" sizes="(min-width: 76rem) 72rem, calc(100vw - 2rem)" width="1600" height="1000" alt="AeroPress parts laid out on a kitchen counter: funnel, filter cap, chamber, plunger, scoop and stirrer" loading="lazy" decoding="async"></div>
+        <figcaption>AeroPress parts, straight out of the box. <span class="credit">Photo: <a href="https://commons.wikimedia.org/wiki/File:Aeropress_coffee_maker_parts.jpg" target="_blank" rel="noopener">Aeropress coffee maker parts</a> by <a href="https://www.beanpoet.com/" target="_blank" rel="noopener">Bean Poet</a>, <a href="https://creativecommons.org/licenses/by-sa/2.0/" target="_blank" rel="noopener license">CC BY-SA 2.0</a>, via Wikimedia Commons (cropped and resized; shared under CC BY-SA 2.0).</span></figcaption>
+      </figure>
+    </div>
+  </section>
 
-    <section class="references" aria-labelledby="refs">
+  <section class="chapter chapter--band" aria-labelledby="profile">
+    <div class="container chapter__inner">
+      <h2 class="chapter__title" id="profile">My usual AeroPress profile</h2>
+      <dl class="lines chapter__body">
+        <div><dt>Coffee</dt><dd>15–20 g</dd></div>
+        <div><dt>Grind size</dt><dd>300–900 μm<small>The finer the grind, the shorter the steep</small></dd></div>
+        <div><dt>Roast level</dt><dd>Light to medium</dd></div>
+        <div><dt>Water</dt><dd>200 g<small>90–96 °C (195–205 °F)</small></dd></div>
+        <div><dt>Filter paper</dt><dd>1 or 2<small>Use 2 for a brighter aftertaste and a cleaner sip</small></dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="chapter" aria-labelledby="steps">
+    <div class="container chapter__inner">
+      <h2 class="chapter__title" id="steps">How to make AeroPress coffee, step by step</h2>
+      <ol class="steps steps--cards chapter__body">
+        <li><strong>Preheat. </strong>Put the paper filter in the cap and rinse it with hot water.</li>
+        <li><strong>Load. </strong>Assemble the AeroPress on your mug and add the ground coffee to the chamber.</li>
+        <li><strong>Steep. </strong>Pour in 200 g of hot water and stir gently for 30 seconds.</li>
+        <li><strong>Press. </strong>Insert the plunger and press down firmly and steadily until all the water has passed through.</li>
+        <li><strong>Enjoy. </strong>Remove the AeroPress and taste. Add hot water or milk if you want a longer drink.</li>
+      </ol>
+      <div class="figure-pair">
+        <figure class="prose-figure">
+          <div class="frame sq"><img src="/assets/img/coffee-aeropress-method-960.webp" srcset="/assets/img/coffee-aeropress-method-560.webp 560w, /assets/img/coffee-aeropress-method-960.webp 960w" sizes="(min-width: 60rem) 35rem, calc(50vw - 1.5rem)" width="960" height="1200" alt="An AeroPress standing on a white mug, with coffee in the clear chamber and the plunger set on top" loading="lazy" decoding="async"></div>
+          <figcaption>Coffee in the chamber, the plunger set on top. <span class="credit">Photo: <a href="https://commons.wikimedia.org/wiki/File:Aeropress_brew_method.jpg" target="_blank" rel="noopener">Aeropress brew method</a> by Bex Walton, <a href="https://creativecommons.org/licenses/by/2.0/" target="_blank" rel="noopener license">CC BY 2.0</a>, via Wikimedia Commons (cropped and resized).</span></figcaption>
+        </figure>
+        <figure class="prose-figure">
+          <div class="frame sq"><img src="/assets/img/coffee-aeropress-brewing-960.webp" srcset="/assets/img/coffee-aeropress-brewing-560.webp 560w, /assets/img/coffee-aeropress-brewing-960.webp 960w" sizes="(min-width: 60rem) 35rem, calc(50vw - 1.5rem)" width="960" height="1200" alt="Two hands pressing an AeroPress plunger down into a glass carafe" loading="lazy" decoding="async"></div>
+          <figcaption>The press: a slow, steady push. <span class="credit">Photo: <a href="https://commons.wikimedia.org/wiki/File:Brewing_Coffee_with_AeroPress.jpg" target="_blank" rel="noopener">Brewing Coffee with AeroPress</a> by Craft Coffee Spot, <a href="https://creativecommons.org/licenses/by/2.0/" target="_blank" rel="noopener license">CC BY 2.0</a>, via Wikimedia Commons (cropped and resized).</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter chapter--warm" aria-labelledby="tip-title">
+    <div class="container chapter__inner">
+      <div class="chapter-split">
+        <div class="chapter-split__text">
+          <h2 class="chapter__title" id="tip-title">How to adjust the taste</h2>
+          <div class="chapter__body prose">
+            <ul>
+              <li>For a stronger cup, use more coffee or less water; for a lighter one, use less coffee or more water.</li>
+              <li>If it tastes sour or thin, grind finer or steep a little longer. If it tastes bitter, grind coarser or press sooner.</li>
+              <li>Change one thing at a time, and try different beans to find your favorite.</li>
+              <li>Many people also brew upside down (the “inverted” method) so no coffee drips through before the press. For more ideas, see the official <a href="https://aeropress.com/blogs/aeropress-recipes" target="_blank" rel="noopener">AeroPress recipes</a>.</li>
+            </ul>
+          </div>
+        </div>
+        <figure class="prose-figure chapter-split__media">
+          <div class="frame sq"><img src="/assets/img/coffee-aeropress-mug-960.webp" srcset="/assets/img/coffee-aeropress-mug-560.webp 560w, /assets/img/coffee-aeropress-mug-960.webp 960w" sizes="(min-width: 60rem) 28rem, calc(100vw - 2rem)" width="960" height="1200" alt="An AeroPress standing upright on a patterned mug, with a red tin and a toaster behind it" loading="lazy" decoding="async"></div>
+          <figcaption>An AeroPress assembled on a mug. <span class="credit">Photo: <a href="https://commons.wikimedia.org/wiki/File:Aeropress_coffee_maker_inverted.jpg" target="_blank" rel="noopener">Aeropress coffee maker inverted</a> by <a href="https://www.beanpoet.com/" target="_blank" rel="noopener">Bean Poet</a>, <a href="https://creativecommons.org/licenses/by-sa/2.0/" target="_blank" rel="noopener license">CC BY-SA 2.0</a>, via Wikimedia Commons (cropped and resized; shared under CC BY-SA 2.0).</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter faq" aria-labelledby="faq-title">
+    <div class="container chapter__inner">
+      <h2 class="chapter__title" id="faq-title">FAQ</h2>
+      <div class="faq__grid chapter__body prose">
+        <div class="faq__item"><h3>What is a good AeroPress ratio?</h3><p>My recipe uses 15–20 g of coffee to 200 g of water, roughly 1:10 to 1:13. That is stronger than pour-over, so many people top it up with hot water or milk.</p></div>
+        <div class="faq__item"><h3>How fine should I grind for AeroPress?</h3><p>Anywhere from about 300 to 900 μm works. Finer grinds extract faster, so pair them with a shorter steep; coarser grinds need a longer one.</p></div>
+        <div class="faq__item"><h3>Should I use one or two filters?</h3><p>One filter is standard. Two filters catch more fine particles and oils, which gives a brighter aftertaste and a cleaner sip.</p></div>
+        <div class="faq__item"><h3>Can an AeroPress make espresso?</h3><p>It makes a strong, concentrated coffee, but the hand press creates far less pressure than the 9–10 atmospheres in the espresso definition (Specialty Coffee Association, 2018), so it is not true espresso. See my <a href="/coffee-blog/espresso/">espresso guide</a> for the real thing.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter chapter--band chapter--end">
+    <div class="container chapter__inner">
+      <section class="references" aria-labelledby="refs">
       <h2 id="refs">References</h2>
       <ol>
         <li>AeroPress, Inc. (n.d.). About AeroPress, Inc. and Alan Adler. <a href="https://aeropress.com/pages/about" target="_blank" rel="noopener">https://aeropress.com/pages/about</a></li>
@@ -174,11 +219,22 @@
         <li>Specialty Coffee Association. (2018, February 1). Defining the ever-changing espresso. 25 Magazine, Issue 3. <a href="https://sca.coffee/sca-news/25-magazine/issue-3/defining-ever-changing-espresso-25-magazine-issue-3-zyx36" target="_blank" rel="noopener">https://sca.coffee/sca-news/25-magazine/issue-3/defining-ever-changing-espresso-25-magazine-issue-3-zyx36</a></li>
       </ol>
     </section>
-    <nav class="pager" aria-label="More brew guides">
-      <a class="link-card sq" href="/coffee-blog/pour-over-flash-brew/"><span><span class="link-card__meta">← Previous</span><br><span class="link-card__title">Pour Over / Flash Brew</span></span></a>
-      <a class="link-card sq" href="/coffee-blog/espresso/"><span><span class="link-card__meta">Next →</span><br><span class="link-card__title">Espresso</span></span></a>
+      <nav class="pager" aria-label="More brew guides">
+      <div class="pager__grid">
+        <a class="pager-card sq" href="/coffee-blog/pour-over-flash-brew/">
+          <span class="pager-card__art sq"><svg aria-hidden="true" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M28 30h64L70 70H50z"/><path d="M40 38h40M46 48h28"/><path d="M42 70h36M38 75h44"/><path d="M60 77v6" stroke-dasharray="2 4"/><path d="M42 86h36l3 20a5 5 0 0 1-5 6H44a5 5 0 0 1-5-6z"/><path d="M42 98h36" opacity=".5"/><path d="M52 14c-3 4 3 6 0 10M66 12c-3 4 3 6 0 10"/></svg></span>
+          <span class="pager-card__text"><span class="pager-card__dir">Previous</span><span class="pager-card__title">Pour Over / Flash Brew</span></span>
+          <span class="stack__arrow is-back" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+        <a class="pager-card sq" href="/coffee-blog/espresso/">
+          <span class="pager-card__art sq"><svg aria-hidden="true" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M30 58h50v8c0 16-11 26-25 26S30 82 30 66z"/><path d="M80 63h6a8 8 0 0 1 0 16h-7"/><ellipse cx="55" cy="58" rx="25" ry="4"/><path d="M20 98h72" /><path d="M28 104h56" opacity=".5"/><path d="M46 28c-4 5 4 8 0 14M58 24c-4 5 4 8 0 14M70 28c-4 5 4 8 0 14"/></svg></span>
+          <span class="pager-card__text"><span class="pager-card__dir">Next</span><span class="pager-card__title">Espresso</span></span>
+          <span class="stack__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+      </div>
     </nav>
-  </div>
+    </div>
+  </section>
 </article>
 </main>
 

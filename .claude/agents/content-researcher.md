@@ -2,6 +2,7 @@
 name: content-researcher
 description: Drafts and migrates all site copy (pages, meta titles, descriptions, Open Graph text, alt text) strictly from the facts in docs/BRIEF.md §2. Flags missing facts instead of inventing them.
 model: sonnet
+effort: medium
 tools: Read, Grep, Glob, Edit, Write, WebFetch
 ---
 

@@ -39,7 +39,7 @@
     });
 
     const example = {
-      type: "scatter", mode: "markers", name: "Example shot",
+      type: "scatter", mode: "markers", name: narrow ? "Example" : "Example shot", // "Example shot" clips in the 62px phone entry
       x: [20], y: [10],
       marker: { size: 11, color: t.text, line: { color: t.surface, width: 2 } },
       hovertemplate: "Example: 18 g in, 36 g out<br><b>10% TDS → 20% extraction</b><extra></extra>",
@@ -48,34 +48,34 @@
     // Direct labels at each line's end (legend stays as the primary identity channel).
     const lineLabels = RATIOS.map((r) => {
       const xEnd = Math.min(EY_MAX, TDS_MAX * r);
-      return { x: xEnd, y: xEnd / r, text: `1:${r}`, xanchor: "left", yanchor: "middle", xshift: 6, showarrow: false, font: { color: t.muted, size: 11 } };
+      return { x: xEnd, y: xEnd / r, text: `1:${r}`, xanchor: "left", yanchor: "middle", xshift: 6, showarrow: false, font: { color: t.muted, size: 12 } };
     });
 
     const zoneLabels = [
       { x: 18.15, y: 11.85, text: "Target", xanchor: "left", yanchor: "top", showarrow: false, font: { color: t.text, size: 12 } },
-      { x: EY_MIN + 0.2, y: TDS_MAX - 0.3, text: narrow ? "Under-extracted<br>(sour)" : "Under-extracted (sour)", xanchor: "left", yanchor: "top", align: "left", showarrow: false, font: { color: t.faint, size: 11 } },
-      { x: EY_MAX - 0.2, y: TDS_MIN + 0.3, text: narrow ? "Over-extracted<br>(bitter)" : "Over-extracted (bitter)", xanchor: "right", yanchor: "bottom", align: "right", showarrow: false, font: { color: t.faint, size: 11 } },
+      { x: EY_MIN + 0.2, y: TDS_MAX - 0.3, text: narrow ? "Under-extracted<br>(sour)" : "Under-extracted (sour)", xanchor: "left", yanchor: "top", align: "left", showarrow: false, font: { color: t.faint, size: 12 } },
+      { x: EY_MAX - 0.2, y: TDS_MIN + 0.3, text: narrow ? "Over-extracted<br>(bitter)" : "Over-extracted (bitter)", xanchor: "right", yanchor: "bottom", align: "right", showarrow: false, font: { color: t.faint, size: 12 } },
     ];
 
     const axis = (title, r) => ({
       title: { text: title, font: { color: t.muted, size: 12 }, standoff: 10 },
-      range: r, tickfont: { color: t.faint, size: 11 }, ticksuffix: "%",
+      range: r, tickfont: { color: t.faint, size: 12 }, ticksuffix: "%",
       gridcolor: t.grid, gridwidth: 1, zeroline: false, showline: false, fixedrange: true, dtick: 2,
       showspikes: false,
     });
 
     const layout = {
       paper_bgcolor: "rgba(0,0,0,0)", plot_bgcolor: "rgba(0,0,0,0)",
-      font: { family: "Inter, system-ui, sans-serif", color: t.muted, size: 12 },
+      font: { family: "Google Sans, system-ui, sans-serif", color: t.muted, size: 12 },
       margin: { l: 52, r: 44, t: narrow ? 64 : 40, b: 48 },
       xaxis: { ...axis("Extraction yield", [EY_MIN, EY_MAX]), showspikes: true, spikemode: "across", spikesnap: "cursor", spikethickness: -1, spikedash: "solid", spikecolor: t.faint },
       yaxis: { ...axis("TDS (strength)", [TDS_MIN, TDS_MAX]), tickvals: [6, 8, 10, 12, 14, 16] },
       shapes: [{ type: "rect", x0: 18, x1: 22, y0: 8, y1: 12, fillcolor: t.zone, line: { color: t.accent, width: 1 }, layer: "below" }],
       annotations: [...lineLabels, ...zoneLabels],
       showlegend: true,
-      legend: { orientation: "h", x: 0, y: 1.02, yanchor: "bottom", entrywidth: narrow ? 62 : 0, entrywidthmode: "pixels", font: { color: t.muted, size: narrow ? 11 : 12 }, bgcolor: "rgba(0,0,0,0)" },
+      legend: { orientation: "h", x: 0, y: 1.02, yanchor: "bottom", entrywidth: narrow ? 66 : 0, entrywidthmode: "pixels", font: { color: t.muted, size: 12 }, bgcolor: "rgba(0,0,0,0)" },
       hovermode: "x unified",
-      hoverlabel: { bgcolor: t.surface, bordercolor: t.grid, font: { family: "Inter, system-ui, sans-serif", color: t.text, size: 12 } },
+      hoverlabel: { bgcolor: t.surface, bordercolor: t.grid, font: { family: "Google Sans, system-ui, sans-serif", color: t.text, size: 12 } },
       height: narrow ? 380 : 460,
     };
 

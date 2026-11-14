@@ -39,21 +39,19 @@
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Nguyen “John” Ha, MSCS at Northeastern University with a data engineering focus">
 <meta name="twitter:card" content="summary_large_image">
-<script>(function(){var t="dark";try{if(localStorage.getItem("theme")==="light")t="light"}catch(e){}document.documentElement.dataset.theme=t})()</script>
-<link rel="preload" href="/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<script>(function(){var t="dark";try{if(localStorage.getItem("theme")==="light")t="light"}catch(e){}document.documentElement.dataset.theme=t;if(matchMedia("(prefers-reduced-motion: no-preference)").matches)document.documentElement.classList.add("motion-intro")})()</script>
+<script>(function(d,x){var q=function(m){return matchMedia(m).matches},l=q("(hover: hover) and (pointer: fine)")?["ScrollTrigger","ScrollSmoother"]:[];if(!q("(prefers-reduced-motion: no-preference)")||!(l=l.concat(x)).length)return;["gsap"].concat(l).map(function(n){return"/assets/js/vendor/gsap-3.15.1/"+n+".min.js"}).concat("/assets/js/motion.js").forEach(function(u){var s=d.createElement("script");s.src=u;s.async=false;d.head.appendChild(s)})})(document,["SplitText","ScrambleTextPlugin"])</script>
+<script type="speculationrules">{"prefetch":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"/(ai-income-lab|cs6120-team|cs6140-midterm|family-visit)/*"}}]},"eagerness":"moderate"}]}</script>
+<link rel="preload" href="/assets/fonts/google-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/css/site.css">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
-<script src="/assets/js/vendor/gsap-3.15.1/gsap.min.js" defer></script>
-<script src="/assets/js/vendor/gsap-3.15.1/ScrollTrigger.min.js" defer></script>
-<script src="/assets/js/vendor/gsap-3.15.1/ScrollSmoother.min.js" defer></script>
-<script src="/assets/js/motion.js" defer></script>
 <script src="/assets/js/site.js" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Nguyen Ha","alternateName":"John Ha","url":"https://johnha.info/","image":"https://johnha.info/assets/img/profile-portrait-840.webp","sameAs":["https://www.linkedin.com/in/nguyenha912/","https://github.com/johnha912","https://www.instagram.com/johnha.ns/","https://www.kaggle.com/johnha9"],"alumniOf":[{"@type":"CollegeOrUniversity","name":"Suffolk University"},{"@type":"CollegeOrUniversity","name":"University of Economics Ho Chi Minh City"}],"affiliation":{"@type":"CollegeOrUniversity","name":"Northeastern University"}}</script>
 </head>
-<body id="top">
+<body id="top" class="page-home">
 <a class="skip-link" href="#main">Skip to content</a>
 <div class="ambient" aria-hidden="true"></div>
 <header class="nav" data-nav>
@@ -100,6 +98,7 @@
   <h1 class="hero__title" id="hero-title">
     <span class="muted">Welcome to</span>
     <span class="gradient-text">John’s Portfolio!</span>
+    <svg class="swash" viewBox="0 0 300 24" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M6 17C62 8 128 5 190 9c38 2 70 7 98 3-22-1-44 5-58 9" pathLength="1"/></svg>
   </h1>
   <p class="hero__subtitle"><span>MSCS @ Northeastern University</span><span class="dot" aria-hidden="true">·</span><span>Data Engineering Focus</span><span class="dot" aria-hidden="true">·</span><span>Business/Marketing Roots</span></p>
   <ul class="socials" aria-label="Social profiles">
@@ -111,33 +110,33 @@
 
 <nav class="container" aria-label="Sections">
   <ul class="stack">
-    <li data-reveal style="--i:0">
-      <a class="stack__btn sq" href="/tech/">
-        <span class="stack__label"><span class="stack__title">Tech</span><span class="stack__desc">Projects, pipelines & skills</span></span>
+    <li>
+      <a class="stack__btn" href="/tech/">
+        <span class="stack__label"><span class="stack__title"><span>Tech</span></span><span class="stack__desc">Data engineering projects</span></span>
         <span class="stack__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
       </a>
     </li>
-    <li data-reveal style="--i:1">
-      <a class="stack__btn sq" href="/coffee-blog/">
-        <span class="stack__label"><span class="stack__title">Coffee</span><span class="stack__desc">Four brew guides and my usual recipes</span></span>
+    <li>
+      <a class="stack__btn" href="/coffee-blog/">
+        <span class="stack__label"><span class="stack__title"><span>Coffee</span></span><span class="stack__desc">Four brew guides and my usual recipes</span></span>
         <span class="stack__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
       </a>
     </li>
-    <li data-reveal style="--i:2">
-      <a class="stack__btn sq" href="/music/">
-        <span class="stack__label"><span class="stack__title">Music</span><span class="stack__desc">My tracks, playable right here</span></span>
+    <li>
+      <a class="stack__btn" href="/music/">
+        <span class="stack__label"><span class="stack__title"><span>Music</span></span><span class="stack__desc">My tracks, playable right here</span></span>
         <span class="stack__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
       </a>
     </li>
-    <li data-reveal style="--i:3">
-      <a class="stack__btn sq" href="https://www.instagram.com/johnha.ns/" target="_blank" rel="noopener">
-        <span class="stack__label"><span class="stack__title">Photography</span><span class="stack__desc">My shots on Instagram<span class="visually-hidden"> (opens in a new tab)</span></span></span>
+    <li>
+      <a class="stack__btn" href="https://www.instagram.com/johnha.ns/" target="_blank" rel="noopener">
+        <span class="stack__label"><span class="stack__title"><span>Photography</span></span><span class="stack__desc">My shots on Instagram<span class="visually-hidden"> (opens in a new tab)</span></span></span>
         <span class="stack__arrow is-ext" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
       </a>
     </li>
-    <li data-reveal style="--i:4">
-      <a class="stack__btn sq" href="/contact/">
-        <span class="stack__label"><span class="stack__title">Contact</span><span class="stack__desc">Say hello by email</span></span>
+    <li>
+      <a class="stack__btn" href="/contact/">
+        <span class="stack__label"><span class="stack__title"><span>Contact</span></span><span class="stack__desc">Say hello by email</span></span>
         <span class="stack__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
       </a>
     </li>

@@ -40,16 +40,14 @@
 <meta property="og:image:alt" content="Nguyen “John” Ha, MSCS at Northeastern University with a data engineering focus">
 <meta name="twitter:card" content="summary_large_image">
 <script>(function(){var t="dark";try{if(localStorage.getItem("theme")==="light")t="light"}catch(e){}document.documentElement.dataset.theme=t})()</script>
-<link rel="preload" href="/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<script>(function(d,x){var q=function(m){return matchMedia(m).matches},l=q("(hover: hover) and (pointer: fine)")?["ScrollTrigger","ScrollSmoother"]:[];if(!q("(prefers-reduced-motion: no-preference)")||!(l=l.concat(x)).length)return;["gsap"].concat(l).map(function(n){return"/assets/js/vendor/gsap-3.15.1/"+n+".min.js"}).concat("/assets/js/motion.js").forEach(function(u){var s=d.createElement("script");s.src=u;s.async=false;d.head.appendChild(s)})})(document,[])</script>
+<script type="speculationrules">{"prefetch":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"/(ai-income-lab|cs6120-team|cs6140-midterm|family-visit)/*"}}]},"eagerness":"moderate"}]}</script>
+<link rel="preload" href="/assets/fonts/google-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/css/site.css">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
-<script src="/assets/js/vendor/gsap-3.15.1/gsap.min.js" defer></script>
-<script src="/assets/js/vendor/gsap-3.15.1/ScrollTrigger.min.js" defer></script>
-<script src="/assets/js/vendor/gsap-3.15.1/ScrollSmoother.min.js" defer></script>
-<script src="/assets/js/motion.js" defer></script>
 <script src="/assets/js/site.js" defer></script>
 </head>
 <body id="top">
@@ -91,12 +89,11 @@
 <main id="main">
 
 <section class="container notfound">
-  <p class="eyebrow">Error</p>
-  <p class="notfound__code gradient-text">404</p>
-  <h1 class="section-title" style="margin-top: var(--space-4)">This page spilled its coffee.</h1>
-  <p class="page-head__lede" style="margin-inline:auto">The link may be from my old site. Try the home page or search.</p>
-  <div class="btn-row" style="justify-content:center;margin-top:var(--space-6)">
-    <a class="btn btn--primary" href="/">Go home <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  <p class="notfound__code">404</p>
+  <h1 class="notfound__title">This page spilled its coffee.</h1>
+  <p class="page-head__lede">The link may be from my old site. Try the home page or search.</p>
+  <div class="btn-row">
+    <a class="btn btn--primary" href="/">Go home</a>
     <button class="btn btn--ghost" type="button" data-search-open><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg> Search</button>
   </div>
 </section>

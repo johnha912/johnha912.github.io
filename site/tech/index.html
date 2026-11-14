@@ -25,14 +25,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Projects | Nguyen “John” Ha</title>
-<meta name="description" content="Projects by Nguyen “John” Ha: a Product Analytics ELT Pipeline, the OmniRAG Data Platform Upgrade, a join-order optimizer, a RAG engine, and a C compiler.">
+<meta name="description" content="Projects by Nguyen “John” Ha: keeploop, a keep-or-revert loop for AI coding changes; a join-order benchmark on DuckDB and Postgres; and a pandas data-wrangling pipeline.">
 <link rel="canonical" href="https://johnha.info/tech/">
 <meta name="theme-color" content="#0a0a0b">
 <meta name="color-scheme" content="dark light">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Nguyen “John” Ha">
 <meta property="og:title" content="Projects | Nguyen “John” Ha">
-<meta property="og:description" content="Projects by Nguyen “John” Ha: a Product Analytics ELT Pipeline, the OmniRAG Data Platform Upgrade, a join-order optimizer, a RAG engine, and a C compiler.">
+<meta property="og:description" content="Projects by Nguyen “John” Ha: keeploop, a keep-or-revert loop for AI coding changes; a join-order benchmark on DuckDB and Postgres; and a pandas data-wrangling pipeline.">
 <meta property="og:url" content="https://johnha.info/tech/">
 <meta property="og:image" content="https://johnha.info/assets/img/og-image.jpg">
 <meta property="og:image:width" content="1200">
@@ -40,16 +40,14 @@
 <meta property="og:image:alt" content="Nguyen “John” Ha, MSCS at Northeastern University with a data engineering focus">
 <meta name="twitter:card" content="summary_large_image">
 <script>(function(){var t="dark";try{if(localStorage.getItem("theme")==="light")t="light"}catch(e){}document.documentElement.dataset.theme=t})()</script>
-<link rel="preload" href="/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<script>(function(d,x){var q=function(m){return matchMedia(m).matches},l=q("(hover: hover) and (pointer: fine)")?["ScrollTrigger","ScrollSmoother"]:[];if(!q("(prefers-reduced-motion: no-preference)")||!(l=l.concat(x)).length)return;["gsap"].concat(l).map(function(n){return"/assets/js/vendor/gsap-3.15.1/"+n+".min.js"}).concat("/assets/js/motion.js").forEach(function(u){var s=d.createElement("script");s.src=u;s.async=false;d.head.appendChild(s)})})(document,[])</script>
+<script type="speculationrules">{"prefetch":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"/(ai-income-lab|cs6120-team|cs6140-midterm|family-visit)/*"}}]},"eagerness":"moderate"}]}</script>
+<link rel="preload" href="/assets/fonts/google-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/css/site.css">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
-<script src="/assets/js/vendor/gsap-3.15.1/gsap.min.js" defer></script>
-<script src="/assets/js/vendor/gsap-3.15.1/ScrollTrigger.min.js" defer></script>
-<script src="/assets/js/vendor/gsap-3.15.1/ScrollSmoother.min.js" defer></script>
-<script src="/assets/js/motion.js" defer></script>
 <script src="/assets/js/site.js" defer></script>
 </head>
 <body id="top">
@@ -90,114 +88,67 @@
 </header>
 <main id="main">
 
-<section class="container page-head">
-  <p class="eyebrow">Tech</p>
+<section class="container page-head page-head--status">
   <h1 class="page-head__title">Projects</h1>
-  <p class="page-head__lede">I’m an MS Computer Science student at Northeastern University focused on data engineering. These are the projects I’m building toward data engineering and data analyst internships for Summer 2027.</p>
-  <div class="btn-row" style="margin-top: var(--space-5)">
-    <span class="pill pill--status pill--live">Open to Summer 2027 internships</span>
-  </div>
+  <p class="page-head__lede">I’m an MS Computer Science student at Northeastern University focused on data engineering, looking for data engineering and data analyst internships for Summer 2027. These are my public projects.</p>
+  <p class="pill pill--status pill--live">Open to Summer 2027 internships</p>
 </section>
 
-<section class="container" aria-labelledby="featured-title">
-  <h2 class="visually-hidden" id="featured-title">Featured projects</h2>
-  <div class="bento">
-    <article class="project project--wide sq bento__feature" id="elt-pipeline" data-reveal>
-      <div>
-        <div class="project__top">
-          <span class="pill pill--status">In progress</span>
-        </div>
-        <h3 class="project__title">Product Analytics ELT Pipeline</h3>
-        <p class="project__desc">A metrics-first product analytics pipeline: Python ingestion, dbt models from staging to marts, Airflow scheduling, a warehouse star schema, data tests, and a dashboard on top.</p>
-        <ul class="chips"><li class="chip">Python</li><li class="chip">SQL</li><li class="chip">dbt</li><li class="chip">Airflow</li><li class="chip">Star schema</li><li class="chip">Data tests</li><li class="chip">Dashboard</li></ul>
+<section class="container" aria-label="Projects">
+  <article class="project sq" id="keeploop" aria-labelledby="keeploop-title">
+    <div>
+      <h2 class="project__title" id="keeploop-title">keeploop</h2>
+      <p class="project__lede">Your AI proposes the change; a fixed metric decides if it stays.</p>
+      <p class="project__desc">A small open-source Python tool that makes AI coding assistants prove their work. It works with Claude Code, Codex, Cursor, and Gemini CLI, has no dependencies, and installs from PyPI with <code>pipx install keeploop</code>. MIT license.</p>
+      <p class="stack-line">Python 3.10+ / git / pytest / GitHub Actions / PyPI</p>
+      <div class="btn-row">
+        <a class="btn btn--primary" href="https://github.com/johnha912/keeploop" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57l-.02-2.04c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.08-.74.09-.73.09-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.62-5.48 5.92.42.36.81 1.1.81 2.22l-.01 3.29c0 .32.21.7.82.58A12 12 0 0 0 12 .3"/></svg> View on GitHub<span class="visually-hidden"> (opens in a new tab)</span></a>
+        <a class="btn btn--ghost" href="https://pypi.org/project/keeploop/" target="_blank" rel="noopener">PyPI<span class="visually-hidden"> (opens in a new tab)</span></a>
       </div>
-      <div class="flow sq" role="img" aria-label="Pipeline architecture: Python ingestion, then Warehouse raw layer, then dbt staging models, then dbt marts · star schema, then Dashboard; Airflow schedules every run · tests guard each layer.">
-        <p class="flow__label" aria-hidden="true">Pipeline architecture</p>
-        <ol class="flow__steps" aria-hidden="true">
-          <li class="flow__step">Python ingestion<small>extract + load</small></li>
-          <li class="flow__step">Warehouse raw layer</li>
-          <li class="flow__step">dbt staging models<small>clean + type</small></li>
-          <li class="flow__step">dbt marts · star schema<small>facts + dims</small></li>
-          <li class="flow__step">Dashboard<small>product metrics</small></li>
-        </ol>
-        <p class="flow__rail" aria-hidden="true">Airflow schedules every run · tests guard each layer</p>
-      </div>
-    </article>
+    </div>
+    <ol class="loop" aria-label="How keeploop decides">
+      <li><p><strong>Propose.</strong> The AI proposes one change at a time.</p></li>
+      <li><p><strong>Score.</strong> An evaluation script you approve scores it.</p></li>
+      <li><p><strong>Keep.</strong> The change stays only if it beats the best score by more than the evaluation’s own measured noise.</p></li>
+      <li><p><strong>Revert.</strong> Otherwise it is undone and a lesson is logged.</p></li>
+    </ol>
+  </article>
 
-    <article class="project project--wide sq bento__feature" id="omnirag-upgrade" data-reveal>
-      <div>
-        <div class="project__top">
-          <span class="pill pill--status">In progress</span>
-        </div>
-        <h3 class="project__title">OmniRAG Data Platform Upgrade</h3>
-        <p class="project__desc">My solo Python data-engineering layer on my fork of OmniRAG: corpus-scale incremental ingestion, Postgres + pgvector storage, data quality and lineage, and evaluation analytics.</p>
-        <ul class="chips"><li class="chip">Python</li><li class="chip">Postgres</li><li class="chip">pgvector</li><li class="chip">Incremental ingestion</li><li class="chip">Data quality</li><li class="chip">Lineage</li><li class="chip">Eval analytics</li></ul>
+  <ul class="work">
+    <li id="join-order">
+      <p class="work__term">v2 · Fall 2026<br>v1 · Summer 2026</p>
+      <div class="work__body">
+        <h2 class="work__title">JOIN Order Optimization</h2>
+        <p><strong>v2, my solo rebuild:</strong> a reproducible benchmark that forces and times every join order of four TPC-H chain queries on DuckDB and Postgres 17, then compares a textbook dynamic program, a greedy heuristic, and each engine’s own optimizer against that brute-force ground truth. A dbt-duckdb warehouse with key and foreign-key tests, GitHub Actions CI, and an interactive Plotly report.</p>
+        <p><strong>v1, CS 5800 Algorithms</strong> (Nguyen Ha and Yanglin Hu): a chain-query optimizer using the Θ(n³) matrix-chain dynamic program, compared with greedy and left-to-right orders on four SQLite databases. On Sakila, left-to-right does <strong class="stat">150.88×</strong> more intermediate work than the optimum.</p>
+        <p class="stack-line">Python / DuckDB / Postgres 17 / dbt / Plotly / SQLite</p>
       </div>
-      <div class="flow sq" role="img" aria-label="Data layer: Document corpus, then Incremental ingestion, then Postgres + pgvector, then Data quality + lineage, then Eval analytics.">
-        <p class="flow__label" aria-hidden="true">Data layer</p>
-        <ol class="flow__steps" aria-hidden="true">
-          <li class="flow__step">Document corpus</li>
-          <li class="flow__step">Incremental ingestion<small>only what changed</small></li>
-          <li class="flow__step">Postgres + pgvector<small>storage</small></li>
-          <li class="flow__step">Data quality + lineage<small>checks</small></li>
-          <li class="flow__step">Eval analytics<small>metrics</small></li>
-        </ol>
-        
-      </div>
-    </article>
-  </div>
-</section>
-
-<section class="container section" id="earlier-work" aria-labelledby="earlier-title">
-  <h2 class="section-title" id="earlier-title">Earlier work</h2>
-  <div class="earlier-list">
-    <article class="earlier sq" id="join-order" data-reveal style="--i:0">
-      <div>
-        <p class="earlier__meta">Summer 2026 · v2 Fall 2026</p>
-        <h3>JOIN Order Optimization</h3>
-        <p>A chain-query join-order optimizer that uses the same Θ(n³) dynamic program as matrix-chain multiplication, compared against greedy and left-to-right heuristics on four real SQLite databases (Northwind, Chinook, Sakila, F1DB). Every row count and block size is checked against the actual SQL joins. Built with teammate Yanglin “Elliot” Hu.</p>
-        <p><strong>v2, my solo rebuild:</strong> a reproducible benchmark that forces and times every possible join order of four TPC-H queries on DuckDB and Postgres, then checks the DP against each engine’s own optimizer. A dbt-tested warehouse, CI, and an interactive Plotly report.</p>
-        <p class="earlier__stat"><strong>150.88×</strong> less intermediate work than left-to-right join order on the Sakila database</p>
-        <ul class="chips"><li class="chip">Python</li><li class="chip">SQLite</li><li class="chip">Dynamic programming</li><li class="chip">Query optimization</li><li class="chip">DuckDB</li><li class="chip">Postgres</li><li class="chip">dbt</li><li class="chip">Plotly</li></ul>
-      </div>
-      <div class="earlier__links">
+      <div class="work__links">
+        <a class="btn btn--primary" href="https://johnha912.github.io/join-order-bench/" target="_blank" rel="noopener">Interactive report<span class="visually-hidden"> (opens in a new tab)</span></a>
         <a class="btn btn--ghost" href="https://github.com/johnha912/JoinOrderOptimizationDP" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57l-.02-2.04c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.08-.74.09-.73.09-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.62-5.48 5.92.42.36.81 1.1.81 2.22l-.01 3.29c0 .32.21.7.82.58A12 12 0 0 0 12 .3"/></svg> v1 on GitHub<span class="visually-hidden"> (team project, opens in a new tab)</span></a>
         <a class="btn btn--ghost" href="https://github.com/johnha912/join-order-bench" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57l-.02-2.04c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.08-.74.09-.73.09-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.62-5.48 5.92.42.36.81 1.1.81 2.22l-.01 3.29c0 .32.21.7.82.58A12 12 0 0 0 12 .3"/></svg> v2 on GitHub<span class="visually-hidden"> (solo rebuild, opens in a new tab)</span></a>
       </div>
-    </article>
-    <article class="earlier sq" id="omnirag" data-reveal style="--i:1">
-      <div>
-        <p class="earlier__meta">Spring 2026</p>
-        <h3>OmniRAG</h3>
-        <p>A domain-aware Retrieval-Augmented Generation (RAG) engine built with Java 21 and Spring Boot with teammates Rui Song and Siyuan Liang. Upload documents, ask questions in natural language, and get grounded answers with source citations.</p>
-        
-        <ul class="chips"><li class="chip">Java 21</li><li class="chip">Spring Boot</li><li class="chip">RAG</li></ul>
+    </li>
+    <li id="school-decision">
+      <p class="work__term">Personal project</p>
+      <div class="work__body">
+        <h2 class="work__title">Mini Wrangling for a School Decision</h2>
+        <p>A reproducible pandas pipeline that joins crime statistics, university program and location data, and startup-ecosystem rankings to shortlist universities for a military veteran pursuing IT / MIS programs: <strong class="stat">7,804</strong> universities → <strong class="stat">23</strong> candidates in 4 cities, using transparent, percentile-based rules.</p>
+        <p class="stack-line">Python / pandas / Plotly Dash / pytest / GitHub Actions</p>
       </div>
-      <a class="btn btn--ghost" href="https://github.com/johnha912/rag-core-engine" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57l-.02-2.04c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.08-.74.09-.73.09-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.62-5.48 5.92.42.36.81 1.1.81 2.22l-.01 3.29c0 .32.21.7.82.58A12 12 0 0 0 12 .3"/></svg> View on GitHub<span class="visually-hidden"> (opens in a new tab)</span></a>
-    </article>
-    <article class="earlier sq" id="jivec" data-reveal style="--i:2">
-      <div>
-        <p class="earlier__meta">Spring 2026</p>
-        <h3>jivec</h3>
-        <p>An individual course project assigned by Professor Lothar Narins at Northeastern University: I wrote a from-scratch compiler in C for Jive, the course’s small teaching language, targeting x86-64 NASM assembly. Built stage by stage: lexer, parser, stack-machine IR, symbol table, function calls, control flow, then strings, heap allocation, and arrays.</p>
-        
-        <ul class="chips"><li class="chip">C11</li><li class="chip">x86-64 NASM</li><li class="chip">Compilers</li><li class="chip">Linux / WSL</li></ul>
+      <div class="work__links">
+        <a class="btn btn--ghost" href="https://github.com/johnha912/mini-wrangling-for-school-decision" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57l-.02-2.04c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.08-.74.09-.73.09-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.62-5.48 5.92.42.36.81 1.1.81 2.22l-.01 3.29c0 .32.21.7.82.58A12 12 0 0 0 12 .3"/></svg> View on GitHub<span class="visually-hidden"> (opens in a new tab)</span></a>
       </div>
-      <a class="btn btn--ghost" href="https://github.com/johnha912/jivec" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57l-.02-2.04c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.08-.74.09-.73.09-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.62-5.48 5.92.42.36.81 1.1.81 2.22l-.01 3.29c0 .32.21.7.82.58A12 12 0 0 0 12 .3"/></svg> View on GitHub<span class="visually-hidden"> (opens in a new tab)</span></a>
-    </article>
-  </div>
+    </li>
+  </ul>
 </section>
 
-<section class="container section" style="padding-bottom: var(--space-9)">
-  <div class="callout sq" data-reveal>
-    <div>
-      <h2>More code on GitHub.</h2>
-      <p>Coursework, experiments, and everything in progress live at github.com/johnha912.</p>
-    </div>
-    <div class="btn-row">
-      <a class="btn btn--primary" href="https://github.com/johnha912" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57l-.02-2.04c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.08-.74.09-.73.09-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.62-5.48 5.92.42.36.81 1.1.81 2.22l-.01 3.29c0 .32.21.7.82.58A12 12 0 0 0 12 .3"/></svg> GitHub profile<span class="visually-hidden"> (opens in a new tab)</span></a>
-      <a class="btn btn--ghost" href="/contact/">Contact</a>
-    </div>
+<section class="container page-end">
+  <h2 class="page-end__title">More code on GitHub.</h2>
+  <p>Coursework and experiments live at github.com/johnha912.</p>
+  <div class="btn-row">
+    <a class="btn btn--primary" href="https://github.com/johnha912" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57l-.02-2.04c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.08-.74.09-.73.09-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.62-5.48 5.92.42.36.81 1.1.81 2.22l-.01 3.29c0 .32.21.7.82.58A12 12 0 0 0 12 .3"/></svg> GitHub profile<span class="visually-hidden"> (opens in a new tab)</span></a>
+    <a class="btn btn--ghost" href="/contact/">Contact</a>
   </div>
 </section>
 </main>

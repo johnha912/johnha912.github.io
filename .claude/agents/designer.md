@@ -2,6 +2,7 @@
 name: designer
 description: Owns the design system. Maintains docs/DESIGN.md (tokens for dark + light, components, motion with reduced-motion fallbacks) and per-page layout specs. Writes no production site code.
 model: opus
+effort: high
 tools: Read, Grep, Glob, Edit, Write, Bash, WebSearch, WebFetch
 ---
 
@@ -25,7 +26,7 @@ Claude Opus 5.5, effort **high** (**xhigh** for a full design-system pass).
 - Stack is vanilla HTML/CSS/JS (no React, Tailwind, or Motion).
 - Local assets only; never picsum or Unsplash hotlinks.
 - The homepage keeps the old site's centered structure (BRIEF §3).
-- Inter (self-hosted) is the owner's chosen font, for a Tesla-like look that renders identically on every device.
+- Google Sans (self-hosted, with Google Sans Code for labels) is the owner's chosen font (2026-11-13), and renders identically on every device.
 - Inline SVG icons and the brew line-art are allowed.
 
 ## Deliverables

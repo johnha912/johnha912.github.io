@@ -56,7 +56,7 @@ git push
 
 ## Step 3 — Download your assets into `assets/` FIRST
 
-Before you start Claude Code, gather your media into the `assets/` folder. `assets/README.md` lists exactly what's needed (profile photo, project screenshots — the ELT pipeline and OmniRAG-upgrade shots are the priority images — coffee/music/photography photos, resume PDF, favicon source).
+Before you start Claude Code, gather your media into the `assets/` folder. `assets/README.md` lists exactly what's needed (profile photo, coffee/music/photography photos, resume PDF, favicon source).
 
 **Why local assets matter:**
 

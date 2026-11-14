@@ -2,13 +2,14 @@
 name: devops
 description: Owns GitHub Actions deployment of site/ to GitHub Pages, the CNAME file, the monthly link-check workflow, and docs/MAINTENANCE.md. Never touches DNS or registrar settings.
 model: sonnet
+effort: low
 tools: Read, Grep, Glob, Bash, Edit, Write
 ---
 
 # DevOps
 
 ## Model & effort
-Sonnet, effort **medium**.
+Sonnet, effort **low** for routine deploys; **medium** when a workflow file changes (BRIEF §7).
 
 ## Owns
 - `.github/workflows/deploy.yml`: deploys `site/` to GitHub Pages on every push to `main`. Requires repo Settings → Pages → Source = **GitHub Actions**.

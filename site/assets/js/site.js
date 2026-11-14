@@ -54,12 +54,10 @@
   const PAGES = [
     { t: "Home", u: "/", s: "Page", k: "welcome portfolio john ha" },
     { t: "About Me", u: "/about/", s: "Page", k: "education northeastern worldquant suffolk ueh certificate ibm badge credly marketing market research financial engineering" },
-    { t: "Projects", u: "/tech/", s: "Tech", k: "tech skills python sql pandas numpy streamlit dbt airflow postgres pgvector" },
-    { t: "Product Analytics ELT Pipeline", u: "/tech/#elt-pipeline", s: "Tech · Featured", k: "dbt airflow star schema warehouse dashboard ingestion metrics" },
-    { t: "OmniRAG Data Platform Upgrade", u: "/tech/#omnirag-upgrade", s: "Tech · Featured", k: "postgres pgvector lineage data quality eval ingestion" },
-    { t: "JOIN Order Optimization", u: "/tech/#join-order", s: "Tech · Earlier work", k: "dynamic programming matrix chain sql sqlite query optimizer algorithms cs 5800 v2 benchmark duckdb postgres dbt tpc-h plotly" },
-    { t: "OmniRAG (team project)", u: "/tech/#omnirag", s: "Tech · Earlier work", k: "rag java spring boot retrieval augmented generation" },
-    { t: "jivec compiler", u: "/tech/#jivec", s: "Tech · Earlier work", k: "c compiler x86-64 nasm assembly jive cs 5008 lothar narins course project" },
+    { t: "Projects", u: "/tech/", s: "Tech", k: "tech projects github python sql pandas dbt duckdb postgres" },
+    { t: "keeploop", u: "/tech/#keeploop", s: "Tech", k: "ai coding assistant claude code codex cursor gemini evaluation metric keep revert pypi pipx python" },
+    { t: "JOIN Order Optimization", u: "/tech/#join-order", s: "Tech", k: "dynamic programming matrix chain sql sqlite query optimizer algorithms cs 5800 v2 benchmark duckdb postgres dbt tpc-h plotly" },
+    { t: "Mini Wrangling for a School Decision", u: "/tech/#school-decision", s: "Tech", k: "pandas data wrangling pipeline crime universities startup veteran dash" },
     { t: "Coffee Blog", u: "/coffee-blog/", s: "Coffee", k: "coffee lover brew guides recipes" },
     { t: "Pour Over / Flash Brew", u: "/coffee-blog/pour-over-flash-brew/", s: "Coffee", k: "v60 japanese iced coffee bloom pour" },
     { t: "AeroPress", u: "/coffee-blog/aeropress/", s: "Coffee", k: "inverted immersion pressure" },
@@ -84,7 +82,7 @@
     });
     active = 0;
     list.innerHTML = hits.length
-      ? hits.map((p, i) => `<li><a href="${p.u}" id="sr-${i}" role="option" aria-selected="${i === 0}"${p.u.startsWith("http") ? ' target="_blank" rel="noopener"' : ""}><span class="r-title">${p.t}</span><span class="r-section">${p.s}</span></a></li>`).join("")
+      ? hits.map((p, i) => `<li style="--i:${Math.min(i, 8)}"><a href="${p.u}" id="sr-${i}" role="option" aria-selected="${i === 0}"${p.u.startsWith("http") ? ' target="_blank" rel="noopener"' : ""}><span class="r-title">${p.t}</span><span class="r-section">${p.s}</span></a></li>`).join("")
       : `<li class="search__empty">No results for “${q.replace(/[<>&"]/g, "")}”</li>`;
     input.setAttribute("aria-activedescendant", hits.length ? "sr-0" : "");
   };
@@ -101,13 +99,14 @@
     if (!dialog) return;
     if (nav?.hasAttribute("data-open")) setMenu(false);
     input.value = "";
+    list.setAttribute("data-opening", ""); // stagger the first paint only
     render();
     dialog.showModal();
     input.focus();
   };
 
   document.querySelectorAll("[data-search-open]").forEach((b) => b.addEventListener("click", openSearch));
-  input?.addEventListener("input", render);
+  input?.addEventListener("input", () => { list.removeAttribute("data-opening"); render(); });
   input?.addEventListener("keydown", (e) => {
     if (e.key === "ArrowDown") { e.preventDefault(); move(1); }
     if (e.key === "ArrowUp") { e.preventDefault(); move(-1); }
@@ -120,31 +119,6 @@
       e.preventDefault();
       dialog?.open ? dialog.close() : openSearch();
     }
-  });
-
-  /* ---------- Scroll reveal (fallback; motion.js handles it when GSAP loaded) ---------- */
-  const gsapOn = root.classList.contains("gsap");
-  const reveals = gsapOn ? [] : document.querySelectorAll("[data-reveal]");
-  if ("IntersectionObserver" in window && reveals.length) {
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((en) => {
-        if (en.isIntersecting) { en.target.classList.add("is-in"); io.unobserve(en.target); }
-      });
-    }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
-    reveals.forEach((el) => io.observe(el));
-  } else {
-    reveals.forEach((el) => el.classList.add("is-in"));
-  }
-
-  /* ---------- Spotlight that follows the pointer on the home button stack ---------- */
-  // With GSAP and motion allowed, motion.js eases the spotlight instead.
-  const easedSpotlight = gsapOn && matchMedia("(prefers-reduced-motion: no-preference)").matches;
-  if (!easedSpotlight) document.querySelectorAll(".stack__btn").forEach((btn) => {
-    btn.addEventListener("pointermove", (e) => {
-      const r = btn.getBoundingClientRect();
-      btn.style.setProperty("--mx", `${e.clientX - r.left}px`);
-      btn.style.setProperty("--my", `${e.clientY - r.top}px`);
-    });
   });
 
   /* ---------- Copy email ---------- */
@@ -228,7 +202,8 @@
       if (e.key === "Escape" && read()) close();
     });
 
-    if (!read()) show();
+    // Wait for web fonts so the fixed banner doesn't grow (and shift) when the web font swaps in.
+    if (!read()) (document.fonts?.ready || Promise.resolve()).then(() => show());
   }
 
   /* ---------- Click-to-load embeds: no third-party cookies until the visitor asks ---------- */

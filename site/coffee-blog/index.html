@@ -40,16 +40,14 @@
 <meta property="og:image:alt" content="Nguyen “John” Ha, MSCS at Northeastern University with a data engineering focus">
 <meta name="twitter:card" content="summary_large_image">
 <script>(function(){var t="dark";try{if(localStorage.getItem("theme")==="light")t="light"}catch(e){}document.documentElement.dataset.theme=t})()</script>
-<link rel="preload" href="/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<script>(function(d,x){var q=function(m){return matchMedia(m).matches},l=q("(hover: hover) and (pointer: fine)")?["ScrollTrigger","ScrollSmoother"]:[];if(!q("(prefers-reduced-motion: no-preference)")||!(l=l.concat(x)).length)return;["gsap"].concat(l).map(function(n){return"/assets/js/vendor/gsap-3.15.1/"+n+".min.js"}).concat("/assets/js/motion.js").forEach(function(u){var s=d.createElement("script");s.src=u;s.async=false;d.head.appendChild(s)})})(document,[])</script>
+<script type="speculationrules">{"prefetch":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"/(ai-income-lab|cs6120-team|cs6140-midterm|family-visit)/*"}}]},"eagerness":"moderate"}]}</script>
+<link rel="preload" href="/assets/fonts/google-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/css/site.css">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
-<script src="/assets/js/vendor/gsap-3.15.1/gsap.min.js" defer></script>
-<script src="/assets/js/vendor/gsap-3.15.1/ScrollTrigger.min.js" defer></script>
-<script src="/assets/js/vendor/gsap-3.15.1/ScrollSmoother.min.js" defer></script>
-<script src="/assets/js/motion.js" defer></script>
 <script src="/assets/js/site.js" defer></script>
 </head>
 <body id="top">
@@ -95,51 +93,55 @@
   <p class="page-head__lede">Four ways I brew, each with the history behind it and the recipe I actually use.</p>
 </section>
 
-<section class="container" style="padding-bottom: var(--space-9)" aria-label="Brew guides">
-  <ul class="brew-grid" style="list-style:none;padding:0">
-    <li data-reveal style="--i:0">
-      <a class="brew-card sq" href="/coffee-blog/pour-over-flash-brew/">
+<section class="container page-bottom" aria-label="Brew guides">
+  <ul class="brew-grid">
+    <li>
+      <a class="brew-card" href="/coffee-blog/pour-over-flash-brew/">
         <div class="brew-card__art sq"><svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Line drawing of a pour-over dripper over a carafe"><path d="M28 30h64L70 70H50z"/><path d="M40 38h40M46 48h28"/><path d="M42 70h36M38 75h44"/><path d="M60 77v6" stroke-dasharray="2 4"/><path d="M42 86h36l3 20a5 5 0 0 1-5 6H44a5 5 0 0 1-5-6z"/><path d="M42 98h36" opacity=".5"/><path d="M52 14c-3 4 3 6 0 10M66 12c-3 4 3 6 0 10"/></svg></div>
         <div class="brew-card__body">
           <div>
             <h2 class="brew-card__title">Pour Over / Flash Brew</h2>
             <p class="brew-card__desc">Clarity in the cup, hot or flashed over ice.</p>
+            <p class="brew-card__meta">4 min read</p>
           </div>
           <span class="stack__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
         </div>
       </a>
     </li>
-    <li data-reveal style="--i:1">
-      <a class="brew-card sq" href="/coffee-blog/aeropress/">
+    <li>
+      <a class="brew-card" href="/coffee-blog/aeropress/">
         <div class="brew-card__art sq"><svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Line drawing of an AeroPress on a mug"><rect x="44" y="12" width="32" height="7" rx="3"/><path d="M49 19h22v22H49z"/><rect x="43" y="38" width="34" height="50" rx="4"/><path d="M50 50h8M50 60h8M50 70h8"/><path d="M40 88h40v6H40z"/><path d="M38 96h44v10a8 8 0 0 1-8 8H46a8 8 0 0 1-8-8z"/><path d="M82 99h4a5 5 0 0 1 0 10h-4"/></svg></div>
         <div class="brew-card__body">
           <div>
             <h2 class="brew-card__title">AeroPress</h2>
             <p class="brew-card__desc">Immersion plus pressure: smooth, low-bitterness, portable.</p>
+            <p class="brew-card__meta">3 min read</p>
           </div>
           <span class="stack__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
         </div>
       </a>
     </li>
-    <li data-reveal style="--i:0">
-      <a class="brew-card sq" href="/coffee-blog/espresso/">
+    <li>
+      <a class="brew-card" href="/coffee-blog/espresso/">
         <div class="brew-card__art sq"><svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Line drawing of an espresso cup with steam"><path d="M30 58h50v8c0 16-11 26-25 26S30 82 30 66z"/><path d="M80 63h6a8 8 0 0 1 0 16h-7"/><ellipse cx="55" cy="58" rx="25" ry="4"/><path d="M20 98h72" /><path d="M28 104h56" opacity=".5"/><path d="M46 28c-4 5 4 8 0 14M58 24c-4 5 4 8 0 14M70 28c-4 5 4 8 0 14"/></svg></div>
         <div class="brew-card__body">
           <div>
             <h2 class="brew-card__title">Espresso</h2>
             <p class="brew-card__desc">Nine bars, thirty seconds, endless tinkering.</p>
+            <p class="brew-card__meta">5 min read</p>
           </div>
           <span class="stack__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
         </div>
       </a>
     </li>
-    <li data-reveal style="--i:1">
-      <a class="brew-card sq" href="/coffee-blog/vietnamese-phin/">
+    <li>
+      <a class="brew-card" href="/coffee-blog/vietnamese-phin/">
         <div class="brew-card__art sq"><svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Line drawing of a Vietnamese phin filter dripping into a glass"><path d="M40 22h40v7H40z"/><path d="M58 22v-5h4v5"/><path d="M44 29h32l-3 24H47z"/><path d="M34 53h52"/><path d="M58 56v4M62 62v3" stroke-dasharray="2 3"/><path d="M40 66h40l-5 44H45z"/><path d="M44 96h32" opacity=".5"/><path d="M45 102h30" opacity=".5"/></svg></div>
         <div class="brew-card__body">
           <div>
             <h2 class="brew-card__title">Vietnamese Phin</h2>
             <p class="brew-card__desc">Slow drip, dark roast, sweetened condensed milk.</p>
+            <p class="brew-card__meta">4 min read</p>
           </div>
           <span class="stack__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
         </div>

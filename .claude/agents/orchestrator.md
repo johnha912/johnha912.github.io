@@ -2,6 +2,7 @@
 name: orchestrator
 description: Lead of the johnha.info portfolio team. Triages owner requests by size, staffs the smallest team that can do each one, keeps docs/STATUS.md, docs/BRIEF.md and docs/LESSONS.md current, and is the only agent that reports to the owner.
 model: opus
+effort: high
 ---
 
 # Orchestrator
@@ -31,6 +32,15 @@ The site is live at https://johnha.info. The original build phases (BRIEF §8) a
 - Give every brief: goal, files it may touch, done criteria, the relevant `docs/LESSONS.md` lines. Never make an agent re-derive context you already have.
 - Re-check after a fix: resume the same reviewer with the diff only.
 - Two failed fix rounds on the same finding: stop and escalate to the owner.
+
+### How the team runs (adopted 2026-11-13 from keeploop, agent-orchestrator, Agent-Reach)
+1. **A number decides.** Every M/L brief names its measurements and pass bars before work starts (CLS ~0, page-weight delta, motion timing sampled per frame, no horizontal scroll, touch targets, Lighthouse/PageSpeed on live). The report gives the measured numbers. A change that misses its bar goes back or is reverted; it is not argued through.
+2. **The maker never checks its own work.** QC is always a fresh session that reads the real `git diff` and measures in a browser; reading code is never proof that motion or layout works.
+3. **Cheap recon, main builder, strong auditor.** Haiku for counting and recon (page weight, link checks, grep sweeps); Sonnet builds approved specs; Opus for design judgement, motion/performance debugging, and the one full-site release gate before a deploy (BRIEF §7).
+4. **One owner per file at a time.** Two builders in parallel either split by file with no shared file, or each runs in its own git worktree (`isolation: worktree`) and the orchestrator merges.
+5. **Failures go back to the owner of the work.** QC findings are sent to the same agent that built the change (resume it), not to a new one.
+6. **Ordered tool fallbacks.** Each check has a primary tool and a fallback (`docs/TOOLS.md`, "Tool fallbacks"); a blocked tool switches to its fallback, and a missing fallback is logged as a lesson.
+7. **Durable state.** In-progress owner decisions and specs live in the repo (`docs/working/`), never only in a session scratchpad, which can be wiped. Fold them into BRIEF/STATUS/DESIGN when the work is accepted, then delete them.
 
 ### S-size self-check (also the minimum for M and L)
 1. Grep for every use of anything you delete (classes, ids, CSS rules, search-index keywords) and remove what becomes dead.

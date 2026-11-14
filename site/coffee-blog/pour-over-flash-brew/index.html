@@ -40,16 +40,14 @@
 <meta property="og:image:alt" content="Nguyen “John” Ha, MSCS at Northeastern University with a data engineering focus">
 <meta name="twitter:card" content="summary_large_image">
 <script>(function(){var t="dark";try{if(localStorage.getItem("theme")==="light")t="light"}catch(e){}document.documentElement.dataset.theme=t})()</script>
-<link rel="preload" href="/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<script>(function(d,x){var q=function(m){return matchMedia(m).matches},l=q("(hover: hover) and (pointer: fine)")?["ScrollTrigger","ScrollSmoother"]:[];if(!q("(prefers-reduced-motion: no-preference)")||!(l=l.concat(x)).length)return;["gsap"].concat(l).map(function(n){return"/assets/js/vendor/gsap-3.15.1/"+n+".min.js"}).concat("/assets/js/motion.js").forEach(function(u){var s=d.createElement("script");s.src=u;s.async=false;d.head.appendChild(s)})})(document,[])</script>
+<script type="speculationrules">{"prefetch":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"/(ai-income-lab|cs6120-team|cs6140-midterm|family-visit)/*"}}]},"eagerness":"moderate"}]}</script>
+<link rel="preload" href="/assets/fonts/google-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/css/site.css">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
-<script src="/assets/js/vendor/gsap-3.15.1/gsap.min.js" defer></script>
-<script src="/assets/js/vendor/gsap-3.15.1/ScrollTrigger.min.js" defer></script>
-<script src="/assets/js/vendor/gsap-3.15.1/ScrollSmoother.min.js" defer></script>
-<script src="/assets/js/motion.js" defer></script>
 <script src="/assets/js/site.js" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Pour-Over Coffee and Flash Brew: My Recipe and Ratios","description":"My pour-over recipe (15–20 g coffee to 300 g water) and flash brew, the Japanese iced coffee method: ratio, grind size, bloom, and step-by-step pours.","image":["https://johnha.info/assets/img/coffee-pour-over-1600.webp"],"author":{"@type":"Person","name":"Nguyen Ha","alternateName":"John Ha","url":"https://johnha.info/about/"},"dateModified":"2026-10-07","inLanguage":"en-US","mainEntityOfPage":"https://johnha.info/coffee-blog/pour-over-flash-brew/"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://johnha.info/"},{"@type":"ListItem","position":2,"name":"Coffee Blog","item":"https://johnha.info/coffee-blog/"},{"@type":"ListItem","position":3,"name":"Pour Over / Flash Brew","item":"https://johnha.info/coffee-blog/pour-over-flash-brew/"}]}</script>
@@ -94,18 +92,28 @@
 </header>
 <main id="main">
 
-<article>
-  <header class="container container--narrow article-head">
-    <nav aria-label="Breadcrumb"><ol class="breadcrumb"><li><a href="/coffee-blog/">Coffee Blog</a></li><li aria-current="page">Pour Over / Flash Brew</li></ol></nav>
-    <h1 class="page-head__title">Pour-Over Coffee and Flash Brew: My Recipe and Ratios</h1>
-    <p class="byline">By <a href="/about/">Nguyen “John” Ha</a> · Updated <time datetime="2026-10-07">October 7, 2026</time></p>
-    <div class="article-hero-art sq"><svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Line drawing of a pour-over dripper over a carafe"><path d="M28 30h64L70 70H50z"/><path d="M40 38h40M46 48h28"/><path d="M42 70h36M38 75h44"/><path d="M60 77v6" stroke-dasharray="2 4"/><path d="M42 86h36l3 20a5 5 0 0 1-5 6H44a5 5 0 0 1-5-6z"/><path d="M42 98h36" opacity=".5"/><path d="M52 14c-3 4 3 6 0 10M66 12c-3 4 3 6 0 10"/></svg></div>
+<article class="brew">
+  <header class="brew-head">
+    <div class="container">
+      <div class="brew-head__text">
+        <nav aria-label="Breadcrumb"><ol class="breadcrumb"><li><a href="/coffee-blog/">Coffee Blog</a></li><li aria-current="page">Pour Over / Flash Brew</li></ol></nav>
+        <h1 class="page-head__title">Pour-Over Coffee and Flash Brew: My Recipe and Ratios</h1>
+        <p class="byline">By <a href="/about/">Nguyen “John” Ha</a> · Updated <time datetime="2026-10-07">October 7, 2026</time></p>
+      </div>
+      <figure class="prose-figure brew-hero">
+        <div class="frame sq"><img src="/assets/img/coffee-pour-over-1600.webp" srcset="/assets/img/coffee-pour-over-640.webp 640w, /assets/img/coffee-pour-over-1024.webp 1024w, /assets/img/coffee-pour-over-1200.webp 1200w, /assets/img/coffee-pour-over-1600.webp 1600w" sizes="(min-width: 76rem) 72rem, calc(100vw - 2rem)" width="1600" height="1000" alt="Hot water poured from a gooseneck kettle into a pour-over dripper, with a jar of beans and cups on a white table" fetchpriority="high" decoding="async"></div>
+        <figcaption>Pour-over by hand: a gooseneck kettle gives control over the speed and placement of the pour. <span class="credit">Photo: <a href="https://commons.wikimedia.org/wiki/File:Manual_drip_(pour-over)_coffee.jpg" target="_blank" rel="noopener">Manual drip (pour-over) coffee</a> by Kim Sanso, <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener license">CC0 1.0</a>, via Wikimedia Commons (cropped and resized).</span></figcaption>
+      </figure>
+    </div>
   </header>
-  <div class="container container--narrow prose" style="padding-bottom: var(--space-9)">
 
-    <aside class="glance sq" aria-label="At a glance">
-      <p class="glance__title">At a glance</p>
-      <dl>
+  <section class="chapter chapter--band chapter--glance">
+    <div class="container chapter__inner">
+      <div class="article-hero sq">
+    <div class="article-hero-art sq"><svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Line drawing of a pour-over dripper over a carafe"><path d="M28 30h64L70 70H50z"/><path d="M40 38h40M46 48h28"/><path d="M42 70h36M38 75h44"/><path d="M60 77v6" stroke-dasharray="2 4"/><path d="M42 86h36l3 20a5 5 0 0 1-5 6H44a5 5 0 0 1-5-6z"/><path d="M42 98h36" opacity=".5"/><path d="M52 14c-3 4 3 6 0 10M66 12c-3 4 3 6 0 10"/></svg></div>
+    <aside class="glance" aria-labelledby="glance-title">
+      <h2 class="glance__title" id="glance-title">At a glance</h2>
+      <dl class="lines">
         <div><dt>Coffee</dt><dd>15–20 g, medium-fine (600–800 μm)</dd></div>
         <div><dt>Water</dt><dd>225–300 g at 90–96 °C (195–205 °F)</dd></div>
         <div><dt>Ratio</dt><dd>about 1:15</dd></div>
@@ -114,73 +122,127 @@
         <div><dt>Flash brew</dt><dd>swap about 140 g of the water for ice</dd></div>
       </dl>
     </aside>
-
-    <h2>What is pour-over coffee?</h2>
-    <p>Pour-over is a manual brewing method: you pour hot water over ground coffee in a paper filter, and gravity pulls the brewed coffee into the cup or carafe below. Because you control the water temperature, the speed of the pour, and the bloom, you can brew a clean, balanced cup that shows off what makes a coffee unique. In a cone dripper like the Hario V60, the coffee bed itself sets the flow rate, so grind size is the variable to dial in first (Equator Coffees, 2024).</p>
-    <figure class="prose-figure">
-      <div class="frame sq" style="aspect-ratio: 16 / 10"><img src="/assets/img/coffee-pour-over-1600.webp" srcset="/assets/img/coffee-pour-over-640.webp 640w, /assets/img/coffee-pour-over-1024.webp 1024w, /assets/img/coffee-pour-over-1600.webp 1600w" sizes="(min-width: 48rem) 42rem, 100vw" width="1600" height="1000" alt="Hot water poured from a gooseneck kettle into a pour-over dripper, with a jar of beans and cups on a white table" loading="lazy" decoding="async"></div>
-      <figcaption>Pour-over by hand: a gooseneck kettle gives control over the speed and placement of the pour. <span class="credit">Photo: <a href="https://commons.wikimedia.org/wiki/File:Manual_drip_(pour-over)_coffee.jpg" target="_blank" rel="noopener">Manual drip (pour-over) coffee</a> by Kim Sanso, <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener license">CC0 1.0</a>, via Wikimedia Commons (cropped and resized).</span></figcaption>
-    </figure>
-
-    <h2>My usual pour-over profile</h2>
-    <dl class="profile">
-      <div><dt>Coffee</dt><dd>15–20 g</dd></div>
-      <div><dt>Grind size</dt><dd>600–800 μm<small>A finer grind drains slower and extracts more</small></dd></div>
-      <div><dt>Roast level</dt><dd>Light</dd></div>
-      <div><dt>Water</dt><dd>225–300 g<small>90–96 °C (195–205 °F)</small></dd></div>
-      <div><dt>Ratio</dt><dd>about 1:15<small>e.g. 20 g coffee to 300 g water</small></dd></div>
-    </dl>
-
-    <h2>How to make pour-over coffee, step by step</h2>
-    <ol class="steps">
-      <li><strong>Prepare and preheat. </strong>Place the filter in the dripper and rinse it with hot water to remove any paper taste and warm the dripper and carafe. Discard the rinse water.</li>
-      <li><strong>Add the coffee. </strong>Add 15–20 g of freshly ground coffee and gently shake the dripper to level the bed, so the water extracts it evenly.</li>
-      <li><strong>Bloom. </strong>Start a timer and pour 40 g of water, just enough to wet all the grounds. Wait 30–45 seconds while the coffee releases trapped gas; this makes the rest of the brew more even.</li>
-      <li><strong>Main pour. </strong>Pour the remaining water slowly in a steady spiral from the center outward until the scale reads 300 g. Aim to finish pouring within 1.5–2 minutes.</li>
-      <li><strong>Drawdown. </strong>Let the water drain through the bed. The whole brew, bloom included, usually finishes around 3–3.5 minutes.</li>
-      <li><strong>Serve. </strong>Remove the dripper, give the coffee a gentle swirl, and pour.</li>
-    </ol>
-
-    <h2>What is flash brew (Japanese iced coffee)?</h2>
-    <p>Flash brew, also called Japanese iced coffee, is a pour-over brewed directly onto ice. Part of the brewing water is replaced by ice in the carafe, so the hot coffee cools the moment it lands. The method dates to around the 1960s in Japan and spread through specialty coffee from the 2010s onward (Gates, 2024). Brewing hot and chilling right away keeps more of the coffee’s aroma and acidity than steeping in cold water, which is why flash brew tastes brighter and cleaner than most iced coffee (Janzen, 2016).</p>
-    <figure class="prose-figure prose-figure--portrait">
-      <div class="frame sq" style="aspect-ratio: 4 / 5"><img src="/assets/img/coffee-flash-brew-960.webp" srcset="/assets/img/coffee-flash-brew-560.webp 560w, /assets/img/coffee-flash-brew-960.webp 960w" sizes="(min-width: 48rem) 26rem, 80vw" width="960" height="1200" alt="A V60 dripper on a glass server filled with ice, sitting on a digital scale in warm sunlight" loading="lazy" decoding="async"></div>
-      <figcaption>Flash brew: the V60 drips hot coffee straight onto ice in the server, on a scale so the ice counts toward the water. <span class="credit">Photo: <a href="https://commons.wikimedia.org/wiki/File:Iced_filter_coffee_with_Assembly_coffee_(49905389451).jpg" target="_blank" rel="noopener">Iced filter coffee with Assembly coffee</a> by Bex Walton, <a href="https://creativecommons.org/licenses/by/2.0/" target="_blank" rel="noopener license">CC BY 2.0</a>, via Wikimedia Commons (cropped, resized, and color-graded).</span></figcaption>
-    </figure>
-
-    <h2>How to make flash brew, step by step</h2>
-    <ol class="steps">
-      <li><strong>Add ice. </strong>Put 140 g of ice in the carafe under the dripper. The ice counts as part of your water.</li>
-      <li><strong>Bloom. </strong>Pour about 40 g of hot water to saturate the grounds and let them bloom for 30–45 seconds.</li>
-      <li><strong>First pour. </strong>Pour slowly in a circular motion until the scale reads 100 g of water.</li>
-      <li><strong>Second pour. </strong>Continue to 160 g, finishing in about 1.5–2 minutes. The total brew time should be around 2.5–3 minutes.</li>
-      <li><strong>Chill and swirl. </strong>The hot coffee melts part of the ice and cools almost instantly. Swirl the carafe so it chills evenly, then serve over fresh ice if you like.</li>
-    </ol>
-
-    <h2>Flash brew vs. cold brew</h2>
-    <p>Cold brew steeps for hours and tends toward mellow, chocolate-like flavors. Flash brew is ready in minutes and highlights brighter, fruit-forward notes, which makes it a good match for light-roast, single-origin coffees (Gates, 2024; Janzen, 2016).</p>
-
-    <div class="tip sq">
-      <p><strong>Tips</strong></p>
-      <p><strong>Grind a little finer for flash brew.</strong> With less hot water doing the extraction, a slightly finer grind than your usual pour-over keeps the cup from tasting weak (Gates, 2024).</p>
-      <p><strong>Tune the ice.</strong> My recipe is close to half ice; Temple Coffee suggests about one third ice and two thirds hot water. More ice gives a lighter cup, less ice a stronger one.</p>
     </div>
+    </div>
+  </section>
 
-    <section class="faq" aria-labelledby="faq-title">
-      <h2 id="faq-title">FAQ</h2>
-      <h3>What is the best ratio for pour-over coffee?</h3>
-      <p>A good starting point is about 1:15, for example 20 g of coffee to 300 g of water. Go a little longer, such as 1:16 or 1:17, for a lighter cup.</p>
-      <h3>How long should a pour-over take?</h3>
-      <p>About 3 to 3.5 minutes in total, including a 30–45 second bloom. If it runs much longer, grind coarser; if it finishes too fast and tastes sour or thin, grind finer.</p>
-      <h3>Why do you bloom pour-over coffee?</h3>
-      <p>Fresh coffee holds carbon dioxide. A short bloom lets that gas escape before the main pour, so water reaches the grounds evenly and the extraction is cleaner.</p>
-      <h3>Is flash brew the same as iced coffee?</h3>
-      <p>It is one way to make iced coffee. Instead of chilling coffee that was brewed earlier, flash brew pours hot coffee straight onto ice, which keeps it bright and aromatic.</p>
-    </section>
+  <section class="chapter" aria-labelledby="what">
+    <div class="container chapter__inner">
+      <h2 class="chapter__title" id="what">What is pour-over coffee?</h2>
+      <p class="chapter__lede">Pour-over is a manual brewing method: you pour hot water over ground coffee in a paper filter, and gravity pulls the brewed coffee into the cup or carafe below.</p>
+      <div class="chapter__body prose">
+        <p>Because you control the water temperature, the speed of the pour, and the bloom, you can brew a clean, balanced cup that shows off what makes a coffee unique. In a cone dripper like the Hario V60, the coffee bed itself sets the flow rate, so grind size is the variable to dial in first (Equator Coffees, 2024).</p>
+      </div>
+      <figure class="prose-figure figure-wide">
+        <div class="frame sq"><img src="/assets/img/coffee-pour-over-setup-1600.webp" srcset="/assets/img/coffee-pour-over-setup-640.webp 640w, /assets/img/coffee-pour-over-setup-1200.webp 1200w, /assets/img/coffee-pour-over-setup-1600.webp 1600w" sizes="(min-width: 76rem) 72rem, calc(100vw - 2rem)" width="1600" height="1000" alt="A V60 dripper with a paper filter on a digital scale, beside a gooseneck kettle, a grinder and a dosing tray on a kitchen counter" loading="lazy" decoding="async"></div>
+        <figcaption>A pour-over setup: a dripper on a scale, a gooseneck kettle and a grinder. <span class="credit">Photo: <a href="https://commons.wikimedia.org/wiki/File:Coffee_Pour_Over_Setup.jpg" target="_blank" rel="noopener">Coffee Pour Over Setup</a> by Cerebral726, <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener license">CC BY-SA 4.0</a>, via Wikimedia Commons (cropped and resized; shared under CC BY-SA 4.0).</span></figcaption>
+      </figure>
+    </div>
+  </section>
 
-    <p>Want a fuller-bodied cup with less technique? Try my <a href="/coffee-blog/aeropress/">AeroPress recipe</a>.</p>
+  <section class="chapter chapter--band" aria-labelledby="profile">
+    <div class="container chapter__inner">
+      <h2 class="chapter__title" id="profile">My usual pour-over profile</h2>
+      <dl class="lines chapter__body">
+        <div><dt>Coffee</dt><dd>15–20 g</dd></div>
+        <div><dt>Grind size</dt><dd>600–800 μm<small>A finer grind drains slower and extracts more</small></dd></div>
+        <div><dt>Roast level</dt><dd>Light</dd></div>
+        <div><dt>Water</dt><dd>225–300 g<small>90–96 °C (195–205 °F)</small></dd></div>
+        <div><dt>Ratio</dt><dd>about 1:15<small>e.g. 20 g coffee to 300 g water</small></dd></div>
+      </dl>
+    </div>
+  </section>
 
-    <section class="references" aria-labelledby="refs">
+  <section class="chapter" aria-labelledby="steps">
+    <div class="container chapter__inner">
+      <h2 class="chapter__title" id="steps">How to make pour-over coffee, step by step</h2>
+      <ol class="steps steps--cards chapter__body">
+        <li><strong>Prepare and preheat. </strong>Place the filter in the dripper and rinse it with hot water to remove any paper taste and warm the dripper and carafe. Discard the rinse water.</li>
+        <li><strong>Add the coffee. </strong>Add 15–20 g of freshly ground coffee and gently shake the dripper to level the bed, so the water extracts it evenly.</li>
+        <li><strong>Bloom. </strong>Start a timer and pour 40 g of water, just enough to wet all the grounds. Wait 30–45 seconds while the coffee releases trapped gas; this makes the rest of the brew more even.</li>
+        <li><strong>Main pour. </strong>Pour the remaining water slowly in a steady spiral from the center outward until the scale reads 300 g. Aim to finish pouring within 1.5–2 minutes.</li>
+        <li><strong>Drawdown. </strong>Let the water drain through the bed. The whole brew, bloom included, usually finishes around 3–3.5 minutes.</li>
+        <li><strong>Serve. </strong>Remove the dripper, give the coffee a gentle swirl, and pour.</li>
+      </ol>
+      <div class="figure-pair">
+        <figure class="prose-figure">
+          <div class="frame sq"><img src="/assets/img/coffee-pour-over-kettle-960.webp" srcset="/assets/img/coffee-pour-over-kettle-560.webp 560w, /assets/img/coffee-pour-over-kettle-960.webp 960w" sizes="(min-width: 60rem) 35rem, calc(50vw - 1.5rem)" width="960" height="1200" alt="A white Hario V60 dripper on a glass carafe, with a gooseneck kettle behind" loading="lazy" decoding="async"></div>
+          <figcaption>A Hario V60 dripper on a carafe, with a kettle behind. <span class="credit">Photo: <a href="https://commons.wikimedia.org/wiki/File:Hario_V60_and_Buono_kettle.jpg" target="_blank" rel="noopener">Hario V60 and Buono kettle</a> by Matt Wunderle, <a href="https://creativecommons.org/licenses/by/2.0/" target="_blank" rel="noopener license">CC BY 2.0</a>, via Wikimedia Commons (cropped and resized).</span></figcaption>
+        </figure>
+        <figure class="prose-figure">
+          <div class="frame sq"><img src="/assets/img/coffee-pour-over-bloom-720.webp" srcset="/assets/img/coffee-pour-over-bloom-560.webp 560w, /assets/img/coffee-pour-over-bloom-720.webp 720w" sizes="(min-width: 60rem) 35rem, calc(50vw - 1.5rem)" width="720" height="900" alt="Close-up of wet coffee grounds foaming in a paper filter during the bloom" loading="lazy" decoding="async"></div>
+          <figcaption>The bloom: wet grounds release gas. <span class="credit">Photo: <a href="https://commons.wikimedia.org/wiki/File:Tasty_Coffee_pourover_V60_bloom_2025.jpg" target="_blank" rel="noopener">Tasty Coffee pourover V60 bloom 2025</a> by Indigo.udm, <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener license">CC BY 4.0</a>, via Wikimedia Commons (cropped and resized).</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter chapter--band" aria-labelledby="flash">
+    <div class="container chapter__inner">
+      <div class="chapter-split">
+        <div class="chapter-split__text">
+          <h2 class="chapter__title" id="flash">What is flash brew (Japanese iced coffee)?</h2>
+          <p class="chapter__lede">Flash brew, also called Japanese iced coffee, is a pour-over brewed directly onto ice.</p>
+          <div class="chapter__body prose">
+            <p>Part of the brewing water is replaced by ice in the carafe, so the hot coffee cools the moment it lands. The method dates to around the 1960s in Japan and spread through specialty coffee from the 2010s onward (Gates, 2024). Brewing hot and chilling right away keeps more of the coffee’s aroma and acidity than steeping in cold water, which is why flash brew tastes brighter and cleaner than most iced coffee (Janzen, 2016).</p>
+          </div>
+        </div>
+        <figure class="prose-figure chapter-split__media">
+          <div class="frame sq"><img src="/assets/img/coffee-flash-brew-960.webp" srcset="/assets/img/coffee-flash-brew-560.webp 560w, /assets/img/coffee-flash-brew-960.webp 960w" sizes="(min-width: 60rem) 28rem, calc(100vw - 2rem)" width="960" height="1200" alt="A V60 dripper on a glass server filled with ice, sitting on a digital scale in warm sunlight" loading="lazy" decoding="async"></div>
+          <figcaption>Flash brew: the V60 drips hot coffee straight onto ice in the server, on a scale so the ice counts toward the water. <span class="credit">Photo: <a href="https://commons.wikimedia.org/wiki/File:Iced_filter_coffee_with_Assembly_coffee_(49905389451).jpg" target="_blank" rel="noopener">Iced filter coffee with Assembly coffee</a> by Bex Walton, <a href="https://creativecommons.org/licenses/by/2.0/" target="_blank" rel="noopener license">CC BY 2.0</a>, via Wikimedia Commons (cropped, resized, and color-graded).</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter" aria-labelledby="flash-steps">
+    <div class="container chapter__inner">
+      <h2 class="chapter__title" id="flash-steps">How to make flash brew, step by step</h2>
+      <ol class="steps steps--cards chapter__body">
+        <li><strong>Add ice. </strong>Put 140 g of ice in the carafe under the dripper. The ice counts as part of your water.</li>
+        <li><strong>Bloom. </strong>Pour about 40 g of hot water to saturate the grounds and let them bloom for 30–45 seconds.</li>
+        <li><strong>First pour. </strong>Pour slowly in a circular motion until the scale reads 100 g of water.</li>
+        <li><strong>Second pour. </strong>Continue to 160 g, finishing in about 1.5–2 minutes. The total brew time should be around 2.5–3 minutes.</li>
+        <li><strong>Chill and swirl. </strong>The hot coffee melts part of the ice and cools almost instantly. Swirl the carafe so it chills evenly, then serve over fresh ice if you like.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="chapter chapter--warm" aria-labelledby="cold">
+    <div class="container chapter__inner">
+      <h2 class="chapter__title" id="cold">Flash brew vs. cold brew</h2>
+      <div class="chapter__body prose">
+        <p>Cold brew steeps for hours and tends toward mellow, chocolate-like flavors. Flash brew is ready in minutes and highlights brighter, fruit-forward notes, which makes it a good match for light-roast, single-origin coffees (Gates, 2024; Janzen, 2016).</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter" aria-labelledby="tips">
+    <div class="container chapter__inner">
+      <h2 class="chapter__title" id="tips">Tips</h2>
+      <div class="faq__grid chapter__body prose">
+        <div class="faq__item"><h3>Grind a little finer for flash brew.</h3><p>With less hot water doing the extraction, a slightly finer grind than your usual pour-over keeps the cup from tasting weak (Gates, 2024).</p></div>
+        <div class="faq__item"><h3>Tune the ice.</h3><p>My recipe is close to half ice; Temple Coffee suggests about one third ice and two thirds hot water. More ice gives a lighter cup, less ice a stronger one.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter chapter--band faq" aria-labelledby="faq-title">
+    <div class="container chapter__inner">
+      <h2 class="chapter__title" id="faq-title">FAQ</h2>
+      <div class="faq__grid chapter__body prose">
+        <div class="faq__item"><h3>What is the best ratio for pour-over coffee?</h3><p>A good starting point is about 1:15, for example 20 g of coffee to 300 g of water. Go a little longer, such as 1:16 or 1:17, for a lighter cup.</p></div>
+        <div class="faq__item"><h3>How long should a pour-over take?</h3><p>About 3 to 3.5 minutes in total, including a 30–45 second bloom. If it runs much longer, grind coarser; if it finishes too fast and tastes sour or thin, grind finer.</p></div>
+        <div class="faq__item"><h3>Why do you bloom pour-over coffee?</h3><p>Fresh coffee holds carbon dioxide. A short bloom lets that gas escape before the main pour, so water reaches the grounds evenly and the extraction is cleaner.</p></div>
+        <div class="faq__item"><h3>Is flash brew the same as iced coffee?</h3><p>It is one way to make iced coffee. Instead of chilling coffee that was brewed earlier, flash brew pours hot coffee straight onto ice, which keeps it bright and aromatic.</p></div>
+      </div>
+      <p class="chapter__next">Want a fuller-bodied cup with less technique? Try my <a href="/coffee-blog/aeropress/">AeroPress recipe</a>.</p>
+    </div>
+  </section>
+
+  <section class="chapter chapter--end">
+    <div class="container chapter__inner">
+      <section class="references" aria-labelledby="refs">
       <h2 id="refs">References</h2>
       <ol>
         <li>Equator Coffees. (2024, January 23). Hario V60 recipe: V60 dripper brew guide. <a href="https://www.equatorcoffees.com/blogs/guides/hario-v60" target="_blank" rel="noopener">https://www.equatorcoffees.com/blogs/guides/hario-v60</a></li>
@@ -188,11 +250,22 @@
         <li>Janzen, E. (2016, August 9). A guide to Japanese iced coffee. Imbibe Magazine. <a href="https://imbibemagazine.com/japanese-iced-coffee/" target="_blank" rel="noopener">https://imbibemagazine.com/japanese-iced-coffee/</a></li>
       </ol>
     </section>
-    <nav class="pager" aria-label="More brew guides">
-      <a class="link-card sq" href="/coffee-blog/vietnamese-phin/"><span><span class="link-card__meta">← Previous</span><br><span class="link-card__title">Vietnamese Phin</span></span></a>
-      <a class="link-card sq" href="/coffee-blog/aeropress/"><span><span class="link-card__meta">Next →</span><br><span class="link-card__title">AeroPress</span></span></a>
+      <nav class="pager" aria-label="More brew guides">
+      <div class="pager__grid">
+        <a class="pager-card sq" href="/coffee-blog/vietnamese-phin/">
+          <span class="pager-card__art sq"><svg aria-hidden="true" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M40 22h40v7H40z"/><path d="M58 22v-5h4v5"/><path d="M44 29h32l-3 24H47z"/><path d="M34 53h52"/><path d="M58 56v4M62 62v3" stroke-dasharray="2 3"/><path d="M40 66h40l-5 44H45z"/><path d="M44 96h32" opacity=".5"/><path d="M45 102h30" opacity=".5"/></svg></span>
+          <span class="pager-card__text"><span class="pager-card__dir">Previous</span><span class="pager-card__title">Vietnamese Phin</span></span>
+          <span class="stack__arrow is-back" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+        <a class="pager-card sq" href="/coffee-blog/aeropress/">
+          <span class="pager-card__art sq"><svg aria-hidden="true" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="44" y="12" width="32" height="7" rx="3"/><path d="M49 19h22v22H49z"/><rect x="43" y="38" width="34" height="50" rx="4"/><path d="M50 50h8M50 60h8M50 70h8"/><path d="M40 88h40v6H40z"/><path d="M38 96h44v10a8 8 0 0 1-8 8H46a8 8 0 0 1-8-8z"/><path d="M82 99h4a5 5 0 0 1 0 10h-4"/></svg></span>
+          <span class="pager-card__text"><span class="pager-card__dir">Next</span><span class="pager-card__title">AeroPress</span></span>
+          <span class="stack__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+      </div>
     </nav>
-  </div>
+    </div>
+  </section>
 </article>
 </main>
 
