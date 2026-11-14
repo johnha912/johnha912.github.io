@@ -1,114 +1,109 @@
-<div align="center">
+# johnha.info
 
-<img src="site/assets/img/apple-touch-icon.png" width="88" height="88" alt="John Ha avatar">
+Personal portfolio of **Nguyen "John" Ha**, an MS Computer Science student at Northeastern University (Silicon Valley) focused on data engineering. It is a fully static site served by GitHub Pages: plain HTML, CSS, and JavaScript, with no framework and no build step.
 
-# Nguyen “John” Ha · Portfolio
+**Live:** [johnha.info](https://johnha.info) · [LinkedIn](https://www.linkedin.com/in/nguyenha912/) · [GitHub](https://github.com/johnha912) · [Email](mailto:johnha0912@gmail.com)
 
-**MSCS @ Northeastern University · Data Engineering Focus · Business/Marketing Roots**
+Open to data engineering and data analyst internships for Summer 2027.
 
-[**johnha.info**](https://johnha.info) · [LinkedIn](https://www.linkedin.com/in/nguyenha912/) · [GitHub](https://github.com/johnha912) · [Email](mailto:johnha0912@gmail.com)
+## Overview
 
-<sub>Open to data engineering and data analyst internships for Summer 2027.</sub>
+| Page | Path | Content |
+|---|---|---|
+| Home | `/` | Portrait hero, social links, and the five-row section index |
+| About | `/about/` | Background, education, credentials |
+| Tech | `/tech/` | Public projects: [keeploop](https://github.com/johnha912/keeploop), [JOIN Order Optimization](https://github.com/johnha912/join-order-bench) (v1 and v2), [Mini Wrangling for a School Decision](https://github.com/johnha912/mini-wrangling-for-school-decision) |
+| Coffee Blog | `/coffee-blog/` | Four brew guides; the espresso guide has an interactive TDS brewing control chart (Plotly) |
+| Music | `/music/` | Fun Mix Radio tracks with click-to-load SoundCloud players |
+| Contact | `/contact/` | Email and social links |
+| Privacy | `/privacy/` | Analytics and cookie policy |
 
-</div>
+Photography links out to Instagram. A few unrelated standalone pages live in their own folders under `site/`.
 
-<br>
+## Tech stack
 
-<p align="center">
-  <img src="docs/screenshots/home-desktop-dark-v4.webp" alt="Home page in dark mode on desktop" width="100%">
-</p>
+| Layer | Choice | Why |
+|---|---|---|
+| Markup and styling | Semantic HTML, one token-driven stylesheet (`site.css`) | No runtime cost; dark and light themes share one set of design tokens |
+| Scripting | Vanilla JS (`site.js`, `motion.js`, `espresso-chart.js`) | Theme switch, mobile menu, command-palette search, cookie consent, chart |
+| Motion | GSAP 3.15 (self-hosted), CSS transitions | Desktop smooth scrolling and three one-time intros; everything honors `prefers-reduced-motion`, and phones skip GSAP on pages without an intro |
+| Charts | Plotly.js basic bundle (self-hosted) | Loaded only when the espresso chart scrolls into view |
+| Fonts | Google Sans and Google Sans Code, variable WOFF2, subset to Latin and Vietnamese | Identical rendering on every device, about 64 KB for all four files |
+| Images | Responsive WebP with `srcset` / `sizes`, lazy-loaded below the fold | Phones never download desktop-size files |
+| Analytics | Google Analytics 4 with Consent Mode v2 | Nothing is stored until the visitor accepts the cookie banner |
+| Hosting and CI | GitHub Pages, GitHub Actions | Deploy on every push to `main`; monthly link check |
 
-<table>
-  <tr>
-    <td width="33%"><img src="docs/screenshots/home-mobile-dark-v4.webp" alt="Home page on a phone, dark mode"></td>
-    <td width="33%"><img src="docs/screenshots/home-mobile-light-v4.webp" alt="Home page on a phone, light mode"></td>
-    <td width="33%"><img src="docs/screenshots/about-mobile-light-v4.webp" alt="About page on a phone, light mode"></td>
-  </tr>
-</table>
+## Performance and quality
 
-<p align="center">
-  <img src="docs/screenshots/tech-desktop-dark-v4.webp" alt="Projects page with pipeline diagrams" width="49%">
-  <img src="docs/screenshots/coffee-desktop-light-v4.webp" alt="Coffee blog with four brew guides" width="49%">
-</p>
+Measured on the local build before the 2026-11-14 release, in Chrome via Playwright:
 
-## What's inside
-
-| Page | Highlights |
+| Check | Result |
 |---|---|
-| **Home** | Centered portrait hero with an animated heading, social row, and the five-row section index (Tech, Coffee, Music, Photography, Contact) |
-| **About** | Photo collage, an intro that writes itself on, education ledger with school logos, credentials |
-| **Tech** | Public projects: *keeploop* (an open-source Python tool that makes AI coding changes earn their place), *JOIN Order Optimization* (v1 course project and v2 benchmark on DuckDB and Postgres), and *Mini Wrangling for a School Decision* (a pandas pipeline) |
-| **Coffee Blog** | Brew guides for pour over / flash brew, AeroPress, espresso, and Vietnamese phin, each laid out as full-width chapters with a hero photo, recipe profile, steps, credited photos, and references; the espresso guide has an interactive TDS brewing control chart |
-| **Music** | Fun Mix Radio #3, #2, #1 with SoundCloud players that load only when you press play |
-| **Contact** | One-click email plus LinkedIn, GitHub, and Instagram tiles, under a morphing "Let's talk." heading |
+| Cumulative Layout Shift | 0 on the four brew guides at seven widths from 360 to 1440 px while scrolling the full page; under 0.001 on every other page |
+| Horizontal scroll | None from 360 to 1440 px |
+| Page weight (transfer) | Home 128 KB, Tech 83 KB, Coffee index 64 KB; brew guides on a phone 271 to 493 KB, espresso 736 KB including Plotly |
+| Text contrast | At least 4.5:1 on every surface in both themes |
+| Links | All internal links and assets resolve; external links are checked monthly in CI |
 
-## Site structure
-
-```
-johnha.info
-├── /                              Home: portrait hero, social row, five-button section stack
-├── /about/                        About Me: photo collage, intro, education, credentials
-├── /tech/                         Projects: keeploop, JOIN Order Optimization, school-decision pipeline
-├── /coffee-blog/                  Coffee Blog: grid of brew guides (2×2 on phones)
-│   ├── /pour-over-flash-brew/
-│   ├── /aeropress/
-│   ├── /espresso/                 includes the interactive TDS brewing control chart
-│   └── /vietnamese-phin/
-├── /music/                        Music: Fun Mix Radio tracks, click-to-load SoundCloud players
-├── /contact/                      Email button with copy-address, social links
-├── /privacy/                      Analytics and cookie policy
-├── /home/                         Redirects to /
-└── /404.html                      Custom not-found page
-
-External section: Photography → Instagram
-```
-
-Every page shares the same header and footer:
-
-- **Header nav:** Home · About · Tech · Coffee Blog ▾ (the four brew guides) · Music · Photography ↗ · Contact, plus search and the Dark / Light switch. Below 960px the links fold into a full-screen menu, where the brew guides collapse behind a chevron.
-- **Footer:** Back to top, ©, Privacy, and Cookie settings.
-
-## Built with
-
-- **Plain HTML, CSS, and vanilla JS.** No framework and no build step; the home page loads in about 220 KB.
-- **Design tokens** for dark and light themes, with a sun/moon sliding **Dark / Light** switch (Dark by default).
-- **Google Sans** and **Google Sans Code** variable fonts, self-hosted, so every phone and PC renders the same type.
-- **Squircle photo frames** (`corner-shape: squircle`) with rounded-corner fallback, film grain, soft aurora glow, and a sticky glass nav.
-- **Command-palette search** (<kbd>Ctrl</kbd>/<kbd>⌘</kbd> + <kbd>K</kbd> or <kbd>/</kbd>) and cross-page view transitions.
-- **GSAP** (self-hosted) for desktop smooth scrolling and three one-time intros: the Home heading, the Contact heading, and the About write-on. All motion respects `prefers-reduced-motion`, and phones load GSAP only on pages that have an intro.
-- Responsive WebP images with `srcset`, Open Graph cards, JSON-LD, sitemap, and a custom 404.
-- Google Analytics 4 behind a cookie consent banner (Consent Mode v2: nothing is stored until the visitor accepts), plus a privacy page.
+Budgets (from the project brief): Lighthouse mobile Performance ≥ 90 and Accessibility ≥ 95, home page under 1.5 MB, touch targets ≥ 44 px.
 
 ## Repository layout
 
 ```
-site/                  Published site (the only folder deployed)
-  <page>/index.html    One folder per page (see Site structure)
-  assets/css/          site.css: design tokens and all components
-  assets/js/           site.js (theme, menu, search, consent), motion.js (GSAP), espresso-chart.js, vendor/gsap-3.15.1/
-  assets/fonts/        Self-hosted Google Sans and Google Sans Code (WOFF2)
-  assets/img/          Responsive WebP images, icons, favicons
-  assets/vendor/       Plotly basic bundle (espresso chart only)
-  sitemap.xml, robots.txt, CNAME, site.webmanifest
-docs/                  Brief, design system, status, tooling, maintenance, domain guide
-.claude/agents/        Claude Code agent team (orchestrator + specialists)
-.claude/skills/        Vetted design skills (see docs/TOOLS.md)
-.github/workflows/     GitHub Pages deploy + monthly link check
+site/                     Published site (the only folder deployed)
+  <page>/index.html       One folder per page
+  assets/css/site.css     Design tokens and all components
+  assets/js/              site.js, motion.js, espresso-chart.js, vendor/gsap-3.15.1/
+  assets/vendor/          Plotly basic bundle
+  assets/fonts/           Self-hosted WOFF2 fonts and their licenses
+  assets/img/             WebP images, icons, favicons
+  sitemap.xml, robots.txt, CNAME, site.webmanifest, 404.html
+docs/                     Brief, design system, status, lessons, tooling, maintenance
+docs/tools/               Helper scripts (e.g. contact-glyphs.py regenerates the Contact heading glyphs)
+.github/workflows/        deploy.yml (Pages deploy), link-check.yml (monthly link check)
+.claude/                  Agent and skill definitions used to build and maintain the site
 ```
 
-## Run locally
+## Local development
+
+Links are root-relative (`/about/`), so serve `site/` as the web root:
 
 ```bash
 python -m http.server 8765 --directory site
-# then open http://127.0.0.1:8765
+# open http://127.0.0.1:8765
 ```
 
-## Deploy
+For performance measurements, use a server that compresses like GitHub Pages:
 
-Every push to `main` deploys `site/` to GitHub Pages through GitHub Actions (`.github/workflows/deploy.yml`). The custom domain switch from Google Sites is documented in [`docs/DOMAIN-MIGRATION.md`](docs/DOMAIN-MIGRATION.md); upkeep notes are in [`docs/MAINTENANCE.md`](docs/MAINTENANCE.md).
+```bash
+npx serve site -l 8765
+```
 
-## Credits
+## Deployment
 
-Coffee photos are freely licensed images from Wikimedia Commons, credited under each photo and listed in [`docs/IMAGE-CREDITS.md`](docs/IMAGE-CREDITS.md). Chart rendering uses [Plotly.js](https://plotly.com/javascript/) (MIT). Design skills vendored under `.claude/skills/` are MIT-licensed: [taste-skill](https://github.com/Leonxlnx/taste-skill) by Leonxlnx and [UI UX Pro Max](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) by Next Level Builder. Fonts: [Google Sans](https://github.com/googlefonts/googlesans) and [Google Sans Code](https://github.com/googlefonts/googlesans-code) (SIL Open Font License).
+Every push to `main` runs `.github/workflows/deploy.yml`:
 
-© Nguyen “John” Ha. All rights reserved for photos and written content.
+1. Stamps CSS and JS URLs with the short commit SHA, so browsers never pair new HTML with a cached stylesheet.
+2. Uploads `site/` only; docs and tooling stay out of the artifact.
+3. Publishes to GitHub Pages behind the `johnha.info` custom domain.
+
+`.github/workflows/link-check.yml` runs [lychee](https://github.com/lycheeverse/lychee) on the 1st of each month and opens an issue when a link breaks. Domain setup is documented in [`docs/DOMAIN-MIGRATION.md`](docs/DOMAIN-MIGRATION.md); upkeep in [`docs/MAINTENANCE.md`](docs/MAINTENANCE.md).
+
+## Documentation
+
+| File | Purpose |
+|---|---|
+| [`docs/BRIEF.md`](docs/BRIEF.md) | Requirements, content facts, budgets, quality gates |
+| [`docs/DESIGN.md`](docs/DESIGN.md) | Design tokens, components, motion rules |
+| [`docs/STATUS.md`](docs/STATUS.md) | Current state, decisions, open items |
+| [`docs/LESSONS.md`](docs/LESSONS.md) | Past defects and the rule each one produced |
+| [`docs/IMAGE-CREDITS.md`](docs/IMAGE-CREDITS.md) | Source and license of every third-party image |
+
+## Credits and license
+
+- Coffee photos are freely licensed images from Wikimedia Commons, credited under each photo and listed in [`docs/IMAGE-CREDITS.md`](docs/IMAGE-CREDITS.md).
+- [Plotly.js](https://plotly.com/javascript/) (MIT). [GSAP](https://gsap.com/) (GSAP standard license, included in `site/assets/js/vendor/gsap-3.15.1/`).
+- Fonts: [Google Sans](https://github.com/googlefonts/googlesans) and [Google Sans Code](https://github.com/googlefonts/googlesans-code) (SIL Open Font License 1.1).
+- Vendored design skills under `.claude/skills/` (MIT): [taste-skill](https://github.com/Leonxlnx/taste-skill) by Leonxlnx and [UI UX Pro Max](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) by Next Level Builder.
+
+© Nguyen "John" Ha. Photos and written content: all rights reserved.
