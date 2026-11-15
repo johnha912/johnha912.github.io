@@ -284,8 +284,8 @@
   ],
   "now": {
     "state": "active",
-    "ts": "2026-11-14T07:33:07-08:00",
-    "checked": "2026-11-14T07:33:07-08:00",
+    "ts": "2026-11-15T06:27:29-08:00",
+    "checked": "2026-11-15T06:27:29-08:00",
     "doing": {
       "en": "Checkpoint 4 preparation (checkpoint Fri Nov 20): the Addendum 17 debt register's first item is cleared — EXP-M07-1 phase 2 (translator tracker sample) is built and formula-verified. Remaining Lab debts: M06 human flag-review timed run, M18 LOI time test, M19 throughput test + Amazon/Shopee video rules. Daily intake and the platform watch continue on schedule.",
       "vi": "Chuẩn bị Checkpoint 4 (checkpoint thứ Sáu 20/11): hạng mục đầu tiên trong sổ nợ Addendum 17 đã xử lý xong — EXP-M07-1 giai đoạn 2 (file tracker mẫu cho dịch giả) đã dựng và kiểm chứng công thức. Các khoản nợ Lab còn lại: lượt rà soát cờ bấm giờ bằng người của M06, bài kiểm bấm giờ LOI của M18, bài kiểm thông lượng của M19 kèm quy tắc video Amazon/Shopee. Nạp hằng ngày và theo dõi nền tảng tiếp tục theo lịch."
@@ -552,6 +552,11 @@
       "en": "Morning research (Nov 14, 2026 — 7:33 AM PST): EXP-M07-1 phase 2 completed for M07 — the bilingual translator income-tracker sample is built (6 sheets, 60 formulas) and every formula was verified by an independent LibreOffice recalculation matched against a from-scratch computation (Paid $730; Paid+Sent $1,909); one mislabelled Tax reserve row was caught and fixed. Addendum 17 debt #1 is run, so M07 accrues no stall mark at Checkpoint 4; niche demand and sale price remain UNVERIFIED and no scores changed. Nightly intake: screened 3, posted 0.",
       "vi": "Nghiên cứu buổi sáng (14/11/2026 — 7:33 AM PST): đã xong EXP-M07-1 giai đoạn 2 cho M07 — file tracker thu nhập song ngữ mẫu cho dịch giả đã dựng xong (6 sheet, 60 công thức) và mọi công thức đã được kiểm chứng bằng phép tính lại độc lập của LibreOffice đối chiếu phép tính làm từ đầu (Paid $730; Paid+Sent $1.909); một hàng Tax reserve ghi nhãn sai đã bị bắt và sửa. Nợ số 1 của Addendum 17 đã chạy xong nên M07 không tích vết đứng yên tại Checkpoint 4; nhu cầu và giá bán được của ngách vẫn UNVERIFIED và không điểm nào thay đổi. Nạp hằng ngày: screened 3, posted 0.",
       "t": "Nov 14, 2026 — 7:33 AM PST"
+    },
+    {
+      "t": "Nov 15, 2026 — 6:24 AM PST",
+      "en": "Daily pulse (Nov 15, 6:24 AM PST): bounded intake scan completed — no platform or policy change affecting the pool was confirmed from official sources today; the official Claude Code changelog's newest entry remains Nov 13, 2026 (already logged), Anthropic's newsroom latest announcement remains Nov 9, and one VN/US policy scan found no new policy change affecting the pool. Shared comment inbox synced: 0 new reader comments, and 0 comments were due for promotion review. Scoring backlog: 0. No research advance in this pulse run: the project is in its scheduled Checkpoint 4 preparation week ahead of Fri, Nov 20 (remaining Lab debts: the M06 human flag-review timed run, the M18 LOI time test, and the M19 throughput test plus Amazon/Shopee video rules).",
+      "vi": "Nhịp hằng ngày (15/11, 6:24 AM PST): lượt quét nạp giới hạn đã xong — hôm nay không xác nhận được thay đổi nền tảng hay chính sách nào từ nguồn chính thức ảnh hưởng tới pool; mục mới nhất trong changelog chính thức của Claude Code vẫn là ngày 13/11/2026 (đã ghi log), thông báo mới nhất trên Newsroom của Anthropic vẫn là ngày 9/11, và một lượt quét chính sách VN/Mỹ không thấy thay đổi chính sách mới nào ảnh hưởng tới pool. Đã đồng bộ hộp bình luận chung: 0 bình luận mới của người xem, và 0 bình luận đến lượt xét thăng hạng. Hậu tồn chấm điểm: 0. Lượt pulse này không có tiến triển nghiên cứu mới: dự án đang ở tuần chuẩn bị Checkpoint 4 đã lên lịch, chờ thứ Sáu 20/11 (các khoản nợ Lab còn lại: lượt rà soát cờ bấm giờ bằng người của M06, bài kiểm bấm giờ LOI của M18, và bài kiểm thông lượng của M19 kèm quy tắc video Amazon/Shopee)."
     }
   ],
   "scored": 40,
@@ -560,7 +565,7 @@
     "en": "Checkpoint 3 closed (Nov 13) — first official scoring round: 42 candidates in the pool, 40 scored (M16 unscored after its experiment deadline passed; M39 discarded at the legal gate), shortlist of 7 chosen (all scoring 70+). Next: Checkpoint 4 on Fri Nov 20.",
     "vi": "Checkpoint 3 đã đóng (13/11) — vòng chấm chính thức đầu tiên: pool có 42 ứng viên, 40 đã có điểm (M16 không điểm sau khi qua hạn thí nghiệm; M39 bị loại ở cổng pháp lý), shortlist 7 ứng viên đã chốt (tất cả từ 70 điểm trở lên). Tiếp theo: Checkpoint 4 vào thứ Sáu 20/11."
   },
-  "updated": "2026-11-14T07:33:07-08:00",
+  "updated": "2026-11-15T06:27:29-08:00",
   "updates": [
     {
       "en": "Claude Pro is still $20/mo including Claude Code — the $20 budget gate is intact.",
