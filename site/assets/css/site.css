@@ -179,6 +179,10 @@
 @supports (corner-shape: squircle) {
   :root { --sq: 1.65; }
   .sq { corner-shape: squircle; }
+  /* Object cards whose art is .sq: the frame shares the art's corner shape, so the concentric radii
+     (outer = inner + inset) keep the art's corner inside the frame's. Music tracks stay round on both
+     layers (the SoundCloud player clips badly with squircle corners). */
+  .brew-card, .pager-card { corner-shape: squircle; }
 }
 
 /* ---------- Reset / base --------------------------------------------------- */
@@ -1076,8 +1080,9 @@ main { flex: 1; padding-top: var(--nav-h); }
 /* auto 1fr: when a row stretches the card, the extra height goes to the text, not the art (which would widen via aspect-ratio). */
 /* Every width: each card is one object holding the 16:10 art, title, description, a mono "N min read" line and the arrow.
    Two-layer spacing: the art sits a small inset from the frame, the text a wider one.
-   Phones: 10px inset, art at --r-md, card radius = art radius + inset so the corners stay concentric.
-   From 48rem: --inset, art at --r-lg inside --r-xl. */
+   Corners are concentric at every width (card radius = art radius + inset) and share one corner shape,
+   so the art's corner never crosses the frame's (owner report 2026-11-16).
+   Phones: 10px inset, art at --r-md. From 48rem: --inset, art at --r-lg. */
 .brew-card {
   display: grid;
   grid-template-rows: auto 1fr;
@@ -1116,7 +1121,7 @@ main { flex: 1; padding-top: var(--nav-h); }
   color: var(--text-faint);
 }
 @media (min-width: 48rem) {
-  .brew-card { padding: var(--inset); border-radius: var(--r-xl); }
+  .brew-card { padding: var(--inset); border-radius: calc(var(--r-lg) + var(--inset)); }
   .brew-card__art { border-radius: var(--r-lg); }
   .brew-card__art svg { width: 38%; }
   .brew-card__body { padding: var(--space-5) var(--space-4) var(--space-4) var(--space-5); }
@@ -1155,7 +1160,7 @@ main { flex: 1; padding-top: var(--nav-h); }
     max-width: var(--content);
     padding: var(--inset);
     border: 1px solid var(--border);
-    border-radius: var(--r-xl);
+    border-radius: calc(var(--r-lg) + var(--inset)); /* concentric with the art inside */
     background: var(--surface);
   }
   .article-hero .article-hero-art { aspect-ratio: auto; min-height: 26rem; height: 100%; }
@@ -1273,7 +1278,7 @@ main { flex: 1; padding-top: var(--nav-h); }
   min-height: 80px;
   padding: var(--inset) var(--space-4) var(--inset) var(--inset);
   border: 1px solid var(--border);
-  border-radius: var(--r-lg);
+  border-radius: calc(var(--r-md) + var(--inset)); /* concentric with the art inside */
   background: var(--surface);
   text-decoration: none;
   transition: background-color var(--dur-fast), border-color var(--dur-fast);
@@ -1458,7 +1463,7 @@ main { flex: 1; padding-top: var(--nav-h); }
   flex-direction: column;
   padding: var(--inset);
   border: 1px solid var(--border);
-  border-radius: var(--r-xl);
+  border-radius: calc(var(--r-lg) + var(--inset)); /* concentric with the player inside */
   background: var(--surface);
   transition: border-color var(--dur-fast);
 }
