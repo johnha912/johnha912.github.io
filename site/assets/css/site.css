@@ -1072,15 +1072,17 @@ main { flex: 1; padding-top: var(--nav-h); }
 .brew-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-3); padding: 0; list-style: none; }
 @media (min-width: 40rem) { .brew-grid { gap: var(--space-5); } }
 /* auto 1fr: when a row stretches the card, the extra height goes to the text, not the art (which would widen via aspect-ratio). */
-/* Every width: each card is one object, the art inset --inset inside a surface, the text in the same box
-   (owner request 2026-11-16: phones get the same wrapped card as desktop). From 40rem: 16:10 art, meta line, arrow. */
+/* Every width: each card is one object, the art inset inside a surface, the text in the same box
+   (owner request 2026-11-16: phones get the same wrapped card as desktop, with room between the frame and its content).
+   Phones: 12px inset, art at --r-md, card radius = art radius + inset so the two corners stay concentric.
+   From 40rem: --inset, 16:10 art at --r-lg inside --r-xl, meta line, arrow. */
 .brew-card {
   display: grid;
   grid-template-rows: auto 1fr;
   height: 100%;
-  padding: var(--inset);
+  padding: var(--space-3);
   border: 1px solid var(--border);
-  border-radius: var(--r-xl);
+  border-radius: calc(var(--r-md) + var(--space-3));
   background: var(--surface);
   text-decoration: none;
   transition: background-color var(--dur-fast), border-color var(--dur-fast);
@@ -1098,14 +1100,16 @@ main { flex: 1; padding-top: var(--nav-h); }
   box-shadow: inset 0 0 0 1px var(--ring-photo);
   color: var(--text);
 }
+.brew-card__art { border-radius: var(--r-md); }
 .brew-card__art svg { width: 58%; height: auto; }
-.brew-card__body { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: start; gap: var(--space-3); padding: var(--space-3) var(--space-2) var(--space-2); }
+.brew-card__body { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: start; gap: var(--space-3); padding: var(--space-4) var(--space-1) var(--space-3); }
 .brew-card__title { font-size: var(--fs-lg); letter-spacing: var(--tracking-tight); line-height: var(--lh-snug); transition: color var(--dur-fast); }
 .brew-card__desc { margin-top: var(--space-1); color: var(--text-muted); font-size: var(--fs-sm); }
 .brew-card .stack__arrow,
 .brew-card__meta { display: none; }
 @media (min-width: 40rem) {
-  .brew-card__art { aspect-ratio: 16 / 10; }
+  .brew-card { padding: var(--inset); border-radius: var(--r-xl); }
+  .brew-card__art { aspect-ratio: 16 / 10; border-radius: var(--r-lg); }
   .brew-card__art svg { width: 38%; }
   .brew-card__body { align-items: end; padding: var(--space-5) var(--space-4) var(--space-4) var(--space-5); }
   .brew-card__title { font-size: var(--fs-xl); }
