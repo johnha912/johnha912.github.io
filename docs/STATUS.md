@@ -1,6 +1,6 @@
 # STATUS.md
 
-_Last updated: 2026-11-14_
+_Last updated: 2026-11-16_
 
 ## Where the build stands
 
@@ -67,6 +67,7 @@ _Last updated: 2026-11-14_
 - **2026-11-06:** Guest folder `/chem-030a-thi-thu/` removed (the exam is over); its link-check exclusion and agent-file mentions removed too.
 - **2026-11-07:** GSAP added for smoother motion (self-hosted 3.15.1: core, ScrollTrigger, ScrollSmoother; new `site/assets/js/motion.js`). Inertial smooth scrolling on mouse/trackpad devices only (phones keep native scrolling), batched GSAP scroll reveals, and an eased spotlight on the home button stack. Reduced motion turns all of it off; if GSAP fails to load, the old reveal still runs. _Scroll reveals and the spotlight were retired 2026-11-13; smooth scrolling stays._ Mobile Lighthouse with compression: Home 97-98, Tech 97, About 94-95 (About was 89 without GSAP in the same run).
 - **2026-11-08:** Guest folder `/lora-2dcd3d/` (the lora game) removed: the presentation is over (owner request). Its link-check exclusion and agent-file mentions removed too.
+- **2026-11-16:** Coffee index on phones: one column of boxed cards (art, title, description, "N min read", arrow, like desktop), replacing the 2026-11-13 "2x2 on phones, box from 40rem" rule. Owner picked option "B" after a Webflow showcase review (Matteo Fabbiani, Relume, Osmo, Flowbase all run full-width boxed cards on phones with 16-24px corners and two-layer padding). Phones: 10px inset, concentric corners. Two columns now start at 48rem so a card never drops below ~330px.
 
 ### 2026-11-13: experiment branch `experiment/home-about-motion`
 
