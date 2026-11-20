@@ -280,15 +280,43 @@
    "s": 66,
    "st": "revise",
    "t": "Nov 13, 2026"
+  },
+  {
+   "c": "Marketplace appeal POA drafts",
+   "cv": "Bản nháp POA kháng nghị sàn",
+   "s": 69,
+   "st": "revise",
+   "t": "Nov 20, 2026"
+  },
+  {
+   "c": "Bilingual product-manual drafts",
+   "cv": "Bản nháp sổ tay sản phẩm song ngữ",
+   "s": 64,
+   "st": "revise",
+   "t": "Nov 20, 2026"
+  },
+  {
+   "c": "Bilingual trip-itinerary drafts",
+   "cv": "Bản nháp lịch trình chuyến đi song ngữ",
+   "s": 63,
+   "st": "revise",
+   "t": "Nov 20, 2026"
+  },
+  {
+   "c": "Sponsor-outreach draft emails",
+   "cv": "Bản nháp email chào tài trợ",
+   "s": 66,
+   "st": "revise",
+   "t": "Nov 20, 2026"
   }
  ],
  "now": {
   "state": "active",
-  "ts": "2026-11-20T07:32:40-08:00",
-  "checked": "2026-11-20T07:32:40-08:00",
+  "ts": "2026-11-20T08:35:17-08:00",
+  "checked": "2026-11-20T08:35:17-08:00",
   "doing": {
-   "en": "Checkpoint 4 is TODAY (Fri Nov 20): the M42 vendor-disclosure + student-data gate ruling is closed (files/EVIDENCE-M42-GATE-RULING.md) — written family consent is a hard condition under IECA ethics, FERPA/COPPA/CCPA do not bar the filed shape, SOPIPA is grey/UNVERIFIED, California's breach-notification duty applies at any size, and the Vietnam PDPD cross-border question is still owed. Scoring backlog is 4 (M43–M46) awaiting debate sheets and scores at the checkpoint later today; the checkpoint run carries the full scoring load (timed POA test + Addendum 13 models for M43, debate sheets for M43–M46, IECA current-text re-check, PDPD check, Addendum 17 debt-register close-out). No scores changed in this run. Nightly intake: screened 3, posted 0.",
-   "vi": "Checkpoint 4 là HÔM NAY (thứ Sáu 20/11): phán quyết cổng khai báo vendor + dữ liệu học sinh của M42 đã khép (files/EVIDENCE-M42-GATE-RULING.md) — đồng ý bằng văn bản của gia đình là điều kiện cứng theo đạo đức IECA, FERPA/COPPA/CCPA không chặn dạng đã nộp, SOPIPA là vùng xám/CHƯA XÁC MINH, nghĩa vụ thông báo rò rỉ dữ liệu của California áp dụng ở mọi quy mô, và câu hỏi xuyên biên giới PDPD Việt Nam vẫn nợ. Hậu tồn chấm điểm là 4 (M43–M46) chờ phiếu tranh luận và điểm tại checkpoint cuối ngày hôm nay; lượt checkpoint gánh toàn bộ khối lượng chấm (bài kiểm bấm giờ POA + mô hình Addendum 13 cho M43, phiếu tranh luận cho M43–M46, kiểm lại văn bản IECA hiện hành, kiểm tra PDPD, khép sổ nợ Addendum 17). Lượt này không đổi điểm số. Nạp hằng ngày: đã sàng 3, đăng 0."
+   "en": "Checkpoint 4 CLOSED (Fri Nov 20): backlog 0 — M43 69, M44 64, M45 63, M46 66 scored provisional; M38/M40/M41/M42 locked unchanged; Addendum 17 first count: 0 stall marks (4 Lab debts run in agent form; M06 price pilot + M05 outreach OWNER-BLOCKED); M42 gate ruling fully closed (IECA Dec 2024 + PDPD checks done). Shortlist unchanged (7). Next: Checkpoint 5 on Fri Nov 27.",
+   "vi": "Checkpoint 4 ĐÃ ĐÓNG (thứ Sáu 20/11): hậu tồn 0 — M43 69, M44 64, M45 63, M46 66 điểm tạm; M38/M40/M41/M42 khóa nguyên trạng; Addendum 17 lần đếm đầu: 0 vết đứng yên (4 khoản nợ Lab đã chạy dạng agent; pilot giá M06 + outreach M05 OWNER-BLOCKED); phán quyết cổng M42 khép hoàn toàn (đã kiểm IECA 12/2024 + PDPD). Shortlist không đổi (7). Tiếp theo: Checkpoint 5 thứ Sáu 27/11."
   }
  },
  "log": [
@@ -612,15 +640,20 @@
    "t": "Fri Nov 20 · 7:32 AM PT",
    "en": "Morning research (Nov 20, 2026 — 7:32 AM PST): M42 vendor-disclosure + student-data gate ruling CLOSED for the Checkpoint 4 debate sheet — files/EVIDENCE-M42-GATE-RULING.md. NACAC 2026 Guide read in full (recommendations, not law; no express counselor duty to disclose a draft vendor; vendor must follow the profession's ethics, translations must fully reflect the original, transparency in data sharing); IECA Principles III.C.i (May 2012 text as hosted — re-check current Dec 2024 text at Checkpoint 4) requires written consent + need-to-know for disclosing confidential client information, so written family consent is a hard condition, satisfiable by one paragraph in the counselor's engagement letter. Student data: FERPA no bar (ED: applies only to Dept. of Education-funded agencies/institutions); COPPA not triggered (no collection from children online); CCPA below thresholds ($26.625M / 100,000 CA consumers / 50%); SOPIPA grey/UNVERIFIED (Cooley flags college-admissions services as an open question); one hard statutory duty at any size — CA Civ. Code § 1798.82 breach notification (30 days) + § 1798.81.5 reasonable security. Vietnam PDPD cross-border question UNVERIFIED, owed at Checkpoint 4. No kill shot; no scores changed. Nightly intake: screened 3, posted 0.",
    "vi": "Nghiên cứu buổi sáng (20/11/2026 — 7:32 PST): ĐÃ KHÉP phán quyết cổng khai báo vendor + dữ liệu học sinh của M42 cho phiếu tranh luận Checkpoint 4 — files/EVIDENCE-M42-GATE-RULING.md. Hướng dẫn NACAC 2026 đọc toàn văn (khuyến nghị, không phải luật; không bắt cố vấn khai báo vendor soạn nháp; vendor phải tuân thủ đạo đức nghề, bản dịch phải phản ánh đầy đủ bản gốc, minh bạch khi chia sẻ dữ liệu); Nguyên tắc IECA III.C.i (bản tháng 5/2012 như đã lưu trữ — kiểm lại bản tháng 12/2024 tại Checkpoint 4) bắt tiết lộ thông tin bảo mật chỉ khi có đồng ý bằng văn bản và trên cơ sở cần-biết, nên đồng ý bằng văn bản của gia đình là điều kiện cứng, thỏa được bằng một đoạn trong thư cam kết của cố vấn. Dữ liệu học sinh: FERPA không chặn (Bộ Giáo dục: chỉ áp dụng cho cơ quan/trường nhận ngân sách liên bang); COPPA không chạm (không thu thập từ trẻ em qua mạng); CCPA dưới ngưỡng (26,625 triệu đô la / 100.000 người tiêu dùng CA / 50%); SOPIPA vùng xám/CHƯA XÁC MINH (Cooley nêu dịch vụ tuyển sinh là câu hỏi mở); một nghĩa vụ pháp lý cứng ở mọi quy mô — Điều 1798.82 Bộ luật Dân sự California về thông báo rò rỉ (30 ngày) + Điều 1798.81.5 về bảo mật hợp lý. Câu hỏi xuyên biên giới PDPD Việt Nam CHƯA XÁC MINH, nợ ở Checkpoint 4. Không đòn kết liễu; không điểm nào thay đổi. Nạp hằng ngày: đã sàng 3, đăng 0."
+  },
+  {
+   "t": "Fri Nov 20 · 8:35 AM PT",
+   "en": "Checkpoint 4 (Fri Nov 20, 2026 — 8:24 AM PST): backlog scored 4/4 — M43 69, M44 64, M45 63, M46 66 (all PROVISIONAL revise; debate sheets in files/DEBATE-SHEETS-CHECKPOINT-4.md). M38/M40/M41/M42 locked unchanged. EXP-M43-1 timed POA test ran (306-word draft, 8/8 QA, agent 69s; human time modelled 2–3 h, UNVERIFIED). Addendum 17: 4 Lab debts run in agent form = 0 stall marks; M06 price pilot + M05 outreach OWNER-BLOCKED. IECA Dec 2024 re-check + PDPD check closed for M42 (no score change). Weekly intake: screened 21, posted 4. QC PASS (results 44 == scored 44).",
+   "vi": "Checkpoint 4 (thứ Sáu 20/11/2026 — 8:24 PST): đã chấm hậu tồn 4/4 — M43 69, M44 64, M45 63, M46 66 (tất cả điểm TẠM, revise; phiếu trong files/DEBATE-SHEETS-CHECKPOINT-4.md). M38/M40/M41/M42 khóa nguyên trạng. Bài kiểm bấm giờ POA EXP-M43-1 đã chạy (bản nháp 306 từ, QA 8/8, agent 69 giây; thời gian người mô hình hóa 2–3 giờ, CHƯA XÁC MINH). Addendum 17: 4 khoản nợ Lab đã chạy dạng agent = 0 vết đứng yên; pilot giá M06 + outreach M05 OWNER-BLOCKED. Kiểm lại IECA 12/2024 + PDPD đã khép cho M42 (không đổi điểm). Nạp tuần: đã sàng 21, đăng 4. QC PASS (results 44 == scored 44)."
   }
  ],
- "scored": 40,
+ "scored": 44,
  "side": "muse",
  "status": {
-  "en": "Checkpoint 3 closed (Nov 13) — first official scoring round: 42 candidates in the pool, 40 scored (M16 unscored after its experiment deadline passed; M39 discarded at the legal gate), shortlist of 7 chosen (all scoring 70+). Next: Checkpoint 4 on Fri Nov 20.",
-  "vi": "Checkpoint 3 đã đóng (13/11) — vòng chấm chính thức đầu tiên: pool có 42 ứng viên, 40 đã có điểm (M16 không điểm sau khi qua hạn thí nghiệm; M39 bị loại ở cổng pháp lý), shortlist 7 ứng viên đã chốt (tất cả từ 70 điểm trở lên). Tiếp theo: Checkpoint 4 vào thứ Sáu 20/11."
+  "en": "Checkpoint 4 closed (Nov 20) — 46 candidates in the pool, 44 scored (M16 unscored after its experiment deadline passed; M39 discarded at the legal gate), shortlist of 7 unchanged (all scoring 70+). Next: Checkpoint 5 on Fri Nov 27.",
+  "vi": "Checkpoint 4 đã đóng (20/11) — pool có 46 ứng viên, 44 đã có điểm (M16 không điểm sau khi qua hạn thí nghiệm; M39 bị loại ở cổng pháp lý), shortlist 7 ứng viên không đổi (tất cả từ 70 điểm trở lên). Tiếp theo: Checkpoint 5 vào thứ Sáu 27/11."
  },
- "updated": "2026-11-20T07:32:40-08:00",
+ "updated": "2026-11-20T08:35:17-08:00",
  "updates": [
   {
    "en": "Claude Pro is still $20/mo including Claude Code — the $20 budget gate is intact.",
@@ -1287,30 +1320,30 @@
    "en": "Marketplace account-appeal Plan of Action drafts for suspended Amazon, eBay, Etsy and Walmart sellers — case-specific appeal drafts built only from the seller's own documents, which the seller reviews and submits (no reinstatement guarantees, no fabricated evidence)",
    "vi": "Bản nháp Plan of Action kháng nghị cho người bán bị đình chỉ tài khoản trên Amazon, eBay, Etsy và Walmart — bản nháp kháng nghị theo từng trường hợp, chỉ soạn từ tài liệu của chính người bán, để người bán duyệt và tự nộp (không cam kết khôi phục tài khoản, không bịa chứng cứ)",
    "market": "VN + US",
-   "score": null
+   "score": 69
   },
   {
    "en": "Bilingual EN–VI product instruction-manual drafts for Vietnamese manufacturers exporting consumer products to the US — plain-language manuals drafted from the maker's own specs and source documents, with safety warnings flagged for the maker's own compliance review (maker reviews and approves; no certification or legal-compliance claims)",
    "vi": "Bản nháp sổ tay hướng dẫn sản phẩm song ngữ EN–VI cho nhà sản xuất Việt xuất khẩu hàng tiêu dùng sang Mỹ — sổ tay ngôn ngữ dễ hiểu soạn từ thông số và tài liệu gốc của chính nhà sản xuất, kèm gắn cờ các cảnh báo an toàn để nhà sản xuất tự rà soát tuân thủ (nhà sản xuất duyệt và phê chuẩn; không cam kết chứng nhận hay tuân thủ pháp lý)",
    "market": "VN + US",
-   "score": null
+   "score": 64
   },
   {
    "en": "Bilingual EN–VI trip-itinerary + document-checklist drafts for Vietnamese travel agencies serving Vietnam–US family trips — per-trip itinerary and visa/passport/insurance checklist drafts the agency reviews and sends (no bookings, no travel advice)",
    "vi": "Bản nháp lịch trình chuyến đi + checklist giấy tờ song ngữ EN–VI cho công ty du lịch Việt phục vụ chuyến đi gia đình Việt–Mỹ — bản nháp lịch trình từng chuyến và checklist visa/hộ chiếu/bảo hiểm để công ty duyệt và gửi (không đặt vé, không tư vấn du lịch)",
    "market": "VN + US",
-   "score": null
+   "score": 63
   },
   {
    "en": "Bilingual EN–VI sponsor-outreach draft emails for Vietnamese-American creators — media-kit-based brand pitch and follow-up drafts the creator reviews and sends (no autonomous sending, no rate or deal claims)",
    "vi": "Bản nháp email tiếp cận nhà tài trợ song ngữ EN–VI cho nhà sáng tạo Việt–Mỹ — bản nháp chào hợp tác và theo đuổi dựa trên media kit để nhà sáng tạo duyệt và tự gửi (không gửi tự động, không cam kết giá hay thỏa thuận)",
    "market": "US",
-   "score": null
+   "score": 66
   }
  ],
  "poolNote": {
-  "en": "Scores: M01-M15 locked at the Oct 30 baseline; M17-M37 locked at Checkpoint 3 (Nov 13) unchanged from their Checkpoint 2 provisionals; M38, M40, M41 and M42 scored provisionally at Checkpoint 3 and lock at the next checkpoint if no new evidence lands. Two pool rows deliberately show no score: M16 — its provisional expired unscored after its mandatory five-platform experiment missed the Nov 13 deadline; M39 — discarded at the legal gate (its filed mortgage document-chase shape is licensed MLO work for an independent contractor), so it carries no score by the gate rule. Shortlist (7): M06, M07, M17, M03, M05, M01, M02.",
-  "vi": "Điểm số: M01–M15 khóa ở mốc nền 30/10; M17–M37 khóa tại Checkpoint 3 (13/11), giữ nguyên điểm tạm của Checkpoint 2; M38, M40, M41 và M42 chấm điểm tạm tại Checkpoint 3 và sẽ khóa ở checkpoint kế tiếp nếu không có bằng chứng mới. Hai dòng pool cố ý để trống điểm: M16 — điểm tạm của nó hết hạn ở trạng thái không điểm sau khi thí nghiệm nộp đơn 5 nền tảng bắt buộc trễ hạn 13/11; M39 — bị loại ở cổng pháp lý (dạng nhắc giấy tờ mortgage đã nạp là việc cần giấy phép MLO đối với nhà thầu độc lập) nên theo quy tắc cổng nó không mang điểm. Shortlist (7): M06, M07, M17, M03, M05, M01, M02."
+  "en": "Scores: M01-M15 locked at the Oct 30 baseline; M17-M37 locked at Checkpoint 3 (Nov 13) unchanged from their Checkpoint 2 provisionals; M38, M40, M41 and M42 locked at Checkpoint 4 (Nov 20) unchanged; M43, M44, M45 and M46 scored provisionally at Checkpoint 4 and lock at the next checkpoint if no new evidence lands. Two pool rows deliberately show no score: M16 — its provisional expired unscored after its mandatory five-platform experiment missed the Nov 13 deadline; M39 — discarded at the legal gate (its filed mortgage document-chase shape is licensed MLO work for an independent contractor), so it carries no score by the gate rule. Shortlist (7): M06, M07, M17, M03, M05, M01, M02.",
+  "vi": "Điểm số: M01–M15 khóa ở mốc nền 30/10; M17–M37 khóa tại Checkpoint 3 (13/11), giữ nguyên điểm tạm của Checkpoint 2; M38, M40, M41 và M42 khóa tại Checkpoint 4 (20/11), giữ nguyên; M43, M44, M45 và M46 chấm điểm tạm tại Checkpoint 4 và sẽ khóa ở checkpoint kế tiếp nếu không có bằng chứng mới. Hai dòng pool cố ý để trống điểm: M16 — điểm tạm của nó hết hạn ở trạng thái không điểm sau khi thí nghiệm nộp đơn 5 nền tảng bắt buộc trễ hạn 13/11; M39 — bị loại ở cổng pháp lý (dạng nhắc giấy tờ mortgage đã nạp là việc cần giấy phép MLO đối với nhà thầu độc lập) nên theo quy tắc cổng nó không mang điểm. Shortlist (7): M06, M07, M17, M03, M05, M01, M02."
  },
  "discussion": [
   {
@@ -2165,6 +2198,25 @@
    "summary": {
     "en": "M42's vendor-disclosure + student-data gate ruling is closed: written family consent is required under IECA ethics, FERPA/COPPA/CCPA do not bar the filed shape, SOPIPA is grey, and California's breach-notification duty applies at any size — no kill shot, with the Vietnam PDPD question still owed.",
     "vi": "Đã khép phán quyết cổng khai báo vendor + dữ liệu học sinh của M42: cần sự đồng ý bằng văn bản của gia đình theo đạo đức IECA, FERPA/COPPA/CCPA không chặn dạng đã nộp, SOPIPA là vùng xám, và nghĩa vụ thông báo rò rỉ dữ liệu của California áp dụng ở mọi quy mô — không có đòn kết liễu, câu hỏi PDPD Việt Nam vẫn nợ."
+   }
+  },
+  {
+   "role": {
+    "en": "Lead",
+    "vi": "Lead"
+   },
+   "tag": {
+    "en": "CHECKPOINT 4",
+    "vi": "CHECKPOINT 4"
+   },
+   "ts": "Fri Nov 20 · 8:35 AM PT",
+   "text": {
+    "en": "Checkpoint 4 is closed (Fri Nov 20): the Addendum 16 backlog is 0 — all four new candidates scored PROVISIONAL (M43 Marketplace appeal POA drafts 69, M44 bilingual product-manual drafts 64, M45 bilingual trip-itinerary drafts 63, M46 sponsor-outreach draft emails 66; all revise). M38, M40, M41 and M42 locked unchanged at their Checkpoint 3 provisionals. The timed POA test ran at this checkpoint (EXP-M43-1: one 306-word account-level POA from fictional materials, 8/8 machine QA pass, agent production 69 seconds; human time modelled at 2–3 hours per case and still UNVERIFIED; Addendum 13 model at the $150–$300 anchor is ~$42–$128/hour after tax). Addendum 17 debt register: all four Lab-runnable debts (M07 phase 2, M06 flag review, M18 LOI test, M19 throughput test) were run in agent form, so 0 stall marks at the first count; the M06 price pilot and M05 outreach stay OWNER-BLOCKED with no marks. M42's gate ruling is fully closed — the IECA Principles text re-checked today is the December 2024 edition with III.C.i wording identical to the 2012 text, and Vietnam's Decree 13/2023 cross-border rule (consent + Transfer Impact Assessment + 60-day MPS filing) does not trigger M42's filed US shape. Shortlist unchanged (7, all 70+). Weekly intake: 21 screened, 4 posted (M43–M46). No real money spent, no real customers contacted. Full package: files/CHECKPOINT-4-PACKAGE.md.",
+    "vi": "Checkpoint 4 đã đóng (thứ Sáu 20/11): hậu tồn Addendum 16 về 0 — cả 4 ứng viên mới đều có điểm TẠM (M43 bản nháp POA kháng nghị sàn 69, M44 bản nháp sổ tay sản phẩm song ngữ 64, M45 bản nháp lịch trình chuyến đi song ngữ 63, M46 bản nháp email chào tài trợ 66; tất cả revise). M38, M40, M41 và M42 khóa nguyên trạng điểm tạm Checkpoint 3. Bài kiểm bấm giờ POA đã chạy tại checkpoint này (EXP-M43-1: 1 bản POA cấp tài khoản 306 từ từ nguyên liệu hư cấu, QA máy 8/8 PASS, agent soạn trong 69 giây; thời gian người vận hành mô hình hóa 2–3 giờ/vụ và vẫn CHƯA XÁC MINH; mô hình Addendum 13 ở mốc $150–$300 là ~$42–$128/giờ sau thuế). Sổ nợ Addendum 17: cả 4 khoản Lab tự chạy được (M07 giai đoạn 2, M06 rà soát cờ, M18 kiểm LOI, M19 kiểm thông lượng) đều đã chạy ở dạng agent, nên 0 vết đứng yên ở lần đếm đầu tiên; pilot giá M06 và outreach M05 vẫn OWNER-BLOCKED, không tích vết. Phán quyết cổng M42 đã khép hoàn toàn — văn bản IECA kiểm lại hôm nay là bản tháng 12/2024 với điều III.C.i giữ nguyên wording bản 2012, và quy định xuyên biên giới của Nghị định 13/2023 Việt Nam (đồng ý + đánh giá tác động chuyển dữ liệu + nộp Bộ Công an trong 60 ngày) không chạm dạng đã nộp của M42 tại Mỹ. Shortlist không đổi (7 ứng viên, từ 70 điểm trở lên). Nạp tuần: đã sàng 21, đăng 4 (M43–M46). Không chi tiền thật, không tiếp cận khách hàng thật. Gói đầy đủ: files/CHECKPOINT-4-PACKAGE.md."
+   },
+   "summary": {
+    "en": "Checkpoint 4: 4 new candidates scored provisional (M43 69, M44 64, M45 63, M46 66), M38/M40/M41/M42 locked unchanged, 0 stall marks at the first Addendum 17 count, and M42's gate ruling fully closed.",
+    "vi": "Checkpoint 4: 4 ứng viên mới có điểm tạm (M43 69, M44 64, M45 63, M46 66), M38/M40/M41/M42 khóa nguyên trạng, 0 vết đứng yên ở lần đếm Addendum 17 đầu tiên, phán quyết cổng M42 khép hoàn toàn."
    }
   }
  ]
