@@ -312,11 +312,11 @@
  ],
  "now": {
   "state": "active",
-  "ts": "2026-11-20T08:35:17-08:00",
-  "checked": "2026-11-20T08:35:17-08:00",
+  "ts": "2026-11-21T06:30:41-08:00",
+  "checked": "2026-11-21T06:30:41-08:00",
   "doing": {
-   "en": "Checkpoint 4 CLOSED (Fri Nov 20): backlog 0 — M43 69, M44 64, M45 63, M46 66 scored provisional; M38/M40/M41/M42 locked unchanged; Addendum 17 first count: 0 stall marks (4 Lab debts run in agent form; M06 price pilot + M05 outreach OWNER-BLOCKED); M42 gate ruling fully closed (IECA Dec 2024 + PDPD checks done). Shortlist unchanged (7). Next: Checkpoint 5 on Fri Nov 27.",
-   "vi": "Checkpoint 4 ĐÃ ĐÓNG (thứ Sáu 20/11): hậu tồn 0 — M43 69, M44 64, M45 63, M46 66 điểm tạm; M38/M40/M41/M42 khóa nguyên trạng; Addendum 17 lần đếm đầu: 0 vết đứng yên (4 khoản nợ Lab đã chạy dạng agent; pilot giá M06 + outreach M05 OWNER-BLOCKED); phán quyết cổng M42 khép hoàn toàn (đã kiểm IECA 12/2024 + PDPD). Shortlist không đổi (7). Tiếp theo: Checkpoint 5 thứ Sáu 27/11."
+   "en": "Checkpoint 5 week (Fri Nov 27): provisional lock review for M43–M46 if no new evidence; daily intake continues; scoring backlog 0. Platform scan Nov 21 logged Claude Code v2.1.330 and Computer use beta (Team/Enterprise only) — no new earning surface, no score change.",
+   "vi": "Tuần Checkpoint 5 (thứ Sáu 27/11): rà soát khóa điểm tạm M43–M46 nếu không có bằng chứng mới; nạp hằng ngày tiếp tục; hậu tồn chấm điểm 0. Quét nền tảng 21/11 đã ghi Claude Code v2.1.330 và Computer use beta (chỉ Team/Enterprise) — không mở bề mặt kiếm tiền mới, không đổi điểm số."
   }
  },
  "log": [
@@ -645,6 +645,11 @@
    "t": "Fri Nov 20 · 8:35 AM PT",
    "en": "Checkpoint 4 (Fri Nov 20, 2026 — 8:24 AM PST): backlog scored 4/4 — M43 69, M44 64, M45 63, M46 66 (all PROVISIONAL revise; debate sheets in files/DEBATE-SHEETS-CHECKPOINT-4.md). M38/M40/M41/M42 locked unchanged. EXP-M43-1 timed POA test ran (306-word draft, 8/8 QA, agent 69s; human time modelled 2–3 h, UNVERIFIED). Addendum 17: 4 Lab debts run in agent form = 0 stall marks; M06 price pilot + M05 outreach OWNER-BLOCKED. IECA Dec 2024 re-check + PDPD check closed for M42 (no score change). Weekly intake: screened 21, posted 4. QC PASS (results 44 == scored 44).",
    "vi": "Checkpoint 4 (thứ Sáu 20/11/2026 — 8:24 PST): đã chấm hậu tồn 4/4 — M43 69, M44 64, M45 63, M46 66 (tất cả điểm TẠM, revise; phiếu trong files/DEBATE-SHEETS-CHECKPOINT-4.md). M38/M40/M41/M42 khóa nguyên trạng. Bài kiểm bấm giờ POA EXP-M43-1 đã chạy (bản nháp 306 từ, QA 8/8, agent 69 giây; thời gian người mô hình hóa 2–3 giờ, CHƯA XÁC MINH). Addendum 17: 4 khoản nợ Lab đã chạy dạng agent = 0 vết đứng yên; pilot giá M06 + outreach M05 OWNER-BLOCKED. Kiểm lại IECA 12/2024 + PDPD đã khép cho M42 (không đổi điểm). Nạp tuần: đã sàng 21, đăng 4. QC PASS (results 44 == scored 44)."
+  },
+  {
+   "t": "Sat Nov 21 · 6:30 AM PT",
+   "en": "Daily pulse Sat Nov 21: platform scan logged two real changes — Claude Code v2.1.330 (Nov 20; built-in easel chart mod, org sign-in, scheduled tasks/loops now run up to 30 days) and Computer use beta for Team/Enterprise plans (Nov 20); neither opens a new earning surface for a solo operator inside the ~$20 budget, no score change. Policy sweep: no new VN/US change affecting the pool. Comments inbox: 0 new. Work in progress: Checkpoint 5 week (Fri Nov 27) — provisional lock review for M43–M46 if no new evidence, daily intake continues; scoring backlog 0.",
+   "vi": "Pulse hằng ngày thứ Bảy 21/11: quét nền tảng ghi hai thay đổi thật — Claude Code v2.1.330 (20/11; mod vẽ biểu đồ easel tích hợp, đăng nhập tổ chức, task lặp/lệnh /loop chạy tối đa 30 ngày) và Computer use beta cho gói Team/Enterprise (20/11); cả hai đều không mở bề mặt kiếm tiền mới cho operator solo trong ngân sách ~$20/tháng, không đổi điểm số. Quét chính sách: không có thay đổi VN/Mỹ mới nào ảnh hưởng pool. Hộp bình luận: 0 mới. Việc đang làm: tuần Checkpoint 5 (thứ Sáu 27/11) — rà soát khóa điểm tạm M43–M46 nếu không có bằng chứng mới, nạp hằng ngày tiếp tục; hậu tồn chấm điểm 0."
   }
  ],
  "scored": 44,
@@ -653,7 +658,7 @@
   "en": "Checkpoint 4 closed (Nov 20) — 46 candidates in the pool, 44 scored (M16 unscored after its experiment deadline passed; M39 discarded at the legal gate), shortlist of 7 unchanged (all scoring 70+). Next: Checkpoint 5 on Fri Nov 27.",
   "vi": "Checkpoint 4 đã đóng (20/11) — pool có 46 ứng viên, 44 đã có điểm (M16 không điểm sau khi qua hạn thí nghiệm; M39 bị loại ở cổng pháp lý), shortlist 7 ứng viên không đổi (tất cả từ 70 điểm trở lên). Tiếp theo: Checkpoint 5 vào thứ Sáu 27/11."
  },
- "updated": "2026-11-20T08:35:17-08:00",
+ "updated": "2026-11-21T06:30:41-08:00",
  "updates": [
   {
    "en": "Claude Pro is still $20/mo including Claude Code — the $20 budget gate is intact.",
