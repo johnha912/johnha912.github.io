@@ -1471,15 +1471,27 @@ main { flex: 1; padding-top: var(--nav-h); }
 .track__head { display: flex; align-items: center; justify-content: space-between; column-gap: var(--space-4); padding: var(--space-3) var(--space-2) var(--space-2) var(--space-3); }
 .track__title { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2) var(--space-3); font-size: var(--fs-lg); font-weight: 600; letter-spacing: var(--tracking-tight); line-height: var(--lh-snug); }
 .track__title .pill { letter-spacing: normal; }
+/* The title is the track's link (owner report 2026-11-23: tapping the title did nothing). It stretches
+   over the whole title row, so the row is one 44px+ tap target; the SoundCloud icon is the same link,
+   kept as a visual cue (hidden from assistive tech and the tab order to avoid a duplicate stop). */
+.track__head { position: relative; }
+.track__link { color: inherit; text-decoration: none; transition: color var(--dur-fast); }
+.track__link::after { content: ""; position: absolute; inset: 0; border-radius: var(--r-md); }
+.track__link:focus-visible { outline: none; color: var(--accent); }
+.track__link:focus-visible::after { outline: 2px solid var(--accent); outline-offset: 2px; }
+@media (hover: hover) {
+  .track__head:hover .track__link { color: var(--accent); }
+  .track__head:hover .icon-link { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+}
 /* Square box sized before load, so the SoundCloud player never shifts the page.
    Cover art and the play button share one grid cell; the iframe replaces the button on top. */
 .track__player { position: relative; display: grid; aspect-ratio: 1; overflow: hidden; border-radius: var(--r-lg); background: var(--surface-2); }
 .track__player::after { content: ""; position: absolute; inset: 0; border-radius: inherit; box-shadow: inset 0 0 0 1px var(--ring-photo); pointer-events: none; }
 .track__player > * { grid-area: 1 / 1; }
 .track__player img { width: 100%; height: 100%; object-fit: cover; scale: 1.46; } /* crop the cover's white sleeve and baked-in title to the inner artwork */
-.track__player .btn { place-self: center; background: rgb(0 0 0 / 0.55); border-color: rgb(255 255 255 / 0.3); color: #fff; backdrop-filter: blur(8px); }
+.track__player .btn { position: relative; z-index: 1; place-self: center; background: rgb(0 0 0 / 0.55); border-color: rgb(255 255 255 / 0.3); color: #fff; backdrop-filter: blur(8px); }
 .track__player .btn:hover { background: rgb(0 0 0 / 0.7); }
-.track__player iframe { width: 100%; height: 100%; border: 0; }
+.track__player iframe { position: relative; z-index: 1; width: 100%; height: 100%; border: 0; } /* above the scaled cover: `scale` paints the img over unpositioned siblings (owner report 2026-11-23: Play loaded a hidden player) */
 .tracks__foot {
   display: grid;
   gap: var(--space-4);
