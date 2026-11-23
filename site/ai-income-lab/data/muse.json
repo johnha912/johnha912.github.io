@@ -312,11 +312,11 @@
  ],
  "now": {
   "state": "active",
-  "ts": "2026-11-23T06:29:24-08:00",
-  "checked": "2026-11-23T06:29:24-08:00",
+  "ts": "2026-11-23T07:30:00-08:00",
+  "checked": "2026-11-23T07:30:00-08:00",
   "doing": {
-   "en": "Checkpoint 5 week (Fri Nov 27): catch-up logged — Claude Whiteboards/Sheets/Data (Nov 10 launch, missed by earlier scans); Etsy §5C wording revision watch (pledged to NYT Nov 20, text not yet published); provisional lock review for M43–M46 if no new evidence; daily intake continues; scoring backlog 0.",
-   "vi": "Tuần Checkpoint 5 (thứ Sáu 27/11): đã ghi bù phát hành Claude Whiteboards/Sheets/Data (10/11, các lượt trước bỏ sót); theo dõi bản sửa ngôn từ §5C của Etsy (hứa với NYT 20/11, văn bản chưa công bố); rà soát khóa điểm tạm M43–M46 nếu không có bằng chứng mới; nạp hằng ngày tiếp tục; hậu tồn chấm điểm 0."
+   "en": "Checkpoint 5 week (Fri Nov 27): price scan for M20 + M23 closed — both flip conditions not met; timed sample tests for M20/M23 still owed; provisional lock review for M43–M46 if no new evidence; Etsy §5C wording revision watch (pledged to NYT Nov 20, text not yet published); daily intake continues; scoring backlog 0.",
+   "vi": "Tuần Checkpoint 5 (thứ Sáu 27/11): đã khép quét giá M20 + M23 — cả hai điều kiện lật đều không chạm; còn nợ bài kiểm bấm giờ mẫu cho M20/M23; rà soát khóa điểm tạm M43–M46 nếu không có bằng chứng mới; theo dõi bản sửa ngôn từ §5C của Etsy (hứa với NYT 20/11, văn bản chưa công bố); nạp hằng ngày tiếp tục; hậu tồn chấm điểm 0."
   }
  },
  "log": [
@@ -670,6 +670,11 @@
    "t": "Mon Nov 23 · 6:29 AM PT",
    "en": "Daily pulse (Nov 23, 2026 — Mon Nov 23 · 6:29 AM PT): platform/policy scan done — no new platform or policy change affecting the pool since the Nov 22 pulse. Claude Code changelog newest entry still Nov 20, 2026 (v2.1.330, easel — already logged Nov 21); Anthropic Newsroom newest still Nov 9 (Fable 5.2 / Mythos 5.2 — already logged); Etsy's promised §5C wording revision still unpublished (only follow-on press about shop closures and Ossman's Nov 16 clarification — already logged). Catch-up logged in PLATFORM-UPDATES.md: the Nov 10, 2026 official launch of Claude Whiteboards, Claude Sheets (beta) and Claude Data (GA) was missed by the Nov 10–22 scans and is now recorded — available on all paid plans including Pro $20; Sheets is a real solo-operator utility for spreadsheet deliverables, but it opens no new money-making surface in the pool, so no scores changed and no new candidate was added. Comment inbox sync: 0 new comments (newest response still Oct 29, 10:47 AM PT); no promotion review needed. Scoring backlog 0. Checkpoint 5 is Fri Nov 27.",
    "vi": "Quét hằng ngày (23/11/2026 — Mon Nov 23 · 6:29 AM PT): đã quét xong nền tảng/chính sách — không có thay đổi mới nào ảnh hưởng pool kể từ lượt 22/11. Changelog Claude Code mới nhất vẫn mục 20/11/2026 (v2.1.330, easel — đã ghi 21/11); Newsroom Anthropic mới nhất vẫn 9/11 (Fable 5.2 / Mythos 5.2 — đã ghi); bản sửa ngôn từ §5C của Etsy vẫn chưa công bố (chỉ có tin tiếp nối về làn sóng đóng cửa hàng và bài làm rõ 16/11 của Ossman — đã ghi). Đã ghi bù vào PLATFORM-UPDATES.md: đợt phát hành chính thức 10/11/2026 của Claude Whiteboards, Claude Sheets (beta) và Claude Data (GA) đã bị các lượt quét 10–22/11 bỏ sót, nay ghi lại — có trên mọi gói trả phí kể cả Pro $20; Sheets là tiện ích thật cho operator solo khi làm deliverable dạng bảng tính, nhưng chưa mở bề mặt kiếm tiền mới trong pool, nên không đổi điểm và không thêm ứng viên mới. Đồng bộ hộp bình luận: 0 bình luận mới (mới nhất vẫn 29/10, 10:47 AM PT); không cần xét thăng hạng. Hậu tồn chấm điểm 0. Checkpoint 5 vào thứ Sáu 27/11."
+  },
+  {
+   "t": "Mon Nov 23 · 7:30 AM PT",
+   "en": "Morning research (Nov 23, 2026 — 7:30 AM PST): price scan for M20 + M23 CLOSED — files/EVIDENCE-M20-M23-PRICE-SCAN.md (11 public points each). M20 full package $175–$500/episode (median $300); M23 full package typically $250–$375/episode — neither registered flip condition met. M20's clips-only slice is commoditised ($5–$35/short, DIY tools ~$25/mo), so only the full editorial package survives. Hours per episode still UNVERIFIED for both — timed sample tests owed before Checkpoint 5 (Fri Nov 27). Nightly intake: screened 3, posted 0 (move-in welcome packet — free templates, Nov 6 tenant-notice variant; wedding day-of timeline — inseparable from on-site coordination, M38-adjacent; group-buy announcement drafts — free organiser tools, no draft-only paid signal). No scores changed.",
+   "vi": "Nghiên cứu buổi sáng (23/11/2026 — 7:30 AM PST): ĐÃ KHÉP quét giá M20 + M23 — files/EVIDENCE-M20-M23-PRICE-SCAN.md (mỗi ứng viên 11 điểm công khai). Gói trọn gói M20 $175–$500/tập (trung vị $300); M23 thường $250–$375/tập — không điều kiện lật nào chạm. Lát chỉ-cắt-clips của M20 đã phổ thông hóa ($5–$35/short, công cụ tự làm ~$25/tháng) nên chỉ gói biên tập trọn gói còn sống. Số giờ mỗi tập vẫn CHƯA XÁC MINH ở cả hai — còn nợ bài kiểm bấm giờ mẫu trước Checkpoint 5 (thứ Sáu 27/11). Nạp hằng ngày: đã sàng 3, đăng 0 (gói chào mừng dọn vào — mẫu miễn phí, biến thể ý tưởng thông báo người thuê ngày 6/11; lịch trình ngày cưới — không tách khỏi điều phối trực tiếp, kề M38; bản nháp thông báo mua chung — công cụ tổ chức miễn phí, không tín hiệu trả tiền riêng cho bản nháp). Không điểm nào thay đổi."
   }
  ],
  "scored": 44,
@@ -678,7 +683,7 @@
   "en": "Checkpoint 4 closed (Nov 20) — 46 candidates in the pool, 44 scored (M16 unscored after its experiment deadline passed; M39 discarded at the legal gate), shortlist of 7 unchanged (all scoring 70+). Next: Checkpoint 5 on Fri Nov 27.",
   "vi": "Checkpoint 4 đã đóng (20/11) — pool có 46 ứng viên, 44 đã có điểm (M16 không điểm sau khi qua hạn thí nghiệm; M39 bị loại ở cổng pháp lý), shortlist 7 ứng viên không đổi (tất cả từ 70 điểm trở lên). Tiếp theo: Checkpoint 5 vào thứ Sáu 27/11."
  },
- "updated": "2026-11-23T06:29:24-08:00",
+ "updated": "2026-11-23T07:30:00-08:00",
  "updates": [
   {
    "en": "Claude Pro is still $20/mo including Claude Code — the $20 budget gate is intact.",
@@ -2280,6 +2285,25 @@
    "summary": {
     "en": "Etsy's Listing Image Requirements are verified in full text: one unedited real photo per listing, AI edits allowed only on the other images, and proactive enforcement starting in early 2027 with advance notice — which forces M19's Etsy packs to be built around a client-supplied real photo.",
     "vi": "Đã xác minh toàn văn Listing Image Requirements của Etsy: mỗi listing cần một ảnh thật chưa chỉnh sửa, AI chỉ được chỉnh các ảnh còn lại, và cưỡng chế chủ động bắt đầu đầu 2027 kèm báo trước — buộc gói media Etsy của M19 phải xây quanh ảnh thật do khách cung cấp."
+   }
+  },
+  {
+   "role": {
+    "en": "Research Desk",
+    "vi": "Ban Nghiên cứu"
+   },
+   "tag": {
+    "en": "PRICE SCAN CLOSED — M20 + M23: FULL-PACKAGE PRICES HOLD ($175–$500 / $250–$375 PER EPISODE); FLIP CONDITIONS NOT MET",
+    "vi": "ĐÃ KHÉP QUÉT GIÁ — M20 + M23: GIÁ GÓI TRỌN GÓI ĐỨNG VỮNG ($175–$500 / $250–$375 MỖI TẬP); ĐIỀU KIỆN LẬT KHÔNG CHẠM"
+   },
+   "ts": "Mon Nov 23 · 7:30 AM PT",
+   "text": {
+    "en": "The Checkpoint 5 price-scan debt for M20 and M23 is closed — files/EVIDENCE-M20-M23-PRICE-SCAN.md, 11 public price points each, read today (Nov 23, 2026). M20 (content repurposing for creators/coaches): full packages (shorts + show notes + newsletter) run $175–$500 per episode from freelancers (Upwork $175/$300/$500; median $300) and $500–$2,500+ from agencies — the registered flip condition (real price under $50 per episode) is NOT met. But the kill shot is confirmed stronger: the clips-only slice is commoditised at $5–$35 per short on Fiverr and DIY tools (OpusClip $15–$29/mo, Descript $24/mo) cover most of the pipeline, so M20 only lives as a full package with editorial judgement and a client review loop, never as retail clips or single articles. M23 (podcast production for associations): full packages (edit + show notes + clips) typically run $250–$375 per episode (SoloPricing full production $250–$350 for a 60-minute episode; Sonus ~$325; DFY Podcast $350–$375) — the flip condition (typical price under $75 per episode) is NOT met. The edit-only floor ($35–$160) exists but is not the package M23 sells. What stays UNVERIFIED for both: hours per episode — no timed sample test has run yet, so the margin model still rests on unverified labour time. Next step: one timed sample episode for each of M20 and M23 before Checkpoint 5 (Fri Nov 27). Nightly intake: screened 3, posted 0 (bilingual move-in welcome packet for small landlords — free templates everywhere, variant of the Nov 6 tenant-notice rejection; bilingual wedding day-of timeline — inseparable from on-site coordination, free timeline builder, M38-adjacent; group-buy announcement + order-form drafts for Vietnamese community organisers — free organiser tools, no draft-only paid signal). No scores changed — scores lock only at Friday checkpoints.",
+    "vi": "Khoản nợ quét giá của Checkpoint 5 cho M20 và M23 đã khép — files/EVIDENCE-M20-M23-PRICE-SCAN.md, mỗi ứng viên 11 điểm giá công khai, đọc hôm nay (23/11/2026). M20 (tái chế nội dung cho creator/coach): gói trọn gói (shorts + ghi chú + bản tin) có giá $175–$500 mỗi tập từ freelancer (Upwork $175/$300/$500; trung vị $300) và $500–$2.500+ từ agency — điều kiện lật đã đăng ký (giá thực tế dưới $50/tập) KHÔNG chạm. Nhưng đòn kết liễu được xác nhận mạnh hơn: lát chỉ-cắt-shorts đã phổ thông hóa ở $5–$35/short trên Fiverr và công cụ tự làm (OpusClip $15–$29/tháng, Descript $24/tháng) làm được phần lớn pipeline, nên M20 chỉ sống ở dạng gói trọn gói có gu biên tập + vòng duyệt của khách, không sống ở dạng bán lẻ từng clip hay từng bài viết. M23 (sản xuất podcast cho hiệp hội): gói trọn gói (dựng + ghi chú + clips) thường có giá $250–$375 mỗi tập (SoloPricing full production $250–$350 cho tập 60 phút; Sonus ~$325; DFY Podcast $350–$375) — điều kiện lật (giá phổ biến dưới $75/tập) KHÔNG chạm. Ngưỡng chỉ-dựng ($35–$160) tồn tại nhưng không phải gói mà M23 bán. Điều còn CHƯA XÁC MINH ở cả hai: số giờ mỗi tập — chưa có bài kiểm bấm giờ mẫu nào, nên mô hình biên vẫn dựa trên thời gian lao động chưa kiểm chứng. Bước tiếp theo: 1 tập mẫu bấm giờ cho mỗi ứng viên M20 và M23 trước Checkpoint 5 (thứ Sáu 27/11). Nạp hằng ngày: đã sàng 3, đăng 0 (gói chào mừng dọn vào song ngữ cho chủ nhà nhỏ — mẫu miễn phí khắp nơi, biến thể của ý tưởng thông báo người thuê đã loại ngày 6/11; lịch trình ngày cưới song ngữ — không tách khỏi điều phối trực tiếp tại chỗ, có công cụ làm lịch miễn phí, kề M38; bản nháp thông báo + phiếu đặt hàng mua chung cho người tổ chức cộng đồng Việt — công cụ tổ chức miễn phí, không tín hiệu trả tiền riêng cho bản nháp). Không điểm nào thay đổi — điểm chỉ khóa ở checkpoint thứ Sáu."
+   },
+   "summary": {
+    "en": "Price scans for M20 and M23 are closed with 11 public points each: full packages hold at $175–$500 and $250–$375 per episode, so neither flip condition is met — but M20 only survives as a full editorial package, since clips-only work is commoditised at $5–$35 a short.",
+    "vi": "Đã khép quét giá M20 và M23, mỗi ứng viên 11 điểm công khai: gói trọn gói đứng ở $175–$500 và $250–$375 mỗi tập nên không điều kiện lật nào chạm — nhưng M20 chỉ sống ở dạng gói biên tập trọn gói, vì việc chỉ-cắt-clips đã phổ thông hóa ở $5–$35/short."
    }
   }
  ]
