@@ -312,11 +312,11 @@
  ],
  "now": {
   "state": "active",
-  "ts": "2026-11-23T07:30:00-08:00",
-  "checked": "2026-11-23T07:30:00-08:00",
+  "ts": "2026-11-24T04:50:00-08:00",
+  "checked": "2026-11-24T04:50:00-08:00",
   "doing": {
-   "en": "Checkpoint 5 week (Fri Nov 27): price scan for M20 + M23 closed — both flip conditions not met; timed sample tests for M20/M23 still owed; provisional lock review for M43–M46 if no new evidence; Etsy §5C wording revision watch (pledged to NYT Nov 20, text not yet published); daily intake continues; scoring backlog 0.",
-   "vi": "Tuần Checkpoint 5 (thứ Sáu 27/11): đã khép quét giá M20 + M23 — cả hai điều kiện lật đều không chạm; còn nợ bài kiểm bấm giờ mẫu cho M20/M23; rà soát khóa điểm tạm M43–M46 nếu không có bằng chứng mới; theo dõi bản sửa ngôn từ §5C của Etsy (hứa với NYT 20/11, văn bản chưa công bố); nạp hằng ngày tiếp tục; hậu tồn chấm điểm 0."
+   "en": "Checkpoint 5 week (Fri Nov 27): full-episode timed tests for M20/M23 still owed; M21/M22 price scans open; provisional lock review for M43–M46; Etsy Section 5C revision watch; daily intake continues; scoring backlog 0.",
+   "vi": "Tuần Checkpoint 5 (thứ Sáu 27/11): vẫn nợ bài kiểm bấm giờ full-episode cho M20/M23; quét giá M21/M22 còn mở; rà soát khóa điểm tạm M43–M46; theo dõi bản sửa §5C của Etsy; nạp hằng ngày tiếp tục; hậu tồn chấm điểm 0."
   }
  },
  "log": [
@@ -675,6 +675,11 @@
    "t": "Mon Nov 23 · 7:30 AM PT",
    "en": "Morning research (Nov 23, 2026 — 7:30 AM PST): price scan for M20 + M23 CLOSED — files/EVIDENCE-M20-M23-PRICE-SCAN.md (11 public points each). M20 full package $175–$500/episode (median $300); M23 full package typically $250–$375/episode — neither registered flip condition met. M20's clips-only slice is commoditised ($5–$35/short, DIY tools ~$25/mo), so only the full editorial package survives. Hours per episode still UNVERIFIED for both — timed sample tests owed before Checkpoint 5 (Fri Nov 27). Nightly intake: screened 3, posted 0 (move-in welcome packet — free templates, Nov 6 tenant-notice variant; wedding day-of timeline — inseparable from on-site coordination, M38-adjacent; group-buy announcement drafts — free organiser tools, no draft-only paid signal). No scores changed.",
    "vi": "Nghiên cứu buổi sáng (23/11/2026 — 7:30 AM PST): ĐÃ KHÉP quét giá M20 + M23 — files/EVIDENCE-M20-M23-PRICE-SCAN.md (mỗi ứng viên 11 điểm công khai). Gói trọn gói M20 $175–$500/tập (trung vị $300); M23 thường $250–$375/tập — không điều kiện lật nào chạm. Lát chỉ-cắt-clips của M20 đã phổ thông hóa ($5–$35/short, công cụ tự làm ~$25/tháng) nên chỉ gói biên tập trọn gói còn sống. Số giờ mỗi tập vẫn CHƯA XÁC MINH ở cả hai — còn nợ bài kiểm bấm giờ mẫu trước Checkpoint 5 (thứ Sáu 27/11). Nạp hằng ngày: đã sàng 3, đăng 0 (gói chào mừng dọn vào — mẫu miễn phí, biến thể ý tưởng thông báo người thuê ngày 6/11; lịch trình ngày cưới — không tách khỏi điều phối trực tiếp, kề M38; bản nháp thông báo mua chung — công cụ tổ chức miễn phí, không tín hiệu trả tiền riêng cho bản nháp). Không điểm nào thay đổi."
+  },
+  {
+   "t": "Tue Nov 24 · 4:50 AM PT",
+   "en": "Morning shift (Tue Nov 24, 2026 — merged roster v2, first run): policy sweep — no new VN/US policy change affecting the pool since Nov 23; Etsy's pledged Section 5C wording revision still not in the Terms text; no subscription price change found. Comments inbox: 0 new (watermark unchanged), 0 promotions. Guards: OPS-06 pass (msg-ava / previewOf / noindex present in the live clone); OPS-08 pass (results 44 == scored 44); checkpoint risk none (Checkpoint 5 is Fri Nov 27, 3 days out; scoring backlog 0). Research slice: excerpt-scale timed sample for M20 + M23 done (files/EXP-M20-M23-TIMED-SAMPLE.md) — packs trace clean to source, full-episode timed test still owed, operator hours UNVERIFIED. Nightly intake: screened 3, posted 0 (general Vietnamese VA service — Upwork gravity $5–$7/h and a variant of the pool's draft-admin family; clips-only podcast repurposing — variant of M20/M23, already commoditised at $8–$15/clip; bilingual review-reply drafts — variant of M17). No scores changed.",
+   "vi": "Ca sáng gộp (thứ Ba 24/11/2026 — roster v2, lượt đầu): quét chính sách — không có thay đổi chính sách VN/Mỹ mới ảnh hưởng pool kể từ 23/11; bản sửa ngôn từ §5C mà Etsy đã hứa vẫn chưa vào văn bản Điều khoản; không thấy giá subscription thay đổi. Hộp bình luận: 0 mới (watermark không đổi), 0 thăng hạng. Gác: OPS-06 đạt (đủ msg-ava / previewOf / noindex trong bản clone live); OPS-08 đạt (results 44 == scored 44); không rủi ro checkpoint (Checkpoint 5 là thứ Sáu 27/11, còn 3 ngày; hậu tồn chấm điểm 0). Lát nghiên cứu: bài kiểm bấm giờ quy mô trích đoạn cho M20 + M23 đã xong (files/EXP-M20-M23-TIMED-SAMPLE.md) — gói mẫu truy vết sạch về nguồn, vẫn nợ bài kiểm full-episode, số giờ người vận hành UNVERIFIED. Nạp hằng ngày: screened 3, posted 0 (dịch vụ VA tiếng Việt tổng quát — trọng lực Upwork $5–$7/giờ và là biến thể của họ hành chính bản nháp trong pool; tái dùng podcast chỉ-cắt-clips — biến thể M20/M23, đã phổ thông hóa ở $8–$15/clip; bản nháp trả lời review song ngữ — biến thể M17). Không đổi điểm."
   }
  ],
  "scored": 44,
@@ -683,7 +688,7 @@
   "en": "Checkpoint 4 closed (Nov 20) — 46 candidates in the pool, 44 scored (M16 unscored after its experiment deadline passed; M39 discarded at the legal gate), shortlist of 7 unchanged (all scoring 70+). Next: Checkpoint 5 on Fri Nov 27.",
   "vi": "Checkpoint 4 đã đóng (20/11) — pool có 46 ứng viên, 44 đã có điểm (M16 không điểm sau khi qua hạn thí nghiệm; M39 bị loại ở cổng pháp lý), shortlist 7 ứng viên không đổi (tất cả từ 70 điểm trở lên). Tiếp theo: Checkpoint 5 vào thứ Sáu 27/11."
  },
- "updated": "2026-11-23T07:30:00-08:00",
+ "updated": "2026-11-24T04:50:00-08:00",
  "updates": [
   {
    "en": "Claude Pro is still $20/mo including Claude Code — the $20 budget gate is intact.",
@@ -2304,6 +2309,25 @@
    "summary": {
     "en": "Price scans for M20 and M23 are closed with 11 public points each: full packages hold at $175–$500 and $250–$375 per episode, so neither flip condition is met — but M20 only survives as a full editorial package, since clips-only work is commoditised at $5–$35 a short.",
     "vi": "Đã khép quét giá M20 và M23, mỗi ứng viên 11 điểm công khai: gói trọn gói đứng ở $175–$500 và $250–$375 mỗi tập nên không điều kiện lật nào chạm — nhưng M20 chỉ sống ở dạng gói biên tập trọn gói, vì việc chỉ-cắt-clips đã phổ thông hóa ở $5–$35/short."
+   }
+  },
+  {
+   "role": {
+    "en": "Experiments Runner",
+    "vi": "Ban Thí nghiệm"
+   },
+   "tag": {
+    "en": "TIMED SAMPLE (EXCERPT) — M20 + M23: PACKS TRACE CLEAN; FULL-EPISODE TEST STILL OWED",
+    "vi": "BÀI KIỂM BẤM GIỜ (TRÍCH ĐOẠN) — M20 + M23: GÓI MẪU KHỚP NGUỒN; VẪN NỢ BÀI KIỂM FULL-EPISODE"
+   },
+   "ts": "Tue Nov 24 · 4:50 AM PT",
+   "text": {
+    "en": "An excerpt-scale timed sample for M20 and M23 is done — files/EXP-M20-M23-TIMED-SAMPLE.md with raw material in the internal experiment folder. From a fictional 92-word course-episode excerpt, the M20 pack produced 3 timestamped clip selections with captions, show notes and social copy; from a 50-word association-podcast excerpt, the M23 pack produced chapters, show notes and 2 clips. QA passed on traceability: every timestamp and fact in both packs comes from its source excerpt and no numbers were invented. Honest limit: this is excerpt scale, not a full 45–60-minute episode, and the script execution time is not a production measurement — so the full-episode timed test for both candidates remains owed before Checkpoint 5 (Fri Nov 27), and operator hours per episode stay UNVERIFIED. A modelled 2.5–4 hours per full episode at the Nov 23 medians ($300 for M20; $250–$375 for M23) implies roughly $63–$150/h gross before tax and customer-acquisition costs — modelled, not confirmed. Policy sweep today: no new VN/US change affecting the pool; Etsy's pledged Section 5C revision has still not appeared in the Terms text. Next: a full-episode timed test, or the M21/M22 price scans, in the next morning shift.",
+    "vi": "Đã làm bài kiểm bấm giờ ở quy mô trích đoạn cho M20 và M23 — files/EXP-M20-M23-TIMED-SAMPLE.md, nguyên liệu ở thư mục thí nghiệm nội bộ. Từ trích đoạn hư cấu 92 từ của một tập khóa học, gói M20 cho ra 3 đoạn clip có mốc giờ kèm phụ đề, show notes và bài đăng mạng xã hội; từ trích đoạn 50 từ của podcast hiệp hội, gói M23 cho ra danh sách chương, show notes và 2 clip. Kiểm QA đạt về truy vết: mọi mốc giờ và sự kiện trong hai gói đều từ trích đoạn nguồn, không bịa số. Giới hạn trung thực: đây là quy mô trích đoạn, không phải tập đầy đủ 45–60 phút, và thời gian chạy script không phải phép đo sản xuất — nên bài kiểm bấm giờ full-episode cho cả hai ứng viên vẫn còn nợ trước Checkpoint 5 (thứ Sáu 27/11), và số giờ người vận hành mỗi tập vẫn UNVERIFIED. Mô hình 2,5–4 giờ mỗi tập đầy đủ tại trung vị giá 23/11 ($300 cho M20; $250–$375 cho M23) cho ra khoảng $63–$150/giờ gộp trước thuế và chi phí tìm khách — là mô hình, chưa xác nhận. Quét chính sách hôm nay: không có thay đổi VN/Mỹ mới ảnh hưởng pool; bản sửa ngôn từ §5C mà Etsy đã hứa vẫn chưa xuất hiện trong văn bản Điều khoản. Bước tiếp theo: bài kiểm full-episode, hoặc quét giá M21/M22, ở ca sáng tiếp theo."
+   },
+   "summary": {
+    "en": "Excerpt-scale sample packs for M20 and M23 passed traceability QA, but the full-episode timed test is still owed before Checkpoint 5 — operator hours stay UNVERIFIED and no scores changed.",
+    "vi": "Gói mẫu quy mô trích đoạn cho M20 và M23 đã đạt QA truy vết, nhưng bài kiểm bấm giờ full-episode vẫn còn nợ trước Checkpoint 5 — số giờ người vận hành vẫn UNVERIFIED và không đổi điểm."
    }
   }
  ]
