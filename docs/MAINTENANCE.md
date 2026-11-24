@@ -38,7 +38,7 @@ File names stay the same, so no CSS or preload changes are needed. The Contact h
 
 ## Automated checks
 
-- **Deploy** (`.github/workflows/deploy.yml`): runs on every push to `main`; check the Actions tab if the site does not update. It stamps every `/assets/css/*.css` and `/assets/js/*.js` URL with `?v=<commit>` so browsers fetch fresh files after each deploy instead of serving a cached copy for up to 10 minutes. Keep those links as plain root-relative paths in the source; the stamp is added at deploy time.
+- **Deploy** (`.github/workflows/deploy.yml`): runs on every push to `main`; check the Actions tab if the site does not update. It stamps every `/assets/css/*.css` and `/assets/js/*.js` URL with `?v=<commit>` so browsers fetch fresh files after each deploy instead of serving a cached copy for up to 10 minutes. Keep those links as plain root-relative paths in the source; the stamp is added at deploy time. It runs as two jobs, `build` (stamp + upload the `site/` artifact) and `deploy` (publish it); if a deploy fails with "No artifacts named github-pages", re-run the failed jobs from the Actions tab.
 - **Monthly link check** (`.github/workflows/link-check.yml`): runs on the 1st of each month and opens a GitHub issue listing broken links. Fix or unlink them, then close the issue. LinkedIn/Instagram/news sites that block bots (403/429/999) are treated as reachable. If a link is reported as a timeout, open it by hand before changing anything. `baristamagazine.com` (a phin article reference) times out from GitHub's runners every run but loads fine in a browser, so the workflow skips it (`--exclude`); the health check below covers it.
 
 ## Health check (monthly, or when the owner asks "is the site OK?")

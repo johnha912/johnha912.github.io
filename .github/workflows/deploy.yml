@@ -14,22 +14,30 @@ concurrency:
   group: pages
   cancel-in-progress: false
 
+# Two jobs, as in GitHub's own Pages starter: build uploads the artifact, deploy runs once the upload
+# has finished and registered. In one job, deploy-pages intermittently found no "github-pages"
+# artifact right after the upload (four failures, 2026-11-21 to 2026-11-24).
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/configure-pages@v5
+      - uses: actions/checkout@v6
+      - uses: actions/configure-pages@v6
       # Stamp CSS/JS URLs with the commit so browsers never pair new HTML with a cached stylesheet.
       - name: Cache-bust assets
         run: |
           find site -name '*.html' -exec sed -i -E "s#(/assets/(css|js)/[A-Za-z0-9_-]+\.(css|js))\"#\1?v=${GITHUB_SHA::7}\"#g" {} +
       # Publish only the static site; docs, agents, and skills stay out of the artifact.
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v5
         with:
           path: site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
       - id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
