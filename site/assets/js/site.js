@@ -36,17 +36,23 @@
       item.toggleAttribute("data-open", open);
       toggle.setAttribute("aria-expanded", String(open));
     };
-    toggle.addEventListener("click", () => set(!item.hasAttribute("data-open")));
-    item.addEventListener("focusout", (e) => { if (!item.contains(e.relatedTarget)) set(false); });
+    toggle.addEventListener("click", () => { item.removeAttribute("data-dismissed"); set(!item.hasAttribute("data-open")); });
+    item.addEventListener("focusout", (e) => { if (!item.contains(e.relatedTarget)) { set(false); item.removeAttribute("data-dismissed"); } });
+    item.addEventListener("pointerleave", () => item.removeAttribute("data-dismissed"));
     document.addEventListener("click", (e) => { if (!item.contains(e.target)) set(false); });
   });
 
   document.addEventListener("keydown", (e) => {
     if (e.key !== "Escape") return;
     if (nav?.hasAttribute("data-open")) { setMenu(false); burger.focus(); }
-    document.querySelectorAll(".has-menu[data-open]").forEach((m) => {
+    // Close the dropdown even while the pointer or focus is still on it (CSS opens it on :hover / :focus-within).
+    document.querySelectorAll(".has-menu").forEach((m) => {
+      if (!m.hasAttribute("data-open") && !m.matches(":hover, :focus-within")) return;
       m.removeAttribute("data-open");
-      m.querySelector(".submenu-toggle").setAttribute("aria-expanded", "false");
+      m.setAttribute("data-dismissed", "");
+      const toggle = m.querySelector(".submenu-toggle");
+      toggle.setAttribute("aria-expanded", "false");
+      if (m.querySelector(".submenu")?.contains(document.activeElement)) toggle.focus();
     });
   });
 
@@ -111,6 +117,8 @@
     if (e.key === "ArrowDown") { e.preventDefault(); move(1); }
     if (e.key === "ArrowUp") { e.preventDefault(); move(-1); }
     if (e.key === "Enter") { e.preventDefault(); list.querySelectorAll("a")[active]?.click(); }
+    // A search input clears itself on the first Escape and swallows it; close the dialog on the first press instead.
+    if (e.key === "Escape") { e.preventDefault(); dialog.close(); }
   });
   dialog?.addEventListener("click", (e) => { if (e.target === dialog) dialog.close(); });
   document.addEventListener("keydown", (e) => {

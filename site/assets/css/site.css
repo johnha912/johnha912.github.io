@@ -558,8 +558,9 @@ main { flex: 1; padding-top: var(--nav-h); }
   }
   /* invisible bridge so the pointer can travel from link to panel */
   .submenu::before { content: ""; position: absolute; inset: -12px 0 auto; height: 12px; }
-  .has-menu:hover .submenu,
-  .has-menu:focus-within .submenu,
+  /* data-dismissed: set by Escape, so hover/focus no longer hold the panel open until the pointer or focus leaves. */
+  .has-menu:not([data-dismissed]):hover .submenu,
+  .has-menu:not([data-dismissed]):focus-within .submenu,
   .has-menu[data-open] .submenu {
     opacity: 1;
     visibility: visible;
