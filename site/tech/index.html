@@ -25,14 +25,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Projects | Nguyen “John” Ha</title>
-<meta name="description" content="Projects by Nguyen “John” Ha: keeploop, a keep-or-revert loop for AI coding changes; a join-order benchmark on DuckDB and Postgres; and a pandas data-wrangling pipeline.">
+<meta name="description" content="Projects by Nguyen “John” Ha: datafromzero, a free open roadmap for learning data from Excel to AI; keeploop, a keep-or-revert loop for AI coding changes; a join-order benchmark on DuckDB and Postgres; and a pandas data-wrangling pipeline.">
 <link rel="canonical" href="https://johnha.info/tech/">
 <meta name="theme-color" content="#0a0a0b">
 <meta name="color-scheme" content="dark light">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Nguyen “John” Ha">
 <meta property="og:title" content="Projects | Nguyen “John” Ha">
-<meta property="og:description" content="Projects by Nguyen “John” Ha: keeploop, a keep-or-revert loop for AI coding changes; a join-order benchmark on DuckDB and Postgres; and a pandas data-wrangling pipeline.">
+<meta property="og:description" content="Projects by Nguyen “John” Ha: datafromzero, a free open roadmap for learning data from Excel to AI; keeploop, a keep-or-revert loop for AI coding changes; a join-order benchmark on DuckDB and Postgres; and a pandas data-wrangling pipeline.">
 <meta property="og:url" content="https://johnha.info/tech/">
 <meta property="og:image" content="https://johnha.info/assets/img/og-image.jpg">
 <meta property="og:image:width" content="1200">
@@ -115,6 +115,21 @@
   </article>
 
   <ul class="work">
+    <li id="datafromzero">
+      <p class="work__term">Live · v1.0.0</p>
+      <div class="work__body">
+        <h2 class="work__title">datafromzero</h2>
+        <p><strong>From A1 to AI</strong> — a free, open roadmap for learning data from zero, for people who only know spreadsheets. Four foundation stages (Excel and Sheets, SQL, Python, and an advanced core of statistics, Git, data modeling and cloud basics), then four career tracks: Data Analyst, Data Engineer, Data Scientist, and ML / AI Engineer. <strong class="stat">208</strong> lessons are published, and version 1.0.0 is archived with a DOI so a lesson can be cited.</p>
+        <p>The Data Engineer track (<strong class="stat">31</strong> lessons) builds one pipeline repository checkpoint by checkpoint — landing data from an API and from files, incremental and idempotent loads, quality gates that stop a run or quarantine a row, Airflow, dbt and Spark — and the ML / AI track has its own starter repository. Lesson pages ship no JavaScript beyond the framework’s own, and a mobile Lighthouse run (performance ≥ 90, accessibility ≥ 95) is an enforced build gate. Content CC BY 4.0, code MIT.</p>
+        <p class="stack-line">Astro / Starlight / TypeScript / Python / uv / dbt / Airflow / Spark / GitHub Actions</p>
+      </div>
+      <div class="work__links">
+        <a class="btn btn--primary" href="https://datafromzero.github.io/" target="_blank" rel="noopener">Visit the site<span class="visually-hidden"> (opens in a new tab)</span></a>
+        <a class="btn btn--ghost" href="https://github.com/datafromzero/datafromzero.github.io" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57l-.02-2.04c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.08-.74.09-.73.09-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.62-5.48 5.92.42.36.81 1.1.81 2.22l-.01 3.29c0 .32.21.7.82.58A12 12 0 0 0 12 .3"/></svg> Site on GitHub<span class="visually-hidden"> (opens in a new tab)</span></a>
+        <a class="btn btn--ghost" href="https://github.com/datafromzero/de-pipeline-starter" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57l-.02-2.04c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.08-.74.09-.73.09-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.62-5.48 5.92.42.36.81 1.1.81 2.22l-.01 3.29c0 .32.21.7.82.58A12 12 0 0 0 12 .3"/></svg> Data Engineer starter<span class="visually-hidden"> (opens in a new tab)</span></a>
+        <a class="btn btn--ghost" href="https://github.com/datafromzero/ml-starter" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57l-.02-2.04c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.08-.74.09-.73.09-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.62-5.48 5.92.42.36.81 1.1.81 2.22l-.01 3.29c0 .32.21.7.82.58A12 12 0 0 0 12 .3"/></svg> ML starter<span class="visually-hidden"> (opens in a new tab)</span></a>
+      </div>
+    </li>
     <li id="join-order">
       <p class="work__term">v2 · Fall 2026<br>v1 · Summer 2026</p>
       <div class="work__body">

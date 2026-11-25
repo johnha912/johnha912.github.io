@@ -1,6 +1,6 @@
 # STATUS.md
 
-_Last updated: 2026-11-24_
+_Last updated: 2026-11-25_
 
 ## Where the build stands
 
@@ -20,6 +20,7 @@ _Last updated: 2026-11-24_
 
 ## Owner decisions (dated)
 
+- **2026-11-25:** Add **datafromzero** to the Tech page, first in the list, above keeploop (owner request). It is the owner's open learning-roadmap project at datafromzero.github.io — four foundation stages then four career tracks, 208 lessons published, version 1.0.0 archived on Zenodo with a DOI. Three public repos under the `datafromzero` org (site, Data Engineer starter, ML starter), so the card carries a site button plus three GitHub buttons. Facts were taken from the **live site and its CHANGELOG, not the repo README**, because that README is stale and still says "in construction" — see the warning in BRIEF §2.
 - **2026-10-07:** Communication in Vietnamese; all site/repo content in American English.
 - **2026-10-07:** Font: a popular, Tesla-like sans that renders identically on phone and PC → **Inter** variable, self-hosted (plus JetBrains Mono for small labels). _Superseded 2026-11-13: Google Sans and Google Sans Code._
 - **2026-10-07:** Photos in modern rounded frames → squircle corners (`corner-shape: squircle`) with rounded fallback.
